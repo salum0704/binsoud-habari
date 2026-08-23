@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="sw">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>BINSOUD HABARI - Admin Video</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fa;
+    color:#111827;
+}
+
+header{
+    background:#001a32;
+    color:white;
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:5px;
+}
+
+nav a:hover,
+nav a.active{
+    background:#fee40c;
+    color:#001a32;
+}
+
+.logout-btn{
+    background:#b91c1c;
+    color:white;
+    border:0;
+    padding:9px 14px;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.logout-btn:hover{
+    background:#7f1d1d;
+}
+
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.page-title{
+    color:#002f54;
+    border-bottom:3px solid #c0ac00;
+    padding-bottom:12px;
+    margin-bottom:25px;
+}
+
+.login-box{
+    max-width:450px;
+    margin:70px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 2px 12px rgba(0,0,0,.12);
+}
+
+.login-box h1{
+    color:#002f54;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    color:#667788;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+.admin-content{
+    display:none;
+}
+
+.admin-box{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    margin-bottom:30px;
+}
+
+.admin-box h2{
+    color:#002f54;
+    margin-bottom:20px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:bold;
+    color:#002f54;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #ccd5dd;
+    border-radius:6px;
+    font-size:16px;
+    outline:none;
+    font-family:Arial,sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#002f54;
+}
+
+.form-group textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+.file-info{
+    margin-top:7px;
+    color:#667788;
+    font-size:13px;
+}
+
+.preview{
+    display:none;
+    margin-top:15px;
+    background:#f4f7fa;
+    padding:15px;
+    border-radius:8px;
+}
+
+.preview img{
+    width:300px;
+    max-width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:7px;
+}
+
+.video-preview{
+    width:100%;
+    max-height:450px;
+    margin-top:10px;
+    background:#000;
+    border-radius:7px;
+}
+
+.btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.login-btn,
+.upload-btn{
+    background:#002f54;
+    color:white;
+}
+
+.login-btn:hover,
+.upload-btn:hover{
+    background:#c0ac00;
+    color:#001a32;
+}
+
+.btn:disabled{
+    background:#8996a3;
+    cursor:not-allowed;
+}
+
+.message{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border-radius:7px;
+    line-height:1.6;
+}
+
+.success{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.error{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.admin-user{
+    background:#e8f1f7;
+    color:#002f54;
+    padding:12px 15px;
+    border-radius:7px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.video-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.video-card{
+    background:white;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.video-card video{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+    background:#000;
+}
+
+.video-content{
+    padding:18px;
+}
+
+.category{
+    display:inline-block;
+    background:#002f54;
+    color:white;
+    padding:5px 9px;
+    border-radius:4px;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.video-content h3{
+    color:#002f54;
+    line-height:1.4;
+    margin-bottom:10px;
+}
+
+.video-content p{
+    color:#556677;
+    line-height:1.6;
+    margin-bottom:12px;
+}
+
+.author{
+    color:#002f54;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.video-player{
+    width:100%;
+    margin-bottom:15px;
+    background:#000;
+}
+
+.delete-btn{
+    width:100%;
+    padding:10px;
+    border:0;
+    border-radius:5px;
+    background:#b91c1c;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.delete-btn:hover{
+    background:#7f1d1d;
+}
+
+.empty{
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:8px;
+    color:#667788;
+    grid-column:1/-1;
+}
+
+footer{
+    background:#001a32;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:40px;
+}
+
+footer p{
+    margin-top:10px;
+    color:#dbe4ec;
+}
+
+@media(max-width:850px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    .video-list{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+BINSOUD HABARI - ADMIN
+</div>
+
+
+<nav>
+
+<a href="index.html">
+Tovuti
+</a>
+
+<a href="video.html">
+Video
+</a>
+
+<a href="audio.html">
+Audio
+</a>
+
+<a href="admin-video.html"
+   class="active">
+Admin Video
+</a>
+
+<button
+    id="logoutBtn"
+    class="logout-btn"
+    style="display:none;"
+>
+
+🚪 Toka
+
+</button>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<section id="loginSection">
+
+<div class="login-box">
+
+<h1>
+🔐 Admin Login
+</h1>
+
+<p>
+Ingia ili uweze kusimamia Video za BINSOUD HABARI.
+</p>
+
+
+<form id="loginForm">
+
+
+<div class="form-group">
+
+<label for="loginEmail">
+Email ya Admin
+</label>
+
+<input
+    type="email"
+    id="loginEmail"
+    placeholder="admin@example.com"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="loginPassword">
+Password
+</label>
+
+<input
+    type="password"
+    id="loginPassword"
+    placeholder="Weka password"
+    required
+>
+
+</div>
+
+
+<button
+    type="submit"
+    class="btn login-btn"
+    id="loginBtn"
+>
+
+🔐 Ingia
+
+</button>
+
+
+<div
+    id="loginMessage"
+    class="message"
+>
+</div>
+
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ADMIN CONTENT
+========================= -->
+
+<main
+    id="adminContent"
+    class="admin-content"
+>
+
+
+<div class="admin-user">
+
+👤 Umeingia kama:
+
+<span id="loggedUser">
+Admin
+</span>
+
+</div>
+
+
+<h1 class="page-title">
+
+🎥 Admin - Ingiza Video
+
+</h1>
+
+
+<section class="admin-box">
+
+
+<h2>
+Ongeza Video Mpya
+</h2>
+
+
+<form id="videoForm">
+
+
+<!-- TITLE -->
+
+<div class="form-group">
+
+<label for="title">
+Kichwa cha Video
+</label>
+
+<input
+    type="text"
+    id="title"
+    placeholder="Mfano: Habari za Leo"
+    required
+>
+
+</div>
+
+
+<!-- CATEGORY -->
+
+<div class="form-group">
+
+<label for="category">
+Category
+</label>
+
+<select
+    id="category"
+    required
+>
+
+<option value="">
+-- Chagua Category --
+</option>
+
+<option value="Siasa">
+Siasa
+</option>
+
+<option value="Kitaifa">
+Kitaifa
+</option>
+
+<option value="Biashara">
+Biashara
+</option>
+
+<option value="Michezo">
+Michezo
+</option>
+
+<option value="Dini">
+Dini
+</option>
+
+<option value="Kimataifa">
+Kimataifa
+</option>
+
+<option value="Burudani">
+Burudani
+</option>
+
+<option value="Mazingira">
+Mazingira
+</option>
+
+<option value="Makala">
+Makala
+</option>
+
+</select>
+
+</div>
+
+
+<!-- AUTHOR -->
+
+<div class="form-group">
+
+<label for="author">
+✍️ Muandishi
+</label>
+
+<input
+    type="text"
+    id="author"
+    placeholder="Mfano: Abdallah Binsoud"
+    required
+>
+
+<div class="file-info">
+
+Jina la muandishi litaonekana kwenye ukurasa wa Video.
+
+</div>
+
+</div>
+
+
+<!-- DESCRIPTION -->
+
+<div class="form-group">
+
+<label for="description">
+Maelezo
+</label>
+
+<textarea
+    id="description"
+    placeholder="Andika maelezo ya video hii..."
+    required
+></textarea>
+
+</div>
+
+
+<!-- THUMBNAIL -->
+
+<div class="form-group">
+
+<label for="thumbnail">
+🖼️ URL ya Thumbnail
+</label>
+
+<input
+    type="url"
+    id="thumbnail"
+    placeholder="https://example.com/picha.jpg"
+    required
+>
+
+<div class="file-info">
+
+Weka URL ya picha itakayotumika kama picha ya mbele ya video.
+
+</div>
+
+</div>
+
+
+<!-- THUMBNAIL PREVIEW -->
+
+<div
+    class="preview"
+    id="thumbnailPreviewBox"
+>
+
+<strong>
+Preview ya Thumbnail
+</strong>
+
+<br><br>
+
+<img
+    id="thumbnailPreview"
+    src=""
+    alt="Thumbnail Preview"
+>
+
+</div>
+
+
+<!-- VIDEO URL -->
+
+<div class="form-group">
+
+<label for="videoUrl">
+🎥 URL ya Video
+</label>
+
+<input
+    type="url"
+    id="videoUrl"
+    placeholder="https://example.com/video.mp4"
+    required
+>
+
+<div class="file-info">
+
+Weka URL ya moja kwa moja ya video, mfano MP4.
+
+</div>
+
+</div>
+
+
+<!-- VIDEO PREVIEW -->
+
+<div
+    class="preview"
+    id="videoPreviewBox"
+>
+
+<strong>
+Preview ya Video
+</strong>
+
+<video
+    id="videoPreview"
+    class="video-preview"
+    controls
+    playsinline
+>
+</video>
+
+</div>
+
+
+<button
+    type="submit"
+    class="btn upload-btn"
+    id="uploadBtn"
+>
+
+🚀 Hifadhi Video
+
+</button>
+
+
+<div
+    id="message"
+    class="message"
+>
+</div>
+
+
+</form>
+
+</section>
+
+
+<!-- VIDEO LIST -->
+
+<section>
+
+<h2 class="page-title">
+🎥 Video Zilizopo
+</h2>
+
+
+<div
+    class="video-list"
+    id="videoList"
+>
+
+<div class="empty">
+⏳ Inapakia video...
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<h3>
+BINSOUD HABARI
+</h3>
+
+<p>
+Mfumo wa usimamizi wa Video
+</p>
+
+<p>
+© 2026 BINSOUD HABARI
+</p>
+
+</footer>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    deleteDoc,
+    doc,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+
+    authDomain:
+        "binsoud-habari-8a5fa.firebaseapp.com",
+
+    projectId:
+        "binsoud-habari-8a5fa",
+
+    storageBucket:
+        "binsoud-habari-8a5fa.firebasestorage.app",
+
+    messagingSenderId:
+        "865091074307",
+
+    appId:
+        "1:865091074307:web:27b26aa8f0f3476ef45136",
+
+    measurementId:
+        "G-MH266J0XKE"
+
+};
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+const auth =
+    getAuth(app);
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const loginSection =
+    document.getElementById("loginSection");
+
+const adminContent =
+    document.getElementById("adminContent");
+
+const logoutBtn =
+    document.getElementById("logoutBtn");
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const loginEmail =
+    document.getElementById("loginEmail");
+
+const loginPassword =
+    document.getElementById("loginPassword");
+
+const loginBtn =
+    document.getElementById("loginBtn");
+
+const loginMessage =
+    document.getElementById("loginMessage");
+
+const loggedUser =
+    document.getElementById("loggedUser");
+
+const videoForm =
+    document.getElementById("videoForm");
+
+const titleInput =
+    document.getElementById("title");
+
+const categoryInput =
+    document.getElementById("category");
+
+const authorInput =
+    document.getElementById("author");
+
+const descriptionInput =
+    document.getElementById("description");
+
+const thumbnailInput =
+    document.getElementById("thumbnail");
+
+const videoUrlInput =
+    document.getElementById("videoUrl");
+
+const thumbnailPreviewBox =
+    document.getElementById(
+        "thumbnailPreviewBox"
+    );
+
+const thumbnailPreview =
+    document.getElementById(
+        "thumbnailPreview"
+    );
+
+const videoPreviewBox =
+    document.getElementById(
+        "videoPreviewBox"
+    );
+
+const videoPreview =
+    document.getElementById(
+        "videoPreview"
+    );
+
+const uploadBtn =
+    document.getElementById(
+        "uploadBtn"
+    );
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+const videoList =
+    document.getElementById(
+        "videoList"
+    );
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function showMessage(
+    element,
+    text,
+    type
+){
+
+    element.textContent =
+        text;
+
+    element.className =
+        "message " + type;
+
+    element.style.display =
+        "block";
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+loginForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const email =
+            loginEmail.value.trim();
+
+        const password =
+            loginPassword.value;
+
+
+        try{
+
+            loginBtn.disabled =
+                true;
+
+            loginBtn.textContent =
+                "⏳ Inaingia...";
+
+            loginMessage.style.display =
+                "none";
+
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+
+        }catch(error){
+
+            console.error(
+                "LOGIN ERROR:",
+                error
+            );
+
+
+            let text =
+                "❌ Imeshindikana kuingia.";
+
+
+            if(
+                error.code ===
+                "auth/invalid-credential"
+            ){
+
+                text =
+                    "❌ Email au password si sahihi.";
+
+            }
+
+            else if(
+                error.code ===
+                "auth/invalid-email"
+            ){
+
+                text =
+                    "❌ Email uliyoingiza si sahihi.";
+
+            }
+
+            else if(
+                error.code ===
+                "auth/too-many-requests"
+            ){
+
+                text =
+                    "❌ Majaribio yamekuwa mengi. Jaribu tena baadaye.";
+
+            }
+
+
+            showMessage(
+                loginMessage,
+                text,
+                "error"
+            );
+
+
+        }finally{
+
+            loginBtn.disabled =
+                false;
+
+            loginBtn.textContent =
+                "🔐 Ingia";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    function(user){
+
+        if(user){
+
+            loginSection.style.display =
+                "none";
+
+            adminContent.style.display =
+                "block";
+
+            logoutBtn.style.display =
+                "inline-block";
+
+            loggedUser.textContent =
+                user.email || "Admin";
+
+
+            loadVideos();
+
+        }else{
+
+            loginSection.style.display =
+                "block";
+
+            adminContent.style.display =
+                "none";
+
+            logoutBtn.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+logoutBtn.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            await signOut(auth);
+
+        }catch(error){
+
+            console.error(
+                "LOGOUT ERROR:",
+                error
+            );
+
+            alert(
+                "❌ Imeshindikana kutoka."
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   THUMBNAIL PREVIEW
+===================================================== */
+
+thumbnailInput.addEventListener(
+    "input",
+    function(){
+
+        const url =
+            thumbnailInput.value.trim();
+
+
+        if(!url){
+
+            thumbnailPreviewBox.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        thumbnailPreview.src =
+            url;
+
+        thumbnailPreviewBox.style.display =
+            "block";
+
+    }
+);
+
+
+/* =====================================================
+   VIDEO PREVIEW
+===================================================== */
+
+videoUrlInput.addEventListener(
+    "input",
+    function(){
+
+        const url =
+            videoUrlInput.value.trim();
+
+
+        if(!url){
+
+            videoPreviewBox.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        videoPreview.src =
+            url;
+
+        videoPreviewBox.style.display =
+            "block";
+
+    }
+);
+
+
+/* =====================================================
+   SAVE VIDEO
+===================================================== */
+
+videoForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const user =
+            auth.currentUser;
+
+
+        if(!user){
+
+            showMessage(
+                message,
+                "❌ Tafadhali ingia kwanza.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const title =
+            titleInput.value.trim();
+
+        const category =
+            categoryInput.value;
+
+        const author =
+            authorInput.value.trim();
+
+        const description =
+            descriptionInput.value.trim();
+
+        const thumbnail =
+            thumbnailInput.value.trim();
+
+        const videoUrl =
+            videoUrlInput.value.trim();
+
+
+        if(!title){
+
+            showMessage(
+                message,
+                "Tafadhali ingiza kichwa cha video.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!category){
+
+            showMessage(
+                message,
+                "Tafadhali chagua category.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!author){
+
+            showMessage(
+                message,
+                "Tafadhali ingiza jina la muandishi.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!description){
+
+            showMessage(
+                message,
+                "Tafadhali ingiza maelezo.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!thumbnail){
+
+            showMessage(
+                message,
+                "Tafadhali weka URL ya thumbnail.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if(!videoUrl){
+
+            showMessage(
+                message,
+                "Tafadhali weka URL ya video.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        try{
+
+            uploadBtn.disabled =
+                true;
+
+            uploadBtn.textContent =
+                "⏳ Inahifadhi...";
+
+            message.style.display =
+                "none";
+
+
+            await addDoc(
+
+                collection(
+                    db,
+                    "videos"
+                ),
+
+                {
+
+                    title:
+                        title,
+
+                    category:
+                        category,
+
+                    author:
+                        author,
+
+                    description:
+                        description,
+
+                    thumbnail:
+                        thumbnail,
+
+                    videoUrl:
+                        videoUrl,
+
+                    adminEmail:
+                        user.email,
+
+                    date:
+                        new Date()
+                        .toLocaleDateString(
+                            "sw-TZ"
+                        ),
+
+                    createdAt:
+                        serverTimestamp()
+
+                }
+
+            );
+
+
+            showMessage(
+                message,
+                "✅ Video imehifadhiwa kikamilifu.",
+                "success"
+            );
+
+
+            videoForm.reset();
+
+
+            thumbnailPreviewBox.style.display =
+                "none";
+
+            videoPreviewBox.style.display =
+                "none";
+
+
+            thumbnailPreview.src =
+                "";
+
+            videoPreview.src =
+                "";
+
+
+            await loadVideos();
+
+
+        }catch(error){
+
+            console.error(
+                "SAVE VIDEO ERROR:",
+                error
+            );
+
+
+            showMessage(
+                message,
+                "❌ Imeshindikana kuhifadhi video: " +
+                error.message,
+                "error"
+            );
+
+
+        }finally{
+
+            uploadBtn.disabled =
+                false;
+
+            uploadBtn.textContent =
+                "🚀 Hifadhi Video";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD VIDEOS
+===================================================== */
+
+async function loadVideos(){
+
+    videoList.innerHTML = `
+
+        <div class="empty">
+
+            ⏳ Inapakia video...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        let snapshot;
+
+
+        try{
+
+            const videosQuery =
+                query(
+                    collection(db,"videos"),
+                    orderBy(
+                        "createdAt",
+                        "desc"
+                    )
+                );
+
+
+            snapshot =
+                await getDocs(
+                    videosQuery
+                );
+
+        }catch(orderError){
+
+            console.warn(
+                "OrderBy failed:",
+                orderError
+            );
+
+
+            snapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "videos"
+                    )
+                );
+
+        }
+
+
+        if(snapshot.empty){
+
+            videoList.innerHTML = `
+
+                <div class="empty">
+
+                    🎥 Hakuna video bado.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        let videos = [];
+
+
+        snapshot.forEach(
+            function(docSnap){
+
+                videos.push({
+
+                    id:
+                        docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
+            }
+        );
+
+
+        videos.sort(
+            function(a,b){
+
+                return getTimeValue(
+                    b.createdAt ||
+                    b.date
+                )
+                -
+                getTimeValue(
+                    a.createdAt ||
+                    a.date
+                );
+
+            }
+        );
+
+
+        let html = "";
+
+
+        videos.forEach(
+            function(video){
+
+                html += `
+
+                    <article
+                        class="video-card"
+                    >
+
+                        <video
+                            controls
+                            playsinline
+                            preload="metadata"
+                            ${
+                                video.thumbnail
+                                ?
+                                `poster="${escapeHtml(
+                                    video.thumbnail
+                                )}"`
+                                :
+                                ""
+                            }
+                        >
+
+                            <source
+                                src="${escapeHtml(
+                                    video.videoUrl ||
+                                    ""
+                                )}"
+                                type="video/mp4"
+                            >
+
+                            Kivinjari chako
+                            hakiwezi kucheza video.
+
+                        </video>
+
+
+                        <div
+                            class="video-content"
+                        >
+
+
+                            <span
+                                class="category"
+                            >
+
+                                ${escapeHtml(
+                                    video.category ||
+                                    "Video"
+                                )}
+
+                            </span>
+
+
+                            <h3>
+
+                                ${escapeHtml(
+                                    video.title ||
+                                    "Bila kichwa"
+                                )}
+
+                            </h3>
+
+
+                            <div
+                                class="author"
+                            >
+
+                                ✍️ Muandishi:
+                                ${escapeHtml(
+                                    video.author ||
+                                    "Haijawekwa"
+                                )}
+
+                            </div>
+
+
+                            <p>
+
+                                ${escapeHtml(
+                                    video.description ||
+                                    ""
+                                )}
+
+                            </p>
+
+
+                            <video
+                                class="video-player"
+                                controls
+                                playsinline
+                                preload="metadata"
+                                ${
+                                    video.thumbnail
+                                    ?
+                                    `poster="${escapeHtml(
+                                        video.thumbnail
+                                    )}"`
+                                    :
+                                    ""
+                                }
+                            >
+
+                                <source
+                                    src="${escapeHtml(
+                                        video.videoUrl ||
+                                        ""
+                                    )}"
+                                    type="video/mp4"
+                                >
+
+                            </video>
+
+
+                            <button
+                                class="delete-btn"
+                                data-id="${escapeHtml(
+                                    video.id
+                                )}"
+                            >
+
+                                🗑️ Futa Video
+
+                            </button>
+
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            }
+        );
+
+
+        videoList.innerHTML =
+            html;
+
+
+        document
+            .querySelectorAll(".delete-btn")
+            .forEach(
+                function(button){
+
+                    button.addEventListener(
+                        "click",
+                        function(){
+
+                            deleteVideo(
+                                button.dataset.id
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+
+    }catch(error){
+
+        console.error(
+            "LOAD VIDEO ERROR:",
+            error
+        );
+
+
+        videoList.innerHTML = `
+
+            <div class="empty">
+
+                ❌ Imeshindikana kupakia video.
+
+                <br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   DELETE VIDEO
+===================================================== */
+
+async function deleteVideo(
+    videoId
+){
+
+    const confirmDelete =
+        confirm(
+            "Una uhakika unataka kufuta video hii?"
+        );
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+
+            doc(
+                db,
+                "videos",
+                videoId
+            )
+
+        );
+
+
+        alert(
+            "✅ Video imefutwa."
+        );
+
+
+        await loadVideos();
+
+
+    }catch(error){
+
+        console.error(
+            "DELETE VIDEO ERROR:",
+            error
+        );
+
+
+        alert(
+            "❌ Imeshindikana kufuta: " +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   GET TIME
+===================================================== */
+
+function getTimeValue(value){
+
+    if(!value){
+
+        return 0;
+
+    }
+
+
+    try{
+
+        if(
+            value &&
+            typeof value.toDate === "function"
+        ){
+
+            return value.toDate().getTime();
+
+        }
+
+
+        const date =
+            new Date(value);
+
+
+        const time =
+            date.getTime();
+
+
+        return isNaN(time)
+            ? 0
+            : time;
+
+    }catch(error){
+
+        return 0;
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

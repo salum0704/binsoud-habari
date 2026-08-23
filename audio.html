@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="sw">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BINSOUD HABARI - Audio</title>
+
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+
+        body{
+            font-family:Arial,sans-serif;
+            background:#f4f7fa;
+            color:#111827;
+        }
+
+
+        header{
+            background:#001a32;
+            color:white;
+            padding:18px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+
+        nav{
+            display:flex;
+            gap:8px;
+            flex-wrap:wrap;
+        }
+
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            padding:8px 10px;
+            border-radius:5px;
+        }
+
+
+        nav a:hover,
+        nav a.active{
+            background:#fee40c;
+            color:#001a32;
+        }
+
+
+        .breaking{
+            background:#fee40c;
+            padding:10px 20px;
+            font-weight:bold;
+        }
+
+
+        main{
+            max-width:1200px;
+            margin:auto;
+            padding:30px 20px;
+        }
+
+
+        .page-title{
+            color:#002f54;
+            border-bottom:3px solid #c0ac00;
+            padding-bottom:12px;
+            margin-bottom:25px;
+        }
+
+
+        .intro{
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            margin-bottom:25px;
+            box-shadow:0 2px 8px rgba(0,0,0,.08);
+        }
+
+
+        .intro p{
+            color:#556677;
+            line-height:1.7;
+            font-size:17px;
+        }
+
+
+        /* SEARCH */
+
+        .search-box{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,.08);
+            margin-bottom:25px;
+        }
+
+
+        .search-form{
+            display:flex;
+            gap:10px;
+        }
+
+
+        .search-form input{
+            flex:1;
+            padding:14px;
+            border:1px solid #ccd5dd;
+            border-radius:6px;
+            font-size:16px;
+            outline:none;
+        }
+
+
+        .search-form input:focus{
+            border-color:#002f54;
+        }
+
+
+        .search-form button{
+            background:#002f54;
+            color:white;
+            border:0;
+            padding:14px 22px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+
+        .search-form button:hover{
+            background:#c0ac00;
+            color:#001a32;
+        }
+
+
+        /* CATEGORIES */
+
+        .categories-title{
+            color:#002f54;
+            margin-bottom:12px;
+        }
+
+
+        .categories{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin-bottom:30px;
+        }
+
+
+        .category-btn{
+            background:#eef3f7;
+            color:#002f54;
+            border:1px solid #ccd5dd;
+            padding:10px 15px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+
+        .category-btn:hover,
+        .category-btn.active{
+            background:#002f54;
+            color:white;
+        }
+
+
+        /* SECTION */
+
+        .section-title{
+            color:#002f54;
+            border-bottom:3px solid #c0ac00;
+            padding-bottom:10px;
+            margin-bottom:20px;
+        }
+
+
+        /* AUDIO GRID */
+
+        .audio-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+        }
+
+
+        .audio-card{
+            background:white;
+            border-radius:8px;
+            overflow:hidden;
+            box-shadow:0 2px 8px rgba(0,0,0,.08);
+            transition:transform .2s;
+        }
+
+
+        .audio-card:hover{
+            transform:translateY(-5px);
+        }
+
+
+        .audio-card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+            display:block;
+        }
+
+
+        .audio-content{
+            padding:20px;
+        }
+
+
+        .category{
+            display:inline-block;
+            background:#002f54;
+            color:white;
+            padding:5px 10px;
+            margin-bottom:10px;
+            font-size:13px;
+            border-radius:4px;
+        }
+
+
+        .audio-content h2{
+            color:#002f54;
+            font-size:20px;
+            line-height:1.4;
+            margin-bottom:10px;
+        }
+
+
+        .audio-content p{
+            color:#556677;
+            line-height:1.6;
+            margin-bottom:15px;
+        }
+
+
+        .date{
+            display:block;
+            color:#7b8794;
+            font-size:13px;
+            margin-bottom:15px;
+        }
+
+
+        audio{
+            width:100%;
+            margin-top:5px;
+        }
+
+
+        .listen-btn{
+            display:inline-block;
+            margin-top:15px;
+            background:#002f54;
+            color:white;
+            border:0;
+            padding:10px 16px;
+            border-radius:5px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+
+        .listen-btn:hover{
+            background:#c0ac00;
+            color:#001a32;
+        }
+
+
+        /* LOADING */
+
+        .loading{
+            grid-column:1/-1;
+            background:white;
+            padding:35px;
+            border-radius:8px;
+            text-align:center;
+            color:#556677;
+        }
+
+
+        .no-results{
+            display:none;
+            background:white;
+            padding:25px;
+            border-radius:8px;
+            text-align:center;
+            color:#556677;
+            margin-top:20px;
+        }
+
+
+        /* DETAILS */
+
+        .audio-details{
+            display:none;
+            background:white;
+            padding:30px;
+            margin-top:30px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,.08);
+        }
+
+
+        .audio-details img{
+            width:100%;
+            max-height:450px;
+            object-fit:cover;
+            border-radius:8px;
+            margin-bottom:20px;
+        }
+
+
+        .audio-details h2{
+            color:#002f54;
+            font-size:32px;
+            line-height:1.3;
+            margin-bottom:15px;
+        }
+
+
+        .audio-details p{
+            color:#334155;
+            line-height:1.8;
+            font-size:17px;
+            margin-bottom:15px;
+            white-space:pre-line;
+        }
+
+
+        .audio-details audio{
+            margin:20px 0;
+        }
+
+
+        .close-btn{
+            background:#001a32;
+            color:white;
+            border:0;
+            padding:10px 18px;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+
+        .close-btn:hover{
+            background:#c0ac00;
+            color:#001a32;
+        }
+
+
+        /* FOOTER */
+
+        footer{
+            background:#001a32;
+            color:white;
+            padding:30px 20px;
+            margin-top:40px;
+            text-align:center;
+        }
+
+
+        footer p{
+            margin-top:10px;
+            color:#dbe4ec;
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:900px){
+
+            .audio-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+        }
+
+
+        @media(max-width:650px){
+
+            header{
+                flex-direction:column;
+                padding:20px;
+            }
+
+
+            nav{
+                justify-content:center;
+            }
+
+
+            .search-form{
+                flex-direction:column;
+            }
+
+
+            .audio-grid{
+                grid-template-columns:1fr;
+            }
+
+
+            .audio-details h2{
+                font-size:25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        BINSOUD HABARI
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Nyumbani
+        </a>
+
+        <a href="siasa.html">
+            Siasa
+        </a>
+
+        <a href="kitaifa.html">
+            Kitaifa
+        </a>
+
+        <a href="biashara.html">
+            Biashara
+        </a>
+
+        <a href="michezo.html">
+            Michezo
+        </a>
+
+        <a href="dini.html">
+            Dini
+        </a>
+
+        <a href="kimataifa.html">
+            Kimataifa
+        </a>
+
+        <a href="burudani.html">
+            Burudani
+        </a>
+
+        <a href="mazingira.html">
+            Mazingira
+        </a>
+
+        <a href="video.html">
+            Video
+        </a>
+
+        <a href="audio.html"
+           class="active">
+            Audio
+        </a>
+
+        <a href="makala.html">
+            Makala
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- BREAKING -->
+
+<div class="breaking">
+
+    🔴 HABARI MOTO:
+    BINSOUD HABARI - Sikiliza Habari na Vipindi
+
+</div>
+
+
+<!-- MAIN -->
+
+<main>
+
+
+    <h1 class="page-title">
+        Audio
+    </h1>
+
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+        <p>
+
+            🎧 Karibu kwenye ukurasa wa Audio wa
+            <strong>BINSOUD HABARI</strong>.
+
+            Hapa unaweza kusikiliza habari, mahojiano,
+            uchambuzi na vipindi mbalimbali vya sauti.
+
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="search-box">
+
+        <form
+            class="search-form"
+            id="searchForm"
+        >
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔎 Tafuta audio..."
+            >
+
+            <button type="submit">
+                🔎 Tafuta
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <h3 class="categories-title">
+        Chagua Category
+    </h3>
+
+
+    <div class="categories">
+
+
+        <button
+            class="category-btn active"
+            data-category="Zote"
+        >
+            Zote
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Siasa"
+        >
+            Siasa
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Kitaifa"
+        >
+            Kitaifa
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Biashara"
+        >
+            Biashara
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Michezo"
+        >
+            Michezo
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Dini"
+        >
+            Dini
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Kimataifa"
+        >
+            Kimataifa
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Burudani"
+        >
+            Burudani
+        </button>
+
+
+        <button
+            class="category-btn"
+            data-category="Mazingira"
+        >
+            Mazingira
+        </button>
+
+
+        <!-- MAKALA IMEONGEZWA -->
+
+        <button
+            class="category-btn"
+            data-category="Makala"
+        >
+            Makala
+        </button>
+
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h2 class="section-title">
+        🎧 Vipindi vya Sauti
+    </h2>
+
+
+    <!-- AUDIO GRID -->
+
+    <div
+        class="audio-grid"
+        id="audioGrid"
+    >
+
+        <div class="loading">
+
+            ⏳ Inapakia audio kutoka Firebase...
+
+        </div>
+
+    </div>
+
+
+    <!-- NO RESULTS -->
+
+    <div
+        class="no-results"
+        id="noResults"
+    >
+
+        ❌ Hakuna audio iliyopatikana.
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <article
+        class="audio-details"
+        id="audioDetails"
+    >
+
+        <img
+            id="detailsImage"
+            src=""
+            alt="Audio"
+        >
+
+
+        <span
+            class="category"
+            id="detailsCategory"
+        >
+        </span>
+
+
+        <h2
+            id="detailsTitle"
+        >
+        </h2>
+
+
+        <p
+            id="detailsDescription"
+        >
+        </p>
+
+
+        <span
+            class="date"
+            id="detailsDate"
+        >
+        </span>
+
+
+        <audio
+            id="detailsAudio"
+            controls
+        >
+        </audio>
+
+
+        <br>
+
+
+        <button
+            class="close-btn"
+            id="closeDetailsBtn"
+        >
+
+            ← Rudi kwenye Audio
+
+        </button>
+
+    </article>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        BINSOUD HABARI
+    </h3>
+
+
+    <p>
+        Chanzo chako cha kuaminika cha habari
+        za kitaifa na kimataifa.
+    </p>
+
+
+    <p>
+        © 2026 BINSOUD HABARI.
+        Haki zote zimehifadhiwa.
+    </p>
+
+</footer>
+
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    orderBy
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+
+    authDomain:
+    "binsoud-habari-8a5fa.firebaseapp.com",
+
+    projectId:
+    "binsoud-habari-8a5fa",
+
+    storageBucket:
+    "binsoud-habari-8a5fa.firebasestorage.app",
+
+    messagingSenderId:
+    "865091074307",
+
+    appId:
+    "1:865091074307:web:27b26aa8f0f3476ef45136",
+
+    measurementId:
+    "G-MH266J0XKE"
+
+};
+
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+initializeApp(firebaseConfig);
+
+
+const db =
+getFirestore(app);
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const audioGrid =
+document.getElementById("audioGrid");
+
+
+const searchForm =
+document.getElementById("searchForm");
+
+
+const searchInput =
+document.getElementById("searchInput");
+
+
+const noResults =
+document.getElementById("noResults");
+
+
+const categoryButtons =
+document.querySelectorAll(".category-btn");
+
+
+const audioDetails =
+document.getElementById("audioDetails");
+
+
+const detailsImage =
+document.getElementById("detailsImage");
+
+
+const detailsCategory =
+document.getElementById("detailsCategory");
+
+
+const detailsTitle =
+document.getElementById("detailsTitle");
+
+
+const detailsDescription =
+document.getElementById("detailsDescription");
+
+
+const detailsDate =
+document.getElementById("detailsDate");
+
+
+const detailsAudio =
+document.getElementById("detailsAudio");
+
+
+const closeDetailsBtn =
+document.getElementById("closeDetailsBtn");
+
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let allAudio = [];
+
+let currentCategory = "Zote";
+
+let currentSearch = "";
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
+
+}
+
+
+
+/* =====================================================
+   LOAD AUDIO
+===================================================== */
+
+async function loadAudio(){
+
+    audioGrid.innerHTML = `
+
+        <div class="loading">
+
+            ⏳ Inapakia audio kutoka Firebase...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        const audioQuery =
+            query(
+                collection(db,"audio"),
+                orderBy(
+                    "createdAt",
+                    "desc"
+                )
+            );
+
+
+        const snapshot =
+            await getDocs(audioQuery);
+
+
+        allAudio = [];
+
+
+        snapshot.forEach(
+            function(docSnap){
+
+                allAudio.push({
+
+                    id:docSnap.id,
+
+                    ...docSnap.data()
+
+                });
+
+            }
+        );
+
+
+        if(allAudio.length === 0){
+
+            audioGrid.innerHTML = `
+
+                <div class="loading">
+
+                    🎧 Hakuna audio bado.
+
+                    <br><br>
+
+                    Audio utakazoweka kupitia
+                    Admin Audio zitaonekana hapa.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        renderAudio();
+
+
+    }catch(error){
+
+        console.error(
+            "LOAD AUDIO ERROR:",
+            error
+        );
+
+
+        /*
+         * Backup kama createdAt
+         * haipo kwenye baadhi ya documents.
+         */
+
+        try{
+
+            const snapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "audio"
+                    )
+                );
+
+
+            allAudio = [];
+
+
+            snapshot.forEach(
+                function(docSnap){
+
+                    allAudio.push({
+
+                        id:docSnap.id,
+
+                        ...docSnap.data()
+
+                    });
+
+                }
+            );
+
+
+            if(allAudio.length === 0){
+
+                audioGrid.innerHTML = `
+
+                    <div class="loading">
+
+                        🎧 Hakuna audio bado.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            renderAudio();
+
+
+        }catch(secondError){
+
+            console.error(
+                "SECOND LOAD ERROR:",
+                secondError
+            );
+
+
+            audioGrid.innerHTML = `
+
+                <div class="loading">
+
+                    ❌ Imeshindikana kupakia audio.
+
+                    <br><br>
+
+                    ${escapeHtml(
+                        secondError.message
+                    )}
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RENDER AUDIO
+===================================================== */
+
+function renderAudio(){
+
+    const filtered =
+        allAudio.filter(
+            function(audio){
+
+                const category =
+                    String(
+                        audio.category || ""
+                    )
+                    .trim()
+                    .toLowerCase();
+
+
+                const title =
+                    String(
+                        audio.title || ""
+                    )
+                    .toLowerCase();
+
+
+                const description =
+                    String(
+                        audio.description || ""
+                    )
+                    .toLowerCase();
+
+
+                const search =
+                    currentSearch
+                    .toLowerCase()
+                    .trim();
+
+
+                /*
+                 * CATEGORY
+                 */
+
+                const categoryMatch =
+                    currentCategory === "Zote" ||
+                    category ===
+                    currentCategory
+                    .toLowerCase();
+
+
+                /*
+                 * SEARCH
+                 */
+
+                const searchMatch =
+                    search === "" ||
+                    title.includes(search) ||
+                    description.includes(search) ||
+                    category.includes(search);
+
+
+                return (
+                    categoryMatch &&
+                    searchMatch
+                );
+
+            }
+        );
+
+
+    /*
+     * Hakuna matokeo
+     */
+
+    if(filtered.length === 0){
+
+        audioGrid.innerHTML = "";
+
+        noResults.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    noResults.style.display =
+        "none";
+
+
+    let html = "";
+
+
+    filtered.forEach(
+        function(audio){
+
+            const image =
+                audio.image ||
+                "images/habari.jpg";
+
+
+            const audioUrl =
+                audio.audioUrl ||
+                "";
+
+
+            const title =
+                audio.title ||
+                "Bila kichwa";
+
+
+            const category =
+                audio.category ||
+                "Audio";
+
+
+            const description =
+                audio.description ||
+                "";
+
+
+            const date =
+                audio.date ||
+                "Tarehe haijawekwa";
+
+
+            html += `
+
+                <article
+                    class="audio-card"
+                    data-id="${escapeHtml(
+                        audio.id
+                    )}"
+                >
+
+                    <img
+                        src="${escapeHtml(
+                            image
+                        )}"
+                        alt="${escapeHtml(
+                            title
+                        )}"
+                        onerror="
+                            this.onerror=null;
+                            this.src='images/habari.jpg';
+                        "
+                    >
+
+
+                    <div
+                        class="audio-content"
+                    >
+
+                        <span
+                            class="category"
+                        >
+
+                            ${escapeHtml(
+                                category
+                            )}
+
+                        </span>
+
+
+                        <h2>
+
+                            ${escapeHtml(
+                                title
+                            )}
+
+                        </h2>
+
+
+                        <p>
+
+                            ${escapeHtml(
+                                description
+                            )}
+
+                        </p>
+
+
+                        <span
+                            class="date"
+                        >
+
+                            📅 ${escapeHtml(
+                                date
+                            )}
+
+                        </span>
+
+
+                        ${
+                            audioUrl
+                            ?
+                            `
+
+                            <audio
+                                controls
+                            >
+
+                                <source
+                                    src="${escapeHtml(
+                                        audioUrl
+                                    )}"
+                                    type="audio/mpeg"
+                                >
+
+                                Kivinjari chako
+                                hakiwezi kucheza audio.
+
+                            </audio>
+
+                            `
+                            :
+                            `
+
+                            <p>
+                                ⚠️ Audio file haipo.
+                            </p>
+
+                            `
+                        }
+
+
+                        <button
+                            class="listen-btn"
+                            data-id="${escapeHtml(
+                                audio.id
+                            )}"
+                        >
+
+                            🎧 Sikiliza Maelezo
+
+                        </button>
+
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }
+    );
+
+
+    audioGrid.innerHTML =
+        html;
+
+
+    document
+        .querySelectorAll(".listen-btn")
+        .forEach(
+            function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        openAudio(
+                            button.dataset.id
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+
+/* =====================================================
+   OPEN AUDIO DETAILS
+===================================================== */
+
+function openAudio(audioId){
+
+    const audio =
+        allAudio.find(
+            function(item){
+
+                return item.id === audioId;
+
+            }
+        );
+
+
+    if(!audio){
+
+        return;
+
+    }
+
+
+    detailsImage.src =
+        audio.image ||
+        "images/habari.jpg";
+
+
+    detailsImage.alt =
+        audio.title ||
+        "Audio";
+
+
+    detailsCategory.textContent =
+        audio.category ||
+        "Audio";
+
+
+    detailsTitle.textContent =
+        audio.title ||
+        "Bila kichwa";
+
+
+    detailsDescription.textContent =
+        audio.description ||
+        "";
+
+
+    detailsDate.textContent =
+        "📅 " +
+        (
+            audio.date ||
+            "Tarehe haijawekwa"
+        );
+
+
+    detailsAudio.src =
+        audio.audioUrl ||
+        "";
+
+
+    audioDetails.style.display =
+        "block";
+
+
+    audioDetails.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
+
+}
+
+
+
+/* =====================================================
+   CLOSE DETAILS
+===================================================== */
+
+function closeAudio(){
+
+    audioDetails.style.display =
+        "none";
+
+
+    detailsAudio.pause();
+
+    detailsAudio.currentTime =
+        0;
+
+}
+
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+categoryButtons.forEach(
+    function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                categoryButtons.forEach(
+                    function(btn){
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentCategory =
+                    button.dataset.category;
+
+
+                currentSearch = "";
+
+                searchInput.value = "";
+
+
+                renderAudio();
+
+
+                closeAudio();
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchForm.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        currentSearch =
+            searchInput.value.trim();
+
+
+        renderAudio();
+
+
+        closeAudio();
+
+    }
+);
+
+
+
+/* =====================================================
+   LIVE SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        currentSearch =
+            searchInput.value.trim();
+
+
+        renderAudio();
+
+    }
+);
+
+
+
+/* =====================================================
+   CLOSE DETAILS
+===================================================== */
+
+closeDetailsBtn.addEventListener(
+    "click",
+    function(){
+
+        closeAudio();
+
+    }
+);
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadAudio();
+
+
+</script>
+
+
+</body>
+
+</html>

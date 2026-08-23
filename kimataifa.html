@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BINSOUD HABARI - Kimataifa</title>
+
+<style>
+
+:root{
+    --navy:#001a32;
+    --blue:#002f54;
+    --yellow:#fee40c;
+    --gold:#c0ac00;
+    --bg:#f4f7fa;
+    --text:#111827;
+    --muted:#667788;
+    --border:#ccd5dd;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+/* HEADER */
+
+header{
+    background:var(--navy);
+    color:white;
+}
+
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-icon{
+    width:48px;
+    height:48px;
+    background:var(--yellow);
+    color:var(--navy);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.brand-text h1{
+    font-size:27px;
+}
+
+.brand-text span{
+    display:block;
+    color:#b9c8d3;
+    margin-top:4px;
+    font-size:13px;
+}
+
+nav{
+    background:#001525;
+}
+
+.nav-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:8px 20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:9px 11px;
+    border-radius:5px;
+    font-size:14px;
+}
+
+nav a:hover,
+nav a.active{
+    background:var(--yellow);
+    color:var(--navy);
+}
+
+/* BREAKING */
+
+.breaking{
+    background:var(--yellow);
+    color:var(--navy);
+    padding:10px 20px;
+    font-weight:bold;
+}
+
+/* MAIN */
+
+main{
+    max-width:1250px;
+    margin:auto;
+    padding:30px 20px 45px;
+}
+
+.page-title{
+    background:white;
+    padding:22px;
+    border-left:5px solid var(--gold);
+    border-radius:8px;
+    margin-bottom:22px;
+}
+
+.page-title h2{
+    color:var(--blue);
+    font-size:30px;
+}
+
+.page-title p{
+    color:var(--muted);
+    margin-top:7px;
+}
+
+/* INTRO */
+
+.intro{
+    background:white;
+    padding:25px;
+    border-radius:8px;
+    margin-bottom:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.intro h2{
+    color:var(--blue);
+    margin-bottom:12px;
+}
+
+.intro p{
+    color:#556677;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* SEARCH */
+
+.search-box{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.search-form{
+    display:flex;
+    gap:10px;
+}
+
+.search-form input{
+    flex:1;
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    font-size:16px;
+    outline:none;
+}
+
+.search-form input:focus{
+    border-color:var(--blue);
+}
+
+.search-form button{
+    border:0;
+    background:var(--blue);
+    color:white;
+    padding:14px 22px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.search-form button:hover{
+    background:var(--yellow);
+    color:var(--navy);
+}
+
+/* CATEGORIES */
+
+.categories-title{
+    color:var(--blue);
+    margin-bottom:12px;
+}
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:28px;
+}
+
+.subcategory-btn{
+    border:1px solid var(--border);
+    background:white;
+    color:var(--blue);
+    padding:11px 15px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.subcategory-btn:hover,
+.subcategory-btn.active{
+    background:var(--blue);
+    color:white;
+    border-color:var(--blue);
+}
+
+/* SECTION */
+
+.section-title{
+    color:var(--blue);
+    border-bottom:3px solid var(--gold);
+    padding-bottom:10px;
+    margin-bottom:18px;
+}
+
+/* STATUS */
+
+.status{
+    background:white;
+    padding:18px;
+    border-radius:8px;
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.error{
+    background:#fff1f2;
+    border:1px solid #fecdd3;
+    color:#991b1b;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:20px;
+    line-height:1.7;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:9px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    transition:transform .2s, box-shadow .2s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 7px 18px rgba(0,0,0,.12);
+}
+
+.card-image{
+    height:220px;
+    overflow:hidden;
+    background:#e8edf1;
+}
+
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.category{
+    display:inline-block;
+    background:var(--blue);
+    color:white;
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:12px;
+    margin-bottom:8px;
+}
+
+.subcategory{
+    display:inline-block;
+    background:#eef3f7;
+    color:var(--blue);
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:var(--blue);
+    line-height:1.45;
+    margin-bottom:10px;
+    font-size:19px;
+}
+
+.card p{
+    color:#556677;
+    line-height:1.65;
+}
+
+.meta{
+    margin-top:14px;
+    color:#718096;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.read-button{
+    display:inline-block;
+    margin-top:16px;
+    background:var(--blue);
+    color:white;
+    padding:10px 16px;
+    border-radius:5px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.read-button:hover{
+    background:var(--yellow);
+    color:var(--navy);
+}
+
+/* EMPTY */
+
+.empty{
+    display:none;
+    background:white;
+    padding:35px;
+    border-radius:9px;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+    background:var(--navy);
+    color:white;
+    margin-top:30px;
+}
+
+.footer-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:35px 20px;
+    text-align:center;
+}
+
+.footer-inner p{
+    color:#b9c8d3;
+    margin-top:8px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .header-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .brand{
+        justify-content:center;
+    }
+
+    .brand-text h1{
+        font-size:24px;
+    }
+
+    nav .nav-inner{
+        justify-content:center;
+    }
+
+    main{
+        padding:20px 12px 40px;
+    }
+
+    .search-form{
+        flex-direction:column;
+    }
+
+    .search-form button{
+        padding:12px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .page-title h2{
+        font-size:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="header-inner">
+
+<div class="brand">
+
+<div class="brand-icon">
+BH
+</div>
+
+<div class="brand-text">
+
+<h1>
+BINSOUD HABARI
+</h1>
+
+<span>
+Chanzo chako cha habari
+</span>
+
+</div>
+
+</div>
+
+<div>
+Habari za Tanzania na Dunia
+</div>
+
+</div>
+
+<nav>
+
+<div class="nav-inner">
+
+<a href="index.html">
+Nyumbani
+</a>
+
+<a href="siasa.html">
+Siasa
+</a>
+
+<a href="kitaifa.html">
+Kitaifa
+</a>
+
+<a href="biashara.html">
+Biashara
+</a>
+
+<a href="michezo.html">
+Michezo
+</a>
+
+<a href="dini.html">
+Dini
+</a>
+
+<a href="kimataifa.html" class="active">
+Kimataifa
+</a>
+
+<a href="burudani.html">
+Burudani
+</a>
+
+<a href="mazingira.html">
+Mazingira
+</a>
+
+<a href="video.html">
+Video
+</a>
+
+<a href="audio.html">
+Audio
+</a>
+
+<a href="makala.html">
+Makala
+</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<!-- BREAKING -->
+
+<div class="breaking">
+
+🔴 HABARI MOTO: BINSOUD HABARI - KIMATAIFA
+
+</div>
+
+
+<main>
+
+<!-- TITLE -->
+
+<section class="page-title">
+
+<h2>
+🌍 Habari za Kimataifa
+</h2>
+
+<p>
+Habari za dunia, Afrika na matukio muhimu ya kimataifa
+</p>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+<h2>
+Habari za Kimataifa
+</h2>
+
+<p>
+
+Karibu kwenye ukurasa wa Kimataifa wa
+<strong>BINSOUD HABARI</strong>.
+
+Hapa utapata habari mbalimbali kutoka
+Afrika na sehemu nyingine za dunia,
+siasa za kimataifa, diplomasia, vita na
+migogoro, uchumi wa dunia, viongozi wa
+mataifa, mashirika ya kimataifa, pamoja
+na matukio muhimu yanayoendelea duniani.
+
+</p>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section class="search-box">
+
+<form class="search-form" id="searchForm">
+
+<input
+type="text"
+id="searchInput"
+placeholder="🔎 Tafuta habari za kimataifa..."
+autocomplete="off"
+>
+
+<button type="submit">
+🔎 Tafuta
+</button>
+
+</form>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<h3 class="categories-title">
+Chagua Category ya Kimataifa
+</h3>
+
+<div class="categories">
+
+<button
+class="subcategory-btn active"
+data-category="Zote">
+🌍 Zote
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Kimataifa">
+🌐 Kimataifa
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Afrika">
+🌍 Afrika
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Ulaya">
+🇪🇺 Ulaya
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Marekani">
+🇺🇸 Marekani
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Asia">
+🌏 Asia
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Mashariki ya Kati">
+🕌 Mashariki ya Kati
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Diplomasia">
+🤝 Diplomasia
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Vita na Migogoro">
+⚠️ Vita na Migogoro
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Uchumi wa Dunia">
+💰 Uchumi wa Dunia
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Mashirika ya Kimataifa">
+🏛️ Mashirika ya Kimataifa
+</button>
+
+<button
+class="subcategory-btn"
+data-category="Matukio ya Dunia">
+📰 Matukio ya Dunia
+</button>
+
+</div>
+
+
+<!-- SECTION -->
+
+<h2
+class="section-title"
+id="sectionTitle">
+🌍 Habari za Kimataifa
+</h2>
+
+
+<!-- STATUS -->
+
+<div id="statusArea">
+
+<div class="status">
+⏳ Inaunganisha na Firebase...
+</div>
+
+</div>
+
+
+<!-- ARTICLES -->
+
+<div
+class="cards"
+id="articlesContainer">
+</div>
+
+
+<!-- EMPTY -->
+
+<div
+class="empty"
+id="emptyBox">
+
+❌ Hakuna habari iliyopatikana.
+
+</div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-inner">
+
+<h3>
+BINSOUD HABARI
+</h3>
+
+<p>
+Chanzo chako cha kuaminika cha habari
+za kimataifa na dunia.
+</p>
+
+<p>
+© 2026 BINSOUD HABARI. Haki zote zimehifadhiwa.
+</p>
+
+</div>
+
+</footer>
+
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+
+    authDomain:
+        "binsoud-habari-8a5fa.firebaseapp.com",
+
+    projectId:
+        "binsoud-habari-8a5fa",
+
+    storageBucket:
+        "binsoud-habari-8a5fa.firebasestorage.app",
+
+    messagingSenderId:
+        "865091074307",
+
+    appId:
+        "1:865091074307:web:27b26aa8f0f3476ef45136",
+
+    measurementId:
+        "G-MH266J0XKE"
+
+};
+
+
+/* =========================================
+   INITIALIZE FIREBASE
+========================================= */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const articlesContainer =
+    document.getElementById(
+        "articlesContainer"
+    );
+
+const statusArea =
+    document.getElementById(
+        "statusArea"
+    );
+
+const emptyBox =
+    document.getElementById(
+        "emptyBox"
+    );
+
+const searchForm =
+    document.getElementById(
+        "searchForm"
+    );
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+const sectionTitle =
+    document.getElementById(
+        "sectionTitle"
+    );
+
+const categoryButtons =
+    document.querySelectorAll(
+        ".subcategory-btn"
+    );
+
+
+/* =========================================
+   DATA
+========================================= */
+
+let allArticles = [];
+
+let currentCategory = "Zote";
+
+let currentSearch = "";
+
+
+/* =========================================
+   PLACEHOLDER IMAGE
+========================================= */
+
+const PLACEHOLDER_IMAGE =
+    "https://via.placeholder.com/900x550?text=BINSOUD+HABARI";
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================
+   NORMALIZE
+========================================= */
+
+function normalize(value){
+
+    return String(
+        value ?? ""
+    )
+    .trim()
+    .toLowerCase()
+    .replace(
+        /\s+/g,
+        " "
+    );
+
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+function getImage(article){
+
+    const image =
+        article.image ||
+        article.imageUrl ||
+        article.imageURL ||
+        article.photo ||
+        "";
+
+    if(
+        !image ||
+        String(image).trim() === ""
+    ){
+
+        return PLACEHOLDER_IMAGE;
+
+    }
+
+    return String(
+        image
+    ).trim();
+
+}
+
+
+/* =========================================
+   DATE VALUE
+========================================= */
+
+function getDateValue(article){
+
+    const value =
+        article.createdAt ||
+        article.date ||
+        article.updatedAt ||
+        "";
+
+    if(
+        value &&
+        typeof value.toDate === "function"
+    ){
+
+        return value.toDate().getTime();
+
+    }
+
+    if(
+        value &&
+        typeof value === "object" &&
+        value.seconds
+    ){
+
+        return value.seconds * 1000;
+
+    }
+
+    const time =
+        new Date(value).getTime();
+
+    if(
+        Number.isNaN(time)
+    ){
+
+        return 0;
+
+    }
+
+    return time;
+
+}
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(article){
+
+    if(
+        article.date
+    ){
+
+        return String(
+            article.date
+        );
+
+    }
+
+
+    if(
+        article.createdAt &&
+        typeof article.createdAt.toDate === "function"
+    ){
+
+        return article.createdAt
+            .toDate()
+            .toLocaleDateString(
+                "sw-TZ",
+                {
+                    year:"numeric",
+                    month:"long",
+                    day:"numeric"
+                }
+            );
+
+    }
+
+
+    if(
+        article.createdAt &&
+        typeof article.createdAt === "object" &&
+        article.createdAt.seconds
+    ){
+
+        return new Date(
+            article.createdAt.seconds * 1000
+        )
+        .toLocaleDateString(
+            "sw-TZ",
+            {
+                year:"numeric",
+                month:"long",
+                day:"numeric"
+            }
+        );
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================================
+   KIMATAIFA CATEGORIES
+========================================= */
+
+const internationalCategories = [
+
+    "kimataifa",
+
+    "afrika",
+
+    "ulaya",
+
+    "marekani",
+
+    "asia",
+
+    "mashariki ya kati",
+
+    "diplomasia",
+
+    "vita na migogoro",
+
+    "uchumi wa dunia",
+
+    "mashirika ya kimataifa",
+
+    "matukio ya dunia"
+
+];
+
+
+/* =========================================
+   CHECK KIMATAIFA
+========================================= */
+
+function isInternationalArticle(article){
+
+    const category =
+        normalize(
+            article.category
+        );
+
+    const subcategory =
+        normalize(
+            article.subcategory
+        );
+
+
+    /*
+       Mfano:
+
+       category = Kimataifa
+       subcategory = Afrika
+
+       AU
+
+       category = Afrika
+
+       AU
+
+       category = Kimataifa - Afrika
+
+       Mfumo utazitambua.
+    */
+
+    if(
+        internationalCategories.includes(
+            category
+        )
+    ){
+
+        return true;
+
+    }
+
+
+    return internationalCategories.some(
+        function(item){
+
+            return (
+
+                category.includes(item)
+
+                ||
+
+                subcategory.includes(item)
+
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   LOAD ARTICLES
+========================================= */
+
+async function loadArticles(){
+
+    try{
+
+        statusArea.innerHTML = `
+
+            <div class="status">
+
+                ⏳ Inaunganisha na Firebase...
+
+            </div>
+
+        `;
+
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "articles"
+                )
+            );
+
+
+        allArticles = [];
+
+
+        snapshot.forEach(
+            function(doc){
+
+                const data =
+                    doc.data();
+
+
+                allArticles.push({
+
+                    id:
+                        doc.id,
+
+                    title:
+                        data.title || "",
+
+                    intro:
+                        data.intro || "",
+
+                    content:
+                        data.content || "",
+
+                    description:
+                        data.description || "",
+
+                    category:
+                        data.category || "",
+
+                    subcategory:
+                        data.subcategory || "",
+
+                    image:
+                        data.image || "",
+
+                    imageUrl:
+                        data.imageUrl || "",
+
+                    imageURL:
+                        data.imageURL || "",
+
+                    photo:
+                        data.photo || "",
+
+                    author:
+                        data.author ||
+                        "BINSOUD HABARI",
+
+                    date:
+                        data.date || "",
+
+                    createdAt:
+                        data.createdAt || "",
+
+                    updatedAt:
+                        data.updatedAt || "",
+
+                    readTime:
+                        data.readTime ||
+                        "Dakika 3"
+
+                });
+
+            }
+        );
+
+
+        console.log(
+            "ARTICLES ZOTE:",
+            allArticles
+        );
+
+
+        console.log(
+            "CATEGORY + SUBCATEGORY:",
+            allArticles.map(
+                function(article){
+
+                    return {
+
+                        title:
+                            article.title,
+
+                        category:
+                            article.category,
+
+                        subcategory:
+                            article.subcategory
+
+                    };
+
+                }
+            )
+        );
+
+
+        /*
+           CHUKUA KIMATAIFA PEKEE
+        */
+
+        allArticles =
+            allArticles.filter(
+                isInternationalArticle
+            );
+
+
+        /*
+           MPYA KWANZA
+        */
+
+        allArticles.sort(
+            function(a,b){
+
+                return (
+                    getDateValue(b)
+                    -
+                    getDateValue(a)
+                );
+
+            }
+        );
+
+
+        renderArticles();
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Firebase Error:",
+            error
+        );
+
+
+        statusArea.innerHTML = `
+
+            <div class="error">
+
+                ❌ Imeshindikana kupakia habari.
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+function getFilteredArticles(){
+
+    let articles =
+        [
+            ...allArticles
+        ];
+
+
+    /* =====================================
+       CATEGORY
+    ===================================== */
+
+    if(
+        currentCategory !== "Zote"
+    ){
+
+        const selected =
+            normalize(
+                currentCategory
+            );
+
+
+        articles =
+            articles.filter(
+                function(article){
+
+                    const category =
+                        normalize(
+                            article.category
+                        );
+
+                    const subcategory =
+                        normalize(
+                            article.subcategory
+                        );
+
+
+                    return (
+
+                        category === selected
+
+                        ||
+
+                        subcategory === selected
+
+                        ||
+
+                        category.includes(
+                            selected
+                        )
+
+                        ||
+
+                        subcategory.includes(
+                            selected
+                        )
+
+                    );
+
+                }
+            );
+
+    }
+
+
+    /* =====================================
+       SEARCH
+    ===================================== */
+
+    if(
+        currentSearch !== ""
+    ){
+
+        articles =
+            articles.filter(
+                function(article){
+
+                    const searchable =
+
+                        (
+                            article.title ||
+                            ""
+                        )
+
+                        + " " +
+
+                        (
+                            article.intro ||
+                            ""
+                        )
+
+                        + " " +
+
+                        (
+                            article.content ||
+                            ""
+                        )
+
+                        + " " +
+
+                        (
+                            article.description ||
+                            ""
+                        )
+
+                        + " " +
+
+                        (
+                            article.category ||
+                            ""
+                        )
+
+                        + " " +
+
+                        (
+                            article.subcategory ||
+                            ""
+                        )
+
+                        + " " +
+
+                        (
+                            article.author ||
+                            ""
+                        );
+
+
+                    return normalize(
+                        searchable
+                    )
+                    .includes(
+                        currentSearch
+                    );
+
+                }
+            );
+
+    }
+
+
+    return articles;
+
+}
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function renderArticles(){
+
+    const articles =
+        getFilteredArticles();
+
+
+    articlesContainer.innerHTML =
+        "";
+
+
+    /* =====================================
+       TITLE
+    ===================================== */
+
+    if(
+        currentCategory === "Zote"
+    ){
+
+        sectionTitle.textContent =
+            "🌍 Habari za Kimataifa";
+
+    }
+
+    else{
+
+        sectionTitle.textContent =
+            "📰 " +
+            currentCategory;
+
+    }
+
+
+    /* =====================================
+       EMPTY
+    ===================================== */
+
+    if(
+        articles.length === 0
+    ){
+
+        emptyBox.innerHTML = `
+
+            ❌ Hakuna habari ya
+
+            <strong>
+
+                ${escapeHTML(
+
+                    currentCategory === "Zote"
+
+                    ? "Kimataifa"
+
+                    : currentCategory
+
+                )}
+
+            </strong>
+
+            iliyopatikana.
+
+        `;
+
+
+        emptyBox.style.display =
+            "block";
+
+
+        statusArea.innerHTML = `
+
+            <div class="status">
+
+                Firebase imeunganishwa.
+
+                Habari:
+
+                <strong>
+                    0
+                </strong>
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    emptyBox.style.display =
+        "none";
+
+
+    /* =====================================
+       STATUS
+    ===================================== */
+
+    statusArea.innerHTML = `
+
+        <div class="status">
+
+            ✅ Firebase imeunganishwa.
+
+            Habari za
+
+            <strong>
+
+                ${escapeHTML(
+
+                    currentCategory === "Zote"
+
+                    ? "Kimataifa"
+
+                    : currentCategory
+
+                )}
+
+            </strong>
+
+            :
+
+            <strong>
+
+                ${articles.length}
+
+            </strong>
+
+        </div>
+
+    `;
+
+
+    /* =====================================
+       CARDS
+    ===================================== */
+
+    articles.forEach(
+        function(article){
+
+            const image =
+                getImage(
+                    article
+                );
+
+
+            const title =
+                article.title ||
+                "Bila kichwa";
+
+
+            const intro =
+
+                article.intro ||
+
+                article.description ||
+
+                (
+
+                    article.content
+
+                    ?
+
+                    String(
+                        article.content
+                    )
+                    .replace(
+                        /<[^>]*>/g,
+                        ""
+                    )
+                    .substring(
+                        0,
+                        180
+                    )
+                    + "..."
+
+                    :
+
+                    "Hakuna maelezo."
+
+                );
+
+
+            const category =
+                article.category ||
+                "Kimataifa";
+
+
+            const subcategory =
+                article.subcategory ||
+                "";
+
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "card";
+
+
+            card.innerHTML = `
+
+                <div class="card-image">
+
+                    <img
+
+                        src="${escapeHTML(
+                            image
+                        )}"
+
+                        alt="${escapeHTML(
+                            title
+                        )}"
+
+                        loading="lazy"
+
+                        onerror="
+                            this.onerror=null;
+                            this.src='${PLACEHOLDER_IMAGE}';
+                        "
+
+                    >
+
+                </div>
+
+
+                <div class="card-content">
+
+
+                    <span class="category">
+
+                        🌍
+
+                        ${escapeHTML(
+                            category
+                        )}
+
+                    </span>
+
+
+                    ${
+                        subcategory
+
+                        ?
+
+                        `
+
+                        <span class="subcategory">
+
+                            ${escapeHTML(
+                                subcategory
+                            )}
+
+                        </span>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+
+                    <h3>
+
+                        ${escapeHTML(
+                            title
+                        )}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${escapeHTML(
+                            intro
+                        )}
+
+                    </p>
+
+
+                    <div class="meta">
+
+                        ✍️
+
+                        ${escapeHTML(
+                            article.author
+                        )}
+
+                        <br>
+
+                        📅
+
+                        ${escapeHTML(
+                            formatDate(
+                                article
+                            )
+                        )}
+
+                        &nbsp; • &nbsp;
+
+                        ⏱️
+
+                        ${escapeHTML(
+                            article.readTime
+                        )}
+
+                    </div>
+
+
+                    <a
+
+                        class="read-button"
+
+                        href="habari.html?id=${encodeURIComponent(
+                            article.id
+                        )}"
+
+                    >
+
+                        📖 Soma habari zaidi →
+
+                    </a>
+
+
+                </div>
+
+            `;
+
+
+            articlesContainer.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   CATEGORY BUTTONS
+========================================= */
+
+categoryButtons.forEach(
+    function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                categoryButtons.forEach(
+                    function(btn){
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentCategory =
+                    button.dataset.category;
+
+
+                currentSearch =
+                    "";
+
+
+                searchInput.value =
+                    "";
+
+
+                renderArticles();
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+searchForm.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        currentSearch =
+            normalize(
+                searchInput.value
+            );
+
+
+        /*
+           Search kwenye habari zote
+           za Kimataifa.
+        */
+
+        currentCategory =
+            "Zote";
+
+
+        categoryButtons.forEach(
+            function(button){
+
+                button.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+        categoryButtons[0]
+            .classList.add(
+                "active"
+            );
+
+
+        renderArticles();
+
+    }
+);
+
+
+/* =========================================
+   START
+========================================= */
+
+loadArticles();
+
+</script>
+
+</body>
+</html>

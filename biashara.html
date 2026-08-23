@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+
+<html lang="sw">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
+
+<title>BINSOUD HABARI | Biashara</title>
+
+<meta
+name="description"
+content="Habari za Biashara, Uchumi, Uwekezaji, Viwanda, Wajasiriamali, Masoko, Kilimo na Utalii."
+
+>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#001a32;
+    --blue:#003b63;
+    --blue2:#005b8f;
+    --yellow:#fee40c;
+    --red:#d60000;
+    --light:#f4f7fa;
+    --text:#17202a;
+    --muted:#687786;
+    --white:#ffffff;
+    --border:#e1e7ec;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--light);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+header{
+    background:var(--navy);
+    color:white;
+}
+
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-icon{
+    width:52px;
+    height:52px;
+    background:var(--yellow);
+    color:var(--navy);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.brand-text h1{
+    font-size:28px;
+    line-height:1.1;
+}
+
+.brand-text span{
+    font-size:12px;
+    color:#b8c9d6;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav{
+    background:var(--blue);
+}
+
+.nav-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    overflow-x:auto;
+}
+
+nav a{
+    color:white;
+    padding:13px 14px;
+    font-size:14px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+nav a:hover,
+nav a.active{
+    background:var(--yellow);
+    color:var(--navy);
+}
+
+/* =========================================
+   BREAKING
+========================================= */
+
+.breaking{
+    background:var(--yellow);
+    color:var(--navy);
+}
+
+.breaking-inner{
+    max-width:1250px;
+    margin:auto;
+    min-height:45px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.breaking-label{
+    background:var(--red);
+    color:white;
+    padding:9px 15px;
+    font-size:12px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.breaking-text{
+    padding:0 15px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+main{
+    max-width:1250px;
+    margin:auto;
+    padding:28px 20px 50px;
+}
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.page-title{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.page-title h2{
+    color:var(--blue);
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.page-title p{
+    color:var(--muted);
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-area{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:25px;
+}
+
+.search-form{
+    display:flex;
+    gap:10px;
+}
+
+.search-form input{
+    flex:1;
+    padding:13px 15px;
+    border:1px solid #ccd5dd;
+    border-radius:6px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-form input:focus{
+    border-color:var(--blue2);
+}
+
+.search-form button{
+    background:var(--blue);
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:0 25px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.search-form button:hover{
+    background:var(--yellow);
+    color:var(--navy);
+}
+
+/* =========================================
+   SUBCATEGORIES
+========================================= */
+
+.subcategory-title{
+    color:var(--blue);
+    margin-bottom:12px;
+}
+
+.subcategories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:30px;
+}
+
+.subcategory-btn{
+    background:white;
+    color:var(--blue);
+    border:1px solid #ccd5dd;
+    padding:10px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.subcategory-btn:hover,
+.subcategory-btn.active{
+    background:var(--blue);
+    color:white;
+}
+
+/* =========================================
+   SECTION
+========================================= */
+
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:3px solid #c9b200;
+    margin-bottom:20px;
+}
+
+.section-heading h2{
+    color:var(--blue);
+    font-size:23px;
+    padding-bottom:8px;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status{
+    background:white;
+    padding:18px;
+    border-radius:9px;
+    text-align:center;
+    color:var(--muted);
+    margin-bottom:20px;
+}
+
+.error{
+    background:#fff0f0;
+    color:#a50000;
+    border:1px solid #ffcaca;
+    padding:20px;
+    border-radius:9px;
+    margin-bottom:20px;
+}
+
+/* =========================================
+   CARDS
+========================================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:9px;
+    overflow:hidden;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 7px 20px rgba(0,0,0,.10);
+}
+
+.card-image{
+    height:215px;
+    background:#e2e8ec;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.card-content{
+    padding:18px;
+}
+
+.category{
+    display:inline-block;
+    background:var(--blue);
+    color:white;
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.subcategory{
+    display:inline-block;
+    background:#eef3f7;
+    color:var(--blue);
+    padding:4px 8px;
+    border-radius:4px;
+    font-size:11px;
+    margin-left:5px;
+    margin-bottom:10px;
+}
+
+.card h3{
+    color:var(--navy);
+    font-size:19px;
+    line-height:1.4;
+    margin-bottom:9px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.65;
+}
+
+.meta{
+    color:#7c8994;
+    font-size:12px;
+    margin-top:13px;
+}
+
+.read-button{
+    display:inline-block;
+    margin-top:16px;
+    background:var(--blue);
+    color:white;
+    padding:10px 16px;
+    border-radius:5px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.read-button:hover{
+    background:var(--yellow);
+    color:var(--navy);
+}
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty{
+    display:none;
+    background:white;
+    padding:35px;
+    border-radius:9px;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+    background:var(--navy);
+    color:white;
+    margin-top:30px;
+}
+
+.footer-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:35px 20px;
+    text-align:center;
+}
+
+.footer-inner p{
+    color:#b9c8d3;
+    margin-top:8px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:950px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .header-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .brand-text h1{
+        font-size:24px;
+    }
+
+    main{
+        padding:20px 12px 40px;
+    }
+
+    .search-form{
+        flex-direction:column;
+    }
+
+    .search-form button{
+        padding:12px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .page-title h2{
+        font-size:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+```
+<div class="header-inner">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            BH
+        </div>
+
+        <div class="brand-text">
+
+            <h1>
+                BINSOUD HABARI
+            </h1>
+
+            <span>
+                Chanzo chako cha habari
+            </span>
+
+        </div>
+
+    </div>
+
+    <div>
+        Habari za Tanzania na Dunia
+    </div>
+
+</div>
+
+<nav>
+
+    <div class="nav-inner">
+
+        <a href="index.html">
+            Nyumbani
+        </a>
+
+        <a href="siasa.html">
+            Siasa
+        </a>
+
+        <a href="kitaifa.html">
+            Kitaifa
+        </a>
+
+        <a href="biashara.html" class="active">
+            Biashara
+        </a>
+
+        <a href="michezo.html">
+            Michezo
+        </a>
+
+        <a href="dini.html">
+            Dini
+        </a>
+
+        <a href="kimataifa.html">
+            Kimataifa
+        </a>
+
+        <a href="burudani.html">
+            Burudani
+        </a>
+
+        <a href="mazingira.html">
+            Mazingira
+        </a>
+
+        <a href="video.html">
+            Video
+        </a>
+
+        <a href="audio.html">
+            Audio
+        </a>
+
+        <a href="makala.html">
+            Makala
+        </a>
+
+    </div>
+
+</nav>
+```
+
+</header>
+
+<div class="breaking">
+
+```
+<div class="breaking-inner">
+
+    <div class="breaking-label">
+        🔴 HABARI MOTO
+    </div>
+
+    <div class="breaking-text">
+        💼 Habari za Biashara, Uchumi,
+        Uwekezaji, Viwanda na Wajasiriamali
+    </div>
+
+</div>
+```
+
+</div>
+
+<main>
+
+<section class="page-title">
+
+```
+<h2>
+    💼 Habari za Biashara
+</h2>
+
+<p>
+    Habari za Biashara, Uchumi, Uwekezaji,
+    Viwanda, Wajasiriamali, Masoko, Kilimo
+    na Utalii Tanzania.
+</p>
+```
+
+</section>
+
+<section class="search-area">
+
+```
+<form
+    class="search-form"
+    id="searchForm"
+>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔎 Tafuta habari za biashara..."
+    >
+
+    <button type="submit">
+        🔎 Tafuta
+    </button>
+
+</form>
+```
+
+</section>
+
+<h3 class="subcategory-title">
+    🗂️ Categories za Biashara
+</h3>
+
+<div class="subcategories">
+
+```
+<button
+    class="subcategory-btn active"
+    data-category="Zote"
+>
+    📰 Zote
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Biashara"
+>
+    💼 Biashara
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Uchumi"
+>
+    📈 Uchumi
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Uwekezaji"
+>
+    💰 Uwekezaji
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Viwanda"
+>
+    🏭 Viwanda
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Wajasiriamali"
+>
+    👨‍💼 Wajasiriamali
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Masoko"
+>
+    🛒 Masoko
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Kilimo"
+>
+    🌾 Kilimo
+</button>
+
+<button
+    class="subcategory-btn"
+    data-category="Utalii"
+>
+    🏝️ Utalii
+</button>
+```
+
+</div>
+
+<section>
+
+```
+<div class="section-heading">
+
+    <h2 id="sectionTitle">
+        📰 Habari za Biashara
+    </h2>
+
+</div>
+
+<div id="statusArea">
+
+    <div class="status">
+        ⏳ Inaunganisha na Firebase...
+    </div>
+
+</div>
+
+<div
+    class="cards"
+    id="articlesContainer"
+></div>
+
+<div
+    class="empty"
+    id="emptyBox"
+>
+    ❌ Hakuna habari iliyopatikana.
+</div>
+```
+
+</section>
+
+</main>
+
+<footer>
+
+```
+<div class="footer-inner">
+
+    <h3>
+        BINSOUD HABARI
+    </h3>
+
+    <p>
+        Chanzo chako cha kuaminika cha
+        habari za Tanzania, Afrika na dunia.
+    </p>
+
+    <p>
+        © 2026 BINSOUD HABARI.
+        Haki zote zimehifadhiwa.
+    </p>
+
+</div>
+```
+
+</footer>
+
+<script type="module">
+
+/* =========================================
+   FIREBASE SDK
+========================================= */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+}
+from
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+
+    authDomain:
+        "binsoud-habari-8a5fa.firebaseapp.com",
+
+    projectId:
+        "binsoud-habari-8a5fa",
+
+    storageBucket:
+        "binsoud-habari-8a5fa.firebasestorage.app",
+
+    messagingSenderId:
+        "865091074307",
+
+    appId:
+        "1:865091074307:web:27b26aa8f0f3476ef45136",
+
+    measurementId:
+        "G-MH266J0XKE"
+
+};
+
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const articlesContainer =
+    document.getElementById(
+        "articlesContainer"
+    );
+
+const statusArea =
+    document.getElementById(
+        "statusArea"
+    );
+
+const emptyBox =
+    document.getElementById(
+        "emptyBox"
+    );
+
+const searchForm =
+    document.getElementById(
+        "searchForm"
+    );
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+const sectionTitle =
+    document.getElementById(
+        "sectionTitle"
+    );
+
+const categoryButtons =
+    document.querySelectorAll(
+        ".subcategory-btn"
+    );
+
+
+/* =========================================
+   DATA
+========================================= */
+
+let allArticles = [];
+
+let currentCategory = "Zote";
+
+let currentSearch = "";
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+const PLACEHOLDER_IMAGE =
+    "https://via.placeholder.com/900x550?text=BINSOUD+HABARI";
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* =========================================
+   NORMALIZE
+========================================= */
+
+function normalize(value){
+
+    return String(
+        value ?? ""
+    )
+    .trim()
+    .toLowerCase();
+
+}
+
+
+/* =========================================
+   IMAGE URL
+========================================= */
+
+function getImage(article){
+
+    let image =
+        article.image ||
+        article.imageUrl ||
+        article.imageURL ||
+        article.photo ||
+        "";
+
+    image =
+        String(image || "").trim();
+
+
+    if(!image){
+
+        return PLACEHOLDER_IMAGE;
+
+    }
+
+
+    if(
+        image.startsWith("https://") ||
+        image.startsWith("http://") ||
+        image.startsWith("data:image/")
+    ){
+
+        return image;
+
+    }
+
+
+    if(
+        image.startsWith("file:///")
+    ){
+
+        const lower =
+            image.toLowerCase();
+
+        const marker =
+            "/images/";
+
+        const position =
+            lower.lastIndexOf(marker);
+
+        if(position !== -1){
+
+            return image.substring(
+                position + 1
+            );
+
+        }
+
+        return PLACEHOLDER_IMAGE;
+
+    }
+
+
+    if(
+        image.includes("\\")
+    ){
+
+        const normalizedPath =
+            image.replace(
+                /\\/g,
+                "/"
+            );
+
+        const lower =
+            normalizedPath.toLowerCase();
+
+        const marker =
+            "/images/";
+
+        const position =
+            lower.lastIndexOf(marker);
+
+        if(position !== -1){
+
+            return normalizedPath.substring(
+                position + 1
+            );
+
+        }
+
+    }
+
+
+    if(
+        image.toLowerCase().startsWith(
+            "images/"
+        )
+    ){
+
+        return image;
+
+    }
+
+
+    if(
+        !image.includes("/")
+    ){
+
+        return "images/" + image;
+
+    }
+
+
+    return image;
+
+}
+
+
+/* =========================================
+   DATE VALUE
+========================================= */
+
+function getDateValue(article){
+
+    const value =
+        article.createdAt ||
+        article.date ||
+        article.updatedAt ||
+        "";
+
+
+    if(
+        value &&
+        typeof value.toDate === "function"
+    ){
+
+        return value.toDate().getTime();
+
+    }
+
+
+    if(
+        value &&
+        typeof value === "object" &&
+        value.seconds
+    ){
+
+        return value.seconds * 1000;
+
+    }
+
+
+    const time =
+        new Date(value).getTime();
+
+
+    return Number.isNaN(time)
+        ? 0
+        : time;
+
+}
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(article){
+
+    if(article.date){
+
+        return String(
+            article.date
+        );
+
+    }
+
+
+    if(
+        article.createdAt &&
+        typeof article.createdAt.toDate === "function"
+    ){
+
+        return article.createdAt
+            .toDate()
+            .toLocaleDateString(
+                "sw-TZ",
+                {
+                    year:"numeric",
+                    month:"long",
+                    day:"numeric"
+                }
+            );
+
+    }
+
+
+    if(
+        article.createdAt &&
+        typeof article.createdAt === "object" &&
+        article.createdAt.seconds
+    ){
+
+        return new Date(
+            article.createdAt.seconds * 1000
+        )
+        .toLocaleDateString(
+            "sw-TZ",
+            {
+                year:"numeric",
+                month:"long",
+                day:"numeric"
+            }
+        );
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================================
+   BUSINESS CATEGORIES
+========================================= */
+
+const businessCategories = [
+
+    "biashara",
+    "uchumi",
+    "uwekezaji",
+    "viwanda",
+    "wajasiriamali",
+    "masoko",
+    "kilimo",
+    "utalii"
+
+];
+
+
+/* =========================================
+   CHECK BIASHARA
+========================================= */
+
+function isBiasharaArticle(article){
+
+    const category =
+        normalize(
+            article.category
+        );
+
+
+    /*
+       Category ndiyo msingi wa kuamua
+       kama habari ni ya Biashara.
+    */
+
+    if(!category){
+
+        return false;
+
+    }
+
+
+    /*
+       Category kuu za Biashara.
+    */
+
+    if(
+        businessCategories.includes(
+            category
+        )
+    ){
+
+        return true;
+
+    }
+
+
+    /*
+       Inaruhusu mifumo kama:
+
+       Biashara - Uchumi
+       Biashara/Uwekezaji
+       Biashara: Viwanda
+       Biashara | Masoko
+    */
+
+    if(
+
+        category.startsWith("biashara ")
+
+        ||
+
+        category.startsWith("biashara-")
+
+        ||
+
+        category.startsWith("biashara/")
+
+        ||
+
+        category.startsWith("biashara:")
+
+        ||
+
+        category.startsWith("biashara|")
+
+    ){
+
+        return true;
+
+    }
+
+
+    return false;
+
+}
+
+
+/* =========================================
+   LOAD ARTICLES
+========================================= */
+
+async function loadArticles(){
+
+    try{
+
+        statusArea.innerHTML = `
+
+            <div class="status">
+
+                ⏳ Inaunganisha na Firebase...
+
+            </div>
+
+        `;
+
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "articles"
+                )
+            );
+
+
+        allArticles = [];
+
+
+        snapshot.forEach(
+            function(doc){
+
+                const data =
+                    doc.data();
+
+
+                allArticles.push({
+
+                    id:
+                        doc.id,
+
+                    title:
+                        data.title || "",
+
+                    intro:
+                        data.intro || "",
+
+                    content:
+                        data.content || "",
+
+                    category:
+                        data.category || "",
+
+                    subcategory:
+                        data.subcategory || "",
+
+                    image:
+                        data.image || "",
+
+                    imageUrl:
+                        data.imageUrl || "",
+
+                    imageURL:
+                        data.imageURL || "",
+
+                    photo:
+                        data.photo || "",
+
+                    author:
+                        data.author ||
+                        "BINSOUD HABARI",
+
+                    date:
+                        data.date || "",
+
+                    createdAt:
+                        data.createdAt || "",
+
+                    updatedAt:
+                        data.updatedAt || "",
+
+                    readTime:
+                        data.readTime ||
+                        "Dakika 3"
+
+                });
+
+            }
+        );
+
+
+        /*
+           CHUKUA HABARI ZA BIASHARA TU.
+        */
+
+        allArticles =
+            allArticles.filter(
+                isBiasharaArticle
+            );
+
+
+        /*
+           MPYA KWANZA
+        */
+
+        allArticles.sort(
+            function(a,b){
+
+                return (
+                    getDateValue(b) -
+                    getDateValue(a)
+                );
+
+            }
+        );
+
+
+        renderArticles();
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Firebase Error:",
+            error
+        );
+
+
+        statusArea.innerHTML = `
+
+            <div class="error">
+
+                ❌ Imeshindikana kupakia.
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+function getFilteredArticles(){
+
+    let articles =
+        [...allArticles];
+
+
+    /*
+       CATEGORY
+    */
+
+    if(
+        currentCategory !== "Zote"
+    ){
+
+        const selected =
+            normalize(
+                currentCategory
+            );
+
+
+        articles =
+            articles.filter(
+                function(article){
+
+                    const category =
+                        normalize(
+                            article.category
+                        );
+
+                    const subcategory =
+                        normalize(
+                            article.subcategory
+                        );
+
+
+                    /*
+                       Biashara kuu
+                    */
+
+                    if(
+                        selected === "biashara"
+                    ){
+
+                        return (
+
+                            category === "biashara" ||
+
+                            category.startsWith(
+                                "biashara "
+                            ) ||
+
+                            category.startsWith(
+                                "biashara-"
+                            ) ||
+
+                            category.startsWith(
+                                "biashara/"
+                            ) ||
+
+                            category.startsWith(
+                                "biashara:"
+                            ) ||
+
+                            category.startsWith(
+                                "biashara|"
+                            )
+
+                        );
+
+                    }
+
+
+                    /*
+                       Categories nyingine:
+                       Uchumi
+                       Uwekezaji
+                       Viwanda
+                       Wajasiriamali
+                       Masoko
+                       Kilimo
+                       Utalii
+                    */
+
+                    return (
+
+                        category === selected ||
+
+                        subcategory === selected ||
+
+                        category.includes(
+                            selected
+                        ) ||
+
+                        subcategory.includes(
+                            selected
+                        )
+
+                    );
+
+                }
+            );
+
+    }
+
+
+    /*
+       SEARCH
+    */
+
+    if(
+        currentSearch !== ""
+    ){
+
+        articles =
+            articles.filter(
+                function(article){
+
+                    const searchable =
+
+                        (article.title || "") +
+
+                        " " +
+
+                        (article.intro || "") +
+
+                        " " +
+
+                        (article.content || "") +
+
+                        " " +
+
+                        (article.category || "") +
+
+                        " " +
+
+                        (article.subcategory || "") +
+
+                        " " +
+
+                        (article.author || "");
+
+
+                    return normalize(
+                        searchable
+                    )
+                    .includes(
+                        currentSearch
+                    );
+
+                }
+            );
+
+    }
+
+
+    return articles;
+
+}
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function renderArticles(){
+
+    const articles =
+        getFilteredArticles();
+
+
+    articlesContainer.innerHTML =
+        "";
+
+
+    /*
+       TITLE
+    */
+
+    if(
+        currentCategory === "Zote"
+    ){
+
+        sectionTitle.textContent =
+            "📰 Habari za Biashara";
+
+    }
+
+    else{
+
+        sectionTitle.textContent =
+            "📰 " +
+            currentCategory;
+
+    }
+
+
+    /*
+       EMPTY
+    */
+
+    if(
+        articles.length === 0
+    ){
+
+        emptyBox.innerHTML = `
+
+            ❌ Hakuna habari ya
+
+            <strong>
+
+                ${escapeHTML(
+
+                    currentCategory === "Zote"
+
+                    ? "Biashara"
+
+                    : currentCategory
+
+                )}
+
+            </strong>
+
+            iliyopatikana.
+
+        `;
+
+
+        emptyBox.style.display =
+            "block";
+
+
+        statusArea.innerHTML = `
+
+            <div class="status">
+
+                Firebase imeunganishwa.
+
+                Habari:
+
+                <strong>0</strong>
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    emptyBox.style.display =
+        "none";
+
+
+    /*
+       STATUS
+    */
+
+    statusArea.innerHTML = `
+
+        <div class="status">
+
+            ✅ Firebase imeunganishwa.
+
+            Habari za
+
+            <strong>
+
+                ${escapeHTML(
+
+                    currentCategory === "Zote"
+
+                    ? "Biashara"
+
+                    : currentCategory
+
+                )}
+
+            </strong>
+
+            :
+
+            <strong>
+
+                ${articles.length}
+
+            </strong>
+
+        </div>
+
+    `;
+
+
+    /*
+       CARDS
+    */
+
+    articles.forEach(
+        function(article){
+
+            const image =
+                getImage(
+                    article
+                );
+
+
+            const title =
+                article.title ||
+                "Bila kichwa";
+
+
+            /*
+               INTRO ISIWE CONTENT NZIMA.
+            */
+
+            let intro =
+                article.intro || "";
+
+
+            if(!intro){
+
+                intro =
+                    article.content
+
+                    ? String(
+                        article.content
+                    )
+                    .replace(
+                        /<[^>]*>/g,
+                        ""
+                    )
+                    .trim()
+                    .substring(
+                        0,
+                        180
+                    ) + "..."
+
+                    :
+
+                    "Hakuna maelezo.";
+
+            }
+
+
+            /*
+               PUNGUZA INTRO
+            */
+
+            if(
+                intro.length > 220
+            ){
+
+                intro =
+                    intro.substring(
+                        0,
+                        220
+                    ) + "...";
+
+            }
+
+
+            const category =
+                article.category ||
+                "Biashara";
+
+
+            const subcategory =
+                article.subcategory ||
+                "";
+
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "card";
+
+
+            card.innerHTML = `
+
+                <div class="card-image">
+
+                    <img
+
+                        src="${escapeHTML(
+                            image
+                        )}"
+
+                        alt="${escapeHTML(
+                            title
+                        )}"
+
+                        loading="lazy"
+
+                        onerror="
+
+                            if(
+
+                                this.dataset.failed !== '1'
+
+                            ){
+
+                                this.dataset.failed='1';
+
+                                this.src='${PLACEHOLDER_IMAGE}';
+
+                            }
+
+                        "
+
+                    >
+
+                </div>
+
+
+                <div class="card-content">
+
+
+                    <span class="category">
+
+                        ${escapeHTML(
+                            category
+                        )}
+
+                    </span>
+
+
+                    ${
+                        subcategory
+
+                        ?
+
+                        `
+
+                        <span class="subcategory">
+
+                            ${escapeHTML(
+                                subcategory
+                            )}
+
+                        </span>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+
+                    <h3>
+
+                        ${escapeHTML(
+                            title
+                        )}
+
+                    </h3>
+
+
+                    <p>
+
+                        ${escapeHTML(
+                            intro
+                        )}
+
+                    </p>
+
+
+                    <div class="meta">
+
+                        ✍️
+
+                        ${escapeHTML(
+                            article.author
+                        )}
+
+                        <br>
+
+                        📅
+
+                        ${escapeHTML(
+                            formatDate(
+                                article
+                            )
+                        )}
+
+                        &nbsp; • &nbsp;
+
+                        ⏱️
+
+                        ${escapeHTML(
+                            article.readTime
+                        )}
+
+                    </div>
+
+
+                    <a
+
+                        class="read-button"
+
+                        href="habari.html?id=${encodeURIComponent(
+                            article.id
+                        )}"
+
+                    >
+
+                        📖 Soma habari zaidi →
+
+                    </a>
+
+
+                </div>
+
+            `;
+
+
+            articlesContainer.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   CATEGORY BUTTONS
+========================================= */
+
+categoryButtons.forEach(
+    function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                categoryButtons.forEach(
+                    function(btn){
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentCategory =
+                    button.dataset.category;
+
+
+                currentSearch =
+                    "";
+
+
+                searchInput.value =
+                    "";
+
+
+                renderArticles();
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+searchForm.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        currentSearch =
+            normalize(
+                searchInput.value
+            );
+
+
+        currentCategory =
+            "Zote";
+
+
+        categoryButtons.forEach(
+            function(button){
+
+                button.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+        categoryButtons[0]
+            .classList.add(
+                "active"
+            );
+
+
+        renderArticles();
+
+    }
+);
+
+
+/* =========================================
+   START
+========================================= */
+
+loadArticles();
+
+</script>
+
+</body>
+
+</html>

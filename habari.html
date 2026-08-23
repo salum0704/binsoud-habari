@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BINSOUD HABARI - Habari</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f6f9;
+    color:#18232d;
+    line-height:1.8;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* HEADER */
+header{
+    background:#001a32;
+    color:white;
+}
+
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:800;
+    letter-spacing:.3px;
+}
+
+.tagline{
+    color:#c9d6df;
+    font-size:13px;
+}
+
+/* NAVIGATION */
+nav{
+    background:#003b63;
+}
+
+.nav-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.nav-inner::-webkit-scrollbar{
+    display:none;
+}
+
+nav a{
+    color:white;
+    padding:13px 14px;
+    font-size:14px;
+    font-weight:bold;
+    white-space:nowrap;
+    transition:.2s;
+}
+
+nav a:hover,
+nav a.active{
+    background:#fee40c;
+    color:#001a32;
+}
+
+/* BREAKING */
+.breaking{
+    background:#fee40c;
+    color:#001a32;
+    font-weight:bold;
+}
+
+.breaking-inner{
+    max-width:1250px;
+    margin:auto;
+    padding:10px 20px;
+    font-size:14px;
+}
+
+/* MAIN */
+main{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px 70px;
+}
+
+/* BACK */
+.back-home{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:20px;
+    color:#003b63;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.back-home:hover{
+    color:#a28f00;
+}
+
+/* STATUS */
+.status{
+    background:white;
+    padding:35px;
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+    color:#687783;
+}
+
+.error{
+    background:#fff2f2;
+    border:1px solid #ffcaca;
+    color:#a40000;
+    padding:25px;
+    border-radius:12px;
+}
+
+.error h2{
+    margin-bottom:10px;
+}
+
+.error p{
+    margin-top:8px;
+}
+
+/* ARTICLE */
+.article{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+/* IMAGE */
+.article-image{
+    width:100%;
+    height:540px;
+    background:#dfe6eb;
+    position:relative;
+    overflow:hidden;
+}
+
+.article-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* BODY */
+.article-body{
+    padding:38px 48px 50px;
+}
+
+/* CATEGORY */
+.category{
+    display:inline-block;
+    background:#003b63;
+    color:white;
+    padding:6px 13px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    margin-bottom:16px;
+}
+
+/* TITLE */
+.article h1{
+    color:#001a32;
+    font-size:44px;
+    line-height:1.2;
+    letter-spacing:-.6px;
+    margin-bottom:18px;
+}
+
+/* INTRO */
+.intro{
+    font-size:19px;
+    color:#536471;
+    font-weight:500;
+    line-height:1.75;
+    border-left:5px solid #fee40c;
+    padding:14px 0 14px 18px;
+    margin-bottom:24px;
+}
+
+/* META */
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    color:#74828c;
+    font-size:13px;
+    padding-bottom:22px;
+    border-bottom:1px solid #e3e8ec;
+    margin-bottom:30px;
+}
+
+.meta span{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+/* CONTENT */
+.content{
+    color:#202b35;
+    font-size:18px;
+    line-height:2;
+    max-width:850px;
+    margin:auto;
+}
+
+.content p{
+    margin:0 0 25px;
+}
+
+.content p:first-child{
+    font-size:19px;
+    color:#273640;
+    font-weight:500;
+    line-height:1.9;
+}
+
+.content p:first-child::first-letter{
+    font-size:54px;
+    font-weight:800;
+    float:left;
+    line-height:.85;
+    padding-right:8px;
+    padding-top:5px;
+    color:#003b63;
+}
+
+.content h2,
+.content h3{
+    color:#003b63;
+    line-height:1.35;
+    margin:32px 0 15px;
+}
+
+.content img{
+    max-width:100%;
+    height:auto;
+    border-radius:10px;
+    margin:20px 0;
+}
+
+/* SHARE */
+.share{
+    max-width:850px;
+    margin:38px auto 0;
+    padding-top:27px;
+    border-top:1px solid #e2e7eb;
+}
+
+.share-title{
+    font-weight:bold;
+    color:#003b63;
+    margin-bottom:14px;
+    font-size:18px;
+}
+
+.share-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.share-button{
+    border:0;
+    cursor:pointer;
+    padding:11px 17px;
+    border-radius:7px;
+    font-weight:bold;
+    font-size:14px;
+    transition:.2s;
+}
+
+.share-button:hover{
+    transform:translateY(-2px);
+}
+
+.whatsapp{
+    background:#168b43;
+    color:white;
+}
+
+.facebook{
+    background:#1877f2;
+    color:white;
+}
+
+.telegram{
+    background:#229ed9;
+    color:white;
+}
+
+.twitter{
+    background:#111827;
+    color:white;
+}
+
+.copy{
+    background:#e9eef2;
+    color:#003b63;
+}
+
+/* RELATED */
+.related{
+    margin-top:40px;
+}
+
+.related h2{
+    color:#003b63;
+    border-bottom:3px solid #c0ac00;
+    padding-bottom:10px;
+    margin-bottom:20px;
+}
+
+.related-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.related-card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.07);
+    transition:.2s;
+}
+
+.related-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 20px rgba(0,0,0,.10);
+}
+
+.related-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    display:block;
+}
+
+.related-content{
+    padding:16px;
+}
+
+.related-category{
+    display:inline-block;
+    background:#003b63;
+    color:white;
+    padding:4px 8px;
+    border-radius:4px;
+    font-size:10px;
+    margin-bottom:8px;
+}
+
+.related-content h3{
+    color:#003b63;
+    font-size:17px;
+    line-height:1.4;
+}
+
+.related-content p{
+    color:#667788;
+    font-size:13px;
+    margin-top:7px;
+    line-height:1.6;
+}
+
+.related-content a{
+    display:inline-block;
+    margin-top:10px;
+    background:#003b63;
+    color:white;
+    padding:7px 11px;
+    border-radius:5px;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.related-content a:hover{
+    background:#c0ac00;
+    color:#001a32;
+}
+
+/* FOOTER */
+footer{
+    background:#001a32;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+footer p{
+    color:#c5d2dc;
+    margin-top:8px;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:750px){
+
+    .header-inner{
+        flex-direction:column;
+        text-align:center;
+        padding:16px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    main{
+        padding:20px 12px 50px;
+    }
+
+    .article{
+        border-radius:12px;
+    }
+
+    .article-image{
+        height:280px;
+    }
+
+    .article-body{
+        padding:25px 20px 35px;
+    }
+
+    .article h1{
+        font-size:30px;
+        line-height:1.25;
+        letter-spacing:0;
+    }
+
+    .intro{
+        font-size:16px;
+        line-height:1.75;
+        padding-left:14px;
+    }
+
+    .meta{
+        gap:8px 15px;
+    }
+
+    .content{
+        font-size:17px;
+        line-height:1.9;
+        max-width:none;
+    }
+
+    .content p{
+        margin-bottom:23px;
+    }
+
+    .content p:first-child{
+        font-size:18px;
+        line-height:1.85;
+    }
+
+    .content p:first-child::first-letter{
+        font-size:45px;
+    }
+
+    .share{
+        margin-top:30px;
+    }
+
+    .share-buttons{
+        flex-direction:column;
+    }
+
+    .share-button{
+        width:100%;
+    }
+
+    .related-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* SMALL PHONES */
+@media(max-width:420px){
+
+    .article-image{
+        height:230px;
+    }
+
+    .article-body{
+        padding:22px 16px 30px;
+    }
+
+    .article h1{
+        font-size:27px;
+    }
+
+    .content{
+        font-size:16.5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+    <div>
+        <div class="logo">
+            BINSOUD HABARI
+        </div>
+
+        <div class="tagline">
+            Chanzo chako cha habari
+        </div>
+    </div>
+
+    <div class="tagline">
+        Habari za Tanzania na Dunia
+    </div>
+
+</div>
+
+<nav>
+
+<div class="nav-inner">
+
+<a href="index.html">Nyumbani</a>
+<a href="siasa.html">Siasa</a>
+<a href="kitaifa.html">Kitaifa</a>
+<a href="biashara.html">Biashara</a>
+<a href="michezo.html">Michezo</a>
+<a href="dini.html">Dini</a>
+<a href="kimataifa.html">Kimataifa</a>
+<a href="burudani.html">Burudani</a>
+<a href="mazingira.html">Mazingira</a>
+<a href="video.html">Video</a>
+<a href="audio.html">Audio</a>
+<a href="makala.html">Makala</a>
+
+</div>
+
+</nav>
+
+</header>
+
+<div class="breaking">
+
+<div class="breaking-inner">
+
+🔴 HABARI MOTO:
+BINSOUD HABARI - Habari za Tanzania na Dunia
+
+</div>
+
+</div>
+
+<main>
+
+<a href="index.html" class="back-home">
+← Rudi Nyumbani
+</a>
+
+<div id="articleContainer">
+
+<div class="status">
+⏳ Inapakia habari...
+</div>
+
+</div>
+
+<section
+    class="related"
+    id="relatedSection"
+    style="display:none;"
+>
+
+<h2>
+📰 Habari Zinazohusiana
+</h2>
+
+<div
+    class="related-grid"
+    id="relatedGrid"
+></div>
+
+</section>
+
+</main>
+
+<footer>
+
+<h3>
+BINSOUD HABARI
+</h3>
+
+<p>
+Chanzo chako cha kuaminika cha habari
+za kitaifa na kimataifa.
+</p>
+
+<p>
+© 2026 BINSOUD HABARI.
+Haki zote zimehifadhiwa.
+</p>
+
+</footer>
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+}
+from
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+
+    authDomain:
+    "binsoud-habari-8a5fa.firebaseapp.com",
+
+    projectId:
+    "binsoud-habari-8a5fa",
+
+    storageBucket:
+    "binsoud-habari-8a5fa.firebasestorage.app",
+
+    messagingSenderId:
+    "865091074307",
+
+    appId:
+    "1:865091074307:web:27b26aa8f0f3476ef45136",
+
+    measurementId:
+    "G-MH266J0XKE"
+};
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const articleContainer =
+    document.getElementById(
+        "articleContainer"
+    );
+
+const relatedSection =
+    document.getElementById(
+        "relatedSection"
+    );
+
+const relatedGrid =
+    document.getElementById(
+        "relatedGrid"
+    );
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+/* =====================================================
+   NORMALIZE TEXT
+
+   Inasaidia kulinganisha intro na content
+   hata kama kuna spaces au line breaks.
+===================================================== */
+
+function normalizeText(value){
+
+    return String(value ?? "")
+        .replace(/<[^>]*>/g," ")
+        .replace(/\s+/g," ")
+        .trim()
+        .toLowerCase();
+}
+
+
+/* =====================================================
+   GET IMAGE URL
+===================================================== */
+
+function getImage(article){
+
+    if(!article){
+        return "images/habari.jpg";
+    }
+
+    const possibleImages = [
+
+        article.image,
+        article.imageUrl,
+        article.imageURL,
+        article.photo,
+        article.photoUrl,
+        article.photoURL,
+        article.thumbnail,
+        article.thumbnailUrl,
+        article.cover,
+        article.coverImage,
+        article.image_url
+
+    ];
+
+    for(
+        const image of possibleImages
+    ){
+
+        if(
+            typeof image === "string"
+            &&
+            image.trim() !== ""
+        ){
+
+            return image.trim();
+
+        }
+
+    }
+
+    return "images/habari.jpg";
+}
+
+
+/* =====================================================
+   FORMAT CONTENT
+===================================================== */
+
+function formatArticleContent(content){
+
+    if(!content){
+        return "";
+    }
+
+    let text =
+        String(content)
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .trim();
+
+
+    /*
+       Kama tayari ni HTML,
+       irudishe kama ilivyo.
+    */
+
+    if(
+        /<p[\s>]/i.test(text)
+        ||
+        /<br\s*\/?>/i.test(text)
+        ||
+        /<h2[\s>]/i.test(text)
+        ||
+        /<h3[\s>]/i.test(text)
+    ){
+
+        return text;
+
+    }
+
+
+    /*
+       Tumia mistari iliyopo.
+    */
+
+    let paragraphs =
+        text
+        .split(/\n+/)
+        .map(
+            p => p.trim()
+        )
+        .filter(
+            p => p.length > 0
+        );
+
+
+    /*
+       Kama habari yote ipo kwenye mstari mmoja,
+       igawanye kwa sentensi.
+    */
+
+    if(paragraphs.length === 1){
+
+        const sentences =
+            text
+            .split(
+                /(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÀÈÌÒÙÊÂÎÔÛ])/u
+            )
+            .map(
+                p => p.trim()
+            )
+            .filter(
+                p => p.length > 0
+            );
+
+
+        if(sentences.length >= 3){
+
+            paragraphs = [];
+
+            let current = "";
+
+
+            sentences.forEach(
+                sentence => {
+
+                    if(
+                        current.length > 0
+                        &&
+                        (
+                            current.length +
+                            sentence.length >
+                            520
+                        )
+                    ){
+
+                        paragraphs.push(
+                            current.trim()
+                        );
+
+                        current =
+                            sentence;
+
+                    }
+                    else{
+
+                        current +=
+                            (
+                                current
+                                ?
+                                " "
+                                :
+                                ""
+                            )
+                            +
+                            sentence;
+
+                    }
+
+                }
+            );
+
+
+            if(current.trim()){
+
+                paragraphs.push(
+                    current.trim()
+                );
+
+            }
+
+        }
+
+    }
+
+
+    return paragraphs
+        .map(
+            paragraph =>
+                `<p>${escapeHtml(
+                    paragraph
+                )}</p>`
+        )
+        .join("\n");
+}
+
+
+/* =====================================================
+   GET ARTICLE ID
+===================================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const articleId =
+    params.get("id");
+
+
+/* =====================================================
+   LOAD ARTICLE
+===================================================== */
+
+async function loadArticle(){
+
+    try{
+
+        /* CHECK ID */
+
+        if(!articleId){
+
+            articleContainer.innerHTML = `
+
+                <div class="error">
+
+                    <h2>
+                        ❌ Habari haijachaguliwa
+                    </h2>
+
+                    <p>
+                        Hakuna ID ya habari kwenye link.
+                    </p>
+
+                    <p>
+                        Fungua habari kupitia
+                        ukurasa wa Nyumbani au
+                        ukurasa wa category.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /* GET ARTICLES */
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "articles"
+                )
+            );
+
+
+        let article = null;
+
+        const allArticles = [];
+
+
+        snapshot.forEach(
+            function(doc){
+
+                const data =
+                    doc.data();
+
+                const item = {
+
+                    id: doc.id,
+
+                    ...data
+
+                };
+
+
+                allArticles.push(item);
+
+
+                if(
+                    String(doc.id)
+                    ===
+                    String(articleId)
+                ){
+
+                    article = item;
+
+                }
+
+            }
+        );
+
+
+        console.log(
+            "ARTICLE ID:",
+            articleId
+        );
+
+        console.log(
+            "ARTICLE FOUND:",
+            article
+        );
+
+
+        /* NOT FOUND */
+
+        if(!article){
+
+            articleContainer.innerHTML = `
+
+                <div class="error">
+
+                    <h2>
+                        ❌ Habari haijapatikana
+                    </h2>
+
+                    <p>
+                        ID ya habari:
+                        <strong>
+                            ${escapeHtml(articleId)}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Hakikisha link inatumia
+                        ID sahihi ya Firebase.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /* =================================================
+           PAGE TITLE
+        ================================================= */
+
+        document.title =
+            "BINSOUD HABARI - " +
+            (
+                article.title ||
+                "Habari"
+            );
+
+
+        /* =================================================
+           CONTENT
+        ================================================= */
+
+        const rawContent =
+            article.content || "";
+
+        const formattedContent =
+            formatArticleContent(
+                rawContent
+            );
+
+
+        /* =================================================
+           CHECK INTRO
+
+           HAPA NDIPO TUNAREKEBISHA KURUDIA HABARI.
+
+           Kama intro ni sawa na content,
+           intro haitapakiwa.
+        ================================================= */
+
+        const introText =
+            String(
+                article.intro || ""
+            ).trim();
+
+
+        const normalizedIntro =
+            normalizeText(
+                introText
+            );
+
+
+        const normalizedContent =
+            normalizeText(
+                rawContent
+            );
+
+
+        let showIntro = true;
+
+
+        if(
+            !introText
+            ||
+            !normalizedIntro
+        ){
+
+            showIntro = false;
+
+        }
+
+
+        /*
+           Kama intro yote ni sawa na content,
+           usii-display.
+        */
+
+        if(
+            normalizedIntro ===
+            normalizedContent
+        ){
+
+            showIntro = false;
+
+        }
+
+
+        /*
+           Pia kama content inaanza na intro yote,
+           tunachukulia intro kuwa sehemu ya content
+           na hatuonyeshi mara mbili.
+        */
+
+        if(
+            normalizedContent.includes(
+                normalizedIntro
+            )
+            &&
+            normalizedIntro.length > 100
+        ){
+
+            showIntro = false;
+
+        }
+
+
+        /* =================================================
+           IMAGE URL
+        ================================================= */
+
+        const imageUrl =
+            getImage(article);
+
+
+        console.log(
+            "FINAL IMAGE URL:",
+            imageUrl
+        );
+
+
+        /* =================================================
+           ARTICLE HTML
+        ================================================= */
+
+        articleContainer.innerHTML = `
+
+        <article class="article">
+
+
+            <!-- IMAGE -->
+
+            <div class="article-image">
+
+                <img
+                    id="mainArticleImage"
+                    src="${escapeHtml(
+                        imageUrl
+                    )}"
+                    alt="${escapeHtml(
+                        article.title ||
+                        "Habari"
+                    )}"
+                    loading="eager"
+                >
+
+            </div>
+
+
+            <!-- BODY -->
+
+            <div class="article-body">
+
+
+                <!-- CATEGORY -->
+
+                <span class="category">
+
+                    ${escapeHtml(
+                        article.category ||
+                        "Habari"
+                    )}
+
+                </span>
+
+
+                <!-- TITLE -->
+
+                <h1>
+
+                    ${escapeHtml(
+                        article.title ||
+                        "Bila kichwa"
+                    )}
+
+                </h1>
+
+
+                <!-- INTRO -->
+
+                ${
+                    showIntro
+                    ?
+                    `
+
+                    <div class="intro">
+
+                        ${escapeHtml(
+                            introText
+                        )}
+
+                    </div>
+
+                    `
+                    :
+                    ""
+                }
+
+
+                <!-- META -->
+
+                <div class="meta">
+
+                    <span>
+
+                        ✍️
+
+                        ${escapeHtml(
+                            article.author ||
+                            "BINSOUD HABARI"
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        📅
+
+                        ${escapeHtml(
+                            article.date ||
+                            ""
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        ⏱️
+
+                        ${escapeHtml(
+                            article.readTime ||
+                            "Dakika 3"
+                        )}
+
+                    </span>
+
+                </div>
+
+
+                <!-- CONTENT -->
+
+                <div class="content">
+
+                    ${formattedContent}
+
+                </div>
+
+
+                <!-- SHARE -->
+
+                <div class="share">
+
+                    <div class="share-title">
+
+                        🔗 Shiriki habari hii
+
+                    </div>
+
+
+                    <div class="share-buttons">
+
+
+                        <button
+                            class="share-button whatsapp"
+                            id="whatsappButton"
+                        >
+
+                            WhatsApp
+
+                        </button>
+
+
+                        <button
+                            class="share-button facebook"
+                            id="facebookButton"
+                        >
+
+                            Facebook
+
+                        </button>
+
+
+                        <button
+                            class="share-button telegram"
+                            id="telegramButton"
+                        >
+
+                            Telegram
+
+                        </button>
+
+
+                        <button
+                            class="share-button twitter"
+                            id="twitterButton"
+                        >
+
+                            X / Twitter
+
+                        </button>
+
+
+                        <button
+                            class="share-button copy"
+                            id="copyButton"
+                        >
+
+                            📋 Nakili Link
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+        `;
+
+
+        /* =================================================
+           IMAGE FALLBACK
+        ================================================= */
+
+        const mainImage =
+            document.getElementById(
+                "mainArticleImage"
+            );
+
+
+        if(mainImage){
+
+            mainImage.addEventListener(
+                "error",
+                function(){
+
+                    console.warn(
+                        "Picha haijapatikana:",
+                        imageUrl
+                    );
+
+
+                    if(
+                        !this.dataset.fallback
+                    ){
+
+                        this.dataset.fallback =
+                            "true";
+
+
+                        this.src =
+                            "images/habari.jpg";
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =================================================
+           CURRENT URL
+        ================================================= */
+
+        const currentUrl =
+            window.location.href;
+
+
+        const shareText =
+            (
+                article.title ||
+                "Habari"
+            )
+            +
+            " - BINSOUD HABARI";
+
+
+        /* =================================================
+           WHATSAPP
+        ================================================= */
+
+        document
+        .getElementById(
+            "whatsappButton"
+        )
+        .addEventListener(
+            "click",
+            function(){
+
+                const url =
+                    "https://wa.me/?text=" +
+                    encodeURIComponent(
+                        shareText +
+                        "\n\n" +
+                        currentUrl
+                    );
+
+
+                window.open(
+                    url,
+                    "_blank"
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           FACEBOOK
+        ================================================= */
+
+        document
+        .getElementById(
+            "facebookButton"
+        )
+        .addEventListener(
+            "click",
+            function(){
+
+                const url =
+                    "https://www.facebook.com/sharer/sharer.php?u=" +
+                    encodeURIComponent(
+                        currentUrl
+                    );
+
+
+                window.open(
+                    url,
+                    "_blank",
+                    "width=700,height=500"
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           TELEGRAM
+        ================================================= */
+
+        document
+        .getElementById(
+            "telegramButton"
+        )
+        .addEventListener(
+            "click",
+            function(){
+
+                const url =
+                    "https://t.me/share/url?url=" +
+                    encodeURIComponent(
+                        currentUrl
+                    )
+                    +
+                    "&text=" +
+                    encodeURIComponent(
+                        shareText
+                    );
+
+
+                window.open(
+                    url,
+                    "_blank"
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           X / TWITTER
+        ================================================= */
+
+        document
+        .getElementById(
+            "twitterButton"
+        )
+        .addEventListener(
+            "click",
+            function(){
+
+                const url =
+                    "https://twitter.com/intent/tweet?text=" +
+                    encodeURIComponent(
+                        shareText
+                    )
+                    +
+                    "&url=" +
+                    encodeURIComponent(
+                        currentUrl
+                    );
+
+
+                window.open(
+                    url,
+                    "_blank"
+                );
+
+            }
+        );
+
+
+        /* =================================================
+           COPY LINK
+        ================================================= */
+
+        document
+        .getElementById(
+            "copyButton"
+        )
+        .addEventListener(
+            "click",
+            async function(){
+
+                try{
+
+                    await navigator
+                        .clipboard
+                        .writeText(
+                            currentUrl
+                        );
+
+
+                    this.textContent =
+                        "✅ Link imenakiliwa";
+
+
+                    setTimeout(
+                        () => {
+
+                            this.textContent =
+                                "📋 Nakili Link";
+
+                        },
+                        2000
+                    );
+
+                }
+                catch(error){
+
+                    alert(
+                        "Imeshindikana kunakili link.\n\n" +
+                        currentUrl
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           RELATED NEWS
+        ================================================= */
+
+        const currentCategory =
+            String(
+                article.category || ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+        const related =
+            allArticles
+            .filter(
+                function(item){
+
+                    return (
+
+                        item.id !== article.id
+
+                        &&
+
+                        String(
+                            item.category || ""
+                        )
+                        .trim()
+                        .toLowerCase()
+
+                        ===
+
+                        currentCategory
+
+                    );
+
+                }
+            )
+            .slice(0,3);
+
+
+        if(related.length > 0){
+
+            relatedSection.style.display =
+                "block";
+
+
+            relatedGrid.innerHTML =
+                related
+                .map(
+                    function(item){
+
+                        const relatedImage =
+                            getImage(item);
+
+
+                        return `
+
+                        <article class="related-card">
+
+
+                            <img
+                                src="${escapeHtml(
+                                    relatedImage
+                                )}"
+                                alt="${escapeHtml(
+                                    item.title ||
+                                    "Habari"
+                                )}"
+                                loading="lazy"
+                                onerror="
+                                    this.onerror=null;
+                                    this.src='images/habari.jpg';
+                                "
+                            >
+
+
+                            <div class="related-content">
+
+
+                                <span class="related-category">
+
+                                    ${escapeHtml(
+                                        item.category ||
+                                        "Habari"
+                                    )}
+
+                                </span>
+
+
+                                <h3>
+
+                                    ${escapeHtml(
+                                        item.title ||
+                                        "Bila kichwa"
+                                    )}
+
+                                </h3>
+
+
+                                <p>
+
+                                    ${escapeHtml(
+                                        item.intro ||
+                                        ""
+                                    )}
+
+                                </p>
+
+
+                                <a
+                                    href="habari.html?id=${encodeURIComponent(
+                                        item.id
+                                    )}"
+                                >
+
+                                    Soma zaidi →
+
+                                </a>
+
+
+                            </div>
+
+                        </article>
+
+                        `;
+
+                    }
+                )
+                .join("");
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "FIREBASE ERROR:",
+            error
+        );
+
+
+        articleContainer.innerHTML = `
+
+            <div class="error">
+
+                <h2>
+                    ❌ Tatizo la Firebase
+                </h2>
+
+                <p>
+
+                    ${escapeHtml(
+                        error.message
+                    )}
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadArticle();
+
+</script>
+
+</body>
+</html>
