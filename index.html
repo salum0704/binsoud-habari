@@ -1,6 +1,6 @@
 ```html
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="sw-TZ">
 
 <head>
 
@@ -11,12 +11,108 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>BINSOUD HABARI | Nyumbani</title>
+<!-- =========================================
+     SEO
+========================================= -->
+
+<title>BINSOUD HABARI | Habari za Tanzania, Afrika na Dunia</title>
 
 <meta
     name="description"
-    content="BINSOUD HABARI - Chanzo chako cha habari za Tanzania, Afrika na dunia."
+    content="BINSOUD HABARI ni chanzo cha habari za Tanzania, Afrika na dunia. Soma habari mpya za kitaifa, siasa, biashara, michezo, burudani, dini, mazingira na kimataifa."
 >
+
+<meta
+    name="robots"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+>
+
+<meta
+    name="author"
+    content="BINSOUD HABARI"
+>
+
+<meta
+    name="theme-color"
+    content="#001a32"
+>
+
+<link
+    rel="canonical"
+    href="https://salum0704.github.io/binsoud-habari/"
+>
+
+
+<!-- =========================================
+     OPEN GRAPH
+========================================= -->
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:title"
+    content="BINSOUD HABARI | Habari za Tanzania, Afrika na Dunia"
+>
+
+<meta
+    property="og:description"
+    content="Soma habari mpya za Tanzania, Afrika na dunia kupitia BINSOUD HABARI."
+>
+
+<meta
+    property="og:url"
+    content="https://salum0704.github.io/binsoud-habari/"
+>
+
+<meta
+    property="og:site_name"
+    content="BINSOUD HABARI"
+>
+
+<meta
+    property="og:locale"
+    content="sw_TZ"
+>
+
+
+<!-- =========================================
+     TWITTER / X
+========================================= -->
+
+<meta
+    name="twitter:card"
+    content="summary_large_image"
+>
+
+<meta
+    name="twitter:title"
+    content="BINSOUD HABARI | Habari za Tanzania, Afrika na Dunia"
+>
+
+<meta
+    name="twitter:description"
+    content="Soma habari mpya za Tanzania, Afrika na dunia kupitia BINSOUD HABARI."
+>
+
+
+<!-- =========================================
+     STRUCTURED DATA
+========================================= -->
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "BINSOUD HABARI",
+    "url": "https://salum0704.github.io/binsoud-habari/",
+    "description": "Chanzo cha habari za Tanzania, Afrika na dunia.",
+    "inLanguage": "sw-TZ"
+}
+</script>
+
 
 <style>
 
@@ -1016,13 +1112,6 @@ footer a:hover{
         overflow:hidden;
     }
 
-
-    /*
-       MUHIMU:
-       Simu inaonyesha mistari 3 tu ya utangulizi.
-       Habari nzima haionekani hapa.
-    */
-
     .hero-intro{
         display:-webkit-box;
 
@@ -1288,7 +1377,7 @@ input{
     </div>
 
 
-    <nav>
+    <nav aria-label="Menyu kuu">
 
         <div class="nav-inner">
 
@@ -1386,7 +1475,10 @@ input{
      SEARCH
 ========================================= -->
 
-<section class="search-area">
+<section
+    class="search-area"
+    aria-label="Tafuta habari"
+>
 
     <form
         class="search-form"
@@ -1398,6 +1490,7 @@ input{
             id="searchInput"
             placeholder="🔎 Tafuta habari..."
             autocomplete="off"
+            aria-label="Tafuta habari"
         >
 
         <button type="submit">
@@ -1416,6 +1509,7 @@ input{
 <div
     class="error"
     id="errorBox"
+    role="alert"
 ></div>
 
 
@@ -1880,10 +1974,6 @@ function getShortIntro(article){
         );
 
 
-    /*
-       Kwanza tumia intro ya Firestore
-    */
-
     if(
         intro !== ""
     ){
@@ -1891,11 +1981,6 @@ function getShortIntro(article){
         const words =
             intro.split(/\s+/);
 
-
-        /*
-           Habari Kuu:
-           maneno 35 tu kwa usalama.
-        */
 
         if(
             words.length > 35
@@ -1915,11 +2000,6 @@ function getShortIntro(article){
 
     }
 
-
-    /*
-       Kama intro haipo,
-       tumia content.
-    */
 
     const content =
         removeHTML(
