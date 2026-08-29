@@ -1,16 +1,91 @@
 <!DOCTYPE html>
-<html lang="sw">
+
+<html lang="sw-TZ">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-<title>BINSOUD HABARI - Video</title>
+>
+
+<title>
+    Video | BINSOUD HABARI
+</title>
+
+<meta
+name="description"
+content="Tazama video za habari, mahojiano, matukio na vipindi mbalimbali kupitia BINSOUD HABARI."
+
+>
+
+<meta
+name="robots"
+content="index, follow, max-image-preview:large"
+
+>
+
+<meta
+name="author"
+content="BINSOUD HABARI"
+
+>
+
+<meta
+name="theme-color"
+content="#001a32"
+
+>
+
+<link
+    rel="canonical"
+    href="https://salum0704.github.io/binsoud-habari/video.html"
+>
+
+<meta
+property="og:type"
+content="website"
+
+>
+
+<meta
+property="og:title"
+content="Video | BINSOUD HABARI"
+
+>
+
+<meta
+property="og:description"
+content="Tazama video za habari, mahojiano, matukio na vipindi mbalimbali kupitia BINSOUD HABARI."
+
+>
+
+<meta
+property="og:url"
+content="https://salum0704.github.io/binsoud-habari/video.html"
+
+>
+
+<meta
+property="og:site_name"
+content="BINSOUD HABARI"
+
+>
+
+<meta
+property="og:locale"
+content="sw_TZ"
+
+>
 
 <style>
+
+/* =========================================
+   RESET
+========================================= */
 
 *{
     margin:0;
@@ -18,405 +93,1246 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:Arial,sans-serif;
-    background:#f4f7fa;
-    color:#111827;
+:root{
+
+    --navy:#001a32;
+    --blue:#003b63;
+    --blue2:#005b8f;
+
+    --yellow:#fee40c;
+
+    --red:#d60000;
+
+    --light:#f4f7fa;
+
+    --text:#17202a;
+
+    --muted:#687786;
+
+    --white:#ffffff;
+
+    --border:#e1e7ec;
+
 }
+
+html,
+body{
+
+    width:100%;
+
+    overflow-x:hidden;
+
+}
+
+body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        var(--light);
+
+    color:
+        var(--text);
+
+    line-height:
+        1.6;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.top-bar{
+
+    background:
+        #000d19;
+
+    color:
+        #dce7ef;
+
+    font-size:
+        13px;
+
+    padding:
+        7px 20px;
+
+}
+
+.top-inner{
+
+    max-width:
+        1250px;
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
 
 header{
-    background:#001a32;
-    color:white;
-    padding:18px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
+
+    background:
+        var(--navy);
+
+    color:
+        white;
+
 }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    white-space:nowrap;
+.header-inner{
+
+    max-width:
+        1250px;
+
+    margin:
+        auto;
+
+    padding:
+        20px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
 }
+
+.brand{
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+}
+
+.brand-icon{
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--navy);
+
+    border-radius:
+        8px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        22px;
+
+    font-weight:
+        bold;
+
+    flex-shrink:
+        0;
+
+}
+
+.brand-text h1{
+
+    font-size:
+        28px;
+
+    line-height:
+        1.1;
+
+}
+
+.brand-text span{
+
+    font-size:
+        12px;
+
+    color:
+        #b8c9d6;
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
 
 nav{
-    display:flex;
-    gap:6px;
-    flex-wrap:wrap;
+
+    background:
+        var(--blue);
+
+}
+
+.nav-inner{
+
+    max-width:
+        1250px;
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    overflow-x:
+        auto;
+
+    overflow-y:
+        hidden;
+
+    scrollbar-width:
+        none;
+
+}
+
+.nav-inner::-webkit-scrollbar{
+
+    display:
+        none;
+
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    padding:8px 10px;
-    border-radius:5px;
-    font-size:14px;
+
+    color:
+        white;
+
+    padding:
+        13px 14px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        bold;
+
+    white-space:
+        nowrap;
+
+    flex-shrink:
+        0;
+
 }
 
 nav a:hover,
 nav a.active{
-    background:#fee40c;
-    color:#001a32;
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--navy);
+
 }
+
+
+/* =========================================
+   BREAKING NEWS
+========================================= */
 
 .breaking{
-    background:#fee40c;
-    padding:10px 20px;
-    font-weight:bold;
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--navy);
+
+    width:
+        100%;
+
+    overflow:
+        hidden;
+
 }
+
+.breaking-inner{
+
+    max-width:
+        1250px;
+
+    margin:
+        auto;
+
+    min-height:
+        45px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    overflow:
+        hidden;
+
+}
+
+.breaking-label{
+
+    background:
+        var(--red);
+
+    color:
+        white;
+
+    padding:
+        9px 15px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    white-space:
+        nowrap;
+
+    flex-shrink:
+        0;
+
+}
+
+.breaking-ticker{
+
+    flex:
+        1;
+
+    overflow:
+        hidden;
+
+    white-space:
+        nowrap;
+
+}
+
+.breaking-track{
+
+    display:
+        inline-block;
+
+    padding-left:
+        100%;
+
+    animation:
+        breakingMove
+        45s
+        linear
+        infinite;
+
+    font-weight:
+        bold;
+
+}
+
+.breaking-track:hover{
+
+    animation-play-state:
+        paused;
+
+}
+
+@keyframes breakingMove{
+
+    0%{
+
+        transform:
+            translateX(0);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-100%);
+
+    }
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
 
 main{
-    max-width:1200px;
-    margin:auto;
-    padding:30px 20px;
+
+    width:
+        100%;
+
+    max-width:
+        1250px;
+
+    margin:
+        auto;
+
+    padding:
+        28px 20px 50px;
+
 }
+
+
+/* =========================================
+   PAGE TITLE
+========================================= */
 
 .page-title{
-    color:#002f54;
-    border-bottom:3px solid #c0ac00;
-    padding-bottom:12px;
-    margin-bottom:25px;
+
+    background:
+        white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    padding:
+        25px;
+
+    margin-bottom:
+        25px;
+
 }
 
-.intro,
-.search-box,
-.video-details{
-    background:white;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
+.page-title h2{
+
+    color:
+        var(--blue);
+
+    font-size:
+        28px;
+
+    margin-bottom:
+        6px;
+
 }
 
-.intro{
-    padding:25px;
-    margin-bottom:25px;
+.page-title p{
+
+    color:
+        var(--muted);
+
+    font-size:
+        15px;
+
 }
 
-.intro p{
-    color:#556677;
-    line-height:1.7;
-    font-size:17px;
-}
 
-.search-box{
-    padding:20px;
-    margin-bottom:25px;
+/* =========================================
+   SEARCH
+========================================= */
+
+.search-area{
+
+    background:
+        white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    padding:
+        15px;
+
+    margin-bottom:
+        30px;
+
 }
 
 .search-form{
-    display:flex;
-    gap:10px;
+
+    display:
+        flex;
+
+    gap:
+        10px;
+
 }
 
 .search-form input{
-    flex:1;
-    padding:14px;
-    border:1px solid #ccd5dd;
-    border-radius:6px;
-    font-size:16px;
-    outline:none;
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+    padding:
+        13px 15px;
+
+    border:
+        1px solid #ccd5dd;
+
+    border-radius:
+        6px;
+
+    outline:
+        none;
+
+    font-size:
+        15px;
+
 }
 
 .search-form input:focus{
-    border-color:#002f54;
+
+    border-color:
+        var(--blue2);
+
 }
 
 .search-form button{
-    background:#002f54;
-    color:white;
-    border:0;
-    padding:14px 22px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
+
+    background:
+        var(--blue);
+
+    color:
+        white;
+
+    border:
+        none;
+
+    border-radius:
+        6px;
+
+    padding:
+        0 25px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
 }
 
 .search-form button:hover{
-    background:#c0ac00;
-    color:#001a32;
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--navy);
+
 }
 
-.categories-title{
-    color:#002f54;
-    margin-bottom:12px;
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error{
+
+    display:
+        none;
+
+    background:
+        #fff0f0;
+
+    color:
+        #a50000;
+
+    border:
+        1px solid #ffcaca;
+
+    padding:
+        18px;
+
+    border-radius:
+        8px;
+
+    margin-bottom:
+        25px;
+
+    overflow-wrap:
+        anywhere;
+
 }
 
-.categories{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:30px;
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading{
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    border-bottom:
+        3px solid #c9b200;
+
+    margin-bottom:
+        20px;
+
 }
 
-.category-btn{
-    background:#eef3f7;
-    color:#002f54;
-    border:1px solid #ccd5dd;
-    padding:10px 15px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
+.section-heading h2{
+
+    color:
+        var(--blue);
+
+    font-size:
+        23px;
+
+    padding-bottom:
+        8px;
+
 }
 
-.category-btn:hover,
-.category-btn.active{
-    background:#002f54;
-    color:white;
-}
 
-.section-title{
-    color:#002f54;
-    border-bottom:3px solid #c0ac00;
-    padding-bottom:10px;
-    margin-bottom:20px;
-}
+/* =========================================
+   VIDEO GRID
+========================================= */
 
 .video-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        20px;
+
 }
 
+
+/* =========================================
+   VIDEO CARD
+========================================= */
+
 .video-card{
-    background:white;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-    transition:transform .2s,box-shadow .2s;
+
+    min-width:
+        0;
+
+    background:
+        white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        10px;
+
+    overflow:
+        hidden;
+
+    transition:
+        .2s;
+
 }
 
 .video-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 6px 18px rgba(0,0,0,.12);
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.09);
+
 }
 
-.video-wrapper{
-    position:relative;
-    background:#000;
+
+/* =========================================
+   VIDEO PLAYER
+========================================= */
+
+.video-player{
+
+    width:
+        100%;
+
+    aspect-ratio:
+        16 / 9;
+
+    background:
+        #000;
+
+    overflow:
+        hidden;
+
 }
 
-.video-card video{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    display:block;
-    background:#000;
+.video-player iframe{
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    border:
+        0;
+
+    display:
+        block;
+
 }
+
+.video-player video{
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+}
+
+
+/* =========================================
+   IMAGE FALLBACK
+========================================= */
+
+.video-image{
+
+    width:
+        100%;
+
+    aspect-ratio:
+        16 / 9;
+
+    background:
+        #dfe6eb;
+
+    overflow:
+        hidden;
+
+}
+
+.video-image img{
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    display:
+        block;
+
+}
+
+
+/* =========================================
+   VIDEO CONTENT
+========================================= */
 
 .video-content{
-    padding:20px;
+
+    min-width:
+        0;
+
+    padding:
+        18px;
+
 }
 
 .category{
-    display:inline-block;
-    background:#002f54;
-    color:white;
-    padding:5px 10px;
-    margin-bottom:10px;
-    font-size:13px;
-    border-radius:4px;
+
+    display:
+        inline-block;
+
+    background:
+        var(--blue);
+
+    color:
+        white;
+
+    padding:
+        5px 10px;
+
+    border-radius:
+        4px;
+
+    font-size:
+        11px;
+
+    font-weight:
+        bold;
+
+    margin-bottom:
+        10px;
+
 }
 
-.video-content h2{
-    color:#002f54;
-    font-size:20px;
-    line-height:1.4;
-    margin-bottom:10px;
+.video-card h3{
+
+    color:
+        var(--navy);
+
+    font-size:
+        19px;
+
+    line-height:
+        1.4;
+
+    margin-bottom:
+        9px;
+
 }
 
-.video-content p{
-    color:#556677;
-    line-height:1.6;
-    margin-bottom:12px;
+.video-card p{
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.65;
+
+    margin-bottom:
+        12px;
+
 }
 
-.author{
-    color:#002f54;
-    font-size:14px;
-    font-weight:bold;
-    margin-bottom:12px;
+.meta{
+
+    color:
+        #7c8994;
+
+    font-size:
+        12px;
+
+    margin-bottom:
+        12px;
+
 }
 
-.date{
-    display:block;
-    color:#7b8794;
-    font-size:13px;
-    margin-bottom:15px;
+.read-button{
+
+    display:
+        inline-block;
+
+    margin-top:
+        10px;
+
+    background:
+        var(--blue);
+
+    color:
+        white;
+
+    padding:
+        9px 14px;
+
+    border-radius:
+        5px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
 }
 
-.watch-btn{
-    display:inline-block;
-    background:#002f54;
-    color:white;
-    border:0;
-    padding:10px 16px;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
+.read-button:hover{
+
+    background:
+        var(--yellow);
+
+    color:
+        var(--navy);
+
 }
 
-.watch-btn:hover{
-    background:#c0ac00;
-    color:#001a32;
+
+/* =========================================
+   LOADING / EMPTY
+========================================= */
+
+.loading,
+.empty{
+
+    background:
+        white;
+
+    padding:
+        35px;
+
+    border-radius:
+        9px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
 }
 
-.loading{
-    grid-column:1/-1;
-    background:white;
-    padding:40px;
-    border-radius:10px;
-    text-align:center;
-    color:#556677;
-    font-size:17px;
+.empty{
+
+    display:
+        none;
+
 }
 
-.no-results{
-    display:none;
-    background:white;
-    padding:30px;
-    border-radius:8px;
-    text-align:center;
-    color:#556677;
-    margin-top:20px;
-}
 
-.video-details{
-    display:none;
-    padding:30px;
-    margin-top:30px;
-}
-
-.video-details video{
-    width:100%;
-    max-height:600px;
-    background:#000;
-    border-radius:8px;
-    margin:20px 0;
-}
-
-.video-details h2{
-    color:#002f54;
-    font-size:32px;
-    line-height:1.3;
-    margin-bottom:15px;
-}
-
-.video-details p{
-    color:#334155;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:15px;
-    white-space:pre-line;
-}
-
-.detail-author{
-    color:#002f54;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.close-btn{
-    background:#001a32;
-    color:white;
-    border:0;
-    padding:10px 18px;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.close-btn:hover{
-    background:#c0ac00;
-    color:#001a32;
-}
-
-.error-box{
-    grid-column:1/-1;
-    background:#ffe5e5;
-    color:#a40000;
-    padding:25px;
-    border-radius:8px;
-    text-align:center;
-    line-height:1.6;
-}
-
-.empty-box{
-    grid-column:1/-1;
-    background:white;
-    padding:40px;
-    border-radius:10px;
-    text-align:center;
-    color:#556677;
-}
+/* =========================================
+   FOOTER
+========================================= */
 
 footer{
-    background:#001a32;
-    color:white;
-    padding:30px 20px;
-    margin-top:40px;
-    text-align:center;
+
+    background:
+        var(--navy);
+
+    color:
+        white;
+
 }
 
-footer p{
-    margin-top:10px;
-    color:#dbe4ec;
+.footer-inner{
+
+    max-width:
+        1250px;
+
+    margin:
+        auto;
+
+    padding:
+        40px 20px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap:
+        35px;
+
 }
+
+footer h3{
+
+    margin-bottom:
+        12px;
+
+}
+
+footer p,
+footer a{
+
+    color:
+        #b9c8d3;
+
+    font-size:
+        14px;
+
+}
+
+footer a{
+
+    display:
+        block;
+
+    margin-bottom:
+        7px;
+
+}
+
+footer a:hover{
+
+    color:
+        var(--yellow);
+
+}
+
+.copyright{
+
+    border-top:
+        1px solid rgba(255,255,255,.1);
+
+    padding:
+        15px 20px;
+
+    text-align:
+        center;
+
+    color:
+        #aebdca;
+
+    font-size:
+        12px;
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
 
 @media(max-width:950px){
 
     .video-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .footer-inner{
+
+        grid-template-columns:
+            1fr 1fr;
+
     }
 
 }
 
-@media(max-width:800px){
 
-    header{
-        flex-direction:column;
-        padding:20px;
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:650px){
+
+    .top-bar{
+
+        padding:
+            7px 12px;
+
     }
 
-    nav{
-        justify-content:center;
+    .top-inner{
+
+        flex-direction:
+            column;
+
+        gap:
+            4px;
+
+        text-align:
+            center;
+
     }
 
-    .search-form{
-        flex-direction:column;
+    .header-inner{
+
+        flex-direction:
+            column;
+
+        gap:
+            15px;
+
+        text-align:
+            center;
+
+        padding:
+            18px 12px;
+
     }
 
-    .search-form button{
-        width:100%;
+    .brand{
+
+        justify-content:
+            center;
+
     }
 
-}
+    .brand-text h1{
 
-@media(max-width:600px){
+        font-size:
+            24px;
 
-    .video-grid{
-        grid-template-columns:1fr;
     }
 
-    .video-details h2{
-        font-size:25px;
+    nav a{
+
+        padding:
+            12px 13px;
+
+        font-size:
+            13px;
+
     }
 
-    .video-card video{
-        height:210px;
+    .breaking-label{
+
+        padding:
+            9px 10px;
+
+        font-size:
+            11px;
+
     }
 
     main{
-        padding:20px 12px;
+
+        padding:
+            20px 12px 40px;
+
     }
 
-    .intro,
-    .search-box,
-    .video-details{
-        padding:20px;
+    .page-title{
+
+        padding:
+            20px;
+
     }
 
-    .logo{
-        font-size:23px;
+    .page-title h2{
+
+        font-size:
+            24px;
+
+    }
+
+    .search-form{
+
+        flex-direction:
+            column;
+
+    }
+
+    .search-form input{
+
+        width:
+            100%;
+
+    }
+
+    .search-form button{
+
+        width:
+            100%;
+
+        min-height:
+            45px;
+
+        padding:
+            12px;
+
+    }
+
+    .video-grid{
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            16px;
+
+    }
+
+    .video-content{
+
+        padding:
+            16px;
+
+    }
+
+    .video-card h3{
+
+        font-size:
+            18px;
+
+    }
+
+    .footer-inner{
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            32px 20px;
+
+    }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .breaking-track{
+
+        animation:
+            none;
+
+    }
+
+    .video-card{
+
+        transition:
+            none;
+
     }
 
 }
@@ -425,357 +1341,383 @@ footer p{
 
 </head>
 
-
 <body>
 
+<!-- =========================================
+     TOP BAR
+========================================= -->
+
+<div class="top-bar">
+
+```
+<div class="top-inner">
+
+    <span>
+        📰 BINSOUD HABARI
+    </span>
+
+    <span id="todayDate">
+        Leo
+    </span>
+
+</div>
+```
+
+</div>
+
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header>
 
-<div class="logo">
-BINSOUD HABARI
+```
+<div class="header-inner">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            BH
+        </div>
+
+        <div class="brand-text">
+
+            <h1>
+                BINSOUD HABARI
+            </h1>
+
+            <span>
+                Chanzo chako cha habari
+            </span>
+
+        </div>
+
+    </div>
+
+    <div>
+        Habari za Tanzania na Dunia
+    </div>
+
 </div>
 
-<nav>
 
-<a href="index.html">
-Nyumbani
-</a>
+<nav aria-label="Menyu kuu">
 
-<a href="siasa.html">
-Siasa
-</a>
+    <div class="nav-inner">
 
-<a href="kitaifa.html">
-Kitaifa
-</a>
+        <a href="index.html">
+            Nyumbani
+        </a>
 
-<a href="biashara.html">
-Biashara
-</a>
+        <a href="siasa.html">
+            Siasa
+        </a>
 
-<a href="michezo.html">
-Michezo
-</a>
+        <a href="kitaifa.html">
+            Kitaifa
+        </a>
 
-<a href="dini.html">
-Dini
-</a>
+        <a href="biashara.html">
+            Biashara
+        </a>
 
-<a href="kimataifa.html">
-Kimataifa
-</a>
+        <a href="michezo.html">
+            Michezo
+        </a>
 
-<a href="burudani.html">
-Burudani
-</a>
+        <a href="dini.html">
+            Dini
+        </a>
 
-<a href="mazingira.html">
-Mazingira
-</a>
+        <a href="kimataifa.html">
+            Kimataifa
+        </a>
 
-<a href="video.html"
-   class="active">
-Video
-</a>
+        <a href="burudani.html">
+            Burudani
+        </a>
 
-<a href="audio.html">
-Audio
-</a>
+        <a href="mazingira.html">
+            Mazingira
+        </a>
 
-<a href="makala.html">
-Makala
-</a>
+        <a href="video.html" class="active">
+            Video
+        </a>
+
+        <a href="audio.html">
+            Audio
+        </a>
+
+        <a href="makala.html">
+            Makala
+        </a>
+
+        <a href="contact.html">
+            Mawasiliano
+        </a>
+
+    </div>
 
 </nav>
+```
 
 </header>
 
+<!-- =========================================
+     BREAKING
+========================================= -->
 
 <div class="breaking">
 
-🔴 HABARI MOTO:
-BINSOUD HABARI - Tazama Video za Habari
+```
+<div class="breaking-inner">
+
+    <div class="breaking-label">
+        🔴 HABARI MOTO
+    </div>
+
+    <div class="breaking-ticker">
+
+        <div
+            id="breakingText"
+            class="breaking-track"
+        >
+            Inapakia habari...
+        </div>
+
+    </div>
+
+</div>
+```
 
 </div>
 
-
 <main>
 
+<!-- =========================================
+     TITLE
+========================================= -->
 
-<h1 class="page-title">
-🎥 Video
-</h1>
+<section class="page-title">
 
-
-<section class="intro">
+```
+<h2>
+    🎥 Video
+</h2>
 
 <p>
-
-🎥 Karibu kwenye ukurasa wa Video wa
-<strong>BINSOUD HABARI</strong>.
-
-Hapa unaweza kutazama habari, mahojiano,
-matukio na vipindi mbalimbali vya video.
-
+    Tazama video za habari, mahojiano,
+    matukio na vipindi mbalimbali
+    kutoka BINSOUD HABARI.
 </p>
+```
 
 </section>
 
+<!-- =========================================
+     SEARCH
+========================================= -->
 
-<section class="search-box">
+<section class="search-area">
 
+```
 <form
     class="search-form"
     id="searchForm"
 >
 
-<input
-    type="text"
-    id="searchInput"
-    placeholder="🔎 Tafuta video..."
-    autocomplete="off"
->
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔎 Tafuta video..."
+        autocomplete="off"
+        aria-label="Tafuta video"
+    >
 
-<button type="submit">
-🔎 Tafuta
-</button>
+    <button type="submit">
+        🔎 Tafuta
+    </button>
 
 </form>
+```
 
 </section>
 
-
-<h3 class="categories-title">
-Chagua Category
-</h3>
-
+<!-- =========================================
+     ERROR
+========================================= -->
 
 <div
-    class="categories"
-    id="categories"
->
+    class="error"
+    id="errorBox"
+    role="alert"
+></div>
 
-<button
-    type="button"
-    class="category-btn active"
-    data-category="Zote"
->
-Zote
-</button>
+<!-- =========================================
+     VIDEOS
+========================================= -->
 
-<button
-    type="button"
-    class="category-btn"
-    data-category="Siasa"
->
-Siasa
-</button>
+<section>
 
-<button
-    type="button"
-    class="category-btn"
-    data-category="Kitaifa"
->
-Kitaifa
-</button>
+```
+<div class="section-heading">
 
-<button
-    type="button"
-    class="category-btn"
-    data-category="Biashara"
->
-Biashara
-</button>
-
-<button
-    type="button"
-    class="category-btn"
-    data-category="Michezo"
->
-Michezo
-</button>
-
-<button
-    type="button"
-    class="category-btn"
-    data-category="Dini"
->
-Dini
-</button>
-
-<button
-    type="button"
-    class="category-btn"
-    data-category="Kimataifa"
->
-Kimataifa
-</button>
-
-<button
-    type="button"
-    class="category-btn"
-    data-category="Burudani"
->
-Burudani
-</button>
-
-<button
-    type="button"
-    class="category-btn"
-    data-category="Mazingira"
->
-Mazingira
-</button>
-
-<button
-    type="button"
-    class="category-btn"
-    data-category="Makala"
->
-Makala
-</button>
+    <h2>
+        🎥 Video Mpya
+    </h2>
 
 </div>
-
-
-<h2 class="section-title">
-🎥 Video za Habari
-</h2>
 
 
 <div
     class="video-grid"
-    id="videoGrid"
+    id="videoContainer"
 >
 
-<div class="loading">
-⏳ Inapakia video kutoka Firebase...
-</div>
+    <div class="loading">
+        ⏳ Inapakia video...
+    </div>
 
 </div>
 
 
 <div
-    class="no-results"
-    id="noResults"
+    class="empty"
+    id="emptyBox"
 >
-
-❌ Hakuna video iliyopatikana.
-
+    ❌ Hakuna video iliyopatikana.
 </div>
+```
 
-
-<article
-    class="video-details"
-    id="videoDetails"
->
-
-
-<span
-    class="category"
-    id="detailCategory"
->
-Video
-</span>
-
-
-<h2 id="detailTitle">
-Video
-</h2>
-
-
-<div
-    class="detail-author"
-    id="detailAuthor"
->
-</div>
-
-
-<video
-    id="detailVideo"
-    controls
-    playsinline
-    preload="metadata"
->
-
-Kivinjari chako hakiwezi kucheza video.
-
-</video>
-
-
-<p id="detailDescription"></p>
-
-
-<span
-    class="date"
-    id="detailDate"
->
-</span>
-
-
-<button
-    class="close-btn"
-    id="closeDetails"
->
-
-← Rudi kwenye Video
-
-</button>
-
-
-</article>
-
+</section>
 
 </main>
 
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
 
-<h3>
-BINSOUD HABARI
-</h3>
+```
+<div class="footer-inner">
 
-<p>
-Chanzo chako cha kuaminika cha habari
-za kitaifa na kimataifa.
-</p>
+    <div>
 
-<p>
-© 2026 BINSOUD HABARI.
-Haki zote zimehifadhiwa.
-</p>
+        <h3>
+            BINSOUD HABARI
+        </h3>
+
+        <p>
+            Chanzo chako cha kuaminika
+            cha habari za Tanzania,
+            Afrika na dunia.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Sehemu
+        </h3>
+
+        <a href="index.html">
+            Nyumbani
+        </a>
+
+        <a href="kitaifa.html">
+            Kitaifa
+        </a>
+
+        <a href="siasa.html">
+            Siasa
+        </a>
+
+        <a href="biashara.html">
+            Biashara
+        </a>
+
+        <a href="michezo.html">
+            Michezo
+        </a>
+
+        <a href="contact.html">
+            Mawasiliano
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Media
+        </h3>
+
+        <a href="video.html">
+            🎥 Video
+        </a>
+
+        <a href="audio.html">
+            🎧 Audio
+        </a>
+
+        <a href="makala.html">
+            📝 Makala
+        </a>
+
+        <a href="contact.html">
+            📞 Mawasiliano
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="copyright">
+
+    © 2026 BINSOUD HABARI.
+    Haki zote zimehifadhiwa.
+
+</div>
+```
 
 </footer>
 
+<!-- =========================================
+     FIREBASE
+========================================= -->
 
 <script type="module">
 
 
-/* =====================================================
-   FIREBASE IMPORTS
-===================================================== */
+/* =========================================
+   FIREBASE SDK
+========================================= */
 
 import {
     initializeApp
 }
 from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 
 import {
     getFirestore,
     collection,
-    getDocs,
-    query,
-    orderBy
+    getDocs
 }
 from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+"https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
-/* =====================================================
+/* =========================================
    FIREBASE CONFIG
-===================================================== */
+========================================= */
 
 const firebaseConfig = {
 
@@ -803,270 +1745,516 @@ const firebaseConfig = {
 };
 
 
-/* =====================================================
-   INITIALIZE FIREBASE
-===================================================== */
+/* =========================================
+   INITIALIZE
+========================================= */
 
 const app =
-    initializeApp(firebaseConfig);
+    initializeApp(
+        firebaseConfig
+    );
 
 const db =
-    getFirestore(app);
+    getFirestore(
+        app
+    );
 
 
-/* =====================================================
+/* =========================================
    ELEMENTS
-===================================================== */
+========================================= */
 
-const videoGrid =
-    document.getElementById("videoGrid");
+const videoContainer =
+    document.getElementById(
+        "videoContainer"
+    );
+
+const errorBox =
+    document.getElementById(
+        "errorBox"
+    );
+
+const emptyBox =
+    document.getElementById(
+        "emptyBox"
+    );
+
+const breakingText =
+    document.getElementById(
+        "breakingText"
+    );
 
 const searchForm =
-    document.getElementById("searchForm");
+    document.getElementById(
+        "searchForm"
+    );
 
 const searchInput =
-    document.getElementById("searchInput");
+    document.getElementById(
+        "searchInput"
+    );
 
-const noResults =
-    document.getElementById("noResults");
-
-const categoryButtons =
-    document.querySelectorAll(".category-btn");
-
-const videoDetails =
-    document.getElementById("videoDetails");
-
-const detailCategory =
-    document.getElementById("detailCategory");
-
-const detailTitle =
-    document.getElementById("detailTitle");
-
-const detailAuthor =
-    document.getElementById("detailAuthor");
-
-const detailVideo =
-    document.getElementById("detailVideo");
-
-const detailDescription =
-    document.getElementById("detailDescription");
-
-const detailDate =
-    document.getElementById("detailDate");
-
-const closeDetails =
-    document.getElementById("closeDetails");
-
-
-/* =====================================================
-   DATA
-===================================================== */
 
 let allVideos = [];
 
-let currentCategory = "Zote";
 
-let currentSearch = "";
+/* =========================================
+   DATE
+========================================= */
+
+document.getElementById(
+    "todayDate"
+).textContent =
+
+new Date().toLocaleDateString(
+    "sw-TZ",
+    {
+
+        weekday:
+            "long",
+
+        year:
+            "numeric",
+
+        month:
+            "long",
+
+        day:
+            "numeric"
+
+    }
+);
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* =========================================
+   ESCAPE
+========================================= */
 
-function escapeHtml(value){
+function escapeHTML(value){
 
-    return String(value ?? "")
+    return String(
+        value ?? ""
+    )
 
-        .replace(/&/g,"&amp;")
+    .replace(
+        /&/g,
+        "&amp;"
+    )
 
-        .replace(/</g,"&lt;")
+    .replace(
+        /</g,
+        "&lt;"
+    )
 
-        .replace(/>/g,"&gt;")
+    .replace(
+        />/g,
+        "&gt;"
+    )
 
-        .replace(/"/g,"&quot;")
+    .replace(
+        /"/g,
+        "&quot;"
+    )
 
-        .replace(/'/g,"&#039;");
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
 
-/* =====================================================
-   DATE
-===================================================== */
+/* =========================================
+   TEXT
+========================================= */
 
-function formatDate(value){
+function getText(value){
 
-    if(!value){
+    return String(
+        value ?? ""
+    ).trim();
 
-        return "Tarehe haijawekwa";
+}
 
-    }
 
-    try{
+/* =========================================
+   REMOVE HTML
+========================================= */
 
-        let date;
+function removeHTML(value){
 
-        if(
-            value &&
-            typeof value.toDate === "function"
-        ){
+    return String(
+        value ?? ""
+    )
 
-            date =
-                value.toDate();
+    .replace(
+        /<[^>]*>/g,
+        " "
+    )
 
-        }
+    .replace(
+        /\s+/g,
+        " "
+    )
 
-        else{
+    .trim();
 
-            date =
-                new Date(value);
+}
 
-        }
 
-        if(
-            isNaN(
-                date.getTime()
-            )
-        ){
+/* =========================================
+   SHORT INTRO
+========================================= */
 
-            return String(value);
+function getShortIntro(article){
 
-        }
-
-        return date.toLocaleDateString(
-            "sw-TZ",
-            {
-                year:"numeric",
-                month:"long",
-                day:"numeric"
-            }
+    let text =
+        removeHTML(
+            article.intro
         );
 
-    }catch(error){
 
-        return String(value);
+    if(
+        text === ""
+    ){
+
+        text =
+            removeHTML(
+                article.content
+            );
 
     }
+
+
+    if(
+        text === ""
+    ){
+
+        return "";
+
+    }
+
+
+    const words =
+        text.split(
+            /\s+/
+        );
+
+
+    if(
+        words.length > 30
+    ){
+
+        return (
+
+            words
+            .slice(
+                0,
+                30
+            )
+            .join(" ")
+
+            +
+
+            "..."
+
+        );
+
+    }
+
+
+    return text;
 
 }
 
 
-/* =====================================================
-   LOAD VIDEOS
-===================================================== */
+/* =========================================
+   DATE VALUE
+========================================= */
 
-async function loadVideos(){
+function getDateValue(article){
 
-    videoGrid.innerHTML = `
-
-        <div class="loading">
-
-            ⏳ Inapakia video kutoka Firebase...
-
-        </div>
-
-    `;
+    const value =
+        article.createdAt ||
+        article.date ||
+        "";
 
 
-    try{
+    if(
 
-        let snapshot;
+        typeof value === "object"
+
+        &&
+
+        value !== null
+
+        &&
+
+        typeof value.toDate ===
+            "function"
+
+    ){
+
+        return value
+            .toDate()
+            .getTime();
+
+    }
 
 
-        try{
-
-            const videosQuery =
-                query(
-                    collection(db,"videos"),
-                    orderBy(
-                        "createdAt",
-                        "desc"
-                    )
-                );
+    const time =
+        new Date(
+            value
+        ).getTime();
 
 
-            snapshot =
-                await getDocs(
-                    videosQuery
-                );
+    if(
+        Number.isNaN(
+            time
+        )
+    ){
 
-        }catch(orderError){
+        return 0;
 
-            console.warn(
-                "createdAt order failed:",
-                orderError
+    }
+
+
+    return time;
+
+}
+
+
+/* =========================================
+   FORMAT DATE
+========================================= */
+
+function formatDate(article){
+
+    if(
+        getText(
+            article.date
+        ) !== ""
+    ){
+
+        return article.date;
+
+    }
+
+
+    if(
+
+        article.createdAt
+
+        &&
+
+        typeof article.createdAt.toDate ===
+            "function"
+
+    ){
+
+        return article
+            .createdAt
+            .toDate()
+            .toLocaleDateString(
+                "sw-TZ",
+                {
+
+                    year:
+                        "numeric",
+
+                    month:
+                        "long",
+
+                    day:
+                        "numeric"
+
+                }
+            );
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+function getImage(article){
+
+    const image =
+        getText(
+            article.image ||
+            article.imageUrl
+        );
+
+
+    if(
+        image !== ""
+    ){
+
+        return image;
+
+    }
+
+
+    return "https://via.placeholder.com/900x506?text=BINSOUD+HABARI";
+
+}
+
+
+/* =========================================
+   VIDEO URL
+========================================= */
+
+function getVideoUrl(article){
+
+    return getText(
+
+        article.videoUrl ||
+
+        article.video ||
+
+        article.videoURL ||
+
+        article.youtubeUrl ||
+
+        article.youtube ||
+
+        article.youtubeURL ||
+
+        article.videoLink ||
+
+        article.mediaUrl ||
+
+        ""
+
+    );
+
+}
+
+
+/* =========================================
+   ARTICLE PAGE
+========================================= */
+
+function getArticlePage(id){
+
+    return (
+
+        "habari.html?id=" +
+
+        encodeURIComponent(
+            id
+        )
+
+    );
+
+}
+
+
+/* =========================================
+   YOUTUBE ID
+========================================= */
+
+function getYouTubeId(url){
+
+    const value =
+        getText(
+            url
+        );
+
+
+    if(
+        value === ""
+    ){
+
+        return "";
+
+    }
+
+
+    const patterns = [
+
+        /youtube\.com\/watch\?v=([^&]+)/i,
+
+        /youtu\.be\/([^?&]+)/i,
+
+        /youtube\.com\/embed\/([^?&]+)/i,
+
+        /youtube\.com\/shorts\/([^?&]+)/i
+
+    ];
+
+
+    for(
+        const pattern of patterns
+    ){
+
+        const match =
+            value.match(
+                pattern
             );
 
 
-            snapshot =
-                await getDocs(
-                    collection(
-                        db,
-                        "videos"
-                    )
-                );
+        if(
+            match &&
+            match[1]
+        ){
+
+            return match[1];
 
         }
 
+    }
 
-        allVideos = [];
+
+    return "";
+
+}
 
 
-        snapshot.forEach(
-            function(documentSnapshot){
+/* =========================================
+   VIDEO PLAYER
+========================================= */
 
-                allVideos.push({
+function createVideoPlayer(article){
 
-                    id:
-                        documentSnapshot.id,
-
-                    ...documentSnapshot.data()
-
-                });
-
-            }
+    const url =
+        getVideoUrl(
+            article
         );
 
 
-        allVideos.sort(
-            function(a,b){
+    if(
+        url === ""
+    ){
 
-                return getTimeValue(
-                    b.createdAt ||
-                    b.date
-                )
-                -
-                getTimeValue(
-                    a.createdAt ||
-                    a.date
-                );
+        return `
 
-            }
-        );
+            <div class="video-image">
 
+                <img
 
-        renderVideos();
+                    src="${escapeHTML(
+                        getImage(article)
+                    )}"
 
+                    alt="${escapeHTML(
+                        article.title
+                    )}"
 
-    }catch(error){
+                    loading="lazy"
 
-        console.error(
-            "LOAD VIDEO ERROR:",
-            error
-        );
+                    onerror="
+                        this.onerror=null;
+                        this.src='https://via.placeholder.com/900x506?text=BINSOUD+HABARI';
+                    "
 
-
-        videoGrid.innerHTML = `
-
-            <div class="error-box">
-
-                ❌ Imeshindikana kupakia video.
-
-                <br><br>
-
-                ${escapeHtml(
-                    error.message
-                )}
+                >
 
             </div>
 
@@ -1074,84 +2262,200 @@ async function loadVideos(){
 
     }
 
-}
 
-
-/* =====================================================
-   RENDER VIDEOS
-===================================================== */
-
-function renderVideos(){
-
-    const filtered =
-        allVideos.filter(
-            function(video){
-
-                const category =
-                    String(
-                        video.category || ""
-                    )
-                    .trim()
-                    .toLowerCase();
-
-
-                const title =
-                    String(
-                        video.title || ""
-                    )
-                    .toLowerCase();
-
-
-                const description =
-                    String(
-                        video.description ||
-                        video.intro ||
-                        ""
-                    )
-                    .toLowerCase();
-
-
-                const author =
-                    String(
-                        video.author || ""
-                    )
-                    .toLowerCase();
-
-
-                const search =
-                    currentSearch
-                    .toLowerCase()
-                    .trim();
-
-
-                const categoryMatch =
-                    currentCategory === "Zote" ||
-                    category ===
-                    currentCategory.toLowerCase();
-
-
-                const searchMatch =
-                    search === "" ||
-                    title.includes(search) ||
-                    description.includes(search) ||
-                    author.includes(search) ||
-                    category.includes(search);
-
-
-                return (
-                    categoryMatch &&
-                    searchMatch
-                );
-
-            }
+    const youtubeId =
+        getYouTubeId(
+            url
         );
 
 
-    if(filtered.length === 0){
+    if(
+        youtubeId !== ""
+    ){
 
-        videoGrid.innerHTML = "";
+        return `
 
-        noResults.style.display =
+            <div class="video-player">
+
+                <iframe
+
+                    src="https://www.youtube.com/embed/${encodeURIComponent(
+                        youtubeId
+                    )}"
+
+                    title="${escapeHTML(
+                        article.title
+                    )}"
+
+                    loading="lazy"
+
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+
+                    allowfullscreen
+
+                ></iframe>
+
+            </div>
+
+        `;
+
+    }
+
+
+    if(
+        /\.(mp4|webm|ogg)(\?.*)?$/i.test(
+            url
+        )
+    ){
+
+        return `
+
+            <div class="video-player">
+
+                <video
+                    controls
+                    preload="metadata"
+                    poster="${escapeHTML(
+                        getImage(article)
+                    )}"
+                >
+
+                    <source
+                        src="${escapeHTML(
+                            url
+                        )}"
+                    >
+
+                    Kivinjari chako hakiwezi kucheza video hii.
+
+                </video>
+
+            </div>
+
+        `;
+
+    }
+
+
+    return `
+
+        <div class="video-image">
+
+            <img
+
+                src="${escapeHTML(
+                    getImage(article)
+                )}"
+
+                alt="${escapeHTML(
+                    article.title
+                )}"
+
+                loading="lazy"
+
+                onerror="
+                    this.onerror=null;
+                    this.src='https://via.placeholder.com/900x506?text=BINSOUD+HABARI';
+                "
+
+            >
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   BREAKING NEWS
+========================================= */
+
+function renderBreakingNews(articles){
+
+    if(
+
+        !articles ||
+
+        articles.length === 0
+
+    ){
+
+        breakingText.textContent =
+            "Karibu BINSOUD HABARI - Chanzo chako cha habari.";
+
+        return;
+
+    }
+
+
+    const headlines =
+
+        articles
+        .slice(
+            0,
+            10
+        )
+
+        .map(
+
+            function(article){
+
+                return (
+
+                    "🔴 " +
+
+                    escapeHTML(
+                        article.title ||
+                        "Habari"
+                    )
+
+                );
+
+            }
+
+        );
+
+
+    const text =
+        headlines.join(
+            "     •     "
+        );
+
+
+    breakingText.innerHTML =
+
+        text +
+
+        "     •     " +
+
+        text;
+
+}
+
+
+/* =========================================
+   RENDER VIDEOS
+========================================= */
+
+function renderVideos(videos){
+
+    videoContainer.innerHTML =
+        "";
+
+    emptyBox.style.display =
+        "none";
+
+
+    if(
+
+        !videos ||
+
+        videos.length === 0
+
+    ){
+
+        emptyBox.style.display =
             "block";
 
         return;
@@ -1159,475 +2463,430 @@ function renderVideos(){
     }
 
 
-    noResults.style.display =
-        "none";
+    videos.forEach(
 
+        function(article){
 
-    let html = "";
-
-
-    filtered.forEach(
-        function(video){
-
-            const videoUrl =
-                video.videoUrl || "";
-
-
-            const thumbnail =
-                video.thumbnail || "";
-
-
-            const title =
-                video.title ||
-                "Bila kichwa";
-
-
-            const category =
-                video.category ||
-                "Video";
-
-
-            const author =
-                video.author ||
-                "Muandishi hajatajwa";
-
-
-            const description =
-                video.description ||
-                video.intro ||
-                "";
-
-
-            const date =
-                formatDate(
-                    video.date ||
-                    video.createdAt
+            const card =
+                document.createElement(
+                    "article"
                 );
 
 
-            html += `
-
-                <article
-                    class="video-card"
-                >
-
-                    <div
-                        class="video-wrapper"
-                    >
-
-                        <video
-                            controls
-                            playsinline
-                            preload="metadata"
-                            ${
-                                thumbnail
-                                ?
-                                `poster="${escapeHtml(
-                                    thumbnail
-                                )}"`
-                                :
-                                ""
-                            }
-                        >
-
-                            ${
-                                videoUrl
-                                ?
-                                `<source
-                                    src="${escapeHtml(
-                                        videoUrl
-                                    )}"
-                                    type="video/mp4"
-                                >`
-                                :
-                                ""
-                            }
-
-                            Kivinjari chako
-                            hakiwezi kucheza video.
-
-                        </video>
-
-                    </div>
+            card.className =
+                "video-card";
 
 
-                    <div
-                        class="video-content"
-                    >
-
-                        <span
-                            class="category"
-                        >
-
-                            ${escapeHtml(
-                                category
-                            )}
-
-                        </span>
+            const intro =
+                getShortIntro(
+                    article
+                );
 
 
-                        <h2>
+            card.innerHTML = `
 
-                            ${escapeHtml(
-                                title
-                            )}
+                ${createVideoPlayer(
+                    article
+                )}
 
-                        </h2>
+                <div class="video-content">
+
+                    <span class="category">
+                        🎥 VIDEO
+                    </span>
 
 
-                        <div
-                            class="author"
-                        >
+                    <h3>
 
-                            ✍️ Muandishi:
-                            ${escapeHtml(
-                                author
-                            )}
+                        ${escapeHTML(
+                            article.title ||
+                            "Video ya BINSOUD HABARI"
+                        )}
 
-                        </div>
+                    </h3>
 
+
+                    ${
+                        intro
+                        ?
+                        `
 
                         <p>
 
-                            ${escapeHtml(
-                                description
+                            ${escapeHTML(
+                                intro
                             )}
 
                         </p>
 
-
-                        <span
-                            class="date"
-                        >
-
-                            📅 ${escapeHtml(
-                                date
-                            )}
-
-                        </span>
+                        `
+                        :
+                        ""
+                    }
 
 
-                        <button
-                            class="watch-btn"
-                            data-id="${escapeHtml(
-                                video.id
-                            )}"
-                        >
+                    <div class="meta">
 
-                            ▶ Tazama Maelezo
+                        ✍️
 
-                        </button>
+                        ${escapeHTML(
+                            article.author ||
+                            "BINSOUD HABARI"
+                        )}
 
+                        <br>
+
+                        📅
+
+                        ${escapeHTML(
+                            formatDate(
+                                article
+                            )
+                        )}
 
                     </div>
 
-                </article>
+
+                    <a
+
+                        class="read-button"
+
+                        href="${getArticlePage(
+                            article.id
+                        )}"
+
+                    >
+
+                        Soma habari zaidi →
+
+                    </a>
+
+                </div>
 
             `;
 
+
+            videoContainer.appendChild(
+                card
+            );
+
         }
+
     );
-
-
-    videoGrid.innerHTML =
-        html;
-
-
-    document
-        .querySelectorAll(".watch-btn")
-        .forEach(
-            function(button){
-
-                button.addEventListener(
-                    "click",
-                    function(){
-
-                        openVideo(
-                            button.dataset.id
-                        );
-
-                    }
-                );
-
-            }
-        );
 
 }
 
 
-/* =====================================================
-   OPEN VIDEO DETAILS
-===================================================== */
+/* =========================================
+   LOAD VIDEOS
+========================================= */
 
-function openVideo(videoId){
+async function loadVideos(){
 
-    const video =
-        allVideos.find(
-            function(item){
+    try{
 
-                return item.id === videoId;
+        errorBox.style.display =
+            "none";
+
+
+        const snapshot =
+            await getDocs(
+
+                collection(
+                    db,
+                    "articles"
+                )
+
+            );
+
+
+        allVideos = [];
+
+
+        snapshot.forEach(
+
+            function(doc){
+
+                const data =
+                    doc.data();
+
+
+                const videoUrl =
+                    getText(
+
+                        data.videoUrl ||
+
+                        data.video ||
+
+                        data.videoURL ||
+
+                        data.youtubeUrl ||
+
+                        data.youtube ||
+
+                        data.youtubeURL ||
+
+                        data.videoLink ||
+
+                        data.mediaUrl ||
+
+                        ""
+
+                    );
+
+
+                const category =
+                    getText(
+                        data.category
+                    );
+
+
+                if(
+
+                    videoUrl !== ""
+
+                    ||
+
+                    category.toLowerCase()
+                    ===
+                    "video"
+
+                ){
+
+                    allVideos.push({
+
+                        id:
+                            doc.id,
+
+                        title:
+                            data.title ||
+                            "",
+
+                        intro:
+                            data.intro ||
+                            "",
+
+                        content:
+                            data.content ||
+                            "",
+
+                        category:
+                            data.category ||
+                            "Video",
+
+                        image:
+                            data.image ||
+                            data.imageUrl ||
+                            "",
+
+                        author:
+                            data.author ||
+                            "BINSOUD HABARI",
+
+                        date:
+                            data.date ||
+                            "",
+
+                        createdAt:
+                            data.createdAt ||
+                            "",
+
+                        videoUrl:
+                            videoUrl
+
+                    });
+
+                }
 
             }
+
         );
 
 
-    if(!video){
+        allVideos.sort(
 
-        return;
+            function(a,b){
 
-    }
+                return (
 
+                    getDateValue(b) -
 
-    detailCategory.textContent =
-        video.category ||
-        "Video";
+                    getDateValue(a)
 
+                );
 
-    detailTitle.textContent =
-        video.title ||
-        "Bila kichwa";
+            }
 
-
-    detailAuthor.textContent =
-        "✍️ Muandishi: " +
-        (
-            video.author ||
-            "Haijawekwa"
         );
 
 
-    detailDescription.textContent =
-        video.description ||
-        video.intro ||
-        "";
-
-
-    detailDate.textContent =
-        "📅 " +
-        formatDate(
-            video.date ||
-            video.createdAt
+        renderBreakingNews(
+            allVideos
         );
 
 
-    detailVideo.pause();
-
-
-    detailVideo.removeAttribute(
-        "src"
-    );
-
-
-    detailVideo.innerHTML = "";
-
-
-    if(video.videoUrl){
-
-        detailVideo.src =
-            video.videoUrl;
-
-    }
-
-
-    if(video.thumbnail){
-
-        detailVideo.poster =
-            video.thumbnail;
-
-    }else{
-
-        detailVideo.removeAttribute(
-            "poster"
+        renderVideos(
+            allVideos
         );
 
     }
 
+    catch(error){
 
-    detailVideo.load();
+        console.error(
+            "Firebase Error:",
+            error
+        );
 
 
-    videoDetails.style.display =
-        "block";
+        errorBox.innerHTML = `
+
+            ❌ Imeshindikana kupakia video.
+
+            <br><br>
+
+            Hakikisha Firestore ina
+            collection:
+
+            <strong>
+                articles
+            </strong>
+
+            <br><br>
+
+            ${escapeHTML(
+                error.message
+            )}
+
+        `;
 
 
-    videoDetails.scrollIntoView({
+        errorBox.style.display =
+            "block";
 
-        behavior:"smooth",
-
-        block:"start"
-
-    });
+    }
 
 }
 
 
-/* =====================================================
-   CLOSE VIDEO
-===================================================== */
-
-function closeVideo(){
-
-    videoDetails.style.display =
-        "none";
-
-
-    detailVideo.pause();
-
-
-    detailVideo.removeAttribute(
-        "src"
-    );
-
-
-    detailVideo.load();
-
-}
-
-
-closeDetails.addEventListener(
-    "click",
-    function(){
-
-        closeVideo();
-
-    }
-);
-
-
-/* =====================================================
-   CATEGORY
-===================================================== */
-
-categoryButtons.forEach(
-    function(button){
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                categoryButtons.forEach(
-                    function(btn){
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                currentCategory =
-                    button.dataset.category;
-
-
-                currentSearch = "";
-
-                searchInput.value = "";
-
-
-                renderVideos();
-
-
-                closeVideo();
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
+/* =========================================
    SEARCH
-===================================================== */
+========================================= */
 
 searchForm.addEventListener(
+
     "submit",
+
     function(event){
 
         event.preventDefault();
 
-        currentSearch =
-            searchInput.value.trim();
 
-        renderVideos();
+        const searchText =
 
-        closeVideo();
+            searchInput.value
+            .toLowerCase()
+            .trim();
 
-    }
-);
-
-
-searchInput.addEventListener(
-    "input",
-    function(){
-
-        currentSearch =
-            searchInput.value.trim();
-
-        renderVideos();
-
-    }
-);
-
-
-/* =====================================================
-   GET TIME
-===================================================== */
-
-function getTimeValue(value){
-
-    if(!value){
-
-        return 0;
-
-    }
-
-    try{
 
         if(
-            value &&
-            typeof value.toDate === "function"
+            searchText === ""
         ){
 
-            return value.toDate().getTime();
+            renderVideos(
+                allVideos
+            );
+
+            return;
 
         }
 
 
-        const date =
-            new Date(value);
+        const results =
+
+            allVideos.filter(
+
+                function(article){
+
+                    const text =
+
+                        (
+
+                            article.title +
+
+                            " " +
+
+                            article.intro +
+
+                            " " +
+
+                            article.content +
+
+                            " " +
+
+                            article.category +
+
+                            " " +
+
+                            article.author
+
+                        )
+
+                        .toLowerCase();
 
 
-        const time =
-            date.getTime();
+                    return text.includes(
+                        searchText
+                    );
+
+                }
+
+            );
 
 
-        return isNaN(time)
-            ? 0
-            : time;
+        renderVideos(
+            results
+        );
 
-    }catch(error){
 
-        return 0;
+        if(
+            results.length === 0
+        ){
+
+            emptyBox.innerHTML = `
+
+                ❌ Hakuna video iliyopatikana kwa:
+
+                <strong>
+
+                    ${escapeHTML(
+                        searchText
+                    )}
+
+                </strong>
+
+            `;
+
+
+            emptyBox.style.display =
+                "block";
+
+        }
 
     }
 
-}
+);
 
 
-/* =====================================================
+/* =========================================
    START
-===================================================== */
+========================================= */
 
 loadVideos();
+
 
 </script>
 
 </body>
+
 </html>
