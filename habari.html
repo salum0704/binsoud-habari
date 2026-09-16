@@ -10,10 +10,6 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<!-- =========================================
-     SEO
-========================================= -->
-
 <title>BINSOUD HABARI | Habari</title>
 
 <meta
@@ -34,7 +30,7 @@
 
 <meta
     name="theme-color"
-    content="#001a32"
+    content="#063b72"
 >
 
 <link
@@ -42,11 +38,6 @@
     id="canonicalUrl"
     href="https://salum0704.github.io/binsoud-habari/habari.html"
 >
-
-
-<!-- =========================================
-     OPEN GRAPH
-========================================= -->
 
 <meta
     property="og:type"
@@ -87,11 +78,6 @@
     content="https://via.placeholder.com/1200x700?text=BINSOUD+HABARI"
 >
 
-
-<!-- =========================================
-     TWITTER / X
-========================================= -->
-
 <meta
     name="twitter:card"
     content="summary_large_image"
@@ -116,10 +102,6 @@
 >
 
 
-<!-- =========================================
-     STRUCTURED DATA
-========================================= -->
-
 <script
     type="application/ld+json"
     id="articleSchema"
@@ -139,9 +121,9 @@
 
 <style>
 
-/* =========================================
+/* =====================================================
    RESET
-========================================= */
+===================================================== */
 
 *{
     margin:0;
@@ -151,44 +133,42 @@
 
 :root{
 
-    --navy:#001a32;
+    --navy:#06284b;
+    --blue:#0756a0;
+    --blue2:#0879c9;
+    --blue-light:#eaf4fc;
 
-    --blue:#003b63;
+    --yellow:#ffd21c;
+    --red:#d71920;
 
-    --blue2:#005b8f;
-
-    --yellow:#fee40c;
-
-    --red:#d60000;
-
-    --green:#168b43;
-
-    --light:#f4f7fa;
-
-    --text:#17202a;
-
-    --muted:#687786;
+    --green:#138a4b;
 
     --white:#ffffff;
+    --light:#f4f7fb;
 
-    --border:#e1e7ec;
+    --text:#16283a;
+    --muted:#68798a;
 
+    --border:#dfe7ef;
+
+    --shadow:
+        0 8px 28px
+        rgba(6,40,75,.08);
 }
 
+
+/* =====================================================
+   BODY
+===================================================== */
+
 html{
-
     width:100%;
-
     overflow-x:hidden;
-
 }
 
 body{
 
     width:100%;
-
-    max-width:100%;
-
     overflow-x:hidden;
 
     font-family:
@@ -197,47 +177,46 @@ body{
         sans-serif;
 
     background:var(--light);
-
     color:var(--text);
 
     line-height:1.7;
-
 }
 
 a{
-
     text-decoration:none;
-
 }
 
 img{
-
     max-width:100%;
-
 }
 
 
-/* =========================================
+/* =====================================================
    TOP BAR
-========================================= */
+===================================================== */
 
 .top-bar{
 
-    background:#000d19;
+    background:#041b32;
 
-    color:#dce7ef;
+    color:#d8e5ef;
 
-    font-size:13px;
+    font-size:12px;
 
-    padding:7px 20px;
-
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
 }
 
 .top-inner{
 
-    max-width:1250px;
+    width:100%;
+    max-width:1280px;
 
     margin:auto;
+
+    padding:
+        8px 20px;
 
     display:flex;
 
@@ -245,37 +224,42 @@ img{
 
     align-items:center;
 
+    gap:15px;
 }
 
 
-/* =========================================
-   HEADER
-========================================= */
+/* =====================================================
+   MAIN HEADER
+===================================================== */
 
 header{
 
-    background:var(--navy);
+    background:
+        linear-gradient(
+            135deg,
+            #06366a,
+            #075aa6
+        );
 
     color:white;
-
 }
 
 .header-inner{
 
-    max-width:1250px;
+    max-width:1280px;
 
     margin:auto;
 
-    padding:20px;
+    padding:
+        18px 20px;
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
 
-    gap:20px;
+    justify-content:space-between;
 
+    gap:20px;
 }
 
 .brand{
@@ -284,141 +268,168 @@ header{
 
     align-items:center;
 
-    gap:12px;
-
+    gap:13px;
 }
 
 .brand-icon{
 
-    width:52px;
-
-    height:52px;
-
-    background:var(--yellow);
-
-    color:var(--navy);
-
-    border-radius:8px;
+    width:55px;
+    height:55px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    font-size:22px;
+    background:white;
 
-    font-weight:bold;
+    color:var(--blue);
 
-    flex-shrink:0;
+    border-radius:8px;
 
+    font-size:23px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0,0,0,.12);
 }
 
 .brand-text h1{
 
-    font-size:28px;
+    font-size:27px;
 
-    line-height:1.1;
+    line-height:1.05;
 
+    letter-spacing:.2px;
 }
 
 .brand-text span{
 
+    display:block;
+
+    margin-top:3px;
+
+    color:#d5e7f8;
+
     font-size:12px;
+}
 
-    color:#b8c9d6;
+.header-tagline{
 
+    font-size:13px;
+
+    color:#dcecf9;
+
+    font-weight:bold;
+
+    text-align:right;
 }
 
 
-/* =========================================
+/* =====================================================
    NAVIGATION
-========================================= */
+===================================================== */
 
 nav{
 
-    background:var(--blue);
+    background:#064781;
 
+    border-top:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-bottom:
+        3px solid
+        var(--yellow);
 }
 
 .nav-inner{
 
-    max-width:1250px;
+    max-width:1280px;
 
     margin:auto;
 
     display:flex;
 
+    align-items:center;
+
     overflow-x:auto;
 
-    overflow-y:hidden;
-
     scrollbar-width:none;
-
 }
 
 .nav-inner::-webkit-scrollbar{
-
     display:none;
-
 }
 
 nav a{
 
     color:white;
 
-    padding:13px 14px;
+    padding:
+        12px 15px;
 
-    font-size:14px;
+    font-size:13px;
 
-    font-weight:bold;
+    font-weight:700;
 
     white-space:nowrap;
 
-    flex-shrink:0;
-
+    transition:
+        .2s ease;
 }
 
-nav a:hover,
+nav a:hover{
+
+    background:
+        rgba(255,255,255,.12);
+}
+
 nav a.active{
 
     background:var(--yellow);
 
     color:var(--navy);
-
 }
 
 
-/* =========================================
+/* =====================================================
    BREAKING NEWS
-========================================= */
+===================================================== */
 
 .breaking{
 
-    background:var(--yellow);
-
-    color:var(--navy);
-
     width:100%;
 
-    overflow:hidden;
+    background:
+        linear-gradient(
+            90deg,
+            #fff4b8,
+            #fffbe0
+        );
 
+    border-bottom:
+        1px solid
+        #f0df75;
+
+    overflow:hidden;
 }
 
 .breaking-inner{
 
-    max-width:1250px;
+    max-width:1280px;
+
+    min-height:44px;
 
     margin:auto;
-
-    min-height:45px;
 
     display:flex;
 
     align-items:center;
 
     overflow:hidden;
-
 }
 
 .breaking-label{
@@ -427,18 +438,20 @@ nav a.active{
 
     color:white;
 
-    padding:9px 15px;
+    padding:
+        10px 15px;
 
-    font-size:12px;
+    font-size:11px;
 
-    font-weight:bold;
+    font-weight:900;
 
     white-space:nowrap;
 
-    z-index:2;
-
     flex-shrink:0;
 
+    position:relative;
+
+    z-index:2;
 }
 
 .breaking-ticker{
@@ -447,10 +460,7 @@ nav a.active{
 
     overflow:hidden;
 
-    position:relative;
-
     white-space:nowrap;
-
 }
 
 .breaking-track{
@@ -461,76 +471,89 @@ nav a.active{
 
     animation:
         breakingMove
-        45s
+        48s
         linear
         infinite;
 
-    font-weight:bold;
+    color:#172d42;
 
+    font-size:13px;
+
+    font-weight:700;
 }
 
 .breaking-track:hover{
 
     animation-play-state:paused;
-
 }
 
 @keyframes breakingMove{
 
-    0%{
-
+    from{
         transform:translateX(0);
-
     }
 
-    100%{
-
+    to{
         transform:translateX(-100%);
-
     }
-
 }
 
 
-/* =========================================
-   MAIN
-========================================= */
+/* =====================================================
+   PAGE
+===================================================== */
 
-main{
+.page-wrap{
 
-    width:100%;
-
-    max-width:1000px;
+    max-width:1280px;
 
     margin:auto;
 
-    padding:30px 20px 60px;
-
+    padding:
+        30px 20px 60px;
 }
 
 
-/* =========================================
-   BACK BUTTON
-========================================= */
+/* =====================================================
+   BACK / BREADCRUMB
+===================================================== */
+
+.back-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
 
 .back-button{
 
-    display:inline-block;
+    display:inline-flex;
 
-    margin-bottom:20px;
+    align-items:center;
+
+    gap:7px;
 
     background:var(--blue);
 
     color:white;
 
-    padding:9px 15px;
+    padding:
+        9px 15px;
 
     border-radius:5px;
 
-    font-size:14px;
+    font-size:13px;
 
-    font-weight:bold;
+    font-weight:800;
 
+    transition:
+        .2s ease;
 }
 
 .back-button:hover{
@@ -538,59 +561,79 @@ main{
     background:var(--yellow);
 
     color:var(--navy);
-
 }
 
 
-/* =========================================
+/* =====================================================
+   ARTICLE LAYOUT
+===================================================== */
+
+.article-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        300px;
+
+    gap:25px;
+
+    align-items:start;
+}
+
+
+/* =====================================================
    ARTICLE
-========================================= */
+===================================================== */
 
 .article{
 
     background:white;
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:10px;
 
     overflow:hidden;
 
-    box-shadow:
-        0 3px 15px
-        rgba(0,0,0,.06);
-
+    box-shadow:var(--shadow);
 }
 
 
-/* =========================================
+/* =====================================================
    ARTICLE HEADER
-========================================= */
+===================================================== */
 
 .article-header{
 
-    padding:35px 40px 20px;
-
+    padding:
+        34px 42px 25px;
 }
 
 .category{
 
-    display:inline-block;
+    display:inline-flex;
+
+    align-items:center;
 
     background:var(--blue);
 
     color:white;
 
-    padding:6px 11px;
+    padding:
+        6px 11px;
 
     border-radius:4px;
 
-    font-size:12px;
+    font-size:11px;
 
-    font-weight:bold;
+    font-weight:900;
 
-    margin-bottom:15px;
+    text-transform:uppercase;
 
+    margin-bottom:16px;
 }
 
 .category:hover{
@@ -598,60 +641,81 @@ main{
     background:var(--yellow);
 
     color:var(--navy);
-
 }
 
 .article-title{
 
     color:var(--navy);
 
-    font-size:40px;
+    font-size:
+        clamp(
+            30px,
+            4vw,
+            46px
+        );
 
-    line-height:1.25;
+    line-height:1.18;
 
-    margin-bottom:15px;
+    letter-spacing:-.5px;
+
+    margin-bottom:17px;
 
     overflow-wrap:anywhere;
-
 }
 
 .article-intro{
 
-    color:#536372;
+    color:#526576;
 
     font-size:18px;
 
-    line-height:1.8;
+    line-height:1.75;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 
+    max-width:900px;
 }
 
 .article-meta{
 
-    color:#778592;
+    border-top:
+        1px solid
+        var(--border);
 
-    font-size:13px;
+    padding-top:15px;
 
-    border-top:1px solid var(--border);
+    color:#738292;
 
-    padding-top:14px;
+    font-size:12px;
 
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:5px 9px;
+}
+
+.article-meta strong{
+
+    color:#30485f;
 }
 
 
-/* =========================================
-   ARTICLE IMAGE
-========================================= */
+/* =====================================================
+   HERO IMAGE
+===================================================== */
 
 .article-image{
 
     width:100%;
 
-    background:#e1e7ec;
+    background:#e6edf4;
+
+    position:relative;
 
     overflow:hidden;
-
 }
 
 .article-image img{
@@ -660,48 +724,62 @@ main{
 
     width:100%;
 
-    max-height:600px;
+    height:auto;
+
+    min-height:300px;
+
+    max-height:650px;
 
     object-fit:cover;
 
     object-position:center;
-
 }
 
 
-/* =========================================
+/* =====================================================
    ARTICLE BODY
-========================================= */
+===================================================== */
 
 .article-body{
 
-    padding:35px 40px 45px;
+    padding:
+        35px 42px 45px;
 
-    color:#202b35;
+    color:#243545;
 
     font-size:17px;
 
-    line-height:1.9;
+    line-height:1.95;
 
     overflow-wrap:anywhere;
-
 }
 
 .article-body p{
 
-    margin-bottom:20px;
+    margin-bottom:21px;
+}
 
+.article-body p:last-child{
+
+    margin-bottom:0;
 }
 
 .article-body h2{
 
     color:var(--navy);
 
-    font-size:26px;
+    font-size:27px;
+
+    line-height:1.3;
 
     margin:
-        30px 0 12px;
+        34px 0 13px;
 
+    border-left:
+        4px solid
+        var(--yellow);
+
+    padding-left:12px;
 }
 
 .article-body h3{
@@ -710,23 +788,48 @@ main{
 
     font-size:22px;
 
-    margin:
-        25px 0 10px;
+    line-height:1.35;
 
+    margin:
+        28px 0 11px;
 }
 
 .article-body ul,
 .article-body ol{
 
     margin:
-        0 0 20px 25px;
-
+        0 0 22px 28px;
 }
 
 .article-body li{
 
     margin-bottom:8px;
+}
 
+.article-body a{
+
+    color:var(--blue2);
+
+    text-decoration:underline;
+}
+
+.article-body blockquote{
+
+    margin:
+        25px 0;
+
+    padding:
+        18px 22px;
+
+    background:#f3f7fb;
+
+    border-left:
+        4px solid
+        var(--blue);
+
+    color:#536777;
+
+    font-style:italic;
 }
 
 .article-body img{
@@ -738,88 +841,68 @@ main{
     height:auto;
 
     margin:
-        20px auto;
+        25px auto;
 
-    border-radius:7px;
-
-}
-
-.article-body a{
-
-    color:var(--blue2);
-
-    text-decoration:underline;
-
-}
-
-.article-body blockquote{
-
-    border-left:
-        4px solid
-        var(--yellow);
-
-    background:#f5f7f9;
-
-    padding:15px 20px;
-
-    margin:
-        20px 0;
-
-    color:#52616d;
-
+    border-radius:8px;
 }
 
 
-/* =========================================
+/* =====================================================
    SHARE
-========================================= */
+===================================================== */
 
 .share{
 
-    border-top:1px solid var(--border);
+    border-top:
+        1px solid
+        var(--border);
 
-    padding:25px 40px;
+    padding:
+        22px 42px;
 
     display:flex;
 
-    flex-wrap:wrap;
-
     align-items:center;
 
-    gap:10px;
+    flex-wrap:wrap;
 
+    gap:9px;
+
+    background:#fbfcfe;
 }
 
 .share-title{
 
-    font-weight:bold;
-
     color:var(--navy);
 
-    margin-right:5px;
+    font-size:13px;
 
+    font-weight:900;
+
+    margin-right:5px;
 }
 
 .share-button{
 
-    display:inline-block;
-
-    padding:8px 13px;
+    border:none;
 
     border-radius:5px;
+
+    padding:
+        9px 13px;
 
     background:var(--blue);
 
     color:white;
 
-    font-size:13px;
+    font-size:12px;
 
-    font-weight:bold;
+    font-weight:800;
 
     cursor:pointer;
 
-    border:none;
-
+    transition:
+        .2s ease;
 }
 
 .share-button:hover{
@@ -827,13 +910,111 @@ main{
     background:var(--yellow);
 
     color:var(--navy);
-
 }
 
 
-/* =========================================
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.sidebar-box{
+
+    background:white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:9px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 5px 18px
+        rgba(6,40,75,.06);
+}
+
+.sidebar-heading{
+
+    background:var(--navy);
+
+    color:white;
+
+    padding:
+        12px 15px;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    border-left:
+        4px solid
+        var(--yellow);
+}
+
+.sidebar-content{
+
+    padding:17px;
+
+    color:#5d6d7d;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+.sidebar-content strong{
+
+    color:var(--navy);
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+
+    background:white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:10px;
+
+    padding:
+        70px 20px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.04);
+}
+
+.loading-icon{
+
+    font-size:35px;
+
+    margin-bottom:10px;
+}
+
+
+/* =====================================================
    ERROR
-========================================= */
+===================================================== */
 
 .error{
 
@@ -841,58 +1022,54 @@ main{
 
     background:#fff0f0;
 
-    color:#a50000;
+    color:#a40000;
 
-    border:1px solid #ffcaca;
+    border:
+        1px solid
+        #ffc7c7;
 
-    padding:20px;
+    border-left:
+        5px solid
+        var(--red);
 
-    border-radius:8px;
+    padding:
+        18px 20px;
+
+    border-radius:7px;
 
     margin-bottom:20px;
 
     overflow-wrap:anywhere;
-
 }
 
 
-/* =========================================
-   LOADING
-========================================= */
-
-.loading{
-
-    background:white;
-
-    padding:45px 20px;
-
-    border-radius:9px;
-
-    text-align:center;
-
-    color:var(--muted);
-
-    border:1px solid var(--border);
-
-}
-
-
-/* =========================================
+/* =====================================================
    NOT FOUND
-========================================= */
+===================================================== */
 
 .not-found{
 
     background:white;
 
-    padding:50px 25px;
+    border:
+        1px solid
+        var(--border);
 
-    border-radius:9px;
+    border-radius:10px;
+
+    padding:
+        70px 25px;
 
     text-align:center;
 
-    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
 
+.not-found-icon{
+
+    font-size:45px;
+
+    margin-bottom:10px;
 }
 
 .not-found h2{
@@ -900,60 +1077,99 @@ main{
     color:var(--navy);
 
     margin-bottom:10px;
-
 }
 
 .not-found p{
 
     color:var(--muted);
 
-    margin-bottom:20px;
-
+    margin-bottom:22px;
 }
 
 
-/* =========================================
+/* =====================================================
    FOOTER
-========================================= */
+===================================================== */
 
 footer{
 
     background:var(--navy);
 
     color:white;
-
 }
 
 .footer-inner{
 
-    max-width:1250px;
+    max-width:1280px;
 
     margin:auto;
 
-    padding:40px 20px;
+    padding:
+        45px 20px;
 
     display:grid;
 
     grid-template-columns:
         2fr 1fr 1fr;
 
-    gap:35px;
+    gap:40px;
+}
 
+.footer-brand{
+
+    max-width:430px;
+}
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:13px;
+}
+
+.footer-logo-icon{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:white;
+
+    color:var(--blue);
+
+    border-radius:6px;
+
+    font-size:17px;
+
+    font-weight:900;
 }
 
 footer h3{
 
-    margin-bottom:12px;
+    font-size:16px;
 
+    margin-bottom:13px;
 }
 
 footer p,
 footer a{
 
-    color:#b9c8d3;
+    color:#b9cad8;
 
-    font-size:14px;
+    font-size:13px;
+}
 
+footer p{
+
+    line-height:1.8;
 }
 
 footer a{
@@ -962,137 +1178,110 @@ footer a{
 
     margin-bottom:7px;
 
+    transition:
+        .2s ease;
 }
 
 footer a:hover{
 
     color:var(--yellow);
-
 }
 
 .copyright{
 
     border-top:
         1px solid
-        rgba(255,255,255,.1);
+        rgba(255,255,255,.10);
 
-    padding:15px 20px;
+    padding:
+        16px 20px;
 
     text-align:center;
 
     color:#aebdca;
 
-    font-size:12px;
-
+    font-size:11px;
 }
 
 
-/* =========================================
+/* =====================================================
    TABLET
-========================================= */
+===================================================== */
 
-@media(max-width:700px){
+@media(max-width:900px){
 
-    .header-inner{
+    .article-layout{
+
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+
+        display:grid;
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-inner{
+
+        grid-template-columns:
+            1.5fr 1fr 1fr;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    .top-inner{
+
+        padding:
+            7px 12px;
 
         flex-direction:column;
 
         text-align:center;
 
+        gap:2px;
+    }
+
+    .header-inner{
+
+        padding:
+            17px 12px;
+
+        flex-direction:column;
+
+        text-align:center;
     }
 
     .brand{
 
         justify-content:center;
-
-    }
-
-    .article-header{
-
-        padding:25px 20px 15px;
-
-    }
-
-    .article-title{
-
-        font-size:30px;
-
-    }
-
-    .article-intro{
-
-        font-size:16px;
-
-    }
-
-    .article-body{
-
-        padding:25px 20px 35px;
-
-        font-size:16px;
-
-        line-height:1.8;
-
-    }
-
-    .share{
-
-        padding:20px;
-
-    }
-
-    .footer-inner{
-
-        grid-template-columns:1fr;
-
-        padding:32px 20px;
-
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media(max-width:500px){
-
-    .top-bar{
-
-        padding:7px 12px;
-
-    }
-
-    .top-inner{
-
-        flex-direction:column;
-
-        gap:3px;
-
-        text-align:center;
-
-    }
-
-    .header-inner{
-
-        padding:18px 12px;
-
     }
 
     .brand-text h1{
 
         font-size:24px;
+    }
 
+    .header-tagline{
+
+        text-align:center;
+
+        font-size:12px;
     }
 
     nav a{
 
         padding:
-            12px 13px;
+            11px 12px;
 
-        font-size:13px;
-
+        font-size:12px;
     }
 
     .breaking-label{
@@ -1100,50 +1289,41 @@ footer a:hover{
         padding:
             9px 10px;
 
-        font-size:11px;
-
+        font-size:10px;
     }
 
     .breaking-track{
 
-        font-size:13px;
-
+        font-size:12px;
     }
 
-    main{
+    .page-wrap{
 
         padding:
             20px 12px 45px;
-
     }
 
-    .back-button{
+    .back-row{
 
         margin-bottom:15px;
-
-        font-size:13px;
-
     }
 
     .article{
 
         border-radius:8px;
-
     }
 
     .article-header{
 
         padding:
-            20px 17px 15px;
-
+            23px 18px 18px;
     }
 
     .article-title{
 
-        font-size:26px;
+        font-size:28px;
 
-        line-height:1.3;
-
+        line-height:1.25;
     }
 
     .article-intro{
@@ -1151,7 +1331,6 @@ footer a:hover{
         font-size:15px;
 
         line-height:1.7;
-
     }
 
     .article-meta{
@@ -1159,69 +1338,123 @@ footer a:hover{
         font-size:11px;
 
         line-height:1.8;
-
     }
 
     .article-image img{
 
-        max-height:350px;
+        min-height:200px;
 
+        max-height:400px;
     }
 
     .article-body{
 
         padding:
-            22px 17px 30px;
+            24px 18px 32px;
 
         font-size:15px;
 
-        line-height:1.8;
-
+        line-height:1.85;
     }
 
     .article-body h2{
 
         font-size:22px;
-
     }
 
     .article-body h3{
 
         font-size:19px;
-
     }
 
     .share{
 
         padding:
-            18px 17px;
+            18px;
 
+        align-items:flex-start;
+    }
+
+    .share-title{
+
+        width:100%;
+
+        margin-bottom:2px;
     }
 
     .share-button{
 
-        font-size:12px;
+        font-size:11px;
 
         padding:
             8px 11px;
-
     }
 
+    .sidebar{
+
+        display:flex;
+
+        flex-direction:column;
+    }
+
+    .footer-inner{
+
+        grid-template-columns:1fr;
+
+        gap:28px;
+
+        padding:
+            35px 20px;
+    }
 }
 
 
-/* =========================================
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:400px){
+
+    .brand-icon{
+
+        width:48px;
+        height:48px;
+
+        font-size:19px;
+    }
+
+    .brand-text h1{
+
+        font-size:21px;
+    }
+
+    .article-title{
+
+        font-size:25px;
+    }
+
+    .article-intro{
+
+        font-size:14px;
+    }
+
+    .article-body{
+
+        font-size:14px;
+    }
+}
+
+
+/* =====================================================
    REDUCED MOTION
-========================================= */
+===================================================== */
 
 @media(prefers-reduced-motion:reduce){
 
     .breaking-track{
 
         animation:none;
-
     }
-
 }
 
 </style>
@@ -1232,9 +1465,9 @@ footer a:hover{
 <body>
 
 
-<!-- =========================================
+<!-- =====================================================
      TOP BAR
-========================================= -->
+===================================================== -->
 
 <div class="top-bar">
 
@@ -1253,9 +1486,9 @@ footer a:hover{
 </div>
 
 
-<!-- =========================================
+<!-- =====================================================
      HEADER
-========================================= -->
+===================================================== -->
 
 <header>
 
@@ -1281,8 +1514,11 @@ footer a:hover{
 
         </div>
 
-        <div>
+
+        <div class="header-tagline">
+
             Habari za Tanzania na Dunia
+
         </div>
 
     </div>
@@ -1351,16 +1587,18 @@ footer a:hover{
 </header>
 
 
-<!-- =========================================
+<!-- =====================================================
      BREAKING NEWS
-========================================= -->
+===================================================== -->
 
 <div class="breaking">
 
     <div class="breaking-inner">
 
         <div class="breaking-label">
+
             🔴 HABARI MOTO
+
         </div>
 
         <div class="breaking-ticker">
@@ -1369,7 +1607,9 @@ footer a:hover{
                 id="breakingText"
                 class="breaking-track"
             >
+
                 Inapakia habari...
+
             </div>
 
         </div>
@@ -1379,67 +1619,82 @@ footer a:hover{
 </div>
 
 
-<!-- =========================================
+<!-- =====================================================
      MAIN
-========================================= -->
+===================================================== -->
 
-<main>
-
-
-<a
-    href="index.html"
-    class="back-button"
->
-    ← Rudi Nyumbani
-</a>
+<main class="page-wrap">
 
 
-<!-- =========================================
-     ERROR
-========================================= -->
+    <div class="back-row">
 
-<div
-    class="error"
-    id="errorBox"
-    role="alert"
-></div>
-
-
-<!-- =========================================
-     ARTICLE CONTAINER
-========================================= -->
-
-<div id="articleContainer">
-
-    <div class="loading">
-
-        ⏳ Inapakia habari...
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Rudi Nyumbani
+        </a>
 
     </div>
 
-</div>
+
+    <!-- ERROR -->
+
+    <div
+        class="error"
+        id="errorBox"
+        role="alert"
+    ></div>
+
+
+    <!-- ARTICLE -->
+
+    <div id="articleContainer">
+
+        <div class="loading">
+
+            <div class="loading-icon">
+                ⏳
+            </div>
+
+            Inapakia habari...
+
+        </div>
+
+    </div>
 
 
 </main>
 
 
-<!-- =========================================
+<!-- =====================================================
      FOOTER
-========================================= -->
+===================================================== -->
 
 <footer>
 
     <div class="footer-inner">
 
-        <div>
 
-            <h3>
-                BINSOUD HABARI
-            </h3>
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+
+                <div class="footer-logo-icon">
+                    BH
+                </div>
+
+                <strong>
+                    BINSOUD HABARI
+                </strong>
+
+            </div>
 
             <p>
+
                 Chanzo chako cha kuaminika cha habari
                 za Tanzania, Afrika na dunia.
+
             </p>
 
         </div>
@@ -1502,6 +1757,7 @@ footer a:hover{
 
         </div>
 
+
     </div>
 
 
@@ -1515,16 +1771,16 @@ footer a:hover{
 </footer>
 
 
-<!-- =========================================
+<!-- =====================================================
      FIREBASE
-========================================= -->
+===================================================== -->
 
 <script type="module">
 
 
-/* =========================================
+/* =====================================================
    FIREBASE SDK
-========================================= */
+===================================================== */
 
 import {
     initializeApp
@@ -1544,9 +1800,9 @@ from
 "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
-/* =========================================
+/* =====================================================
    FIREBASE CONFIG
-========================================= */
+===================================================== */
 
 const firebaseConfig = {
 
@@ -1574,9 +1830,9 @@ const firebaseConfig = {
 };
 
 
-/* =========================================
-   INITIALIZE FIREBASE
-========================================= */
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
 const app =
     initializeApp(
@@ -1589,9 +1845,9 @@ const db =
     );
 
 
-/* =========================================
+/* =====================================================
    ELEMENTS
-========================================= */
+===================================================== */
 
 const articleContainer =
     document.getElementById(
@@ -1609,9 +1865,9 @@ const breakingText =
     );
 
 
-/* =========================================
-   TODAY DATE
-========================================= */
+/* =====================================================
+   TODAY
+===================================================== */
 
 document.getElementById(
     "todayDate"
@@ -1628,9 +1884,9 @@ new Date().toLocaleDateString(
 );
 
 
-/* =========================================
-   GET URL ARTICLE ID
-========================================= */
+/* =====================================================
+   ARTICLE ID
+===================================================== */
 
 const urlParams =
     new URLSearchParams(
@@ -1638,14 +1894,12 @@ const urlParams =
     );
 
 const articleId =
-    urlParams.get(
-        "id"
-    );
+    urlParams.get("id");
 
 
-/* =========================================
+/* =====================================================
    ESCAPE HTML
-========================================= */
+===================================================== */
 
 function escapeHTML(value){
 
@@ -1681,9 +1935,9 @@ function escapeHTML(value){
 }
 
 
-/* =========================================
+/* =====================================================
    TEXT
-========================================= */
+===================================================== */
 
 function getText(value){
 
@@ -1694,42 +1948,35 @@ function getText(value){
 }
 
 
-/* =========================================
+/* =====================================================
    IMAGE
-========================================= */
+===================================================== */
 
 function getImage(image){
 
     const value =
-        getText(
-            image
-        );
+        getText(image);
 
+    if(!value){
 
-    if(
-        value === ""
-    ){
-
-        return "https://via.placeholder.com/1200x700?text=BINSOUD+HABARI";
+        return
+        "https://via.placeholder.com/1200x700?text=BINSOUD+HABARI";
 
     }
-
 
     return value;
 
 }
 
 
-/* =========================================
+/* =====================================================
    CATEGORY PAGE
-========================================= */
+===================================================== */
 
 function getCategoryPage(category){
 
     const name =
-        getText(
-            category
-        )
+        getText(category)
         .toLowerCase();
 
 
@@ -1771,39 +2018,41 @@ function getCategoryPage(category){
     };
 
 
-    return (
+    return
         pages[name] ||
-        "index.html"
-    );
+        "index.html";
 
 }
 
 
-/* =========================================
+/* =====================================================
    REMOVE HTML
-========================================= */
+===================================================== */
 
 function removeHTML(value){
 
     return String(
         value ?? ""
     )
+
     .replace(
         /<[^>]*>/g,
         " "
     )
+
     .replace(
         /\s+/g,
         " "
     )
+
     .trim();
 
 }
 
 
-/* =========================================
+/* =====================================================
    SHORT INTRO
-========================================= */
+===================================================== */
 
 function getShortIntro(article){
 
@@ -1813,9 +2062,7 @@ function getShortIntro(article){
         );
 
 
-    if(
-        intro !== ""
-    ){
+    if(intro){
 
         return intro;
 
@@ -1828,9 +2075,7 @@ function getShortIntro(article){
         );
 
 
-    if(
-        content === ""
-    ){
+    if(!content){
 
         return "";
 
@@ -1838,9 +2083,7 @@ function getShortIntro(article){
 
 
     const words =
-        content.split(
-            /\s+/
-        );
+        content.split(/\s+/);
 
 
     if(
@@ -1852,19 +2095,18 @@ function getShortIntro(article){
     }
 
 
-    return (
+    return
         words
         .slice(0,45)
         .join(" ") +
-        "..."
-    );
+        "...";
 
 }
 
 
-/* =========================================
+/* =====================================================
    DATE VALUE
-========================================= */
+===================================================== */
 
 function getDateValue(article){
 
@@ -1875,10 +2117,8 @@ function getDateValue(article){
 
 
     if(
-        typeof value === "object"
-        &&
-        value !== null
-        &&
+        typeof value === "object" &&
+        value !== null &&
         typeof value.toDate === "function"
     ){
 
@@ -1890,14 +2130,10 @@ function getDateValue(article){
 
 
     const time =
-        new Date(
-            value
-        ).getTime();
+        new Date(value).getTime();
 
 
-    if(
-        Number.isNaN(time)
-    ){
+    if(Number.isNaN(time)){
 
         return 0;
 
@@ -1909,16 +2145,14 @@ function getDateValue(article){
 }
 
 
-/* =========================================
+/* =====================================================
    FORMAT DATE
-========================================= */
+===================================================== */
 
 function formatDate(article){
 
     if(
-        getText(
-            article.date
-        ) !== ""
+        getText(article.date)
     ){
 
         return article.date;
@@ -1927,8 +2161,7 @@ function formatDate(article){
 
 
     if(
-        article.createdAt
-        &&
+        article.createdAt &&
         typeof article.createdAt.toDate === "function"
     ){
 
@@ -1951,14 +2184,11 @@ function formatDate(article){
 }
 
 
-/* =========================================
-   NORMALIZE ARTICLE
-========================================= */
+/* =====================================================
+   NORMALIZE
+===================================================== */
 
-function normalizeArticle(
-    id,
-    data
-){
+function normalizeArticle(id,data){
 
     return {
 
@@ -2007,9 +2237,9 @@ function normalizeArticle(
 }
 
 
-/* =========================================
-   LOAD BREAKING NEWS
-========================================= */
+/* =====================================================
+   BREAKING NEWS
+===================================================== */
 
 async function loadBreakingNews(){
 
@@ -2044,18 +2274,15 @@ async function loadBreakingNews(){
         articles.sort(
             function(a,b){
 
-                return (
+                return
                     getDateValue(b) -
-                    getDateValue(a)
-                );
+                    getDateValue(a);
 
             }
         );
 
 
-        if(
-            articles.length === 0
-        ){
+        if(!articles.length){
 
             breakingText.textContent =
                 "Karibu BINSOUD HABARI - Chanzo chako cha habari.";
@@ -2071,21 +2298,15 @@ async function loadBreakingNews(){
             .map(
                 function(article){
 
-                    return (
-
+                    return
                         "🔴 " +
-
                         escapeHTML(
                             article.category
                         ) +
-
                         ": " +
-
                         escapeHTML(
                             article.title
-                        )
-
-                    );
+                        );
 
                 }
             );
@@ -2119,9 +2340,9 @@ async function loadBreakingNews(){
 }
 
 
-/* =========================================
+/* =====================================================
    LOAD ARTICLE
-========================================= */
+===================================================== */
 
 async function loadArticle(){
 
@@ -2131,9 +2352,7 @@ async function loadArticle(){
             "none";
 
 
-        if(
-            !articleId
-        ){
+        if(!articleId){
 
             showNotFound(
                 "Hakuna ID ya habari iliyowekwa kwenye URL."
@@ -2143,11 +2362,6 @@ async function loadArticle(){
 
         }
 
-
-        /*
-         * TUNASOMA DOCUMENT MOJA
-         * KUTOKA FIRESTORE
-         */
 
         const articleRef =
             doc(
@@ -2183,19 +2397,11 @@ async function loadArticle(){
             );
 
 
-        renderArticle(
-            article
-        );
+        renderArticle(article);
 
+        updateSEO(article);
 
-        updateSEO(
-            article
-        );
-
-
-        updateStructuredData(
-            article
-        );
+        updateStructuredData(article);
 
     }
 
@@ -2232,73 +2438,46 @@ async function loadArticle(){
 }
 
 
-/* =========================================
+/* =====================================================
    RENDER ARTICLE
-========================================= */
+===================================================== */
 
 function renderArticle(article){
 
     const title =
-        getText(
-            article.title
-        ) ||
+        getText(article.title) ||
         "Habari BINSOUD HABARI";
 
 
     const category =
-        getText(
-            article.category
-        ) ||
+        getText(article.category) ||
         "Habari";
 
 
     const intro =
-        getShortIntro(
-            article
-        );
+        getShortIntro(article);
 
 
     const image =
-        getImage(
-            article.image
-        );
+        getImage(article.image);
 
 
     const categoryPage =
-        getCategoryPage(
-            category
-        );
+        getCategoryPage(category);
 
 
     const date =
-        formatDate(
-            article
-        );
+        formatDate(article);
 
-
-    /*
-     * CONTENT
-     *
-     * Tunahifadhi content kama HTML
-     * ili paragraphs/headings/lists
-     * ziweze kuonekana vizuri.
-     *
-     * Ikiwa content haina HTML,
-     * tunaigeuza kuwa paragraphs.
-     */
 
     const rawContent =
-        getText(
-            article.content
-        );
+        getText(article.content);
 
 
     let contentHTML = "";
 
 
-    if(
-        rawContent === ""
-    ){
+    if(!rawContent){
 
         contentHTML =
 
@@ -2317,22 +2496,12 @@ function renderArticle(article){
         )
     ){
 
-        /*
-         * Content tayari ina HTML.
-         */
-
         contentHTML =
             rawContent;
 
     }
 
     else{
-
-        /*
-         * Content ni plain text.
-         *
-         * Tunagawanya kwa mistari.
-         */
 
         contentHTML =
 
@@ -2341,26 +2510,20 @@ function renderArticle(article){
             .filter(
                 function(line){
 
-                    return (
-                        line.trim() !== ""
-                    );
+                    return
+                        line.trim() !== "";
 
                 }
             )
             .map(
                 function(paragraph){
 
-                    return (
-
+                    return
                         "<p>" +
-
                         escapeHTML(
                             paragraph.trim()
                         ) +
-
-                        "</p>"
-
-                    );
+                        "</p>";
 
                 }
             )
@@ -2373,167 +2536,270 @@ function renderArticle(article){
 
     `
 
-    <article class="article">
-
-        <!-- =================================
-             ARTICLE HEADER
-        ================================== -->
-
-        <header class="article-header">
-
-            <a
-
-                class="category"
-
-                href="${escapeHTML(
-                    categoryPage
-                )}"
-
-            >
-
-                ${escapeHTML(
-                    category
-                )}
-
-            </a>
+    <div class="article-layout">
 
 
-            <h1 class="article-title">
+        <!-- =========================================
+             ARTICLE
+        ========================================== -->
 
-                ${escapeHTML(
-                    title
-                )}
-
-            </h1>
+        <article class="article">
 
 
-            ${
-                intro
-                ?
-                `
-                <p class="article-intro">
+            <header class="article-header">
+
+
+                <a
+                    class="category"
+                    href="${escapeHTML(
+                        categoryPage
+                    )}"
+                >
 
                     ${escapeHTML(
-                        intro
+                        category
                     )}
 
-                </p>
-                `
-                :
-                ""
-            }
+                </a>
 
 
-            <div class="article-meta">
+                <h1 class="article-title">
 
-                ✍️
-
-                <strong>
                     ${escapeHTML(
-                        article.author
+                        title
                     )}
-                </strong>
 
-                &nbsp; • &nbsp;
+                </h1>
 
-                📅
 
-                ${escapeHTML(
-                    date
-                )}
+                ${
+                    intro
+                    ?
+                    `
+                    <p class="article-intro">
 
-                &nbsp; • &nbsp;
+                        ${escapeHTML(
+                            intro
+                        )}
 
-                ⏱️
+                    </p>
+                    `
+                    :
+                    ""
+                }
 
-                ${escapeHTML(
-                    article.readTime
-                )}
+
+                <div class="article-meta">
+
+                    <span>
+                        ✍️
+                    </span>
+
+                    <strong>
+                        ${escapeHTML(
+                            article.author
+                        )}
+                    </strong>
+
+                    <span>
+                        •
+                    </span>
+
+                    <span>
+                        📅
+                        ${escapeHTML(
+                            date
+                        )}
+                    </span>
+
+                    <span>
+                        •
+                    </span>
+
+                    <span>
+                        ⏱️
+                        ${escapeHTML(
+                            article.readTime
+                        )}
+                    </span>
+
+                </div>
+
+
+            </header>
+
+
+            <!-- IMAGE -->
+
+            <div class="article-image">
+
+                <img
+
+                    src="${escapeHTML(
+                        image
+                    )}"
+
+                    alt="${escapeHTML(
+                        title
+                    )}"
+
+                    loading="eager"
+
+                    onerror="
+                        this.onerror=null;
+                        this.src='https://via.placeholder.com/1200x700?text=BINSOUD+HABARI';
+                    "
+
+                >
 
             </div>
 
-        </header>
+
+            <!-- CONTENT -->
+
+            <div class="article-body">
+
+                ${contentHTML}
+
+            </div>
 
 
-        <!-- =================================
-             IMAGE
-        ================================== -->
+            <!-- SHARE -->
 
-        <div class="article-image">
+            <div class="share">
 
-            <img
-
-                src="${escapeHTML(
-                    image
-                )}"
-
-                alt="${escapeHTML(
-                    title
-                )}"
-
-                loading="eager"
-
-                onerror="
-                    this.onerror=null;
-                    this.src='https://via.placeholder.com/1200x700?text=BINSOUD+HABARI';
-                "
-
-            >
-
-        </div>
+                <span class="share-title">
+                    Shiriki habari:
+                </span>
 
 
-        <!-- =================================
-             CONTENT
-        ================================== -->
-
-        <div class="article-body">
-
-            ${contentHTML}
-
-        </div>
+                <button
+                    class="share-button"
+                    id="copyLinkButton"
+                    type="button"
+                >
+                    🔗 Nakili Link
+                </button>
 
 
-        <!-- =================================
-             SHARE
-        ================================== -->
-
-        <div class="share">
-
-            <span class="share-title">
-                Shiriki:
-            </span>
+                <button
+                    class="share-button"
+                    id="whatsappButton"
+                    type="button"
+                >
+                    WhatsApp
+                </button>
 
 
-            <button
-                class="share-button"
-                id="copyLinkButton"
-                type="button"
-            >
-                🔗 Nakili Link
-            </button>
+                <button
+                    class="share-button"
+                    id="facebookButton"
+                    type="button"
+                >
+                    Facebook
+                </button>
+
+            </div>
 
 
-            <button
-                class="share-button"
-                id="whatsappButton"
-                type="button"
-            >
-                WhatsApp
-            </button>
+        </article>
 
 
-            <button
-                class="share-button"
-                id="facebookButton"
-                type="button"
-            >
-                Facebook
-            </button>
+        <!-- =========================================
+             SIDEBAR
+        ========================================== -->
 
-        </div>
+        <aside class="sidebar">
 
-    </article>
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-heading">
+
+                    📰 BINSOUD HABARI
+
+                </div>
+
+
+                <div class="sidebar-content">
+
+                    Soma habari mbalimbali
+                    kutoka Tanzania, Afrika
+                    na dunia kupitia BINSOUD HABARI.
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-heading">
+
+                    📌 Kategoria
+
+                </div>
+
+
+                <div class="sidebar-content">
+
+                    <strong>
+                        ${escapeHTML(category)}
+                    </strong>
+
+                    <br><br>
+
+                    Habari hii ipo katika
+                    sehemu ya ${escapeHTML(category)}.
+
+                    <br><br>
+
+                    <a
+                        href="${escapeHTML(
+                            categoryPage
+                        )}"
+                        class="back-button"
+                    >
+
+                        Soma habari zaidi →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-box">
+
+                <div class="sidebar-heading">
+
+                    🌍 BINSOUD HABARI
+
+                </div>
+
+
+                <div class="sidebar-content">
+
+                    <strong>
+                        Habari za Tanzania na Dunia
+                    </strong>
+
+                    <br><br>
+
+                    Endelea kutembelea tovuti yetu
+                    kwa habari mpya na taarifa
+                    mbalimbali.
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+
+    </div>
 
     `;
 
@@ -2543,9 +2809,9 @@ function renderArticle(article){
 }
 
 
-/* =========================================
+/* =====================================================
    NOT FOUND
-========================================= */
+===================================================== */
 
 function showNotFound(message){
 
@@ -2555,8 +2821,12 @@ function showNotFound(message){
 
         <div class="not-found">
 
+            <div class="not-found-icon">
+                📰
+            </div>
+
             <h2>
-                📰 Habari haijapatikana
+                Habari haijapatikana
             </h2>
 
             <p>
@@ -2579,9 +2849,9 @@ function showNotFound(message){
 }
 
 
-/* =========================================
+/* =====================================================
    SHARE BUTTONS
-========================================= */
+===================================================== */
 
 function setupShareButtons(){
 
@@ -2607,9 +2877,7 @@ function setupShareButtons(){
         window.location.href;
 
 
-    /* =====================================
-       COPY LINK
-    ===================================== */
+    /* COPY */
 
     copyButton.addEventListener(
         "click",
@@ -2625,6 +2893,7 @@ function setupShareButtons(){
                 copyButton.textContent =
                     "✅ Link imenakiliwa";
 
+
                 setTimeout(
                     function(){
 
@@ -2639,11 +2908,6 @@ function setupShareButtons(){
 
             catch(error){
 
-                /*
-                 * Fallback kwa browser
-                 * ambazo haziruhusu clipboard.
-                 */
-
                 window.prompt(
                     "Nakili link hii:",
                     currentUrl
@@ -2655,9 +2919,7 @@ function setupShareButtons(){
     );
 
 
-    /* =====================================
-       WHATSAPP
-    ===================================== */
+    /* WHATSAPP */
 
     whatsappButton.addEventListener(
         "click",
@@ -2686,9 +2948,7 @@ function setupShareButtons(){
     );
 
 
-    /* =====================================
-       FACEBOOK
-    ===================================== */
+    /* FACEBOOK */
 
     facebookButton.addEventListener(
         "click",
@@ -2713,23 +2973,19 @@ function setupShareButtons(){
 }
 
 
-/* =========================================
-   UPDATE SEO
-========================================= */
+/* =====================================================
+   SEO
+===================================================== */
 
 function updateSEO(article){
 
     const title =
-        getText(
-            article.title
-        ) ||
+        getText(article.title) ||
         "BINSOUD HABARI";
 
 
     const intro =
-        getShortIntro(
-            article
-        );
+        getShortIntro(article);
 
 
     const description =
@@ -2742,9 +2998,7 @@ function updateSEO(article){
 
 
     const image =
-        getImage(
-            article.image
-        );
+        getImage(article.image);
 
 
     document.title =
@@ -2753,9 +3007,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "metaDescription"
-        )
+        .getElementById("metaDescription")
         .setAttribute(
             "content",
             description
@@ -2763,9 +3015,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "canonicalUrl"
-        )
+        .getElementById("canonicalUrl")
         .setAttribute(
             "href",
             currentUrl
@@ -2773,9 +3023,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "ogTitle"
-        )
+        .getElementById("ogTitle")
         .setAttribute(
             "content",
             title +
@@ -2784,9 +3032,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "ogDescription"
-        )
+        .getElementById("ogDescription")
         .setAttribute(
             "content",
             description
@@ -2794,9 +3040,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "ogUrl"
-        )
+        .getElementById("ogUrl")
         .setAttribute(
             "content",
             currentUrl
@@ -2804,9 +3048,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "ogImage"
-        )
+        .getElementById("ogImage")
         .setAttribute(
             "content",
             image
@@ -2814,9 +3056,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "twitterTitle"
-        )
+        .getElementById("twitterTitle")
         .setAttribute(
             "content",
             title +
@@ -2825,9 +3065,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "twitterDescription"
-        )
+        .getElementById("twitterDescription")
         .setAttribute(
             "content",
             description
@@ -2835,9 +3073,7 @@ function updateSEO(article){
 
 
     document
-        .getElementById(
-            "twitterImage"
-        )
+        .getElementById("twitterImage")
         .setAttribute(
             "content",
             image
@@ -2846,43 +3082,33 @@ function updateSEO(article){
 }
 
 
-/* =========================================
+/* =====================================================
    STRUCTURED DATA
-========================================= */
+===================================================== */
 
 function updateStructuredData(article){
 
     const title =
-        getText(
-            article.title
-        ) ||
+        getText(article.title) ||
         "BINSOUD HABARI";
 
 
     const description =
-        getShortIntro(
-            article
-        );
+        getShortIntro(article);
 
 
     const image =
-        getImage(
-            article.image
-        );
+        getImage(article.image);
 
 
     const datePublished =
-        getDateValue(
-            article
-        );
+        getDateValue(article);
 
 
     let publishedISO = "";
 
 
-    if(
-        datePublished > 0
-    ){
+    if(datePublished > 0){
 
         publishedISO =
             new Date(
@@ -2950,9 +3176,7 @@ function updateStructuredData(article){
     };
 
 
-    if(
-        publishedISO !== ""
-    ){
+    if(publishedISO){
 
         schema.datePublished =
             publishedISO;
@@ -2972,9 +3196,9 @@ function updateStructuredData(article){
 }
 
 
-/* =========================================
+/* =====================================================
    START
-========================================= */
+===================================================== */
 
 loadBreakingNews();
 
