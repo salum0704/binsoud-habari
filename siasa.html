@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="sw-TZ">
 
@@ -15,7 +14,7 @@
 
 <meta
     name="description"
-    content="Soma habari za siasa Tanzania na dunia kupitia BINSOUD HABARI."
+    content="Soma habari za siasa Tanzania, Zanzibar, Afrika na dunia kupitia BINSOUD HABARI."
 >
 
 <meta
@@ -50,7 +49,7 @@
 
 <meta
     property="og:description"
-    content="Habari za siasa Tanzania, Afrika na dunia."
+    content="Habari za siasa Tanzania, Zanzibar, Afrika na dunia."
 >
 
 <meta
@@ -227,7 +226,7 @@ nav a.active{
 
 
 /* ===============================
-   BREAKING
+   BREAKING NEWS
 =============================== */
 
 .breaking{
@@ -997,7 +996,7 @@ input{
 
     <p>
         Habari mpya za siasa Tanzania,
-        Afrika na dunia.
+        Zanzibar, Afrika na dunia.
     </p>
 
 </section>
@@ -1183,7 +1182,6 @@ input{
 
 <script type="module">
 
-
 import {
     initializeApp
 }
@@ -1305,7 +1303,6 @@ function escapeHTML(value){
     return String(
         value ?? ""
     )
-
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
@@ -1420,11 +1417,23 @@ function getShortIntro(article){
 
 function getArticlePage(articleId){
 
+    /*
+     * MUHIMU:
+     * Tunatumia Firestore document ID.
+     */
+
+    const id =
+        getText(articleId);
+
+
+    if(!id){
+        return "habari.html";
+    }
+
+
     return (
         "habari.html?id=" +
-        encodeURIComponent(
-            articleId
-        )
+        encodeURIComponent(id)
     );
 
 }
@@ -1496,7 +1505,7 @@ function formatDate(article){
         getText(article.date)
     ){
 
-        return article.date;
+        return getText(article.date);
 
     }
 
@@ -1546,11 +1555,9 @@ function renderBreakingNews(articles){
         .slice(0,10)
         .map(
             article =>
-
                 "🔴 " +
-                escapeHTML(
-                    article.title ||
-                    "Habari"
+                getText(
+                    article.title
                 )
         );
 
@@ -1561,7 +1568,7 @@ function renderBreakingNews(articles){
         );
 
 
-    breakingText.innerHTML =
+    breakingText.textContent =
         text +
         "     •     " +
         text;
@@ -1594,10 +1601,10 @@ async function loadArticles(){
 
 
         snapshot.forEach(
-            doc => {
+            docSnapshot => {
 
                 const data =
-                    doc.data();
+                    docSnapshot.data();
 
 
                 const category =
@@ -1607,12 +1614,7 @@ async function loadArticles(){
 
 
                 /*
-                 * CHUJA SIASA PEKEE
-                 *
-                 * Inakubali:
-                 * Siasa
-                 * SIASA
-                 * siasa
+                 * SIASA PEKEE
                  */
 
                 if(
@@ -1625,40 +1627,71 @@ async function loadArticles(){
                 }
 
 
+                /*
+                 * MUHIMU SANA:
+                 *
+                 * id = docSnapshot.id
+                 *
+                 * Hii ndiyo ID halisi ya
+                 * Firestore document.
+                 *
+                 * Ndiyo itakayotumwa kwenye
+                 * habari.html?id=...
+                 */
+
                 allArticles.push({
 
-                    id:doc.id,
+                    id:
+                        docSnapshot.id,
 
                     title:
-                        data.title || "",
+                        getText(
+                            data.title
+                        ),
 
                     intro:
-                        data.intro || "",
+                        getText(
+                            data.intro
+                        ),
 
                     content:
-                        data.content || "",
+                        getText(
+                            data.content
+                        ),
 
                     category:
-                        data.category ||
+                        getText(
+                            data.category
+                        ) ||
                         "Siasa",
 
                     image:
-                        data.image ||
-                        data.imageUrl ||
+                        getText(
+                            data.image
+                        ) ||
+                        getText(
+                            data.imageUrl
+                        ) ||
                         "",
 
                     author:
-                        data.author ||
+                        getText(
+                            data.author
+                        ) ||
                         "BINSOUD HABARI",
 
                     date:
-                        data.date || "",
+                        data.date ||
+                        "",
 
                     createdAt:
-                        data.createdAt || "",
+                        data.createdAt ||
+                        "",
 
                     readTime:
-                        data.readTime ||
+                        getText(
+                            data.readTime
+                        ) ||
                         "Dakika 3"
 
                 });
@@ -1666,6 +1699,11 @@ async function loadArticles(){
             }
         );
 
+
+        /*
+         * MPANGILIO:
+         * Mpya kwanza.
+         */
 
         allArticles.sort(
             (a,b) =>
@@ -1693,19 +1731,14 @@ async function loadArticles(){
         );
 
 
+        articlesContainer.innerHTML =
+            "";
+
+
         errorBox.innerHTML =
 
         `
             ❌ Imeshindikana kupakia habari za siasa.
-
-            <br><br>
-
-            Hakikisha Firestore ina
-            collection:
-
-            <strong>
-                articles
-            </strong>
 
             <br><br>
 
@@ -1767,6 +1800,11 @@ function renderArticles(articles){
                 );
 
 
+            /*
+             * Hapa tunatengeneza link
+             * kwa kutumia Firestore ID.
+             */
+
             const articlePage =
                 getArticlePage(
                     article.id
@@ -1788,7 +1826,8 @@ function renderArticles(articles){
                     )}"
 
                     alt="${escapeHTML(
-                        article.title
+                        article.title ||
+                        "BINSOUD HABARI"
                     )}"
 
                     loading="lazy"
@@ -1865,7 +1904,12 @@ function renderArticles(articles){
 
                 <a
                     class="read-button"
-                    href="${articlePage}"
+                    href="${escapeHTML(
+                        articlePage
+                    )}"
+                    aria-label="Soma habari: ${escapeHTML(
+                        article.title
+                    )}"
                 >
 
                     Soma zaidi →
@@ -1900,9 +1944,9 @@ searchForm.addEventListener(
 
 
         const searchText =
-            searchInput.value
-            .toLowerCase()
-            .trim();
+            getText(
+                searchInput.value
+            ).toLowerCase();
 
 
         if(!searchText){
@@ -1994,4 +2038,3 @@ loadArticles();
 </body>
 
 </html>
-```
