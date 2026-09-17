@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- SEO -->
   <title>BINSOUD HABARI | Habari za Tanzania, Afrika na Dunia</title>
+
   <meta
     name="description"
-    content="BINSOUD HABARI - Chanzo cha habari za Tanzania, Afrika na dunia. Soma habari mpya, siasa, michezo, biashara, burudani na makala."
+    content="BINSOUD HABARI ni chanzo cha habari za Tanzania, Zanzibar, Afrika na dunia. Soma habari mpya za kitaifa, siasa, biashara, michezo, burudani, dini, mazingira na kimataifa."
   />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="BINSOUD HABARI" />
 
   <link
     rel="canonical"
@@ -16,6 +21,46 @@
   />
 
   <meta name="theme-color" content="#0569b5" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:title"
+    content="BINSOUD HABARI | Habari za Tanzania, Afrika na Dunia"
+  />
+  <meta
+    property="og:description"
+    content="Soma habari mpya za Tanzania, Zanzibar, Afrika na dunia kupitia BINSOUD HABARI."
+  />
+  <meta
+    property="og:url"
+    content="https://salum0704.github.io/binsoud-habari/"
+  />
+  <meta property="og:site_name" content="BINSOUD HABARI" />
+  <meta property="og:locale" content="sw_TZ" />
+  <meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=85"
+  />
+  <meta
+    property="og:image:alt"
+    content="BINSOUD HABARI - Habari za Tanzania, Afrika na Dunia"
+  />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="BINSOUD HABARI | Habari za Tanzania, Afrika na Dunia"
+  />
+  <meta
+    name="twitter:description"
+    content="Habari mpya za Tanzania, Zanzibar, Afrika na dunia kupitia BINSOUD HABARI."
+  />
+  <meta
+    name="twitter:image"
+    content="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=85"
+  />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -85,6 +130,11 @@
       font-family: inherit;
     }
 
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
     .container {
       width: min(94%, var(--container));
       margin: auto;
@@ -92,7 +142,7 @@
 
     /* =========================================================
        TOP BAR
-    ========================================================= */
+    ========================================================== */
 
     .topbar {
       background: var(--blue-deeper);
@@ -144,7 +194,7 @@
 
     /* =========================================================
        MAIN HEADER
-    ========================================================= */
+    ========================================================== */
 
     .main-header {
       background: linear-gradient(
@@ -205,7 +255,7 @@
 
     /* =========================================================
        NAVIGATION
-    ========================================================= */
+    ========================================================== */
 
     .desktop-nav {
       display: flex;
@@ -260,7 +310,7 @@
 
     /* =========================================================
        MOBILE MENU
-    ========================================================= */
+    ========================================================== */
 
     .mobile-menu {
       display: none;
@@ -286,7 +336,7 @@
 
     /* =========================================================
        SEARCH BOX
-    ========================================================= */
+    ========================================================== */
 
     .search-area {
       display: none;
@@ -325,7 +375,7 @@
 
     /* =========================================================
        BREAKING NEWS
-    ========================================================= */
+    ========================================================== */
 
     .breaking-wrap {
       background: var(--blue);
@@ -385,7 +435,7 @@
 
     /* =========================================================
        HERO
-    ========================================================= */
+    ========================================================== */
 
     .hero-section {
       padding: 28px 0 20px;
@@ -534,7 +584,7 @@
 
     /* =========================================================
        SECTION TITLE
-    ========================================================= */
+    ========================================================== */
 
     .section {
       padding: 42px 0;
@@ -582,7 +632,7 @@
 
     /* =========================================================
        LATEST NEWS
-    ========================================================= */
+    ========================================================== */
 
     .latest-section {
       background: white;
@@ -669,7 +719,7 @@
 
     /* =========================================================
        BLUE FEATURE STRIP
-    ========================================================= */
+    ========================================================== */
 
     .blue-strip {
       background:
@@ -723,7 +773,7 @@
 
     /* =========================================================
        CATEGORY SECTION
-    ========================================================= */
+    ========================================================== */
 
     .category-section {
       background: var(--blue-soft);
@@ -778,7 +828,7 @@
 
     /* =========================================================
        MEDIA SECTION
-    ========================================================= */
+    ========================================================== */
 
     .media-section {
       background: white;
@@ -844,7 +894,7 @@
 
     /* =========================================================
        NEWSLETTER
-    ========================================================= */
+    ========================================================== */
 
     .newsletter {
       padding: 45px 0;
@@ -908,7 +958,7 @@
 
     /* =========================================================
        FOOTER
-    ========================================================= */
+    ========================================================== */
 
     footer {
       background: var(--blue-deeper);
@@ -995,7 +1045,7 @@
 
     /* =========================================================
        LOADING
-    ========================================================= */
+    ========================================================== */
 
     .loading {
       grid-column: 1 / -1;
@@ -1017,7 +1067,7 @@
 
     /* =========================================================
        EMPTY STATE
-    ========================================================= */
+    ========================================================== */
 
     .empty-state {
       grid-column: 1 / -1;
@@ -1037,7 +1087,7 @@
 
     /* =========================================================
        TOAST
-    ========================================================= */
+    ========================================================== */
 
     .toast {
       position: fixed;
@@ -1063,7 +1113,7 @@
 
     /* =========================================================
        RESPONSIVE
-    ========================================================= */
+    ========================================================== */
 
     @media (max-width: 1100px) {
       .desktop-nav {
@@ -1296,6 +1346,7 @@
     <div class="container topbar-inner">
 
       <div class="top-info">
+
         <span>
           <i class="fa-regular fa-calendar"></i>
           <span id="todayDate">Leo</span>
@@ -1310,9 +1361,11 @@
           <i class="fa-solid fa-circle"></i>
           Habari za Karibuni
         </span>
+
       </div>
 
       <div class="top-social">
+
         <a href="#" aria-label="Facebook">
           <i class="fa-brands fa-facebook-f"></i>
         </a>
@@ -1328,6 +1381,7 @@
         <a href="#" aria-label="TikTok">
           <i class="fa-brands fa-tiktok"></i>
         </a>
+
       </div>
 
     </div>
@@ -1342,7 +1396,7 @@
 
     <div class="container header-inner">
 
-      <a href="index.html" class="brand">
+      <a href="index.html" class="brand" aria-label="BINSOUD HABARI Mwanzo">
 
         <div class="brand-logo">
           BH
@@ -1356,7 +1410,7 @@
       </a>
 
 
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Navigation kuu">
 
         <a href="index.html" class="active">
           Mwanzo
@@ -1406,7 +1460,10 @@
         <button
           class="search-btn"
           id="searchBtn"
-          aria-label="Tafuta"
+          type="button"
+          aria-label="Tafuta habari"
+          aria-expanded="false"
+          aria-controls="searchArea"
         >
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
@@ -1414,7 +1471,10 @@
         <button
           class="menu-btn"
           id="menuBtn"
-          aria-label="Menu"
+          type="button"
+          aria-label="Fungua menu"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
         >
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -1500,10 +1560,11 @@
           type="search"
           id="searchInput"
           placeholder="Tafuta habari..."
+          aria-label="Tafuta habari"
           autocomplete="off"
         />
 
-        <button type="submit">
+        <button type="submit" aria-label="Tafuta">
           <i class="fa-solid fa-search"></i>
         </button>
 
@@ -1560,616 +1621,641 @@
        HERO
   ========================================================== -->
 
-  <section class="hero-section">
+  <main>
 
-    <div class="container">
+    <section class="hero-section">
 
-      <div class="hero-grid">
+      <div class="container">
 
-        <!-- MAIN HERO -->
+        <div class="hero-grid">
 
-        <article class="hero-main" id="heroArticle">
+          <!-- MAIN HERO -->
 
-          <img
-            id="heroImage"
-            src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=85"
-            alt="Habari kuu"
-          />
+          <article
+            class="hero-main"
+            id="heroArticle"
+            tabindex="0"
+            aria-label="Habari kuu"
+          >
 
-          <div class="hero-overlay">
+            <img
+              id="heroImage"
+              src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=85"
+              alt="Habari kuu za BINSOUD HABARI"
+              fetchpriority="high"
+            />
 
-            <div class="hero-content">
+            <div class="hero-overlay">
 
-              <span class="category-tag" id="heroCategory">
-                HABARI
-              </span>
+              <div class="hero-content">
 
-              <h2 id="heroTitle">
-                Karibu BINSOUD HABARI
-              </h2>
-
-              <p id="heroIntro">
-                Chanzo chako cha habari za Tanzania, Afrika na dunia.
-                Endelea kutufuatilia kwa habari mpya na taarifa muhimu.
-              </p>
-
-              <div class="meta">
-
-                <span>
-                  <i class="fa-regular fa-clock"></i>
-                  <span id="heroDate">Leo</span>
+                <span class="category-tag" id="heroCategory">
+                  HABARI
                 </span>
 
-                <span>
-                  <i class="fa-regular fa-user"></i>
-                  <span id="heroAuthor">BINSOUD HABARI</span>
-                </span>
+                <h2 id="heroTitle">
+                  Karibu BINSOUD HABARI
+                </h2>
+
+                <p id="heroIntro">
+                  Chanzo chako cha habari za Tanzania, Afrika na dunia.
+                  Endelea kutufuatilia kwa habari mpya na taarifa muhimu.
+                </p>
+
+                <div class="meta">
+
+                  <span>
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="heroDate">Leo</span>
+                  </span>
+
+                  <span>
+                    <i class="fa-regular fa-user"></i>
+                    <span id="heroAuthor">BINSOUD HABARI</span>
+                  </span>
+
+                </div>
 
               </div>
 
             </div>
 
-          </div>
-
-        </article>
-
-
-        <!-- SIDE STORIES -->
-
-        <div class="hero-side" id="heroSide">
-
-          <article class="side-card">
-
-            <img
-              src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=700&q=80"
-              alt="Habari"
-            />
-
-            <div class="side-content">
-
-              <span class="category-tag">
-                Kitaifa
-              </span>
-
-              <h3>
-                Habari mpya na taarifa mbalimbali kutoka Tanzania
-              </h3>
-
-              <p>
-                Soma taarifa muhimu zinazotokea nchini.
-              </p>
-
-            </div>
-
           </article>
 
 
-          <article class="side-card">
+          <!-- SIDE STORIES -->
 
-            <img
-              src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=700&q=80"
-              alt="Dunia"
-            />
+          <div class="hero-side" id="heroSide">
 
-            <div class="side-content">
+            <article class="side-card">
 
-              <span class="category-tag">
-                Kimataifa
-              </span>
+              <img
+                src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=700&q=80"
+                alt="Habari za Tanzania"
+                loading="lazy"
+              />
 
-              <h3>
-                Taarifa kutoka Afrika na sehemu mbalimbali duniani
-              </h3>
+              <div class="side-content">
 
-              <p>
-                Endelea kufuatilia habari za kimataifa.
-              </p>
+                <span class="category-tag">
+                  Kitaifa
+                </span>
 
-            </div>
+                <h3>
+                  Habari mpya na taarifa mbalimbali kutoka Tanzania
+                </h3>
 
-          </article>
+                <p>
+                  Soma taarifa muhimu zinazotokea nchini.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="side-card">
+
+              <img
+                src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=700&q=80"
+                alt="Habari za kimataifa"
+                loading="lazy"
+              />
+
+              <div class="side-content">
+
+                <span class="category-tag">
+                  Kimataifa
+                </span>
+
+                <h3>
+                  Taarifa kutoka Afrika na sehemu mbalimbali duniani
+                </h3>
+
+                <p>
+                  Endelea kufuatilia habari za kimataifa.
+                </p>
+
+              </div>
+
+            </article>
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- =========================================================
-       LATEST NEWS
-  ========================================================== -->
+    <!-- =========================================================
+         LATEST NEWS
+    ========================================================== -->
 
-  <section class="section latest-section">
+    <section class="section latest-section">
 
-    <div class="container">
+      <div class="container">
 
-      <div class="section-title">
+        <div class="section-title">
 
-        <div class="title-left">
+          <div class="title-left">
 
-          <div class="title-line"></div>
+            <div class="title-line"></div>
 
-          <h2>
-            Habari Mpya
-          </h2>
+            <h2>
+              Habari Mpya
+            </h2>
 
-        </div>
+          </div>
 
-        <a href="kitaifa.html" class="view-all">
-          Zote
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-      </div>
-
-
-      <div class="news-grid" id="latestNews">
-
-        <div class="loading">
-
-          <i class="fa-solid fa-circle-notch"></i>
-
-          <p>
-            Inapakia habari...
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================================================
-       BLUE INFORMATION STRIP
-  ========================================================== -->
-
-  <section class="blue-strip">
-
-    <div class="container">
-
-      <div class="blue-strip-grid">
-
-        <div class="blue-intro">
-
-          <h2>
-            BINSOUD HABARI
-          </h2>
-
-          <p>
-            Tunakuletea taarifa muhimu kwa lugha rahisi,
-            kwa wakati na kwa mtazamo mpana.
-          </p>
+          <a href="kitaifa.html" class="view-all">
+            Zote
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
 
         </div>
 
 
-        <div class="blue-item">
+        <div class="news-grid" id="latestNews">
 
-          <i class="fa-solid fa-newspaper"></i>
+          <div class="loading">
 
-          <h3>
-            Habari
-          </h3>
+            <i class="fa-solid fa-circle-notch"></i>
 
-          <p>
-            Taarifa mpya kutoka Tanzania na Afrika.
-          </p>
+            <p>
+              Inapakia habari...
+            </p>
 
-        </div>
-
-
-        <div class="blue-item">
-
-          <i class="fa-solid fa-video"></i>
-
-          <h3>
-            Video
-          </h3>
-
-          <p>
-            Fuata video na matukio mbalimbali.
-          </p>
-
-        </div>
-
-
-        <div class="blue-item">
-
-          <i class="fa-solid fa-microphone"></i>
-
-          <h3>
-            Audio
-          </h3>
-
-          <p>
-            Sikiliza taarifa na maudhui maalum.
-          </p>
+          </div>
 
         </div>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- =========================================================
-       CATEGORIES
-  ========================================================== -->
+    <!-- =========================================================
+         BLUE INFORMATION STRIP
+    ========================================================== -->
 
-  <section class="section category-section">
+    <section class="blue-strip">
 
-    <div class="container">
+      <div class="container">
 
-      <div class="section-title">
+        <div class="blue-strip-grid">
 
-        <div class="title-left">
+          <div class="blue-intro">
 
-          <div class="title-line"></div>
+            <h2>
+              BINSOUD HABARI
+            </h2>
 
-          <h2>
-            Makundi ya Habari
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="category-grid">
-
-        <a href="siasa.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=800&q=80"
-            alt="Siasa"
-          />
-
-          <div class="category-overlay">
-
-            <h3>
-              Siasa
-            </h3>
-
-            <span>
-              Habari za kisiasa
-            </span>
+            <p>
+              Tunakuletea taarifa muhimu kwa lugha rahisi,
+              kwa wakati na kwa mtazamo mpana.
+            </p>
 
           </div>
 
-        </a>
 
+          <div class="blue-item">
 
-        <a href="biashara.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80"
-            alt="Biashara"
-          />
-
-          <div class="category-overlay">
+            <i class="fa-solid fa-newspaper"></i>
 
             <h3>
-              Biashara
+              Habari
             </h3>
 
-            <span>
-              Uchumi na biashara
-            </span>
+            <p>
+              Taarifa mpya kutoka Tanzania na Afrika.
+            </p>
 
           </div>
 
-        </a>
 
+          <div class="blue-item">
 
-        <a href="michezo.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80"
-            alt="Michezo"
-          />
-
-          <div class="category-overlay">
+            <i class="fa-solid fa-video"></i>
 
             <h3>
-              Michezo
-            </h3>
-
-            <span>
-              Michezo mbalimbali
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <a href="burudani.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80"
-            alt="Burudani"
-          />
-
-          <div class="category-overlay">
-
-            <h3>
-              Burudani
-            </h3>
-
-            <span>
-              Burudani na mastaa
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <a href="dini.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1542816417-0983672d7c83?auto=format&fit=crop&w=800&q=80"
-            alt="Dini"
-          />
-
-          <div class="category-overlay">
-
-            <h3>
-              Dini
-            </h3>
-
-            <span>
-              Imani na jamii
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <a href="mazingira.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
-            alt="Mazingira"
-          />
-
-          <div class="category-overlay">
-
-            <h3>
-              Mazingira
-            </h3>
-
-            <span>
-              Mazingira na tabianchi
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <a href="kimataifa.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80"
-            alt="Kimataifa"
-          />
-
-          <div class="category-overlay">
-
-            <h3>
-              Kimataifa
-            </h3>
-
-            <span>
-              Habari za dunia
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <a href="makala.html" class="category-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80"
-            alt="Makala"
-          />
-
-          <div class="category-overlay">
-
-            <h3>
-              Makala
-            </h3>
-
-            <span>
-              Uchambuzi na simulizi
-            </span>
-
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================================================
-       MEDIA
-  ========================================================== -->
-
-  <section class="section media-section">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <div class="title-left">
-
-          <div class="title-line"></div>
-
-          <h2>
-            Video & Audio
-          </h2>
-
-        </div>
-
-        <a href="video.html" class="view-all">
-          Tazama zaidi
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-      </div>
-
-
-      <div class="media-grid">
-
-        <a href="video.html" class="media-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1000&q=80"
-            alt="Video"
-          />
-
-          <div class="media-overlay">
-
-            <div class="play">
-              <i class="fa-solid fa-play"></i>
-            </div>
-
-            <h3>
-              Fuata video za matukio na habari mbalimbali
-            </h3>
-
-            <span>
-              <i class="fa-solid fa-video"></i>
               Video
-            </span>
+            </h3>
+
+            <p>
+              Fuata video na matukio mbalimbali.
+            </p>
 
           </div>
 
-        </a>
 
+          <div class="blue-item">
 
-        <a href="audio.html" class="media-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80"
-            alt="Audio"
-          />
-
-          <div class="media-overlay">
-
-            <div class="play">
-              <i class="fa-solid fa-play"></i>
-            </div>
+            <i class="fa-solid fa-microphone"></i>
 
             <h3>
-              Sikiliza maudhui ya BINSOUD HABARI
-            </h3>
-
-            <span>
-              <i class="fa-solid fa-microphone"></i>
               Audio
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <a href="makala.html" class="media-card">
-
-          <img
-            src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80"
-            alt="Makala"
-          />
-
-          <div class="media-overlay">
-
-            <div class="play">
-              <i class="fa-solid fa-book-open"></i>
-            </div>
-
-            <h3>
-              Makala maalum na simulizi zenye mtazamo mpana
             </h3>
 
-            <span>
-              <i class="fa-solid fa-pen"></i>
-              Makala
-            </span>
+            <p>
+              Sikiliza taarifa na maudhui maalum.
+            </p>
 
           </div>
 
-        </a>
+        </div>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- =========================================================
-       NEWSLETTER
-  ========================================================== -->
+    <!-- =========================================================
+         CATEGORIES
+    ========================================================== -->
 
-  <section class="newsletter">
+    <section class="section category-section">
 
-    <div class="container newsletter-inner">
+      <div class="container">
 
-      <div>
+        <div class="section-title">
 
-        <h2>
-          Usikose Habari Mpya
-        </h2>
+          <div class="title-left">
 
-        <p>
-          Jiunge na wasomaji wa BINSOUD HABARI na upokee
-          taarifa mpya moja kwa moja.
-        </p>
+            <div class="title-line"></div>
+
+            <h2>
+              Makundi ya Habari
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="category-grid">
+
+          <a href="siasa.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=800&q=80"
+              alt="Habari za Siasa"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Siasa
+              </h3>
+
+              <span>
+                Habari za kisiasa
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="biashara.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80"
+              alt="Habari za Biashara"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Biashara
+              </h3>
+
+              <span>
+                Uchumi na biashara
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="michezo.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80"
+              alt="Habari za Michezo"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Michezo
+              </h3>
+
+              <span>
+                Michezo mbalimbali
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="burudani.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80"
+              alt="Habari za Burudani"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Burudani
+              </h3>
+
+              <span>
+                Burudani na mastaa
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="dini.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1542816417-0983672d7c83?auto=format&fit=crop&w=800&q=80"
+              alt="Habari za Dini"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Dini
+              </h3>
+
+              <span>
+                Imani na jamii
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="mazingira.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80"
+              alt="Habari za Mazingira"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Mazingira
+              </h3>
+
+              <span>
+                Mazingira na tabianchi
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="kimataifa.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=80"
+              alt="Habari za Kimataifa"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Kimataifa
+              </h3>
+
+              <span>
+                Habari za dunia
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="makala.html" class="category-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80"
+              alt="Makala"
+              loading="lazy"
+            />
+
+            <div class="category-overlay">
+
+              <h3>
+                Makala
+              </h3>
+
+              <span>
+                Uchambuzi na simulizi
+              </span>
+
+            </div>
+
+          </a>
+
+        </div>
 
       </div>
 
+    </section>
 
-      <div>
 
-        <form class="newsletter-form" id="newsletterForm">
+    <!-- =========================================================
+         MEDIA
+    ========================================================== -->
 
-          <input
-            type="email"
-            id="newsletterEmail"
-            placeholder="Ingiza barua pepe yako"
-            required
-          />
+    <section class="section media-section">
 
-          <button type="submit">
-            Jisajili
-          </button>
+      <div class="container">
 
-        </form>
+        <div class="section-title">
 
-        <div id="newsletterMessage"></div>
+          <div class="title-left">
+
+            <div class="title-line"></div>
+
+            <h2>
+              Video & Audio
+            </h2>
+
+          </div>
+
+          <a href="video.html" class="view-all">
+            Tazama zaidi
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+
+        <div class="media-grid">
+
+          <a href="video.html" class="media-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1000&q=80"
+              alt="Video za BINSOUD HABARI"
+              loading="lazy"
+            />
+
+            <div class="media-overlay">
+
+              <div class="play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+
+              <h3>
+                Fuata video za matukio na habari mbalimbali
+              </h3>
+
+              <span>
+                <i class="fa-solid fa-video"></i>
+                Video
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="audio.html" class="media-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80"
+              alt="Audio za BINSOUD HABARI"
+              loading="lazy"
+            />
+
+            <div class="media-overlay">
+
+              <div class="play">
+                <i class="fa-solid fa-play"></i>
+              </div>
+
+              <h3>
+                Sikiliza maudhui ya BINSOUD HABARI
+              </h3>
+
+              <span>
+                <i class="fa-solid fa-microphone"></i>
+                Audio
+              </span>
+
+            </div>
+
+          </a>
+
+
+          <a href="makala.html" class="media-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80"
+              alt="Makala za BINSOUD HABARI"
+              loading="lazy"
+            />
+
+            <div class="media-overlay">
+
+              <div class="play">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+
+              <h3>
+                Makala maalum na simulizi zenye mtazamo mpana
+              </h3>
+
+              <span>
+                <i class="fa-solid fa-pen"></i>
+                Makala
+              </span>
+
+            </div>
+
+          </a>
+
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
-  </section>
+
+    <!-- =========================================================
+         NEWSLETTER
+    ========================================================== -->
+
+    <section class="newsletter">
+
+      <div class="container newsletter-inner">
+
+        <div>
+
+          <h2>
+            Usikose Habari Mpya
+          </h2>
+
+          <p>
+            Jiunge na wasomaji wa BINSOUD HABARI na upokee
+            taarifa mpya moja kwa moja.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <form class="newsletter-form" id="newsletterForm">
+
+            <input
+              type="email"
+              id="newsletterEmail"
+              placeholder="Ingiza barua pepe yako"
+              aria-label="Barua pepe"
+              autocomplete="email"
+              required
+            />
+
+            <button type="submit">
+              Jisajili
+            </button>
+
+          </form>
+
+          <div id="newsletterMessage" role="status"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
 
 
   <!-- =========================================================
@@ -2182,14 +2268,14 @@
 
       <div class="footer-brand">
 
-        <a href="index.html" class="brand">
+        <a href="index.html" class="brand" aria-label="BINSOUD HABARI Mwanzo">
 
           <div class="brand-logo">
             BH
           </div>
 
           <div class="brand-text">
-            <h1>BINSOUD HABARI</h1>
+            <h2>BINSOUD HABARI</h2>
             <p>Ukweli • Wakati • Habari</p>
           </div>
 
@@ -2413,6 +2499,9 @@
     const heroSide =
       document.getElementById("heroSide");
 
+    const heroArticle =
+      document.getElementById("heroArticle");
+
 
     /* =========================================================
        HELPERS
@@ -2430,6 +2519,7 @@
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
     }
 
 
@@ -2458,18 +2548,22 @@
           typeof dateValue === "object" &&
           typeof dateValue.toDate === "function"
         ) {
+
           date = dateValue.toDate();
 
         } else if (
           typeof dateValue === "object" &&
           dateValue.seconds
         ) {
+
           date = new Date(
             dateValue.seconds * 1000
           );
 
         } else {
+
           date = new Date(dateValue);
+
         }
 
         if (isNaN(date.getTime())) {
@@ -2621,22 +2715,36 @@
         getArticleImage(hero, 0);
 
       heroImage.alt =
-        hero.title || "Habari";
+        hero.title || "Habari kuu";
 
 
-      document
-        .getElementById("heroArticle")
-        .style.cursor = "pointer";
+      heroArticle.style.cursor =
+        "pointer";
 
 
-      document
-        .getElementById("heroArticle")
-        .onclick = () => {
+      heroArticle.onclick = () => {
+
+        window.location.href =
+          `habari.html?id=${encodeURIComponent(hero.id)}`;
+
+      };
+
+
+      heroArticle.onkeydown = (event) => {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
 
           window.location.href =
             `habari.html?id=${encodeURIComponent(hero.id)}`;
 
-        };
+        }
+
+      };
 
 
       renderSideStories(
@@ -2683,17 +2791,23 @@
               index + 1
             );
 
+          const encodedId =
+            encodeURIComponent(article.id);
+
           return `
 
             <article
               class="side-card"
-              onclick="openArticle('${encodeURIComponent(article.id)}')"
+              data-article-id="${encodedId}"
+              tabindex="0"
+              role="link"
               style="cursor:pointer;"
             >
 
               <img
-                src="${image}"
+                src="${escapeHtml(image)}"
                 alt="${title}"
+                loading="lazy"
               />
 
               <div class="side-content">
@@ -2717,6 +2831,47 @@
           `;
 
         }).join("");
+
+
+      heroSide
+        .querySelectorAll(".side-card")
+        .forEach(card => {
+
+          const encodedId =
+            card.dataset.articleId;
+
+          const open = () => {
+
+            window.openArticle(encodedId);
+
+          };
+
+
+          card.addEventListener(
+            "click",
+            open
+          );
+
+
+          card.addEventListener(
+            "keydown",
+            (event) => {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+                open();
+
+              }
+
+            }
+          );
+
+        });
 
     }
 
@@ -2766,18 +2921,23 @@
               index
             );
 
+          const encodedId =
+            encodeURIComponent(article.id);
+
           return `
 
             <article
               class="news-card"
-              onclick="openArticle('${encodeURIComponent(article.id)}')"
+              data-article-id="${encodedId}"
+              tabindex="0"
+              role="link"
               style="cursor:pointer;"
             >
 
               <div class="news-image">
 
                 <img
-                  src="${image}"
+                  src="${escapeHtml(image)}"
                   alt="${title}"
                   loading="lazy"
                 />
@@ -2821,6 +2981,47 @@
           `;
 
         }).join("");
+
+
+      latestNews
+        .querySelectorAll(".news-card")
+        .forEach(card => {
+
+          const encodedId =
+            card.dataset.articleId;
+
+          const open = () => {
+
+            window.openArticle(encodedId);
+
+          };
+
+
+          card.addEventListener(
+            "click",
+            open
+          );
+
+
+          card.addEventListener(
+            "keydown",
+            (event) => {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+                open();
+
+              }
+
+            }
+          );
+
+        });
 
     }
 
@@ -2885,14 +3086,29 @@
       "click",
       () => {
 
-        mobileMenu.classList.toggle("open");
+        const isOpen =
+          mobileMenu.classList.toggle("open");
+
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+
+        menuBtn.setAttribute(
+          "aria-label",
+          isOpen
+            ? "Funga menu"
+            : "Fungua menu"
+        );
+
 
         const icon =
           menuBtn.querySelector("i");
 
-        if (
-          mobileMenu.classList.contains("open")
-        ) {
+
+        if (isOpen) {
 
           icon.className =
             "fa-solid fa-xmark";
@@ -2926,11 +3142,17 @@
       "click",
       () => {
 
-        searchArea.classList.toggle("open");
+        const isOpen =
+          searchArea.classList.toggle("open");
 
-        if (
-          searchArea.classList.contains("open")
-        ) {
+
+        searchBtn.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+
+        if (isOpen) {
 
           setTimeout(
             () => searchInput.focus(),
@@ -2965,12 +3187,6 @@
           return;
         }
 
-
-        /*
-          Kama una search.html,
-          mtumiaji atapelekwa huko
-          na search query.
-        */
 
         window.location.href =
           `search.html?q=${encodeURIComponent(value)}`;
@@ -3058,6 +3274,7 @@
             "Newsletter error:",
             error
           );
+
 
           newsletterMessage.textContent =
             "Samahani, jaribu tena baadaye.";
