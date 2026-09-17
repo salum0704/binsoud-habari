@@ -20,12 +20,48 @@
     href="https://salum0704.github.io/binsoud-habari/kitaifa.html"
   >
 
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sw_TZ">
+  <meta property="og:site_name" content="BINSOUD HABARI">
   <meta property="og:title" content="Kitaifa | BINSOUD HABARI">
   <meta
     property="og:description"
-    content="Habari za kitaifa kutoka Tanzania na Zanzibar."
+    content="Habari za kitaifa kutoka Tanzania na Zanzibar kupitia BINSOUD HABARI."
   >
-  <meta property="og:type" content="website">
+  <meta
+    property="og:url"
+    content="https://salum0704.github.io/binsoud-habari/kitaifa.html"
+  >
+  <meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=85"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kitaifa | BINSOUD HABARI">
+  <meta
+    name="twitter:description"
+    content="Habari za kitaifa kutoka Tanzania na Zanzibar kupitia BINSOUD HABARI."
+  >
+  <meta
+    name="twitter:image"
+    content="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=85"
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Habari za Kitaifa | BINSOUD HABARI",
+    "url":"https://salum0704.github.io/binsoud-habari/kitaifa.html",
+    "inLanguage":"sw-TZ",
+    "isPartOf":{
+      "@type":"WebSite",
+      "name":"BINSOUD HABARI",
+      "url":"https://salum0704.github.io/binsoud-habari/"
+    }
+  }
+  </script>
 
   <style>
 
@@ -64,6 +100,11 @@
     a{
       text-decoration:none;
       color:inherit;
+    }
+
+    button,
+    input{
+      font-family:inherit;
     }
 
     .container{
@@ -247,6 +288,10 @@
       outline:none;
     }
 
+    .search-form input:focus{
+      border-color:var(--blue);
+    }
+
     .search-form button{
       border:0;
       padding:0 20px;
@@ -302,6 +347,7 @@
       from{
         transform:translateX(100%);
       }
+
       to{
         transform:translateX(-100%);
       }
@@ -625,36 +671,19 @@
     }
 
     /* =========================
-       LOADING
+       DEFAULT CONTENT
     ========================= */
 
-    .loading-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
+    .instant-content{
+      display:block;
     }
 
-    .skeleton{
-      height:380px;
-      border-radius:11px;
-      background:
-        linear-gradient(
-          90deg,
-          #edf2f5 25%,
-          #f8fafb 37%,
-          #edf2f5 63%
-        );
-      background-size:400% 100%;
-      animation:load 1.4s infinite;
+    .firebase-content{
+      display:none;
     }
 
-    @keyframes load{
-      0%{
-        background-position:100% 50%;
-      }
-      100%{
-        background-position:0 50%;
-      }
+    .firebase-content.ready{
+      display:block;
     }
 
     /* =========================
@@ -798,10 +827,6 @@
         grid-template-columns:repeat(2,1fr);
       }
 
-      .loading-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
       .footer-grid{
         grid-template-columns:repeat(2,1fr);
       }
@@ -873,10 +898,6 @@
         grid-template-columns:1fr;
       }
 
-      .loading-grid{
-        grid-template-columns:1fr;
-      }
-
       .footer-grid{
         grid-template-columns:1fr;
       }
@@ -929,6 +950,7 @@
   <!-- TOP BAR -->
 
   <div class="top">
+
     <div class="container top-inner">
 
       <div>
@@ -936,11 +958,19 @@
       </div>
 
       <div class="top-right">
-        <a href="makala.html">Makala</a>
-        <a href="contact.html">Wasiliana Nasi</a>
+
+        <a href="makala.html">
+          Makala
+        </a>
+
+        <a href="contact.html">
+          Wasiliana Nasi
+        </a>
+
       </div>
 
     </div>
+
   </div>
 
 
@@ -950,15 +980,26 @@
 
     <div class="container header-inner">
 
-      <a href="index.html" class="logo">
+      <a
+        href="index.html"
+        class="logo"
+        aria-label="BINSOUD HABARI"
+      >
 
         <div class="logo-box">
           BH
         </div>
 
         <div class="logo-text">
-          <strong>BINSOUD HABARI</strong>
-          <small>UKWELI • UHAKIKA • HABARI</small>
+
+          <strong>
+            BINSOUD HABARI
+          </strong>
+
+          <small>
+            UKWELI • UHAKIKA • HABARI
+          </small>
+
         </div>
 
       </a>
@@ -1026,6 +1067,7 @@
           class="action"
           id="searchBtn"
           title="Tafuta"
+          aria-label="Tafuta"
         >
           🔍
         </button>
@@ -1034,6 +1076,7 @@
           class="action"
           id="menuBtn"
           title="Menyu"
+          aria-label="Menyu"
         >
           ☰
         </button>
@@ -1052,19 +1095,57 @@
 
       <div class="container">
 
-        <a href="index.html">Nyumbani</a>
-        <a href="kitaifa.html">Kitaifa</a>
-        <a href="siasa.html">Siasa</a>
-        <a href="biashara.html">Biashara</a>
-        <a href="michezo.html">Michezo</a>
-        <a href="burudani.html">Burudani</a>
-        <a href="dini.html">Dini</a>
-        <a href="mazingira.html">Mazingira</a>
-        <a href="kimataifa.html">Kimataifa</a>
-        <a href="video.html">Video</a>
-        <a href="audio.html">Audio</a>
-        <a href="makala.html">Makala</a>
-        <a href="contact.html">Wasiliana Nasi</a>
+        <a href="index.html">
+          Nyumbani
+        </a>
+
+        <a href="kitaifa.html">
+          Kitaifa
+        </a>
+
+        <a href="siasa.html">
+          Siasa
+        </a>
+
+        <a href="biashara.html">
+          Biashara
+        </a>
+
+        <a href="michezo.html">
+          Michezo
+        </a>
+
+        <a href="burudani.html">
+          Burudani
+        </a>
+
+        <a href="dini.html">
+          Dini
+        </a>
+
+        <a href="mazingira.html">
+          Mazingira
+        </a>
+
+        <a href="kimataifa.html">
+          Kimataifa
+        </a>
+
+        <a href="video.html">
+          Video
+        </a>
+
+        <a href="audio.html">
+          Audio
+        </a>
+
+        <a href="makala.html">
+          Makala
+        </a>
+
+        <a href="contact.html">
+          Wasiliana Nasi
+        </a>
 
       </div>
 
@@ -1091,6 +1172,7 @@
           id="searchInput"
           type="search"
           placeholder="Tafuta habari..."
+          aria-label="Tafuta habari"
         >
 
         <button type="submit">
@@ -1104,7 +1186,7 @@
   </div>
 
 
-  <!-- BREAKING NEWS -->
+  <!-- BREAKING -->
 
   <section class="breaking">
 
@@ -1115,9 +1197,11 @@
       </div>
 
       <div class="ticker">
+
         <span id="tickerText">
-          Inapakia habari mpya...
+          Karibu BINSOUD HABARI — Habari za Kitaifa kutoka Tanzania na Zanzibar.
         </span>
+
       </div>
 
     </div>
@@ -1149,7 +1233,6 @@
           class="date"
           id="currentDate"
         >
-          Inapakia...
         </div>
 
       </div>
@@ -1166,93 +1249,424 @@
     <div class="container">
 
 
-      <!-- LOADING -->
+      <!--
+        =====================================================
+        HII NDIYO CONTENT YA HARAKA.
 
-      <div id="loading">
+        HAIJISUBIRISHI FIRESTORE.
 
-        <div class="loading-grid">
+        MTU AKIFUNGUA KITAIFA.HTML ATAONA HII MARA MOJA.
+        FIRESTORE ITABADILI BAADAYE KAMA INA HABARI MPYA.
+        =====================================================
+      -->
 
-          <div class="skeleton"></div>
-          <div class="skeleton"></div>
-          <div class="skeleton"></div>
-
-        </div>
-
-      </div>
-
-
-      <!-- ERROR -->
-
-      <div
-        id="error"
-        class="state hidden"
+      <section
+        class="instant-content"
+        id="instantContent"
       >
-
-        <div class="state-icon">
-          ⚠️
-        </div>
-
-        <h3>
-          Imeshindikana kupakia habari
-        </h3>
-
-        <p id="errorText">
-          Tafadhali jaribu tena baadaye.
-        </p>
-
-      </div>
-
-
-      <!-- EMPTY -->
-
-      <div
-        id="empty"
-        class="state hidden"
-      >
-
-        <div class="state-icon">
-          📰
-        </div>
-
-        <h3>
-          Hakuna habari za kitaifa
-        </h3>
-
-        <p>
-          Kwa sasa hakuna habari zilizowekwa katika
-          kundi la Kitaifa.
-        </p>
-
-      </div>
-
-
-      <!-- CONTENT -->
-
-      <div
-        id="content"
-        class="hidden"
-      >
-
 
         <!-- HERO -->
 
         <div class="hero-layout">
 
-          <div
-            class="hero"
-            id="hero"
-          ></div>
+          <article class="hero">
+
+            <a href="habari.html?default=kitaifa">
+
+              <div class="hero-image">
+
+                <img
+                  src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=85"
+                  alt="Habari za Kitaifa Tanzania"
+                  fetchpriority="high"
+                  decoding="async"
+                >
+
+                <div class="hero-overlay">
+
+                  <span class="hero-category">
+                    KITAIFA
+                  </span>
+
+                  <div class="hero-title">
+                    Habari za Kitaifa kutoka Tanzania na Zanzibar
+                  </div>
+
+                  <div class="hero-meta">
+                    📰 BINSOUD HABARI • Habari kwa wakati
+                  </div>
+
+                </div>
+
+              </div>
+
+            </a>
+
+          </article>
 
 
-          <div
-            class="side-news"
-            id="sideNews"
-          ></div>
+          <!-- SIDE NEWS -->
+
+          <div class="side-news">
+
+            <div class="side-title">
+              Habari Zinazofuatwa
+            </div>
+
+
+            <article class="side-card">
+
+              <a
+                href="habari.html?default=kitaifa-1"
+                class="side-image"
+              >
+
+                <img
+                  src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=700&q=80"
+                  alt="Habari mpya Tanzania"
+                  loading="lazy"
+                  decoding="async"
+                >
+
+              </a>
+
+
+              <div>
+
+                <h3>
+
+                  <a href="habari.html?default=kitaifa-1">
+                    Taarifa mpya kutoka Tanzania na Zanzibar
+                  </a>
+
+                </h3>
+
+                <small>
+                  📰 BINSOUD HABARI
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="side-card">
+
+              <a
+                href="habari.html?default=kitaifa-2"
+                class="side-image"
+              >
+
+                <img
+                  src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=700&q=80"
+                  alt="Taarifa za kitaifa"
+                  loading="lazy"
+                  decoding="async"
+                >
+
+              </a>
+
+
+              <div>
+
+                <h3>
+
+                  <a href="habari.html?default=kitaifa-2">
+                    Taarifa muhimu zinazohusu taifa
+                  </a>
+
+                </h3>
+
+                <small>
+                  📅 Leo
+                </small>
+
+              </div>
+
+            </article>
+
+
+            <article class="side-card">
+
+              <a
+                href="habari.html?default=kitaifa-3"
+                class="side-image"
+              >
+
+                <img
+                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=700&q=80"
+                  alt="Habari Tanzania"
+                  loading="lazy"
+                  decoding="async"
+                >
+
+              </a>
+
+
+              <div>
+
+                <h3>
+
+                  <a href="habari.html?default=kitaifa-3">
+                    Matukio na taarifa mbalimbali nchini
+                  </a>
+
+                </h3>
+
+                <small>
+                  📰 BINSOUD HABARI
+                </small>
+
+              </div>
+
+            </article>
+
+          </div>
 
         </div>
 
 
-        <!-- ALL NEWS -->
+        <!-- SECTION -->
+
+        <div class="section-head">
+
+          <h2>
+            Habari Mpya
+          </h2>
+
+          <span>
+            Kitaifa
+          </span>
+
+        </div>
+
+
+        <!-- DEFAULT NEWS -->
+
+        <div class="news-grid">
+
+
+          <article class="card">
+
+            <div class="card-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=900&q=80"
+                alt="Habari mpya za kitaifa"
+                loading="lazy"
+                decoding="async"
+              >
+
+              <span class="badge">
+                KITAIFA
+              </span>
+
+            </div>
+
+
+            <div class="card-body">
+
+              <div class="category">
+                KITAIFA
+              </div>
+
+              <h3>
+
+                <a href="habari.html?default=national-1">
+                  Habari mpya na taarifa muhimu kutoka Tanzania
+                </a>
+
+              </h3>
+
+              <p class="intro">
+                Soma taarifa mbalimbali za kitaifa na matukio
+                yanayoendelea Tanzania na Zanzibar kupitia
+                BINSOUD HABARI.
+              </p>
+
+              <div class="meta">
+
+                <span>
+                  📰 BINSOUD HABARI
+                </span>
+
+                <span>
+                  📅 Leo
+                </span>
+
+              </div>
+
+              <a
+                class="read"
+                href="habari.html?default=national-1"
+              >
+                Soma habari yote →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=900&q=80"
+                alt="Taarifa za Tanzania"
+                loading="lazy"
+                decoding="async"
+              >
+
+              <span class="badge">
+                MPYA
+              </span>
+
+            </div>
+
+
+            <div class="card-body">
+
+              <div class="category">
+                KITAIFA
+              </div>
+
+              <h3>
+
+                <a href="habari.html?default=national-2">
+                  Taarifa kutoka Tanzania na Zanzibar
+                </a>
+
+              </h3>
+
+              <p class="intro">
+                Fuatilia habari na taarifa mpya zinazohusu
+                maisha, jamii na matukio mbalimbali nchini.
+              </p>
+
+              <div class="meta">
+
+                <span>
+                  📰 BINSOUD HABARI
+                </span>
+
+                <span>
+                  📅 Leo
+                </span>
+
+              </div>
+
+              <a
+                class="read"
+                href="habari.html?default=national-2"
+              >
+                Soma habari yote →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="card-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=900&q=80"
+                alt="Habari za kitaifa Tanzania"
+                loading="lazy"
+                decoding="async"
+              >
+
+              <span class="badge">
+                TAARIFA
+              </span>
+
+            </div>
+
+
+            <div class="card-body">
+
+              <div class="category">
+                KITAIFA
+              </div>
+
+              <h3>
+
+                <a href="habari.html?default=national-3">
+                  Habari mbalimbali za kitaifa kwa wakati
+                </a>
+
+              </h3>
+
+              <p class="intro">
+                Pata taarifa za hivi karibuni kutoka sehemu
+                mbalimbali za Tanzania kupitia BINSOUD HABARI.
+              </p>
+
+              <div class="meta">
+
+                <span>
+                  📰 BINSOUD HABARI
+                </span>
+
+                <span>
+                  📅 Leo
+                </span>
+
+              </div>
+
+              <a
+                class="read"
+                href="habari.html?default=national-3"
+              >
+                Soma habari yote →
+              </a>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <!--
+        =====================================================
+        FIRESTORE CONTENT
+
+        HII HAIONEKANI MWANZO.
+
+        FIRESTORE IKIPATA HABARI, JAVASCRIPT ITAWEKA
+        HABARI HALISI HAPA.
+
+        HAKUNA LOADING SCREEN.
+        =====================================================
+      -->
+
+      <section
+        class="firebase-content"
+        id="firebaseContent"
+      >
+
+        <div class="hero-layout">
+
+          <div
+            class="hero"
+            id="firebaseHero"
+          ></div>
+
+          <div
+            class="side-news"
+            id="firebaseSideNews"
+          ></div>
+
+        </div>
+
 
         <div class="section-head">
 
@@ -1272,7 +1686,7 @@
           id="newsGrid"
         ></div>
 
-      </div>
+      </section>
 
     </div>
 
@@ -1313,36 +1727,75 @@
 
         <div class="footer-col">
 
-          <h3>Habari</h3>
+          <h3>
+            Habari
+          </h3>
 
-          <a href="kitaifa.html">Kitaifa</a>
-          <a href="siasa.html">Siasa</a>
-          <a href="biashara.html">Biashara</a>
-          <a href="kimataifa.html">Kimataifa</a>
+          <a href="kitaifa.html">
+            Kitaifa
+          </a>
+
+          <a href="siasa.html">
+            Siasa
+          </a>
+
+          <a href="biashara.html">
+            Biashara
+          </a>
+
+          <a href="kimataifa.html">
+            Kimataifa
+          </a>
 
         </div>
 
 
         <div class="footer-col">
 
-          <h3>Maudhui</h3>
+          <h3>
+            Maudhui
+          </h3>
 
-          <a href="michezo.html">Michezo</a>
-          <a href="burudani.html">Burudani</a>
-          <a href="dini.html">Dini</a>
-          <a href="mazingira.html">Mazingira</a>
+          <a href="michezo.html">
+            Michezo
+          </a>
+
+          <a href="burudani.html">
+            Burudani
+          </a>
+
+          <a href="dini.html">
+            Dini
+          </a>
+
+          <a href="mazingira.html">
+            Mazingira
+          </a>
 
         </div>
 
 
         <div class="footer-col">
 
-          <h3>Zaidi</h3>
+          <h3>
+            Zaidi
+          </h3>
 
-          <a href="video.html">Video</a>
-          <a href="audio.html">Audio</a>
-          <a href="makala.html">Makala</a>
-          <a href="contact.html">Wasiliana Nasi</a>
+          <a href="video.html">
+            Video
+          </a>
+
+          <a href="audio.html">
+            Audio
+          </a>
+
+          <a href="makala.html">
+            Makala
+          </a>
+
+          <a href="contact.html">
+            Wasiliana Nasi
+          </a>
 
         </div>
 
@@ -1356,8 +1809,10 @@
       <div class="container footer-bottom-inner">
 
         <span>
-          © <span id="year"></span>
-          BINSOUD HABARI. Haki zote zimehifadhiwa.
+          ©
+          <span id="year"></span>
+          BINSOUD HABARI.
+          Haki zote zimehifadhiwa.
         </span>
 
         <span>
@@ -1377,13 +1832,18 @@
 
     import {
       initializeApp
-    } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+    }
+    from
+      "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
 
     import {
       getFirestore,
       collection,
       getDocs
-    } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+    }
+    from
+      "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
     /* =========================
@@ -1427,36 +1887,44 @@
        ELEMENTS
     ========================= */
 
-    const loading =
-      document.getElementById("loading");
+    const instantContent =
+      document.getElementById(
+        "instantContent"
+      );
 
-    const error =
-      document.getElementById("error");
+    const firebaseContent =
+      document.getElementById(
+        "firebaseContent"
+      );
 
-    const empty =
-      document.getElementById("empty");
+    const firebaseHero =
+      document.getElementById(
+        "firebaseHero"
+      );
 
-    const content =
-      document.getElementById("content");
-
-    const hero =
-      document.getElementById("hero");
-
-    const sideNews =
-      document.getElementById("sideNews");
+    const firebaseSideNews =
+      document.getElementById(
+        "firebaseSideNews"
+      );
 
     const newsGrid =
-      document.getElementById("newsGrid");
+      document.getElementById(
+        "newsGrid"
+      );
 
     const tickerText =
-      document.getElementById("tickerText");
+      document.getElementById(
+        "tickerText"
+      );
 
     const count =
-      document.getElementById("count");
+      document.getElementById(
+        "count"
+      );
 
 
     /* =========================
-       ESCAPE
+       ESCAPE HTML
     ========================= */
 
     function escapeHTML(value){
@@ -1465,7 +1933,9 @@
         value === null ||
         value === undefined
       ){
+
         return "";
+
       }
 
       return String(value)
@@ -1474,6 +1944,23 @@
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
+
+    }
+
+
+    /* =========================
+       GET IMAGE
+    ========================= */
+
+    function getImage(article){
+
+      return (
+        article.image ||
+        article.imageUrl ||
+        article.photo ||
+        article.thumbnail ||
+        "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1000&q=80"
+      );
 
     }
 
@@ -1496,24 +1983,30 @@
 
         if(
           typeof value === "object" &&
-          value.seconds
+          typeof value.toDate === "function"
         ){
-          return value.seconds * 1000;
+
+          return value
+            .toDate()
+            .getTime();
+
         }
 
         if(
           typeof value === "object" &&
-          typeof value.toDate === "function"
+          value.seconds
         ){
-          return value.toDate().getTime();
+
+          return value.seconds * 1000;
+
         }
 
-        const date =
+        const parsed =
           new Date(value).getTime();
 
-        return isNaN(date)
+        return isNaN(parsed)
           ? 0
-          : date;
+          : parsed;
 
       }catch(e){
 
@@ -1531,7 +2024,9 @@
     function formatDate(value){
 
       if(!value){
-        return "Tarehe haijawekwa";
+
+        return "Leo";
+
       }
 
       try{
@@ -1540,19 +2035,21 @@
 
         if(
           typeof value === "object" &&
-          value.seconds
-        ){
-
-          date =
-            new Date(value.seconds * 1000);
-
-        }else if(
-          typeof value === "object" &&
           typeof value.toDate === "function"
         ){
 
           date =
             value.toDate();
+
+        }else if(
+          typeof value === "object" &&
+          value.seconds
+        ){
+
+          date =
+            new Date(
+              value.seconds * 1000
+            );
 
         }else{
 
@@ -1561,14 +2058,20 @@
 
         }
 
-        if(isNaN(date.getTime())){
-          return String(value);
+        if(
+          isNaN(
+            date.getTime()
+          )
+        ){
+
+          return "Leo";
+
         }
 
         return new Intl.DateTimeFormat(
           "sw-TZ",
           {
-            day:"2-digit",
+            day:"numeric",
             month:"short",
             year:"numeric"
           }
@@ -1576,7 +2079,7 @@
 
       }catch(e){
 
-        return String(value);
+        return "Leo";
 
       }
 
@@ -1584,7 +2087,7 @@
 
 
     /* =========================
-       IMAGE
+       IMAGE HTML
     ========================= */
 
     function imageHTML(
@@ -1592,56 +2095,42 @@
       title
     ){
 
-      if(!image){
+      const safeImage =
+        escapeHTML(image);
 
-        return `
-          <div style="
-            width:100%;
-            height:100%;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:42px;
-            background:#eaf4fb;
-          ">
-            📰
-          </div>
-        `;
+      const safeTitle =
+        escapeHTML(title);
 
-      }
 
       return `
+
         <img
-          src="${escapeHTML(image)}"
-          alt="${escapeHTML(title)}"
+          src="${safeImage}"
+          alt="${safeTitle}"
+          loading="lazy"
+          decoding="async"
           onerror="
             this.style.display='none';
-            this.parentElement.innerHTML='📰';
           "
         >
+
       `;
 
     }
 
 
     /* =========================
-       HERO CARD
+       RENDER HERO
     ========================= */
 
     function renderHero(article){
 
-      if(!article){
-        return;
-      }
-
       const title =
         article.title ||
-        "Habari mpya";
+        "Habari mpya za Kitaifa";
 
       const image =
-        article.image ||
-        article.imageUrl ||
-        "";
+        getImage(article);
 
       const author =
         article.author ||
@@ -1653,7 +2142,8 @@
           article.date
         );
 
-      hero.innerHTML = `
+
+      firebaseHero.innerHTML = `
 
         <a
           href="habari.html?id=${encodeURIComponent(article.id)}"
@@ -1661,7 +2151,10 @@
 
           <div class="hero-image">
 
-            ${imageHTML(image,title)}
+            ${imageHTML(
+              image,
+              title
+            )}
 
             <div class="hero-overlay">
 
@@ -1691,16 +2184,21 @@
 
 
     /* =========================
-       SIDE NEWS
+       RENDER SIDE
     ========================= */
 
-    function renderSideNews(articles){
+    function renderSideNews(
+      articles
+    ){
 
-      sideNews.innerHTML = `
+      firebaseSideNews.innerHTML = `
+
         <div class="side-title">
           Habari Zinazofuatwa
         </div>
+
       `;
+
 
       articles
         .slice(0,4)
@@ -1711,9 +2209,7 @@
             "Habari mpya";
 
           const image =
-            article.image ||
-            article.imageUrl ||
-            "";
+            getImage(article);
 
           const date =
             formatDate(
@@ -1721,11 +2217,16 @@
               article.date
             );
 
+
           const item =
-            document.createElement("article");
+            document.createElement(
+              "article"
+            );
+
 
           item.className =
             "side-card";
+
 
           item.innerHTML = `
 
@@ -1733,17 +2234,25 @@
               href="habari.html?id=${encodeURIComponent(article.id)}"
               class="side-image"
             >
-              ${imageHTML(image,title)}
+
+              ${imageHTML(
+                image,
+                title
+              )}
+
             </a>
+
 
             <div>
 
               <h3>
+
                 <a
                   href="habari.html?id=${encodeURIComponent(article.id)}"
                 >
                   ${escapeHTML(title)}
                 </a>
+
               </h3>
 
               <small>
@@ -1754,7 +2263,10 @@
 
           `;
 
-          sideNews.appendChild(item);
+
+          firebaseSideNews.appendChild(
+            item
+          );
 
         });
 
@@ -1762,10 +2274,12 @@
 
 
     /* =========================
-       NEWS CARD
+       CREATE CARD
     ========================= */
 
-    function createCard(article){
+    function createCard(
+      article
+    ){
 
       const title =
         article.title ||
@@ -1773,13 +2287,13 @@
 
       const intro =
         article.intro ||
-        article.content ||
-        "Soma habari hii kwa maelezo zaidi.";
+        article.excerpt ||
+        article.summary ||
+        article.description ||
+        "Soma habari hii kwa maelezo zaidi kupitia BINSOUD HABARI.";
 
       const image =
-        article.image ||
-        article.imageUrl ||
-        "";
+        getImage(article);
 
       const author =
         article.author ||
@@ -1791,17 +2305,12 @@
           article.date
         );
 
-      const readTime =
-        article.readTime ||
-        "Dakika 2";
-
-      const featured =
-        article.featured === true ||
-        article.featured === "true";
-
 
       const card =
-        document.createElement("article");
+        document.createElement(
+          "article"
+        );
+
 
       card.className =
         "card";
@@ -1811,10 +2320,13 @@
 
         <div class="card-image">
 
-          ${imageHTML(image,title)}
+          ${imageHTML(
+            image,
+            title
+          )}
 
           ${
-            featured
+            article.featured === true
               ? `
                 <span class="badge">
                   MUHIMU
@@ -1859,10 +2371,6 @@
               📅 ${escapeHTML(date)}
             </span>
 
-            <span>
-              ⏱️ ${escapeHTML(readTime)}
-            </span>
-
           </div>
 
 
@@ -1877,16 +2385,17 @@
 
       `;
 
+
       return card;
 
     }
 
 
     /* =========================
-       LOAD FIRESTORE
+       LOAD FIRESTORE KIMYA
     ========================= */
 
-    async function loadArticles(){
+    async function loadArticlesSilently(){
 
       try{
 
@@ -1902,38 +2411,49 @@
         const allArticles = [];
 
 
-        snapshot.forEach(docSnap => {
+        snapshot.forEach(
+          docSnap => {
 
-          allArticles.push({
+            allArticles.push({
 
-            id:docSnap.id,
+              id:
+                docSnap.id,
 
-            ...docSnap.data()
+              ...docSnap.data()
 
-          });
+            });
 
-        });
+          }
+        );
 
 
         /* =========================
-           FILTER KITAIFA
+           KITAIFA ONLY
         ========================= */
 
         const national =
-          allArticles.filter(article => {
+          allArticles.filter(
+            article => {
 
-            return String(
-              article.category || ""
-            )
-              .trim()
-              .toLowerCase()
-              === "kitaifa";
+              const category =
+                String(
+                  article.category ||
+                  ""
+                )
+                  .trim()
+                  .toLowerCase();
 
-          });
+              return (
+                category ===
+                "kitaifa"
+              );
+
+            }
+          );
 
 
         /* =========================
-           SORT
+           SORT NEWEST
         ========================= */
 
         national.sort(
@@ -1943,41 +2463,16 @@
         );
 
 
-        /* =========================
-           BREAKING NEWS
-        ========================= */
+        /*
+          KAMA HAKUNA HABARI KITAIFA:
+          USIFANYE CHOCHOTE.
 
-        if(national.length){
+          DEFAULT HTML INAENDELEA KUONEKANA.
+        */
 
-          tickerText.textContent =
-            national
-              .slice(0,10)
-              .map(article =>
-                article.title ||
-                "Habari mpya"
-              )
-              .join("   •   ");
-
-        }else{
-
-          tickerText.textContent =
-            "Karibu BINSOUD HABARI — habari mpya za kitaifa.";
-
-        }
-
-
-        loading.classList.add("hidden");
-
-
-        /* =========================
-           EMPTY
-        ========================= */
-
-        if(!national.length){
-
-          empty.classList.remove(
-            "hidden"
-          );
+        if(
+          !national.length
+        ){
 
           return;
 
@@ -1985,11 +2480,63 @@
 
 
         /* =========================
-           SHOW CONTENT
+           BREAKING TEXT
         ========================= */
 
-        content.classList.remove(
-          "hidden"
+        tickerText.textContent =
+          national
+            .slice(0,10)
+            .map(
+              article =>
+                article.title ||
+                "Habari mpya"
+            )
+            .join(
+              "   •   "
+            );
+
+
+        /* =========================
+           FIRESTORE CONTENT
+           IONESHE SASA IMEPATIKANA
+        ========================= */
+
+        const featured =
+          national[0];
+
+
+        const remaining =
+          national.slice(1);
+
+
+        /* HERO */
+
+        renderHero(
+          featured
+        );
+
+
+        /* SIDE */
+
+        renderSideNews(
+          remaining
+        );
+
+
+        /* GRID */
+
+        newsGrid.innerHTML =
+          "";
+
+
+        remaining.forEach(
+          article => {
+
+            newsGrid.appendChild(
+              createCard(article)
+            );
+
+          }
         );
 
 
@@ -1997,63 +2544,36 @@
           `${national.length} habari`;
 
 
-        /* =========================
-           HERO
-        ========================= */
-
-        renderHero(
-          national[0]
-        );
-
-
-        /* =========================
-           SIDE
-        ========================= */
-
-        renderSideNews(
-          national.slice(1,5)
-        );
-
-
-        /* =========================
-           GRID
-        ========================= */
-
-        newsGrid.innerHTML = "";
-
-
         /*
-          Tunaanza na article ya pili
-          ili hero isijirudie kwenye grid.
+          FIRESTORE IKIFANIKIWA,
+          CONTENT HALISI INAONEKANA.
+
+          DEFAULT CONTENT INAONDOKA.
         */
 
-        national
-          .slice(1)
-          .forEach(article => {
+        firebaseContent.classList.add(
+          "ready"
+        );
 
-            newsGrid.appendChild(
-              createCard(article)
-            );
-
-          });
-
-
-      }catch(err){
-
-        console.error(err);
-
-        loading.classList.add(
+        instantContent.classList.add(
           "hidden"
         );
 
-        error.classList.remove(
-          "hidden"
-        );
 
-        document.getElementById(
-          "errorText"
-        ).textContent =
-          "Kuna tatizo la kuunganisha na Firestore. Hakikisha Firebase na Firestore vinafanya kazi vizuri.";
+      }catch(error){
+
+        /*
+          MUHIMU:
+
+          HATUONYESHI ERROR KWA MTUMIAJI.
+
+          DEFAULT HTML INAENDELEA KUONEKANA.
+        */
+
+        console.warn(
+          "Firestore haijapatikana kwa sasa:",
+          error
+        );
 
       }
 
@@ -2075,7 +2595,9 @@
           month:"long",
           year:"numeric"
         }
-      ).format(new Date());
+      ).format(
+        new Date()
+      );
 
 
     /* =========================
@@ -2116,6 +2638,7 @@
           "show"
         );
 
+
         if(
           searchPanel.classList.contains(
             "show"
@@ -2138,16 +2661,21 @@
 
         event.preventDefault();
 
+
         const query =
           searchInput.value.trim();
+
 
         if(!query){
           return;
         }
 
+
         window.location.href =
           "search.html?q=" +
-          encodeURIComponent(query);
+          encodeURIComponent(
+            query
+          );
 
       }
     );
@@ -2176,6 +2704,7 @@
           "show"
         );
 
+
         menuBtn.textContent =
           mobileMenu.classList.contains(
             "show"
@@ -2188,10 +2717,12 @@
 
 
     /* =========================
-       LOAD
-    ========================= */
+       START FIRESTORE
+       
+       HAIKOMESHI MTUMIAJI
+       ========================= */
 
-    loadArticles();
+    loadArticlesSilently();
 
   </script>
 
