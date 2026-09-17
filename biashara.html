@@ -1,11 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="sw-TZ">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Biashara | BINSOUD HABARI</title>
@@ -15,50 +13,26 @@
     content="Soma habari mpya za biashara Tanzania, Afrika na dunia kupitia BINSOUD HABARI."
 >
 
-<meta
-    name="robots"
-    content="index, follow, max-image-preview:large"
->
-
-<meta
-    name="author"
-    content="BINSOUD HABARI"
->
-
-<meta
-    name="theme-color"
-    content="#001a32"
->
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="BINSOUD HABARI">
+<meta name="theme-color" content="#001a32">
 
 <link
     rel="canonical"
     href="https://salum0704.github.io/binsoud-habari/biashara.html"
 >
 
-<meta
-    property="og:type"
-    content="website"
->
-
-<meta
-    property="og:title"
-    content="Biashara | BINSOUD HABARI"
->
-
+<meta property="og:type" content="website">
+<meta property="og:title" content="Biashara | BINSOUD HABARI">
 <meta
     property="og:description"
     content="Habari mpya za biashara Tanzania, Afrika na dunia."
 >
-
 <meta
     property="og:url"
     content="https://salum0704.github.io/binsoud-habari/biashara.html"
 >
-
-<meta
-    property="og:site_name"
-    content="BINSOUD HABARI"
->
+<meta property="og:site_name" content="BINSOUD HABARI">
 
 <style>
 
@@ -98,10 +72,19 @@ a{
     text-decoration:none;
 }
 
+img{
+    max-width:100%;
+}
 
-/* =========================================
+button,
+input{
+    font-family:inherit;
+}
+
+
+/* =========================
    TOP BAR
-========================================= */
+========================= */
 
 .top-bar{
     background:#000d19;
@@ -120,9 +103,9 @@ a{
 }
 
 
-/* =========================================
+/* =========================
    HEADER
-========================================= */
+========================= */
 
 header{
     background:var(--navy);
@@ -178,9 +161,9 @@ header{
 }
 
 
-/* =========================================
+/* =========================
    NAVIGATION
-========================================= */
+========================= */
 
 nav{
     background:var(--blue);
@@ -221,9 +204,9 @@ nav a.active{
 }
 
 
-/* =========================================
+/* =========================
    BREAKING NEWS
-========================================= */
+========================= */
 
 .breaking{
     background:var(--yellow);
@@ -295,9 +278,9 @@ nav a.active{
 }
 
 
-/* =========================================
+/* =========================
    MAIN
-========================================= */
+========================= */
 
 main{
     width:100%;
@@ -309,9 +292,9 @@ main{
 }
 
 
-/* =========================================
+/* =========================
    PAGE TITLE
-========================================= */
+========================= */
 
 .page-title{
     background:white;
@@ -340,9 +323,9 @@ main{
 }
 
 
-/* =========================================
+/* =========================
    SEARCH
-========================================= */
+========================= */
 
 .search-area{
     background:white;
@@ -363,7 +346,6 @@ main{
 
 .search-form input{
     flex:1;
-
     min-width:0;
 
     padding:13px 15px;
@@ -402,9 +384,9 @@ main{
 }
 
 
-/* =========================================
+/* =========================
    ERROR
-========================================= */
+========================= */
 
 .error{
     display:none;
@@ -425,9 +407,9 @@ main{
 }
 
 
-/* =========================================
+/* =========================
    SECTION
-========================================= */
+========================= */
 
 .section-heading{
     border-bottom:3px solid #c9b200;
@@ -444,9 +426,9 @@ main{
 }
 
 
-/* =========================================
+/* =========================
    CARDS
-========================================= */
+========================= */
 
 .cards{
     display:grid;
@@ -532,9 +514,7 @@ main{
     margin-bottom:9px;
 
     display:-webkit-box;
-
     -webkit-box-orient:vertical;
-
     -webkit-line-clamp:3;
 
     overflow:hidden;
@@ -548,9 +528,7 @@ main{
     line-height:1.65;
 
     display:-webkit-box;
-
     -webkit-box-orient:vertical;
-
     -webkit-line-clamp:3;
 
     overflow:hidden;
@@ -590,14 +568,13 @@ main{
 
 .read-button:hover{
     background:var(--yellow);
-
     color:var(--navy);
 }
 
 
-/* =========================================
+/* =========================
    LOADING
-========================================= */
+========================= */
 
 .loading{
     background:white;
@@ -612,9 +589,9 @@ main{
 }
 
 
-/* =========================================
+/* =========================
    EMPTY
-========================================= */
+========================= */
 
 .empty{
     display:none;
@@ -631,13 +608,12 @@ main{
 }
 
 
-/* =========================================
+/* =========================
    FOOTER
-========================================= */
+========================= */
 
 footer{
     background:var(--navy);
-
     color:white;
 }
 
@@ -669,7 +645,6 @@ footer a{
 
 footer a{
     display:block;
-
     margin-bottom:7px;
 }
 
@@ -692,9 +667,9 @@ footer a:hover{
 }
 
 
-/* =========================================
+/* =========================
    TABLET
-========================================= */
+========================= */
 
 @media(max-width:950px){
 
@@ -711,9 +686,9 @@ footer a:hover{
 }
 
 
-/* =========================================
+/* =========================
    MOBILE
-========================================= */
+========================= */
 
 @media(max-width:650px){
 
@@ -723,17 +698,13 @@ footer a:hover{
 
     .top-inner{
         flex-direction:column;
-
         gap:4px;
-
         text-align:center;
     }
 
     .header-inner{
         flex-direction:column;
-
         gap:15px;
-
         text-align:center;
 
         padding:18px 12px;
@@ -741,7 +712,6 @@ footer a:hover{
 
     .brand{
         justify-content:center;
-
         max-width:100%;
     }
 
@@ -751,13 +721,11 @@ footer a:hover{
 
     nav a{
         padding:12px 13px;
-
         font-size:13px;
     }
 
     .breaking-label{
         padding:9px 10px;
-
         font-size:11px;
     }
 
@@ -794,15 +762,12 @@ footer a:hover{
 
     .search-form button{
         width:100%;
-
         min-height:45px;
-
         padding:12px;
     }
 
     .cards{
         grid-template-columns:1fr;
-
         gap:16px;
     }
 
@@ -820,16 +785,15 @@ footer a:hover{
 
     .footer-inner{
         grid-template-columns:1fr;
-
         padding:32px 20px;
     }
 
 }
 
 
-/* =========================================
+/* =========================
    REDUCED MOTION
-========================================= */
+========================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -843,15 +807,6 @@ footer a:hover{
 
 }
 
-img{
-    max-width:100%;
-}
-
-button,
-input{
-    font-family:inherit;
-}
-
 </style>
 
 </head>
@@ -860,9 +815,7 @@ input{
 <body>
 
 
-<!-- =========================================
-     TOP BAR
-========================================= -->
+<!-- TOP BAR -->
 
 <div class="top-bar">
 
@@ -881,9 +834,7 @@ input{
 </div>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -979,9 +930,7 @@ input{
 </header>
 
 
-<!-- =========================================
-     BREAKING
-========================================= -->
+<!-- BREAKING NEWS -->
 
 <div class="breaking">
 
@@ -1007,12 +956,12 @@ input{
 </div>
 
 
+<!-- MAIN -->
+
 <main>
 
 
-<!-- =========================================
-     PAGE TITLE
-========================================= -->
+<!-- PAGE TITLE -->
 
 <section class="page-title">
 
@@ -1029,9 +978,7 @@ input{
 </section>
 
 
-<!-- =========================================
-     SEARCH
-========================================= -->
+<!-- SEARCH -->
 
 <section
     class="search-area"
@@ -1060,9 +1007,7 @@ input{
 </section>
 
 
-<!-- =========================================
-     ERROR
-========================================= -->
+<!-- ERROR -->
 
 <div
     class="error"
@@ -1071,9 +1016,7 @@ input{
 ></div>
 
 
-<!-- =========================================
-     ARTICLES
-========================================= -->
+<!-- ARTICLES -->
 
 <section>
 
@@ -1111,9 +1054,7 @@ input{
 </main>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1203,19 +1144,15 @@ input{
 </footer>
 
 
-<!-- =========================================
-     FIREBASE
-========================================= -->
+<!-- FIREBASE -->
 
 <script type="module">
-
 
 import {
     initializeApp
 }
 from
 "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-
 
 import {
     getFirestore,
@@ -1226,9 +1163,9 @@ from
 "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
-/* =========================================
+/* =========================
    FIREBASE CONFIG
-========================================= */
+========================= */
 
 const firebaseConfig = {
 
@@ -1256,22 +1193,20 @@ const firebaseConfig = {
 };
 
 
-/* =========================================
+/* =========================
    FIREBASE
-========================================= */
+========================= */
 
 const app =
-    initializeApp(
-        firebaseConfig
-    );
+    initializeApp(firebaseConfig);
 
 const db =
     getFirestore(app);
 
 
-/* =========================================
+/* =========================
    ELEMENTS
-========================================= */
+========================= */
 
 const articlesContainer =
     document.getElementById(
@@ -1307,82 +1242,68 @@ const searchInput =
 let allArticles = [];
 
 
-/* =========================================
+/* =========================
    TODAY
-========================================= */
+========================= */
 
 document.getElementById(
     "todayDate"
 ).textContent =
+    new Date().toLocaleDateString(
+        "sw-TZ",
+        {
+            weekday:"long",
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
 
-new Date().toLocaleDateString(
-    "sw-TZ",
-    {
-        weekday:"long",
-        year:"numeric",
-        month:"long",
-        day:"numeric"
-    }
-);
 
-
-/* =========================================
-   ESCAPE
-========================================= */
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHTML(value){
 
-    return String(
-        value ?? ""
-    )
-
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
-/* =========================================
+/* =========================
    TEXT
-========================================= */
+========================= */
 
 function getText(value){
 
-    return String(
-        value ?? ""
-    ).trim();
+    return String(value ?? "").trim();
 
 }
 
 
-/* =========================================
+/* =========================
    REMOVE HTML
-========================================= */
+========================= */
 
 function removeHTML(value){
 
-    return String(
-        value ?? ""
-    )
-    .replace(
-        /<[^>]*>/g,
-        " "
-    )
-    .replace(
-        /\s+/g,
-        " "
-    )
-    .trim();
+    return String(value ?? "")
+        .replace(/<[^>]*>/g," ")
+        .replace(/\s+/g," ")
+        .trim();
 
 }
 
 
-/* =========================================
+/* =========================
    SHORT INTRO
-========================================= */
+========================= */
 
 function getShortIntro(article){
 
@@ -1402,8 +1323,8 @@ function getShortIntro(article){
 
             return (
                 words
-                .slice(0,35)
-                .join(" ") +
+                    .slice(0,35)
+                    .join(" ") +
                 "..."
             );
 
@@ -1422,9 +1343,7 @@ function getShortIntro(article){
 
 
     if(!content){
-
         return "";
-
     }
 
 
@@ -1433,25 +1352,23 @@ function getShortIntro(article){
 
 
     if(words.length <= 35){
-
         return content;
-
     }
 
 
     return (
         words
-        .slice(0,35)
-        .join(" ") +
+            .slice(0,35)
+            .join(" ") +
         "..."
     );
 
 }
 
 
-/* =========================================
-   ARTICLE PAGE
-========================================= */
+/* =========================
+   ARTICLE LINK
+========================= */
 
 function getArticlePage(articleId){
 
@@ -1465,9 +1382,9 @@ function getArticlePage(articleId){
 }
 
 
-/* =========================================
+/* =========================
    IMAGE
-========================================= */
+========================= */
 
 function getImage(image){
 
@@ -1475,21 +1392,21 @@ function getImage(image){
         getText(image);
 
 
-    if(!value){
-
-        return "https://via.placeholder.com/800x450?text=BINSOUD+HABARI";
-
+    if(value){
+        return value;
     }
 
 
-    return value;
+    return (
+        "https://via.placeholder.com/800x450?text=BINSOUD+HABARI"
+    );
 
 }
 
 
-/* =========================================
+/* =========================
    DATE VALUE
-========================================= */
+========================= */
 
 function getDateValue(article){
 
@@ -1505,9 +1422,7 @@ function getDateValue(article){
         typeof value.toDate === "function"
     ){
 
-        return value
-            .toDate()
-            .getTime();
+        return value.toDate().getTime();
 
     }
 
@@ -1523,9 +1438,9 @@ function getDateValue(article){
 }
 
 
-/* =========================================
+/* =========================
    FORMAT DATE
-========================================= */
+========================= */
 
 function formatDate(article){
 
@@ -1564,9 +1479,9 @@ function formatDate(article){
 }
 
 
-/* =========================================
+/* =========================
    BREAKING NEWS
-========================================= */
+========================= */
 
 function renderBreakingNews(articles){
 
@@ -1582,16 +1497,14 @@ function renderBreakingNews(articles){
 
     const headlines =
         articles
-        .slice(0,10)
-        .map(
-            article =>
-
-                "🔴 " +
-                escapeHTML(
-                    article.title ||
-                    "Habari"
-                )
-        );
+            .slice(0,10)
+            .map(
+                article =>
+                    "🔴 " +
+                    getText(
+                        article.title
+                    )
+            );
 
 
     const text =
@@ -1600,7 +1513,7 @@ function renderBreakingNews(articles){
         );
 
 
-    breakingText.innerHTML =
+    breakingText.textContent =
         text +
         "     •     " +
         text;
@@ -1608,9 +1521,9 @@ function renderBreakingNews(articles){
 }
 
 
-/* =========================================
+/* =========================
    LOAD ARTICLES
-========================================= */
+========================= */
 
 async function loadArticles(){
 
@@ -1618,6 +1531,15 @@ async function loadArticles(){
 
         errorBox.style.display =
             "none";
+
+
+        articlesContainer.innerHTML =
+
+            `
+                <div class="loading">
+                    ⏳ Inapakia habari za biashara...
+                </div>
+            `;
 
 
         const snapshot =
@@ -1633,10 +1555,10 @@ async function loadArticles(){
 
 
         snapshot.forEach(
-            doc => {
+            docSnapshot => {
 
                 const data =
-                    doc.data();
+                    docSnapshot.data();
 
 
                 const category =
@@ -1646,7 +1568,7 @@ async function loadArticles(){
 
 
                 /*
-                 * BIASHARA PEKEE
+                 * CHUKUA BIASHARA PEKEE
                  */
 
                 if(
@@ -1661,14 +1583,24 @@ async function loadArticles(){
 
                 allArticles.push({
 
+                    /*
+                     * MUHIMU:
+                     * Hii ni ID HALISI ya
+                     * Firestore document.
+                     */
+
                     id:
-                        doc.id,
+                        docSnapshot.id,
 
                     title:
-                        data.title || "",
+                        getText(
+                            data.title
+                        ),
 
                     intro:
-                        data.intro || "",
+                        getText(
+                            data.intro
+                        ),
 
                     content:
                         data.content || "",
@@ -1687,10 +1619,12 @@ async function loadArticles(){
                         "BINSOUD HABARI",
 
                     date:
-                        data.date || "",
+                        data.date ||
+                        "",
 
                     createdAt:
-                        data.createdAt || "",
+                        data.createdAt ||
+                        "",
 
                     readTime:
                         data.readTime ||
@@ -1701,6 +1635,10 @@ async function loadArticles(){
             }
         );
 
+
+        /*
+         * HABARI MPYA KWANZA
+         */
 
         allArticles.sort(
             (a,b) =>
@@ -1728,27 +1666,22 @@ async function loadArticles(){
         );
 
 
+        articlesContainer.innerHTML =
+            "";
+
+
         errorBox.innerHTML =
 
-        `
-            ❌ Imeshindikana kupakia
-            habari za biashara.
+            `
+                ❌ Imeshindikana kupakia
+                habari za biashara.
 
-            <br><br>
+                <br><br>
 
-            Hakikisha Firestore ina
-            collection:
-
-            <strong>
-                articles
-            </strong>
-
-            <br><br>
-
-            ${escapeHTML(
-                error.message
-            )}
-        `;
+                ${escapeHTML(
+                    error.message
+                )}
+            `;
 
 
         errorBox.style.display =
@@ -1759,9 +1692,9 @@ async function loadArticles(){
 }
 
 
-/* =========================================
+/* =========================
    RENDER ARTICLES
-========================================= */
+========================= */
 
 function renderArticles(articles){
 
@@ -1783,150 +1716,148 @@ function renderArticles(articles){
 
 
     articles
-    .slice(0,30)
-    .forEach(
-        article => {
+        .slice(0,30)
+        .forEach(
+            article => {
 
-            const card =
-                document.createElement(
-                    "article"
-                );
-
-
-            card.className =
-                "card";
+                const card =
+                    document.createElement(
+                        "article"
+                    );
 
 
-            const shortIntro =
-                getShortIntro(
-                    article
-                );
+                card.className =
+                    "card";
 
 
-            const articlePage =
-                getArticlePage(
-                    article.id
-                );
+                const shortIntro =
+                    getShortIntro(
+                        article
+                    );
 
 
-            card.innerHTML =
+                /*
+                 * LINK YA HABARI
+                 *
+                 * Mfano:
+                 * habari.html?id=ABC123
+                 */
 
-            `
-
-            <div class="card-image">
-
-                <img
-
-                    src="${escapeHTML(
-                        getImage(
-                            article.image
-                        )
-                    )}"
-
-                    alt="${escapeHTML(
-                        article.title
-                    )}"
-
-                    loading="lazy"
-
-                    onerror="
-                        this.onerror=null;
-                        this.src='https://via.placeholder.com/800x450?text=BINSOUD+HABARI';
-                    "
-
-                >
-
-            </div>
+                const articlePage =
+                    getArticlePage(
+                        article.id
+                    );
 
 
-            <div class="card-content">
+                card.innerHTML =
 
+                `
 
-                <span class="category">
+                <div class="card-image">
 
-                    💰 BIASHARA
+                    <img
+                        src="${escapeHTML(
+                            getImage(
+                                article.image
+                            )
+                        )}"
 
-                </span>
+                        alt="${escapeHTML(
+                            article.title ||
+                            "BINSOUD HABARI"
+                        )}"
 
+                        loading="lazy"
 
-                <h3>
-
-                    ${escapeHTML(
-                        article.title
-                    )}
-
-                </h3>
-
-
-                ${
-                    shortIntro
-                    ?
-                    `
-                    <p>
-                        ${escapeHTML(
-                            shortIntro
-                        )}
-                    </p>
-                    `
-                    :
-                    ""
-                }
-
-
-                <div class="meta">
-
-                    ✍️
-                    ${escapeHTML(
-                        article.author
-                    )}
-
-                    <br>
-
-                    📅
-                    ${escapeHTML(
-                        formatDate(
-                            article
-                        )
-                    )}
-
-                    &nbsp; • &nbsp;
-
-                    ⏱️
-                    ${escapeHTML(
-                        article.readTime
-                    )}
+                        onerror="
+                            this.onerror=null;
+                            this.src='https://via.placeholder.com/800x450?text=BINSOUD+HABARI';
+                        "
+                    >
 
                 </div>
 
 
-                <a
-                    class="read-button"
-                    href="${articlePage}"
-                >
+                <div class="card-content">
 
-                    Soma zaidi →
-
-                </a>
+                    <span class="category">
+                        💰 BIASHARA
+                    </span>
 
 
-            </div>
+                    <h3>
+                        ${escapeHTML(
+                            article.title
+                        )}
+                    </h3>
 
-            `;
+
+                    ${
+                        shortIntro
+                        ?
+                        `
+                        <p>
+                            ${escapeHTML(
+                                shortIntro
+                            )}
+                        </p>
+                        `
+                        :
+                        ""
+                    }
 
 
-            articlesContainer.appendChild(
-                card
-            );
+                    <div class="meta">
 
-        }
-    );
+                        ✍️
+                        ${escapeHTML(
+                            article.author
+                        )}
+
+                        <br>
+
+                        📅
+                        ${escapeHTML(
+                            formatDate(
+                                article
+                            )
+                        )}
+
+                        &nbsp; • &nbsp;
+
+                        ⏱️
+                        ${escapeHTML(
+                            article.readTime
+                        )}
+
+                    </div>
+
+
+                    <a
+                        class="read-button"
+                        href="${articlePage}"
+                    >
+                        Soma zaidi →
+                    </a>
+
+                </div>
+
+                `;
+
+
+                articlesContainer.appendChild(
+                    card
+                );
+
+            }
+        );
 
 }
 
 
-/* =========================================
+/* =========================
    SEARCH
-========================================= */
+========================= */
 
 searchForm.addEventListener(
     "submit",
@@ -1937,8 +1868,8 @@ searchForm.addEventListener(
 
         const searchText =
             searchInput.value
-            .toLowerCase()
-            .trim();
+                .toLowerCase()
+                .trim();
 
 
         if(!searchText){
@@ -1963,7 +1894,9 @@ searchForm.addEventListener(
                             " " +
                             article.intro +
                             " " +
-                            article.content +
+                            removeHTML(
+                                article.content
+                            ) +
                             " " +
                             article.category +
                             " " +
@@ -1988,18 +1921,16 @@ searchForm.addEventListener(
 
             emptyBox.innerHTML =
 
-            `
+                `
+                    ❌ Hakuna habari za biashara
+                    zilizopatikana kwa:
 
-                ❌ Hakuna habari za biashara
-                zilizopatikana kwa:
-
-                <strong>
-                    ${escapeHTML(
-                        searchText
-                    )}
-                </strong>
-
-            `;
+                    <strong>
+                        ${escapeHTML(
+                            searchText
+                        )}
+                    </strong>
+                `;
 
 
             emptyBox.style.display =
@@ -2019,9 +1950,9 @@ searchForm.addEventListener(
 );
 
 
-/* =========================================
+/* =========================
    START
-========================================= */
+========================= */
 
 loadArticles();
 
@@ -2030,4 +1961,3 @@ loadArticles();
 </body>
 
 </html>
-```
