@@ -29,7 +29,7 @@
 
 <meta
     name="theme-color"
-    content="#001a32"
+    content="#032f52"
 >
 
 <link
@@ -108,11 +108,11 @@
 }
 
 :root{
-    --navy:#001a32;
-    --blue:#003b63;
-    --blue2:#005b8f;
+    --navy:#032f52;
+    --blue:#0878c9;
+    --blue2:#075a99;
     --yellow:#fee40c;
-    --red:#d60000;
+    --red:#e31b23;
     --light:#f4f7fa;
     --text:#17202a;
     --muted:#687786;
@@ -130,7 +130,10 @@ body{
     max-width:100%;
     overflow-x:hidden;
 
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     background:var(--light);
 
@@ -149,7 +152,7 @@ a{
 ========================================= */
 
 .top-bar{
-    background:#000d19;
+    background:#021d32;
 
     color:#dce7ef;
 
@@ -176,7 +179,12 @@ a{
 ========================================= */
 
 header{
-    background:var(--navy);
+    background:
+        linear-gradient(
+            135deg,
+            #032f52,
+            #075a99
+        );
 
     color:white;
 }
@@ -247,7 +255,7 @@ header{
 ========================================= */
 
 nav{
-    background:var(--blue);
+    background:#075a99;
 }
 
 .nav-inner{
@@ -411,7 +419,7 @@ main{
 }
 
 .page-title h2{
-    color:var(--blue);
+    color:var(--blue2);
 
     font-size:30px;
 
@@ -464,7 +472,7 @@ main{
 }
 
 .search-form input:focus{
-    border-color:var(--blue2);
+    border-color:var(--blue);
 }
 
 .search-form button{
@@ -528,13 +536,13 @@ main{
 
     align-items:center;
 
-    border-bottom:3px solid #c9b200;
+    border-bottom:3px solid var(--yellow);
 
     margin-bottom:20px;
 }
 
 .section-heading h2{
-    color:var(--blue);
+    color:var(--blue2);
 
     font-size:23px;
 
@@ -543,7 +551,7 @@ main{
 
 
 /* =========================================
-   FEATURED
+   HERO
 ========================================= */
 
 .hero{
@@ -555,11 +563,14 @@ main{
 
     overflow:hidden;
 
-    box-shadow:0 3px 14px rgba(0,0,0,.08);
+    box-shadow:
+        0 3px 14px
+        rgba(0,0,0,.08);
 
     display:grid;
 
-    grid-template-columns:1.25fr 1fr;
+    grid-template-columns:
+        2fr 1fr;
 
     margin-bottom:30px;
 }
@@ -603,9 +614,9 @@ main{
 .featured-label{
     width:max-content;
 
-    background:#d6a900;
+    background:var(--yellow);
 
-    color:#001a32;
+    color:var(--navy);
 
     padding:5px 10px;
 
@@ -645,15 +656,9 @@ main{
     margin-bottom:12px;
 }
 
-.category a{
-    color:white;
-}
-
 .category:hover{
     background:var(--yellow);
-}
 
-.category:hover a{
     color:var(--navy);
 }
 
@@ -1291,7 +1296,7 @@ input{
     <div class="top-inner">
 
         <span>
-            📰 BINSOUD HABARI
+            📰 BINSOUD HABARI — Habari kwa wakati
         </span>
 
         <span id="todayDate">
@@ -1346,12 +1351,12 @@ input{
                 Nyumbani
             </a>
 
-            <a href="siasa.html">
-                Siasa
-            </a>
-
             <a href="kitaifa.html">
                 Kitaifa
+            </a>
+
+            <a href="siasa.html">
+                Siasa
             </a>
 
             <a href="biashara.html">
@@ -1365,20 +1370,20 @@ input{
                 Michezo
             </a>
 
-            <a href="dini.html">
-                Dini
-            </a>
-
-            <a href="kimataifa.html">
-                Kimataifa
-            </a>
-
             <a href="burudani.html">
                 Burudani
             </a>
 
+            <a href="dini.html">
+                Dini
+            </a>
+
             <a href="mazingira.html">
                 Mazingira
+            </a>
+
+            <a href="kimataifa.html">
+                Kimataifa
             </a>
 
             <a href="video.html">
@@ -1391,10 +1396,6 @@ input{
 
             <a href="makala.html">
                 Makala
-            </a>
-
-            <a href="contact.html">
-                Mawasiliano
             </a>
 
         </div>
@@ -1470,7 +1471,7 @@ input{
         <input
             type="text"
             id="searchInput"
-            placeholder="🔎 Tafuta kwenye habari za michezo..."
+            placeholder="Tafuta habari za michezo..."
             autocomplete="off"
             aria-label="Tafuta habari za michezo"
         >
@@ -1522,7 +1523,7 @@ input{
 
 
 <!-- =========================================
-     HABARI NYINGINE
+     HABARI MPYA
 ========================================= -->
 
 <section class="section">
@@ -1546,72 +1547,8 @@ input{
         class="empty"
         id="emptyBox"
     >
-        ❌ Hakuna habari za michezo
+        ⚽ Hakuna habari za michezo
         iliyopatikana.
-    </div>
-
-</section>
-
-
-<!-- =========================================
-     OTHER CATEGORIES
-========================================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <h2>
-            🗂️ Kategoria Nyingine
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-        <a
-            class="category-box"
-            href="kitaifa.html"
-        >
-            🇹🇿 Kitaifa
-        </a>
-
-        <a
-            class="category-box"
-            href="siasa.html"
-        >
-            🏛️ Siasa
-        </a>
-
-        <a
-            class="category-box"
-            href="biashara.html"
-        >
-            💰 Biashara
-        </a>
-
-        <a
-            class="category-box"
-            href="dini.html"
-        >
-            🕌 Dini
-        </a>
-
-        <a
-            class="category-box"
-            href="kimataifa.html"
-        >
-            🌍 Kimataifa
-        </a>
-
-        <a
-            class="category-box"
-            href="burudani.html"
-        >
-            🎵 Burudani
-        </a>
-
     </div>
 
 </section>
@@ -1668,8 +1605,20 @@ input{
                 Michezo
             </a>
 
-            <a href="contact.html">
-                Mawasiliano
+            <a href="burudani.html">
+                Burudani
+            </a>
+
+            <a href="dini.html">
+                Dini
+            </a>
+
+            <a href="mazingira.html">
+                Mazingira
+            </a>
+
+            <a href="kimataifa.html">
+                Kimataifa
             </a>
 
         </div>
@@ -1853,27 +1802,22 @@ function escapeHTML(value){
     return String(
         value ?? ""
     )
-
     .replace(
         /&/g,
         "&amp;"
     )
-
     .replace(
         /</g,
         "&lt;"
     )
-
     .replace(
         />/g,
         "&gt;"
     )
-
     .replace(
         /"/g,
         "&quot;"
     )
-
     .replace(
         /'/g,
         "&#039;"
@@ -1904,17 +1848,14 @@ function removeHTML(value){
     return String(
         value ?? ""
     )
-
     .replace(
         /<[^>]*>/g,
         " "
     )
-
     .replace(
         /\s+/g,
         " "
     )
-
     .trim();
 
 }
@@ -2017,11 +1958,12 @@ function getArticlePage(articleId){
    IMAGE
 ========================================= */
 
-function getImage(image){
+function getImage(article){
 
     const value =
         getText(
-            image
+            article.image ||
+            article.imageUrl
         );
 
 
@@ -2129,29 +2071,6 @@ function formatDate(article){
 
 
 /* =========================================
-   CATEGORY MATCH
-========================================= */
-
-function isMichezo(article){
-
-    const category =
-        getText(
-            article.category
-        )
-        .toLowerCase()
-        .trim();
-
-
-    return (
-        category === "michezo" ||
-        category === "sport" ||
-        category === "sports"
-    );
-
-}
-
-
-/* =========================================
    BREAKING NEWS
 ========================================= */
 
@@ -2163,7 +2082,7 @@ function renderBreakingNews(articles){
     ){
 
         breakingText.textContent =
-            "Karibu BINSOUD HABARI - Habari za michezo.";
+            "Karibu BINSOUD HABARI — Habari za michezo.";
 
         return;
 
@@ -2177,7 +2096,7 @@ function renderBreakingNews(articles){
             function(article){
 
                 return (
-                    "🔴 " +
+                    "⚽ " +
                     escapeHTML(
                         article.title ||
                         "Habari za Michezo"
@@ -2227,69 +2146,37 @@ async function loadArticles(){
 
 
         snapshot.forEach(
-            function(doc){
+            function(docSnap){
 
                 const data =
-                    doc.data();
+                    docSnap.data();
 
 
-                const article = {
-
-                    id:
-                        doc.id,
-
-                    title:
-                        data.title || "",
-
-                    intro:
-                        data.intro || "",
-
-                    content:
-                        data.content || "",
-
-                    category:
-                        data.category ||
-                        "Habari",
-
-                    image:
-                        data.image ||
-                        data.imageUrl ||
-                        "",
-
-                    author:
-                        data.author ||
-                        "BINSOUD HABARI",
-
-                    date:
-                        data.date || "",
-
-                    createdAt:
-                        data.createdAt || "",
-
-                    updatedAt:
-                        data.updatedAt || "",
-
-                    readTime:
-                        data.readTime ||
-                        "Dakika 3",
-
-                    featured:
-                        data.featured === true
-
-                };
+                const category =
+                    String(
+                        data.category || ""
+                    )
+                    .trim()
+                    .toLowerCase();
 
 
                 if(
-                    isMichezo(
-                        article
-                    )
+                    category !== "michezo"
                 ){
 
-                    allArticles.push(
-                        article
-                    );
+                    return;
 
                 }
+
+
+                allArticles.push({
+
+                    id:
+                        docSnap.id,
+
+                    ...data
+
+                });
 
             }
         );
@@ -2358,7 +2245,7 @@ async function loadArticles(){
 
 
 /* =========================================
-   RENDER
+   RENDER ARTICLES
 ========================================= */
 
 function renderArticles(articles){
@@ -2395,7 +2282,7 @@ function renderArticles(articles){
 
 
     /* =====================================
-       CHAGUA HABARI KUU
+       FEATURED
     ===================================== */
 
     let featuredArticle =
@@ -2440,10 +2327,9 @@ function renderArticles(articles){
         <div class="hero-image">
 
             <img
-
                 src="${escapeHTML(
                     getImage(
-                        featuredArticle.image
+                        featuredArticle
                     )
                 )}"
 
@@ -2457,7 +2343,6 @@ function renderArticles(articles){
                     this.onerror=null;
                     this.src='https://via.placeholder.com/1200x700?text=BINSOUD+HABARI';
                 "
-
             >
 
         </div>
@@ -2471,9 +2356,7 @@ function renderArticles(articles){
 
 
             <span class="category">
-
-                Michezo
-
+                MICHEZO
             </span>
 
 
@@ -2508,7 +2391,8 @@ function renderArticles(articles){
                 ✍️
 
                 ${escapeHTML(
-                    featuredArticle.author
+                    featuredArticle.author ||
+                    "BINSOUD HABARI"
                 )}
 
                 &nbsp; • &nbsp;
@@ -2526,20 +2410,18 @@ function renderArticles(articles){
                 ⏱️
 
                 ${escapeHTML(
-                    featuredArticle.readTime
+                    featuredArticle.readTime ||
+                    "Dakika 3"
                 )}
 
             </div>
 
 
             <a
-
                 class="read-button"
-
                 href="${getArticlePage(
                     featuredArticle.id
                 )}"
-
             >
 
                 Soma habari zaidi →
@@ -2606,10 +2488,9 @@ function renderArticles(articles){
                 <div class="card-image">
 
                     <img
-
                         src="${escapeHTML(
                             getImage(
-                                article.image
+                                article
                             )
                         )}"
 
@@ -2623,7 +2504,6 @@ function renderArticles(articles){
                             this.onerror=null;
                             this.src='https://via.placeholder.com/800x450?text=BINSOUD+HABARI';
                         "
-
                     >
 
                 </div>
@@ -2631,11 +2511,8 @@ function renderArticles(articles){
 
                 <div class="card-content">
 
-
                     <span class="category">
-
-                        Michezo
-
+                        MICHEZO
                     </span>
 
 
@@ -2670,7 +2547,8 @@ function renderArticles(articles){
                         ✍️
 
                         ${escapeHTML(
-                            article.author
+                            article.author ||
+                            "BINSOUD HABARI"
                         )}
 
                         <br>
@@ -2688,18 +2566,16 @@ function renderArticles(articles){
                         ⏱️
 
                         ${escapeHTML(
-                            article.readTime
+                            article.readTime ||
+                            "Dakika 3"
                         )}
 
                     </div>
 
 
                     <a
-
                         class="read-button"
-
                         href="${articlePage}"
-
                     >
 
                         Soma zaidi →
@@ -2779,22 +2655,31 @@ searchForm.addEventListener(
                     const text =
 
                         (
-                            article.title +
-                            " " +
-                            article.intro +
-                            " " +
-                            article.content +
-                            " " +
-                            article.category +
-                            " " +
-                            article.author
-                        )
-                        .toLowerCase();
+                            article.title || ""
+                        ) +
+                        " " +
+                        (
+                            article.intro || ""
+                        ) +
+                        " " +
+                        (
+                            article.content || ""
+                        ) +
+                        " " +
+                        (
+                            article.category || ""
+                        ) +
+                        " " +
+                        (
+                            article.author || ""
+                        );
 
 
-                    return text.includes(
-                        searchText
-                    );
+                    return text
+                        .toLowerCase()
+                        .includes(
+                            searchText
+                        );
 
                 }
             );
@@ -2815,7 +2700,7 @@ searchForm.addEventListener(
 
             `
 
-                ❌ Hakuna habari za michezo
+                ⚽ Hakuna habari za michezo
                 zilizopatikana kwa:
 
                 <strong>
