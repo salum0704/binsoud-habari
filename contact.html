@@ -1,434 +1,1382 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="sw-TZ">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<title>BINSOUD HABARI - Mawasiliano</title>
+<title>Mawasiliano | BINSOUD HABARI</title>
+
+<meta
+    name="description"
+    content="Wasiliana na BINSOUD HABARI kwa habari, maoni, taarifa, ushauri na ushirikiano."
+>
+
+<meta
+    name="robots"
+    content="index, follow"
+>
+
+<meta
+    name="author"
+    content="BINSOUD HABARI"
+>
+
+<meta
+    name="theme-color"
+    content="#0878c9"
+>
+
+<link
+    rel="canonical"
+    href="https://salum0704.github.io/binsoud-habari/mawasiliano.html"
+>
+
+<meta
+    property="og:title"
+    content="Mawasiliano | BINSOUD HABARI"
+>
+
+<meta
+    property="og:description"
+    content="Wasiliana na BINSOUD HABARI kwa habari, maoni, taarifa na ushirikiano."
+>
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:url"
+    content="https://salum0704.github.io/binsoud-habari/mawasiliano.html"
+>
+
 
 <style>
 
-/* =========================
+:root{
+
+    --blue:#0878c9;
+    --blue2:#075a99;
+    --deep:#032f52;
+    --dark:#021d32;
+    --red:#e31b23;
+
+    --white:#fff;
+
+    --bg:#f4f7fa;
+
+    --text:#172b3a;
+
+    --muted:#71808c;
+
+    --border:#e3e9ee;
+
+    --shadow:
+        0 8px 28px
+        rgba(0,40,70,.09);
+
+}
+
+
+/* ===============================
    RESET
-========================= */
+================================ */
 
 *{
+
     margin:0;
     padding:0;
+
     box-sizing:border-box;
+
 }
 
 
-/* =========================
-   BODY
-========================= */
+html,
+body{
+
+    width:100%;
+    max-width:100%;
+
+    overflow-x:hidden;
+
+}
+
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f4f7fa;
-    color:#111827;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    line-height:1.6;
+
 }
 
 
-/* =========================
-   HEADER
-========================= */
+img{
 
-header{
-    background:#001a32;
-    color:white;
+    display:block;
 
-    padding:18px 30px;
+    width:100%;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:20px;
-    flex-wrap:wrap;
 }
 
-.logo{
-    font-size:27px;
-    font-weight:bold;
-}
 
-nav{
-    display:flex;
-    gap:6px;
-    flex-wrap:wrap;
-    align-items:center;
-}
+a{
 
-nav a{
-    color:white;
     text-decoration:none;
 
-    padding:9px 12px;
+    color:inherit;
 
-    border-radius:5px;
-
-    font-size:14px;
-}
-
-nav a:hover,
-nav a.active{
-    background:#fee40c;
-    color:#001a32;
 }
 
 
-/* =========================
-   BREAKING
-========================= */
+button,
+input{
 
-.breaking{
-    background:#fee40c;
-    color:#001a32;
+    font-family:inherit;
 
-    padding:10px 20px;
-
-    font-weight:bold;
 }
 
 
-/* =========================
-   MAIN
-========================= */
+.container{
 
-main{
-    max-width:1000px;
+    width:
+        min(
+            1180px,
+            calc(100% - 30px)
+        );
 
     margin:auto;
 
-    padding:35px 20px;
 }
 
 
-/* =========================
-   PAGE TITLE
-========================= */
+/* ===============================
+   TOP BAR
+================================ */
 
-.page-title{
-    color:#002f54;
+.top-bar{
 
-    border-bottom:
-        3px solid #c0ac00;
+    background:var(--dark);
 
-    padding-bottom:12px;
+    color:#dce7ef;
 
-    margin-bottom:25px;
+    font-size:13px;
+
+    padding:7px 0;
+
 }
 
 
-/* =========================
-   INTRO
-========================= */
+.top-inner{
 
-.intro{
-    background:white;
+    min-height:30px;
 
-    padding:30px;
+    display:flex;
 
-    border-radius:10px;
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+.top-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+.top-links a{
+
+    color:#dce7ef;
+
+}
+
+
+.top-links a:hover{
+
+    color:#fff;
+
+}
+
+
+/* ===============================
+   HEADER
+================================ */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2)
+        );
+
+    color:#fff;
 
     box-shadow:
-        0 2px 10px rgba(0,0,0,.08);
+        0 3px 15px
+        rgba(0,0,0,.12);
 
-    margin-bottom:25px;
 }
 
-.intro h2{
-    color:#002f54;
 
-    margin-bottom:15px;
+.header-inner{
+
+    min-height:74px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
 }
 
-.intro p{
-    color:#556677;
 
-    line-height:1.8;
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+
+}
+
+
+.brand-icon{
+
+    width:48px;
+    height:48px;
+
+    background:#fff;
+
+    color:var(--blue);
+
+    border-radius:7px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:21px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,.12);
+
+}
+
+
+.brand-text h1{
+
+    font-size:22px;
+
+    line-height:1.1;
+
+    letter-spacing:.3px;
+
+}
+
+
+.brand-text span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#d7ecfa;
+
+    font-size:11px;
+
+}
+
+
+/* ===============================
+   NAVIGATION
+================================ */
+
+.main-nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:2px;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+
+}
+
+
+.main-nav::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+
+.main-nav a{
+
+    color:#fff;
+
+    padding:25px 10px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+    border-bottom:
+        3px solid
+        transparent;
+
+    transition:.2s;
+
+}
+
+
+.main-nav a:hover,
+.main-nav a.active{
+
+    background:
+        rgba(255,255,255,.10);
+
+    border-bottom-color:#fff;
+
+}
+
+
+/* ===============================
+   HEADER ACTIONS
+================================ */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.icon-btn{
+
+    width:38px;
+    height:38px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-radius:6px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:#fff;
+
+    cursor:pointer;
 
     font-size:17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
 }
 
 
-/* =========================
+.icon-btn:hover{
+
+    background:
+        rgba(255,255,255,.18);
+
+}
+
+
+.mobile-menu-btn{
+
+    display:none;
+
+}
+
+
+/* ===============================
+   MOBILE MENU
+================================ */
+
+.mobile-menu{
+
+    display:none;
+
+    background:var(--deep);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.1);
+
+}
+
+
+.mobile-menu.open{
+
+    display:block;
+
+}
+
+
+.mobile-menu a{
+
+    display:block;
+
+    padding:13px 15px;
+
+    color:#fff;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+
+.mobile-menu a:hover,
+.mobile-menu a.active{
+
+    background:var(--blue2);
+
+}
+
+
+/* ===============================
+   SEARCH
+================================ */
+
+.search-panel{
+
+    display:none;
+
+    background:#fff;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    padding:12px 0;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.08);
+
+}
+
+
+.search-panel.open{
+
+    display:block;
+
+}
+
+
+.search-form{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+.search-form input{
+
+    flex:1;
+
+    min-width:0;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:7px;
+
+    padding:11px 13px;
+
+    outline:none;
+
+    color:var(--text);
+
+    font-size:14px;
+
+}
+
+
+.search-form input:focus{
+
+    border-color:var(--blue);
+
+}
+
+
+.search-form button{
+
+    border:0;
+
+    background:var(--blue);
+
+    color:#fff;
+
+    border-radius:7px;
+
+    padding:0 18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+.search-form button:hover{
+
+    background:var(--blue2);
+
+}
+
+
+/* ===============================
+   BREAKING
+================================ */
+
+.breaking{
+
+    background:var(--red);
+
+    color:#fff;
+
+    overflow:hidden;
+
+}
+
+
+.breaking-inner{
+
+    min-height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+}
+
+
+.breaking-label{
+
+    background:#b90d14;
+
+    padding:9px 15px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+    flex-shrink:0;
+
+}
+
+
+.ticker{
+
+    flex:1;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+}
+
+
+#tickerText{
+
+    display:inline-block;
+
+    padding-left:100%;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    animation:
+        tickerMove
+        45s
+        linear
+        infinite;
+
+}
+
+
+#tickerText:hover{
+
+    animation-play-state:paused;
+
+}
+
+
+@keyframes tickerMove{
+
+    0%{
+
+        transform:
+            translateX(0);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-100%);
+
+    }
+
+}
+
+
+/* ===============================
+   MAIN
+================================ */
+
+main{
+
+    padding:
+        32px 0 55px;
+
+}
+
+
+/* ===============================
+   PAGE HEADING
+================================ */
+
+.page-heading{
+
+    margin-bottom:25px;
+
+}
+
+
+.page-heading h2{
+
+    color:var(--deep);
+
+    font-size:32px;
+
+    line-height:1.2;
+
+    margin-bottom:8px;
+
+}
+
+
+.page-heading p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    max-width:760px;
+
+}
+
+
+.date-line{
+
+    margin-top:8px;
+
+    color:#84929d;
+
+    font-size:12px;
+
+}
+
+
+/* ===============================
+   INTRO
+================================ */
+
+.intro{
+
+    background:#fff;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:11px;
+
+    padding:26px;
+
+    margin-bottom:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.intro h2{
+
+    color:var(--deep);
+
+    font-size:22px;
+
+    margin-bottom:8px;
+
+}
+
+
+.intro p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+}
+
+
+/* ===============================
    CONTACT GRID
-========================= */
+================================ */
 
 .contact-grid{
 
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(3,1fr);
 
-    gap:20px;
+    gap:18px;
+
 }
 
 
-/* =========================
+/* ===============================
    CONTACT CARD
-========================= */
+================================ */
 
 .contact-card{
 
-    background:white;
+    background:#fff;
 
-    padding:25px;
+    border:
+        1px solid
+        var(--border);
 
     border-radius:10px;
 
-    box-shadow:
-        0 2px 10px rgba(0,0,0,.08);
+    padding:23px;
 
     transition:
         transform .2s,
         box-shadow .2s;
+
 }
+
 
 .contact-card:hover{
 
-    transform:translateY(-4px);
+    transform:
+        translateY(-4px);
 
-    box-shadow:
-        0 6px 18px rgba(0,0,0,.12);
+    box-shadow:var(--shadow);
+
 }
 
 
-/* =========================
-   ICON
-========================= */
-
 .contact-icon{
 
-    width:55px;
-    height:55px;
+    width:52px;
+    height:52px;
+
+    border-radius:8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue2)
+        );
+
+    color:#fff;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
-    background:#002f54;
-
-    color:white;
-
-    border-radius:50%;
-
-    font-size:25px;
+    font-size:23px;
 
     margin-bottom:15px;
+
 }
 
-
-/* =========================
-   CARD TEXT
-========================= */
 
 .contact-card h3{
 
-    color:#002f54;
+    color:var(--deep);
 
-    margin-bottom:8px;
+    font-size:18px;
+
+    margin-bottom:7px;
+
 }
+
 
 .contact-card p{
 
-    color:#556677;
+    color:var(--muted);
+
+    font-size:14px;
 
     line-height:1.6;
 
-    font-size:16px;
+    overflow-wrap:anywhere;
+
 }
+
 
 .contact-card a{
 
-    color:#002f54;
+    color:var(--blue);
 
     font-weight:bold;
 
-    text-decoration:none;
 }
+
 
 .contact-card a:hover{
 
-    color:#c0ac00;
+    color:var(--blue2);
+
 }
 
 
-/* =========================
-   ABOUT
-========================= */
+/* ===============================
+   SOCIAL
+================================ */
 
-.about{
-
-    background:white;
-
-    padding:30px;
-
-    margin-top:25px;
-
-    border-radius:10px;
-
-    box-shadow:
-        0 2px 10px rgba(0,0,0,.08);
-}
-
-.about h2{
-
-    color:#002f54;
-
-    border-bottom:
-        3px solid #c0ac00;
-
-    padding-bottom:10px;
-
-    margin-bottom:15px;
-}
-
-.about p{
-
-    color:#556677;
-
-    line-height:1.8;
-
-    font-size:17px;
-}
-
-
-/* =========================
-   CALL BOX
-========================= */
-
-.call-box{
-
-    margin-top:25px;
-
-    background:#002f54;
-
-    padding:30px;
-
-    border-radius:10px;
-
-    text-align:center;
-
-    color:white;
-}
-
-.call-box h2{
-
-    margin-bottom:10px;
-}
-
-.call-box p{
-
-    color:#dbe4ec;
-
-    margin-bottom:20px;
-}
-
-.call-btn{
+.social-label{
 
     display:inline-block;
 
-    background:#fee40c;
+    margin-top:3px;
 
-    color:#001a32;
+    color:#8a969f;
 
-    text-decoration:none;
+    font-size:12px;
 
-    padding:13px 28px;
-
-    border-radius:6px;
-
-    font-weight:bold;
-}
-
-.call-btn:hover{
-
-    background:white;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* ===============================
+   ABOUT
+================================ */
 
-footer{
+.about{
 
-    background:#001a32;
+    background:#fff;
 
-    color:white;
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:10px;
+
+    padding:26px;
+
+    margin-top:22px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.about h2{
+
+    color:var(--deep);
+
+    font-size:21px;
+
+    padding-bottom:10px;
+
+    margin-bottom:13px;
+
+    border-bottom:
+        3px solid
+        var(--blue);
+
+}
+
+
+.about p{
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+
+/* ===============================
+   CALL BOX
+================================ */
+
+.call-box{
+
+    margin-top:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--deep),
+            var(--blue2)
+        );
+
+    padding:32px;
+
+    border-radius:11px;
 
     text-align:center;
 
-    padding:30px 20px;
+    color:#fff;
 
-    margin-top:40px;
+    box-shadow:var(--shadow);
+
 }
+
+
+.call-box h2{
+
+    font-size:25px;
+
+    margin-bottom:8px;
+
+}
+
+
+.call-box p{
+
+    color:#dbeaf4;
+
+    font-size:14px;
+
+    margin-bottom:20px;
+
+}
+
+
+.call-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    background:#fff;
+
+    color:var(--blue2);
+
+    padding:12px 24px;
+
+    border-radius:6px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    transition:.2s;
+
+}
+
+
+.call-btn:hover{
+
+    background:#eaf5fc;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer{
+
+    background:var(--dark);
+
+    color:#fff;
+
+}
+
+
+.footer-inner{
+
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap:35px;
+
+    padding:40px 0;
+
+}
+
 
 footer h3{
 
-    margin-bottom:10px;
+    margin-bottom:12px;
+
+    font-size:17px;
+
 }
+
+
+footer p,
+footer a{
+
+    color:#b9c8d3;
+
+    font-size:14px;
+
+}
+
 
 footer p{
 
-    margin-top:8px;
+    max-width:420px;
 
-    color:#dbe4ec;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+footer a{
 
-@media(max-width:800px){
+    display:block;
 
-    header{
+    margin-bottom:7px;
 
-        flex-direction:column;
+}
 
-        text-align:center;
+
+footer a:hover{
+
+    color:#fff;
+
+}
+
+
+.copyright{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.1);
+
+    padding:15px;
+
+    text-align:center;
+
+    color:#aebdca;
+
+    font-size:12px;
+
+}
+
+
+/* ===============================
+   TABLET
+================================ */
+
+@media(max-width:1000px){
+
+    .main-nav{
+
+        display:none;
+
     }
 
-    nav{
+    .mobile-menu-btn{
+
+        display:flex;
+
+    }
+
+    .contact-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:760px){
+
+    .top-inner{
 
         justify-content:center;
+
+    }
+
+    .top-links{
+
+        display:none;
+
+    }
+
+    .header-inner{
+
+        min-height:66px;
+
+    }
+
+    .brand-text h1{
+
+        font-size:19px;
+
+    }
+
+    .brand-text span{
+
+        font-size:10px;
+
+    }
+
+    .brand-icon{
+
+        width:43px;
+        height:43px;
+
+        font-size:18px;
+
+    }
+
+    .breaking-label{
+
+        padding:
+            9px 10px;
+
+        font-size:11px;
+
+    }
+
+    #tickerText{
+
+        font-size:12px;
+
+    }
+
+    main{
+
+        padding:
+            24px 0 42px;
+
+    }
+
+    .page-heading h2{
+
+        font-size:27px;
+
+    }
+
+    .page-heading p{
+
+        font-size:14px;
+
+    }
+
+    .intro,
+    .about{
+
+        padding:20px;
+
     }
 
     .contact-grid{
 
         grid-template-columns:1fr;
+
+    }
+
+    .contact-card{
+
+        padding:20px;
+
+    }
+
+    .call-box{
+
+        padding:27px 20px;
+
+    }
+
+    .footer-inner{
+
+        grid-template-columns:1fr;
+
+        padding:
+            32px 0;
+
     }
 
 }
 
-@media(max-width:500px){
 
-    main{
+/* ===============================
+   SMALL PHONES
+================================ */
 
-        padding:
-            25px 12px;
+@media(max-width:450px){
+
+    .container{
+
+        width:
+            min(
+                100% - 24px,
+                1180px
+            );
+
     }
 
-    .intro,
+    .header-actions{
+
+        gap:5px;
+
+    }
+
+    .icon-btn{
+
+        width:35px;
+        height:35px;
+
+    }
+
+    .search-form{
+
+        flex-direction:column;
+
+    }
+
+    .search-form button{
+
+        min-height:42px;
+
+    }
+
+    .page-heading h2{
+
+        font-size:24px;
+
+    }
+
+    .call-box h2{
+
+        font-size:21px;
+
+    }
+
+}
+
+
+/* ===============================
+   REDUCED MOTION
+================================ */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        scroll-behavior:auto !important;
+
+    }
+
+    #tickerText{
+
+        animation:none;
+
+    }
+
     .contact-card,
-    .about{
+    .call-btn{
 
-        padding:20px;
-    }
+        transition:none;
 
-    .logo{
-
-        font-size:23px;
     }
 
 }
@@ -441,387 +1389,771 @@ footer p{
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- ===============================
+     TOP BAR
+================================ -->
 
-<header>
+<div class="top-bar">
 
-    <div class="logo">
+    <div class="container top-inner">
 
-        BINSOUD HABARI
+        <span>
+            📰 BINSOUD HABARI — Habari kwa wakati
+        </span>
+
+        <div class="top-links">
+
+            <a href="makala.html">
+                Makala
+            </a>
+
+            <a href="mawasiliano.html">
+                Wasiliana Nasi
+            </a>
+
+        </div>
 
     </div>
-
-
-    <nav>
-
-        <a href="index.html">
-            Nyumbani
-        </a>
-
-        <a href="siasa.html">
-            Siasa
-        </a>
-
-        <a href="kitaifa.html">
-            Kitaifa
-        </a>
-
-        <a href="biashara.html">
-            Biashara
-        </a>
-
-        <a href="michezo.html">
-            Michezo
-        </a>
-
-        <a href="dini.html">
-            Dini
-        </a>
-
-        <a href="kimataifa.html">
-            Kimataifa
-        </a>
-
-        <a href="burudani.html">
-            Burudani
-        </a>
-
-        <a href="mazingira.html">
-            Mazingira
-        </a>
-
-        <a href="video.html">
-            Video
-        </a>
-
-        <a href="audio.html">
-            Audio
-        </a>
-
-        <a href="makala.html">
-            Makala
-        </a>
-
-        <a href="mawasiliano.html"
-           class="active">
-
-            Mawasiliano
-
-        </a>
-
-    </nav>
-
-</header>
-
-
-<!-- =========================
-     BREAKING
-========================= -->
-
-<div class="breaking">
-
-    🔴 MAWASILIANO:
-    Wasiliana na BINSOUD HABARI
 
 </div>
 
 
-<!-- =========================
-     MAIN
-========================= -->
+<!-- ===============================
+     HEADER
+================================ -->
 
-<main>
+<header>
 
+    <div class="container header-inner">
 
-    <h1 class="page-title">
-
-        📞 Mawasiliano
-
-    </h1>
-
-
-    <!-- INTRO -->
-
-    <section class="intro">
-
-        <h2>
-
-            Wasiliana na BINSOUD HABARI
-
-        </h2>
-
-        <p>
-
-            Wasiliana nasi kwa habari,
-            maoni, taarifa na ushirikiano.
-
-        </p>
-
-    </section>
-
-
-    <!-- CONTACT DETAILS -->
-
-    <section class="contact-grid">
-
-
-        <!-- SIMU -->
-
-        <article class="contact-card">
-
-            <div class="contact-icon">
-
-                📞
-
-            </div>
-
-            <h3>
-
-                Simu
-
-            </h3>
-
-            <p>
-
-                <a href="tel:0777101192">
-
-                    0777101192
-
-                </a>
-
-            </p>
-
-        </article>
-
-
-        <!-- EMAIL -->
-
-        <article class="contact-card">
-
-            <div class="contact-icon">
-
-                📧
-
-            </div>
-
-            <h3>
-
-                Email
-
-            </h3>
-
-            <p>
-
-                <a href="mailto:binsoud2@gmail.com">
-
-                    binsoud2@gmail.com
-
-                </a>
-
-            </p>
-
-        </article>
-
-
-        <!-- WHATSAPP -->
-
-        <article class="contact-card">
-
-            <div class="contact-icon">
-
-                💬
-
-            </div>
-
-            <h3>
-
-                WhatsApp
-
-            </h3>
-
-            <p>
-
-                @bisoud07
-
-            </p>
-
-        </article>
-
-
-        <!-- FACEBOOK -->
-
-        <article class="contact-card">
-
-            <div class="contact-icon">
-
-                📘
-
-            </div>
-
-            <h3>
-
-                Facebook
-
-            </h3>
-
-            <p>
-
-                Salum Soud
-
-            </p>
-
-        </article>
-
-
-        <!-- INSTAGRAM -->
-
-        <article class="contact-card">
-
-            <div class="contact-icon">
-
-                📸
-
-            </div>
-
-            <h3>
-
-                Instagram
-
-            </h3>
-
-            <p>
-
-                Salum Soud
-
-            </p>
-
-        </article>
-
-
-        <!-- WEBSITE -->
-
-        <article class="contact-card">
-
-            <div class="contact-icon">
-
-                🌐
-
-            </div>
-
-            <h3>
-
-                Website
-
-            </h3>
-
-            <p>
-
-                BINSOUD HABARI
-
-            </p>
-
-        </article>
-
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about">
-
-        <h2>
-
-            Kuhusu Mawasiliano
-
-        </h2>
-
-        <p>
-
-            Kwa taarifa za habari, maoni,
-            ushauri au ushirikiano,
-            unaweza kuwasiliana na
-            BINSOUD HABARI kupitia
-            njia zilizoorodheshwa hapo juu.
-
-        </p>
-
-    </section>
-
-
-    <!-- CALL -->
-
-    <section class="call-box">
-
-        <h2>
-
-            📞 Wasiliana Nasi
-
-        </h2>
-
-        <p>
-
-            Bonyeza kitufe hapa chini
-            kupiga simu moja kwa moja.
-
-        </p>
 
         <a
-            href="tel:0777101192"
-            class="call-btn">
+            href="index.html"
+            class="brand"
+            aria-label="BINSOUD HABARI"
+        >
 
-            📞 Piga Simu
+            <div class="brand-icon">
+                BH
+            </div>
+
+            <div class="brand-text">
+
+                <h1>
+                    BINSOUD HABARI
+                </h1>
+
+                <span>
+                    Chanzo chako cha habari
+                </span>
+
+            </div>
 
         </a>
 
-    </section>
 
+        <nav
+            class="main-nav"
+            aria-label="Menyu kuu"
+        >
+
+            <a href="index.html">
+                Nyumbani
+            </a>
+
+            <a href="kitaifa.html">
+                Kitaifa
+            </a>
+
+            <a href="siasa.html">
+                Siasa
+            </a>
+
+            <a href="biashara.html">
+                Biashara
+            </a>
+
+            <a href="michezo.html">
+                Michezo
+            </a>
+
+            <a href="burudani.html">
+                Burudani
+            </a>
+
+            <a href="dini.html">
+                Dini
+            </a>
+
+            <a href="mazingira.html">
+                Mazingira
+            </a>
+
+            <a href="kimataifa.html">
+                Kimataifa
+            </a>
+
+            <a href="video.html">
+                Video
+            </a>
+
+            <a href="audio.html">
+                Audio
+            </a>
+
+            <a href="makala.html">
+                Makala
+            </a>
+
+            <a
+                href="mawasiliano.html"
+                class="active"
+            >
+                Mawasiliano
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                type="button"
+                class="icon-btn"
+                id="searchBtn"
+                aria-label="Tafuta"
+                title="Tafuta"
+            >
+                🔍
+            </button>
+
+            <button
+                type="button"
+                class="icon-btn mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Fungua menyu"
+                title="Menyu"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <div class="container">
+
+            <a href="index.html">
+                Nyumbani
+            </a>
+
+            <a href="kitaifa.html">
+                Kitaifa
+            </a>
+
+            <a href="siasa.html">
+                Siasa
+            </a>
+
+            <a href="biashara.html">
+                Biashara
+            </a>
+
+            <a href="michezo.html">
+                Michezo
+            </a>
+
+            <a href="burudani.html">
+                Burudani
+            </a>
+
+            <a href="dini.html">
+                Dini
+            </a>
+
+            <a href="mazingira.html">
+                Mazingira
+            </a>
+
+            <a href="kimataifa.html">
+                Kimataifa
+            </a>
+
+            <a href="video.html">
+                Video
+            </a>
+
+            <a href="audio.html">
+                Audio
+            </a>
+
+            <a href="makala.html">
+                Makala
+            </a>
+
+            <a
+                href="mawasiliano.html"
+                class="active"
+            >
+                Wasiliana Nasi
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ===============================
+     SEARCH
+================================ -->
+
+<div
+    class="search-panel"
+    id="searchPanel"
+>
+
+    <div class="container">
+
+        <form
+            class="search-form"
+            id="searchForm"
+        >
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Tafuta habari..."
+                autocomplete="off"
+                aria-label="Tafuta habari"
+            >
+
+            <button type="submit">
+                Tafuta
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ===============================
+     BREAKING
+================================ -->
+
+<section class="breaking">
+
+    <div class="container breaking-inner">
+
+        <div class="breaking-label">
+            🔴 HABARI MOTO
+        </div>
+
+        <div class="ticker">
+
+            <span id="tickerText">
+                Wasiliana na BINSOUD HABARI kwa habari, maoni na ushirikiano...
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===============================
+     MAIN
+================================ -->
+
+<main>
+
+    <div class="container">
+
+
+        <!-- PAGE HEADING -->
+
+        <section class="page-heading">
+
+            <h2>
+                📞 Mawasiliano
+            </h2>
+
+            <p>
+                Wasiliana na BINSOUD HABARI kwa habari,
+                maoni, taarifa, ushauri na ushirikiano.
+            </p>
+
+            <div
+                class="date-line"
+                id="currentDate"
+            >
+                Leo
+            </div>
+
+        </section>
+
+
+        <!-- INTRO -->
+
+        <section class="intro">
+
+            <h2>
+                Wasiliana na BINSOUD HABARI
+            </h2>
+
+            <p>
+                Tunakaribisha maoni, taarifa za habari,
+                ushauri na fursa za ushirikiano.
+                Tumia mojawapo ya njia zilizo hapa chini
+                kuwasiliana nasi.
+            </p>
+
+        </section>
+
+
+        <!-- CONTACT GRID -->
+
+        <section class="contact-grid">
+
+
+            <!-- SIMU -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Simu
+                </h3>
+
+                <p>
+
+                    <a href="tel:0777101192">
+                        0777101192
+                    </a>
+
+                </p>
+
+            </article>
+
+
+            <!-- EMAIL -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <h3>
+                    Email
+                </h3>
+
+                <p>
+
+                    <a href="mailto:binsoud2@gmail.com">
+                        binsoud2@gmail.com
+                    </a>
+
+                </p>
+
+            </article>
+
+
+            <!-- WHATSAPP -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+                    💬
+                </div>
+
+                <h3>
+                    WhatsApp
+                </h3>
+
+                <p>
+                    @bisoud07
+                </p>
+
+                <span class="social-label">
+                    Wasiliana nasi kupitia WhatsApp
+                </span>
+
+            </article>
+
+
+            <!-- FACEBOOK -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+                    📘
+                </div>
+
+                <h3>
+                    Facebook
+                </h3>
+
+                <p>
+                    Salum Soud
+                </p>
+
+                <span class="social-label">
+                    Facebook
+                </span>
+
+            </article>
+
+
+            <!-- INSTAGRAM -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+                    📸
+                </div>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <p>
+                    Salum Soud
+                </p>
+
+                <span class="social-label">
+                    Instagram
+                </span>
+
+            </article>
+
+
+            <!-- WEBSITE -->
+
+            <article class="contact-card">
+
+                <div class="contact-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Website
+                </h3>
+
+                <p>
+                    BINSOUD HABARI
+                </p>
+
+                <span class="social-label">
+                    salum0704.github.io/binsoud-habari
+                </span>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="about">
+
+            <h2>
+                Kuhusu Mawasiliano
+            </h2>
+
+            <p>
+                Kwa taarifa za habari, maoni, ushauri
+                au ushirikiano, unaweza kuwasiliana na
+                BINSOUD HABARI kupitia njia zilizoorodheshwa
+                hapo juu. Tunathamini maoni na taarifa
+                kutoka kwa wasomaji wetu.
+            </p>
+
+        </section>
+
+
+        <!-- CALL BOX -->
+
+        <section class="call-box">
+
+            <h2>
+                📞 Wasiliana Nasi
+            </h2>
+
+            <p>
+                Bonyeza kitufe hapa chini kupiga simu
+                moja kwa moja kwa BINSOUD HABARI.
+            </p>
+
+            <a
+                href="tel:0777101192"
+                class="call-btn"
+            >
+                📞 Piga Simu
+            </a>
+
+        </section>
+
+
+    </div>
 
 </main>
 
 
-<!-- =========================
+<!-- ===============================
      FOOTER
-========================= -->
+================================ -->
 
 <footer>
 
-    <h3>
+    <div class="container footer-inner">
 
-        BINSOUD HABARI
 
-    </h3>
+        <div>
 
-    <p>
+            <h3>
+                BINSOUD HABARI
+            </h3>
 
-        Chanzo chako cha kuaminika
-        cha habari za kitaifa
-        na kimataifa.
+            <p>
+                Chanzo chako cha kuaminika
+                cha habari za Tanzania,
+                Afrika na dunia.
+            </p>
 
-    </p>
+        </div>
 
-    <p>
 
-        📞 0777101192
+        <div>
 
-    </p>
+            <h3>
+                Sehemu
+            </h3>
 
-    <p>
+            <a href="index.html">
+                Nyumbani
+            </a>
 
-        📧 binsoud2@gmail.com
+            <a href="kitaifa.html">
+                Kitaifa
+            </a>
 
-    </p>
+            <a href="siasa.html">
+                Siasa
+            </a>
 
-    <p>
+            <a href="biashara.html">
+                Biashara
+            </a>
+
+            <a href="michezo.html">
+                Michezo
+            </a>
+
+            <a href="kimataifa.html">
+                Kimataifa
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Media
+            </h3>
+
+            <a href="video.html">
+                🎥 Video
+            </a>
+
+            <a href="audio.html">
+                🎧 Audio
+            </a>
+
+            <a href="makala.html">
+                📝 Makala
+            </a>
+
+            <a href="mawasiliano.html">
+                📞 Wasiliana Nasi
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
 
         © 2026 BINSOUD HABARI.
         Haki zote zimehifadhiwa.
 
-    </p>
+    </div>
 
 </footer>
+
+
+<!-- ===============================
+     JAVASCRIPT
+================================ -->
+
+<script>
+
+const mobileMenuBtn =
+    document.getElementById(
+        "mobileMenuBtn"
+    );
+
+const mobileMenu =
+    document.getElementById(
+        "mobileMenu"
+    );
+
+const searchBtn =
+    document.getElementById(
+        "searchBtn"
+    );
+
+const searchPanel =
+    document.getElementById(
+        "searchPanel"
+    );
+
+const searchForm =
+    document.getElementById(
+        "searchForm"
+    );
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+const tickerText =
+    document.getElementById(
+        "tickerText"
+    );
+
+const currentDate =
+    document.getElementById(
+        "currentDate"
+    );
+
+
+/* ===============================
+   DATE
+================================ */
+
+currentDate.textContent =
+    new Date().toLocaleDateString(
+        "sw-TZ",
+        {
+            weekday:"long",
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+        }
+    );
+
+
+/* ===============================
+   MOBILE MENU
+================================ */
+
+mobileMenuBtn.addEventListener(
+    "click",
+    () => {
+
+        mobileMenu.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+
+/* ===============================
+   SEARCH
+================================ */
+
+searchBtn.addEventListener(
+    "click",
+    () => {
+
+        searchPanel.classList.toggle(
+            "open"
+        );
+
+        if(
+            searchPanel.classList.contains(
+                "open"
+            )
+        ){
+
+            searchInput.focus();
+
+        }
+
+    }
+);
+
+
+/* ===============================
+   SEARCH SUBMIT
+================================ */
+
+searchForm.addEventListener(
+    "submit",
+    event => {
+
+        event.preventDefault();
+
+        const query =
+            searchInput.value.trim();
+
+        if(
+            !query
+        ){
+
+            return;
+
+        }
+
+        window.location.href =
+            "index.html?search=" +
+            encodeURIComponent(
+                query
+            );
+
+    }
+);
+
+
+/* ===============================
+   TICKER
+================================ */
+
+tickerText.textContent =
+    "🔴 Wasiliana na BINSOUD HABARI kwa habari, maoni, taarifa na ushirikiano     •     🔴 BINSOUD HABARI — Chanzo chako cha habari     •     🔴 Wasiliana nasi leo";
+
+</script>
 
 
 </body>
