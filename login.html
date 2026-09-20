@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="sw-TZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ingia | BINSOUD HABARI</title>
+  <meta name="description" content="Ingia kwenye mfumo wa usimamizi wa BINSOUD HABARI">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0878c9">
+
+  <style>
+    :root{
+      --blue:#0878c9;
+      --blue2:#075a99;
+      --deep:#032f52;
+      --dark:#021d32;
+      --red:#e31b23;
+      --white:#fff;
+      --bg:#f4f7fa;
+      --text:#172b3a;
+      --muted:#71808c;
+      --border:#e3e9ee;
+      --shadow:0 12px 35px rgba(0,40,70,.12);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(135deg,#eef6fb,#f8fafc);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .login-box{
+      width:min(430px,100%);
+      background:#fff;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:35px;
+    }
+
+    .logo{
+      width:70px;
+      height:70px;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:16px;
+      font-size:27px;
+      font-weight:900;
+      margin:0 auto 18px;
+    }
+
+    h1{
+      text-align:center;
+      color:var(--deep);
+      font-size:25px;
+      margin-bottom:7px;
+    }
+
+    .subtitle{
+      text-align:center;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    label{
+      display:block;
+      font-weight:700;
+      margin:15px 0 7px;
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      font-size:16px;
+      outline:none;
+    }
+
+    input:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(8,120,201,.10);
+    }
+
+    button{
+      width:100%;
+      border:0;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      color:#fff;
+      padding:14px;
+      border-radius:10px;
+      font-size:16px;
+      font-weight:800;
+      cursor:pointer;
+      margin-top:22px;
+    }
+
+    button:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+    }
+
+    .error{
+      display:none;
+      background:#fff0f0;
+      color:#b42318;
+      border:1px solid #ffd0d0;
+      padding:12px;
+      border-radius:10px;
+      margin-top:15px;
+      font-size:14px;
+    }
+
+    .back{
+      display:block;
+      text-align:center;
+      margin-top:22px;
+      color:var(--blue);
+      font-weight:700;
+      text-decoration:none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+
+    <div class="logo">BH</div>
+
+    <h1>BINSOUD HABARI</h1>
+    <p class="subtitle">Mfumo wa Usimamizi</p>
+
+    <form id="loginForm">
+
+      <label for="email">Barua pepe</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="mfano@email.com"
+        autocomplete="email"
+        required
+      >
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Password yako"
+        autocomplete="current-password"
+        required
+      >
+
+      <button id="loginBtn" type="submit">
+        🔐 Ingia
+      </button>
+
+      <div class="error" id="errorBox"></div>
+
+    </form>
+
+    <a class="back" href="index.html">
+      ← Rudi BINSOUD HABARI
+    </a>
+
+  </div>
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCFpSNTqw9ljOHX-A-szNcNi-HmVKZU-7I",
+  authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
+  projectId: "binsoud-habari-8a5fa",
+  storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
+  messagingSenderId: "865091074307",
+  appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
+  measurementId: "G-MH266J0XKE"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const form = document.getElementById("loginForm");
+const btn = document.getElementById("loginBtn");
+const errorBox = document.getElementById("errorBox");
+
+
+function showError(message){
+  errorBox.textContent = message;
+  errorBox.style.display = "block";
+}
+
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  errorBox.style.display = "none";
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  btn.disabled = true;
+  btn.textContent = "Inaingia...";
+
+  try {
+
+    const credential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    const uid = credential.user.uid;
+
+    const userSnap = await getDoc(
+      doc(db, "users", uid)
+    );
+
+    if(!userSnap.exists()){
+      await auth.signOut();
+
+      showError(
+        "Akaunti hii haijawekwa kwenye mfumo wa BINSOUD HABARI."
+      );
+
+      return;
+    }
+
+    const userData = userSnap.data();
+
+    if(userData.active === false){
+      await auth.signOut();
+
+      showError(
+        "Akaunti yako imezuiwa. Wasiliana na Admin."
+      );
+
+      return;
+    }
+
+    if(userData.role === "admin"){
+
+      window.location.href = "admin.html";
+
+    }else if(userData.role === "writer"){
+
+      window.location.href = "writer.html";
+
+    }else{
+
+      await auth.signOut();
+
+      showError(
+        "Akaunti yako haina ruhusa ya kutumia mfumo."
+      );
+
+    }
+
+  }catch(error){
+
+    console.error(error);
+
+    let message = "Imeshindikana kuingia.";
+
+    if(
+      error.code === "auth/invalid-credential" ||
+      error.code === "auth/wrong-password" ||
+      error.code === "auth/user-not-found"
+    ){
+      message = "Barua pepe au password si sahihi.";
+    }
+
+    if(error.code === "auth/too-many-requests"){
+      message = "Majaribio yamekuwa mengi. Jaribu tena baadaye.";
+    }
+
+    showError(message);
+
+  }finally{
+
+    btn.disabled = false;
+    btn.textContent = "🔐 Ingia";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
