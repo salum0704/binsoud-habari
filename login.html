@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sw-TZ">
 <head>
@@ -14,8 +15,6 @@
       --blue:#0878c9;
       --blue2:#075a99;
       --deep:#032f52;
-      --dark:#021d32;
-      --red:#e31b23;
       --white:#fff;
       --bg:#f4f7fa;
       --text:#172b3a;
@@ -123,6 +122,20 @@
       border-radius:10px;
       margin-top:15px;
       font-size:14px;
+      line-height:1.5;
+      word-break:break-word;
+    }
+
+    .success{
+      display:none;
+      background:#effaf3;
+      color:#18794e;
+      border:1px solid #b7ebc6;
+      padding:12px;
+      border-radius:10px;
+      margin-top:15px;
+      font-size:14px;
+      line-height:1.5;
     }
 
     .back{
@@ -148,6 +161,7 @@
     <form id="loginForm">
 
       <label for="email">Barua pepe</label>
+
       <input
         type="email"
         id="email"
@@ -157,6 +171,7 @@
       >
 
       <label for="password">Password</label>
+
       <input
         type="password"
         id="password"
@@ -171,6 +186,8 @@
 
       <div class="error" id="errorBox"></div>
 
+      <div class="success" id="successBox"></div>
+
     </form>
 
     <a class="back" href="index.html">
@@ -178,6 +195,7 @@
     </a>
 
   </div>
+
 
 <script type="module">
 
@@ -187,7 +205,8 @@ import {
 
 import {
   getAuth,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 import {
@@ -196,6 +215,10 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
   apiKey: "AIzaSyCFpSNTqw9ljOHX-A-szNcNi-HmVKZU-7I",
@@ -207,110 +230,303 @@ const firebaseConfig = {
   measurementId: "G-MH266J0XKE"
 };
 
+
+/* =========================
+   INITIALIZE FIREBASE
+========================= */
+
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
+
 const db = getFirestore(app);
 
+
+/* =========================
+   ELEMENTS
+========================= */
+
 const form = document.getElementById("loginForm");
+
 const btn = document.getElementById("loginBtn");
+
 const errorBox = document.getElementById("errorBox");
 
+const successBox = document.getElementById("successBox");
+
+
+/* =========================
+   SHOW ERROR
+========================= */
 
 function showError(message){
+
+  successBox.style.display = "none";
+
   errorBox.textContent = message;
+
   errorBox.style.display = "block";
+
 }
 
 
-form.addEventListener("submit", async (e) => {
+/* =========================
+   SHOW SUCCESS
+========================= */
+
+function showSuccess(message){
+
+  errorBox.style.display = "none";
+
+  successBox.textContent = message;
+
+  successBox.style.display = "block";
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+form.addEventListener("submit", async function(e){
 
   e.preventDefault();
 
   errorBox.style.display = "none";
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+  successBox.style.display = "none";
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
 
   btn.disabled = true;
+
   btn.textContent = "Inaingia...";
+
 
   try {
 
-    const credential = await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
+    /* =========================
+       STEP 1: FIREBASE LOGIN
+    ========================= */
+
+    const credential =
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+    const firebaseUser = credential.user;
+
+    const uid = firebaseUser.uid;
+
+
+    console.log("LOGIN SUCCESS");
+
+    console.log("EMAIL:", firebaseUser.email);
+
+    console.log("UID:", uid);
+
+
+    /* =========================
+       STEP 2: READ USER PROFILE
+    ========================= */
+
+    const userRef =
+      doc(db, "users", uid);
+
+    const userSnap =
+      await getDoc(userRef);
+
+
+    console.log("USER DOCUMENT EXISTS:",
+      userSnap.exists()
     );
 
-    const uid = credential.user.uid;
 
-    const userSnap = await getDoc(
-      doc(db, "users", uid)
-    );
+    /* =========================
+       NO PROFILE
+    ========================= */
 
     if(!userSnap.exists()){
-      await auth.signOut();
+
+      await signOut(auth);
 
       showError(
-        "Akaunti hii haijawekwa kwenye mfumo wa BINSOUD HABARI."
+        "Login ya Firebase imefanikiwa, lakini profile ya mtumiaji haipo Firestore. UID: " + uid
       );
 
       return;
     }
 
-    const userData = userSnap.data();
 
-    if(userData.active === false){
-      await auth.signOut();
+    /* =========================
+       USER DATA
+    ========================= */
+
+    const userData =
+      userSnap.data();
+
+
+    console.log("USER DATA:", userData);
+
+
+    /* =========================
+       CHECK ACTIVE
+    ========================= */
+
+    if(userData.active !== true){
+
+      await signOut(auth);
 
       showError(
-        "Akaunti yako imezuiwa. Wasiliana na Admin."
+        "Akaunti hii haijawezeshwa. Hakikisha field 'active' ni Boolean true."
       );
 
       return;
     }
+
+
+    /* =========================
+       CHECK ROLE
+    ========================= */
 
     if(userData.role === "admin"){
 
-      window.location.href = "admin.html";
-
-    }else if(userData.role === "writer"){
-
-      window.location.href = "writer.html";
-
-    }else{
-
-      await auth.signOut();
-
-      showError(
-        "Akaunti yako haina ruhusa ya kutumia mfumo."
+      showSuccess(
+        "Umefanikiwa kuingia kama Admin. Inaelekea Admin Panel..."
       );
 
+      setTimeout(function(){
+
+        window.location.href = "admin.html";
+
+      }, 500);
+
+      return;
     }
 
-  }catch(error){
 
-    console.error(error);
+    if(userData.role === "writer"){
 
-    let message = "Imeshindikana kuingia.";
+      showSuccess(
+        "Umefanikiwa kuingia kama Writer. Inaelekea Writer Panel..."
+      );
 
-    if(
-      error.code === "auth/invalid-credential" ||
-      error.code === "auth/wrong-password" ||
-      error.code === "auth/user-not-found"
-    ){
-      message = "Barua pepe au password si sahihi.";
+      setTimeout(function(){
+
+        window.location.href = "writer.html";
+
+      }, 500);
+
+      return;
     }
 
-    if(error.code === "auth/too-many-requests"){
-      message = "Majaribio yamekuwa mengi. Jaribu tena baadaye.";
+
+    /* =========================
+       UNKNOWN ROLE
+    ========================= */
+
+    await signOut(auth);
+
+    showError(
+      "Role ya akaunti haijulikani. Role iliyopatikana: " +
+      String(userData.role)
+    );
+
+  }
+
+
+  /* =========================
+     FIREBASE ERROR
+  ========================= */
+
+  catch(error){
+
+    console.error("FIREBASE ERROR:", error);
+
+    console.error("ERROR CODE:", error.code);
+
+    console.error("ERROR MESSAGE:", error.message);
+
+
+    let message = "";
+
+
+    if(error.code === "auth/invalid-credential"){
+
+      message =
+        "Barua pepe au password si sahihi.";
     }
+
+    else if(error.code === "auth/wrong-password"){
+
+      message =
+        "Password si sahihi.";
+    }
+
+    else if(error.code === "auth/user-not-found"){
+
+      message =
+        "Akaunti hii haipo kwenye Firebase Authentication.";
+    }
+
+    else if(error.code === "auth/invalid-email"){
+
+      message =
+        "Barua pepe uliyoandika si sahihi.";
+    }
+
+    else if(error.code === "auth/too-many-requests"){
+
+      message =
+        "Majaribio yamekuwa mengi. Subiri kidogo kisha ujaribu tena.";
+    }
+
+    else if(error.code === "permission-denied"){
+
+      message =
+        "Firebase imekataa kusoma profile ya users. Angalia Firestore Rules.";
+    }
+
+    else if(error.code === "unavailable"){
+
+      message =
+        "Firebase haipatikani kwa sasa. Angalia internet yako.";
+    }
+
+    else if(error.code === "failed-precondition"){
+
+      message =
+        "Firebase ina tatizo la configuration. Angalia Firebase project.";
+    }
+
+    else{
+
+      message =
+        "Kosa la Firebase: " +
+        error.code +
+        " — " +
+        error.message;
+    }
+
 
     showError(message);
 
-  }finally{
+  }
+
+
+  finally{
 
     btn.disabled = false;
+
     btn.textContent = "🔐 Ingia";
 
   }
@@ -321,3 +537,4 @@ form.addEventListener("submit", async (e) => {
 
 </body>
 </html>
+```
