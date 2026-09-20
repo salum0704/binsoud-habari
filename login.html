@@ -1,539 +1,595 @@
 ```html
 <!DOCTYPE html>
-<html lang="sw-TZ">
+<html lang="sw">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ingia | BINSOUD HABARI</title>
-  <meta name="description" content="Ingia kwenye mfumo wa usimamizi wa BINSOUD HABARI">
-  <meta name="robots" content="noindex,nofollow">
-  <meta name="theme-color" content="#0878c9">
 
   <style>
-    :root{
-      --blue:#0878c9;
-      --blue2:#075a99;
-      --deep:#032f52;
-      --white:#fff;
-      --bg:#f4f7fa;
-      --text:#172b3a;
-      --muted:#71808c;
-      --border:#e3e9ee;
-      --shadow:0 12px 35px rgba(0,40,70,.12);
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #071a2b, #0d3550, #06131f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(135deg,#eef6fb,#f8fafc);
-      color:var(--text);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
+    .login-container {
+      width: 100%;
+      max-width: 430px;
     }
 
-    .login-box{
-      width:min(430px,100%);
-      background:#fff;
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      padding:35px;
+    .login-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 35px 30px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
     }
 
-    .logo{
-      width:70px;
-      height:70px;
-      background:linear-gradient(135deg,var(--blue),var(--blue2));
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:16px;
-      font-size:27px;
-      font-weight:900;
-      margin:0 auto 18px;
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
     }
 
-    h1{
-      text-align:center;
-      color:var(--deep);
-      font-size:25px;
-      margin-bottom:7px;
+    .logo h1 {
+      color: #0b4f71;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
-    .subtitle{
-      text-align:center;
-      color:var(--muted);
-      margin-bottom:28px;
+    .logo p {
+      color: #777;
+      margin-top: 7px;
+      font-size: 14px;
     }
 
-    label{
-      display:block;
-      font-weight:700;
-      margin:15px 0 7px;
+    .input-group {
+      margin-bottom: 18px;
     }
 
-    input{
-      width:100%;
-      padding:14px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      font-size:16px;
-      outline:none;
+    .input-group label {
+      display: block;
+      margin-bottom: 7px;
+      color: #333;
+      font-weight: 600;
+      font-size: 14px;
     }
 
-    input:focus{
-      border-color:var(--blue);
-      box-shadow:0 0 0 3px rgba(8,120,201,.10);
+    .input-group input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d5d5d5;
+      border-radius: 10px;
+      outline: none;
+      font-size: 16px;
+      transition: 0.2s;
     }
 
-    button{
-      width:100%;
-      border:0;
-      background:linear-gradient(135deg,var(--blue),var(--blue2));
-      color:#fff;
-      padding:14px;
-      border-radius:10px;
-      font-size:16px;
-      font-weight:800;
-      cursor:pointer;
-      margin-top:22px;
+    .input-group input:focus {
+      border-color: #0b78a8;
+      box-shadow: 0 0 0 3px rgba(11, 120, 168, 0.12);
     }
 
-    button:disabled{
-      opacity:.6;
-      cursor:not-allowed;
+    .login-btn {
+      width: 100%;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      background: #0b78a8;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
-    .error{
-      display:none;
-      background:#fff0f0;
-      color:#b42318;
-      border:1px solid #ffd0d0;
-      padding:12px;
-      border-radius:10px;
-      margin-top:15px;
-      font-size:14px;
-      line-height:1.5;
-      word-break:break-word;
+    .login-btn:hover {
+      background: #075d82;
     }
 
-    .success{
-      display:none;
-      background:#effaf3;
-      color:#18794e;
-      border:1px solid #b7ebc6;
-      padding:12px;
-      border-radius:10px;
-      margin-top:15px;
-      font-size:14px;
-      line-height:1.5;
+    .login-btn:disabled {
+      background: #8caab8;
+      cursor: not-allowed;
     }
 
-    .back{
-      display:block;
-      text-align:center;
-      margin-top:22px;
-      color:var(--blue);
-      font-weight:700;
-      text-decoration:none;
+    #message {
+      display: none;
+      margin-top: 18px;
+      padding: 13px;
+      border-radius: 9px;
+      font-size: 14px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    #message.success {
+      display: block;
+      background: #e8f8ee;
+      color: #146c35;
+      border: 1px solid #b9e7c8;
+    }
+
+    #message.error {
+      display: block;
+      background: #fff0f0;
+      color: #a32222;
+      border: 1px solid #f1bcbc;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #0b78a8;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .back-home:hover {
+      text-decoration: underline;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.5);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="login-box">
+  <div class="login-container">
 
-    <div class="logo">BH</div>
+    <div class="login-box">
 
-    <h1>BINSOUD HABARI</h1>
-    <p class="subtitle">Mfumo wa Usimamizi</p>
+      <div class="logo">
+        <h1>BINSOUD HABARI</h1>
+        <p>Sehemu ya Waandishi na Wasimamizi</p>
+      </div>
 
-    <form id="loginForm">
+      <form id="loginForm">
 
-      <label for="email">Barua pepe</label>
+        <div class="input-group">
+          <label for="email">Barua pepe</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Ingiza barua pepe"
+            autocomplete="email"
+            required
+          >
+        </div>
 
-      <input
-        type="email"
-        id="email"
-        placeholder="mfano@email.com"
-        autocomplete="email"
-        required
-      >
+        <div class="input-group">
+          <label for="password">Nenosiri</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Ingiza nenosiri"
+            autocomplete="current-password"
+            required
+          >
+        </div>
 
-      <label for="password">Password</label>
+        <button type="submit" class="login-btn" id="loginBtn">
+          INGIA
+        </button>
 
-      <input
-        type="password"
-        id="password"
-        placeholder="Password yako"
-        autocomplete="current-password"
-        required
-      >
+        <div id="message"></div>
 
-      <button id="loginBtn" type="submit">
-        🔐 Ingia
-      </button>
+      </form>
 
-      <div class="error" id="errorBox"></div>
+      <a href="index.html" class="back-home">
+        ← Rudi kwenye BINSOUD HABARI
+      </a>
 
-      <div class="success" id="successBox"></div>
+      <div class="footer">
+        © 2026 BINSOUD HABARI
+      </div>
 
-    </form>
-
-    <a class="back" href="index.html">
-      ← Rudi BINSOUD HABARI
-    </a>
+    </div>
 
   </div>
 
 
-<script type="module">
+  <!-- Firebase -->
+  <script type="module">
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+    import { initializeApp }
+      from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      signOut
+    }
+      from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
-import {
-  getFirestore,
-  doc,
-  getDoc
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc
+    }
+      from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
-/* =========================
-   FIREBASE CONFIG
-========================= */
+    // ==========================================
+    // FIREBASE CONFIG
+    // ==========================================
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCFpSNTqw9ljOHX-A-szNcNi-HmVKZU-7I",
-  authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
-  projectId: "binsoud-habari-8a5fa",
-  storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
-  messagingSenderId: "865091074307",
-  appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
-  measurementId: "G-MH266J0XKE"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+      authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
+      projectId: "binsoud-habari-8a5fa",
+      storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
+      messagingSenderId: "865091074307",
+      appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
+      measurementId: "G-MH266J0XKE"
+    };
 
 
-/* =========================
-   INITIALIZE FIREBASE
-========================= */
+    // ==========================================
+    // INITIALIZE FIREBASE
+    // ==========================================
 
-const app = initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+    const auth = getAuth(app);
 
-const db = getFirestore(app);
+    const db = getFirestore(app);
 
 
-/* =========================
-   ELEMENTS
-========================= */
+    // ==========================================
+    // ELEMENTS
+    // ==========================================
 
-const form = document.getElementById("loginForm");
+    const loginForm = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const message = document.getElementById("message");
 
-const btn = document.getElementById("loginBtn");
 
-const errorBox = document.getElementById("errorBox");
+    // ==========================================
+    // MESSAGE FUNCTION
+    // ==========================================
 
-const successBox = document.getElementById("successBox");
+    function showMessage(text, type = "error") {
 
+      message.textContent = text;
 
-/* =========================
-   SHOW ERROR
-========================= */
+      message.className = "";
 
-function showError(message){
+      message.classList.add(type);
 
-  successBox.style.display = "none";
-
-  errorBox.textContent = message;
-
-  errorBox.style.display = "block";
-
-}
-
-
-/* =========================
-   SHOW SUCCESS
-========================= */
-
-function showSuccess(message){
-
-  errorBox.style.display = "none";
-
-  successBox.textContent = message;
-
-  successBox.style.display = "block";
-
-}
-
-
-/* =========================
-   LOGIN
-========================= */
-
-form.addEventListener("submit", async function(e){
-
-  e.preventDefault();
-
-  errorBox.style.display = "none";
-
-  successBox.style.display = "none";
-
-  const email =
-    document.getElementById("email").value.trim();
-
-  const password =
-    document.getElementById("password").value;
-
-
-  btn.disabled = true;
-
-  btn.textContent = "Inaingia...";
-
-
-  try {
-
-    /* =========================
-       STEP 1: FIREBASE LOGIN
-    ========================= */
-
-    const credential =
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-
-    const firebaseUser = credential.user;
-
-    const uid = firebaseUser.uid;
-
-
-    console.log("LOGIN SUCCESS");
-
-    console.log("EMAIL:", firebaseUser.email);
-
-    console.log("UID:", uid);
-
-
-    /* =========================
-       STEP 2: READ USER PROFILE
-    ========================= */
-
-    const userRef =
-      doc(db, "users", uid);
-
-    const userSnap =
-      await getDoc(userRef);
-
-
-    console.log("USER DOCUMENT EXISTS:",
-      userSnap.exists()
-    );
-
-
-    /* =========================
-       NO PROFILE
-    ========================= */
-
-    if(!userSnap.exists()){
-
-      await signOut(auth);
-
-      showError(
-        "Login ya Firebase imefanikiwa, lakini profile ya mtumiaji haipo Firestore. UID: " + uid
-      );
-
-      return;
+      message.style.display = "block";
     }
 
 
-    /* =========================
-       USER DATA
-    ========================= */
+    // ==========================================
+    // LOGIN
+    // ==========================================
 
-    const userData =
-      userSnap.data();
+    loginForm.addEventListener("submit", async (event) => {
 
+      event.preventDefault();
 
-    console.log("USER DATA:", userData);
 
+      const email = emailInput.value.trim();
 
-    /* =========================
-       CHECK ACTIVE
-    ========================= */
+      const password = passwordInput.value;
 
-    if(userData.active !== true){
 
-      await signOut(auth);
+      if (!email || !password) {
 
-      showError(
-        "Akaunti hii haijawezeshwa. Hakikisha field 'active' ni Boolean true."
-      );
+        showMessage(
+          "Tafadhali jaza barua pepe na nenosiri."
+        );
 
-      return;
-    }
+        return;
+      }
 
 
-    /* =========================
-       CHECK ROLE
-    ========================= */
+      // Disable button
 
-    if(userData.role === "admin"){
+      loginBtn.disabled = true;
 
-      showSuccess(
-        "Umefanikiwa kuingia kama Admin. Inaelekea Admin Panel..."
-      );
+      loginBtn.innerHTML =
+        '<span class="loading"></span> Inaingia...';
 
-      setTimeout(function(){
+      message.style.display = "none";
 
-        window.location.href = "admin.html";
 
-      }, 500);
+      try {
 
-      return;
-    }
+        // ======================================
+        // 1. LOGIN FIREBASE AUTHENTICATION
+        // ======================================
 
+        const credential =
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
 
-    if(userData.role === "writer"){
 
-      showSuccess(
-        "Umefanikiwa kuingia kama Writer. Inaelekea Writer Panel..."
-      );
+        const user = credential.user;
 
-      setTimeout(function(){
 
-        window.location.href = "writer.html";
+        console.log("Firebase login successful");
 
-      }, 500);
+        console.log("UID:", user.uid);
 
-      return;
-    }
+        console.log("Email:", user.email);
 
 
-    /* =========================
-       UNKNOWN ROLE
-    ========================= */
+        // ======================================
+        // 2. GET USER PROFILE
+        // ======================================
 
-    await signOut(auth);
+        const userRef =
+          doc(db, "users", user.uid);
 
-    showError(
-      "Role ya akaunti haijulikani. Role iliyopatikana: " +
-      String(userData.role)
-    );
+        const userSnapshot =
+          await getDoc(userRef);
 
-  }
 
+        console.log(
+          "User profile exists:",
+          userSnapshot.exists()
+        );
 
-  /* =========================
-     FIREBASE ERROR
-  ========================= */
 
-  catch(error){
+        // ======================================
+        // 3. CHECK USER PROFILE
+        // ======================================
 
-    console.error("FIREBASE ERROR:", error);
+        if (!userSnapshot.exists()) {
 
-    console.error("ERROR CODE:", error.code);
+          await signOut(auth);
 
-    console.error("ERROR MESSAGE:", error.message);
+          showMessage(
+            "Akaunti imeingia Firebase Authentication lakini profile ya mtumiaji haipo kwenye Firestore. Hakikisha umeunda users/" +
+            user.uid
+          );
 
+          return;
+        }
 
-    let message = "";
 
+        const userData =
+          userSnapshot.data();
 
-    if(error.code === "auth/invalid-credential"){
 
-      message =
-        "Barua pepe au password si sahihi.";
-    }
+        console.log("User data:", userData);
 
-    else if(error.code === "auth/wrong-password"){
 
-      message =
-        "Password si sahihi.";
-    }
+        // ======================================
+        // 4. CHECK ACTIVE STATUS
+        // ======================================
 
-    else if(error.code === "auth/user-not-found"){
+        if (userData.active !== true) {
 
-      message =
-        "Akaunti hii haipo kwenye Firebase Authentication.";
-    }
+          await signOut(auth);
 
-    else if(error.code === "auth/invalid-email"){
+          showMessage(
+            "Akaunti hii haijawezeshwa. Wasiliana na msimamizi."
+          );
 
-      message =
-        "Barua pepe uliyoandika si sahihi.";
-    }
+          return;
+        }
 
-    else if(error.code === "auth/too-many-requests"){
 
-      message =
-        "Majaribio yamekuwa mengi. Subiri kidogo kisha ujaribu tena.";
-    }
+        // ======================================
+        // 5. CHECK ROLE
+        // ======================================
 
-    else if(error.code === "permission-denied"){
+        const role = userData.role;
 
-      message =
-        "Firebase imekataa kusoma profile ya users. Angalia Firestore Rules.";
-    }
 
-    else if(error.code === "unavailable"){
+        // ======================================
+        // ADMIN
+        // ======================================
 
-      message =
-        "Firebase haipatikani kwa sasa. Angalia internet yako.";
-    }
+        if (role === "admin") {
 
-    else if(error.code === "failed-precondition"){
+          showMessage(
+            "Umefanikiwa kuingia. Unaelekezwa kwenye Admin Panel...",
+            "success"
+          );
 
-      message =
-        "Firebase ina tatizo la configuration. Angalia Firebase project.";
-    }
 
-    else{
+          setTimeout(() => {
 
-      message =
-        "Kosa la Firebase: " +
-        error.code +
-        " — " +
-        error.message;
-    }
+            window.location.href = "admin.html";
 
+          }, 500);
 
-    showError(message);
 
-  }
+          return;
+        }
 
 
-  finally{
+        // ======================================
+        // WRITER
+        // ======================================
 
-    btn.disabled = false;
+        if (role === "writer") {
 
-    btn.textContent = "🔐 Ingia";
+          showMessage(
+            "Umefanikiwa kuingia. Unaelekezwa kwenye Writer Panel...",
+            "success"
+          );
 
-  }
 
-});
+          setTimeout(() => {
 
-</script>
+            window.location.href = "writer.html";
+
+          }, 500);
+
+
+          return;
+        }
+
+
+        // ======================================
+        // UNKNOWN ROLE
+        // ======================================
+
+        await signOut(auth);
+
+        showMessage(
+          "Akaunti yako haina role inayotambulika. Wasiliana na admin."
+        );
+
+      }
+
+
+      // ========================================
+      // FIREBASE ERRORS
+      // ========================================
+
+      catch (error) {
+
+        console.error(
+          "Firebase login error:",
+          error
+        );
+
+
+        let errorMessage =
+          "Imeshindikana kuingia.";
+
+
+        switch (error.code) {
+
+
+          case "auth/invalid-credential":
+
+            errorMessage =
+              "Barua pepe au nenosiri si sahihi.";
+
+            break;
+
+
+          case "auth/invalid-email":
+
+            errorMessage =
+              "Muundo wa barua pepe si sahihi.";
+
+            break;
+
+
+          case "auth/user-not-found":
+
+            errorMessage =
+              "Akaunti hii haipo kwenye Firebase Authentication.";
+
+            break;
+
+
+          case "auth/wrong-password":
+
+            errorMessage =
+              "Nenosiri si sahihi.";
+
+            break;
+
+
+          case "auth/too-many-requests":
+
+            errorMessage =
+              "Majaribio ya kuingia yamekuwa mengi. Subiri kidogo kisha ujaribu tena.";
+
+            break;
+
+
+          case "auth/network-request-failed":
+
+            errorMessage =
+              "Hakuna muunganisho mzuri wa internet.";
+
+            break;
+
+
+          case "auth/api-key-not-valid.-please-pass-a-valid-api-key.":
+
+            errorMessage =
+              "Firebase API Key si sahihi. Hakikisha umetumia API Key ya Firebase project binsoud-habari-8a5fa.";
+
+            break;
+
+
+          case "permission-denied":
+
+            errorMessage =
+              "Firebase Firestore imekataa kusoma profile ya mtumiaji. Kagua Firestore Security Rules.";
+
+            break;
+
+
+          default:
+
+            errorMessage =
+              "Kosa la Firebase: " +
+              error.code +
+              " — " +
+              error.message;
+
+            break;
+        }
+
+
+        showMessage(errorMessage);
+
+      }
+
+
+      finally {
+
+        loginBtn.disabled = false;
+
+        loginBtn.textContent = "INGIA";
+
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
