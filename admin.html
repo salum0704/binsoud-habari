@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sw-TZ">
 <head>
@@ -313,6 +314,17 @@
       color:var(--muted);
     }
 
+    .error-box{
+      background:#fff0f0;
+      color:#9f1c1c;
+      border:1px solid #f0bcbc;
+      padding:15px;
+      border-radius:10px;
+      margin-bottom:20px;
+      display:none;
+      line-height:1.5;
+    }
+
     .modal{
       display:none;
       position:fixed;
@@ -384,20 +396,40 @@
 
 <div class="top">
   <div class="top-inner">
-    <div class="brand">📰 BINSOUD HABARI — ADMIN</div>
-    <button class="logout" id="logoutBtn">Toka</button>
+
+    <div class="brand">
+      📰 BINSOUD HABARI — ADMIN
+    </div>
+
+    <button class="logout" id="logoutBtn">
+      Toka
+    </button>
+
   </div>
 </div>
 
+
 <header>
+
   <div class="header-inner">
-    <h1>Dashboard ya Admin</h1>
-    <div class="subtitle" id="adminName">Inapakia...</div>
+
+    <h1>
+      Dashboard ya Admin
+    </h1>
+
+    <div class="subtitle" id="adminName">
+      Inapakia...
+    </div>
+
   </div>
+
 </header>
 
 
 <main class="container">
+
+  <div id="errorBox" class="error-box"></div>
+
 
   <section class="stats">
 
@@ -451,10 +483,14 @@
 
   <section class="panel active" id="dashboard">
 
-    <h2>Habari zinazosubiri</h2>
+    <h2>
+      Habari zinazosubiri
+    </h2>
 
     <div id="dashboardArticles" class="articles">
-      <div class="loading">Inapakia...</div>
+      <div class="loading">
+        Inapakia...
+      </div>
     </div>
 
   </section>
@@ -462,10 +498,14 @@
 
   <section class="panel" id="pending">
 
-    <h2>Habari kutoka kwa waandishi</h2>
+    <h2>
+      Habari kutoka kwa waandishi
+    </h2>
 
     <div id="pendingArticles" class="articles">
-      <div class="loading">Inapakia...</div>
+      <div class="loading">
+        Inapakia...
+      </div>
     </div>
 
   </section>
@@ -473,10 +513,14 @@
 
   <section class="panel" id="all">
 
-    <h2>Habari zote</h2>
+    <h2>
+      Habari zote
+    </h2>
 
     <div id="allArticles" class="articles">
-      <div class="loading">Inapakia...</div>
+      <div class="loading">
+        Inapakia...
+      </div>
     </div>
 
   </section>
@@ -484,46 +528,101 @@
 
   <section class="panel" id="add">
 
-    <h2>Ongeza Habari Mpya</h2>
+    <h2>
+      Ongeza Habari Mpya
+    </h2>
 
     <form id="articleForm">
 
       <div>
-        <label>Kichwa cha habari</label>
+        <label for="title">
+          Kichwa cha habari
+        </label>
+
         <input id="title" required>
       </div>
 
+
       <div>
-        <label>Utangulizi</label>
+        <label for="intro">
+          Utangulizi
+        </label>
+
         <textarea id="intro" required></textarea>
       </div>
 
+
       <div>
-        <label>Maudhui</label>
+        <label for="content">
+          Maudhui
+        </label>
+
         <textarea id="content" required></textarea>
       </div>
 
+
       <div>
-        <label>Kategoria</label>
+        <label for="category">
+          Kategoria
+        </label>
 
         <select id="category" required>
-          <option value="">Chagua kategoria</option>
-          <option value="Kitaifa">Kitaifa</option>
-          <option value="Siasa">Siasa</option>
-          <option value="Biashara">Biashara</option>
-          <option value="Michezo">Michezo</option>
-          <option value="Burudani">Burudani</option>
-          <option value="Dini">Dini</option>
-          <option value="Mazingira">Mazingira</option>
-          <option value="Kimataifa">Kimataifa</option>
+
+          <option value="">
+            Chagua kategoria
+          </option>
+
+          <option value="Kitaifa">
+            Kitaifa
+          </option>
+
+          <option value="Siasa">
+            Siasa
+          </option>
+
+          <option value="Biashara">
+            Biashara
+          </option>
+
+          <option value="Michezo">
+            Michezo
+          </option>
+
+          <option value="Burudani">
+            Burudani
+          </option>
+
+          <option value="Dini">
+            Dini
+          </option>
+
+          <option value="Mazingira">
+            Mazingira
+          </option>
+
+          <option value="Kimataifa">
+            Kimataifa
+          </option>
+
         </select>
 
       </div>
 
+
       <div>
-        <label>URL ya picha</label>
-        <input id="image" type="url" placeholder="https://...">
+
+        <label for="image">
+          URL ya picha
+        </label>
+
+        <input
+          id="image"
+          type="url"
+          placeholder="https://..."
+        >
+
       </div>
+
 
       <button class="submit" type="submit">
         📰 Chapisha Habari
@@ -536,7 +635,9 @@
 
   <section class="panel" id="writers">
 
-    <h2>Waandishi</h2>
+    <h2>
+      Waandishi
+    </h2>
 
     <p style="color:#71808c;margin-bottom:18px;">
       Waandishi wanaweza kutuma habari lakini hawawezi ku-edit,
@@ -544,7 +645,11 @@
     </p>
 
     <div id="writersList">
-      <div class="loading">Inapakia...</div>
+
+      <div class="loading">
+        Inapakia...
+      </div>
+
     </div>
 
   </section>
@@ -559,33 +664,64 @@
   <div class="modal-box">
 
     <div class="modal-head">
-      <h2>Hariri Habari</h2>
-      <button class="close" id="closeModal">✕</button>
+
+      <h2>
+        Hariri Habari
+      </h2>
+
+      <button class="close" id="closeModal">
+        ✕
+      </button>
+
     </div>
+
 
     <form id="editForm">
 
       <input type="hidden" id="editId">
 
+
       <div>
-        <label>Kichwa</label>
+
+        <label for="editTitle">
+          Kichwa
+        </label>
+
         <input id="editTitle" required>
+
       </div>
 
+
       <div>
-        <label>Utangulizi</label>
+
+        <label for="editIntro">
+          Utangulizi
+        </label>
+
         <textarea id="editIntro" required></textarea>
+
       </div>
 
+
       <div>
-        <label>Maudhui</label>
+
+        <label for="editContent">
+          Maudhui
+        </label>
+
         <textarea id="editContent" required></textarea>
+
       </div>
 
+
       <div>
-        <label>Kategoria</label>
+
+        <label for="editCategory">
+          Kategoria
+        </label>
 
         <select id="editCategory" required>
+
           <option value="Kitaifa">Kitaifa</option>
           <option value="Siasa">Siasa</option>
           <option value="Biashara">Biashara</option>
@@ -594,16 +730,24 @@
           <option value="Dini">Dini</option>
           <option value="Mazingira">Mazingira</option>
           <option value="Kimataifa">Kimataifa</option>
+
         </select>
 
       </div>
 
+
       <div>
-        <label>URL ya picha</label>
+
+        <label for="editImage">
+          URL ya picha
+        </label>
+
         <input id="editImage" type="url">
+
       </div>
 
-      <button class="submit">
+
+      <button class="submit" type="submit">
         💾 Hifadhi Mabadiliko
       </button>
 
@@ -615,6 +759,10 @@
 
 
 <script type="module">
+
+/* =========================================================
+   FIREBASE IMPORTS
+========================================================= */
 
 import {
   initializeApp
@@ -639,55 +787,146 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
+/* =========================================================
+   FIREBASE CONFIG
+   HII NDIYO CONFIG SAHIHI YA BINSOUD HABARI
+========================================================= */
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCFpSNTqw9ljOHX-A-szNcNi-HmVKZU-7I",
-  authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
-  projectId: "binsoud-habari-8a5fa",
-  storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
-  messagingSenderId: "865091074307",
-  appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
-  measurementId: "G-MH266J0XKE"
+
+  apiKey:
+    "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+
+  authDomain:
+    "binsoud-habari-8a5fa.firebaseapp.com",
+
+  projectId:
+    "binsoud-habari-8a5fa",
+
+  storageBucket:
+    "binsoud-habari-8a5fa.firebasestorage.app",
+
+  messagingSenderId:
+    "865091074307",
+
+  appId:
+    "1:865091074307:web:27b26aa8f0f3476ef45136",
+
+  measurementId:
+    "G-MH266J0XKE"
+
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
+
+const app =
+  initializeApp(firebaseConfig);
+
+const auth =
+  getAuth(app);
+
+const db =
+  getFirestore(app);
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 let currentUser = null;
+
 let allArticles = [];
 
 
+/* =========================================================
+   ERROR DISPLAY
+========================================================= */
+
+function showError(error){
+
+  console.error(
+    "Admin Firebase Error:",
+    error
+  );
+
+  const box =
+    document.getElementById("errorBox");
+
+  box.textContent =
+    "Kosa: " +
+    (error?.code || "") +
+    " — " +
+    (error?.message || error);
+
+  box.style.display =
+    "block";
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
 function escapeHTML(value){
+
   return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
 
+/* =========================================================
+   DATE VALUE
+========================================================= */
+
 function dateValue(article){
 
-  const value = article.createdAt || article.submittedAt || article.date || "";
+  const value =
+    article.createdAt ||
+    article.submittedAt ||
+    article.date ||
+    "";
+
 
   if(
     typeof value === "object" &&
     value !== null &&
     typeof value.toDate === "function"
   ){
+
     return value.toDate().getTime();
+
   }
 
-  const time = new Date(value).getTime();
 
-  return Number.isNaN(time) ? 0 : time;
+  const time =
+    new Date(value).getTime();
+
+
+  return Number.isNaN(time)
+    ? 0
+    : time;
+
 }
 
 
+/* =========================================================
+   DATE TEXT
+========================================================= */
+
 function dateText(article){
 
-  const value = article.createdAt || article.submittedAt;
+  const value =
+    article.createdAt ||
+    article.submittedAt;
+
 
   if(
     value &&
@@ -706,481 +945,1136 @@ function dateText(article){
 
   }
 
+
   return article.date || "";
+
 }
 
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
 
 function statusBadge(status){
 
   if(status === "published"){
-    return `<span class="badge published">IMECHAPISHWA</span>`;
+
+    return `
+      <span class="badge published">
+        IMECHAPISHWA
+      </span>
+    `;
+
   }
+
 
   if(status === "rejected"){
-    return `<span class="badge rejected">IMEKATALIWA</span>`;
+
+    return `
+      <span class="badge rejected">
+        IMEKATALIWA
+      </span>
+    `;
+
   }
 
-  return `<span class="badge pending">INASUBIRI</span>`;
+
+  return `
+    <span class="badge pending">
+      INASUBIRI
+    </span>
+  `;
+
 }
 
+
+/* =========================================================
+   ARTICLE CARD
+========================================================= */
 
 function articleCard(article){
 
   return `
+
     <div class="article">
 
       ${statusBadge(article.status)}
 
-      <h3>${escapeHTML(article.title)}</h3>
+      <h3>
+        ${escapeHTML(article.title)}
+      </h3>
 
       <div class="meta">
-        Kategoria: ${escapeHTML(article.category || "-")}
+
+        Kategoria:
+        ${escapeHTML(article.category || "-")}
+
         ·
-        Mwandishi: ${escapeHTML(article.author || article.authorName || "Admin")}
+
+        Mwandishi:
+        ${escapeHTML(
+          article.author ||
+          article.authorName ||
+          "Admin"
+        )}
+
         ·
-        ${escapeHTML(dateText(article))}
+
+        ${escapeHTML(
+          dateText(article)
+        )}
+
       </div>
 
+
       <p style="margin-bottom:15px;">
-        ${escapeHTML(article.intro || "")}
+
+        ${escapeHTML(
+          article.intro || ""
+        )}
+
       </p>
+
 
       <div class="actions">
 
-        <button class="btn blue edit-btn" data-id="${article.id}">
+        <button
+          class="btn blue edit-btn"
+          data-id="${article.id}"
+        >
           ✏️ Edit
         </button>
 
+
         ${
           article.status !== "published"
+
           ?
-          `<button class="btn green publish-btn" data-id="${article.id}">
+
+          `
+          <button
+            class="btn green publish-btn"
+            data-id="${article.id}"
+          >
             ✅ Chapisha
-          </button>`
+          </button>
+          `
+
           :
+
           ""
         }
+
 
         ${
           article.status !== "rejected"
+
           ?
-          `<button class="btn gray reject-btn" data-id="${article.id}">
+
+          `
+          <button
+            class="btn gray reject-btn"
+            data-id="${article.id}"
+          >
             ❌ Kataa
-          </button>`
+          </button>
+          `
+
           :
+
           ""
         }
 
-        <button class="btn red delete-btn" data-id="${article.id}">
+
+        <button
+          class="btn red delete-btn"
+          data-id="${article.id}"
+        >
           🗑️ Futa
         </button>
 
       </div>
 
     </div>
+
   `;
+
 }
 
+
+/* =========================================================
+   LOAD ARTICLES
+========================================================= */
 
 async function loadArticles(){
 
-  const snapshot = await getDocs(
-    collection(db,"articles")
-  );
+  try{
 
-  allArticles = snapshot.docs.map(
-    d => ({
-      id:d.id,
-      ...d.data()
-    })
-  );
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "articles"
+        )
+      );
 
-  allArticles.sort(
-    (a,b) => dateValue(b) - dateValue(a)
-  );
 
-  const pending = allArticles.filter(
-    a => a.status === "pending"
-  );
+    allArticles =
+      snapshot.docs.map(
+        d => ({
+          id:d.id,
+          ...d.data()
+        })
+      );
 
-  const published = allArticles.filter(
-    a => a.status === "published"
-  );
 
-  document.getElementById("totalCount").textContent =
-    allArticles.length;
+    allArticles.sort(
+      (a,b) =>
+        dateValue(b) -
+        dateValue(a)
+    );
 
-  document.getElementById("pendingCount").textContent =
-    pending.length;
 
-  document.getElementById("publishedCount").textContent =
-    published.length;
+    const pending =
+      allArticles.filter(
+        a =>
+          a.status === "pending"
+      );
 
-  document.getElementById("dashboardArticles").innerHTML =
-    pending.length
-    ?
-    pending.slice(0,10).map(articleCard).join("")
-    :
-    `<div class="empty">Hakuna habari inayosubiri.</div>`;
 
-  document.getElementById("pendingArticles").innerHTML =
-    pending.length
-    ?
-    pending.map(articleCard).join("")
-    :
-    `<div class="empty">Hakuna habari inayosubiri.</div>`;
+    const published =
+      allArticles.filter(
+        a =>
+          a.status === "published"
+      );
 
-  document.getElementById("allArticles").innerHTML =
-    allArticles.length
-    ?
-    allArticles.map(articleCard).join("")
-    :
-    `<div class="empty">Hakuna habari.</div>`;
 
-  attachArticleButtons();
+    document.getElementById(
+      "totalCount"
+    ).textContent =
+      allArticles.length;
+
+
+    document.getElementById(
+      "pendingCount"
+    ).textContent =
+      pending.length;
+
+
+    document.getElementById(
+      "publishedCount"
+    ).textContent =
+      published.length;
+
+
+    document.getElementById(
+      "dashboardArticles"
+    ).innerHTML =
+
+      pending.length
+
+      ?
+
+      pending
+        .slice(0,10)
+        .map(articleCard)
+        .join("")
+
+      :
+
+      `
+      <div class="empty">
+        Hakuna habari inayosubiri.
+      </div>
+      `;
+
+
+    document.getElementById(
+      "pendingArticles"
+    ).innerHTML =
+
+      pending.length
+
+      ?
+
+      pending
+        .map(articleCard)
+        .join("")
+
+      :
+
+      `
+      <div class="empty">
+        Hakuna habari inayosubiri.
+      </div>
+      `;
+
+
+    document.getElementById(
+      "allArticles"
+    ).innerHTML =
+
+      allArticles.length
+
+      ?
+
+      allArticles
+        .map(articleCard)
+        .join("")
+
+      :
+
+      `
+      <div class="empty">
+        Hakuna habari.
+      </div>
+      `;
+
+
+    attachArticleButtons();
+
+  }
+
+  catch(error){
+
+    showError(error);
+
+  }
 
 }
 
+
+/* =========================================================
+   ARTICLE BUTTONS
+========================================================= */
 
 function attachArticleButtons(){
 
-  document.querySelectorAll(".edit-btn").forEach(btn => {
 
-    btn.addEventListener("click",() => {
+  /* EDIT */
 
-      const article = allArticles.find(
-        a => a.id === btn.dataset.id
-      );
+  document
+    .querySelectorAll(".edit-btn")
+    .forEach(btn => {
 
-      if(article) openEdit(article);
+      btn.addEventListener(
+        "click",
+        () => {
 
-    });
+          const article =
+            allArticles.find(
+              a =>
+                a.id ===
+                btn.dataset.id
+            );
 
-  });
 
+          if(article){
 
-  document.querySelectorAll(".publish-btn").forEach(btn => {
+            openEdit(article);
 
-    btn.addEventListener("click",async () => {
+          }
 
-      if(!confirm("Unataka kuchapisha habari hii?")) return;
-
-      await updateDoc(
-        doc(db,"articles",btn.dataset.id),
-        {
-          status:"published",
-          reviewedAt:serverTimestamp(),
-          reviewedBy:currentUser.uid
         }
       );
 
-      await loadArticles();
-
     });
 
-  });
+
+  /* PUBLISH */
+
+  document
+    .querySelectorAll(".publish-btn")
+    .forEach(btn => {
+
+      btn.addEventListener(
+        "click",
+        async () => {
+
+          if(
+            !confirm(
+              "Unataka kuchapisha habari hii?"
+            )
+          ){
+
+            return;
+
+          }
 
 
-  document.querySelectorAll(".reject-btn").forEach(btn => {
+          try{
 
-    btn.addEventListener("click",async () => {
+            await updateDoc(
+              doc(
+                db,
+                "articles",
+                btn.dataset.id
+              ),
+              {
+                status:"published",
+                reviewedAt:
+                  serverTimestamp(),
+                reviewedBy:
+                  currentUser.uid
+              }
+            );
 
-      if(!confirm("Unataka kukataa habari hii?")) return;
 
-      await updateDoc(
-        doc(db,"articles",btn.dataset.id),
-        {
-          status:"rejected",
-          reviewedAt:serverTimestamp(),
-          reviewedBy:currentUser.uid
+            await loadArticles();
+
+          }
+
+          catch(error){
+
+            showError(error);
+
+          }
+
         }
       );
 
-      await loadArticles();
-
     });
 
-  });
+
+  /* REJECT */
+
+  document
+    .querySelectorAll(".reject-btn")
+    .forEach(btn => {
+
+      btn.addEventListener(
+        "click",
+        async () => {
+
+          if(
+            !confirm(
+              "Unataka kukataa habari hii?"
+            )
+          ){
+
+            return;
+
+          }
 
 
-  document.querySelectorAll(".delete-btn").forEach(btn => {
+          try{
 
-    btn.addEventListener("click",async () => {
+            await updateDoc(
+              doc(
+                db,
+                "articles",
+                btn.dataset.id
+              ),
+              {
+                status:"rejected",
+                reviewedAt:
+                  serverTimestamp(),
+                reviewedBy:
+                  currentUser.uid
+              }
+            );
 
-      if(!confirm(
-        "Una uhakika unataka kufuta habari hii? Kitendo hiki hakiwezi kurudishwa."
-      )) return;
 
-      await deleteDoc(
-        doc(db,"articles",btn.dataset.id)
+            await loadArticles();
+
+          }
+
+          catch(error){
+
+            showError(error);
+
+          }
+
+        }
       );
 
-      await loadArticles();
-
     });
 
-  });
+
+  /* DELETE */
+
+  document
+    .querySelectorAll(".delete-btn")
+    .forEach(btn => {
+
+      btn.addEventListener(
+        "click",
+        async () => {
+
+          if(
+            !confirm(
+              "Una uhakika unataka kufuta habari hii? Kitendo hiki hakiwezi kurudishwa."
+            )
+          ){
+
+            return;
+
+          }
+
+
+          try{
+
+            await deleteDoc(
+              doc(
+                db,
+                "articles",
+                btn.dataset.id
+              )
+            );
+
+
+            await loadArticles();
+
+          }
+
+          catch(error){
+
+            showError(error);
+
+          }
+
+        }
+      );
+
+    });
 
 }
 
+
+/* =========================================================
+   OPEN EDIT
+========================================================= */
 
 function openEdit(article){
 
-  document.getElementById("editId").value = article.id;
-  document.getElementById("editTitle").value = article.title || "";
-  document.getElementById("editIntro").value = article.intro || "";
-  document.getElementById("editContent").value = article.content || "";
-  document.getElementById("editCategory").value = article.category || "Kitaifa";
-  document.getElementById("editImage").value = article.image || "";
+  document.getElementById(
+    "editId"
+  ).value =
+    article.id;
 
-  document.getElementById("editModal").classList.add("show");
+
+  document.getElementById(
+    "editTitle"
+  ).value =
+    article.title || "";
+
+
+  document.getElementById(
+    "editIntro"
+  ).value =
+    article.intro || "";
+
+
+  document.getElementById(
+    "editContent"
+  ).value =
+    article.content || "";
+
+
+  document.getElementById(
+    "editCategory"
+  ).value =
+    article.category ||
+    "Kitaifa";
+
+
+  document.getElementById(
+    "editImage"
+  ).value =
+    article.image || "";
+
+
+  document.getElementById(
+    "editModal"
+  ).classList.add("show");
 
 }
 
 
-document.getElementById("closeModal").addEventListener(
-  "click",
-  () => {
-    document.getElementById("editModal").classList.remove("show");
-  }
-);
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+document
+  .getElementById("closeModal")
+  .addEventListener(
+    "click",
+    () => {
+
+      document
+        .getElementById("editModal")
+        .classList.remove("show");
+
+    }
+  );
 
 
-document.getElementById("editForm").addEventListener(
-  "submit",
-  async e => {
+/* =========================================================
+   EDIT FORM
+========================================================= */
 
-    e.preventDefault();
+document
+  .getElementById("editForm")
+  .addEventListener(
+    "submit",
+    async e => {
 
-    const id = document.getElementById("editId").value;
-
-    await updateDoc(
-      doc(db,"articles",id),
-      {
-        title:document.getElementById("editTitle").value.trim(),
-        intro:document.getElementById("editIntro").value.trim(),
-        content:document.getElementById("editContent").value.trim(),
-        category:document.getElementById("editCategory").value,
-        image:document.getElementById("editImage").value.trim(),
-        updatedAt:serverTimestamp(),
-        updatedBy:currentUser.uid
-      }
-    );
-
-    document.getElementById("editModal").classList.remove("show");
-
-    await loadArticles();
-
-    alert("Habari imehaririwa.");
-
-  }
-);
+      e.preventDefault();
 
 
-document.getElementById("articleForm").addEventListener(
-  "submit",
-  async e => {
+      try{
 
-    e.preventDefault();
+        const id =
+          document.getElementById(
+            "editId"
+          ).value;
 
-    await addDoc(
-      collection(db,"articles"),
-      {
-        title:document.getElementById("title").value.trim(),
-        intro:document.getElementById("intro").value.trim(),
-        content:document.getElementById("content").value.trim(),
-        category:document.getElementById("category").value,
-        image:document.getElementById("image").value.trim(),
 
-        author:"BINSOUD HABARI",
-
-        authorId:currentUser.uid,
-
-        status:"published",
-
-        createdAt:serverTimestamp(),
-
-        date:new Date().toLocaleDateString(
-          "sw-TZ",
+        await updateDoc(
+          doc(
+            db,
+            "articles",
+            id
+          ),
           {
-            year:"numeric",
-            month:"long",
-            day:"numeric"
+
+            title:
+              document.getElementById(
+                "editTitle"
+              ).value.trim(),
+
+            intro:
+              document.getElementById(
+                "editIntro"
+              ).value.trim(),
+
+            content:
+              document.getElementById(
+                "editContent"
+              ).value.trim(),
+
+            category:
+              document.getElementById(
+                "editCategory"
+              ).value,
+
+            image:
+              document.getElementById(
+                "editImage"
+              ).value.trim(),
+
+            updatedAt:
+              serverTimestamp(),
+
+            updatedBy:
+              currentUser.uid
+
           }
-        )
+        );
+
+
+        document
+          .getElementById("editModal")
+          .classList.remove("show");
+
+
+        await loadArticles();
+
+
+        alert(
+          "Habari imehaririwa."
+        );
+
       }
-    );
 
-    e.target.reset();
+      catch(error){
 
-    await loadArticles();
+        showError(error);
 
-    alert("Habari imeongezwa na kuchapishwa.");
+      }
 
-  }
-);
+    }
+  );
 
+
+/* =========================================================
+   ADD ARTICLE
+========================================================= */
+
+document
+  .getElementById("articleForm")
+  .addEventListener(
+    "submit",
+    async e => {
+
+      e.preventDefault();
+
+
+      try{
+
+        await addDoc(
+          collection(
+            db,
+            "articles"
+          ),
+          {
+
+            title:
+              document.getElementById(
+                "title"
+              ).value.trim(),
+
+            intro:
+              document.getElementById(
+                "intro"
+              ).value.trim(),
+
+            content:
+              document.getElementById(
+                "content"
+              ).value.trim(),
+
+            category:
+              document.getElementById(
+                "category"
+              ).value,
+
+            image:
+              document.getElementById(
+                "image"
+              ).value.trim(),
+
+            author:
+              "BINSOUD HABARI",
+
+            authorId:
+              currentUser.uid,
+
+            status:
+              "published",
+
+            createdAt:
+              serverTimestamp(),
+
+            date:
+              new Date().toLocaleDateString(
+                "sw-TZ",
+                {
+                  year:"numeric",
+                  month:"long",
+                  day:"numeric"
+                }
+              )
+
+          }
+        );
+
+
+        e.target.reset();
+
+
+        await loadArticles();
+
+
+        alert(
+          "Habari imeongezwa na kuchapishwa."
+        );
+
+      }
+
+      catch(error){
+
+        showError(error);
+
+      }
+
+    }
+  );
+
+
+/* =========================================================
+   LOAD WRITERS
+========================================================= */
 
 async function loadWriters(){
 
-  const snapshot = await getDocs(
-    collection(db,"users")
-  );
+  try{
 
-  const writers = snapshot.docs
-    .map(d => ({
-      id:d.id,
-      ...d.data()
-    }))
-    .filter(u => u.role === "writer");
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "users"
+        )
+      );
 
-  document.getElementById("writerCount").textContent =
-    writers.length;
 
-  if(!writers.length){
+    const writers =
+      snapshot.docs
+        .map(
+          d => ({
+            id:d.id,
+            ...d.data()
+          })
+        )
+        .filter(
+          u =>
+            u.role === "writer"
+        );
 
-    document.getElementById("writersList").innerHTML =
-      `<div class="empty">Hakuna mwandishi bado.</div>`;
 
-    return;
-  }
+    document.getElementById(
+      "writerCount"
+    ).textContent =
+      writers.length;
 
-  document.getElementById("writersList").innerHTML =
-    writers.map(writer => `
 
-      <div class="writer">
+    if(!writers.length){
 
-        <div class="writer-info">
+      document.getElementById(
+        "writersList"
+      ).innerHTML =
 
-          <strong>
-            ${escapeHTML(writer.name || "Mwandishi")}
-          </strong>
-
-          <span>
-            ${escapeHTML(writer.email || "")}
-          </span>
-
+        `
+        <div class="empty">
+          Hakuna mwandishi bado.
         </div>
+        `;
 
-        <button
-          class="btn ${writer.active === false ? "green" : "red"}"
-          data-writer="${writer.id}"
-        >
-          ${
-            writer.active === false
-            ? "✓ Washa"
-            : "🚫 Zuia"
+      return;
+
+    }
+
+
+    document.getElementById(
+      "writersList"
+    ).innerHTML =
+
+      writers.map(
+        writer => `
+
+          <div class="writer">
+
+            <div class="writer-info">
+
+              <strong>
+                ${escapeHTML(
+                  writer.name ||
+                  "Mwandishi"
+                )}
+              </strong>
+
+              <span>
+                ${escapeHTML(
+                  writer.email ||
+                  ""
+                )}
+              </span>
+
+            </div>
+
+
+            <button
+              class="btn ${
+                writer.active === false
+                ? "green"
+                : "red"
+              }"
+              data-writer="${writer.id}"
+            >
+
+              ${
+                writer.active === false
+                ? "✓ Washa"
+                : "🚫 Zuia"
+              }
+
+            </button>
+
+          </div>
+
+        `
+      ).join("");
+
+
+    document
+      .querySelectorAll(
+        "[data-writer]"
+      )
+      .forEach(btn => {
+
+        btn.addEventListener(
+          "click",
+          async () => {
+
+            try{
+
+              const uid =
+                btn.dataset.writer;
+
+
+              const snap =
+                await getDoc(
+                  doc(
+                    db,
+                    "users",
+                    uid
+                  )
+                );
+
+
+              if(!snap.exists()){
+
+                return;
+
+              }
+
+
+              const user =
+                snap.data();
+
+
+              await updateDoc(
+                doc(
+                  db,
+                  "users",
+                  uid
+                ),
+                {
+                  active:
+                    user.active === false
+                    ? true
+                    : false
+                }
+              );
+
+
+              await loadWriters();
+
+            }
+
+            catch(error){
+
+              showError(error);
+
+            }
+
           }
-        </button>
-
-      </div>
-
-    `).join("");
-
-
-  document
-    .querySelectorAll("[data-writer]")
-    .forEach(btn => {
-
-      btn.addEventListener("click",async () => {
-
-        const uid = btn.dataset.writer;
-
-        const snap = await getDoc(
-          doc(db,"users",uid)
         );
-
-        if(!snap.exists()) return;
-
-        const user = snap.data();
-
-        await updateDoc(
-          doc(db,"users",uid),
-          {
-            active:user.active === false
-              ? true
-              : false
-          }
-        );
-
-        await loadWriters();
 
       });
 
-    });
+  }
+
+  catch(error){
+
+    showError(error);
+
+  }
 
 }
 
 
-document.querySelectorAll(".tab").forEach(tab => {
+/* =========================================================
+   TABS
+========================================================= */
 
-  tab.addEventListener("click",() => {
+document
+  .querySelectorAll(".tab")
+  .forEach(tab => {
 
-    document.querySelectorAll(".tab")
-      .forEach(t => t.classList.remove("active"));
+    tab.addEventListener(
+      "click",
+      () => {
 
-    document.querySelectorAll(".panel")
-      .forEach(p => p.classList.remove("active"));
+        document
+          .querySelectorAll(".tab")
+          .forEach(
+            t =>
+              t.classList.remove(
+                "active"
+              )
+          );
 
-    tab.classList.add("active");
 
-    document
-      .getElementById(tab.dataset.tab)
-      .classList.add("active");
+        document
+          .querySelectorAll(".panel")
+          .forEach(
+            p =>
+              p.classList.remove(
+                "active"
+              )
+          );
+
+
+        tab.classList.add(
+          "active"
+        );
+
+
+        document
+          .getElementById(
+            tab.dataset.tab
+          )
+          .classList.add(
+            "active"
+          );
+
+      }
+    );
 
   });
 
-});
 
+/* =========================================================
+   LOGOUT
+========================================================= */
 
-document.getElementById("logoutBtn")
-  .addEventListener("click",async () => {
+document
+  .getElementById("logoutBtn")
+  .addEventListener(
+    "click",
+    async () => {
 
-    await signOut(auth);
+      try{
 
-    window.location.href = "login.html";
+        await signOut(auth);
 
-  });
+        window.location.replace(
+          "login.html"
+        );
 
+      }
 
-onAuthStateChanged(auth,async user => {
+      catch(error){
 
-  if(!user){
+        showError(error);
 
-    window.location.href = "login.html";
-    return;
+      }
 
-  }
-
-  const snap = await getDoc(
-    doc(db,"users",user.uid)
+    }
   );
 
-  if(
-    !snap.exists() ||
-    snap.data().role !== "admin" ||
-    snap.data().active === false
-  ){
 
-    await signOut(auth);
+/* =========================================================
+   ADMIN AUTHENTICATION
+========================================================= */
 
-    window.location.href = "login.html";
+onAuthStateChanged(
+  auth,
+  async user => {
 
-    return;
+    try{
+
+      /*
+       IMPORTANT:
+       Tusimrudisha login.html mpaka
+       Firebase imalize kuangalia session.
+      */
+
+      if(!user){
+
+        window.location.replace(
+          "login.html"
+        );
+
+        return;
+
+      }
+
+
+      console.log(
+        "Admin authenticated:",
+        user.uid,
+        user.email
+      );
+
+
+      const snap =
+        await getDoc(
+          doc(
+            db,
+            "users",
+            user.uid
+          )
+        );
+
+
+      if(!snap.exists()){
+
+        await signOut(auth);
+
+        window.location.replace(
+          "login.html"
+        );
+
+        return;
+
+      }
+
+
+      const userData =
+        snap.data();
+
+
+      if(
+        userData.role !== "admin" ||
+        userData.active !== true
+      ){
+
+        await signOut(auth);
+
+        window.location.replace(
+          "login.html"
+        );
+
+        return;
+
+      }
+
+
+      /*
+       ADMIN AMETHIBITISHWA
+      */
+
+      currentUser =
+        user;
+
+
+      document.getElementById(
+        "adminName"
+      ).textContent =
+        userData.name ||
+        user.email ||
+        "Admin";
+
+
+      /*
+       LOAD DASHBOARD
+      */
+
+      await loadArticles();
+
+      await loadWriters();
+
+    }
+
+    catch(error){
+
+      showError(error);
+
+      console.error(
+        "Admin authentication error:",
+        error
+      );
+
+    }
 
   }
-
-  currentUser = user;
-
-  document.getElementById("adminName").textContent =
-    snap.data().name || user.email;
-
-  await loadArticles();
-  await loadWriters();
-
-});
+);
 
 </script>
 
 </body>
 </html>
+```
