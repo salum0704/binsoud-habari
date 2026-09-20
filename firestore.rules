@@ -1,0 +1,120 @@
+rules_version = '2';
+
+service cloud.firestore {
+
+  match /databases/{database}/documents {
+
+
+    /* =========================
+       USERS
+       ========================= */
+
+    match /users/{userId} {
+
+      /*
+       * Mtu anaweza kuona profile yake tu.
+       */
+      allow read: if isSignedIn()
+                  && request.auth.uid == userId
+                  || isAdmin();
+
+
+      /*
+       * Admin ndiye anayeweza kubadilisha
+       * accounts za waandishi.
+       */
+      allow create, update, delete: if isAdmin();
+
+    }
+
+
+    /* =========================
+       ARTICLES
+       ========================= */
+
+    match /articles/{articleId} {
+
+      /*
+       * Umma unaweza kuona habari
+       * zilizochapishwa tu.
+       */
+      allow read: if resource.data.status == "published"
+                  || isAdmin()
+                  || (
+                    isWriter()
+                    && resource.data.authorId == request.auth.uid
+                  );
+
+
+      /*
+       * Writer anaweza KUUNDA habari mpya tu.
+       *
+       * Lazima:
+       * - awe writer
+       * - authorId iwe UID yake
+       * - status iwe pending
+       */
+      allow create: if isWriter()
+                    && request.resource.data.authorId
+                       == request.auth.uid
+                    && request.resource.data.status
+                       == "pending";
+
+
+      /*
+       * Writer HAZUIWI tu kwa UI.
+       *
+       * Rules zinamzuia kabisa ku-edit.
+       *
+       * Admin pekee ndiye anaweza update.
+       */
+      allow update, delete: if isAdmin();
+
+    }
+
+
+    /* =========================
+       FUNCTIONS
+       ========================= */
+
+    function isSignedIn(){
+
+      return request.auth != null;
+
+    }
+
+
+    function isAdmin(){
+
+      return isSignedIn()
+        && exists(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        )
+        && get(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        ).data.role == "admin"
+        && get(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        ).data.active != false;
+
+    }
+
+
+    function isWriter(){
+
+      return isSignedIn()
+        && exists(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        )
+        && get(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        ).data.role == "writer"
+        && get(
+          /databases/$(database)/documents/users/$(request.auth.uid)
+        ).data.active != false;
+
+    }
+
+  }
+
+}
