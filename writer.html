@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="sw-TZ">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Mwandishi | BINSOUD HABARI</title>
+
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0878c9">
+
+  <style>
+
+    :root{
+      --blue:#0878c9;
+      --blue2:#075a99;
+      --deep:#032f52;
+      --dark:#021d32;
+      --bg:#f4f7fa;
+      --text:#172b3a;
+      --muted:#71808c;
+      --border:#e3e9ee;
+      --green:#16803c;
+      --red:#c92a2a;
+      --shadow:0 8px 28px rgba(0,40,70,.09);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    .top{
+      background:var(--dark);
+      color:#fff;
+      padding:12px 20px;
+    }
+
+    .top-inner{
+      width:min(1100px,100%);
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logout{
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.3);
+      padding:8px 14px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    header{
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      color:#fff;
+    }
+
+    .header-inner{
+      width:min(1100px,100%);
+      margin:auto;
+      padding:25px 20px;
+    }
+
+    .container{
+      width:min(1100px,calc(100% - 30px));
+      margin:25px auto;
+    }
+
+    .welcome{
+      background:#fff;
+      padding:20px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      margin-bottom:20px;
+    }
+
+    .welcome h2{
+      color:var(--deep);
+      margin-bottom:5px;
+    }
+
+    .form-box{
+      background:#fff;
+      padding:25px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      margin-bottom:25px;
+    }
+
+    .form-box h2{
+      margin-bottom:20px;
+    }
+
+    form{
+      display:grid;
+      gap:15px;
+    }
+
+    label{
+      display:block;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    input,
+    textarea,
+    select{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:9px;
+      padding:12px;
+      font:inherit;
+      outline:none;
+    }
+
+    textarea{
+      min-height:190px;
+      resize:vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus{
+      border-color:var(--blue);
+    }
+
+    button.submit{
+      border:0;
+      border-radius:9px;
+      background:var(--blue);
+      color:#fff;
+      padding:14px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .news{
+      background:#fff;
+      padding:20px;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+    }
+
+    .news h2{
+      margin-bottom:15px;
+    }
+
+    .item{
+      border:1px solid var(--border);
+      padding:15px;
+      border-radius:10px;
+      margin-bottom:10px;
+    }
+
+    .item h3{
+      margin-bottom:7px;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .badge{
+      display:inline-block;
+      margin-top:10px;
+      padding:4px 9px;
+      border-radius:20px;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .pending{
+      background:#fff3df;
+      color:#965800;
+    }
+
+    .published{
+      background:#e6f7ec;
+      color:#126b35;
+    }
+
+    .rejected{
+      background:#ffe8e8;
+      color:#a51d1d;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="top">
+
+  <div class="top-inner">
+
+    <strong>📰 BINSOUD HABARI — MWANDISHI</strong>
+
+    <button class="logout" id="logout">
+      Toka
+    </button>
+
+  </div>
+
+</div>
+
+
+<header>
+
+  <div class="header-inner">
+
+    <h1>Eneo la Mwandishi</h1>
+
+    <p>
+      Tuma habari zako kwa timu ya BINSOUD HABARI.
+    </p>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <div class="welcome">
+
+    <h2>
+      Karibu, <span id="writerName">Mwandishi</span>
+    </h2>
+
+    <p>
+      Habari utakayotuma itaenda kwa Admin kwa ajili ya
+      kukaguliwa kabla ya kuchapishwa.
+    </p>
+
+  </div>
+
+
+  <section class="form-box">
+
+    <h2>📝 Tuma Habari</h2>
+
+    <form id="writerForm">
+
+      <div>
+
+        <label>Kichwa cha habari</label>
+
+        <input
+          id="title"
+          required
+          placeholder="Andika kichwa cha habari"
+        >
+
+      </div>
+
+
+      <div>
+
+        <label>Utangulizi</label>
+
+        <textarea
+          id="intro"
+          required
+          placeholder="Andika utangulizi wa habari"
+        ></textarea>
+
+      </div>
+
+
+      <div>
+
+        <label>Maudhui ya habari</label>
+
+        <textarea
+          id="content"
+          required
+          placeholder="Andika habari yote hapa..."
+        ></textarea>
+
+      </div>
+
+
+      <div>
+
+        <label>Kategoria</label>
+
+        <select id="category" required>
+
+          <option value="">
+            Chagua kategoria
+          </option>
+
+          <option value="Kitaifa">Kitaifa</option>
+          <option value="Siasa">Siasa</option>
+          <option value="Biashara">Biashara</option>
+          <option value="Michezo">Michezo</option>
+          <option value="Burudani">Burudani</option>
+          <option value="Dini">Dini</option>
+          <option value="Mazingira">Mazingira</option>
+          <option value="Kimataifa">Kimataifa</option>
+
+        </select>
+
+      </div>
+
+
+      <div>
+
+        <label>URL ya picha</label>
+
+        <input
+          id="image"
+          type="url"
+          placeholder="https://..."
+        >
+
+      </div>
+
+
+      <button class="submit" type="submit">
+        📤 Tuma Habari
+      </button>
+
+    </form>
+
+  </section>
+
+
+  <section class="news">
+
+    <h2>📰 Habari Nilizotuma</h2>
+
+    <div id="myNews">
+      Inapakia...
+    </div>
+
+  </section>
+
+</main>
+
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  serverTimestamp,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCFpSNTqw9ljOHX-A-szNcNi-HmVKZU-7I",
+  authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
+  projectId: "binsoud-habari-8a5fa",
+  storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
+  messagingSenderId: "865091074307",
+  appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
+  measurementId: "G-MH266J0XKE"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+let currentUser = null;
+let writerData = null;
+
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function badge(status){
+
+  if(status === "published"){
+    return `<span class="badge published">IMECHAPISHWA</span>`;
+  }
+
+  if(status === "rejected"){
+    return `<span class="badge rejected">IMEKATALIWA</span>`;
+  }
+
+  return `<span class="badge pending">INASUBIRI KUKAGULIWA</span>`;
+
+}
+
+
+async function loadMyNews(){
+
+  const q = query(
+    collection(db,"articles"),
+    where("authorId","==",currentUser.uid)
+  );
+
+  const snapshot = await getDocs(q);
+
+  const articles = snapshot.docs.map(
+    d => ({
+      id:d.id,
+      ...d.data()
+    })
+  );
+
+  articles.sort((a,b) => {
+
+    const aTime =
+      a.submittedAt?.toMillis?.() || 0;
+
+    const bTime =
+      b.submittedAt?.toMillis?.() || 0;
+
+    return bTime - aTime;
+
+  });
+
+
+  if(!articles.length){
+
+    document.getElementById("myNews").innerHTML =
+      `<p style="color:#71808c">
+        Bado hujatuma habari yoyote.
+      </p>`;
+
+    return;
+
+  }
+
+
+  document.getElementById("myNews").innerHTML =
+    articles.map(article => `
+
+      <div class="item">
+
+        <h3>
+          ${escapeHTML(article.title)}
+        </h3>
+
+        <div class="meta">
+          ${escapeHTML(article.category || "")}
+        </div>
+
+        ${badge(article.status)}
+
+      </div>
+
+    `).join("");
+
+}
+
+
+document.getElementById("writerForm")
+  .addEventListener("submit",async e => {
+
+    e.preventDefault();
+
+    const btn = e.submitter;
+
+    btn.disabled = true;
+
+    btn.textContent = "Inatuma...";
+
+
+    try{
+
+      await addDoc(
+        collection(db,"articles"),
+        {
+
+          title:
+            document.getElementById("title")
+              .value.trim(),
+
+          intro:
+            document.getElementById("intro")
+              .value.trim(),
+
+          content:
+            document.getElementById("content")
+              .value.trim(),
+
+          category:
+            document.getElementById("category")
+              .value,
+
+          image:
+            document.getElementById("image")
+              .value.trim(),
+
+          author:
+            writerData.name || currentUser.email,
+
+          authorName:
+            writerData.name || currentUser.email,
+
+          authorId:
+            currentUser.uid,
+
+          status:
+            "pending",
+
+          submittedAt:
+            serverTimestamp(),
+
+          createdAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+      e.target.reset();
+
+      await loadMyNews();
+
+      alert(
+        "Habari yako imetumwa kwa Admin kwa ajili ya ukaguzi."
+      );
+
+
+    }catch(error){
+
+      console.error(error);
+
+      alert(
+        "Imeshindikana kutuma habari. Jaribu tena."
+      );
+
+    }finally{
+
+      btn.disabled = false;
+
+      btn.textContent = "📤 Tuma Habari";
+
+    }
+
+});
+
+
+document.getElementById("logout")
+  .addEventListener("click",async () => {
+
+    await signOut(auth);
+
+    window.location.href = "login.html";
+
+  });
+
+
+onAuthStateChanged(auth,async user => {
+
+  if(!user){
+
+    window.location.href = "login.html";
+
+    return;
+
+  }
+
+
+  const snap = await getDoc(
+    doc(db,"users",user.uid)
+  );
+
+
+  if(
+    !snap.exists() ||
+    snap.data().role !== "writer" ||
+    snap.data().active === false
+  ){
+
+    await signOut(auth);
+
+    window.location.href = "login.html";
+
+    return;
+
+  }
+
+
+  currentUser = user;
+
+  writerData = snap.data();
+
+
+  document.getElementById("writerName")
+    .textContent =
+      writerData.name || user.email;
+
+
+  await loadMyNews();
+
+});
+
+</script>
+
+</body>
+
+</html>
