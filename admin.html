@@ -1,3204 +1,1186 @@
-```html
 <!DOCTYPE html>
-<html lang="sw">
-
+<html lang="sw-TZ">
 <head>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BINSOUD HABARI — Admin</title>
-
-<style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4f7fa;
-    color:#111827;
-    line-height:1.6;
-}
-
-button,
-input,
-textarea,
-select{
-    font-family:inherit;
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-    background:#001a32;
-    color:white;
-    padding:18px 25px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.logo{
-    font-size:23px;
-    font-weight:bold;
-}
-
-.header-buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-header button,
-header a{
-    border:none;
-    text-decoration:none;
-    color:white;
-    background:#002f54;
-    padding:10px 15px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-header button:hover,
-header a:hover{
-    background:#fee40c;
-    color:#001a32;
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-main{
-    max-width:1150px;
-    margin:auto;
-    padding:25px 18px 50px;
-}
-
-.page-title{
-    color:#002f54;
-    border-bottom:3px solid #c0ac00;
-    padding-bottom:12px;
-    margin-bottom:25px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    margin-bottom:25px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.card h2{
-    color:#002f54;
-    margin-bottom:20px;
-}
-
-
-/* =====================================================
-   MESSAGES
-===================================================== */
-
-.message{
-    display:none;
-    padding:14px;
-    border-radius:7px;
-    margin-bottom:20px;
-    line-height:1.5;
-}
-
-.success{
-    background:#dcfce7;
-    color:#166534;
-}
-
-.error{
-    background:#fee2e2;
-    color:#991b1b;
-}
-
-.info{
-    background:#dbeafe;
-    color:#1e40af;
-}
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-#loginSection{
-    max-width:500px;
-    margin:60px auto;
-}
-
-.login-logo{
-    text-align:center;
-    color:#002f54;
-    font-size:28px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.login-subtitle{
-    text-align:center;
-    color:#667788;
-    margin-bottom:25px;
-}
-
-.form-group{
-    margin-bottom:18px;
-}
-
-label{
-    display:block;
-    color:#002f54;
-    font-weight:bold;
-    margin-bottom:7px;
-}
-
-input,
-textarea,
-select{
-    width:100%;
-    padding:13px;
-    border:1px solid #ccd5dd;
-    border-radius:6px;
-    font-size:16px;
-    outline:none;
-    background:white;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-    border-color:#002f54;
-    box-shadow:0 0 0 2px rgba(0,47,84,.08);
-}
-
-textarea{
-    min-height:300px;
-    resize:vertical;
-}
-
-.login-btn,
-.save-btn{
-    width:100%;
-    background:#002f54;
-    color:white;
-    border:none;
-    padding:14px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:16px;
-}
-
-.login-btn:hover,
-.save-btn:hover{
-    background:#c0ac00;
-    color:#001a32;
-}
-
-button:disabled{
-    opacity:.6;
-    cursor:not-allowed;
-}
-
-
-/* =====================================================
-   EDIT MODE
-===================================================== */
-
-.editing-title{
-    background:#fff7ed;
-    border:1px solid #fed7aa;
-    color:#9a3412;
-    padding:12px;
-    border-radius:7px;
-    margin-bottom:20px;
-    font-weight:bold;
-}
-
-.edit-btn{
-    background:#f59e0b;
-    color:#001a32;
-    border:none;
-    padding:10px 15px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:8px;
-    margin-right:8px;
-}
-
-.edit-btn:hover{
-    background:#d97706;
-    color:white;
-}
-
-.cancel-edit-btn{
-    background:#64748b;
-    color:white;
-    border:none;
-    padding:13px 20px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.cancel-edit-btn:hover{
-    background:#475569;
-}
-
-
-/* =====================================================
-   CATEGORY
-===================================================== */
-
-.category-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.category-box{
-    border:1px solid #dbe3ea;
-    border-radius:8px;
-    padding:15px;
-    background:#f8fafc;
-}
-
-.category-title{
-    color:#002f54;
-    font-size:17px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-
-/* =====================================================
-   IMAGE
-===================================================== */
-
-.image-preview{
-    display:none;
-    margin-top:15px;
-    border-radius:8px;
-    overflow:hidden;
-    background:#f1f5f9;
-    border:1px solid #e2e8f0;
-}
-
-.image-preview img{
-    width:100%;
-    max-height:350px;
-    object-fit:cover;
-    display:block;
-}
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-.button-row{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-.reset-btn{
-    background:#eef3f7;
-    color:#002f54;
-    border:none;
-    padding:13px 20px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.reset-btn:hover{
-    background:#dbe5ec;
-}
-
-
-/* =====================================================
-   CONTENT LIST
-===================================================== */
-
-.content-list{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.item-card{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:9px;
-    overflow:hidden;
-}
-
-.item-image{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    background:#e5e7eb;
-    display:block;
-}
-
-.item-info{
-    padding:18px;
-}
-
-.badge{
-    display:inline-block;
-    background:#002f54;
-    color:white;
-    padding:5px 9px;
-    border-radius:4px;
-    font-size:12px;
-    margin-bottom:9px;
-}
-
-.sub-badge{
-    display:inline-block;
-    background:#c0ac00;
-    color:#001a32;
-    padding:5px 9px;
-    border-radius:4px;
-    font-size:12px;
-    margin-left:5px;
-}
-
-.author-badge{
-    display:inline-block;
-    background:#eef3f7;
-    color:#002f54;
-    padding:5px 9px;
-    border-radius:4px;
-    font-size:12px;
-    margin-left:5px;
-}
-
-.item-info h3{
-    color:#002f54;
-    margin:8px 0;
-    line-height:1.4;
-}
-
-.item-info p{
-    color:#556677;
-    line-height:1.5;
-    margin-bottom:8px;
-}
-
-.read-time{
-    color:#002f54 !important;
-    font-weight:bold;
-}
-
-.delete-btn{
-    background:#b91c1c;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-.delete-btn:hover{
-    background:#7f1d1d;
-}
-
-.empty{
-    text-align:center;
-    padding:35px;
-    color:#667788;
-    grid-column:1/-1;
-}
-
-.hidden{
-    display:none !important;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-    background:#001a32;
-    color:white;
-    text-align:center;
-    padding:30px 20px;
-    margin-top:40px;
-}
-
-footer p{
-    margin-top:8px;
-    color:#dbe4ec;
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:700px){
-
-    .category-grid,
-    .content-list{
-        grid-template-columns:1fr;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Admin | BINSOUD HABARI</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0878c9">
+
+  <style>
+
+    :root{
+      --blue:#0878c9;
+      --blue2:#075a99;
+      --deep:#032f52;
+      --dark:#021d32;
+      --red:#e31b23;
+      --green:#16803c;
+      --orange:#c66a00;
+      --white:#fff;
+      --bg:#f4f7fa;
+      --text:#172b3a;
+      --muted:#71808c;
+      --border:#e3e9ee;
+      --shadow:0 8px 28px rgba(0,40,70,.09);
     }
 
-    main{
-        padding:20px 14px;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    .card{
-        padding:18px;
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    button,
+    input,
+    textarea,
+    select{
+      font:inherit;
+    }
+
+    .top{
+      background:var(--dark);
+      color:#fff;
+      padding:12px 20px;
+    }
+
+    .top-inner{
+      width:min(1200px,100%);
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+    }
+
+    .brand{
+      font-weight:900;
+    }
+
+    .logout{
+      border:1px solid rgba(255,255,255,.25);
+      background:transparent;
+      color:#fff;
+      padding:8px 14px;
+      border-radius:8px;
+      cursor:pointer;
     }
 
     header{
-        padding:16px;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      color:#fff;
     }
 
-    .header-buttons{
-        width:100%;
+    .header-inner{
+      width:min(1200px,100%);
+      margin:auto;
+      padding:20px;
     }
 
-    header button,
-    header a{
-        flex:1;
-        text-align:center;
+    h1{
+      font-size:28px;
+      margin-bottom:5px;
     }
 
-    .button-row{
+    .subtitle{
+      opacity:.9;
+    }
+
+    .container{
+      width:min(1200px,calc(100% - 30px));
+      margin:25px auto;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+      margin-bottom:25px;
+    }
+
+    .stat{
+      background:#fff;
+      border-radius:14px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+    }
+
+    .stat strong{
+      display:block;
+      font-size:30px;
+      color:var(--blue);
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .tabs{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:20px;
+    }
+
+    .tab{
+      border:0;
+      background:#fff;
+      border:1px solid var(--border);
+      padding:11px 16px;
+      border-radius:9px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .tab.active{
+      background:var(--blue);
+      color:#fff;
+      border-color:var(--blue);
+    }
+
+    .panel{
+      display:none;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:15px;
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .panel.active{
+      display:block;
+    }
+
+    .panel h2{
+      margin-bottom:18px;
+      color:var(--deep);
+    }
+
+    .articles{
+      display:grid;
+      gap:12px;
+    }
+
+    .article{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:16px;
+    }
+
+    .article h3{
+      margin-bottom:8px;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:12px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:4px 9px;
+      border-radius:20px;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .pending{
+      background:#fff3df;
+      color:#9a5a00;
+    }
+
+    .published{
+      background:#e8f8ee;
+      color:#16723a;
+    }
+
+    .rejected{
+      background:#ffeaea;
+      color:#a31515;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+    }
+
+    .btn{
+      border:0;
+      border-radius:8px;
+      padding:9px 12px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .blue{
+      background:var(--blue);
+      color:#fff;
+    }
+
+    .green{
+      background:var(--green);
+      color:#fff;
+    }
+
+    .red{
+      background:var(--red);
+      color:#fff;
+    }
+
+    .gray{
+      background:#edf1f4;
+      color:#334;
+    }
+
+    form{
+      display:grid;
+      gap:14px;
+    }
+
+    label{
+      font-weight:700;
+      font-size:14px;
+    }
+
+    input,
+    textarea,
+    select{
+      width:100%;
+      padding:12px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      outline:none;
+    }
+
+    textarea{
+      min-height:180px;
+      resize:vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus{
+      border-color:var(--blue);
+    }
+
+    .submit{
+      background:var(--blue);
+      color:#fff;
+      border:0;
+      padding:13px;
+      border-radius:9px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .writer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+      padding:15px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      margin-bottom:10px;
+    }
+
+    .writer-info strong{
+      display:block;
+    }
+
+    .writer-info span{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .loading,
+    .empty{
+      padding:30px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.6);
+      z-index:1000;
+      padding:20px;
+      overflow:auto;
+    }
+
+    .modal.show{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .modal-box{
+      width:min(750px,100%);
+      background:#fff;
+      border-radius:15px;
+      padding:25px;
+    }
+
+    .modal-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:18px;
+    }
+
+    .close{
+      border:0;
+      background:#eee;
+      border-radius:8px;
+      padding:7px 12px;
+      cursor:pointer;
+    }
+
+    @media(max-width:800px){
+
+      .stats{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+    }
+
+    @media(max-width:500px){
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .container{
+        width:min(100% - 20px,1200px);
+      }
+
+      .writer{
+        align-items:flex-start;
         flex-direction:column;
+      }
+
     }
 
-    .button-row button{
-        width:100%;
-    }
-
-}
-
-</style>
+  </style>
 
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     LOGIN
-===================================================== -->
-
-<section id="loginSection" class="card">
-
-    <div class="login-logo">
-        BINSOUD HABARI
-    </div>
-
-    <div class="login-subtitle">
-        🔐 Admin Login
-    </div>
-
-    <div
-        id="loginMessage"
-        class="message"
-    ></div>
-
-    <form id="loginForm">
-
-        <div class="form-group">
-
-            <label for="loginEmail">
-                Email ya Admin
-            </label>
-
-            <input
-                type="email"
-                id="loginEmail"
-                placeholder="admin@example.com"
-                required
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label for="loginPassword">
-                Password
-            </label>
-
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Ingiza password"
-                required
-            >
-
-        </div>
-
-
-        <button
-            type="submit"
-            class="login-btn"
-            id="loginButton"
-        >
-            🔐 Ingia Admin
-        </button>
-
-    </form>
-
-</section>
-
-
-
-<!-- =====================================================
-     ADMIN
-===================================================== -->
-
-<div
-    id="adminSection"
-    class="hidden"
->
-
+<div class="top">
+  <div class="top-inner">
+    <div class="brand">📰 BINSOUD HABARI — ADMIN</div>
+    <button class="logout" id="logoutBtn">Toka</button>
+  </div>
+</div>
 
 <header>
-
-    <div class="logo">
-        BINSOUD HABARI — ADMIN
-    </div>
-
-    <div class="header-buttons">
-
-        <a href="index.html">
-            🌐 Website
-        </a>
-
-        <button id="logoutButton">
-            🚪 Logout
-        </button>
-
-    </div>
-
+  <div class="header-inner">
+    <h1>Dashboard ya Admin</h1>
+    <div class="subtitle" id="adminName">Inapakia...</div>
+  </div>
 </header>
 
 
+<main class="container">
 
-<main>
+  <section class="stats">
 
+    <div class="stat">
+      <strong id="totalCount">0</strong>
+      <span>Habari zote</span>
+    </div>
 
-<h1 class="page-title">
-    ⚙️ Admin Panel — Habari
-</h1>
+    <div class="stat">
+      <strong id="pendingCount">0</strong>
+      <span>Zinazongoja</span>
+    </div>
 
+    <div class="stat">
+      <strong id="publishedCount">0</strong>
+      <span>Zilizochapishwa</span>
+    </div>
 
-<div
-    id="message"
-    class="message"
-></div>
+    <div class="stat">
+      <strong id="writerCount">0</strong>
+      <span>Waandishi</span>
+    </div>
 
+  </section>
 
 
-<!-- =====================================================
-     ADD / EDIT ARTICLE
-===================================================== -->
+  <nav class="tabs">
 
-<section class="card">
+    <button class="tab active" data-tab="dashboard">
+      📊 Dashboard
+    </button>
 
+    <button class="tab" data-tab="pending">
+      ⏳ Zinazongoja
+    </button>
 
-<h2 id="formTitle">
-    📰 Ongeza Habari Mpya
-</h2>
+    <button class="tab" data-tab="all">
+      📰 Habari zote
+    </button>
 
+    <button class="tab" data-tab="add">
+      ➕ Ongeza habari
+    </button>
 
-<div
-    id="editingNotice"
-    class="editing-title hidden"
->
-    ✏️ Unahariri habari iliyopo.
-    Rekebisha taarifa kisha bonyeza
-    <strong>Sasisha Habari</strong>.
-</div>
+    <button class="tab" data-tab="writers">
+      ✍️ Waandishi
+    </button>
 
+  </nav>
 
 
-<form id="articleForm">
+  <section class="panel active" id="dashboard">
 
+    <h2>Habari zinazosubiri</h2>
 
-<!-- TITLE -->
+    <div id="dashboardArticles" class="articles">
+      <div class="loading">Inapakia...</div>
+    </div>
 
-<div class="form-group">
+  </section>
 
-<label for="title">
-    📝 Kichwa cha Habari
-</label>
 
-<input
-    type="text"
-    id="title"
-    placeholder="Mfano: Serikali yatangaza mpango mpya..."
-    required
->
+  <section class="panel" id="pending">
 
-</div>
+    <h2>Habari kutoka kwa waandishi</h2>
 
+    <div id="pendingArticles" class="articles">
+      <div class="loading">Inapakia...</div>
+    </div>
 
+  </section>
 
-<!-- CATEGORY -->
 
-<div class="form-group">
+  <section class="panel" id="all">
 
-<label for="category">
-    📂 Category Kuu
-</label>
+    <h2>Habari zote</h2>
 
-<select
-    id="category"
-    required
->
+    <div id="allArticles" class="articles">
+      <div class="loading">Inapakia...</div>
+    </div>
 
-<option value="">
-    -- Chagua Category --
-</option>
+  </section>
 
-<option value="Siasa">
-    🏛️ Siasa
-</option>
 
-<option value="Kitaifa">
-    🇹🇿 Kitaifa
-</option>
+  <section class="panel" id="add">
 
-<option value="Biashara">
-    💼 Biashara
-</option>
+    <h2>Ongeza Habari Mpya</h2>
 
-<option value="Michezo">
-    ⚽ Michezo
-</option>
+    <form id="articleForm">
 
-<option value="Dini">
-    🤲 Dini
-</option>
+      <div>
+        <label>Kichwa cha habari</label>
+        <input id="title" required>
+      </div>
 
-<option value="Kimataifa">
-    🌍 Kimataifa
-</option>
+      <div>
+        <label>Utangulizi</label>
+        <textarea id="intro" required></textarea>
+      </div>
 
-<option value="Burudani">
-    🎬 Burudani
-</option>
+      <div>
+        <label>Maudhui</label>
+        <textarea id="content" required></textarea>
+      </div>
 
-<option value="Mazingira">
-    🌱 Mazingira
-</option>
+      <div>
+        <label>Kategoria</label>
 
-<option value="Makala">
-    📝 Makala
-</option>
+        <select id="category" required>
+          <option value="">Chagua kategoria</option>
+          <option value="Kitaifa">Kitaifa</option>
+          <option value="Siasa">Siasa</option>
+          <option value="Biashara">Biashara</option>
+          <option value="Michezo">Michezo</option>
+          <option value="Burudani">Burudani</option>
+          <option value="Dini">Dini</option>
+          <option value="Mazingira">Mazingira</option>
+          <option value="Kimataifa">Kimataifa</option>
+        </select>
 
-</select>
+      </div>
 
-</div>
+      <div>
+        <label>URL ya picha</label>
+        <input id="image" type="url" placeholder="https://...">
+      </div>
 
+      <button class="submit" type="submit">
+        📰 Chapisha Habari
+      </button>
 
+    </form>
 
-<!-- SUBCATEGORY -->
+  </section>
 
-<div class="form-group">
 
-<label for="subcategory">
-    📁 Category Ndogo
-</label>
+  <section class="panel" id="writers">
 
-<select
-    id="subcategory"
-    required
->
+    <h2>Waandishi</h2>
 
-<option value="">
-    -- Chagua Category Kuu kwanza --
-</option>
+    <p style="color:#71808c;margin-bottom:18px;">
+      Waandishi wanaweza kutuma habari lakini hawawezi ku-edit,
+      kufuta au kuchapisha habari wenyewe.
+    </p>
 
-</select>
+    <div id="writersList">
+      <div class="loading">Inapakia...</div>
+    </div>
 
-</div>
-
-
-
-<!-- AUTHOR -->
-
-<div class="form-group">
-
-<label for="author">
-    ✍️ Muandishi
-</label>
-
-<input
-    type="text"
-    id="author"
-    placeholder="Mfano: Juma Mohamed"
-    required
->
-
-<small
-    style="display:block;margin-top:7px;color:#667788;"
->
-    Weka jina la muandishi wa habari au makala.
-</small>
-
-</div>
-
-
-
-<!-- CONTENT -->
-
-<div class="form-group">
-
-<label for="description">
-    📄 Habari Kamili
-</label>
-
-<textarea
-    id="description"
-    placeholder="Andika habari yote hapa..."
-    required
-></textarea>
-
-<small
-    style="display:block;margin-top:7px;color:#667788;"
->
-    ⏱️ Dakika za kusoma zitahesabiwa automatic
-    kulingana na urefu wa habari.
-</small>
-
-</div>
-
-
-
-<!-- IMAGE -->
-
-<div class="form-group">
-
-<label for="imageUrl">
-    🖼️ URL ya Picha
-</label>
-
-<input
-    type="url"
-    id="imageUrl"
-    placeholder="https://example.com/picha.jpg"
->
-
-<small
-    style="display:block;margin-top:7px;color:#667788;"
->
-    Weka link ya picha. Hii haitumii Firebase Storage.
-</small>
-
-</div>
-
-
-
-<!-- IMAGE PREVIEW -->
-
-<div
-    id="imagePreview"
-    class="image-preview"
->
-
-<img
-    id="previewImage"
-    alt="Preview ya picha"
->
-
-</div>
-
-
-
-<br>
-
-
-
-<!-- BUTTONS -->
-
-<div class="button-row">
-
-<button
-    type="submit"
-    class="save-btn"
-    id="saveButton"
->
-    💾 Hifadhi Habari
-</button>
-
-
-<button
-    type="button"
-    class="reset-btn"
-    id="resetButton"
->
-    🔄 Safisha
-</button>
-
-
-<button
-    type="button"
-    class="cancel-edit-btn hidden"
-    id="cancelEditButton"
->
-    ❌ Ghairi Kuhariri
-</button>
-
-</div>
-
-
-</form>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTENT LIST
-===================================================== -->
-
-<section class="card">
-
-<h2>
-    📚 Habari Zilizohifadhiwa
-</h2>
-
-
-<div
-    id="contentList"
-    class="content-list"
->
-
-<div class="empty">
-    ⏳ Inapakia habari...
-</div>
-
-</div>
-
-</section>
-
+  </section>
 
 </main>
 
 
+<!-- EDIT MODAL -->
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<div class="modal" id="editModal">
 
-<footer>
+  <div class="modal-box">
 
-<h3>
-    BINSOUD HABARI
-</h3>
+    <div class="modal-head">
+      <h2>Hariri Habari</h2>
+      <button class="close" id="closeModal">✕</button>
+    </div>
 
-<p>
-    Admin Content Management System
-</p>
+    <form id="editForm">
 
-<p>
-    © 2026 BINSOUD HABARI
-</p>
+      <input type="hidden" id="editId">
 
-</footer>
+      <div>
+        <label>Kichwa</label>
+        <input id="editTitle" required>
+      </div>
 
+      <div>
+        <label>Utangulizi</label>
+        <textarea id="editIntro" required></textarea>
+      </div>
+
+      <div>
+        <label>Maudhui</label>
+        <textarea id="editContent" required></textarea>
+      </div>
+
+      <div>
+        <label>Kategoria</label>
+
+        <select id="editCategory" required>
+          <option value="Kitaifa">Kitaifa</option>
+          <option value="Siasa">Siasa</option>
+          <option value="Biashara">Biashara</option>
+          <option value="Michezo">Michezo</option>
+          <option value="Burudani">Burudani</option>
+          <option value="Dini">Dini</option>
+          <option value="Mazingira">Mazingira</option>
+          <option value="Kimataifa">Kimataifa</option>
+        </select>
+
+      </div>
+
+      <div>
+        <label>URL ya picha</label>
+        <input id="editImage" type="url">
+      </div>
+
+      <button class="submit">
+        💾 Hifadhi Mabadiliko
+      </button>
+
+    </form>
+
+  </div>
 
 </div>
 
 
-
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
-
 <script type="module">
 
-
-/* =====================================================
-   FIREBASE IMPORTS
-===================================================== */
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 import {
-    initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-
-import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    deleteDoc,
-    updateDoc,
-    doc,
-    query,
-    orderBy,
-    serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 import {
-    getAuth,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-
-
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
 
 const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
-
-    authDomain:
-    "binsoud-habari-8a5fa.firebaseapp.com",
-
-    projectId:
-    "binsoud-habari-8a5fa",
-
-    storageBucket:
-    "binsoud-habari-8a5fa.firebasestorage.app",
-
-    messagingSenderId:
-    "865091074307",
-
-    appId:
-    "1:865091074307:web:27b26aa8f0f3476ef45136",
-
-    measurementId:
-    "G-MH266J0XKE"
-
+  apiKey: "AIzaSyCFpSNTqw9ljOHX-A-szNcNi-HmVKZU-7I",
+  authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
+  projectId: "binsoud-habari-8a5fa",
+  storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
+  messagingSenderId: "865091074307",
+  appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
+  measurementId: "G-MH266J0XKE"
 };
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let currentUser = null;
+let allArticles = [];
 
 
-/* =====================================================
-   INITIALIZE FIREBASE
-===================================================== */
-
-const app =
-    initializeApp(
-        firebaseConfig
-    );
-
-
-const db =
-    getFirestore(app);
-
-
-const auth =
-    getAuth(app);
-
-
-
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const loginSection =
-    document.getElementById(
-        "loginSection"
-    );
-
-const adminSection =
-    document.getElementById(
-        "adminSection"
-    );
-
-const loginForm =
-    document.getElementById(
-        "loginForm"
-    );
-
-const loginEmail =
-    document.getElementById(
-        "loginEmail"
-    );
-
-const loginPassword =
-    document.getElementById(
-        "loginPassword"
-    );
-
-const loginButton =
-    document.getElementById(
-        "loginButton"
-    );
-
-const loginMessage =
-    document.getElementById(
-        "loginMessage"
-    );
-
-const logoutButton =
-    document.getElementById(
-        "logoutButton"
-    );
-
-
-const articleForm =
-    document.getElementById(
-        "articleForm"
-    );
-
-const titleInput =
-    document.getElementById(
-        "title"
-    );
-
-const categoryInput =
-    document.getElementById(
-        "category"
-    );
-
-const subcategoryInput =
-    document.getElementById(
-        "subcategory"
-    );
-
-const authorInput =
-    document.getElementById(
-        "author"
-    );
-
-const descriptionInput =
-    document.getElementById(
-        "description"
-    );
-
-const imageUrlInput =
-    document.getElementById(
-        "imageUrl"
-    );
-
-const imagePreview =
-    document.getElementById(
-        "imagePreview"
-    );
-
-const previewImage =
-    document.getElementById(
-        "previewImage"
-    );
-
-const saveButton =
-    document.getElementById(
-        "saveButton"
-    );
-
-const resetButton =
-    document.getElementById(
-        "resetButton"
-    );
-
-const cancelEditButton =
-    document.getElementById(
-        "cancelEditButton"
-    );
-
-const formTitle =
-    document.getElementById(
-        "formTitle"
-    );
-
-const editingNotice =
-    document.getElementById(
-        "editingNotice"
-    );
-
-const message =
-    document.getElementById(
-        "message"
-    );
-
-const contentList =
-    document.getElementById(
-        "contentList"
-    );
-
-
-
-/* =====================================================
-   EDITING STATE
-===================================================== */
-
-let editingArticleId = null;
-
-
-
-/* =====================================================
-   CATEGORIES
-===================================================== */
-
-const categories = {
-
-    "Siasa":[
-        "Zote",
-        "Serikali",
-        "Bunge",
-        "Vyama vya Siasa",
-        "Uchaguzi",
-        "Sera",
-        "Diplomasia",
-        "Mijadala"
-    ],
-
-    "Kitaifa":[
-        "Zote",
-        "Serikali",
-        "Elimu",
-        "Afya",
-        "Miundombinu",
-        "Usalama",
-        "Jamii",
-        "Maendeleo"
-    ],
-
-    "Biashara":[
-        "Zote",
-        "Biashara",
-        "Uchumi",
-        "Uwekezaji",
-        "Masoko",
-        "Benki",
-        "Wajasiriamali",
-        "Fursa"
-    ],
-
-    "Michezo":[
-        "Zote",
-        "Michezo",
-        "Soka",
-        "Ligi Kuu",
-        "Kimataifa",
-        "Timu ya Taifa",
-        "Wachezaji",
-        "Matokeo"
-    ],
-
-    "Dini":[
-        "Zote",
-        "Dini",
-        "Ibada",
-        "Viongozi wa Dini",
-        "Elimu ya Dini",
-        "Vijana na Familia",
-        "Amani na Umoja",
-        "Matukio ya Dini"
-    ],
-
-    "Kimataifa":[
-        "Zote",
-        "Afrika",
-        "Ulaya",
-        "Asia",
-        "Marekani",
-        "Mashariki ya Kati",
-        "Uchumi wa Dunia",
-        "Diplomasia"
-    ],
-
-    "Burudani":[
-        "Zote",
-        "Muziki",
-        "Filamu",
-        "Wasanii",
-        "Televisheni",
-        "Mitindo",
-        "Matukio"
-    ],
-
-    "Mazingira":[
-        "Zote",
-        "Mabadiliko ya Tabianchi",
-        "Uhifadhi",
-        "Wanyamapori",
-        "Misitu",
-        "Bahari",
-        "Uchafuzi",
-        "Kilimo"
-    ],
-
-    "Makala":[
-        "Zote",
-        "Uchambuzi",
-        "Maoni",
-        "Mahojiano",
-        "Historia",
-        "Wasifu",
-        "Makala Maalum",
-        "Maisha na Jamii"
-    ]
-
-};
-
-
-
-/* =====================================================
-   LOGIN MESSAGE
-===================================================== */
-
-function showLoginMessage(
-    text,
-    type
-){
-
-    loginMessage.textContent =
-        text;
-
-    loginMessage.className =
-        "message " + type;
-
-    loginMessage.style.display =
-        "block";
-
+function escapeHTML(value){
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
 
 
+function dateValue(article){
 
-/* =====================================================
-   ADMIN MESSAGE
-===================================================== */
+  const value = article.createdAt || article.submittedAt || article.date || "";
 
-function showMessage(
-    text,
-    type
-){
+  if(
+    typeof value === "object" &&
+    value !== null &&
+    typeof value.toDate === "function"
+  ){
+    return value.toDate().getTime();
+  }
 
-    message.textContent =
-        text;
+  const time = new Date(value).getTime();
 
-    message.className =
-        "message " + type;
-
-    message.style.display =
-        "block";
-
+  return Number.isNaN(time) ? 0 : time;
 }
 
 
+function dateText(article){
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+  const value = article.createdAt || article.submittedAt;
 
-function escapeHtml(
-    value
-){
+  if(
+    value &&
+    typeof value === "object" &&
+    typeof value.toDate === "function"
+  ){
 
-    return String(
-        value ?? ""
-    )
-
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-
-    .replace(
-        /</g,
-        "&lt;"
-    )
-
-    .replace(
-        />/g,
-        "&gt;"
-    )
-
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-
-    .replace(
-        /'/g,
-        "&#039;"
+    return value.toDate().toLocaleDateString(
+      "sw-TZ",
+      {
+        year:"numeric",
+        month:"long",
+        day:"numeric"
+      }
     );
 
+  }
+
+  return article.date || "";
 }
 
 
+function statusBadge(status){
 
-/* =====================================================
-   AUTOMATIC READING TIME
-===================================================== */
+  if(status === "published"){
+    return `<span class="badge published">IMECHAPISHWA</span>`;
+  }
 
-function calculateReadTime(
-    text
-){
+  if(status === "rejected"){
+    return `<span class="badge rejected">IMEKATALIWA</span>`;
+  }
 
-    const content =
-        String(
-            text || ""
-        ).trim();
-
-
-    if(!content){
-
-        return "Dakika 1";
-
-    }
-
-
-    const words =
-        content
-        .split(/\s+/)
-        .filter(Boolean)
-        .length;
-
-
-    /*
-     * Wastani wa kusoma:
-     * maneno 200 kwa dakika
-     */
-
-    const minutes =
-        Math.max(
-            1,
-            Math.ceil(
-                words / 200
-            )
-        );
-
-
-    return (
-        "Dakika " +
-        minutes
-    );
-
+  return `<span class="badge pending">INASUBIRI</span>`;
 }
 
 
+function articleCard(article){
 
-/* =====================================================
-   AUTH STATE
-===================================================== */
+  return `
+    <div class="article">
 
-onAuthStateChanged(
-    auth,
-    function(user){
+      ${statusBadge(article.status)}
 
-        if(user){
+      <h3>${escapeHTML(article.title)}</h3>
 
-            loginSection.classList.add(
-                "hidden"
-            );
+      <div class="meta">
+        Kategoria: ${escapeHTML(article.category || "-")}
+        ·
+        Mwandishi: ${escapeHTML(article.author || article.authorName || "Admin")}
+        ·
+        ${escapeHTML(dateText(article))}
+      </div>
 
-            adminSection.classList.remove(
-                "hidden"
-            );
+      <p style="margin-bottom:15px;">
+        ${escapeHTML(article.intro || "")}
+      </p>
 
-            loadArticles();
+      <div class="actions">
 
+        <button class="btn blue edit-btn" data-id="${article.id}">
+          ✏️ Edit
+        </button>
+
+        ${
+          article.status !== "published"
+          ?
+          `<button class="btn green publish-btn" data-id="${article.id}">
+            ✅ Chapisha
+          </button>`
+          :
+          ""
         }
 
-        else{
-
-            loginSection.classList.remove(
-                "hidden"
-            );
-
-            adminSection.classList.add(
-                "hidden"
-            );
-
+        ${
+          article.status !== "rejected"
+          ?
+          `<button class="btn gray reject-btn" data-id="${article.id}">
+            ❌ Kataa
+          </button>`
+          :
+          ""
         }
 
-    }
-);
+        <button class="btn red delete-btn" data-id="${article.id}">
+          🗑️ Futa
+        </button>
 
+      </div>
 
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-loginForm.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        const email =
-            loginEmail.value.trim();
-
-
-        const password =
-            loginPassword.value;
-
-
-        try{
-
-            loginButton.disabled =
-                true;
-
-            loginButton.textContent =
-                "⏳ Inaingia...";
-
-
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-
-            showLoginMessage(
-                "✅ Umeingia kikamilifu.",
-                "success"
-            );
-
-        }
-
-        catch(error){
-
-            console.error(
-                error
-            );
-
-
-            showLoginMessage(
-                getAuthErrorMessage(
-                    error
-                ),
-                "error"
-            );
-
-        }
-
-        finally{
-
-            loginButton.disabled =
-                false;
-
-            loginButton.textContent =
-                "🔐 Ingia Admin";
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-logoutButton.addEventListener(
-    "click",
-    async function(){
-
-        try{
-
-            await signOut(
-                auth
-            );
-
-        }
-
-        catch(error){
-
-            console.error(
-                error
-            );
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   CATEGORY CHANGE
-===================================================== */
-
-categoryInput.addEventListener(
-    "change",
-    function(){
-
-        const category =
-            categoryInput.value;
-
-
-        subcategoryInput.innerHTML =
-            "";
-
-
-        if(!category){
-
-            subcategoryInput.innerHTML = `
-
-                <option value="">
-                    -- Chagua Category Kuu kwanza --
-                </option>
-
-            `;
-
-            return;
-
-        }
-
-
-        const list =
-            categories[category] || [];
-
-
-        subcategoryInput.innerHTML = `
-
-            <option value="">
-                -- Chagua Category Ndogo --
-            </option>
-
-        `;
-
-
-        list.forEach(
-            function(subcategory){
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-
-                option.value =
-                    subcategory;
-
-
-                option.textContent =
-                    subcategory;
-
-
-                subcategoryInput.appendChild(
-                    option
-                );
-
-            }
-        );
-
-    }
-);
-
-
-
-/* =====================================================
-   IMAGE PREVIEW
-===================================================== */
-
-imageUrlInput.addEventListener(
-    "input",
-    function(){
-
-        const url =
-            imageUrlInput.value.trim();
-
-
-        if(!url){
-
-            imagePreview.style.display =
-                "none";
-
-            previewImage.removeAttribute(
-                "src"
-            );
-
-            return;
-
-        }
-
-
-        previewImage.src =
-            url;
-
-
-        imagePreview.style.display =
-            "block";
-
-    }
-);
-
-
-previewImage.addEventListener(
-    "error",
-    function(){
-
-        imagePreview.style.display =
-            "none";
-
-    }
-);
-
-
-
-/* =====================================================
-   SAVE / UPDATE ARTICLE
-===================================================== */
-
-articleForm.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        const title =
-            titleInput.value.trim();
-
-
-        const category =
-            categoryInput.value;
-
-
-        const subcategory =
-            subcategoryInput.value;
-
-
-        const author =
-            authorInput.value.trim();
-
-
-        const description =
-            descriptionInput.value.trim();
-
-
-        const imageUrl =
-            imageUrlInput.value.trim();
-
-
-        /* =========================
-           VALIDATION
-        ========================= */
-
-        if(!title){
-
-            showMessage(
-                "❌ Andika kichwa cha habari.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!category){
-
-            showMessage(
-                "❌ Chagua category kuu.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!subcategory){
-
-            showMessage(
-                "❌ Chagua category ndogo.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!author){
-
-            showMessage(
-                "❌ Andika jina la muandishi.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!description){
-
-            showMessage(
-                "❌ Andika habari yote.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        /* =========================
-           AUTOMATIC READ TIME
-        ========================= */
-
-        const readTime =
-            calculateReadTime(
-                description
-            );
-
-
-        try{
-
-            saveButton.disabled =
-                true;
-
-            resetButton.disabled =
-                true;
-
-            cancelEditButton.disabled =
-                true;
-
-
-            /* =================================================
-               EDIT EXISTING ARTICLE
-            ================================================= */
-
-            if(editingArticleId){
-
-                saveButton.textContent =
-                    "⏳ Inasasisha...";
-
-
-                await updateDoc(
-
-                    doc(
-                        db,
-                        "articles",
-                        editingArticleId
-                    ),
-
-                    {
-
-                        title:
-                            title,
-
-                        category:
-                            category,
-
-                        subcategory:
-                            subcategory,
-
-                        author:
-                            author,
-
-                        description:
-                            description,
-
-                        /*
-                         * HABARI KAMILI
-                         */
-
-                        content:
-                            description,
-
-                        intro:
-                            description,
-
-                        imageUrl:
-                            imageUrl,
-
-                        /*
-                         * AUTOMATIC
-                         */
-
-                        readTime:
-                            readTime,
-
-                        updatedAt:
-                            serverTimestamp()
-
-                    }
-
-                );
-
-
-                showMessage(
-
-                    "✅ Habari imehaririwa kikamilifu. " +
-                    "Muda wa kusoma: " +
-                    readTime,
-
-                    "success"
-
-                );
-
-            }
-
-
-            /* =================================================
-               ADD NEW ARTICLE
-            ================================================= */
-
-            else{
-
-                saveButton.textContent =
-                    "⏳ Inahifadhi...";
-
-
-                await addDoc(
-
-                    collection(
-                        db,
-                        "articles"
-                    ),
-
-                    {
-
-                        title:
-                            title,
-
-                        category:
-                            category,
-
-                        subcategory:
-                            subcategory,
-
-                        author:
-                            author,
-
-                        description:
-                            description,
-
-                        /*
-                         * HABARI KAMILI
-                         */
-
-                        content:
-                            description,
-
-                        intro:
-                            description,
-
-                        imageUrl:
-                            imageUrl,
-
-                        type:
-                            "article",
-
-                        /*
-                         * AUTOMATIC READ TIME
-                         */
-
-                        readTime:
-                            readTime,
-
-                        createdAt:
-                            serverTimestamp(),
-
-                        updatedAt:
-                            serverTimestamp()
-
-                    }
-
-                );
-
-
-                showMessage(
-
-                    "✅ Habari imehifadhiwa. " +
-                    "Muda wa kusoma: " +
-                    readTime,
-
-                    "success"
-
-                );
-
-            }
-
-
-            resetForm();
-
-
-            await loadArticles();
-
-        }
-
-        catch(error){
-
-            console.error(
-                "SAVE / UPDATE ARTICLE ERROR:",
-                error
-            );
-
-
-            showMessage(
-
-                "❌ Imeshindikana: " +
-                error.message,
-
-                "error"
-
-            );
-
-        }
-
-        finally{
-
-            saveButton.disabled =
-                false;
-
-            resetButton.disabled =
-                false;
-
-            cancelEditButton.disabled =
-                false;
-
-
-            if(editingArticleId){
-
-                saveButton.textContent =
-                    "💾 Sasisha Habari";
-
-            }
-
-            else{
-
-                saveButton.textContent =
-                    "💾 Hifadhi Habari";
-
-            }
-
-        }
-
-    }
-);
-
-
-
-/* =====================================================
-   RESET BUTTON
-===================================================== */
-
-resetButton.addEventListener(
-    "click",
-    function(){
-
-        resetForm();
-
-    }
-);
-
-
-
-/* =====================================================
-   CANCEL EDIT
-===================================================== */
-
-cancelEditButton.addEventListener(
-    "click",
-    function(){
-
-        resetForm();
-
-
-        showMessage(
-            "ℹ️ Kuhariri kumeghairiwa.",
-            "info"
-        );
-
-    }
-);
-
-
-
-/* =====================================================
-   RESET FORM
-===================================================== */
-
-function resetForm(){
-
-    articleForm.reset();
-
-
-    editingArticleId =
-        null;
-
-
-    subcategoryInput.innerHTML = `
-
-        <option value="">
-            -- Chagua Category Kuu kwanza --
-        </option>
-
-    `;
-
-
-    imagePreview.style.display =
-        "none";
-
-
-    previewImage.removeAttribute(
-        "src"
-    );
-
-
-    formTitle.textContent =
-        "📰 Ongeza Habari Mpya";
-
-
-    editingNotice.classList.add(
-        "hidden"
-    );
-
-
-    cancelEditButton.classList.add(
-        "hidden"
-    );
-
-
-    saveButton.textContent =
-        "💾 Hifadhi Habari";
-
+    </div>
+  `;
 }
 
-
-
-/* =====================================================
-   LOAD ARTICLES
-===================================================== */
 
 async function loadArticles(){
 
-    contentList.innerHTML = `
+  const snapshot = await getDocs(
+    collection(db,"articles")
+  );
 
-        <div class="empty">
-            ⏳ Inapakia habari...
+  allArticles = snapshot.docs.map(
+    d => ({
+      id:d.id,
+      ...d.data()
+    })
+  );
+
+  allArticles.sort(
+    (a,b) => dateValue(b) - dateValue(a)
+  );
+
+  const pending = allArticles.filter(
+    a => a.status === "pending"
+  );
+
+  const published = allArticles.filter(
+    a => a.status === "published"
+  );
+
+  document.getElementById("totalCount").textContent =
+    allArticles.length;
+
+  document.getElementById("pendingCount").textContent =
+    pending.length;
+
+  document.getElementById("publishedCount").textContent =
+    published.length;
+
+  document.getElementById("dashboardArticles").innerHTML =
+    pending.length
+    ?
+    pending.slice(0,10).map(articleCard).join("")
+    :
+    `<div class="empty">Hakuna habari inayosubiri.</div>`;
+
+  document.getElementById("pendingArticles").innerHTML =
+    pending.length
+    ?
+    pending.map(articleCard).join("")
+    :
+    `<div class="empty">Hakuna habari inayosubiri.</div>`;
+
+  document.getElementById("allArticles").innerHTML =
+    allArticles.length
+    ?
+    allArticles.map(articleCard).join("")
+    :
+    `<div class="empty">Hakuna habari.</div>`;
+
+  attachArticleButtons();
+
+}
+
+
+function attachArticleButtons(){
+
+  document.querySelectorAll(".edit-btn").forEach(btn => {
+
+    btn.addEventListener("click",() => {
+
+      const article = allArticles.find(
+        a => a.id === btn.dataset.id
+      );
+
+      if(article) openEdit(article);
+
+    });
+
+  });
+
+
+  document.querySelectorAll(".publish-btn").forEach(btn => {
+
+    btn.addEventListener("click",async () => {
+
+      if(!confirm("Unataka kuchapisha habari hii?")) return;
+
+      await updateDoc(
+        doc(db,"articles",btn.dataset.id),
+        {
+          status:"published",
+          reviewedAt:serverTimestamp(),
+          reviewedBy:currentUser.uid
+        }
+      );
+
+      await loadArticles();
+
+    });
+
+  });
+
+
+  document.querySelectorAll(".reject-btn").forEach(btn => {
+
+    btn.addEventListener("click",async () => {
+
+      if(!confirm("Unataka kukataa habari hii?")) return;
+
+      await updateDoc(
+        doc(db,"articles",btn.dataset.id),
+        {
+          status:"rejected",
+          reviewedAt:serverTimestamp(),
+          reviewedBy:currentUser.uid
+        }
+      );
+
+      await loadArticles();
+
+    });
+
+  });
+
+
+  document.querySelectorAll(".delete-btn").forEach(btn => {
+
+    btn.addEventListener("click",async () => {
+
+      if(!confirm(
+        "Una uhakika unataka kufuta habari hii? Kitendo hiki hakiwezi kurudishwa."
+      )) return;
+
+      await deleteDoc(
+        doc(db,"articles",btn.dataset.id)
+      );
+
+      await loadArticles();
+
+    });
+
+  });
+
+}
+
+
+function openEdit(article){
+
+  document.getElementById("editId").value = article.id;
+  document.getElementById("editTitle").value = article.title || "";
+  document.getElementById("editIntro").value = article.intro || "";
+  document.getElementById("editContent").value = article.content || "";
+  document.getElementById("editCategory").value = article.category || "Kitaifa";
+  document.getElementById("editImage").value = article.image || "";
+
+  document.getElementById("editModal").classList.add("show");
+
+}
+
+
+document.getElementById("closeModal").addEventListener(
+  "click",
+  () => {
+    document.getElementById("editModal").classList.remove("show");
+  }
+);
+
+
+document.getElementById("editForm").addEventListener(
+  "submit",
+  async e => {
+
+    e.preventDefault();
+
+    const id = document.getElementById("editId").value;
+
+    await updateDoc(
+      doc(db,"articles",id),
+      {
+        title:document.getElementById("editTitle").value.trim(),
+        intro:document.getElementById("editIntro").value.trim(),
+        content:document.getElementById("editContent").value.trim(),
+        category:document.getElementById("editCategory").value,
+        image:document.getElementById("editImage").value.trim(),
+        updatedAt:serverTimestamp(),
+        updatedBy:currentUser.uid
+      }
+    );
+
+    document.getElementById("editModal").classList.remove("show");
+
+    await loadArticles();
+
+    alert("Habari imehaririwa.");
+
+  }
+);
+
+
+document.getElementById("articleForm").addEventListener(
+  "submit",
+  async e => {
+
+    e.preventDefault();
+
+    await addDoc(
+      collection(db,"articles"),
+      {
+        title:document.getElementById("title").value.trim(),
+        intro:document.getElementById("intro").value.trim(),
+        content:document.getElementById("content").value.trim(),
+        category:document.getElementById("category").value,
+        image:document.getElementById("image").value.trim(),
+
+        author:"BINSOUD HABARI",
+
+        authorId:currentUser.uid,
+
+        status:"published",
+
+        createdAt:serverTimestamp(),
+
+        date:new Date().toLocaleDateString(
+          "sw-TZ",
+          {
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+          }
+        )
+      }
+    );
+
+    e.target.reset();
+
+    await loadArticles();
+
+    alert("Habari imeongezwa na kuchapishwa.");
+
+  }
+);
+
+
+async function loadWriters(){
+
+  const snapshot = await getDocs(
+    collection(db,"users")
+  );
+
+  const writers = snapshot.docs
+    .map(d => ({
+      id:d.id,
+      ...d.data()
+    }))
+    .filter(u => u.role === "writer");
+
+  document.getElementById("writerCount").textContent =
+    writers.length;
+
+  if(!writers.length){
+
+    document.getElementById("writersList").innerHTML =
+      `<div class="empty">Hakuna mwandishi bado.</div>`;
+
+    return;
+  }
+
+  document.getElementById("writersList").innerHTML =
+    writers.map(writer => `
+
+      <div class="writer">
+
+        <div class="writer-info">
+
+          <strong>
+            ${escapeHTML(writer.name || "Mwandishi")}
+          </strong>
+
+          <span>
+            ${escapeHTML(writer.email || "")}
+          </span>
+
         </div>
 
-    `;
+        <button
+          class="btn ${writer.active === false ? "green" : "red"}"
+          data-writer="${writer.id}"
+        >
+          ${
+            writer.active === false
+            ? "✓ Washa"
+            : "🚫 Zuia"
+          }
+        </button>
+
+      </div>
+
+    `).join("");
 
 
-    try{
+  document
+    .querySelectorAll("[data-writer]")
+    .forEach(btn => {
 
-        const articlesQuery =
-            query(
+      btn.addEventListener("click",async () => {
 
-                collection(
-                    db,
-                    "articles"
-                ),
+        const uid = btn.dataset.writer;
 
-                orderBy(
-                    "createdAt",
-                    "desc"
-                )
-
-            );
-
-
-        const snapshot =
-            await getDocs(
-                articlesQuery
-            );
-
-
-        contentList.innerHTML =
-            "";
-
-
-        if(snapshot.empty){
-
-            contentList.innerHTML = `
-
-                <div class="empty">
-                    📰 Hakuna habari iliyopatikana.
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        snapshot.forEach(
-            function(documentSnapshot){
-
-                const article =
-                    documentSnapshot.data();
-
-
-                const card =
-                    createArticleCard(
-
-                        documentSnapshot.id,
-
-                        article
-
-                    );
-
-
-                contentList.appendChild(
-                    card
-                );
-
-            }
+        const snap = await getDoc(
+          doc(db,"users",uid)
         );
 
-    }
+        if(!snap.exists()) return;
 
-    catch(error){
+        const user = snap.data();
 
-        console.error(
-            "LOAD ARTICLES ERROR:",
-            error
+        await updateDoc(
+          doc(db,"users",uid),
+          {
+            active:user.active === false
+              ? true
+              : false
+          }
         );
 
+        await loadWriters();
 
-        contentList.innerHTML = `
-
-            <div class="empty">
-
-                ❌ Imeshindikana kupakia.
-
-                <br><br>
-
-                ${escapeHtml(
-                    error.message
-                )}
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-
-/* =====================================================
-   CREATE ARTICLE CARD
-===================================================== */
-
-function createArticleCard(
-    id,
-    article
-){
-
-    const card =
-        document.createElement(
-            "article"
-        );
-
-
-    card.className =
-        "item-card";
-
-
-    /* =================================================
-       IMAGE
-    ================================================= */
-
-    const articleImage =
-        article.imageUrl ||
-        article.image ||
-        "";
-
-
-    if(articleImage){
-
-        const image =
-            document.createElement(
-                "img"
-            );
-
-
-        image.className =
-            "item-image";
-
-
-        image.src =
-            articleImage;
-
-
-        image.alt =
-            article.title ||
-            "Picha ya habari";
-
-
-        image.loading =
-            "lazy";
-
-
-        image.onerror =
-            function(){
-
-                image.style.display =
-                    "none";
-
-            };
-
-
-        card.appendChild(
-            image
-        );
-
-    }
-
-
-
-    /* =================================================
-       INFO
-    ================================================= */
-
-    const info =
-        document.createElement(
-            "div"
-        );
-
-
-    info.className =
-        "item-info";
-
-
-
-    /* CATEGORY */
-
-    const categoryBadge =
-        document.createElement(
-            "span"
-        );
-
-
-    categoryBadge.className =
-        "badge";
-
-
-    categoryBadge.textContent =
-        article.category ||
-        "Habari";
-
-
-    info.appendChild(
-        categoryBadge
-    );
-
-
-
-    /* SUBCATEGORY */
-
-    const subcategoryBadge =
-        document.createElement(
-            "span"
-        );
-
-
-    subcategoryBadge.className =
-        "sub-badge";
-
-
-    subcategoryBadge.textContent =
-        article.subcategory ||
-        "Zote";
-
-
-    info.appendChild(
-        subcategoryBadge
-    );
-
-
-
-    /* AUTHOR */
-
-    const authorBadge =
-        document.createElement(
-            "span"
-        );
-
-
-    authorBadge.className =
-        "author-badge";
-
-
-    authorBadge.textContent =
-        "✍️ " +
-        (
-            article.author ||
-            "BINSOUD HABARI"
-        );
-
-
-    info.appendChild(
-        authorBadge
-    );
-
-
-
-    /* TITLE */
-
-    const title =
-        document.createElement(
-            "h3"
-        );
-
-
-    title.textContent =
-        article.title ||
-        "Bila kichwa";
-
-
-    info.appendChild(
-        title
-    );
-
-
-
-    /* DESCRIPTION */
-
-    const description =
-        document.createElement(
-            "p"
-        );
-
-
-    description.textContent =
-
-        article.content ||
-
-        article.description ||
-
-        article.intro ||
-
-        "Hakuna maelezo.";
-
-
-    /*
-     * Preview ya maneno machache
-     */
-
-    const fullText =
-        description.textContent;
-
-
-    if(fullText.length > 220){
-
-        description.textContent =
-            fullText.substring(
-                0,
-                220
-            ) + "...";
-
-    }
-
-
-    info.appendChild(
-        description
-    );
-
-
-
-    /* DATE */
-
-    const date =
-        document.createElement(
-            "p"
-        );
-
-
-    date.textContent =
-        "📅 " +
-        formatDate(
-            article.createdAt
-        );
-
-
-    info.appendChild(
-        date
-    );
-
-
-
-    /* =================================================
-       READ TIME
-    ================================================= */
-
-    const readTime =
-        document.createElement(
-            "p"
-        );
-
-
-    const articleContent =
-
-        article.content ||
-
-        article.description ||
-
-        article.intro ||
-
-        "";
-
-
-    /*
-     * Kama readTime ipo, tumia.
-     * Kama haipo, hesabu automatic.
-     */
-
-    readTime.textContent =
-        "⏱️ " +
-        (
-            article.readTime ||
-
-            calculateReadTime(
-                articleContent
-            )
-        );
-
-
-    readTime.className =
-        "read-time";
-
-
-    info.appendChild(
-        readTime
-    );
-
-
-
-    /* =================================================
-       UPDATED DATE
-    ================================================= */
-
-    if(article.updatedAt){
-
-        const updated =
-            document.createElement(
-                "p"
-            );
-
-
-        updated.textContent =
-            "🔄 Imehaririwa: " +
-            formatDateTime(
-                article.updatedAt
-            );
-
-
-        info.appendChild(
-            updated
-        );
-
-    }
-
-
-
-    /* =================================================
-       IMAGE LINK
-    ================================================= */
-
-    if(articleImage){
-
-        const imageLink =
-            document.createElement(
-                "a"
-            );
-
-
-        imageLink.href =
-            articleImage;
-
-
-        imageLink.target =
-            "_blank";
-
-
-        imageLink.rel =
-            "noopener";
-
-
-        imageLink.textContent =
-            "🖼️ Fungua picha";
-
-
-        imageLink.style.display =
-            "block";
-
-
-        imageLink.style.marginTop =
-            "8px";
-
-
-        imageLink.style.wordBreak =
-            "break-all";
-
-
-        info.appendChild(
-            imageLink
-        );
-
-    }
-
-
-
-    /* =================================================
-       BUTTON CONTAINER
-    ================================================= */
-
-    const buttonRow =
-        document.createElement(
-            "div"
-        );
-
-
-    buttonRow.className =
-        "button-row";
-
-    buttonRow.style.marginTop =
-        "10px";
-
-
-
-    /* =================================================
-       EDIT BUTTON
-    ================================================= */
-
-    const editButton =
-        document.createElement(
-            "button"
-        );
-
-
-    editButton.className =
-        "edit-btn";
-
-
-    editButton.textContent =
-        "✏️ Hariri";
-
-
-    editButton.addEventListener(
-        "click",
-        function(){
-
-            editArticle(
-                id,
-                article
-            );
-
-        }
-    );
-
-
-    buttonRow.appendChild(
-        editButton
-    );
-
-
-
-    /* =================================================
-       DELETE BUTTON
-    ================================================= */
-
-    const deleteButton =
-        document.createElement(
-            "button"
-        );
-
-
-    deleteButton.className =
-        "delete-btn";
-
-
-    deleteButton.textContent =
-        "🗑️ Futa Habari";
-
-
-    deleteButton.addEventListener(
-        "click",
-        function(){
-
-            deleteArticle(
-                id
-            );
-
-        }
-    );
-
-
-    buttonRow.appendChild(
-        deleteButton
-    );
-
-
-    info.appendChild(
-        buttonRow
-    );
-
-
-    card.appendChild(
-        info
-    );
-
-
-    return card;
-
-}
-
-
-
-/* =====================================================
-   EDIT ARTICLE
-===================================================== */
-
-function editArticle(
-    id,
-    article
-){
-
-    editingArticleId =
-        id;
-
-
-    /* =================================================
-       TITLE
-    ================================================= */
-
-    titleInput.value =
-        article.title ||
-        "";
-
-
-
-    /* =================================================
-       CATEGORY
-    ================================================= */
-
-    categoryInput.value =
-        article.category ||
-        "";
-
-
-    /*
-     * Tengeneza subcategory
-     */
-
-    categoryInput.dispatchEvent(
-        new Event(
-            "change"
-        )
-    );
-
-
-    /*
-     * Baada ya options kuundwa,
-     * chagua iliyokuwa imehifadhiwa.
-     */
-
-    setTimeout(
-        function(){
-
-            subcategoryInput.value =
-                article.subcategory ||
-                "";
-
-        },
-        0
-    );
-
-
-
-    /* =================================================
-       AUTHOR
-    ================================================= */
-
-    authorInput.value =
-        article.author ||
-        "";
-
-
-
-    /* =================================================
-       CONTENT
-    ================================================= */
-
-    descriptionInput.value =
-
-        article.content ||
-
-        article.description ||
-
-        article.intro ||
-
-        "";
-
-
-
-    /* =================================================
-       IMAGE
-    ================================================= */
-
-    imageUrlInput.value =
-
-        article.imageUrl ||
-
-        article.image ||
-
-        "";
-
-
-    if(imageUrlInput.value){
-
-        previewImage.src =
-            imageUrlInput.value;
-
-
-        imagePreview.style.display =
-            "block";
-
-    }
-
-    else{
-
-        imagePreview.style.display =
-            "none";
-
-    }
-
-
-
-    /* =================================================
-       EDIT UI
-    ================================================= */
-
-    formTitle.textContent =
-        "✏️ Hariri Habari";
-
-
-    editingNotice.classList.remove(
-        "hidden"
-    );
-
-
-    cancelEditButton.classList.remove(
-        "hidden"
-    );
-
-
-    saveButton.textContent =
-        "💾 Sasisha Habari";
-
-
-
-    /* =================================================
-       SCROLL TO FORM
-    ================================================= */
-
-    articleForm.scrollIntoView({
-
-        behavior:
-            "smooth",
-
-        block:
-            "start"
+      });
 
     });
 
 }
 
 
+document.querySelectorAll(".tab").forEach(tab => {
 
-/* =====================================================
-   DELETE ARTICLE
-===================================================== */
+  tab.addEventListener("click",() => {
 
-async function deleteArticle(
-    id
-){
+    document.querySelectorAll(".tab")
+      .forEach(t => t.classList.remove("active"));
 
-    const confirmed =
-        confirm(
-            "Una uhakika unataka kufuta habari hii?"
-        );
+    document.querySelectorAll(".panel")
+      .forEach(p => p.classList.remove("active"));
 
+    tab.classList.add("active");
 
-    if(!confirmed){
+    document
+      .getElementById(tab.dataset.tab)
+      .classList.add("active");
 
-        return;
+  });
 
-    }
+});
 
 
-    try{
+document.getElementById("logoutBtn")
+  .addEventListener("click",async () => {
 
-        await deleteDoc(
+    await signOut(auth);
 
-            doc(
-                db,
-                "articles",
-                id
-            )
+    window.location.href = "login.html";
 
-        );
+  });
 
 
-        showMessage(
-            "✅ Habari imefutwa.",
-            "success"
-        );
+onAuthStateChanged(auth,async user => {
 
+  if(!user){
 
-        await loadArticles();
+    window.location.href = "login.html";
+    return;
 
-    }
+  }
 
-    catch(error){
+  const snap = await getDoc(
+    doc(db,"users",user.uid)
+  );
 
-        console.error(
-            error
-        );
+  if(
+    !snap.exists() ||
+    snap.data().role !== "admin" ||
+    snap.data().active === false
+  ){
 
+    await signOut(auth);
 
-        showMessage(
+    window.location.href = "login.html";
 
-            "❌ Imeshindikana kufuta: " +
-            error.message,
+    return;
 
-            "error"
+  }
 
-        );
+  currentUser = user;
 
-    }
+  document.getElementById("adminName").textContent =
+    snap.data().name || user.email;
 
-}
+  await loadArticles();
+  await loadWriters();
 
-
-
-/* =====================================================
-   FORMAT DATE
-===================================================== */
-
-function formatDate(
-    value
-){
-
-    if(!value){
-
-        return "Tarehe haijawekwa";
-
-    }
-
-
-    try{
-
-        let date;
-
-
-        if(
-
-            value &&
-
-            typeof value.toDate ===
-            "function"
-
-        ){
-
-            date =
-                value.toDate();
-
-        }
-
-        else{
-
-            date =
-                new Date(
-                    value
-                );
-
-        }
-
-
-        if(
-            isNaN(
-                date.getTime()
-            )
-        ){
-
-            return "Tarehe haijulikani";
-
-        }
-
-
-        return date.toLocaleDateString(
-
-            "sw-TZ",
-
-            {
-
-                year:
-                    "numeric",
-
-                month:
-                    "long",
-
-                day:
-                    "numeric"
-
-            }
-
-        );
-
-    }
-
-    catch(error){
-
-        return "Tarehe haijulikani";
-
-    }
-
-}
-
-
-
-/* =====================================================
-   FORMAT DATE + TIME
-===================================================== */
-
-function formatDateTime(
-    value
-){
-
-    if(!value){
-
-        return "Haijulikani";
-
-    }
-
-
-    try{
-
-        let date;
-
-
-        if(
-
-            value &&
-
-            typeof value.toDate ===
-            "function"
-
-        ){
-
-            date =
-                value.toDate();
-
-        }
-
-        else{
-
-            date =
-                new Date(
-                    value
-                );
-
-        }
-
-
-        if(
-            isNaN(
-                date.getTime()
-            )
-        ){
-
-            return "Haijulikani";
-
-        }
-
-
-        return date.toLocaleString(
-
-            "sw-TZ",
-
-            {
-
-                year:
-                    "numeric",
-
-                month:
-                    "long",
-
-                day:
-                    "numeric",
-
-                hour:
-                    "2-digit",
-
-                minute:
-                    "2-digit"
-
-            }
-
-        );
-
-    }
-
-    catch(error){
-
-        return "Haijulikani";
-
-    }
-
-}
-
-
-
-/* =====================================================
-   AUTH ERROR
-===================================================== */
-
-function getAuthErrorMessage(
-    error
-){
-
-    const code =
-
-        error &&
-
-        error.code
-
-        ? error.code
-
-        : "";
-
-
-    if(
-
-        code ===
-        "auth/invalid-credential"
-
-    ){
-
-        return
-            "❌ Email au password si sahihi.";
-
-    }
-
-
-    if(
-
-        code ===
-        "auth/invalid-email"
-
-    ){
-
-        return
-            "❌ Email si sahihi.";
-
-    }
-
-
-    if(
-
-        code ===
-        "auth/user-not-found"
-
-    ){
-
-        return
-            "❌ Admin huyu hakupatikana.";
-
-    }
-
-
-    if(
-
-        code ===
-        "auth/wrong-password"
-
-    ){
-
-        return
-            "❌ Password si sahihi.";
-
-    }
-
-
-    if(
-
-        code ===
-        "auth/too-many-requests"
-
-    ){
-
-        return
-            "❌ Majaribio yamekuwa mengi. " +
-            "Subiri kidogo ujaribu tena.";
-
-    }
-
-
-    return (
-
-        "❌ Login imeshindikana: " +
-
-        (
-
-            error.message ||
-
-            "Hitilafu isiyojulikana."
-
-        )
-
-    );
-
-}
-
-
+});
 
 </script>
 
-
 </body>
-
 </html>
-```
