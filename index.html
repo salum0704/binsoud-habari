@@ -63,6 +63,10 @@
       font-family:inherit;
     }
 
+    button{
+      cursor:pointer;
+    }
+
     .container{
       width:min(1180px, 94%);
       margin:auto;
@@ -172,7 +176,6 @@
       color:#fff;
       padding:0 18px;
       border-radius:0 7px 7px 0;
-      cursor:pointer;
       font-weight:700;
     }
 
@@ -209,6 +212,7 @@
       font-weight:800;
       white-space:nowrap;
       transition:.2s ease;
+      cursor:pointer;
     }
 
     .nav-inner a:hover{
@@ -217,6 +221,7 @@
 
     /* =========================
        BREAKING NEWS
+       MFUMO UMEACHWA
     ========================== */
 
     .breaking{
@@ -250,6 +255,10 @@
       overflow:hidden;
       text-overflow:ellipsis;
       cursor:pointer;
+    }
+
+    #breakingText:hover{
+      color:var(--blue);
     }
 
     /* =========================
@@ -422,6 +431,11 @@
       box-shadow:0 8px 24px rgba(13,47,79,.12);
     }
 
+    .article-card:focus{
+      outline:3px solid rgba(7,87,166,.25);
+      outline-offset:2px;
+    }
+
     .article-card img{
       width:100%;
       height:190px;
@@ -515,7 +529,6 @@
       padding:0 20px;
       border-radius:6px;
       font-weight:800;
-      cursor:pointer;
     }
 
     /* =========================
@@ -549,6 +562,7 @@
     footer a{
       display:block;
       margin:5px 0;
+      cursor:pointer;
     }
 
     footer a:hover{
@@ -604,7 +618,6 @@
       background:rgba(0,0,0,.7);
       color:#fff;
       font-size:22px;
-      cursor:pointer;
     }
 
     .modal-close:hover{
@@ -655,6 +668,7 @@
       font-size:25px;
       font-weight:900;
       margin-bottom:18px;
+      padding-right:45px;
     }
 
     .category-modal-box .article-grid{
@@ -685,7 +699,7 @@
     }
 
     /* =========================
-       ERROR BOX
+       ERROR
     ========================== */
 
     .error-box{
@@ -825,9 +839,7 @@
 
 <body>
 
-  <!-- =========================
-       TOP BAR
-  ========================== -->
+  <!-- TOP BAR -->
 
   <div class="topbar">
     <div class="container topbar-inner">
@@ -844,9 +856,7 @@
   </div>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- HEADER -->
 
   <header>
 
@@ -897,47 +907,76 @@
   </header>
 
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
+  <!-- NAVIGATION -->
 
   <nav>
 
     <div class="container nav-inner">
 
-      <a href="#home">HOME</a>
+      <a href="#home" data-scroll-link="home">HOME</a>
 
-      <a href="#kitaifa">KITAIFA</a>
+      <a href="#kitaifa"
+         data-category-nav="KITAIFA">
+        KITAIFA
+      </a>
 
-      <a href="#mataifa">MATAIFA</a>
+      <a href="#mataifa"
+         data-category-nav="MATAIFA">
+        MATAIFA
+      </a>
 
-      <a href="#dini">DINI</a>
+      <a href="#dini"
+         data-category-nav="DINI">
+        DINI
+      </a>
 
-      <a href="#michezo">MICHEZO</a>
+      <a href="#michezo"
+         data-category-nav="MICHEZO">
+        MICHEZO
+      </a>
 
-      <a href="#mazingira">MAZINGIRA</a>
+      <a href="#mazingira"
+         data-category-nav="MAZINGIRA">
+        MAZINGIRA
+      </a>
 
-      <a href="#burudani">BURUDANI</a>
+      <a href="#burudani"
+         data-category-nav="BURUDANI">
+        BURUDANI
+      </a>
 
-      <a href="#siasa">SIASA</a>
+      <a href="#siasa"
+         data-category-nav="SIASA">
+        SIASA
+      </a>
 
-      <a href="#uchumi">UCHUMI</a>
+      <a href="#uchumi"
+         data-category-nav="UCHUMI">
+        UCHUMI
+      </a>
 
-      <a href="#makala">MAKALA</a>
+      <a href="#makala"
+         data-category-nav="MAKALA">
+        MAKALA
+      </a>
 
-      <a href="#video">VIDEO</a>
+      <a href="#video"
+         data-scroll-link="video">
+        VIDEO
+      </a>
 
-      <a href="#mawasiliano">MAWASILIANO</a>
+      <a href="#mawasiliano"
+         data-scroll-link="mawasiliano">
+        MAWASILIANO
+      </a>
 
     </div>
 
   </nav>
 
 
-  <!-- =========================
-       BREAKING NEWS
-       MFUMO UMEACHWA
-  ========================== -->
+  <!-- BREAKING NEWS
+       MFUMO UMEACHWA -->
 
   <div class="breaking">
 
@@ -956,17 +995,13 @@
   </div>
 
 
-  <!-- =========================
-       MAIN
-  ========================== -->
+  <!-- MAIN -->
 
   <main id="home">
 
     <div class="container">
 
-      <!-- =========================
-           HERO + SIDE
-      ========================== -->
+      <!-- HERO + SIDE -->
 
       <section class="hero-grid">
 
@@ -990,9 +1025,7 @@
       </section>
 
 
-      <!-- =========================
-           LATEST
-      ========================== -->
+      <!-- LATEST -->
 
       <section class="section" id="latest">
 
@@ -1015,9 +1048,7 @@
       </section>
 
 
-      <!-- =========================
-           KITAIFA
-      ========================== -->
+      <!-- KITAIFA -->
 
       <section class="section" id="kitaifa">
 
@@ -1030,8 +1061,7 @@
           <button
             class="see-all"
             data-category-link="KITAIFA"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1048,9 +1078,7 @@
       </section>
 
 
-      <!-- =========================
-           MATAIFA
-      ========================== -->
+      <!-- MATAIFA -->
 
       <section class="section" id="mataifa">
 
@@ -1063,8 +1091,7 @@
           <button
             class="see-all"
             data-category-link="MATAIFA"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1081,9 +1108,7 @@
       </section>
 
 
-      <!-- =========================
-           DINI
-      ========================== -->
+      <!-- DINI -->
 
       <section class="section" id="dini">
 
@@ -1096,8 +1121,7 @@
           <button
             class="see-all"
             data-category-link="DINI"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1114,9 +1138,7 @@
       </section>
 
 
-      <!-- =========================
-           MICHEZO
-      ========================== -->
+      <!-- MICHEZO -->
 
       <section class="section" id="michezo">
 
@@ -1129,8 +1151,7 @@
           <button
             class="see-all"
             data-category-link="MICHEZO"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1147,9 +1168,7 @@
       </section>
 
 
-      <!-- =========================
-           MAZINGIRA
-      ========================== -->
+      <!-- MAZINGIRA -->
 
       <section class="section" id="mazingira">
 
@@ -1162,8 +1181,7 @@
           <button
             class="see-all"
             data-category-link="MAZINGIRA"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1180,9 +1198,7 @@
       </section>
 
 
-      <!-- =========================
-           BURUDANI
-      ========================== -->
+      <!-- BURUDANI -->
 
       <section class="section" id="burudani">
 
@@ -1195,8 +1211,7 @@
           <button
             class="see-all"
             data-category-link="BURUDANI"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1213,9 +1228,7 @@
       </section>
 
 
-      <!-- =========================
-           SIASA
-      ========================== -->
+      <!-- SIASA -->
 
       <section class="section" id="siasa">
 
@@ -1228,8 +1241,7 @@
           <button
             class="see-all"
             data-category-link="SIASA"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1246,9 +1258,7 @@
       </section>
 
 
-      <!-- =========================
-           UCHUMI
-      ========================== -->
+      <!-- UCHUMI -->
 
       <section class="section" id="uchumi">
 
@@ -1261,8 +1271,7 @@
           <button
             class="see-all"
             data-category-link="UCHUMI"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1279,9 +1288,7 @@
       </section>
 
 
-      <!-- =========================
-           MAKALA
-      ========================== -->
+      <!-- MAKALA -->
 
       <section class="section" id="makala">
 
@@ -1294,8 +1301,7 @@
           <button
             class="see-all"
             data-category-link="MAKALA"
-            type="button"
-          >
+            type="button">
             ONA ZOTE →
           </button>
 
@@ -1312,9 +1318,7 @@
       </section>
 
 
-      <!-- =========================
-           VIDEO
-      ========================== -->
+      <!-- VIDEO -->
 
       <section class="section" id="video">
 
@@ -1338,9 +1342,7 @@
       </section>
 
 
-      <!-- =========================
-           MAWASILIANO
-      ========================== -->
+      <!-- MAWASILIANO -->
 
       <section class="section" id="mawasiliano">
 
@@ -1365,9 +1367,7 @@
       </section>
 
 
-      <!-- =========================
-           NEWSLETTER
-      ========================== -->
+      <!-- NEWSLETTER -->
 
       <section class="newsletter">
 
@@ -1381,8 +1381,7 @@
 
         <form
           id="newsletterForm"
-          class="newsletter-form"
-        >
+          class="newsletter-form">
 
           <input
             type="email"
@@ -1404,15 +1403,12 @@
   </main>
 
 
-  <!-- =========================
-       ARTICLE MODAL
-  ========================== -->
+  <!-- ARTICLE MODAL -->
 
   <div
     id="articleModal"
     class="modal"
-    aria-hidden="true"
-  >
+    aria-hidden="true">
 
     <div class="modal-box">
 
@@ -1420,8 +1416,7 @@
         id="articleModalClose"
         class="modal-close"
         type="button"
-        aria-label="Funga"
-      >
+        aria-label="Funga">
         ×
       </button>
 
@@ -1429,36 +1424,31 @@
         id="modalArticleImage"
         class="modal-image"
         src=""
-        alt="Picha ya habari"
-      >
+        alt="Picha ya habari">
 
       <div class="modal-content">
 
         <span
           id="modalArticleCategory"
-          class="category-label"
-        >
+          class="category-label">
           HABARI
         </span>
 
         <h1
           id="modalArticleTitle"
-          class="modal-title"
-        >
+          class="modal-title">
           -
         </h1>
 
         <div
           id="modalArticleDate"
-          class="article-date"
-        >
+          class="article-date">
           -
         </div>
 
         <div
           id="modalArticleBody"
-          class="modal-body"
-        >
+          class="modal-body">
           -
         </div>
 
@@ -1469,15 +1459,12 @@
   </div>
 
 
-  <!-- =========================
-       CATEGORY MODAL
-  ========================== -->
+  <!-- CATEGORY MODAL -->
 
   <div
     id="categoryModal"
     class="modal"
-    aria-hidden="true"
-  >
+    aria-hidden="true">
 
     <div class="modal-box category-modal-box">
 
@@ -1485,8 +1472,7 @@
         id="categoryModalClose"
         class="modal-close"
         type="button"
-        aria-label="Funga"
-      >
+        aria-label="Funga">
         ×
       </button>
 
@@ -1494,15 +1480,14 @@
 
         <h2
           id="categoryModalTitle"
-          class="category-modal-title"
-        >
+          class="category-modal-title">
           -
         </h2>
 
         <div
           id="categoryModalBox"
-          class="article-grid"
-        ></div>
+          class="article-grid">
+        </div>
 
       </div>
 
@@ -1511,9 +1496,7 @@
   </div>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1541,23 +1524,28 @@
             SEHEMU
           </h3>
 
-          <a href="#kitaifa">
+          <a href="#kitaifa"
+             data-category-nav="KITAIFA">
             Kitaifa
           </a>
 
-          <a href="#mataifa">
+          <a href="#mataifa"
+             data-category-nav="MATAIFA">
             Mataifa
           </a>
 
-          <a href="#dini">
+          <a href="#dini"
+             data-category-nav="DINI">
             Dini
           </a>
 
-          <a href="#michezo">
+          <a href="#michezo"
+             data-category-nav="MICHEZO">
             Michezo
           </a>
 
-          <a href="#mazingira">
+          <a href="#mazingira"
+             data-category-nav="MAZINGIRA">
             Mazingira
           </a>
 
@@ -1570,23 +1558,28 @@
             ZAIDI
           </h3>
 
-          <a href="#burudani">
+          <a href="#burudani"
+             data-category-nav="BURUDANI">
             Burudani
           </a>
 
-          <a href="#siasa">
+          <a href="#siasa"
+             data-category-nav="SIASA">
             Siasa
           </a>
 
-          <a href="#uchumi">
+          <a href="#uchumi"
+             data-category-nav="UCHUMI">
             Uchumi
           </a>
 
-          <a href="#makala">
+          <a href="#makala"
+             data-category-nav="MAKALA">
             Makala
           </a>
 
-          <a href="#mawasiliano">
+          <a href="#mawasiliano"
+             data-scroll-link="mawasiliano">
             Mawasiliano
           </a>
 
@@ -1609,9 +1602,7 @@
   </footer>
 
 
-  <!-- =========================
-       FIREBASE
-  ========================== -->
+  <!-- FIREBASE -->
 
   <script type="module">
 
@@ -1660,7 +1651,7 @@
 
 
     /* ==========================================
-       INITIALIZE FIREBASE
+       FIREBASE
     ========================================== */
 
     const app =
@@ -1685,7 +1676,7 @@
 
 
     /* ==========================================
-       PLACEHOLDER IMAGE
+       PLACEHOLDER
     ========================================== */
 
     const PLACEHOLDER_IMAGE =
@@ -1702,9 +1693,7 @@
         value === null ||
         value === undefined
       ){
-
         return "";
-
       }
 
       return String(value)
@@ -1718,26 +1707,84 @@
 
 
     /* ==========================================
-       GET TITLE
+       TITLE
     ========================================== */
 
     function getTitle(article){
 
       return (
-
-        article.title ||
-
-        article.headline ||
-
-        article.heading ||
-
-        article.name ||
-
-        article.caption ||
-
+        article?.title ||
+        article?.headline ||
+        article?.heading ||
+        article?.name ||
+        article?.caption ||
         "Habari bila kichwa"
-
       );
+
+    }
+
+
+    /* ==========================================
+       CATEGORY VALUES
+       TUNATAFUTA FIELD NYINGI ZA FIREBASE
+    ========================================== */
+
+    function getCategoryValues(article){
+
+      if(!article){
+        return [];
+      }
+
+      const values = [
+
+        article.category,
+        article.categoryName,
+        article.category_name,
+
+        article.section,
+        article.sectionName,
+        article.section_name,
+
+        article.type,
+        article.kategoria,
+        article.kategoriaName,
+
+        article.newsCategory,
+        article.news_category,
+
+        article.categories
+
+      ];
+
+      const result = [];
+
+      values.forEach(value => {
+
+        if(Array.isArray(value)){
+
+          value.forEach(item => {
+
+            if(
+              item !== null &&
+              item !== undefined
+            ){
+              result.push(String(item));
+            }
+
+          });
+
+        }else if(
+          value !== null &&
+          value !== undefined
+        ){
+
+          result.push(String(value));
+
+        }
+
+      });
+
+      return result;
 
     }
 
@@ -1748,21 +1795,12 @@
 
     function getCategory(article){
 
-      return (
+      const values =
+        getCategoryValues(article);
 
-        article.category ||
-
-        article.section ||
-
-        article.type ||
-
-        article.kategoria ||
-
-        article.categoryName ||
-
-        "KITAIFA"
-
-      );
+      return values.length
+        ? values[0]
+        : "KITAIFA";
 
     }
 
@@ -1776,51 +1814,250 @@
       return String(value || "")
         .trim()
         .toLowerCase()
-        .replace(/[_-]+/g," ")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[_\-]+/g," ")
         .replace(/\s+/g," ");
 
     }
 
 
     /* ==========================================
-       GET DATE
+       CATEGORY KEY
+    ========================================== */
+
+    function getCategoryKey(value){
+
+      const category =
+        normalizeCategory(value);
+
+      if(!category){
+        return "";
+      }
+
+      if(
+        category === "kitaifa" ||
+        category === "national" ||
+        category === "national news" ||
+        category === "tanzania" ||
+        category === "tanzania news" ||
+        category === "zanzibar" ||
+        category === "zanzibar news"
+      ){
+        return "kitaifa";
+      }
+
+
+      if(
+        category === "mataifa" ||
+        category === "kimataifa" ||
+        category === "international" ||
+        category === "international news" ||
+        category === "dunia" ||
+        category === "world" ||
+        category === "world news"
+      ){
+        return "mataifa";
+      }
+
+
+      if(
+        category === "dini" ||
+        category === "religion" ||
+        category === "religious" ||
+        category === "islamu" ||
+        category === "uislamu" ||
+        category === "muslim" ||
+        category === "christian" ||
+        category === "christianity"
+      ){
+        return "dini";
+      }
+
+
+      if(
+        category === "michezo" ||
+        category === "sports" ||
+        category === "sport"
+      ){
+        return "michezo";
+      }
+
+
+      if(
+        category === "mazingira" ||
+        category === "environment" ||
+        category === "environmental"
+      ){
+        return "mazingira";
+      }
+
+
+      if(
+        category === "burudani" ||
+        category === "entertainment" ||
+        category === "sanaa" ||
+        category === "muziki" ||
+        category === "music"
+      ){
+        return "burudani";
+      }
+
+
+      if(
+        category === "siasa" ||
+        category === "politics" ||
+        category === "political"
+      ){
+        return "siasa";
+      }
+
+
+      if(
+        category === "uchumi" ||
+        category === "economy" ||
+        category === "economic" ||
+        category === "biashara" ||
+        category === "business" ||
+        category === "fedha" ||
+        category === "finance"
+      ){
+        return "uchumi";
+      }
+
+
+      if(
+        category === "makala" ||
+        category === "feature" ||
+        category === "features" ||
+        category === "analysis" ||
+        category === "opinion"
+      ){
+        return "makala";
+      }
+
+
+      /*
+        Support pia values zenye maneno
+        kama "Habari za Kitaifa"
+      */
+
+      if(
+        category.includes("kitaifa") ||
+        category.includes("national")
+      ){
+        return "kitaifa";
+      }
+
+
+      if(
+        category.includes("mataifa") ||
+        category.includes("kimataifa") ||
+        category.includes("international") ||
+        category.includes("world")
+      ){
+        return "mataifa";
+      }
+
+
+      if(
+        category.includes("dini") ||
+        category.includes("religion") ||
+        category.includes("islam")
+      ){
+        return "dini";
+      }
+
+
+      if(
+        category.includes("michezo") ||
+        category.includes("sports")
+      ){
+        return "michezo";
+      }
+
+
+      if(
+        category.includes("mazingira") ||
+        category.includes("environment")
+      ){
+        return "mazingira";
+      }
+
+
+      if(
+        category.includes("burudani") ||
+        category.includes("entertainment") ||
+        category.includes("muziki") ||
+        category.includes("music") ||
+        category.includes("sanaa")
+      ){
+        return "burudani";
+      }
+
+
+      if(
+        category.includes("siasa") ||
+        category.includes("politic")
+      ){
+        return "siasa";
+      }
+
+
+      if(
+        category.includes("uchumi") ||
+        category.includes("econom") ||
+        category.includes("biashara") ||
+        category.includes("business") ||
+        category.includes("finance")
+      ){
+        return "uchumi";
+      }
+
+
+      if(
+        category.includes("makala") ||
+        category.includes("feature") ||
+        category.includes("analysis") ||
+        category.includes("opinion")
+      ){
+        return "makala";
+      }
+
+
+      return category;
+
+    }
+
+
+    /* ==========================================
+       DATE
     ========================================== */
 
     function getDate(article){
 
       return (
-
-        article.date ||
-
-        article.createdAt ||
-
-        article.timestamp ||
-
-        article.publishedAt ||
-
-        article.created_at ||
-
-        article.publishDate ||
-
+        article?.date ||
+        article?.createdAt ||
+        article?.timestamp ||
+        article?.publishedAt ||
+        article?.created_at ||
+        article?.publishDate ||
         ""
-
       );
 
     }
 
 
     /* ==========================================
-       DATE TO NUMBER
+       DATE NUMBER
     ========================================== */
 
     function dateToNumber(value){
 
       if(!value){
-
         return 0;
-
       }
-
 
       try{
 
@@ -1847,7 +2084,6 @@
         const numberValue =
           Number(value);
 
-
         if(
           !isNaN(numberValue) &&
           numberValue > 0
@@ -1862,7 +2098,6 @@
 
         const parsed =
           new Date(value).getTime();
-
 
         return isNaN(parsed)
           ? 0
@@ -1884,24 +2119,17 @@
     function formatDate(value){
 
       if(!value){
-
         return "";
-
       }
-
 
       try{
 
         const timestamp =
           dateToNumber(value);
 
-
         if(!timestamp){
-
           return String(value);
-
         }
-
 
         return new Date(timestamp)
           .toLocaleDateString(
@@ -1923,64 +2151,48 @@
 
 
     /* ==========================================
-       GET IMAGE
+       IMAGE
     ========================================== */
 
     function getImage(article){
 
       if(!article){
-
         return PLACEHOLDER_IMAGE;
-
       }
-
 
       const possibleImages = [
 
         article.image,
-
         article.imageUrl,
-
         article.imageURL,
-
         article.image_url,
 
         article.photo,
-
         article.photoUrl,
-
         article.photoURL,
-
         article.photo_url,
 
         article.thumbnail,
-
         article.thumbnailUrl,
-
         article.thumbnailURL,
-
         article.thumbnail_url,
 
         article.picture,
-
         article.pictureUrl,
-
         article.pictureURL,
 
         article.cover,
-
         article.coverImage,
-
         article.coverUrl,
 
         article.featuredImage,
+        article.featured_image,
 
         article.mediaUrl,
+        article.mediaURL,
 
         article.urlImage,
-
         article.img,
-
         article.imageLink
 
       ];
@@ -1996,7 +2208,6 @@
 
           const url =
             image.trim();
-
 
           if(
             url &&
@@ -2022,13 +2233,9 @@
           const objectUrls = [
 
             image.url,
-
             image.downloadURL,
-
             image.downloadUrl,
-
             image.href,
-
             image.src
 
           ];
@@ -2060,27 +2267,20 @@
 
 
     /* ==========================================
-       GET BODY
+       BODY
     ========================================== */
 
     function getArticleBody(article){
 
       return (
 
-        article.content ||
-
-        article.description ||
-
-        article.body ||
-
-        article.text ||
-
-        article.article ||
-
-        article.details ||
-
-        article.excerpt ||
-
+        article?.content ||
+        article?.description ||
+        article?.body ||
+        article?.text ||
+        article?.article ||
+        article?.details ||
+        article?.excerpt ||
         "Hakuna maelezo ya habari hii."
 
       );
@@ -2089,22 +2289,15 @@
 
 
     /* ==========================================
-       PUBLISHED CHECK
+       PUBLISHED
     ========================================== */
 
     function isPublished(article){
 
       if(!article){
-
         return false;
-
       }
 
-
-      /*
-        Kama hakuna status,
-        tunaruhusu article.
-      */
 
       if(
         article.status === undefined ||
@@ -2121,7 +2314,6 @@
 
         }
 
-
         return true;
 
       }
@@ -2136,13 +2328,9 @@
       return (
 
         status === "published" ||
-
         status === "publish" ||
-
         status === "true" ||
-
         status === "active" ||
-
         status === "live"
 
       );
@@ -2157,11 +2345,8 @@
     function imageError(img){
 
       if(!img){
-
         return;
-
       }
-
 
       img.onerror = null;
 
@@ -2179,15 +2364,52 @@
 
       return String(
 
-        article.__id ||
-
-        article.id ||
-
-        article.articleId ||
-
+        article?.__id ||
+        article?.id ||
+        article?.articleId ||
         ""
 
       );
+
+    }
+
+
+    /* ==========================================
+       CATEGORY MATCH
+    ========================================== */
+
+    function categoryMatches(
+      article,
+      category
+    ){
+
+      const wantedKey =
+        getCategoryKey(category);
+
+      const values =
+        getCategoryValues(article);
+
+
+      if(!values.length){
+
+        /*
+          Kama article haina category,
+          haingii kwenye categories.
+        */
+
+        return false;
+
+      }
+
+
+      return values.some(value => {
+
+        return (
+          getCategoryKey(value) ===
+          wantedKey
+        );
+
+      });
 
     }
 
@@ -2201,24 +2423,20 @@
       const id =
         getArticleId(article);
 
-
       const title =
         escapeHTML(
           getTitle(article)
         );
-
 
       const category =
         escapeHTML(
           getCategory(article)
         );
 
-
       const image =
         escapeHTML(
           getImage(article)
         );
-
 
       const date =
         escapeHTML(
@@ -2227,14 +2445,11 @@
           )
         );
 
-
       const description =
         escapeHTML(
 
-          article.description ||
-
-          article.excerpt ||
-
+          article?.description ||
+          article?.excerpt ||
           ""
 
         );
@@ -2298,9 +2513,7 @@
     ){
 
       if(!container){
-
         return;
-
       }
 
 
@@ -2339,7 +2552,7 @@
 
 
     /* ==========================================
-       RENDER HERO
+       HERO
     ========================================== */
 
     function renderHero(){
@@ -2349,11 +2562,8 @@
           "heroBox"
         );
 
-
       if(!box){
-
         return;
-
       }
 
 
@@ -2375,28 +2585,23 @@
       const article =
         articles[0];
 
-
       const id =
         getArticleId(article);
-
 
       const title =
         escapeHTML(
           getTitle(article)
         );
 
-
       const image =
         escapeHTML(
           getImage(article)
         );
 
-
       const category =
         escapeHTML(
           getCategory(article)
         );
-
 
       const date =
         escapeHTML(
@@ -2449,7 +2654,7 @@
 
 
     /* ==========================================
-       RENDER SIDE
+       SIDE
     ========================================== */
 
     function renderSide(){
@@ -2459,11 +2664,8 @@
           "sideBox"
         );
 
-
       if(!box){
-
         return;
-
       }
 
 
@@ -2495,24 +2697,20 @@
             const id =
               getArticleId(article);
 
-
             const title =
               escapeHTML(
                 getTitle(article)
               );
-
 
             const image =
               escapeHTML(
                 getImage(article)
               );
 
-
             const category =
               escapeHTML(
                 getCategory(article)
               );
-
 
             const date =
               escapeHTML(
@@ -2571,7 +2769,7 @@
 
 
     /* ==========================================
-       RENDER LATEST
+       LATEST
     ========================================== */
 
     function renderLatest(
@@ -2583,130 +2781,9 @@
           "latestBox"
         );
 
-
       renderGrid(
         box,
         list
-      );
-
-    }
-
-
-    /* ==========================================
-       CATEGORY ALIASES
-    ========================================== */
-
-    const categoryAliases = {
-
-      kitaifa:[
-        "kitaifa",
-        "national",
-        "tanzania",
-        "zanzibar"
-      ],
-
-      mataifa:[
-        "mataifa",
-        "kimataifa",
-        "international",
-        "dunia",
-        "world"
-      ],
-
-      dini:[
-        "dini",
-        "religion",
-        "islamu",
-        "uislamu",
-        "muslim",
-        "christian",
-        "christianity"
-      ],
-
-      michezo:[
-        "michezo",
-        "sports",
-        "sport"
-      ],
-
-      mazingira:[
-        "mazingira",
-        "environment",
-        "mazingira ya asili"
-      ],
-
-      burudani:[
-        "burudani",
-        "entertainment",
-        "sanaa",
-        "muziki",
-        "music"
-      ],
-
-      siasa:[
-        "siasa",
-        "politics",
-        "political"
-      ],
-
-      uchumi:[
-        "uchumi",
-        "economy",
-        "economic",
-        "biashara",
-        "business",
-        "fedha",
-        "finance"
-      ],
-
-      makala:[
-        "makala",
-        "feature",
-        "features",
-        "analysis",
-        "opinion"
-      ]
-
-    };
-
-
-    /* ==========================================
-       CATEGORY MATCH
-    ========================================== */
-
-    function categoryMatches(
-      article,
-      category
-    ){
-
-      const articleCategory =
-        normalizeCategory(
-          getCategory(article)
-        );
-
-
-      const wanted =
-        normalizeCategory(category);
-
-
-      if(
-        articleCategory === wanted
-      ){
-
-        return true;
-
-      }
-
-
-      const values =
-        categoryAliases[wanted] ||
-        [wanted];
-
-
-      return values.some(
-        value =>
-          normalizeCategory(value) ===
-          articleCategory
       );
 
     }
@@ -2726,11 +2803,8 @@
           boxId
         );
 
-
       if(!box){
-
         return;
-
       }
 
 
@@ -2754,7 +2828,7 @@
 
 
     /* ==========================================
-       RENDER ALL CATEGORIES
+       ALL CATEGORIES
     ========================================== */
 
     function renderAllCategories(){
@@ -2764,48 +2838,40 @@
         "kitaifaBox"
       );
 
-
       renderCategory(
         "MATAIFA",
         "mataifaBox"
       );
-
 
       renderCategory(
         "DINI",
         "diniBox"
       );
 
-
       renderCategory(
         "MICHEZO",
         "michezoBox"
       );
-
 
       renderCategory(
         "MAZINGIRA",
         "mazingiraBox"
       );
 
-
       renderCategory(
         "BURUDANI",
         "burudaniBox"
       );
-
 
       renderCategory(
         "SIASA",
         "siasaBox"
       );
 
-
       renderCategory(
         "UCHUMI",
         "uchumiBox"
       );
-
 
       renderCategory(
         "MAKALA",
@@ -2817,7 +2883,7 @@
 
     /* ==========================================
        BREAKING NEWS
-       MFUMO WA AWALI
+       MFUMO WA AWALI - USIBADILISHWA
     ========================================== */
 
     function renderBreaking(){
@@ -2829,9 +2895,7 @@
 
 
       if(!box){
-
         return;
-
       }
 
 
@@ -2925,7 +2989,7 @@
 
 
     /* ==========================================
-       BREAKING NEWS CLICK
+       BREAKING CLICK
     ========================================== */
 
     function setupBreakingClick(){
@@ -2937,9 +3001,7 @@
 
 
       if(!box){
-
         return;
-
       }
 
 
@@ -2953,9 +3015,7 @@
 
 
           if(!title){
-
             return;
-
           }
 
 
@@ -2985,10 +3045,16 @@
     function openArticle(article){
 
       if(!article){
-
         return;
-
       }
+
+
+      /*
+        Kama Article imetoka ndani ya
+        Category Modal, ifunge kwanza.
+      */
+
+      closeCategory();
 
 
       const modal =
@@ -2996,30 +3062,25 @@
           "articleModal"
         );
 
-
       const image =
         document.getElementById(
           "modalArticleImage"
         );
-
 
       const category =
         document.getElementById(
           "modalArticleCategory"
         );
 
-
       const title =
         document.getElementById(
           "modalArticleTitle"
         );
 
-
       const date =
         document.getElementById(
           "modalArticleDate"
         );
-
 
       const body =
         document.getElementById(
@@ -3027,7 +3088,14 @@
         );
 
 
-      if(!modal){
+      if(
+        !modal ||
+        !image ||
+        !category ||
+        !title ||
+        !date ||
+        !body
+      ){
 
         return;
 
@@ -3102,9 +3170,7 @@
 
 
       if(!modal){
-
         return;
-
       }
 
 
@@ -3119,10 +3185,17 @@
       );
 
 
-      if(
-        !document.getElementById(
+      const categoryModal =
+        document.getElementById(
           "categoryModal"
-        ).classList.contains("show")
+        );
+
+
+      if(
+        !categoryModal ||
+        !categoryModal.classList.contains(
+          "show"
+        )
       ){
 
         document.body.classList.remove(
@@ -3145,12 +3218,10 @@
           "categoryModal"
         );
 
-
       const title =
         document.getElementById(
           "categoryModalTitle"
         );
-
 
       const box =
         document.getElementById(
@@ -3167,6 +3238,13 @@
         return;
 
       }
+
+
+      /*
+        Hakikisha Article Modal imefungwa
+      */
+
+      closeArticle();
 
 
       const list =
@@ -3225,6 +3303,13 @@
         "modal-open"
       );
 
+
+      /*
+        Anza modal juu
+      */
+
+      modal.scrollTop = 0;
+
     }
 
 
@@ -3241,9 +3326,7 @@
 
 
       if(!modal){
-
         return;
-
       }
 
 
@@ -3265,6 +3348,7 @@
 
 
       if(
+        !articleModal ||
         !articleModal.classList.contains(
           "show"
         )
@@ -3280,10 +3364,14 @@
 
 
     /* ==========================================
-       ARTICLE CLICK EVENTS
+       ARTICLE EVENTS
     ========================================== */
 
     function setupArticleEvents(){
+
+      /*
+        CLICK
+      */
 
       document.addEventListener(
         "click",
@@ -3296,9 +3384,7 @@
 
 
           if(!articleElement){
-
             return;
-
           }
 
 
@@ -3311,7 +3397,8 @@
               item =>
                 String(
                   getArticleId(item)
-                ) === String(id)
+                ) ===
+                String(id)
             );
 
 
@@ -3324,6 +3411,10 @@
         }
       );
 
+
+      /*
+        ENTER / SPACE
+      */
 
       document.addEventListener(
         "keydown",
@@ -3346,9 +3437,7 @@
 
 
           if(!articleElement){
-
             return;
-
           }
 
 
@@ -3364,7 +3453,8 @@
               item =>
                 String(
                   getArticleId(item)
-                ) === String(id)
+                ) ===
+                String(id)
             );
 
 
@@ -3390,33 +3480,134 @@
         "click",
         function(event){
 
+          /*
+            ONA ZOTE
+          */
+
           const button =
             event.target.closest(
               "[data-category-link]"
             );
 
 
-          if(!button){
+          if(button){
+
+            event.preventDefault();
+            event.stopPropagation();
+
+
+            const category =
+              button.getAttribute(
+                "data-category-link"
+              );
+
+
+            if(category){
+
+              openCategory(
+                category
+              );
+
+            }
 
             return;
 
           }
 
 
+          /*
+            NAV / FOOTER CATEGORY
+          */
+
+          const categoryNav =
+            event.target.closest(
+              "[data-category-nav]"
+            );
+
+
+          if(categoryNav){
+
+            event.preventDefault();
+            event.stopPropagation();
+
+
+            const category =
+              categoryNav.getAttribute(
+                "data-category-nav"
+              );
+
+
+            if(category){
+
+              openCategory(
+                category
+              );
+
+            }
+
+            return;
+
+          }
+
+        },
+        true
+      );
+
+    }
+
+
+    /* ==========================================
+       NORMAL SCROLL LINKS
+    ========================================== */
+
+    function setupNavigation(){
+
+      document.addEventListener(
+        "click",
+        function(event){
+
+          const link =
+            event.target.closest(
+              "[data-scroll-link]"
+            );
+
+
+          if(!link){
+            return;
+          }
+
+
           event.preventDefault();
 
 
-          const category =
-            button.dataset.categoryLink;
-
-
-          if(category){
-
-            openCategory(
-              category
+          const targetId =
+            link.getAttribute(
+              "data-scroll-link"
             );
 
+
+          const target =
+            document.getElementById(
+              targetId
+            );
+
+
+          if(!target){
+            return;
           }
+
+
+          target.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+          });
+
+
+          history.replaceState(
+            null,
+            "",
+            "#" + targetId
+          );
 
         }
       );
@@ -3435,18 +3626,15 @@
           "articleModal"
         );
 
-
       const articleClose =
         document.getElementById(
           "articleModalClose"
         );
 
-
       const categoryModal =
         document.getElementById(
           "categoryModal"
         );
-
 
       const categoryClose =
         document.getElementById(
@@ -3454,9 +3642,7 @@
         );
 
 
-      if(
-        articleClose
-      ){
+      if(articleClose){
 
         articleClose.addEventListener(
           "click",
@@ -3466,9 +3652,7 @@
       }
 
 
-      if(
-        categoryClose
-      ){
+      if(categoryClose){
 
         categoryClose.addEventListener(
           "click",
@@ -3478,9 +3662,7 @@
       }
 
 
-      if(
-        articleModal
-      ){
+      if(articleModal){
 
         articleModal.addEventListener(
           "click",
@@ -3501,9 +3683,7 @@
       }
 
 
-      if(
-        categoryModal
-      ){
+      if(categoryModal){
 
         categoryModal.addEventListener(
           "click",
@@ -3555,7 +3735,6 @@
           "searchForm"
         );
 
-
       const input =
         document.getElementById(
           "searchInput"
@@ -3580,9 +3759,9 @@
 
 
           const term =
-            input.value
-              .trim()
-              .toLowerCase();
+            normalizeCategory(
+              input.value
+            );
 
 
           if(!term){
@@ -3600,7 +3779,6 @@
                 behavior:"smooth"
               });
 
-
             return;
 
           }
@@ -3611,37 +3789,33 @@
               article => {
 
                 const title =
-                  String(
+                  normalizeCategory(
                     getTitle(article)
-                  )
-                  .toLowerCase();
+                  );
 
 
                 const category =
-                  String(
+                  normalizeCategory(
                     getCategory(article)
-                  )
-                  .toLowerCase();
+                  );
 
 
                 const description =
-                  String(
-                    article.description ||
-                    article.excerpt ||
+                  normalizeCategory(
+                    article?.description ||
+                    article?.excerpt ||
                     ""
-                  )
-                  .toLowerCase();
+                  );
 
 
                 const content =
-                  String(
-                    article.content ||
-                    article.body ||
-                    article.text ||
-                    article.article ||
+                  normalizeCategory(
+                    article?.content ||
+                    article?.body ||
+                    article?.text ||
+                    article?.article ||
                     ""
-                  )
-                  .toLowerCase();
+                  );
 
 
                 return (
@@ -3692,9 +3866,7 @@
 
 
       if(!form){
-
         return;
-
       }
 
 
@@ -3705,19 +3877,18 @@
           event.preventDefault();
 
 
+          const input =
+            document.getElementById(
+              "newsletterEmail"
+            );
+
+
           const email =
-            document
-              .getElementById(
-                "newsletterEmail"
-              )
-              .value
-              .trim();
+            input.value.trim();
 
 
           if(!email){
-
             return;
-
           }
 
 
@@ -3727,79 +3898,6 @@
 
 
           form.reset();
-
-        }
-      );
-
-    }
-
-
-    /* ==========================================
-       NAVIGATION
-    ========================================== */
-
-    function setupNavigation(){
-
-      document.addEventListener(
-        "click",
-        function(event){
-
-          const link =
-            event.target.closest(
-              'nav a, footer a, .brand'
-            );
-
-
-          if(!link){
-
-            return;
-
-          }
-
-
-          const href =
-            link.getAttribute(
-              "href"
-            );
-
-
-          if(
-            !href ||
-            !href.startsWith("#")
-          ){
-
-            return;
-
-          }
-
-
-          const target =
-            document.querySelector(
-              href
-            );
-
-
-          if(!target){
-
-            return;
-
-          }
-
-
-          event.preventDefault();
-
-
-          target.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-          });
-
-
-          history.replaceState(
-            null,
-            "",
-            href
-          );
 
         }
       );
@@ -3865,15 +3963,24 @@
 
     function renderAll(){
 
+      /*
+        BREAKING NEWS
+        mfumo wake umebaki
+      */
+
       renderBreaking();
+
 
       renderHero();
 
+
       renderSide();
+
 
       renderLatest(
         articles.slice(3,9)
       );
+
 
       renderAllCategories();
 
@@ -3881,7 +3988,7 @@
 
 
     /* ==========================================
-       FIREBASE ERROR MESSAGE
+       FIREBASE ERROR
     ========================================== */
 
     function showFirebaseError(error){
@@ -3944,23 +4051,14 @@
       const boxes = [
 
         "latestBox",
-
         "kitaifaBox",
-
         "mataifaBox",
-
         "diniBox",
-
         "michezoBox",
-
         "mazingiraBox",
-
         "burudaniBox",
-
         "siasaBox",
-
         "uchumiBox",
-
         "makalaBox"
 
       ];
@@ -4092,7 +4190,7 @@
 
 
         /*
-          SORT CLIENT SIDE
+          SORT
         */
 
         articles.sort(
@@ -4115,7 +4213,7 @@
 
 
         /*
-          RENDER WEBSITE
+          RENDER
         */
 
         renderAll();
@@ -4133,7 +4231,7 @@
 
 
     /* ==========================================
-       START WEBSITE
+       START
     ========================================== */
 
     renderDate();
