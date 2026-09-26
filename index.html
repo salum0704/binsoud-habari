@@ -437,6 +437,252 @@
       .newsletter form{flex-direction:column}
       .newsletter input,.newsletter button{width:100%}
     }
+  
+    /* =========================================================
+       MODERN NEWS ENHANCEMENTS - ADDITIVE ONLY
+       ========================================================= */
+
+    /* Breaking News: smooth moving ticker */
+    .breaking-inner{
+      position:relative;
+    }
+
+    .breaking-label{
+      position:relative;
+      z-index:3;
+      box-shadow:6px 0 10px rgba(0,0,0,.08);
+    }
+
+    .breaking-track-wrap{
+      flex:1;
+      min-width:0;
+      overflow:hidden;
+      position:relative;
+      height:40px;
+      display:flex;
+      align-items:center;
+    }
+
+    .breaking-track{
+      display:inline-flex;
+      align-items:center;
+      width:max-content;
+      white-space:nowrap;
+      animation: breakingMove 42s linear infinite;
+      will-change:transform;
+    }
+
+    .breaking-track:hover{
+      animation-play-state:paused;
+    }
+
+    .breaking-item{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding-right:65px;
+      color:#52606d;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .breaking-dot{
+      width:6px;
+      height:6px;
+      flex:0 0 6px;
+      background:var(--red);
+      border-radius:50%;
+      box-shadow:0 0 0 4px rgba(229,29,42,.10);
+    }
+
+    @keyframes breakingMove{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
+    /* Make the news front more attractive without changing layout */
+    .hero-main{
+      isolation:isolate;
+    }
+
+    .hero-main img{
+      transition:transform .7s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .hero-main:hover img{
+      transform:scale(1.045);
+    }
+
+    .hero-main::before{
+      content:"";
+      position:absolute;
+      z-index:3;
+      top:0;
+      left:-120%;
+      width:70%;
+      height:100%;
+      transform:skewX(-18deg);
+      background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.16),
+        transparent
+      );
+      transition:left .8s ease;
+      pointer-events:none;
+    }
+
+    .hero-main:hover::before{
+      left:140%;
+    }
+
+    .hero-overlay h2{
+      text-shadow:0 2px 10px rgba(0,0,0,.28);
+    }
+
+    .hero-category{
+      border-radius:3px;
+      box-shadow:0 3px 10px rgba(0,0,0,.18);
+    }
+
+    .side-card,
+    .news-card,
+    .category-card{
+      position:relative;
+    }
+
+    .side-card::after,
+    .news-card::after,
+    .category-card::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:3px;
+      background:var(--blue-2);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .25s ease;
+    }
+
+    .side-card:hover::after,
+    .news-card:hover::after,
+    .category-card:hover::after{
+      transform:scaleX(1);
+    }
+
+    .side-card img,
+    .news-card img,
+    .category-card img{
+      transition:transform .55s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .side-card:hover img,
+    .news-card:hover img,
+    .category-card:hover img{
+      transform:scale(1.055);
+    }
+
+    .news-content h3,
+    .category-card h3,
+    .side-content h3{
+      transition:color .18s ease;
+    }
+
+    .news-card:hover h3,
+    .category-card:hover h3,
+    .side-card:hover h3{
+      color:var(--blue);
+    }
+
+    .category{
+      background:#eef6ff;
+      padding:3px 7px;
+      border-radius:3px;
+      letter-spacing:.2px;
+    }
+
+    .date{
+      display:flex;
+      align-items:center;
+      gap:5px;
+    }
+
+    .date::before{
+      content:"•";
+      color:var(--blue-2);
+      font-weight:900;
+    }
+
+    /* Gentle entrance animation for news blocks */
+    @keyframes newsAppear{
+      from{
+        opacity:0;
+        transform:translateY(8px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .hero-main,
+    .side-card,
+    .news-card,
+    .category-card{
+      animation:newsAppear .55s ease both;
+    }
+
+    .side-card:nth-child(2){animation-delay:.08s}
+    .side-card:nth-child(3){animation-delay:.16s}
+    .news-card:nth-child(2){animation-delay:.05s}
+    .news-card:nth-child(3){animation-delay:.10s}
+    .news-card:nth-child(4){animation-delay:.15s}
+    .news-card:nth-child(5){animation-delay:.20s}
+    .news-card:nth-child(6){animation-delay:.25s}
+
+    /* Better reading hierarchy */
+    .news-content h3{
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:3;
+      overflow:hidden;
+    }
+
+    .category-card h3{
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:3;
+      overflow:hidden;
+    }
+
+    .side-content h3{
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:3;
+      overflow:hidden;
+    }
+
+    /* Respect reduced-motion accessibility */
+    @media (prefers-reduced-motion:reduce){
+      .breaking-track{
+        animation:none;
+      }
+      .hero-main,
+      .side-card,
+      .news-card,
+      .category-card{
+        animation:none;
+      }
+      .hero-main img,
+      .side-card img,
+      .news-card img,
+      .category-card img{
+        transition:none;
+      }
+    }
+
   </style>
 </head>
 
@@ -823,14 +1069,46 @@
     function renderBreaking(articles){
       const box = document.getElementById("breakingText");
 
-      const breaking = articles.find(article =>
+      if(!articles.length){
+        box.innerHTML = `
+          <div class="breaking-track-wrap">
+            <div class="breaking-track">
+              <span class="breaking-item">
+                <span class="breaking-dot"></span>
+                Karibu BINSOUD HABARI — taarifa sahihi, wakati sahihi.
+              </span>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const selected = articles.filter(article =>
         article.breaking === true ||
         article.breaking === "true"
       );
 
-      box.textContent = breaking
-        ? breaking.title
-        : (articles[0]?.title || "Karibu BINSOUD HABARI.");
+      const news = (selected.length ? selected : articles).slice(0, 8);
+
+      const makeItems = list => list.map(article => `
+        <span class="breaking-item">
+          <span class="breaking-dot"></span>
+          ${escapeHtml(article.title)}
+        </span>
+      `).join("");
+
+      /*
+       * Tunazirudia habari mara mbili ili ticker iweze kuendelea
+       * bila kukatika ghafla inapofika mwisho.
+       */
+      box.innerHTML = `
+        <div class="breaking-track-wrap" aria-label="Breaking News">
+          <div class="breaking-track">
+            ${makeItems(news)}
+            ${makeItems(news)}
+          </div>
+        </div>
+      `;
     }
 
     loadArticles().catch(error => {
