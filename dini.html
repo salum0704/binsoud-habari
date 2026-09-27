@@ -5,21 +5,18 @@
 
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Dini | BINSOUD HABARI</title>
 
   <meta
     name="description"
-    content="Soma habari mpya za dini, matukio ya kidini, viongozi wa dini na taarifa mbalimbali za dini Tanzania na duniani kupitia BINSOUD HABARI."
+    content="Habari mpya za dini, viongozi wa dini, ibada na matukio mbalimbali kutoka BINSOUD HABARI."
   >
 
   <meta
     name="robots"
-    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    content="index, follow"
   >
 
   <meta
@@ -30,11 +27,6 @@
   <meta
     name="theme-color"
     content="#0757a6"
-  >
-
-  <link
-    rel="canonical"
-    href="https://salum0704.github.io/binsoud-habari/dini.html"
   >
 
   <meta
@@ -49,12 +41,7 @@
 
   <meta
     property="og:description"
-    content="Habari mpya za dini, matukio ya kidini na taarifa mbalimbali kupitia BINSOUD HABARI."
-  >
-
-  <meta
-    property="og:url"
-    content="https://salum0704.github.io/binsoud-habari/dini.html"
+    content="Habari mpya za dini kutoka BINSOUD HABARI."
   >
 
   <meta
@@ -62,9 +49,9 @@
     content="BINSOUD HABARI"
   >
 
-  <meta
-    property="og:locale"
-    content="sw_TZ"
+  <link
+    rel="canonical"
+    href="https://salum0704.github.io/binsoud-habari/dini.html"
   >
 
   <link
@@ -98,17 +85,11 @@
     }
 
 
-    html{
-      scroll-behavior:smooth;
-    }
-
-
     body{
       font-family:Arial,Helvetica,sans-serif;
       background:var(--light);
       color:var(--text);
       line-height:1.7;
-      overflow-x:hidden;
     }
 
 
@@ -145,13 +126,11 @@
       max-width:1250px;
       margin:auto;
       min-height:34px;
-
       padding:7px 20px;
 
       display:flex;
       justify-content:space-between;
       align-items:center;
-
       gap:15px;
     }
 
@@ -184,7 +163,6 @@
       display:flex;
       align-items:center;
       gap:12px;
-
       flex-shrink:0;
     }
 
@@ -210,6 +188,7 @@
     .logo-text h1{
       font-size:24px;
       line-height:1;
+
       font-weight:900;
 
       letter-spacing:-.4px;
@@ -265,6 +244,8 @@
 
       font-size:14px;
 
+      color:var(--text);
+
       background:#fff;
 
       border-radius:7px 0 0 7px;
@@ -293,7 +274,8 @@
 
       font-size:17px;
 
-      border-radius:0 7px 7px 0;
+      border-radius:
+        0 7px 7px 0;
     }
 
 
@@ -379,7 +361,8 @@
       z-index:100;
 
       box-shadow:
-        0 2px 8px rgba(0,0,0,.08);
+        0 2px 8px
+        rgba(0,0,0,.08);
     }
 
 
@@ -425,14 +408,15 @@
 
     nav a:hover,
     nav a.active{
-      background:rgba(255,255,255,.10);
+      background:
+        rgba(255,255,255,.10);
 
       border-bottom-color:#fff;
     }
 
 
     /* =====================================================
-       BREAKING NEWS
+       BREAKING NEWS - WHITE
     ===================================================== */
 
     .breaking{
@@ -464,7 +448,8 @@
 
       color:#fff;
 
-      padding:9px 15px;
+      padding:
+        9px 15px;
 
       font-size:12px;
 
@@ -479,7 +464,8 @@
     #breakingNews{
       flex:1;
 
-      padding:0 15px;
+      padding:
+        0 15px;
 
       color:#43566b;
 
@@ -513,7 +499,8 @@
 
       margin:auto;
 
-      padding:28px 20px 55px;
+      padding:
+        28px 20px 55px;
     }
 
 
@@ -580,7 +567,7 @@
 
 
     /* =====================================================
-       HERO LAYOUT
+       HERO
     ===================================================== */
 
     .hero-layout{
@@ -592,13 +579,10 @@
 
       gap:22px;
 
-      margin-bottom:30px;
+      margin-bottom:
+        30px;
     }
 
-
-    /* =====================================================
-       HERO
-    ===================================================== */
 
     .hero{
       background:#fff;
@@ -671,7 +655,8 @@
 
       color:#fff;
 
-      padding:5px 9px;
+      padding:
+        5px 9px;
 
       border-radius:4px;
 
@@ -747,7 +732,8 @@
       gap:10px;
 
       box-shadow:
-        0 4px 14px rgba(13,47,79,.05);
+        0 4px 14px
+        rgba(13,47,79,.05);
 
       transition:.2s;
     }
@@ -777,6 +763,7 @@
 
     .side-image img{
       width:100%;
+
       height:100%;
 
       object-fit:cover;
@@ -1053,7 +1040,7 @@
 
 
     /* =====================================================
-       ONA HABARI ZAIDI
+       MORE BUTTON
     ===================================================== */
 
     .more-wrap{
@@ -1092,11 +1079,6 @@
     }
 
 
-    .more-btn.hidden{
-      display:none;
-    }
-
-
     /* =====================================================
        LOADING
     ===================================================== */
@@ -1114,7 +1096,8 @@
 
     .loading-main,
     .loading-card{
-      border-radius:var(--radius);
+      border-radius:
+        var(--radius);
 
       background:
         linear-gradient(
@@ -1153,13 +1136,11 @@
     @keyframes loading{
 
       0%{
-        background-position:
-          100% 50%;
+        background-position:100% 50%;
       }
 
       100%{
-        background-position:
-          0 50%;
+        background-position:0 50%;
       }
 
     }
@@ -1325,7 +1306,8 @@
 
 
       .hero-layout{
-        grid-template-columns:1fr;
+        grid-template-columns:
+          1fr;
       }
 
 
@@ -1349,7 +1331,8 @@
 
 
       .loading-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:
+          1fr;
       }
 
 
@@ -1487,7 +1470,8 @@
 
 
       .news-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:
+          1fr;
       }
 
 
@@ -1522,7 +1506,8 @@
 
 
       .footer-inner{
-        grid-template-columns:1fr;
+        grid-template-columns:
+          1fr;
 
         gap:25px;
 
@@ -1552,6 +1537,7 @@
         📰 BINSOUD HABARI
       </span>
 
+
       <span>
         Habari kwa wakati • Ukweli • Uhakika
       </span>
@@ -1568,6 +1554,7 @@
   <header>
 
     <div class="header-inner">
+
 
       <a
         href="index.html"
@@ -1597,8 +1584,6 @@
 
       </a>
 
-
-      <!-- SEARCH -->
 
       <div class="header-search">
 
@@ -1780,7 +1765,9 @@
     </section>
 
 
-    <!-- LOADING -->
+    <!-- ===================================================
+         LOADING
+    ==================================================== -->
 
     <div id="loading">
 
@@ -1804,7 +1791,9 @@
     </div>
 
 
-    <!-- ERROR -->
+    <!-- ===================================================
+         ERROR
+    ==================================================== -->
 
     <div
       id="errorState"
@@ -1828,7 +1817,9 @@
     </div>
 
 
-    <!-- EMPTY -->
+    <!-- ===================================================
+         EMPTY
+    ==================================================== -->
 
     <div
       id="emptyState"
@@ -1853,7 +1844,9 @@
     </div>
 
 
-    <!-- CONTENT -->
+    <!-- ===================================================
+         FRONT CONTENT
+    ==================================================== -->
 
     <div
       id="content"
@@ -1876,7 +1869,6 @@
           id="sideNews"
           class="side-news"
         ></div>
-
 
       </div>
 
@@ -2216,67 +2208,76 @@
 
       }
 
-      return String(value).trim();
+
+      return String(
+        value
+      ).trim();
 
     }
 
 
     function escapeHTML(value){
 
-      return cleanText(value)
+      return cleanText(
+        value
+      )
 
-        .replace(
-          /&/g,
-          "&amp;"
-        )
+      .replace(
+        /&/g,
+        "&amp;"
+      )
 
-        .replace(
-          /</g,
-          "&lt;"
-        )
+      .replace(
+        /</g,
+        "&lt;"
+      )
 
-        .replace(
-          />/g,
-          "&gt;"
-        )
+      .replace(
+        />/g,
+        "&gt;"
+      )
 
-        .replace(
-          /"/g,
-          "&quot;"
-        )
+      .replace(
+        /"/g,
+        "&quot;"
+      )
 
-        .replace(
-          /'/g,
-          "&#039;"
-        );
+      .replace(
+        /'/g,
+        "&#039;"
+      );
 
     }
 
 
     function normalizeSearch(value){
 
-      return cleanText(value)
+      return cleanText(
+        value
+      )
 
-        .toLowerCase()
+      .toLowerCase()
 
-        .normalize("NFD")
+      .normalize(
+        "NFD"
+      )
 
-        .replace(
-          /[\u0300-\u036f]/g,
-          ""
-        )
+      .replace(
+        /[\u0300-\u036f]/g,
+        ""
+      )
 
-        .replace(
-          /[^a-z0-9\s]/g,
-          " "
-        )
+      .replace(
+        /[^a-z0-9\s]/g,
+        " "
+      )
 
-        .replace(
-          /\s+/g,
-          " "
-        )
+      .replace(
+        /\s+/g,
+        " "
+      )
 
-        .trim();
+      .trim();
 
     }
 
@@ -2615,8 +2616,8 @@
               value.seconds * 1000 +
 
               Math.floor(
-                (value.nanoseconds || 0)
-                / 1000000
+                (value.nanoseconds || 0) /
+                1000000
               )
 
             );
@@ -2797,9 +2798,13 @@
 
 
         return (
+
           "Imetumwa dakika " +
+
           minutes +
+
           " zilizopita"
+
         );
 
       }
@@ -2822,9 +2827,11 @@
           hours +
 
           (
+
             hours === 1
               ? " iliyopita"
               : " zilizopita"
+
           )
 
         );
@@ -2869,7 +2876,7 @@
 
 
     /* =====================================================
-       SHORT DESCRIPTION
+       DESCRIPTION
     ===================================================== */
 
     function getShortDescription(
@@ -3008,6 +3015,7 @@
           src="${escapeHTML(image)}"
           alt="${escapeHTML(title)}"
           loading="lazy"
+
           onerror="
             this.onerror=null;
             this.style.display='none';
@@ -3038,7 +3046,7 @@
 
       const title =
         getTitle(article) ||
-        "Habari mpya za dini";
+        "Habari mpya za Dini";
 
 
       const image =
@@ -3077,19 +3085,27 @@
 
 
               <div class="hero-title">
-                ${escapeHTML(title)}
+
+                ${escapeHTML(
+                  title
+                )}
+
               </div>
 
 
               <div class="hero-meta">
 
                 ✍️
-                ${escapeHTML(author)}
+                ${escapeHTML(
+                  author
+                )}
 
                 &nbsp; • &nbsp;
 
                 📅
-                ${escapeHTML(time)}
+                ${escapeHTML(
+                  time
+                )}
 
               </div>
 
@@ -3177,7 +3193,9 @@
                     href="${articleLink(article)}"
                   >
 
-                    ${escapeHTML(title)}
+                    ${escapeHTML(
+                      title
+                    )}
 
                   </a>
 
@@ -3187,7 +3205,9 @@
                 <small>
 
                   📅
-                  ${escapeHTML(time)}
+                  ${escapeHTML(
+                    time
+                  )}
 
                 </small>
 
@@ -3207,12 +3227,10 @@
 
 
     /* =====================================================
-       CREATE CARD
+       CARD
     ===================================================== */
 
-    function createCard(
-      article
-    ){
+    function createCard(article){
 
       const title =
         getTitle(article) ||
@@ -3301,7 +3319,6 @@
 
         <div class="card-body">
 
-
           <div class="category">
             DINI
           </div>
@@ -3313,7 +3330,9 @@
               href="${articleLink(article)}"
             >
 
-              ${escapeHTML(title)}
+              ${escapeHTML(
+                title
+              )}
 
             </a>
 
@@ -3322,7 +3341,9 @@
 
           <p class="intro">
 
-            ${escapeHTML(description)}
+            ${escapeHTML(
+              description
+            )}
 
           </p>
 
@@ -3332,7 +3353,9 @@
             <span>
 
               ✍️
-              ${escapeHTML(author)}
+              ${escapeHTML(
+                author
+              )}
 
             </span>
 
@@ -3340,7 +3363,9 @@
             <span>
 
               📅
-              ${escapeHTML(time)}
+              ${escapeHTML(
+                time
+              )}
 
             </span>
 
@@ -3348,7 +3373,9 @@
             <span>
 
               ⏱️
-              ${escapeHTML(readTime)}
+              ${escapeHTML(
+                readTime
+              )}
 
             </span>
 
@@ -3424,18 +3451,14 @@
       );
 
 
-      /*
-        HERO
-      */
+      /* HERO */
 
       renderHero(
         articles[0]
       );
 
 
-      /*
-        SIDE NEWS
-      */
+      /* SIDE */
 
       renderSideNews(
         articles.slice(
@@ -3445,9 +3468,7 @@
       );
 
 
-      /*
-        GRID
-      */
+      /* GRID */
 
       const gridArticles =
         articles.slice(
@@ -3475,17 +3496,13 @@
       );
 
 
-      /*
-        COUNT
-      */
+      /* COUNT */
 
       count.textContent =
         `${articles.length} habari`;
 
 
-      /*
-        MORE
-      */
+      /* MORE */
 
       if(
         gridArticles.length >
@@ -3646,7 +3663,7 @@
 
 
             /*
-              ONYESHA ZILIZO PUBLISHED TU
+              ZILIZOCHAPISHWA TU
             */
 
             if(
@@ -3669,8 +3686,9 @@
 
 
             /*
-              Dini inaweza kuwa
-              DINI au RELIGION.
+              Dini.
+              Inakubali:
+              dini / religion
             */
 
             const isDini =
@@ -3726,6 +3744,10 @@
         );
 
 
+        /*
+          SAVE
+        */
+
         allDiniArticles =
           articles;
 
@@ -3741,7 +3763,7 @@
 
 
         /*
-          BREAKING
+          BREAKING NEWS
         */
 
         updateBreakingNews();
@@ -3757,7 +3779,7 @@
 
 
         /*
-          HAKUNA HABARI
+          EMPTY
         */
 
         if(
@@ -3780,7 +3802,7 @@
 
 
         /*
-          ONYESHA FRONT
+          SHOW FRONT
         */
 
         renderFront(
@@ -4021,7 +4043,9 @@
                   href="${articleLink(article)}"
                 >
 
-                  ${escapeHTML(title)}
+                  ${escapeHTML(
+                    title
+                  )}
 
                   <small>
                     Dini
@@ -4250,7 +4274,7 @@
 
 
     /* =====================================================
-       REFRESH TIME
+       UPDATE TIME
     ===================================================== */
 
     setInterval(
@@ -4280,5 +4304,4 @@
   </script>
 
 </body>
-
 </html>
