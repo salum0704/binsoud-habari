@@ -552,46 +552,12 @@
 
     /* =========================
        MAWASILIANO
+       ANCHOR PEKEE
     ========================== */
 
     #mawasiliano{
       scroll-margin-top:20px;
-    }
-
-    .contact-box{
-      margin-top:30px;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:24px;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .contact-item h3{
-      color:var(--blue-dark);
-      margin-bottom:5px;
-      font-size:17px;
-    }
-
-    .contact-item p{
-      color:var(--muted);
-      font-size:14px;
-      margin-bottom:6px;
-    }
-
-    .contact-item a{
-      color:var(--blue);
-      font-weight:700;
-    }
-
-    .contact-item a:hover{
-      color:var(--red);
+      height:1px;
     }
 
     /* =========================
@@ -754,10 +720,6 @@
         grid-template-columns:repeat(2,1fr);
       }
 
-      .contact-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
       .footer-main{
         grid-template-columns:1fr 1fr;
       }
@@ -794,10 +756,6 @@
       .side-image{
         width:100px;
         min-height:100px;
-      }
-
-      .contact-grid{
-        grid-template-columns:1fr;
       }
 
       .newsletter{
@@ -948,7 +906,7 @@
         AUDIO
       </a>
 
-      <a href="#mawasiliano">
+      <a href="index.html#mawasiliano">
         MAWASILIANO
       </a>
 
@@ -1132,102 +1090,10 @@
 
       <!-- =====================
            MAWASILIANO
+           ANCHOR PEKEE
       ====================== -->
 
-      <section id="mawasiliano">
-
-        <div class="section-title">
-
-          <h2>
-            Mawasiliano
-          </h2>
-
-        </div>
-
-
-        <div class="contact-box">
-
-          <div class="contact-grid">
-
-
-            <!-- SIMU -->
-
-            <div class="contact-item">
-
-              <h3>
-                Simu
-              </h3>
-
-              <p>
-                Kwa mawasiliano ya moja kwa moja na BINSOUD HABARI.
-              </p>
-
-              <p>
-
-                <a href="tel:+255777101192">
-                  0777101192
-                </a>
-
-              </p>
-
-            </div>
-
-
-            <!-- WHATSAPP -->
-
-            <div class="contact-item">
-
-              <h3>
-                WhatsApp
-              </h3>
-
-              <p>
-                Tuma ujumbe moja kwa moja kupitia WhatsApp.
-              </p>
-
-              <p>
-
-                <a
-                  href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Tuma ujumbe
-                </a>
-
-              </p>
-
-            </div>
-
-
-            <!-- EMAIL -->
-
-            <div class="contact-item">
-
-              <h3>
-                Barua Pepe
-              </h3>
-
-              <p>
-                Wasiliana nasi kupitia barua pepe.
-              </p>
-
-              <p>
-
-                <a href="mailto:binsoud2@gmail.com">
-                  binsoud2@gmail.com
-                </a>
-
-              </p>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </section>
+      <div id="mawasiliano"></div>
 
 
       <!-- =====================
@@ -1361,7 +1227,7 @@
             Audio
           </a>
 
-          <a href="#mawasiliano">
+          <a href="index.html#mawasiliano">
             Mawasiliano
           </a>
 
@@ -1976,7 +1842,7 @@
 
 
     /* =========================
-       MUDA WA HABARI
+       FORMAT DATE
     ========================== */
 
     function formatDate(article){
@@ -1994,96 +1860,12 @@
       }
 
 
-      const now =
-        Date.now();
-
-
-      let difference =
-        now - millis;
-
-
-      /* Kama muda wa server uko mbele kidogo */
-      if(difference < 0){
-
-        difference = 0;
-
-      }
-
-
-      const minute =
-        60 * 1000;
-
-      const hour =
-        60 * minute;
-
-      const day =
-        24 * hour;
-
-
-      /* Chini ya dakika 1 */
-
-      if(difference < minute){
-
-        return "Imetumwa hivi punde";
-
-      }
-
-
-      /* Dakika */
-
-      if(difference < hour){
-
-        const minutes =
-          Math.floor(
-            difference / minute
-          );
-
-
-        if(minutes === 1){
-
-          return "Imetumwa dakika 1 iliyopita";
-
-        }
-
-
-        return `Imetumwa dakika ${minutes} zilizopita`;
-
-      }
-
-
-      /* Saa */
-
-      if(difference < day){
-
-        const hours =
-          Math.floor(
-            difference / hour
-          );
-
-
-        if(hours === 1){
-
-          return "Imetumwa saa 1 iliyopita";
-
-        }
-
-
-        return `Imetumwa saa ${hours} zilizopita`;
-
-      }
-
-
-      /* Zaidi ya saa 24:
-         tarehe na muda */
-
       return new Intl.DateTimeFormat(
         "sw-TZ",
         {
-          day:"numeric",
-          month:"long",
-          year:"numeric",
-          hour:"2-digit",
-          minute:"2-digit"
+          day:"2-digit",
+          month:"short",
+          year:"numeric"
         }
       ).format(
         new Date(millis)
