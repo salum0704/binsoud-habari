@@ -17,8 +17,15 @@
   content="index, follow, max-image-preview:large"
 >
 
-<meta name="author" content="BINSOUD HABARI">
-<meta name="theme-color" content="#0878c9">
+<meta
+  name="author"
+  content="BINSOUD HABARI"
+>
+
+<meta
+  name="theme-color"
+  content="#0878c9"
+>
 
 <link
   rel="canonical"
@@ -26,7 +33,11 @@
 >
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mazingira | BINSOUD HABARI">
+
+<meta
+  property="og:title"
+  content="Mazingira | BINSOUD HABARI"
+>
 
 <meta
   property="og:description"
@@ -38,11 +49,25 @@
   content="https://salum0704.github.io/binsoud-habari/mazingira.html"
 >
 
-<meta property="og:site_name" content="BINSOUD HABARI">
-<meta property="og:locale" content="sw_TZ">
+<meta
+  property="og:site_name"
+  content="BINSOUD HABARI"
+>
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mazingira | BINSOUD HABARI">
+<meta
+  property="og:locale"
+  content="sw_TZ"
+>
+
+<meta
+  name="twitter:card"
+  content="summary"
+>
+
+<meta
+  name="twitter:title"
+  content="Mazingira | BINSOUD HABARI"
+>
 
 <meta
   name="twitter:description"
@@ -50,6 +75,10 @@
 >
 
 <style>
+
+/* =========================
+   ROOT
+========================= */
 
 :root{
   --blue:#0757a6;
@@ -65,6 +94,11 @@
   --shadow:0 5px 18px rgba(13,47,79,.08);
   --radius:8px;
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 *{
   box-sizing:border-box;
@@ -103,6 +137,29 @@ input{
 .container{
   width:min(1180px,calc(100% - 30px));
   margin:auto;
+}
+
+
+/* =========================
+   TOP DATE BAR
+========================= */
+
+.top-date-bar{
+  background:var(--deep);
+  color:#fff;
+}
+
+.top-date-inner{
+  min-height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.top-date{
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
 }
 
 
@@ -184,7 +241,9 @@ input{
 }
 
 
-/* SEARCH SUGGESTIONS */
+/* =========================
+   SEARCH SUGGESTIONS
+========================= */
 
 .search-suggestions{
   position:absolute;
@@ -659,7 +718,6 @@ main{
 footer{
   background:var(--deep);
   color:#fff;
-  margin-top:20px;
 }
 
 .footer-inner{
@@ -744,6 +802,14 @@ footer a:hover{
 
   .container{
     width:min(1180px,calc(100% - 24px));
+  }
+
+  .top-date-inner{
+    justify-content:center;
+  }
+
+  .top-date{
+    font-size:12px;
   }
 
   .header-inner{
@@ -862,13 +928,38 @@ footer a:hover{
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     TOP DATE BAR
+========================= -->
+
+<div class="top-date-bar">
+
+  <div class="container top-date-inner">
+
+    <div
+      class="top-date"
+      id="topDate"
+    >
+      Jumapili, 27 Septemba 2026
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="site-header">
 
   <div class="container header-inner">
 
-    <a href="index.html" class="logo">
+    <a
+      href="index.html"
+      class="logo"
+    >
       BINSOUD <span>HABARI</span>
     </a>
 
@@ -907,7 +998,9 @@ footer a:hover{
 </header>
 
 
-<!-- NAV -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav
   class="nav"
@@ -976,7 +1069,9 @@ footer a:hover{
 </nav>
 
 
-<!-- BREAKING NEWS -->
+<!-- =========================
+     BREAKING NEWS
+========================= -->
 
 <section class="breaking">
 
@@ -985,6 +1080,7 @@ footer a:hover{
     <div class="breaking-label">
       BREAKING NEWS
     </div>
+
 
     <div class="breaking-content">
 
@@ -999,7 +1095,9 @@ footer a:hover{
 </section>
 
 
-<!-- PAGE HEADER -->
+<!-- =========================
+     PAGE HEADER
+========================= -->
 
 <section class="page-header">
 
@@ -1034,7 +1132,9 @@ footer a:hover{
 </section>
 
 
-<!-- MAIN -->
+<!-- =========================
+     MAIN
+========================= -->
 
 <main>
 
@@ -1088,7 +1188,9 @@ footer a:hover{
             Habari Zinazofuatwa
           </div>
 
-          <div id="sideNews"></div>
+          <div
+            id="sideNews"
+          ></div>
 
         </div>
 
@@ -1145,7 +1247,9 @@ footer a:hover{
 </main>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -1242,7 +1346,6 @@ footer a:hover{
 
     </div>
 
-
   </div>
 
 
@@ -1256,12 +1359,15 @@ footer a:hover{
 </footer>
 
 
+<!-- =========================
+     FIREBASE SCRIPT
+========================= -->
+
 <script type="module">
 
 import {
   initializeApp
-}
-from
+} from
 "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 
@@ -1269,13 +1375,12 @@ import {
   getFirestore,
   collection,
   getDocs
-}
-from
+} from
 "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
 /* =========================
-   FIREBASE
+   FIREBASE CONFIG
 ========================= */
 
 const firebaseConfig = {
@@ -1311,12 +1416,24 @@ const app =
 
 
 const db =
-  getFirestore(app);
+  getFirestore(
+    app
+  );
 
 
 /* =========================
    ELEMENTS
 ========================= */
+
+const topDate =
+  document.getElementById(
+    "topDate"
+  );
+
+const currentDate =
+  document.getElementById(
+    "currentDate"
+  );
 
 const error =
   document.getElementById(
@@ -1358,11 +1475,6 @@ const breakingText =
     "breakingText"
   );
 
-const currentDate =
-  document.getElementById(
-    "currentDate"
-  );
-
 const searchForm =
   document.getElementById(
     "searchForm"
@@ -1384,6 +1496,10 @@ const moreBtn =
   );
 
 
+/* =========================
+   STATE
+========================= */
+
 let allArticles = [];
 
 let visibleGridCount = 3;
@@ -1397,16 +1513,32 @@ let breakingTimer = null;
    DATE
 ========================= */
 
+function getToday(){
+
+  return new Date()
+    .toLocaleDateString(
+      "sw-TZ",
+      {
+        weekday:"long",
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+      }
+    );
+
+}
+
+
+const today =
+  getToday();
+
+
+topDate.textContent =
+  today;
+
+
 currentDate.textContent =
-  new Date().toLocaleDateString(
-    "sw-TZ",
-    {
-      weekday:"long",
-      year:"numeric",
-      month:"long",
-      day:"numeric"
-    }
-  );
+  today;
 
 
 /* =========================
@@ -1415,27 +1547,29 @@ currentDate.textContent =
 
 function escapeHTML(value){
 
-  return String(value ?? "")
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
 
@@ -1493,7 +1627,9 @@ function getShortIntro(article){
 
 
   const words =
-    text.split(/\s+/);
+    text.split(
+      /\s+/
+    );
 
 
   if(
@@ -1502,7 +1638,10 @@ function getShortIntro(article){
 
     return (
       words
-      .slice(0,35)
+      .slice(
+        0,
+        35
+      )
       .join(" ") +
       "..."
     );
@@ -1542,7 +1681,10 @@ function getDateValue(article){
     typeof value.seconds === "number"
   ){
 
-    return value.seconds * 1000;
+    return (
+      value.seconds *
+      1000
+    );
 
   }
 
@@ -1553,9 +1695,11 @@ function getDateValue(article){
     ).getTime();
 
 
-  return Number.isNaN(time)
-    ? 0
-    : time;
+  return Number.isNaN(
+    time
+  )
+  ? 0
+  : time;
 
 }
 
@@ -1598,7 +1742,8 @@ function formatDate(article){
   ){
 
     return new Date(
-      article.createdAt.seconds * 1000
+      article.createdAt.seconds *
+      1000
     )
     .toLocaleDateString(
       "sw-TZ",
@@ -1716,7 +1861,10 @@ function renderBreakingNews(
 
   const headlines =
     articles
-      .slice(0,10)
+      .slice(
+        0,
+        10
+      )
       .map(
         article =>
           String(
@@ -1798,7 +1946,9 @@ function renderBreakingNews(
    HERO
 ========================= */
 
-function renderHero(article){
+function renderHero(
+  article
+){
 
   if(!article){
 
@@ -1929,7 +2079,10 @@ function renderSideNews(
 
 
   articles
-    .slice(0,4)
+    .slice(
+      0,
+      4
+    )
     .forEach(
       article => {
 
@@ -2020,12 +2173,6 @@ function renderNewsGrid(
   newsGrid.innerHTML =
     "";
 
-
-  /*
-   * Article 1 = Hero
-   * Article 2-5 = Side News
-   * Article 6+ = Grid
-   */
 
   const visibleArticles =
     articles.slice(
@@ -2195,10 +2342,6 @@ function renderArticles(
     "none";
 
 
-  content.style.display =
-    "block";
-
-
   if(
     !articles ||
     !articles.length
@@ -2221,6 +2364,10 @@ function renderArticles(
   }
 
 
+  content.style.display =
+    "block";
+
+
   empty.style.display =
     "none";
 
@@ -2239,7 +2386,10 @@ function renderArticles(
 
 
   renderSideNews(
-    articles.slice(1,5)
+    articles.slice(
+      1,
+      5
+    )
   );
 
 
@@ -2260,6 +2410,7 @@ async function loadArticles(){
 
     error.style.display =
       "none";
+
 
     empty.style.display =
       "none";
@@ -2454,7 +2605,10 @@ function updateSuggestions(){
 
         }
       )
-      .slice(0,5);
+      .slice(
+        0,
+        5
+      );
 
 
   if(!results.length){
@@ -2508,7 +2662,9 @@ function updateSuggestions(){
 }
 
 
-/* SEARCH INPUT */
+/* =========================
+   SEARCH INPUT
+========================= */
 
 searchInput.addEventListener(
   "input",
@@ -2516,7 +2672,9 @@ searchInput.addEventListener(
 );
 
 
-/* SEARCH FOCUS */
+/* =========================
+   SEARCH FOCUS
+========================= */
 
 searchInput.addEventListener(
   "focus",
@@ -2524,7 +2682,9 @@ searchInput.addEventListener(
 );
 
 
-/* SEARCH SUBMIT */
+/* =========================
+   SEARCH SUBMIT
+========================= */
 
 searchForm.addEventListener(
   "submit",
@@ -2618,7 +2778,9 @@ searchForm.addEventListener(
 );
 
 
-/* CLOSE SUGGESTIONS */
+/* =========================
+   CLOSE SEARCH
+========================= */
 
 document.addEventListener(
   "click",
@@ -2649,7 +2811,6 @@ moreBtn.addEventListener(
   () => {
 
     visibleGridCount += 3;
-
 
     renderNewsGrid(
       allArticles
