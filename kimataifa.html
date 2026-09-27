@@ -12,24 +12,24 @@
     content="Habari za kimataifa kutoka Afrika na dunia kupitia BINSOUD HABARI."
   >
 
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="BINSOUD HABARI">
   <meta name="theme-color" content="#0757a6">
+  <meta name="robots" content="index, follow">
 
   <link
     rel="canonical"
     href="https://salum0704.github.io/binsoud-habari/kimataifa.html"
   >
 
+  <meta property="og:type" content="website">
   <meta property="og:title" content="Kimataifa | BINSOUD HABARI">
   <meta
     property="og:description"
     content="Habari mpya za kimataifa kutoka Afrika na dunia."
   >
-  <meta property="og:type" content="website">
   <meta property="og:site_name" content="BINSOUD HABARI">
 
   <link rel="icon" href="favicon.ico">
+
 
   <style>
 
@@ -48,33 +48,39 @@
       --radius:8px;
     }
 
+
     *{
       box-sizing:border-box;
       margin:0;
       padding:0;
     }
 
+
     body{
-      font-family:Arial, Helvetica, sans-serif;
+      font-family:Arial,Helvetica,sans-serif;
       background:var(--light);
       color:var(--text);
       line-height:1.7;
     }
+
 
     a{
       text-decoration:none;
       color:inherit;
     }
 
+
     img{
       max-width:100%;
       display:block;
     }
 
+
     button,
     input{
       font-family:inherit;
     }
+
 
     /* =========================
        TOP BAR
@@ -86,16 +92,20 @@
       font-size:13px;
     }
 
+
     .topbar-inner{
       max-width:1250px;
       margin:auto;
-      min-height:34px;
       padding:7px 20px;
+      min-height:34px;
+
       display:flex;
       justify-content:space-between;
       align-items:center;
+
       gap:15px;
     }
+
 
     /* =========================
        HEADER
@@ -106,55 +116,73 @@
       border-bottom:1px solid var(--border);
     }
 
+
     .header-inner{
       max-width:1250px;
       margin:auto;
+
       padding:16px 20px;
+
       display:flex;
       align-items:center;
       justify-content:space-between;
+
       gap:25px;
     }
+
 
     .logo{
       display:flex;
       align-items:center;
       gap:12px;
+
       flex-shrink:0;
     }
+
 
     .logo-mark{
       width:52px;
       height:52px;
+
+      background:var(--blue);
+      color:#fff;
+
       border-radius:8px;
+
       display:flex;
       align-items:center;
       justify-content:center;
-      background:var(--blue);
-      color:#fff;
+
       font-size:22px;
       font-weight:900;
-      letter-spacing:.5px;
     }
+
 
     .logo-text h1{
       font-size:24px;
       line-height:1;
+
       font-weight:900;
       letter-spacing:-.4px;
     }
 
-    .logo-text h1 .red{
+
+    .logo-text .red{
       color:var(--red);
     }
 
+
     .logo-text span{
       display:block;
+
       margin-top:5px;
+
       font-size:12px;
       color:var(--muted);
+
       font-weight:600;
     }
+
 
     /* =========================
        SEARCH
@@ -165,127 +193,189 @@
       position:relative;
     }
 
+
     .search-form{
       display:flex;
       width:100%;
     }
 
+
     .search-input{
       flex:1;
       min-width:0;
+
       height:42px;
+
       border:1px solid #d7e0ea;
       border-right:0;
+
       outline:none;
+
       padding:0 13px;
+
       font-size:14px;
-      color:var(--text);
-      background:#fff;
+
       border-radius:7px 0 0 7px;
+      background:#fff;
     }
+
 
     .search-input:focus{
       border-color:var(--blue-2);
-      box-shadow:0 0 0 2px rgba(8,120,201,.10);
+
+      box-shadow:
+        0 0 0 2px rgba(8,120,201,.10);
     }
+
 
     .search-btn{
       width:50px;
+
       border:0;
-      cursor:pointer;
+
       background:var(--blue);
       color:#fff;
+
+      cursor:pointer;
+
       font-size:17px;
+
       border-radius:0 7px 7px 0;
     }
+
 
     .search-btn:hover{
       background:var(--blue-dark);
     }
 
+
     .search-suggestions{
       position:absolute;
+
       top:47px;
       left:0;
       right:0;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:7px;
-      box-shadow:0 8px 20px rgba(0,0,0,.10);
-      z-index:500;
-      overflow:hidden;
+
       display:none;
+
+      background:#fff;
+
+      border:1px solid var(--border);
+
+      border-radius:7px;
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,.10);
+
+      z-index:500;
+
+      overflow:hidden;
     }
+
 
     .search-suggestions.show{
       display:block;
     }
 
+
     .search-item{
       display:block;
+
       padding:11px 13px;
-      border-bottom:1px solid #eef2f6;
+
+      border-bottom:
+        1px solid #eef2f6;
+
       font-size:13px;
+
       color:#20364e;
     }
+
 
     .search-item:last-child{
       border-bottom:0;
     }
 
+
     .search-item:hover{
       background:#f4f8fc;
     }
 
+
     .search-item small{
       display:block;
+
       margin-top:2px;
+
       color:var(--muted);
+
       font-size:11px;
     }
 
+
     /* =========================
-       NAVIGATION
+       NAV
     ========================== */
 
     nav{
       background:var(--blue);
+
       position:sticky;
       top:0;
+
       z-index:100;
-      box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+      box-shadow:
+        0 2px 8px rgba(0,0,0,.08);
     }
+
 
     .nav-inner{
       max-width:1250px;
       margin:auto;
+
       display:flex;
       align-items:center;
+
       gap:2px;
+
       overflow-x:auto;
+
       scrollbar-width:none;
+
       padding:0 15px;
     }
+
 
     .nav-inner::-webkit-scrollbar{
       display:none;
     }
 
+
     nav a{
       color:#fff;
+
       display:block;
+
       padding:13px 12px;
+
       font-size:13px;
+
       font-weight:800;
+
       white-space:nowrap;
-      border-bottom:3px solid transparent;
+
+      border-bottom:
+        3px solid transparent;
     }
+
 
     nav a:hover,
     nav a.active{
       background:rgba(255,255,255,.10);
       border-bottom-color:#fff;
     }
+
 
     /* =========================
        BREAKING NEWS
@@ -296,39 +386,56 @@
       color:#fff;
     }
 
+
     .breaking-inner{
       max-width:1250px;
       margin:auto;
+
       min-height:42px;
+
       display:flex;
       align-items:center;
     }
 
+
     .breaking-label{
       background:var(--red);
       color:#fff;
+
       padding:9px 15px;
+
       font-size:13px;
       font-weight:900;
+
       white-space:nowrap;
+
       flex-shrink:0;
     }
 
+
     #breakingNews{
       flex:1;
-      color:#fff;
+
       padding:0 15px;
+
+      color:#fff;
+
       font-size:14px;
       font-weight:700;
+
       white-space:nowrap;
+
       overflow:hidden;
       text-overflow:ellipsis;
+
       cursor:pointer;
     }
+
 
     #breakingNews:hover{
       text-decoration:underline;
     }
+
 
     /* =========================
        MAIN
@@ -337,95 +444,63 @@
     .container{
       max-width:1250px;
       margin:auto;
+
       padding:28px 20px 55px;
     }
 
+
     .page-header{
       background:#fff;
-      border:1px solid var(--border);
+
+      border:
+        1px solid var(--border);
+
       border-radius:var(--radius);
+
       box-shadow:var(--shadow);
+
       padding:22px 24px;
+
       margin-bottom:22px;
     }
 
+
     .page-title-wrap{
-      border-left:5px solid var(--blue);
+      border-left:
+        5px solid var(--blue);
+
       padding-left:14px;
     }
 
+
     .page-title{
       color:var(--deep);
+
       font-size:32px;
+
       line-height:1.15;
+
       font-weight:900;
     }
 
+
     .page-subtitle{
       color:var(--muted);
+
       margin-top:5px;
+
       font-size:14px;
     }
 
+
     .page-date{
       color:var(--muted);
+
       font-size:12px;
+
       margin-top:10px;
     }
 
-    /* =========================
-       LOADING
-    ========================== */
-
-    .loading-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr;
-      gap:22px;
-    }
-
-    .loading-main{
-      height:390px;
-      border-radius:var(--radius);
-      background:
-        linear-gradient(
-          90deg,
-          #e9eef3 25%,
-          #f7f9fb 37%,
-          #e9eef3 63%
-        );
-      background-size:400% 100%;
-      animation:loading 1.4s infinite;
-    }
-
-    .loading-side{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .loading-card{
-      height:118px;
-      border-radius:var(--radius);
-      background:
-        linear-gradient(
-          90deg,
-          #e9eef3 25%,
-          #f7f9fb 37%,
-          #e9eef3 63%
-        );
-      background-size:400% 100%;
-      animation:loading 1.4s infinite;
-    }
-
-    @keyframes loading{
-      0%{
-        background-position:100% 50%;
-      }
-
-      100%{
-        background-position:0 50%;
-      }
-    }
 
     /* =========================
        HERO LAYOUT
@@ -433,44 +508,73 @@
 
     .hero-layout{
       display:grid;
-      grid-template-columns:minmax(0,2fr) minmax(300px,1fr);
+
+      grid-template-columns:
+        minmax(0,2fr)
+        minmax(300px,1fr);
+
       gap:22px;
+
       margin-bottom:30px;
     }
 
+
+    /* =========================
+       HERO
+    ========================== */
+
     .hero{
       background:#fff;
-      border:1px solid var(--border);
+
+      border:
+        1px solid var(--border);
+
       border-radius:var(--radius);
+
       overflow:hidden;
+
       box-shadow:var(--shadow);
     }
 
+
     .hero-image{
       height:410px;
+
       position:relative;
+
       overflow:hidden;
+
       background:#eaf1f6;
     }
+
 
     .hero-image img{
       width:100%;
       height:100%;
+
       object-fit:cover;
+
       transition:.3s;
     }
+
 
     .hero:hover .hero-image img{
       transform:scale(1.03);
     }
 
+
     .hero-overlay{
       position:absolute;
+
       left:0;
       right:0;
       bottom:0;
-      padding:80px 25px 24px;
+
+      padding:
+        80px 25px 24px;
+
       color:#fff;
+
       background:
         linear-gradient(
           transparent,
@@ -478,28 +582,42 @@
         );
     }
 
+
     .hero-category{
       display:inline-block;
+
       background:var(--red);
+
       color:#fff;
+
       padding:5px 9px;
+
       border-radius:4px;
+
       font-size:10px;
       font-weight:900;
+
       margin-bottom:8px;
     }
 
+
     .hero-title{
       font-size:29px;
+
       line-height:1.25;
+
       font-weight:900;
     }
 
+
     .hero-meta{
       margin-top:8px;
+
       font-size:11px;
+
       opacity:.92;
     }
+
 
     /* =========================
        SIDE NEWS
@@ -508,65 +626,102 @@
     .side-news{
       display:flex;
       flex-direction:column;
+
       gap:14px;
     }
 
+
     .side-title{
       color:var(--deep);
+
       font-size:18px;
+
       font-weight:900;
+
       padding-bottom:9px;
-      border-bottom:3px solid var(--blue);
+
+      border-bottom:
+        3px solid var(--blue);
     }
+
 
     .side-card{
       background:#fff;
-      border:1px solid var(--border);
+
+      border:
+        1px solid var(--border);
+
       border-radius:var(--radius);
+
       padding:10px;
+
       display:grid;
-      grid-template-columns:100px 1fr;
+
+      grid-template-columns:
+        100px 1fr;
+
       gap:11px;
-      box-shadow:0 4px 15px rgba(0,0,0,.04);
+
+      box-shadow:
+        0 4px 15px rgba(0,0,0,.04);
+
       transition:.2s;
     }
 
+
     .side-card:hover{
       transform:translateY(-2px);
+
       box-shadow:var(--shadow);
     }
+
 
     .side-image{
       width:100px;
       height:78px;
+
       overflow:hidden;
+
       border-radius:6px;
+
       background:#eaf1f6;
     }
+
 
     .side-image img{
       width:100%;
       height:100%;
+
       object-fit:cover;
     }
 
+
     .side-card h3{
-      font-size:14px;
-      line-height:1.35;
-      font-weight:900;
       color:#183653;
+
+      font-size:14px;
+
+      line-height:1.35;
+
+      font-weight:900;
     }
 
-    .side-card:hover h3{
+
+    .side-card h3:hover{
       color:var(--blue);
     }
 
+
     .side-card small{
       display:block;
+
       color:var(--muted);
+
       font-size:10px;
+
       margin-top:6px;
     }
+
 
     /* =========================
        SECTION
@@ -574,26 +729,41 @@
 
     .section-head{
       display:flex;
+
       justify-content:space-between;
+
       align-items:center;
+
       gap:15px;
+
       margin-bottom:17px;
     }
 
+
     .section-head h2{
       color:var(--deep);
+
       font-size:22px;
+
       font-weight:900;
-      border-left:4px solid var(--blue);
+
+      border-left:
+        4px solid var(--blue);
+
       padding-left:10px;
     }
 
+
     .section-count{
       color:var(--blue);
+
       font-size:12px;
+
       font-weight:800;
+
       white-space:nowrap;
     }
+
 
     /* =========================
        NEWS GRID
@@ -601,116 +771,252 @@
 
     .news-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+
+      grid-template-columns:
+        repeat(3,1fr);
+
       gap:22px;
     }
 
+
     .card{
       background:#fff;
-      border:1px solid var(--border);
+
+      border:
+        1px solid var(--border);
+
       border-radius:var(--radius);
+
       overflow:hidden;
+
       box-shadow:var(--shadow);
+
       transition:.22s;
     }
 
+
     .card:hover{
       transform:translateY(-4px);
-      box-shadow:0 9px 24px rgba(13,47,79,.13);
+
+      box-shadow:
+        0 9px 24px rgba(13,47,79,.13);
     }
+
 
     .card-image{
       height:215px;
+
       overflow:hidden;
+
       background:#eaf1f6;
+
       position:relative;
     }
+
 
     .card-image img{
       width:100%;
       height:100%;
+
       object-fit:cover;
+
       transition:.3s;
     }
+
 
     .card:hover .card-image img{
       transform:scale(1.04);
     }
 
+
     .badge{
       position:absolute;
+
       top:11px;
       left:11px;
+
       background:var(--red);
+
       color:#fff;
+
       padding:4px 8px;
+
       border-radius:4px;
+
       font-size:9px;
+
       font-weight:900;
     }
+
 
     .card-body{
       padding:17px;
     }
 
+
     .category{
       color:var(--blue);
+
       font-size:10px;
+
       text-transform:uppercase;
+
       letter-spacing:.8px;
+
       font-weight:900;
+
       margin-bottom:7px;
     }
 
+
     .card h3{
       color:#122c3d;
+
       font-size:19px;
+
       line-height:1.35;
+
       font-weight:900;
+
       margin-bottom:9px;
     }
 
+
+    .card h3:hover,
     .card h3 a:hover{
       color:var(--blue);
     }
 
+
     .intro{
       color:#68798a;
+
       font-size:13px;
+
       line-height:1.65;
+
       display:-webkit-box;
+
       -webkit-line-clamp:3;
+
       -webkit-box-orient:vertical;
+
       overflow:hidden;
+
       margin-bottom:13px;
     }
 
+
     .meta{
-      border-top:1px solid #edf1f5;
+      border-top:
+        1px solid #edf1f5;
+
       padding-top:10px;
+
       display:flex;
+
       flex-wrap:wrap;
+
       gap:7px 10px;
+
       color:#7c8997;
+
       font-size:10px;
     }
 
+
     .read{
       display:block;
+
       margin-top:13px;
+
       text-align:center;
+
       background:var(--blue);
+
       color:#fff;
+
       padding:9px;
+
       border-radius:5px;
+
       font-size:12px;
+
       font-weight:900;
+
       transition:.2s;
     }
+
 
     .read:hover{
       background:var(--blue-dark);
     }
+
+
+    /* =========================
+       LOADING
+    ========================== */
+
+    .loading-grid{
+      display:grid;
+
+      grid-template-columns:
+        minmax(0,2fr)
+        minmax(300px,1fr);
+
+      gap:22px;
+    }
+
+
+    .loading-main,
+    .loading-card{
+      background:
+        linear-gradient(
+          90deg,
+          #e9eef3 25%,
+          #f7f9fb 37%,
+          #e9eef3 63%
+        );
+
+      background-size:400% 100%;
+
+      animation:loading 1.4s infinite;
+
+      border-radius:var(--radius);
+    }
+
+
+    .loading-main{
+      height:410px;
+    }
+
+
+    .loading-side{
+      display:flex;
+
+      flex-direction:column;
+
+      gap:14px;
+    }
+
+
+    .loading-card{
+      height:96px;
+    }
+
+
+    @keyframes loading{
+
+      0%{
+        background-position:100% 50%;
+      }
+
+      100%{
+        background-position:0 50%;
+      }
+
+    }
+
 
     /* =========================
        STATES
@@ -718,40 +1024,58 @@
 
     .state{
       background:#fff;
-      border:1px solid var(--border);
+
+      border:
+        1px solid var(--border);
+
       border-radius:var(--radius);
+
       padding:55px 20px;
+
       text-align:center;
+
       box-shadow:var(--shadow);
     }
 
+
     .state-icon{
       font-size:42px;
+
       margin-bottom:10px;
     }
 
+
     .state h3{
       color:var(--deep);
+
       margin-bottom:6px;
+
       font-size:20px;
     }
 
+
     .state p{
       color:var(--muted);
+
       font-size:13px;
     }
 
+
     .error-state{
-      border-top:4px solid var(--red);
+      border-top:
+        4px solid var(--red);
     }
+
 
     .error-state h3{
       color:#b31318;
     }
 
+
     .hidden{
       display:none !important;
     }
+
 
     /* =========================
        FOOTER
@@ -759,49 +1083,76 @@
 
     footer{
       background:var(--deep);
+
       color:#fff;
+
       margin-top:20px;
     }
 
+
     .footer-inner{
       max-width:1250px;
+
       margin:auto;
-      padding:38px 20px 24px;
+
+      padding:
+        38px 20px 24px;
+
       display:grid;
-      grid-template-columns:2fr 1fr 1fr;
+
+      grid-template-columns:
+        2fr 1fr 1fr;
+
       gap:34px;
     }
 
+
     .footer-inner h3{
       margin-bottom:11px;
+
       color:#fff;
+
       font-size:16px;
     }
+
 
     .footer-inner p,
     .footer-inner a{
       color:#d6e1ed;
+
       font-size:13px;
+
       line-height:1.8;
     }
 
+
     .footer-inner a{
       display:block;
+
       margin:4px 0;
     }
 
+
     .footer-inner a:hover{
       color:#fff;
+
       text-decoration:underline;
     }
 
+
     .footer-bottom{
-      border-top:1px solid rgba(255,255,255,.12);
+      border-top:
+        1px solid rgba(255,255,255,.12);
+
       padding:14px 20px;
+
       text-align:center;
+
       color:#b9c9da;
+
       font-size:12px;
     }
+
 
     /* =========================
        RESPONSIVE
@@ -811,170 +1162,230 @@
 
       .header-inner{
         flex-direction:column;
+
         align-items:stretch;
       }
+
 
       .header-search{
         width:100%;
       }
 
+
       .hero-layout{
         grid-template-columns:1fr;
       }
 
+
       .side-news{
         display:grid;
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+          1fr 1fr;
       }
+
 
       .side-title{
         grid-column:1/-1;
       }
 
+
       .news-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
+
 
       .loading-grid{
         grid-template-columns:1fr;
       }
 
+
       .loading-side{
         display:grid;
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+          1fr 1fr;
       }
 
+
       .footer-inner{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+          1fr 1fr;
       }
+
     }
+
 
     @media(max-width:650px){
 
       .topbar-inner{
         justify-content:center;
+
         padding:6px 12px;
       }
+
 
       .topbar-inner span:last-child{
         display:none;
       }
 
+
       .header-inner{
-        padding:13px 15px 15px;
+        padding:
+          13px 15px 15px;
+
         gap:12px;
       }
+
 
       .logo-mark{
         width:46px;
         height:46px;
+
         font-size:19px;
       }
+
 
       .logo-text h1{
         font-size:20px;
       }
 
+
       .logo-text span{
         font-size:10px;
       }
 
+
       nav a{
         padding:12px 10px;
+
         font-size:12px;
       }
+
 
       .breaking-inner{
         min-height:38px;
       }
 
+
       .breaking-label{
-        padding:8px 10px;
+        padding:
+          8px 10px;
+
         font-size:11px;
       }
 
+
       #breakingNews{
         padding:0 10px;
+
         font-size:12px;
       }
 
+
       .container{
-        padding:20px 12px 40px;
+        padding:
+          20px 12px 40px;
       }
+
 
       .page-header{
         padding:18px;
       }
 
+
       .page-title{
         font-size:28px;
       }
+
 
       .page-subtitle{
         font-size:12px;
       }
 
+
       .hero-image{
         height:300px;
       }
 
+
       .hero-overlay{
-        padding:65px 18px 18px;
+        padding:
+          65px 18px 18px;
       }
+
 
       .hero-title{
         font-size:23px;
       }
 
+
       .side-news{
         display:block;
       }
+
 
       .side-title{
         margin-bottom:4px;
       }
 
+
       .side-card{
         margin-bottom:12px;
       }
+
 
       .news-grid{
         grid-template-columns:1fr;
       }
 
+
       .loading-side{
         display:block;
       }
+
 
       .loading-card{
         margin-bottom:12px;
       }
 
+
       .card-image{
         height:210px;
       }
+
 
       .card h3{
         font-size:18px;
       }
 
+
       .section-head{
         align-items:flex-start;
       }
+
 
       .section-head h2{
         font-size:20px;
       }
 
+
       .footer-inner{
         grid-template-columns:1fr;
+
         gap:25px;
-        padding:30px 20px 20px;
+
+        padding:
+          30px 20px 20px;
       }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
@@ -1017,10 +1428,14 @@
           BH
         </div>
 
+
         <div class="logo-text">
 
           <h1>
-            BINSOUD <span class="red">HABARI</span>
+            BINSOUD
+            <span class="red">
+              HABARI
+            </span>
           </h1>
 
           <span>
@@ -1049,9 +1464,10 @@
             autocomplete="off"
           >
 
+
           <button
-            class="search-btn"
             type="submit"
+            class="search-btn"
             aria-label="Tafuta"
           >
             🔍
@@ -1073,7 +1489,7 @@
 
 
   <!-- =========================
-       NAVIGATION
+       NAV
   ========================== -->
 
   <nav>
@@ -1152,6 +1568,7 @@
         🔴 HABARI MPYA
       </div>
 
+
       <a
         id="breakingNews"
         href="#"
@@ -1181,11 +1598,14 @@
           Habari za Kimataifa
         </h1>
 
+
         <p class="page-subtitle">
-          Taarifa na matukio kutoka Afrika na sehemu mbalimbali za dunia
+          Taarifa na matukio kutoka Afrika
+          na sehemu mbalimbali za dunia
         </p>
 
       </div>
+
 
       <div
         id="pageDate"
@@ -1203,17 +1623,19 @@
 
     <div
       id="loading"
-      class=""
     >
 
       <div class="loading-grid">
 
         <div class="loading-main"></div>
 
+
         <div class="loading-side">
 
           <div class="loading-card"></div>
+
           <div class="loading-card"></div>
+
           <div class="loading-card"></div>
 
         </div>
@@ -1236,9 +1658,11 @@
         ⚠️
       </div>
 
+
       <h3>
         Imeshindikana kupakia habari
       </h3>
+
 
       <p id="errorText">
         Tafadhali jaribu tena baadaye.
@@ -1260,12 +1684,15 @@
         🌍
       </div>
 
+
       <h3>
         Hakuna habari za kimataifa
       </h3>
 
+
       <p id="emptyText">
-        Kwa sasa hakuna habari zilizowekwa katika kundi la Kimataifa.
+        Kwa sasa hakuna habari zilizowekwa
+        katika kundi la Kimataifa.
       </p>
 
     </div>
@@ -1299,13 +1726,14 @@
       </div>
 
 
-      <!-- SECTION TITLE -->
+      <!-- SECTION -->
 
       <div class="section-head">
 
         <h2>
           Habari Mpya za Kimataifa
         </h2>
+
 
         <span
           id="count"
@@ -1317,7 +1745,7 @@
       </div>
 
 
-      <!-- NEWS GRID -->
+      <!-- NEWS -->
 
       <div
         id="newsGrid"
@@ -1344,6 +1772,7 @@
           BINSOUD HABARI
         </h3>
 
+
         <p>
           Chanzo chako cha habari za kitaifa,
           kimataifa, siasa, biashara, michezo,
@@ -1359,17 +1788,21 @@
           Sehemu
         </h3>
 
+
         <a href="kitaifa.html">
           Kitaifa
         </a>
+
 
         <a href="siasa.html">
           Siasa
         </a>
 
+
         <a href="biashara.html">
           Uchumi
         </a>
+
 
         <a href="michezo.html">
           Michezo
@@ -1384,17 +1817,21 @@
           Zaidi
         </h3>
 
+
         <a href="kimataifa.html">
           Kimataifa
         </a>
+
 
         <a href="burudani.html">
           Burudani
         </a>
 
+
         <a href="makala.html">
           Makala
         </a>
+
 
         <a href="contact.html">
           Mawasiliano
@@ -1423,9 +1860,11 @@
 
   <script type="module">
 
+
     import {
       initializeApp
-    } from
+    }
+    from
       "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 
@@ -1433,7 +1872,8 @@
       getFirestore,
       collection,
       getDocs
-    } from
+    }
+    from
       "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
@@ -1488,60 +1928,72 @@
         "loading"
       );
 
+
     const errorState =
       document.getElementById(
         "errorState"
       );
+
 
     const errorText =
       document.getElementById(
         "errorText"
       );
 
+
     const emptyState =
       document.getElementById(
         "emptyState"
       );
+
 
     const emptyText =
       document.getElementById(
         "emptyText"
       );
 
+
     const content =
       document.getElementById(
         "content"
       );
+
 
     const hero =
       document.getElementById(
         "hero"
       );
 
+
     const sideNews =
       document.getElementById(
         "sideNews"
       );
+
 
     const newsGrid =
       document.getElementById(
         "newsGrid"
       );
 
+
     const count =
       document.getElementById(
         "count"
       );
+
 
     const breakingNews =
       document.getElementById(
         "breakingNews"
       );
 
+
     const searchInput =
       document.getElementById(
         "searchInput"
       );
+
 
     const searchSuggestions =
       document.getElementById(
@@ -1566,9 +2018,7 @@
         value === null ||
         value === undefined
       ){
-
         return "";
-
       }
 
       return String(value).trim();
@@ -1577,43 +2027,28 @@
 
 
     /* =========================
-       ESCAPE HTML
+       ESCAPE
     ========================== */
 
     function escapeHTML(value){
 
       return cleanText(value)
 
-        .replace(
-          /&/g,
-          "&amp;"
-        )
+        .replace(/&/g,"&amp;")
 
-        .replace(
-          /</g,
-          "&lt;"
-        )
+        .replace(/</g,"&lt;")
 
-        .replace(
-          />/g,
-          "&gt;"
-        )
+        .replace(/>/g,"&gt;")
 
-        .replace(
-          /"/g,
-          "&quot;"
-        )
+        .replace(/"/g,"&quot;")
 
-        .replace(
-          /'/g,
-          "&#039;"
-        );
+        .replace(/'/g,"&#039;");
 
     }
 
 
     /* =========================
-       NORMALIZE
+       NORMALIZE SEARCH
     ========================== */
 
     function normalizeSearch(value){
@@ -1645,7 +2080,7 @@
 
 
     /* =========================
-       FIELD HELPERS
+       TITLE
     ========================== */
 
     function getTitle(article){
@@ -1666,6 +2101,10 @@
 
     }
 
+
+    /* =========================
+       CATEGORY
+    ========================== */
 
     function getCategory(article){
 
@@ -1711,6 +2150,10 @@
 
     }
 
+
+    /* =========================
+       IMAGE
+    ========================== */
 
     function getImage(article){
 
@@ -1761,6 +2204,10 @@
     }
 
 
+    /* =========================
+       BODY
+    ========================== */
+
     function getBody(article){
 
       return cleanText(
@@ -1788,6 +2235,10 @@
     }
 
 
+    /* =========================
+       DESCRIPTION
+    ========================== */
+
     function getDescription(article){
 
       return cleanText(
@@ -1806,6 +2257,10 @@
 
     }
 
+
+    /* =========================
+       AUTHOR
+    ========================== */
 
     function getAuthor(article){
 
@@ -1838,9 +2293,7 @@
         article.isPublished === false ||
         article.published === false
       ){
-
         return false;
-
       }
 
 
@@ -1855,16 +2308,12 @@
           );
 
 
-        const accepted = [
+        const allowed = [
 
           "published",
-
           "publish",
-
           "active",
-
           "live",
-
           "true"
 
         ];
@@ -1872,7 +2321,7 @@
 
         if(
           status &&
-          !accepted.includes(
+          !allowed.includes(
             status
           )
         ){
@@ -1890,7 +2339,7 @@
 
 
     /* =========================
-       DATE OBJECT
+       DATE
     ========================== */
 
     function toDate(value){
@@ -1909,6 +2358,7 @@
 
           const date =
             value.toDate();
+
 
           if(
             date &&
@@ -1934,6 +2384,7 @@
               value.toMillis()
             );
 
+
           if(
             !isNaN(
               date.getTime()
@@ -1952,7 +2403,7 @@
           typeof value.seconds === "number"
         ){
 
-          const milliseconds =
+          const millis =
 
             value.seconds * 1000 +
 
@@ -1963,7 +2414,7 @@
 
           const date =
             new Date(
-              milliseconds
+              millis
             );
 
 
@@ -1996,11 +2447,10 @@
 
         }
 
-
       }catch(error){
 
         console.warn(
-          "Date conversion error:",
+          "Date error:",
           error
         );
 
@@ -2012,13 +2462,9 @@
     }
 
 
-    /* =========================
-       ARTICLE DATE
-    ========================== */
-
     function getArticleDate(article){
 
-      const possibleDates = [
+      const fields = [
 
         article.createdAt,
 
@@ -2038,7 +2484,7 @@
 
 
       for(
-        const value of possibleDates
+        const value of fields
       ){
 
         const date =
@@ -2048,9 +2494,7 @@
 
 
         if(date){
-
           return date;
-
         }
 
       }
@@ -2060,10 +2504,6 @@
 
     }
 
-
-    /* =========================
-       DATE VALUE
-    ========================== */
 
     function getDateValue(article){
 
@@ -2084,9 +2524,7 @@
        RELATIVE TIME
     ========================== */
 
-    function formatRelativeTime(
-      article
-    ){
+    function formatRelativeTime(article){
 
       const date =
         getArticleDate(
@@ -2105,7 +2543,7 @@
         new Date();
 
 
-      const difference =
+      const diff =
         now.getTime() -
         date.getTime();
 
@@ -2122,9 +2560,7 @@
         24 * hour;
 
 
-      if(
-        difference < 0
-      ){
+      if(diff < 0){
 
         return formatFullDate(
           date
@@ -2133,22 +2569,18 @@
       }
 
 
-      if(
-        difference < minute
-      ){
+      if(diff < minute){
 
         return "Imetumwa hivi punde";
 
       }
 
 
-      if(
-        difference < hour
-      ){
+      if(diff < hour){
 
         const minutes =
           Math.floor(
-            difference / minute
+            diff / minute
           );
 
 
@@ -2161,13 +2593,11 @@
       }
 
 
-      if(
-        difference < day
-      ){
+      if(diff < day){
 
         const hours =
           Math.floor(
-            difference / hour
+            diff / hour
           );
 
 
@@ -2206,13 +2636,10 @@
         {
 
           day:"2-digit",
-
           month:"long",
-
           year:"numeric",
 
           hour:"2-digit",
-
           minute:"2-digit"
 
         }
@@ -2227,9 +2654,7 @@
        SHORT DESCRIPTION
     ========================== */
 
-    function getShortDescription(
-      article
-    ){
+    function getShortDescription(article){
 
       let text =
         getDescription(
@@ -2248,18 +2673,19 @@
 
 
       text =
-        cleanText(
-          text
-        )
-        .replace(
-          /<[^>]*>/g,
-          " "
-        )
-        .replace(
-          /\s+/g,
-          " "
-        )
-        .trim();
+        cleanText(text)
+
+          .replace(
+            /<[^>]*>/g,
+            " "
+          )
+
+          .replace(
+            /\s+/g,
+            " "
+          )
+
+          .trim();
 
 
       if(!text){
@@ -2280,10 +2706,13 @@
       ){
 
         return (
+
           words
             .slice(0,35)
             .join(" ") +
+
           "..."
+
         );
 
       }
@@ -2295,25 +2724,26 @@
 
 
     /* =========================
-       ARTICLE LINK
+       LINK
     ========================== */
 
-    function getArticleLink(
-      article
-    ){
+    function articleLink(article){
 
       return (
+
         "habari.html?id=" +
+
         encodeURIComponent(
           article.id
         )
+
       );
 
     }
 
 
     /* =========================
-       IMAGE HTML
+       IMAGE RENDER
     ========================== */
 
     function renderImage(
@@ -2324,6 +2754,7 @@
       if(!image){
 
         return `
+
           <div
             style="
               width:100%;
@@ -2338,12 +2769,14 @@
           >
             🌍
           </div>
+
         `;
 
       }
 
 
       return `
+
         <img
           src="${escapeHTML(image)}"
           alt="${escapeHTML(title)}"
@@ -2354,6 +2787,7 @@
             this.parentElement.innerHTML='🌍';
           "
         >
+
       `;
 
     }
@@ -2363,9 +2797,7 @@
        HERO
     ========================== */
 
-    function renderHero(
-      article
-    ){
+    function renderHero(article){
 
       if(!article){
 
@@ -2390,7 +2822,7 @@
         getAuthor(article);
 
 
-      const date =
+      const time =
         formatRelativeTime(
           article
         );
@@ -2399,7 +2831,7 @@
       hero.innerHTML = `
 
         <a
-          href="${getArticleLink(article)}"
+          href="${articleLink(article)}"
         >
 
           <div class="hero-image">
@@ -2418,7 +2850,9 @@
 
 
               <div class="hero-title">
+
                 ${escapeHTML(title)}
+
               </div>
 
 
@@ -2430,7 +2864,7 @@
                 &nbsp; • &nbsp;
 
                 📅
-                ${escapeHTML(date)}
+                ${escapeHTML(time)}
 
               </div>
 
@@ -2463,10 +2897,7 @@
 
 
       articles
-        .slice(
-          0,
-          4
-        )
+        .slice(0,4)
         .forEach(
           function(article){
 
@@ -2479,27 +2910,27 @@
               getImage(article);
 
 
-            const date =
+            const time =
               formatRelativeTime(
                 article
               );
 
 
-            const element =
+            const item =
               document.createElement(
                 "article"
               );
 
 
-            element.className =
+            item.className =
               "side-card";
 
 
-            element.innerHTML = `
+            item.innerHTML = `
 
               <a
                 class="side-image"
-                href="${getArticleLink(article)}"
+                href="${articleLink(article)}"
               >
 
                 ${renderImage(
@@ -2515,7 +2946,7 @@
                 <h3>
 
                   <a
-                    href="${getArticleLink(article)}"
+                    href="${articleLink(article)}"
                   >
 
                     ${escapeHTML(title)}
@@ -2528,7 +2959,7 @@
                 <small>
 
                   📅
-                  ${escapeHTML(date)}
+                  ${escapeHTML(time)}
 
                 </small>
 
@@ -2538,7 +2969,7 @@
 
 
             sideNews.appendChild(
-              element
+              item
             );
 
           }
@@ -2551,9 +2982,7 @@
        NEWS CARD
     ========================== */
 
-    function createNewsCard(
-      article
-    ){
+    function createCard(article){
 
       const title =
         getTitle(article) ||
@@ -2574,7 +3003,7 @@
         getAuthor(article);
 
 
-      const date =
+      const time =
         formatRelativeTime(
           article
         );
@@ -2582,10 +3011,15 @@
 
       const readTime =
         cleanText(
+
           article.readTime ||
+
           article.read_time ||
+
           article.readingTime
+
         ) ||
+
         "Soma habari";
 
 
@@ -2617,12 +3051,15 @@
           ${
             featured
               ?
+
               `
                 <span class="badge">
                   MUHIMU
                 </span>
               `
+
               :
+
               ""
           }
 
@@ -2639,7 +3076,7 @@
           <h3>
 
             <a
-              href="${getArticleLink(article)}"
+              href="${articleLink(article)}"
             >
 
               ${escapeHTML(title)}
@@ -2659,18 +3096,26 @@
           <div class="meta">
 
             <span>
+
               ✍️
               ${escapeHTML(author)}
+
             </span>
 
+
             <span>
+
               📅
-              ${escapeHTML(date)}
+              ${escapeHTML(time)}
+
             </span>
 
+
             <span>
+
               ⏱️
               ${escapeHTML(readTime)}
+
             </span>
 
           </div>
@@ -2678,9 +3123,11 @@
 
           <a
             class="read"
-            href="${getArticleLink(article)}"
+            href="${articleLink(article)}"
           >
+
             Soma habari yote →
+
           </a>
 
         </div>
@@ -2694,7 +3141,7 @@
 
 
     /* =========================
-       RENDER ALL
+       RENDER
     ========================== */
 
     function renderArticles(
@@ -2705,15 +3152,19 @@
         "";
 
 
-      if(!articles.length){
+      if(
+        !articles.length
+      ){
 
         content.classList.add(
           "hidden"
         );
 
+
         emptyState.classList.remove(
           "hidden"
         );
+
 
         emptyText.textContent =
           "Hakuna habari za Kimataifa zinazolingana na utafutaji wako.";
@@ -2727,6 +3178,7 @@
         "hidden"
       );
 
+
       emptyState.classList.add(
         "hidden"
       );
@@ -2737,8 +3189,7 @@
 
 
       /*
-        Article ya kwanza:
-        HERO
+        Hero
       */
 
       renderHero(
@@ -2747,8 +3198,7 @@
 
 
       /*
-        Article 2-5:
-        SIDEBAR
+        Side
       */
 
       renderSideNews(
@@ -2760,19 +3210,18 @@
 
 
       /*
-        Grid:
-        iliyobaki baada ya hero.
+        Grid
       */
 
       articles
-        .slice(
-          1
-        )
+        .slice(1)
         .forEach(
           function(article){
 
             newsGrid.appendChild(
-              createNewsCard(article)
+              createCard(
+                article
+              )
             );
 
           }
@@ -2782,99 +3231,7 @@
 
 
     /* =========================
-       BREAKING NEWS
-    ========================== */
-
-    let breakingArticles = [];
-    let breakingIndex = 0;
-
-
-    function updateBreakingNews(){
-
-      if(
-        !breakingArticles.length
-      ){
-
-        breakingNews.textContent =
-          "Karibu BINSOUD HABARI";
-
-        breakingNews.href =
-          "index.html";
-
-        return;
-
-      }
-
-
-      if(
-        breakingIndex >=
-        breakingArticles.length
-      ){
-
-        breakingIndex = 0;
-
-      }
-
-
-      const article =
-        breakingArticles[
-          breakingIndex
-        ];
-
-
-      const title =
-        getTitle(article) ||
-        "Habari mpya";
-
-
-      breakingNews.textContent =
-        title;
-
-
-      breakingNews.href =
-        getArticleLink(
-          article
-        );
-
-
-      breakingIndex++;
-
-    }
-
-
-    function prepareBreakingNews(){
-
-      breakingArticles =
-        [
-          ...allInternationalArticles
-        ];
-
-
-      breakingArticles.sort(
-        function(a,b){
-
-          return (
-            getDateValue(b) -
-            getDateValue(a)
-          );
-
-        }
-      );
-
-
-      updateBreakingNews();
-
-
-      setInterval(
-        updateBreakingNews,
-        5000
-      );
-
-    }
-
-
-    /* =========================
-       LOAD ARTICLES
+       LOAD
     ========================== */
 
     async function loadArticles(){
@@ -2885,13 +3242,16 @@
           "hidden"
         );
 
+
         errorState.classList.add(
           "hidden"
         );
 
+
         emptyState.classList.add(
           "hidden"
         );
+
 
         content.classList.add(
           "hidden"
@@ -2918,8 +3278,7 @@
 
 
             /*
-              Ondoa habari ambazo
-              hazijachapishwa.
+              Published only
             */
 
             if(
@@ -2938,12 +3297,10 @@
 
 
             /*
-              Kimataifa inaweza kuandikwa
-              kama "kimataifa", "mataifa"
-              au "international".
+              Kimataifa
             */
 
-            const isInternational =
+            const international =
 
               category.includes(
                 "kimataifa"
@@ -2963,7 +3320,7 @@
 
 
             if(
-              !isInternational
+              !international
             ){
 
               return;
@@ -2973,8 +3330,7 @@
 
             articles.push({
 
-              id:
-                item.id,
+              id:item.id,
 
               ...data
 
@@ -2985,15 +3341,18 @@
 
 
         /*
-          Panga mpya kwanza.
+          Mpya kwanza
         */
 
         articles.sort(
           function(a,b){
 
             return (
+
               getDateValue(b) -
+
               getDateValue(a)
+
             );
 
           }
@@ -3005,14 +3364,14 @@
 
 
         /*
-          BREAKING NEWS
+          BREAKING
         */
 
-        prepareBreakingNews();
+        updateBreakingNews();
 
 
         /*
-          Ficha loading.
+          LOADING OFF
         */
 
         loading.classList.add(
@@ -3021,16 +3380,12 @@
 
 
         /*
-          Hakuna habari.
+          Empty
         */
 
         if(
           !allInternationalArticles.length
         ){
-
-          content.classList.add(
-            "hidden"
-          );
 
           emptyState.classList.remove(
             "hidden"
@@ -3042,7 +3397,7 @@
 
 
         /*
-          Onyesha habari.
+          Content
         */
 
         renderArticles(
@@ -3062,13 +3417,16 @@
           "hidden"
         );
 
+
         content.classList.add(
           "hidden"
         );
 
+
         emptyState.classList.add(
           "hidden"
         );
+
 
         errorState.classList.remove(
           "hidden"
@@ -3081,6 +3439,74 @@
       }
 
     }
+
+
+    /* =========================
+       BREAKING NEWS
+    ========================== */
+
+    let breakingIndex = 0;
+
+
+    function updateBreakingNews(){
+
+      if(
+        !allInternationalArticles.length
+      ){
+
+        breakingNews.textContent =
+          "Karibu BINSOUD HABARI";
+
+
+        breakingNews.href =
+          "index.html";
+
+
+        return;
+
+      }
+
+
+      if(
+        breakingIndex >=
+        allInternationalArticles.length
+      ){
+
+        breakingIndex = 0;
+
+      }
+
+
+      const article =
+        allInternationalArticles[
+          breakingIndex
+        ];
+
+
+      const title =
+        getTitle(article) ||
+        "Habari mpya";
+
+
+      breakingNews.textContent =
+        title;
+
+
+      breakingNews.href =
+        articleLink(
+          article
+        );
+
+
+      breakingIndex++;
+
+    }
+
+
+    setInterval(
+      updateBreakingNews,
+      5000
+    );
 
 
     /* =========================
@@ -3104,8 +3530,10 @@
           "show"
         );
 
+
         searchSuggestions.innerHTML =
           "";
+
 
         return;
 
@@ -3113,19 +3541,29 @@
 
 
       const results =
+
         allInternationalArticles
+
           .map(
             function(article){
 
               const title =
-                normalizeSearch(
-                  getTitle(article)
-                );
+                getTitle(article);
 
 
               const description =
+                getDescription(article);
+
+
+              const titleN =
                 normalizeSearch(
-                  getDescription(article)
+                  title
+                );
+
+
+              const descriptionN =
+                normalizeSearch(
+                  description
                 );
 
 
@@ -3133,7 +3571,7 @@
 
 
               if(
-                title === query
+                titleN === query
               ){
 
                 score += 100;
@@ -3142,7 +3580,7 @@
 
 
               if(
-                title.startsWith(query)
+                titleN.startsWith(query)
               ){
 
                 score += 70;
@@ -3151,16 +3589,16 @@
 
 
               if(
-                title.includes(query)
+                titleN.includes(query)
               ){
 
-                score += 50;
+                score += 45;
 
               }
 
 
               if(
-                description.includes(query)
+                descriptionN.includes(query)
               ){
 
                 score += 20;
@@ -3171,13 +3609,13 @@
               return {
 
                 article,
-
                 score
 
               };
 
             }
           )
+
           .filter(
             function(item){
 
@@ -3185,6 +3623,7 @@
 
             }
           )
+
           .sort(
             function(a,b){
 
@@ -3195,6 +3634,7 @@
 
             }
           )
+
           .slice(
             0,
             6
@@ -3219,9 +3659,11 @@
 
         `;
 
+
         searchSuggestions.classList.add(
           "show"
         );
+
 
         return;
 
@@ -3229,7 +3671,9 @@
 
 
       searchSuggestions.innerHTML =
+
         results
+
           .map(
             function(item){
 
@@ -3246,7 +3690,7 @@
 
                 <a
                   class="search-item"
-                  href="${getArticleLink(article)}"
+                  href="${articleLink(article)}"
                 >
 
                   ${escapeHTML(title)}
@@ -3261,6 +3705,7 @@
 
             }
           )
+
           .join("");
 
 
@@ -3304,7 +3749,7 @@
 
 
     /* =========================
-       SEARCH SUBMIT
+       SEARCH
     ========================== */
 
     document.getElementById(
@@ -3329,47 +3774,56 @@
         }
 
 
-        const normalized =
+        const normalizedQuery =
           normalizeSearch(
             query
           );
 
 
         const results =
-          allInternationalArticles.filter(
-            function(article){
 
-              const text =
+          allInternationalArticles
 
-                normalizeSearch(
-                  getTitle(article)
-                )
+            .filter(
+              function(article){
 
-                + " " +
+                const text =
 
-                normalizeSearch(
-                  getDescription(article)
-                )
+                  normalizeSearch(
+                    getTitle(article)
+                  )
 
-                + " " +
+                  +
 
-                normalizeSearch(
-                  getBody(article)
-                )
+                  " " +
 
-                + " " +
+                  normalizeSearch(
+                    getDescription(article)
+                  )
 
-                normalizeSearch(
-                  getAuthor(article)
+                  +
+
+                  " " +
+
+                  normalizeSearch(
+                    getBody(article)
+                  )
+
+                  +
+
+                  " " +
+
+                  normalizeSearch(
+                    getAuthor(article)
+                  );
+
+
+                return text.includes(
+                  normalizedQuery
                 );
 
-
-              return text.includes(
-                normalized
-              );
-
-            }
-          );
+              }
+            );
 
 
         searchSuggestions.classList.remove(
@@ -3385,12 +3839,15 @@
             "hidden"
           );
 
+
           emptyState.classList.remove(
             "hidden"
           );
 
+
           emptyText.textContent =
             `Hakuna habari za Kimataifa zinazolingana na "${query}".`;
+
 
           return;
 
@@ -3402,33 +3859,6 @@
         );
 
       }
-    );
-
-
-    /* =========================
-       UPDATE RELATIVE TIME
-    ========================== */
-
-    setInterval(
-      function(){
-
-        /*
-          Tunapakia upya habari
-          kwa muda sahihi kila dakika.
-        */
-
-        if(
-          allInternationalArticles.length
-        ){
-
-          renderArticles(
-            allInternationalArticles
-          );
-
-        }
-
-      },
-      60000
     );
 
 
@@ -3454,6 +3884,26 @@
 
 
     /* =========================
+       TOP DATE
+    ========================== */
+
+    document.getElementById(
+      "currentDate"
+    ).textContent =
+
+      new Intl.DateTimeFormat(
+        "sw-TZ",
+        {
+          day:"numeric",
+          month:"long",
+          year:"numeric"
+        }
+      ).format(
+        new Date()
+      );
+
+
+    /* =========================
        YEAR
     ========================== */
 
@@ -3461,6 +3911,28 @@
       "year"
     ).textContent =
       new Date().getFullYear();
+
+
+    /* =========================
+       UPDATE TIME
+    ========================== */
+
+    setInterval(
+      function(){
+
+        if(
+          allInternationalArticles.length
+        ){
+
+          renderArticles(
+            allInternationalArticles
+          );
+
+        }
+
+      },
+      60000
+    );
 
 
     /* =========================
