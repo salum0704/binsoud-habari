@@ -493,6 +493,12 @@
       color:var(--muted);
       font-size:14px;
       line-height:1.6;
+
+      /* habari ionekane fupi */
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
     }
 
 
@@ -666,14 +672,23 @@
     }
 
 
+    .news-title:hover{
+      color:var(--blue);
+    }
+
+
     .news-description{
       color:var(--muted);
       font-size:13px;
       line-height:1.55;
+
+      /* habari ionekane kwa kifupi */
       display:-webkit-box;
       -webkit-line-clamp:3;
       -webkit-box-orient:vertical;
       overflow:hidden;
+
+      margin-bottom:9px;
     }
 
 
@@ -685,7 +700,7 @@
 
 
     /* =========================
-       MORE
+       MORE BUTTON
     ========================== */
 
     .more-wrap{
@@ -980,8 +995,6 @@
 
       </a>
 
-
-      <!-- SEARCH -->
 
       <div class="search-box">
 
@@ -1419,7 +1432,7 @@
 
 
   <!-- =========================
-       FIREBASE
+       JAVASCRIPT
   ========================== -->
 
   <script type="module">
@@ -1445,7 +1458,7 @@
     const firebaseConfig = {
 
       apiKey:
-        "AIzaSyCFpSNTqw9ljOFkx-szNcNi-HmVKZU-7I",
+        "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
 
       authDomain:
         "binsoud-habari-8a5fa.firebaseapp.com",
@@ -1572,6 +1585,8 @@
 
     let visibleGridCount = 3;
 
+    let breakingTimer = null;
+
 
     /* =========================
        FALLBACK IMAGE
@@ -1612,7 +1627,7 @@
 
 
     /* =========================
-       ESCAPE
+       ESCAPE HTML
     ========================== */
 
     function escapeHtml(value){
@@ -1628,7 +1643,37 @@
 
 
     /* =========================
-       NORMALIZE
+       REMOVE HTML
+    ========================== */
+
+    function removeHTML(value){
+
+      if(!value){
+        return "";
+      }
+
+
+      const div =
+        document.createElement(
+          "div"
+        );
+
+
+      div.innerHTML =
+        String(value);
+
+
+      return (
+        div.textContent ||
+        div.innerText ||
+        ""
+      );
+
+    }
+
+
+    /* =========================
+       NORMALIZE SEARCH
     ========================== */
 
     function normalizeSearch(value){
@@ -1695,6 +1740,7 @@
 
     /* =========================
        DESCRIPTION
+       INAONYESHA SEHEMU FUPI TU
     ========================== */
 
     function getDescription(article){
@@ -1703,15 +1749,16 @@
         article.intro ||
         article.excerpt ||
         article.summary ||
-        article.shortDescription ||
         article.description ||
-        getBody(article) ||
+        article.content ||
+        article.body ||
+        article.article ||
+        article.text ||
         "";
 
 
       const clean =
-        String(value)
-          .replace(/<[^>]*>/g," ")
+        removeHTML(value)
           .replace(/\s+/g," ")
           .trim();
 
@@ -1790,9 +1837,7 @@
     function dateToMillis(value){
 
       if(!value){
-
         return 0;
-
       }
 
 
@@ -1802,9 +1847,7 @@
       ){
 
         try{
-
           return value.toMillis();
-
         }catch(e){}
 
       }
@@ -1861,7 +1904,7 @@
 
 
     /* =========================
-       FORMAT ARTICLE TIME
+       FORMAT DATE/TIME
     ========================== */
 
     function formatArticleTime(article){
@@ -2141,11 +2184,17 @@
 
           card.innerHTML = `
 
-            ${imageElement(
-              image,
-              title,
-              "side-image"
-            )}
+            <a
+              href="${articleUrl(article)}"
+            >
+
+              ${imageElement(
+                image,
+                title,
+                "side-image"
+              )}
+
+            </a>
 
 
             <div class="side-content">
@@ -2193,14 +2242,14 @@
         "";
 
 
-      const articles =
+      const visibleArticles =
         biasharaArticles.slice(
           5,
           5 + visibleGridCount
         );
 
 
-      articles.forEach(
+      visibleArticles.forEach(
         article => {
 
           const title =
@@ -2245,7 +2294,6 @@
 
               <div class="news-body">
 
-
                 <div class="news-category">
                   UCHUMI
                 </div>
@@ -2271,7 +2319,6 @@
                 >
                   ${escapeHtml(time)}
                 </div>
-
 
               </div>
 
@@ -2313,9 +2360,21 @@
 
     /* =========================
        BREAKING NEWS
+       KICHWA KIMOJA KWA WAKATI
     ========================== */
 
     function startBreakingNews(){
+
+      if(breakingTimer){
+
+        clearInterval(
+          breakingTimer
+        );
+
+        breakingTimer = null;
+
+      }
+
 
       breakingArticles =
         biasharaArticles.slice(
@@ -2342,10 +2401,11 @@
       showBreakingNews();
 
 
-      setInterval(
-        showBreakingNews,
-        5000
-      );
+      breakingTimer =
+        setInterval(
+          showBreakingNews,
+          5000
+        );
 
     }
 
@@ -2375,7 +2435,9 @@
         () => {
 
           breakingText.textContent =
-            getTitle(article);
+            removeHTML(
+              getTitle(article)
+            );
 
 
           breakingText.style.opacity =
@@ -2468,8 +2530,8 @@
       }
 
 
-      return biasharaArticles
-        .filter(article => {
+      return biasharaArticles.filter(
+        article => {
 
           const text = [
 
@@ -2491,7 +2553,8 @@
             query
           );
 
-        });
+        }
+      );
 
     }
 
@@ -2593,6 +2656,7 @@
                     ${escapeHtml(title)}
                   </div>
 
+
                   <div class="search-suggestion-category">
                     UCHUMI • ${escapeHtml(time)}
                   </div>
@@ -2676,6 +2740,10 @@
     );
 
 
+    /* =========================
+       SEARCH FORM
+    ========================== */
+
     searchForm.addEventListener(
       "submit",
       event => {
@@ -2723,6 +2791,10 @@
       }
     );
 
+
+    /* =========================
+       CLOSE SEARCH
+    ========================== */
 
     document.addEventListener(
       "click",
@@ -2811,11 +2883,6 @@
                     .toLowerCase();
 
 
-                /*
-                 * FIRESTORE CATEGORY
-                 * NI "biashara"
-                 */
-
                 return (
                   category ===
                   "biashara"
@@ -2837,7 +2904,7 @@
 
 
         /* =========================
-           NO ARTICLES
+           EMPTY
         ========================== */
 
         if(
@@ -2868,7 +2935,7 @@
 
 
         /* =========================
-           SHOW CONTENT
+           CONTENT
         ========================== */
 
         content.classList.remove(
@@ -2893,18 +2960,14 @@
         visibleGridCount = 3;
 
 
-        /* =========================
-           HERO
-        ========================== */
+        /* HERO */
 
         renderHero(
           biasharaArticles[0]
         );
 
 
-        /* =========================
-           SIDE
-        ========================== */
+        /* SIDE */
 
         renderSideNews(
           biasharaArticles.slice(
@@ -2914,16 +2977,12 @@
         );
 
 
-        /* =========================
-           GRID
-        ========================== */
+        /* GRID */
 
         renderNewsGrid();
 
 
-        /* =========================
-           BREAKING
-        ========================== */
+        /* BREAKING */
 
         startBreakingNews();
 
@@ -3012,7 +3071,7 @@
 
 
     /* =========================
-       REFRESH TIME
+       REFRESH ARTICLE TIMES
     ========================== */
 
     setInterval(
