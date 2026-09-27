@@ -793,68 +793,6 @@
 
 
     /* =========================
-       LOADING
-       HAIJAHI KUONEKANA
-    ========================== */
-
-    #loading{
-      display:none !important;
-    }
-
-
-    .loading-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr;
-      gap:20px;
-    }
-
-
-    .loading-main,
-    .loading-card{
-      border-radius:var(--radius);
-      background:
-        linear-gradient(
-          90deg,
-          #e9eef3 25%,
-          #f7f9fb 37%,
-          #e9eef3 63%
-        );
-      background-size:400% 100%;
-      animation:loading 1.4s infinite;
-    }
-
-
-    .loading-main{
-      height:390px;
-    }
-
-
-    .loading-side{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-
-    .loading-card{
-      height:95px;
-    }
-
-
-    @keyframes loading{
-
-      0%{
-        background-position:100% 50%;
-      }
-
-      100%{
-        background-position:0 50%;
-      }
-
-    }
-
-
-    /* =========================
        STATES
     ========================== */
 
@@ -1051,11 +989,6 @@
 
       .news-grid{
         grid-template-columns:1fr;
-      }
-
-
-      .card-image{
-        height:210px;
       }
 
 
@@ -1337,35 +1270,6 @@
     <div class="container">
 
 
-      <!-- LOADING
-           HAIONEKANI
-      -->
-
-      <div
-        id="loading"
-        class="hidden"
-      >
-
-        <div class="loading-grid">
-
-          <div class="loading-main"></div>
-
-
-          <div class="loading-side">
-
-            <div class="loading-card"></div>
-
-            <div class="loading-card"></div>
-
-            <div class="loading-card"></div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
       <!-- ERROR -->
 
       <div
@@ -1483,9 +1387,7 @@
               class="more-btn"
               type="button"
             >
-
               ONA HABARI ZAIDI
-
             </button>
 
           </div>
@@ -1522,11 +1424,9 @@
 
 
         <p>
-
           BINSOUD HABARI ni jukwaa la habari
           linalokuletea taarifa mbalimbali
           kutoka Tanzania, Zanzibar na duniani.
-
         </p>
 
       </div>
@@ -1704,12 +1604,6 @@
     /* =========================
        ELEMENTS
     ========================== */
-
-    const loading =
-      document.getElementById(
-        "loading"
-      );
-
 
     const errorState =
       document.getElementById(
@@ -1919,7 +1813,7 @@
 
 
     /* =========================
-       NORMALIZE
+       NORMALIZE SEARCH
     ========================== */
 
     function normalizeSearch(value){
@@ -1955,12 +1849,12 @@
 
 
     /* =========================
-       TITLE
+       GET TITLE
     ========================== */
 
     function getTitle(article){
 
-      return cleanText(
+      return (
 
         article.title ||
 
@@ -1980,7 +1874,7 @@
 
 
     /* =========================
-       CATEGORY
+       GET CATEGORY
     ========================== */
 
     function getCategory(article){
@@ -2031,12 +1925,12 @@
 
 
     /* =========================
-       BODY
+       GET BODY
     ========================== */
 
     function getBody(article){
 
-      return cleanText(
+      return (
 
         article.content ||
 
@@ -2064,7 +1958,7 @@
 
 
     /* =========================
-       DESCRIPTION
+       GET DESCRIPTION
     ========================== */
 
     function getDescription(article){
@@ -2127,12 +2021,12 @@
 
 
     /* =========================
-       AUTHOR
+       GET AUTHOR
     ========================== */
 
     function getAuthor(article){
 
-      return cleanText(
+      return (
 
         article.author ||
 
@@ -2152,7 +2046,7 @@
 
 
     /* =========================
-       IMAGE
+       GET IMAGE
     ========================== */
 
     function getImage(article){
@@ -2207,7 +2101,7 @@
 
 
     /* =========================
-       DATE FIELD
+       GET DATE VALUE
     ========================== */
 
     function getDateValue(article){
@@ -2236,7 +2130,7 @@
 
 
     /* =========================
-       DATE TO MILLIS
+       DATE TO MILLISECONDS
     ========================== */
 
     function dateToMillis(value){
@@ -2259,7 +2153,7 @@
 
           return value.toMillis();
 
-        }catch(e){}
+        }catch(error){}
 
       }
 
@@ -2273,7 +2167,7 @@
 
           return value.toDate().getTime();
 
-        }catch(e){}
+        }catch(error){}
 
       }
 
@@ -2449,9 +2343,13 @@
     function articleUrl(article){
 
       const id =
+
         article.__id ||
+
         article.id ||
+
         article.articleId ||
+
         "";
 
 
@@ -2465,10 +2363,13 @@
 
 
       return (
+
         "habari.html?id=" +
+
         encodeURIComponent(
           id
         )
+
       );
 
     }
@@ -2504,9 +2405,13 @@
         const allowed = [
 
           "published",
+
           "publish",
+
           "active",
+
           "live",
+
           "true"
 
         ];
@@ -2532,7 +2437,7 @@
 
 
     /* =========================
-       CATEGORY MATCH
+       DINI CATEGORY MATCH
     ========================== */
 
     function isDini(article){
@@ -2553,6 +2458,7 @@
 
 
       const parts =
+
         category
           .split(
             /\s|,|\/|\|/
@@ -2562,9 +2468,15 @@
 
       return (
 
-        parts.includes("dini") ||
+        parts.includes(
+          "dini"
+        )
 
-        parts.includes("religion")
+        ||
+
+        parts.includes(
+          "religion"
+        )
 
       );
 
@@ -2572,7 +2484,7 @@
 
 
     /* =========================
-       IMAGE ELEMENT
+       IMAGE HTML
     ========================== */
 
     function imageElement(
@@ -2591,6 +2503,7 @@
           )}"
           alt="${escapeHTML(title)}"
           loading="${loading}"
+
           onerror="
             this.onerror=null;
             this.src='${FALLBACK_IMAGE}'
@@ -2830,6 +2743,27 @@
         getAuthor(article);
 
 
+      const readTime =
+        cleanText(
+
+          article.readTime ||
+
+          article.read_time ||
+
+          article.readingTime
+
+        ) ||
+
+        "Soma habari";
+
+
+      const featured =
+
+        article.featured === true ||
+
+        article.featured === "true";
+
+
       const card =
         document.createElement(
           "article"
@@ -2847,6 +2781,7 @@
           aria-label="${escapeHTML(title)}"
         >
 
+
           <div class="card-image-wrap">
 
             ${imageElement(
@@ -2855,6 +2790,25 @@
               "card-image"
             )}
 
+
+            ${
+              featured
+
+                ?
+
+                `
+
+                  <span class="badge">
+                    MUHIMU
+                  </span>
+
+                `
+
+                :
+
+                ""
+
+            }
 
           </div>
 
@@ -2902,6 +2856,16 @@
                 📅
                 ${escapeHTML(
                   time
+                )}
+
+              </span>
+
+
+              <span>
+
+                ⏱️
+                ${escapeHTML(
+                  readTime
                 )}
 
               </span>
@@ -3066,7 +3030,7 @@
 
 
     /* =========================
-       UPDATE TIMES
+       UPDATE ARTICLE TIMES
     ========================== */
 
     function updateArticleTimes(){
@@ -3196,14 +3160,6 @@
 
       try{
 
-        /*
-          LOADING HAIONEKANI
-        */
-
-        loading.style.display =
-          "none";
-
-
         errorState.classList.add(
           "hidden"
         );
@@ -3244,6 +3200,10 @@
               item.data();
 
 
+            /*
+              PUBLISHED ONLY
+            */
+
             if(
               !isPublished(
                 data
@@ -3254,6 +3214,10 @@
 
             }
 
+
+            /*
+              DINI ONLY
+            */
 
             if(
               !isDini(
@@ -3283,7 +3247,7 @@
 
 
         /*
-          MPYA KWANZA
+          NEWEST FIRST
         */
 
         articles.sort(
@@ -3369,7 +3333,7 @@
 
 
         /*
-          BREAKING KILA SEKUNDE 5
+          BREAKING EVERY 5 SEC
         */
 
         setInterval(
@@ -3384,15 +3348,6 @@
           "Dini Firestore Error:",
           error
         );
-
-
-        /*
-          LOADING HAIONEKANI HATA
-          KUKITOKEA KOSA
-        */
-
-        loading.style.display =
-          "none";
 
 
         content.classList.add(
@@ -3419,7 +3374,7 @@
 
 
     /* =========================
-       SEARCH
+       SEARCH DINI
     ========================== */
 
     function searchDini(term){
@@ -3446,15 +3401,25 @@
 
             const text = [
 
-              getTitle(article),
+              getTitle(
+                article
+              ),
 
-              getCategory(article),
+              getCategory(
+                article
+              ),
 
-              getDescription(article),
+              getDescription(
+                article
+              ),
 
-              getBody(article),
+              getBody(
+                article
+              ),
 
-              getAuthor(article)
+              getAuthor(
+                article
+              )
 
             ]
 
@@ -3606,12 +3571,10 @@
       searchSuggestions.innerHTML =
 
         results
-
           .slice(
             0,
             6
           )
-
           .map(
             article => {
 
@@ -3682,7 +3645,6 @@
 
             }
           )
-
           .join("");
 
 
@@ -3913,7 +3875,7 @@
 
 
     /* =========================
-       REFRESH TIMES
+       UPDATE TIMES
     ========================== */
 
     setInterval(
