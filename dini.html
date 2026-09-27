@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="sw-TZ">
 
 <head>
 
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Dini | BINSOUD HABARI</title>
 
@@ -85,140 +88,102 @@
     }
 
 
+    html{
+      scroll-behavior:smooth;
+    }
+
+
     body{
       font-family:Arial,Helvetica,sans-serif;
       background:var(--light);
       color:var(--text);
-      line-height:1.7;
+      line-height:1.6;
     }
 
 
     a{
-      text-decoration:none;
       color:inherit;
+      text-decoration:none;
     }
 
 
     img{
-      max-width:100%;
       display:block;
+      width:100%;
+      max-width:100%;
     }
 
 
     button,
     input{
-      font-family:inherit;
+      font:inherit;
     }
 
 
-    /* =====================================================
-       TOP BAR
-    ===================================================== */
+    .container{
+      width:min(1180px,92%);
+      margin:auto;
+    }
 
-    .topbar{
+
+    /* =========================
+       TOP DATE
+    ========================== */
+
+    .top-date{
       background:var(--deep);
       color:#fff;
       font-size:13px;
+      padding:7px 0;
     }
 
 
-    .topbar-inner{
-      max-width:1250px;
-      margin:auto;
-      min-height:34px;
-      padding:7px 20px;
-
+    .top-date .container{
       display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:15px;
+      justify-content:flex-end;
     }
 
 
-    /* =====================================================
+    /* =========================
        HEADER
-    ===================================================== */
+    ========================== */
 
     header{
-      background:#fff;
+      background:var(--white);
       border-bottom:1px solid var(--border);
     }
 
 
-    .header-inner{
-      max-width:1250px;
-      margin:auto;
-
-      padding:16px 20px;
-
+    .header-main{
+      min-height:90px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-
       gap:25px;
     }
 
 
     .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-shrink:0;
-    }
-
-
-    .logo-mark{
-      width:52px;
-      height:52px;
-
-      background:var(--blue);
-      color:#fff;
-
-      border-radius:8px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      font-size:22px;
+      font-size:30px;
       font-weight:900;
+      color:var(--blue);
+      letter-spacing:-1px;
+      white-space:nowrap;
     }
 
 
-    .logo-text h1{
-      font-size:24px;
-      line-height:1;
-
-      font-weight:900;
-
-      letter-spacing:-.4px;
-    }
-
-
-    .logo-text .red{
+    .logo span{
       color:var(--red);
     }
 
 
-    .logo-text span{
-      display:block;
-
-      margin-top:5px;
-
-      font-size:12px;
-
-      color:var(--muted);
-
-      font-weight:600;
-    }
-
-
-    /* =====================================================
+    /* =========================
        SEARCH
-    ===================================================== */
+    ========================== */
 
-    .header-search{
-      width:min(390px,100%);
+    .search-box{
+      flex:1;
+      max-width:430px;
       position:relative;
     }
 
@@ -229,742 +194,519 @@
     }
 
 
-    .search-input{
-      flex:1;
-      min-width:0;
-
-      height:42px;
-
-      border:1px solid #d7e0ea;
+    .search-form input{
+      width:100%;
+      border:1px solid var(--border);
       border-right:0;
-
       outline:none;
-
-      padding:0 13px;
-
-      font-size:14px;
-
-      color:var(--text);
-
+      padding:11px 14px;
+      border-radius:6px 0 0 6px;
       background:#fff;
-
-      border-radius:7px 0 0 7px;
     }
 
 
-    .search-input:focus{
-      border-color:var(--blue-2);
-
-      box-shadow:
-        0 0 0 2px
-        rgba(8,120,201,.10);
+    .search-form input:focus{
+      border-color:var(--blue);
     }
 
 
-    .search-btn{
-      width:50px;
-
+    .search-form button{
       border:0;
-
-      background:var(--blue);
-
+      padding:0 18px;
       color:#fff;
-
+      background:var(--blue);
       cursor:pointer;
-
-      font-size:17px;
-
-      border-radius:
-        0 7px 7px 0;
+      border-radius:0 6px 6px 0;
+      font-weight:700;
     }
 
 
-    .search-btn:hover{
+    .search-form button:hover{
       background:var(--blue-dark);
     }
 
 
     .search-suggestions{
+      display:none;
       position:absolute;
-
-      top:47px;
+      top:calc(100% + 6px);
       left:0;
       right:0;
-
       background:#fff;
-
       border:1px solid var(--border);
-
-      border-radius:7px;
-
-      box-shadow:
-        0 8px 20px rgba(0,0,0,.10);
-
-      z-index:500;
-
-      overflow:hidden;
-
-      display:none;
+      border-radius:6px;
+      box-shadow:var(--shadow);
+      z-index:9999;
+      max-height:350px;
+      overflow-y:auto;
     }
 
 
-    .search-suggestions.show{
+    .search-suggestions.active{
       display:block;
     }
 
 
-    .search-item{
-      display:block;
-
-      padding:11px 13px;
-
-      border-bottom:
-        1px solid #eef2f6;
-
-      font-size:13px;
-
-      color:#20364e;
+    .search-suggestion{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:10px;
+      border-bottom:1px solid var(--border);
+      cursor:pointer;
+      background:#fff;
     }
 
 
-    .search-item:last-child{
+    .search-suggestion:last-child{
       border-bottom:0;
     }
 
 
-    .search-item:hover{
+    .search-suggestion:hover{
       background:#f4f8fc;
     }
 
 
-    .search-item small{
-      display:block;
+    .search-suggestion-image{
+      width:65px;
+      height:48px;
+      object-fit:cover;
+      border-radius:5px;
+      background:#e9eef5;
+      flex-shrink:0;
+    }
 
-      margin-top:2px;
 
+    .search-suggestion-content{
+      min-width:0;
+    }
+
+
+    .search-suggestion-title{
+      color:var(--deep);
+      font-size:13px;
+      line-height:1.35;
+      font-weight:800;
+    }
+
+
+    .search-suggestion-category{
       color:var(--muted);
-
       font-size:11px;
+      margin-top:2px;
     }
 
 
-    /* =====================================================
-       NAV
-    ===================================================== */
+    .search-no-result{
+      padding:14px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
 
-    nav{
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .nav{
       background:var(--blue);
-
-      position:sticky;
-      top:0;
-
-      z-index:100;
-
-      box-shadow:
-        0 2px 8px
-        rgba(0,0,0,.08);
+      color:#fff;
     }
 
 
-    .nav-inner{
-      max-width:1250px;
-      margin:auto;
-
+    .nav .container{
       display:flex;
       align-items:center;
-
-      gap:2px;
-
+      gap:0;
       overflow-x:auto;
-
       scrollbar-width:none;
-
-      padding:0 15px;
     }
 
 
-    .nav-inner::-webkit-scrollbar{
+    .nav .container::-webkit-scrollbar{
       display:none;
     }
 
 
-    nav a{
-      color:#fff;
-
+    .nav a{
       display:block;
-
-      padding:13px 12px;
-
-      font-size:13px;
-
-      font-weight:800;
-
+      padding:13px 15px;
+      font-size:14px;
+      font-weight:700;
       white-space:nowrap;
-
-      border-bottom:
-        3px solid transparent;
+      transition:.2s;
     }
 
 
-    nav a:hover,
-    nav a.active{
-      background:
-        rgba(255,255,255,.10);
-
-      border-bottom-color:#fff;
+    .nav a:hover,
+    .nav a.active{
+      background:var(--blue-dark);
     }
 
 
-    /* =====================================================
-       BREAKING NEWS - WHITE
-    ===================================================== */
+    /* =========================
+       BREAKING NEWS
+    ========================== */
 
     .breaking{
       background:#fff;
-
-      color:var(--text);
-
-      border-bottom:
-        1px solid var(--border);
+      border-bottom:1px solid var(--border);
     }
 
 
     .breaking-inner{
-      max-width:1250px;
-      margin:auto;
-
-      min-height:42px;
-
       display:flex;
-
       align-items:center;
-
-      overflow:hidden;
+      min-height:44px;
     }
 
 
     .breaking-label{
       background:var(--red);
-
       color:#fff;
-
-      padding:
-        9px 15px;
-
-      font-size:12px;
-
+      font-size:13px;
       font-weight:900;
-
+      padding:10px 15px;
       white-space:nowrap;
+    }
 
-      flex-shrink:0;
+
+    .breaking-content{
+      flex:1;
+      overflow:hidden;
+      padding-left:14px;
     }
 
 
     #breakingNews{
-      flex:1;
-
-      padding:
-        0 15px;
-
-      color:#43566b;
-
-      font-size:13px;
-
-      font-weight:800;
-
+      display:block;
       white-space:nowrap;
-
       overflow:hidden;
-
       text-overflow:ellipsis;
-
+      color:var(--blue-dark);
+      font-weight:700;
       cursor:pointer;
     }
 
 
     #breakingNews:hover{
-      color:var(--blue);
-
-      text-decoration:underline;
+      color:var(--red);
     }
 
 
-    /* =====================================================
-       MAIN
-    ===================================================== */
-
-    .container{
-      max-width:1250px;
-
-      margin:auto;
-
-      padding:
-        28px 20px 55px;
-    }
-
-
-    /* =====================================================
+    /* =========================
        PAGE HEADER
-    ===================================================== */
+    ========================== */
 
     .page-header{
       background:#fff;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        var(--radius);
-
-      box-shadow:
-        var(--shadow);
-
-      padding:
-        22px 24px;
-
-      margin-bottom:
-        22px;
+      border-bottom:1px solid var(--border);
+      padding:28px 0 22px;
     }
 
 
-    .page-title-wrap{
-      border-left:
-        5px solid var(--blue);
-
-      padding-left:
-        14px;
+    .page-heading{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
     }
 
 
-    .page-title{
+    .heading-left{
+      border-left:5px solid var(--blue);
+      padding-left:14px;
+    }
+
+
+    .heading-left h1{
       color:var(--deep);
-
-      font-size:32px;
-
-      line-height:1.15;
-
-      font-weight:900;
+      font-size:31px;
+      line-height:1.2;
+      margin-bottom:6px;
     }
 
 
-    .page-subtitle{
+    .heading-left p{
       color:var(--muted);
-
-      margin-top:5px;
-
       font-size:14px;
     }
 
 
-    .page-date{
+    .current-date{
       color:var(--muted);
-
       font-size:12px;
-
-      margin-top:9px;
+      white-space:nowrap;
     }
 
 
-    /* =====================================================
+    /* =========================
+       MAIN
+    ========================== */
+
+    main{
+      padding:28px 0 55px;
+    }
+
+
+    /* =========================
        HERO
-    ===================================================== */
+    ========================== */
 
-    .hero-layout{
+    .hero-grid{
       display:grid;
-
-      grid-template-columns:
-        minmax(0,2fr)
-        minmax(300px,1fr);
-
-      gap:22px;
-
-      margin-bottom:
-        30px;
+      grid-template-columns:2fr 1fr;
+      gap:20px;
+      margin-bottom:30px;
     }
 
 
-    .hero{
+    .hero-card{
       background:#fff;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        var(--radius);
-
+      border:1px solid var(--border);
+      border-radius:var(--radius);
       overflow:hidden;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      transition:.2s;
+    }
 
-      box-shadow:
-        var(--shadow);
+
+    .hero-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 9px 25px rgba(13,47,79,.12);
     }
 
 
     .hero-image{
-      height:390px;
-
-      position:relative;
-
-      overflow:hidden;
-
-      background:#eaf1f6;
-    }
-
-
-    .hero-image img{
       width:100%;
-
-      height:100%;
-
+      height:390px;
       object-fit:cover;
-
-      transition:.3s;
+      background:#e9eef5;
     }
 
 
-    .hero:hover
-    .hero-image img{
-      transform:scale(1.03);
+    .hero-content{
+      padding:18px;
     }
 
 
-    .hero-overlay{
-      position:absolute;
-
-      left:0;
-      right:0;
-      bottom:0;
-
-      padding:
-        75px 24px 22px;
-
-      color:#fff;
-
-      background:
-        linear-gradient(
-          transparent,
-          rgba(0,0,0,.90)
-        );
-    }
-
-
-    .hero-category{
+    .category-label{
       display:inline-block;
-
-      background:var(--red);
-
-      color:#fff;
-
-      padding:
-        5px 9px;
-
-      border-radius:4px;
-
-      font-size:10px;
-
+      color:var(--red);
+      font-size:12px;
       font-weight:900;
-
-      margin-bottom:8px;
+      text-transform:uppercase;
+      margin-bottom:7px;
     }
 
 
     .hero-title{
       font-size:28px;
-
-      line-height:1.25;
-
+      line-height:1.22;
+      color:var(--deep);
+      margin-bottom:9px;
       font-weight:900;
     }
 
 
-    .hero-meta{
-      margin-top:8px;
-
-      font-size:11px;
-
-      opacity:.92;
+    .hero-description{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
     }
 
 
-    /* =====================================================
+    .article-time{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:10px;
+    }
+
+
+    /* =========================
        SIDE NEWS
-    ===================================================== */
+    ========================== */
 
     .side-news{
       display:flex;
-
       flex-direction:column;
-
-      gap:12px;
+      gap:14px;
     }
 
 
-    .side-title{
-      color:var(--deep);
-
+    .side-heading{
       font-size:18px;
-
+      color:var(--deep);
       font-weight:900;
-
       padding-bottom:9px;
-
-      border-bottom:
-        3px solid var(--blue);
+      border-bottom:3px solid var(--blue);
     }
 
 
     .side-card{
       background:#fff;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        var(--radius);
-
-      padding:9px;
-
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:10px;
       display:grid;
-
-      grid-template-columns:
-        100px 1fr;
-
-      gap:10px;
-
-      box-shadow:
-        0 4px 14px
-        rgba(13,47,79,.05);
-
+      grid-template-columns:105px 1fr;
+      gap:11px;
+      box-shadow:0 4px 15px rgba(0,0,0,.04);
       transition:.2s;
+      cursor:pointer;
     }
 
 
     .side-card:hover{
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        var(--shadow);
+      transform:translateY(-2px);
+      box-shadow:var(--shadow);
     }
 
 
     .side-image{
-      width:100px;
-
-      height:75px;
-
-      border-radius:5px;
-
-      overflow:hidden;
-
-      background:#eaf1f6;
-    }
-
-
-    .side-image img{
-      width:100%;
-
-      height:100%;
-
+      width:105px;
+      height:82px;
       object-fit:cover;
+      border-radius:6px;
+      background:#e9eef5;
     }
 
 
-    .side-card h3{
-      color:#183653;
+    .side-content{
+      min-width:0;
+    }
 
+
+    .side-title{
       font-size:14px;
-
       line-height:1.35;
-
       font-weight:900;
+      color:var(--deep);
     }
 
 
-    .side-card h3:hover{
+    .side-title:hover{
       color:var(--blue);
     }
 
 
-    .side-card small{
-      display:block;
-
-      margin-top:5px;
-
+    .side-time{
       color:var(--muted);
-
       font-size:10px;
+      margin-top:6px;
     }
 
 
-    /* =====================================================
+    /* =========================
        SECTION
-    ===================================================== */
+    ========================== */
 
     .section-head{
       display:flex;
-
-      justify-content:space-between;
-
       align-items:center;
-
+      justify-content:space-between;
       gap:15px;
-
-      margin-bottom:15px;
+      margin:28px 0 17px;
+      border-bottom:2px solid var(--blue);
+      padding-bottom:8px;
     }
 
 
     .section-head h2{
-      color:var(--deep);
-
-      font-size:22px;
-
-      font-weight:900;
-
-      border-left:
-        4px solid var(--blue);
-
-      padding-left:10px;
+      font-size:21px;
+      color:var(--blue-dark);
+      text-transform:uppercase;
     }
 
 
     .section-count{
       color:var(--blue);
-
       font-size:12px;
-
-      font-weight:800;
-
+      font-weight:700;
       white-space:nowrap;
     }
 
 
-    /* =====================================================
+    /* =========================
        NEWS GRID
-    ===================================================== */
+    ========================== */
 
     .news-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap:20px;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
     }
 
 
     .card{
       background:#fff;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        var(--radius);
-
+      border:1px solid var(--border);
+      border-radius:var(--radius);
       overflow:hidden;
-
-      box-shadow:
-        0 5px 18px
-        rgba(13,47,79,.07);
-
-      transition:.22s;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      transition:transform .2s,box-shadow .2s;
     }
 
 
     .card:hover{
-      transform:
-        translateY(-4px);
-
-      box-shadow:
-        0 9px 24px
-        rgba(13,47,79,.12);
+      transform:translateY(-3px);
+      box-shadow:0 9px 25px rgba(13,47,79,.12);
     }
 
 
     .card-image{
       width:100%;
-
-      height:205px;
-
+      height:210px;
       overflow:hidden;
-
-      background:#eaf1f6;
-
+      background:#e9eef5;
       position:relative;
     }
 
 
     .card-image img{
       width:100%;
-
       height:100%;
-
       object-fit:cover;
-
-      transition:.3s;
-    }
-
-
-    .card:hover
-    .card-image img{
-      transform:
-        scale(1.04);
     }
 
 
     .badge{
       position:absolute;
-
       top:10px;
-
       left:10px;
-
       background:var(--red);
-
       color:#fff;
-
-      padding:
-        4px 7px;
-
+      padding:4px 7px;
       border-radius:4px;
-
       font-size:9px;
-
       font-weight:900;
     }
 
 
     .card-body{
-      padding:16px;
+      padding:14px;
     }
 
 
-    .category{
-      color:var(--blue);
-
-      font-size:10px;
-
-      text-transform:
-        uppercase;
-
-      letter-spacing:.7px;
-
+    .news-category{
+      display:inline-block;
+      color:var(--red);
+      font-size:11px;
       font-weight:900;
-
+      text-transform:uppercase;
       margin-bottom:6px;
     }
 
 
     .card h3{
-      color:#122c3d;
-
       font-size:18px;
-
-      line-height:1.35;
-
+      line-height:1.3;
+      color:var(--deep);
       font-weight:900;
-
       margin-bottom:8px;
     }
 
@@ -975,61 +717,38 @@
 
 
     .intro{
-      color:#68798a;
-
+      color:var(--muted);
       font-size:13px;
-
-      line-height:1.6;
-
+      line-height:1.55;
       display:-webkit-box;
-
       -webkit-line-clamp:3;
-
       -webkit-box-orient:vertical;
-
       overflow:hidden;
-
       margin-bottom:12px;
     }
 
 
     .meta{
-      border-top:
-        1px solid #edf1f5;
-
+      border-top:1px solid #edf1f5;
       padding-top:10px;
-
       display:flex;
-
       flex-wrap:wrap;
-
       gap:7px 10px;
-
       color:#7c8997;
-
       font-size:10px;
     }
 
 
     .read{
       display:block;
-
       margin-top:12px;
-
       text-align:center;
-
       background:var(--blue);
-
       color:#fff;
-
       padding:9px;
-
       border-radius:5px;
-
       font-size:12px;
-
       font-weight:900;
-
       transition:.2s;
     }
 
@@ -1039,38 +758,25 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        MORE BUTTON
-    ===================================================== */
+    ========================== */
 
     .more-wrap{
       text-align:center;
-
       margin-top:28px;
     }
 
 
     .more-btn{
       border:0;
-
       background:var(--blue);
-
       color:#fff;
-
-      padding:
-        11px 25px;
-
+      padding:11px 25px;
       border-radius:5px;
-
       font-size:12px;
-
       font-weight:900;
-
       cursor:pointer;
-
-      box-shadow:
-        0 4px 12px
-        rgba(7,87,166,.16);
     }
 
 
@@ -1079,26 +785,26 @@
     }
 
 
-    /* =====================================================
+    .more-btn:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+    }
+
+
+    /* =========================
        LOADING
-    ===================================================== */
+    ========================== */
 
     .loading-grid{
       display:grid;
-
-      grid-template-columns:
-        minmax(0,2fr)
-        minmax(300px,1fr);
-
-      gap:22px;
+      grid-template-columns:2fr 1fr;
+      gap:20px;
     }
 
 
     .loading-main,
     .loading-card{
-      border-radius:
-        var(--radius);
-
+      border-radius:var(--radius);
       background:
         linear-gradient(
           90deg,
@@ -1106,11 +812,8 @@
           #f7f9fb 37%,
           #e9eef3 63%
         );
-
       background-size:400% 100%;
-
-      animation:
-        loading 1.4s infinite;
+      animation:loading 1.4s infinite;
     }
 
 
@@ -1121,15 +824,13 @@
 
     .loading-side{
       display:flex;
-
       flex-direction:column;
-
-      gap:12px;
+      gap:14px;
     }
 
 
     .loading-card{
-      height:90px;
+      height:95px;
     }
 
 
@@ -1146,55 +847,41 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        STATES
-    ===================================================== */
+    ========================== */
 
     .state{
       background:#fff;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        var(--radius);
-
-      padding:
-        55px 20px;
-
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:40px 20px;
       text-align:center;
-
-      box-shadow:
-        var(--shadow);
     }
 
 
     .state-icon{
       font-size:42px;
-
       margin-bottom:10px;
     }
 
 
     .state h3{
       color:var(--deep);
-
       margin-bottom:6px;
-
       font-size:20px;
     }
 
 
     .state p{
       color:var(--muted);
-
       font-size:13px;
     }
 
 
     .error-state{
-      border-top:
-        4px solid var(--red);
+      border-top:4px solid var(--red);
     }
 
 
@@ -1208,249 +895,145 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        FOOTER
-    ===================================================== */
+    ========================== */
 
     footer{
       background:var(--deep);
-
       color:#fff;
-
-      margin-top:20px;
+      margin-top:10px;
     }
 
 
-    .footer-inner{
-      max-width:1250px;
-
-      margin:auto;
-
-      padding:
-        38px 20px 24px;
-
+    .footer-main{
+      padding:35px 0;
       display:grid;
-
-      grid-template-columns:
-        2fr 1fr 1fr;
-
-      gap:34px;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:30px;
     }
 
 
-    .footer-inner h3{
-      margin-bottom:11px;
+    .footer-logo{
+      font-size:25px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
 
+
+    .footer-logo span{
+      color:var(--red);
+    }
+
+
+    footer p{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+
+    footer h3{
+      margin-bottom:10px;
+    }
+
+
+    .footer-links{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+    }
+
+
+    .footer-links a{
+      color:#dbe7f5;
+      font-size:14px;
+    }
+
+
+    .footer-links a:hover{
       color:#fff;
-
-      font-size:16px;
     }
 
 
-    .footer-inner p,
-    .footer-inner a{
-      color:#d6e1ed;
-
+    .copyright{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding:15px 0;
+      color:#cbd5e1;
       font-size:13px;
-
-      line-height:1.8;
-    }
-
-
-    .footer-inner a{
-      display:block;
-
-      margin:4px 0;
-    }
-
-
-    .footer-inner a:hover{
-      color:#fff;
-
-      text-decoration:underline;
-    }
-
-
-    .footer-bottom{
-      border-top:
-        1px solid
-        rgba(255,255,255,.12);
-
-      padding:
-        14px 20px;
-
       text-align:center;
-
-      color:#b9c9da;
-
-      font-size:12px;
     }
 
 
-    /* =====================================================
+    /* =========================
        RESPONSIVE
-    ===================================================== */
+    ========================== */
 
-    @media(max-width:950px){
+    @media(max-width:900px){
 
-      .header-inner{
+      .header-main{
         flex-direction:column;
-
         align-items:stretch;
+        padding:16px 0;
       }
 
 
-      .header-search{
-        width:100%;
+      .logo{
+        text-align:center;
       }
 
 
-      .hero-layout{
-        grid-template-columns:
-          1fr;
+      .search-box{
+        max-width:none;
       }
 
 
-      .side-news{
-        display:grid;
-
-        grid-template-columns:
-          1fr 1fr;
-      }
-
-
-      .side-title{
-        grid-column:1/-1;
+      .hero-grid{
+        grid-template-columns:1fr;
       }
 
 
       .news-grid{
-        grid-template-columns:
-          repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
       }
 
 
-      .loading-grid{
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .loading-side{
-        display:grid;
-
-        grid-template-columns:
-          1fr 1fr;
-      }
-
-
-      .footer-inner{
-        grid-template-columns:
-          1fr 1fr;
+      .footer-main{
+        grid-template-columns:1fr 1fr;
       }
 
     }
 
 
-    @media(max-width:650px){
+    @media(max-width:600px){
 
-      .topbar-inner{
-        justify-content:center;
-
-        padding:
-          6px 12px;
-      }
-
-
-      .topbar-inner span:last-child{
-        display:none;
-      }
-
-
-      .header-inner{
-        padding:
-          13px 15px 15px;
-
-        gap:12px;
-      }
-
-
-      .logo-mark{
-        width:46px;
-        height:46px;
-
-        font-size:19px;
-      }
-
-
-      .logo-text h1{
-        font-size:20px;
-      }
-
-
-      .logo-text span{
-        font-size:10px;
-      }
-
-
-      nav a{
-        padding:
-          12px 10px;
-
-        font-size:12px;
-      }
-
-
-      .breaking-inner{
-        min-height:38px;
-      }
-
-
-      .breaking-label{
-        padding:
-          8px 10px;
-
-        font-size:10px;
-      }
-
-
-      #breakingNews{
-        padding:
-          0 10px;
-
-        font-size:12px;
-      }
-
-
-      .container{
-        padding:
-          20px 12px 40px;
+      main{
+        padding-top:18px;
       }
 
 
       .page-header{
-        padding:18px;
+        padding:22px 0 18px;
       }
 
 
-      .page-title{
-        font-size:28px;
+      .page-heading{
+        display:block;
       }
 
 
-      .page-subtitle{
-        font-size:12px;
+      .heading-left h1{
+        font-size:26px;
+      }
+
+
+      .current-date{
+        margin-top:9px;
+        margin-left:19px;
       }
 
 
       .hero-image{
-        height:290px;
-      }
-
-
-      .hero-overlay{
-        padding:
-          65px 18px 18px;
+        height:260px;
       }
 
 
@@ -1459,29 +1042,8 @@
       }
 
 
-      .side-news{
-        display:block;
-      }
-
-
-      .side-card{
-        margin-bottom:12px;
-      }
-
-
       .news-grid{
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .loading-side{
-        display:block;
-      }
-
-
-      .loading-card{
-        margin-bottom:12px;
+        grid-template-columns:1fr;
       }
 
 
@@ -1490,29 +1052,35 @@
       }
 
 
-      .card h3{
-        font-size:18px;
+      .side-card{
+        grid-template-columns:95px 1fr;
       }
 
 
-      .section-head{
-        align-items:flex-start;
+      .side-image{
+        width:95px;
+        height:80px;
       }
 
 
-      .section-head h2{
-        font-size:20px;
+      .footer-main{
+        grid-template-columns:1fr;
       }
 
 
-      .footer-inner{
-        grid-template-columns:
-          1fr;
+      .breaking-label{
+        padding:10px;
+        font-size:11px;
+      }
 
-        gap:25px;
 
-        padding:
-          30px 20px 20px;
+      .breaking-content{
+        padding-left:9px;
+      }
+
+
+      .search-suggestions{
+        max-height:300px;
       }
 
     }
@@ -1525,35 +1093,28 @@
 <body>
 
 
-  <!-- =====================================================
-       TOP BAR
-  ===================================================== -->
+  <!-- =========================
+       TOP DATE
+  ========================== -->
 
-  <div class="topbar">
+  <div class="top-date">
 
-    <div class="topbar-inner">
+    <div class="container">
 
-      <span id="currentDate">
-        📰 BINSOUD HABARI
-      </span>
-
-
-      <span>
-        Habari kwa wakati • Ukweli • Uhakika
-      </span>
+      <span id="todayDate"></span>
 
     </div>
 
   </div>
 
 
-  <!-- =====================================================
+  <!-- =========================
        HEADER
-  ===================================================== -->
+  ========================== -->
 
   <header>
 
-    <div class="header-inner">
+    <div class="container header-main">
 
 
       <a
@@ -1561,52 +1122,30 @@
         class="logo"
       >
 
-        <div class="logo-mark">
-          BH
-        </div>
-
-
-        <div class="logo-text">
-
-          <h1>
-            BINSOUD
-            <span class="red">
-              HABARI
-            </span>
-          </h1>
-
-
-          <span>
-            Chanzo chako cha habari
-          </span>
-
-        </div>
+        BINSOUD <span>HABARI</span>
 
       </a>
 
 
-      <div class="header-search">
+      <!-- SEARCH -->
+
+      <div class="search-box">
 
         <form
-          id="searchForm"
           class="search-form"
+          id="searchForm"
         >
 
           <input
-            id="searchInput"
-            class="search-input"
             type="search"
+            id="searchInput"
             placeholder="Tafuta habari..."
             autocomplete="off"
           >
 
 
-          <button
-            type="submit"
-            class="search-btn"
-            aria-label="Tafuta"
-          >
-            🔍
+          <button type="submit">
+            TAFUTA
           </button>
 
         </form>
@@ -1619,18 +1158,20 @@
 
       </div>
 
+
     </div>
 
   </header>
 
 
-  <!-- =====================================================
+  <!-- =========================
        NAVIGATION
-  ===================================================== -->
+  ========================== -->
 
-  <nav>
+  <nav class="nav">
 
-    <div class="nav-inner">
+    <div class="container">
+
 
       <a href="index.html">
         HOME
@@ -1699,243 +1240,271 @@
         MAWASILIANO
       </a>
 
+
     </div>
 
   </nav>
 
 
-  <!-- =====================================================
+  <!-- =========================
        BREAKING NEWS
-  ===================================================== -->
+  ========================== -->
 
   <section class="breaking">
 
-    <div class="breaking-inner">
+    <div class="container breaking-inner">
+
 
       <div class="breaking-label">
         BREAKING NEWS
       </div>
 
 
-      <a
-        id="breakingNews"
-        href="index.html"
-      >
-        BINSOUD HABARI
-      </a>
+      <div class="breaking-content">
+
+        <a
+          id="breakingNews"
+          href="index.html"
+        >
+          BINSOUD HABARI
+        </a>
+
+      </div>
+
 
     </div>
 
   </section>
 
 
-  <!-- =====================================================
-       MAIN
-  ===================================================== -->
+  <!-- =========================
+       PAGE HEADER
+  ========================== -->
 
-  <main class="container">
+  <section class="page-header">
 
-
-    <!-- PAGE HEADER -->
-
-    <section class="page-header">
-
-      <div class="page-title-wrap">
-
-        <h1 class="page-title">
-          Habari za Dini
-        </h1>
+    <div class="container">
 
 
-        <p class="page-subtitle">
-          Habari, matukio, viongozi wa dini,
-          ibada na taarifa mbalimbali za kidini.
-        </p>
+      <div class="page-heading">
+
+
+        <div class="heading-left">
+
+          <h1>
+            Habari za Dini
+          </h1>
+
+
+          <p>
+            Habari, matukio, viongozi wa dini,
+            ibada na taarifa mbalimbali za kidini.
+          </p>
+
+        </div>
+
+
+        <div
+          id="currentDate"
+          class="current-date"
+        ></div>
+
 
       </div>
 
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+    <div class="container">
+
+
+      <!-- LOADING -->
 
       <div
-        id="pageDate"
-        class="page-date"
+        id="loading"
+        class="hidden"
       >
-        -
-      </div>
 
-    </section>
+        <div class="loading-grid">
 
-
-    <!-- ===================================================
-         LOADING
-    ==================================================== -->
-
-    <div id="loading">
-
-      <div class="loading-grid">
-
-        <div class="loading-main"></div>
+          <div class="loading-main"></div>
 
 
-        <div class="loading-side">
+          <div class="loading-side">
 
-          <div class="loading-card"></div>
+            <div class="loading-card"></div>
 
-          <div class="loading-card"></div>
+            <div class="loading-card"></div>
 
-          <div class="loading-card"></div>
+            <div class="loading-card"></div>
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
 
-
-    <!-- ===================================================
-         ERROR
-    ==================================================== -->
-
-    <div
-      id="errorState"
-      class="state error-state hidden"
-    >
-
-      <div class="state-icon">
-        ⚠️
-      </div>
-
-
-      <h3>
-        Imeshindikana kupakia habari
-      </h3>
-
-
-      <p id="errorText">
-        Tafadhali jaribu tena baadaye.
-      </p>
-
-    </div>
-
-
-    <!-- ===================================================
-         EMPTY
-    ==================================================== -->
-
-    <div
-      id="emptyState"
-      class="state hidden"
-    >
-
-      <div class="state-icon">
-        🕌
-      </div>
-
-
-      <h3>
-        Hakuna habari za dini
-      </h3>
-
-
-      <p id="emptyText">
-        Kwa sasa hakuna habari zilizowekwa
-        katika kundi la Dini.
-      </p>
-
-    </div>
-
-
-    <!-- ===================================================
-         FRONT CONTENT
-    ==================================================== -->
-
-    <div
-      id="content"
-      class="hidden"
-    >
-
-
-      <!-- HERO + SIDE -->
-
-      <div class="hero-layout">
-
-
-        <div
-          id="hero"
-          class="hero"
-        ></div>
-
-
-        <div
-          id="sideNews"
-          class="side-news"
-        ></div>
-
-      </div>
-
-
-      <!-- SECTION -->
-
-      <div class="section-head">
-
-        <h2>
-          Habari Mpya za Dini
-        </h2>
-
-
-        <span
-          id="count"
-          class="section-count"
-        >
-          0 habari
-        </span>
-
-      </div>
-
-
-      <!-- GRID -->
+      <!-- ERROR -->
 
       <div
-        id="newsGrid"
-        class="news-grid"
-      ></div>
-
-
-      <!-- MORE -->
-
-      <div
-        id="moreWrap"
-        class="more-wrap hidden"
+        id="errorState"
+        class="state error-state hidden"
       >
 
-        <button
-          id="moreBtn"
-          class="more-btn"
-          type="button"
-        >
-          ONA HABARI ZAIDI
-        </button>
+        <div class="state-icon">
+          ⚠️
+        </div>
+
+
+        <h3>
+          Imeshindikana kupakia habari
+        </h3>
+
+
+        <p id="errorText">
+          Tafadhali jaribu tena baadaye.
+        </p>
 
       </div>
+
+
+      <!-- EMPTY -->
+
+      <div
+        id="emptyState"
+        class="state hidden"
+      >
+
+        <div class="state-icon">
+          🕌
+        </div>
+
+
+        <h3>
+          Hakuna habari za dini
+        </h3>
+
+
+        <p id="emptyText">
+          Kwa sasa hakuna habari zilizowekwa
+          katika kundi la Dini.
+        </p>
+
+      </div>
+
+
+      <!-- CONTENT -->
+
+      <div
+        id="content"
+        class="hidden"
+      >
+
+
+        <!-- HERO + SIDE -->
+
+        <section class="hero-grid">
+
+
+          <article
+            class="hero-card"
+            id="heroCard"
+          ></article>
+
+
+          <aside
+            class="side-news"
+            id="sideNews"
+          ></aside>
+
+
+        </section>
+
+
+        <!-- HABARI MPYA -->
+
+        <section>
+
+
+          <div class="section-head">
+
+            <h2>
+              Habari Mpya za Dini
+            </h2>
+
+
+            <span
+              id="count"
+              class="section-count"
+            >
+              0 habari
+            </span>
+
+          </div>
+
+
+          <div
+            id="newsGrid"
+            class="news-grid"
+          ></div>
+
+
+          <!-- ONA HABARI ZAIDI -->
+
+          <div
+            id="moreWrap"
+            class="more-wrap hidden"
+          >
+
+            <button
+              id="moreBtn"
+              class="more-btn"
+              type="button"
+            >
+              ONA HABARI ZAIDI
+            </button>
+
+          </div>
+
+
+        </section>
+
+
+      </div>
+
 
     </div>
 
   </main>
 
 
-  <!-- =====================================================
+  <!-- =========================
        FOOTER
-  ===================================================== -->
+  ========================== -->
 
   <footer>
 
-    <div class="footer-inner">
+
+    <div class="container footer-main">
 
 
       <div>
 
-        <h3>
-          BINSOUD HABARI
-        </h3>
+        <div class="footer-logo">
+
+          BINSOUD <span>HABARI</span>
+
+        </div>
 
 
         <p>
@@ -1950,28 +1519,42 @@
       <div>
 
         <h3>
-          Sehemu
+          SEHEMU
         </h3>
 
 
-        <a href="kitaifa.html">
-          Kitaifa
-        </a>
+        <div class="footer-links">
+
+          <a href="index.html">
+            Nyumbani
+          </a>
 
 
-        <a href="siasa.html">
-          Siasa
-        </a>
+          <a href="kitaifa.html">
+            Kitaifa
+          </a>
 
 
-        <a href="biashara.html">
-          Uchumi
-        </a>
+          <a href="kimataifa.html">
+            Mataifa
+          </a>
 
 
-        <a href="michezo.html">
-          Michezo
-        </a>
+          <a href="dini.html">
+            Dini
+          </a>
+
+
+          <a href="michezo.html">
+            Michezo
+          </a>
+
+
+          <a href="mazingira.html">
+            Mazingira
+          </a>
+
+        </div>
 
       </div>
 
@@ -1979,35 +1562,55 @@
       <div>
 
         <h3>
-          Zaidi
+          ZAIDI
         </h3>
 
 
-        <a href="kimataifa.html">
-          Kimataifa
-        </a>
+        <div class="footer-links">
+
+          <a href="burudani.html">
+            Burudani
+          </a>
 
 
-        <a href="burudani.html">
-          Burudani
-        </a>
+          <a href="siasa.html">
+            Siasa
+          </a>
 
 
-        <a href="makala.html">
-          Makala
-        </a>
+          <a href="biashara.html">
+            Uchumi
+          </a>
 
 
-        <a href="contact.html">
-          Mawasiliano
-        </a>
+          <a href="makala.html">
+            Makala
+          </a>
+
+
+          <a href="video.html">
+            Video
+          </a>
+
+
+          <a href="audio.html">
+            Audio
+          </a>
+
+
+          <a href="contact.html">
+            Mawasiliano
+          </a>
+
+        </div>
 
       </div>
+
 
     </div>
 
 
-    <div class="footer-bottom">
+    <div class="copyright">
 
       ©
       <span id="year"></span>
@@ -2016,39 +1619,38 @@
 
     </div>
 
+
   </footer>
 
 
-  <!-- =====================================================
-       FIREBASE
-  ===================================================== -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
 
   <script type="module">
 
     import {
       initializeApp
-    }
-    from
-      "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+    } from
+    "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 
     import {
       getFirestore,
       collection,
       getDocs
-    }
-    from
-      "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+    } from
+    "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
-    /* =====================================================
-       FIREBASE CONFIG
-    ===================================================== */
+    /* =========================
+       FIREBASE
+    ========================== */
 
     const firebaseConfig = {
 
       apiKey:
-        "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+        "AIzaSyCFpSNTqw9ljOFkx-A-szNcNi-HmVKZU-7I",
 
       authDomain:
         "binsoud-habari-8a5fa.firebaseapp.com",
@@ -2083,9 +1685,9 @@
       );
 
 
-    /* =====================================================
+    /* =========================
        ELEMENTS
-    ===================================================== */
+    ========================== */
 
     const loading =
       document.getElementById(
@@ -2123,9 +1725,9 @@
       );
 
 
-    const hero =
+    const heroCard =
       document.getElementById(
-        "hero"
+        "heroCard"
       );
 
 
@@ -2165,6 +1767,12 @@
       );
 
 
+    const searchForm =
+      document.getElementById(
+        "searchForm"
+      );
+
+
     const searchInput =
       document.getElementById(
         "searchInput"
@@ -2177,9 +1785,9 @@
       );
 
 
-    /* =====================================================
+    /* =========================
        DATA
-    ===================================================== */
+    ========================== */
 
     let allDiniArticles = [];
 
@@ -2187,15 +1795,55 @@
 
     let visibleGridCount = 3;
 
+    let breakingIndex = 0;
+
 
     const INITIAL_GRID_COUNT = 3;
 
     const LOAD_MORE_COUNT = 3;
 
 
-    /* =====================================================
-       TEXT HELPERS
-    ===================================================== */
+    /* =========================
+       FALLBACK IMAGE
+    ========================== */
+
+    const FALLBACK_IMAGE =
+      "data:image/svg+xml;charset=UTF-8," +
+      encodeURIComponent(`
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="900"
+          height="550"
+          viewBox="0 0 900 550"
+        >
+
+          <rect
+            width="900"
+            height="550"
+            fill="#e9eef5"
+          />
+
+          <text
+            x="450"
+            y="275"
+            text-anchor="middle"
+            font-family="Arial"
+            font-size="34"
+            font-weight="700"
+            fill="#718096"
+          >
+            BINSOUD HABARI
+          </text>
+
+        </svg>
+
+      `);
+
+
+    /* =========================
+       TEXT
+    ========================== */
 
     function cleanText(value){
 
@@ -2282,9 +1930,9 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        TITLE
-    ===================================================== */
+    ========================== */
 
     function getTitle(article){
 
@@ -2298,42 +1946,46 @@
 
         article.name ||
 
-        article.caption
+        article.caption ||
+
+        "Habari mpya"
 
       );
 
     }
 
 
-    /* =====================================================
+    /* =========================
        CATEGORY
-    ===================================================== */
+    ========================== */
 
     function getCategory(article){
 
       const value =
 
-        article.category ||
+        article.category ??
 
-        article.categoryName ||
+        article.categoryName ??
 
-        article.category_name ||
+        article.category_name ??
 
-        article.section ||
+        article.section ??
 
-        article.sectionName ||
+        article.sectionName ??
 
-        article.section_name ||
+        article.section_name ??
 
-        article.kategoria ||
+        article.kategoria ??
 
-        article.kategoriaName ||
+        article.kategoriaName ??
 
-        article.newsCategory ||
+        article.newsCategory ??
 
-        article.news_category ||
+        article.news_category ??
 
-        article.categories;
+        article.categories ??
+
+        "";
 
 
       if(
@@ -2354,13 +2006,13 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        IMAGE
-    ===================================================== */
+    ========================== */
 
     function getImage(article){
 
-      return cleanText(
+      return (
 
         article.image ||
 
@@ -2400,16 +2052,18 @@
 
         article.img ||
 
-        article.imageLink
+        article.imageLink ||
+
+        FALLBACK_IMAGE
 
       );
 
     }
 
 
-    /* =====================================================
+    /* =========================
        BODY
-    ===================================================== */
+    ========================== */
 
     function getBody(article){
 
@@ -2431,20 +2085,22 @@
 
         article.summary ||
 
-        article.intro
+        article.intro ||
+
+        ""
 
       );
 
     }
 
 
-    /* =====================================================
+    /* =========================
        DESCRIPTION
-    ===================================================== */
+    ========================== */
 
     function getDescription(article){
 
-      return cleanText(
+      const value =
 
         article.intro ||
 
@@ -2454,16 +2110,56 @@
 
         article.shortDescription ||
 
-        article.description
+        article.description ||
 
-      );
+        getBody(article) ||
+
+        "";
+
+
+      const clean =
+
+        String(
+          value
+        )
+
+        .replace(
+          /<[^>]*>/g,
+          " "
+        )
+
+        .replace(
+          /\s+/g,
+          " "
+        )
+
+        .trim();
+
+
+      if(
+        !clean
+      ){
+
+        return "Soma habari hii kwa maelezo zaidi.";
+
+      }
+
+
+      return clean.length > 190
+
+        ? clean.slice(
+            0,
+            190
+          ).trim() + "..."
+
+        : clean;
 
     }
 
 
-    /* =====================================================
+    /* =========================
        AUTHOR
-    ===================================================== */
+    ========================== */
 
     function getAuthor(article){
 
@@ -2486,9 +2182,9 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        PUBLISHED
-    ===================================================== */
+    ========================== */
 
     function isPublished(article){
 
@@ -2516,9 +2212,13 @@
         const allowed = [
 
           "published",
+
           "publish",
+
           "active",
+
           "live",
+
           "true"
 
         ];
@@ -2543,216 +2243,155 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        DATE
-    ===================================================== */
-
-    function toDate(value){
-
-      if(!value){
-
-        return null;
-
-      }
-
-
-      try{
-
-        if(
-          typeof value === "object" &&
-          typeof value.toDate === "function"
-        ){
-
-          const date =
-            value.toDate();
-
-
-          if(
-            date &&
-            !isNaN(
-              date.getTime()
-            )
-          ){
-
-            return date;
-
-          }
-
-        }
-
-
-        if(
-          typeof value === "object" &&
-          typeof value.toMillis === "function"
-        ){
-
-          const date =
-            new Date(
-              value.toMillis()
-            );
-
-
-          if(
-            !isNaN(
-              date.getTime()
-            )
-          ){
-
-            return date;
-
-          }
-
-        }
-
-
-        if(
-          typeof value === "object" &&
-          typeof value.seconds === "number"
-        ){
-
-          const date =
-            new Date(
-
-              value.seconds * 1000 +
-
-              Math.floor(
-                (value.nanoseconds || 0) /
-                1000000
-              )
-
-            );
-
-
-          if(
-            !isNaN(
-              date.getTime()
-            )
-          ){
-
-            return date;
-
-          }
-
-        }
-
-
-        const date =
-          new Date(
-            value
-          );
-
-
-        if(
-          !isNaN(
-            date.getTime()
-          )
-        ){
-
-          return date;
-
-        }
-
-      }catch(error){
-
-        console.warn(
-          "Date error:",
-          error
-        );
-
-      }
-
-
-      return null;
-
-    }
-
-
-    function getArticleDate(article){
-
-      const fields = [
-
-        article.createdAt,
-
-        article.publishedAt,
-
-        article.updatedAt,
-
-        article.date,
-
-        article.timestamp,
-
-        article.createdDate,
-
-        article.publishDate
-
-      ];
-
-
-      for(
-        const value of fields
-      ){
-
-        const date =
-          toDate(
-            value
-          );
-
-
-        if(date){
-
-          return date;
-
-        }
-
-      }
-
-
-      return null;
-
-    }
-
+    ========================== */
 
     function getDateValue(article){
 
-      const date =
-        getArticleDate(
-          article
-        );
+      return (
 
+        article.createdAt ??
 
-      return date
-        ? date.getTime()
-        : 0;
+        article.publishedAt ??
+
+        article.publishDate ??
+
+        article.timestamp ??
+
+        article.date ??
+
+        article.created_at ??
+
+        article.updatedAt ??
+
+        null
+
+      );
 
     }
 
 
-    /* =====================================================
-       RELATIVE TIME
-    ===================================================== */
+    function dateToMillis(value){
 
-    function formatRelativeTime(article){
+      if(
+        !value
+      ){
 
-      const date =
-        getArticleDate(
-          article
+        return 0;
+
+      }
+
+
+      if(
+        typeof value === "object" &&
+        typeof value.toMillis === "function"
+      ){
+
+        try{
+
+          return value.toMillis();
+
+        }catch(e){}
+
+      }
+
+
+      if(
+        typeof value === "object" &&
+        typeof value.toDate === "function"
+      ){
+
+        try{
+
+          return value.toDate().getTime();
+
+        }catch(e){}
+
+      }
+
+
+      if(
+        typeof value === "object" &&
+        value.seconds !== undefined
+      ){
+
+        return (
+
+          Number(
+            value.seconds
+          ) * 1000
+
+          +
+
+          Math.floor(
+            (value.nanoseconds || 0) /
+            1000000
+          )
+
+        );
+
+      }
+
+
+      if(
+        typeof value === "number"
+      ){
+
+        return value < 10000000000
+
+          ? value * 1000
+
+          : value;
+
+      }
+
+
+      const parsed =
+        Date.parse(
+          value
         );
 
 
-      if(!date){
+      return Number.isNaN(
+        parsed
+      )
+
+        ? 0
+
+        : parsed;
+
+    }
+
+
+    function formatRelativeTime(article){
+
+      const millis =
+        dateToMillis(
+          getDateValue(article)
+        );
+
+
+      if(
+        !millis
+      ){
 
         return "Tarehe haijawekwa";
 
       }
 
 
-      const now =
-        new Date();
+      let difference =
+        Date.now() - millis;
 
 
-      const diff =
-        now.getTime() -
-        date.getTime();
+      if(
+        difference < 0
+      ){
+
+        difference = 0;
+
+      }
 
 
       const minute =
@@ -2768,18 +2407,7 @@
 
 
       if(
-        diff < 0
-      ){
-
-        return formatFullDate(
-          date
-        );
-
-      }
-
-
-      if(
-        diff < minute
+        difference < minute
       ){
 
         return "Imetumwa hivi punde";
@@ -2788,238 +2416,116 @@
 
 
       if(
-        diff < hour
+        difference < hour
       ){
 
         const minutes =
           Math.floor(
-            diff / minute
+            difference / minute
           );
 
 
-        return (
+        return minutes === 1
 
-          "Imetumwa dakika " +
+          ? "Imetumwa dakika 1 iliyopita"
 
-          minutes +
-
-          " zilizopita"
-
-        );
+          : `Imetumwa dakika ${minutes} zilizopita`;
 
       }
 
 
       if(
-        diff < day
+        difference < day
       ){
 
         const hours =
           Math.floor(
-            diff / hour
+            difference / hour
           );
 
 
-        return (
+        return hours === 1
 
-          "Imetumwa saa " +
+          ? "Imetumwa saa 1 iliyopita"
 
-          hours +
-
-          (
-
-            hours === 1
-              ? " iliyopita"
-              : " zilizopita"
-
-          )
-
-        );
+          : `Imetumwa saa ${hours} zilizopita`;
 
       }
 
-
-      return formatFullDate(
-        date
-      );
-
-    }
-
-
-    /* =====================================================
-       FULL DATE
-    ===================================================== */
-
-    function formatFullDate(date){
 
       return new Intl.DateTimeFormat(
         "sw-TZ",
         {
-
-          day:"2-digit",
-
+          day:"numeric",
           month:"long",
-
           year:"numeric",
-
           hour:"2-digit",
-
           minute:"2-digit"
-
         }
-
       ).format(
-        date
+        new Date(
+          millis
+        )
       );
 
     }
 
 
-    /* =====================================================
-       DESCRIPTION
-    ===================================================== */
+    /* =========================
+       ARTICLE URL
+    ========================== */
 
-    function getShortDescription(
-      article
-    ){
+    function articleUrl(article){
 
-      let text =
-        getDescription(
-          article
-        );
-
-
-      if(!text){
-
-        text =
-          getBody(
-            article
-          );
-
-      }
-
-
-      text =
-        cleanText(
-          text
-        )
-
-        .replace(
-          /<[^>]*>/g,
-          " "
-        )
-
-        .replace(
-          /\s+/g,
-          " "
-        )
-
-        .trim();
-
-
-      if(!text){
-
-        return (
-          "Soma habari hii kwa maelezo zaidi."
-        );
-
-      }
-
-
-      const words =
-        text.split(
-          /\s+/
-        );
+      const id =
+        article.__id ||
+        article.id ||
+        article.articleId ||
+        "";
 
 
       if(
-        words.length > 35
+        !id
       ){
 
-        return (
-
-          words
-            .slice(
-              0,
-              35
-            )
-            .join(" ") +
-
-          "..."
-
-        );
+        return "habari.html";
 
       }
 
 
-      return text;
-
-    }
-
-
-    /* =====================================================
-       ARTICLE LINK
-    ===================================================== */
-
-    function articleLink(article){
-
       return (
-
         "habari.html?id=" +
-
         encodeURIComponent(
-          article.id
+          id
         )
-
       );
 
     }
 
 
-    /* =====================================================
-       IMAGE RENDER
-    ===================================================== */
+    /* =========================
+       IMAGE HTML
+    ========================== */
 
-    function renderImage(
-      image,
-      title
+    function imageElement(
+      source,
+      title,
+      className,
+      loading = "lazy"
     ){
-
-      if(!image){
-
-        return `
-
-          <div
-            style="
-              width:100%;
-              height:100%;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              background:#edf5fa;
-              color:#0757a6;
-              font-size:42px;
-            "
-          >
-            🕌
-          </div>
-
-        `;
-
-      }
-
 
       return `
 
         <img
-          src="${escapeHTML(image)}"
+          class="${className}"
+          src="${escapeHTML(
+            source || FALLBACK_IMAGE
+          )}"
           alt="${escapeHTML(title)}"
-          loading="lazy"
-
+          loading="${loading}"
           onerror="
             this.onerror=null;
-            this.style.display='none';
-            this.parentElement.innerHTML='🕌';
+            this.src='${FALLBACK_IMAGE}'
           "
         >
 
@@ -3028,15 +2534,17 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        HERO
-    ===================================================== */
+    ========================== */
 
     function renderHero(article){
 
-      if(!article){
+      if(
+        !article
+      ){
 
-        hero.innerHTML =
+        heroCard.innerHTML =
           "";
 
         return;
@@ -3045,16 +2553,15 @@
 
 
       const title =
-        getTitle(article) ||
-        "Habari mpya za Dini";
+        getTitle(article);
+
+
+      const description =
+        getDescription(article);
 
 
       const image =
         getImage(article);
-
-
-      const author =
-        getAuthor(article);
 
 
       const time =
@@ -3063,52 +2570,47 @@
         );
 
 
-      hero.innerHTML = `
+      heroCard.innerHTML = `
 
         <a
-          href="${articleLink(article)}"
+          href="${articleUrl(article)}"
+          aria-label="${escapeHTML(title)}"
         >
 
-          <div class="hero-image">
-
-            ${renderImage(
-              image,
-              title
-            )}
-
-
-            <div class="hero-overlay">
-
-              <span class="hero-category">
-                DINI
-              </span>
+          ${imageElement(
+            image,
+            title,
+            "hero-image",
+            "eager"
+          )}
 
 
-              <div class="hero-title">
+          <div class="hero-content">
 
-                ${escapeHTML(
-                  title
-                )}
-
-              </div>
+            <div class="category-label">
+              DINI
+            </div>
 
 
-              <div class="hero-meta">
+            <h1 class="hero-title">
+              ${escapeHTML(title)}
+            </h1>
 
-                ✍️
-                ${escapeHTML(
-                  author
-                )}
 
-                &nbsp; • &nbsp;
+            <p class="hero-description">
+              ${escapeHTML(description)}
+            </p>
 
-                📅
-                ${escapeHTML(
-                  time
-                )}
 
-              </div>
-
+            <div
+              class="article-time"
+              data-time-article="${escapeHTML(
+                article.__id ||
+                article.id ||
+                ""
+              )}"
+            >
+              ${escapeHTML(time)}
             </div>
 
           </div>
@@ -3120,34 +2622,31 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        SIDE NEWS
-    ===================================================== */
+    ========================== */
 
-    function renderSideNews(
-      articles
-    ){
+    function renderSideNews(list){
 
       sideNews.innerHTML = `
 
-        <div class="side-title">
-          Habari Mpya
+        <div class="side-heading">
+          Habari Zinazofuatwa
         </div>
 
       `;
 
 
-      articles
+      list
         .slice(
           0,
           3
         )
         .forEach(
-          function(article){
+          article => {
 
             const title =
-              getTitle(article) ||
-              "Habari mpya";
+              getTitle(article);
 
 
             const image =
@@ -3160,56 +2659,53 @@
               );
 
 
-            const item =
+            const card =
               document.createElement(
                 "article"
               );
 
 
-            item.className =
+            card.className =
               "side-card";
 
 
-            item.innerHTML = `
+            card.innerHTML = `
 
-              <a
-                class="side-image"
-                href="${articleLink(article)}"
-              >
-
-                ${renderImage(
-                  image,
-                  title
-                )}
-
-              </a>
+              ${imageElement(
+                image,
+                title,
+                "side-image"
+              )}
 
 
-              <div>
+              <div class="side-content">
 
-                <h3>
+                <a
+                  class="side-title"
+                  href="${articleUrl(article)}"
+                >
 
-                  <a
-                    href="${articleLink(article)}"
-                  >
+                  ${escapeHTML(
+                    title
+                  )}
 
-                    ${escapeHTML(
-                      title
-                    )}
-
-                  </a>
-
-                </h3>
+                </a>
 
 
-                <small>
+                <div
+                  class="side-time"
+                  data-time-article="${escapeHTML(
+                    article.__id ||
+                    article.id ||
+                    ""
+                  )}"
+                >
 
-                  📅
                   ${escapeHTML(
                     time
                   )}
 
-                </small>
+                </div>
 
               </div>
 
@@ -3217,7 +2713,7 @@
 
 
             sideNews.appendChild(
-              item
+              card
             );
 
           }
@@ -3226,35 +2722,32 @@
     }
 
 
-    /* =====================================================
-       CARD
-    ===================================================== */
+    /* =========================
+       NEWS CARD
+    ========================== */
 
     function createCard(article){
 
       const title =
-        getTitle(article) ||
-        "Habari mpya";
+        getTitle(article);
+
+
+      const description =
+        getDescription(article);
 
 
       const image =
         getImage(article);
 
 
-      const description =
-        getShortDescription(
+      const time =
+        formatRelativeTime(
           article
         );
 
 
       const author =
         getAuthor(article);
-
-
-      const time =
-        formatRelativeTime(
-          article
-        );
 
 
       const readTime =
@@ -3290,108 +2783,100 @@
 
       card.innerHTML = `
 
-        <div class="card-image">
-
-          ${renderImage(
-            image,
-            title
-          )}
+        <a
+          href="${articleUrl(article)}"
+          aria-label="${escapeHTML(title)}"
+        >
 
 
-          ${
-            featured
+          <div class="card-image">
 
-              ?
-
-              `
-                <span class="badge">
-                  MUHIMU
-                </span>
-              `
-
-              :
-
-              ""
-          }
-
-        </div>
-
-
-        <div class="card-body">
-
-          <div class="category">
-            DINI
-          </div>
-
-
-          <h3>
-
-            <a
-              href="${articleLink(article)}"
-            >
-
-              ${escapeHTML(
-                title
-              )}
-
-            </a>
-
-          </h3>
-
-
-          <p class="intro">
-
-            ${escapeHTML(
-              description
+            ${imageElement(
+              image,
+              title,
+              "card-image"
             )}
 
-          </p>
 
+            ${
+              featured
 
-          <div class="meta">
+                ?
 
-            <span>
+                `
 
-              ✍️
-              ${escapeHTML(
-                author
-              )}
+                  <span class="badge">
+                    MUHIMU
+                  </span>
 
-            </span>
+                `
 
+                :
 
-            <span>
+                ""
 
-              📅
-              ${escapeHTML(
-                time
-              )}
-
-            </span>
-
-
-            <span>
-
-              ⏱️
-              ${escapeHTML(
-                readTime
-              )}
-
-            </span>
+            }
 
           </div>
 
 
-          <a
-            class="read"
-            href="${articleLink(article)}"
-          >
+          <div class="card-body">
 
-            Soma habari yote →
 
-          </a>
+            <div class="news-category">
+              DINI
+            </div>
 
-        </div>
+
+            <h3>
+              ${escapeHTML(title)}
+            </h3>
+
+
+            <p class="intro">
+              ${escapeHTML(description)}
+            </p>
+
+
+            <div
+              class="meta"
+            >
+
+              <span>
+
+                ✍️
+                ${escapeHTML(author)}
+
+              </span>
+
+
+              <span>
+
+                📅
+                ${escapeHTML(time)}
+
+              </span>
+
+
+              <span>
+
+                ⏱️
+                ${escapeHTML(readTime)}
+
+              </span>
+
+            </div>
+
+
+            <span class="read">
+              Soma habari yote →
+            </span>
+
+
+          </div>
+
+
+        </a>
 
       `;
 
@@ -3401,9 +2886,9 @@
     }
 
 
-    /* =====================================================
+    /* =========================
        RENDER FRONT
-    ===================================================== */
+    ========================== */
 
     function renderFront(
       articles
@@ -3451,14 +2936,18 @@
       );
 
 
-      /* HERO */
+      /*
+        HERO
+      */
 
       renderHero(
         articles[0]
       );
 
 
-      /* SIDE */
+      /*
+        SIDE
+      */
 
       renderSideNews(
         articles.slice(
@@ -3468,7 +2957,9 @@
       );
 
 
-      /* GRID */
+      /*
+        GRID
+      */
 
       const gridArticles =
         articles.slice(
@@ -3496,13 +2987,17 @@
       );
 
 
-      /* COUNT */
+      /*
+        COUNT
+      */
 
       count.textContent =
         `${articles.length} habari`;
 
 
-      /* MORE */
+      /*
+        MORE BUTTON
+      */
 
       if(
         gridArticles.length >
@@ -3512,6 +3007,10 @@
         moreWrap.classList.remove(
           "hidden"
         );
+
+
+        moreBtn.disabled =
+          false;
 
 
         moreBtn.textContent =
@@ -3528,9 +3027,112 @@
     }
 
 
-    /* =====================================================
+    /* =========================
+       UPDATE TIMES
+    ========================== */
+
+    function updateArticleTimes(){
+
+      document
+        .querySelectorAll(
+          "[data-time-article]"
+        )
+        .forEach(
+          element => {
+
+            const id =
+              element.dataset.timeArticle;
+
+
+            const article =
+              allDiniArticles.find(
+                item =>
+
+                  String(
+                    item.__id ||
+                    item.id ||
+                    item.articleId ||
+                    ""
+                  ) ===
+                  String(id)
+              );
+
+
+            if(
+              article
+            ){
+
+              element.textContent =
+                formatRelativeTime(
+                  article
+                );
+
+            }
+
+          }
+        );
+
+    }
+
+
+    /* =========================
+       BREAKING NEWS
+    ========================== */
+
+    function updateBreakingNews(){
+
+      if(
+        !allDiniArticles.length
+      ){
+
+        breakingNews.textContent =
+          "Hakuna habari za dini kwa sasa.";
+
+
+        breakingNews.href =
+          "index.html";
+
+
+        return;
+
+      }
+
+
+      if(
+        breakingIndex >=
+        allDiniArticles.length
+      ){
+
+        breakingIndex =
+          0;
+
+      }
+
+
+      const article =
+        allDiniArticles[
+          breakingIndex
+        ];
+
+
+      breakingNews.textContent =
+        getTitle(article);
+
+
+      breakingNews.href =
+        articleUrl(
+          article
+        );
+
+
+      breakingIndex++;
+
+    }
+
+
+    /* =========================
        MORE BUTTON
-    ===================================================== */
+    ========================== */
 
     moreBtn.addEventListener(
       "click",
@@ -3548,71 +3150,9 @@
     );
 
 
-    /* =====================================================
-       BREAKING NEWS
-    ===================================================== */
-
-    let breakingIndex = 0;
-
-
-    function updateBreakingNews(){
-
-      if(
-        !allDiniArticles.length
-      ){
-
-        breakingNews.textContent =
-          "BINSOUD HABARI";
-
-
-        breakingNews.href =
-          "index.html";
-
-
-        return;
-
-      }
-
-
-      if(
-        breakingIndex >=
-        allDiniArticles.length
-      ){
-
-        breakingIndex = 0;
-
-      }
-
-
-      const article =
-        allDiniArticles[
-          breakingIndex
-        ];
-
-
-      const title =
-        getTitle(article) ||
-        "Habari mpya";
-
-
-      breakingNews.textContent =
-        title;
-
-
-      breakingNews.href =
-        articleLink(
-          article
-        );
-
-
-      breakingIndex++;
-
-    }
-
-
-    /* =====================================================
+    /* =========================
        LOAD ARTICLES
-    ===================================================== */
+    ========================== */
 
     async function loadArticles(){
 
@@ -3652,7 +3192,8 @@
           );
 
 
-        const articles = [];
+        const articles =
+          [];
 
 
         snapshot.forEach(
@@ -3663,7 +3204,7 @@
 
 
             /*
-              ZILIZOCHAPISHWA TU
+              PUBLISHED ONLY
             */
 
             if(
@@ -3677,6 +3218,10 @@
             }
 
 
+            /*
+              CATEGORY
+            */
+
             const category =
               normalizeSearch(
                 getCategory(
@@ -3685,21 +3230,23 @@
               );
 
 
-            /*
-              Dini.
-              Inakubali:
-              dini / religion
-            */
+            const parts =
+              category
+                .split(
+                  /\s|,|\/|\|/
+                )
+                .filter(Boolean);
+
 
             const isDini =
 
-              category.includes(
+              parts.includes(
                 "dini"
               )
 
               ||
 
-              category.includes(
+              parts.includes(
                 "religion"
               );
 
@@ -3715,7 +3262,11 @@
 
             articles.push({
 
-              id:item.id,
+              __id:
+                item.id,
+
+              id:
+                item.id,
 
               ...data
 
@@ -3726,7 +3277,7 @@
 
 
         /*
-          MPYA KWANZA
+          NEWEST FIRST
         */
 
         articles.sort(
@@ -3734,9 +3285,15 @@
 
             return (
 
-              getDateValue(b) -
+              dateToMillis(
+                getDateValue(b)
+              )
 
-              getDateValue(a)
+              -
+
+              dateToMillis(
+                getDateValue(a)
+              )
 
             );
 
@@ -3763,14 +3320,18 @@
 
 
         /*
-          BREAKING NEWS
+          BREAKING
         */
+
+        breakingIndex =
+          0;
+
 
         updateBreakingNews();
 
 
         /*
-          ONDOA LOADING
+          LOADING OFF
         */
 
         loading.classList.add(
@@ -3811,7 +3372,7 @@
 
 
         /*
-          BREAKING KILA SEKUNDE 5
+          BREAKING EVERY 5 SEC
         */
 
         setInterval(
@@ -3823,7 +3384,7 @@
       }catch(error){
 
         console.error(
-          "Firestore error:",
+          "Dini Firestore Error:",
           error
         );
 
@@ -3849,37 +3410,137 @@
 
 
         errorText.textContent =
-          "Kuna tatizo la kuunganisha na Firestore. Tafadhali hakikisha Firebase na Firestore vinafanya kazi vizuri.";
+          "Kuna tatizo la kuunganisha na Firebase. Tafadhali hakikisha Firebase na Firestore vinafanya kazi vizuri.";
 
       }
 
     }
 
 
-    /* =====================================================
-       SEARCH SUGGESTIONS
-    ===================================================== */
+    /* =========================
+       SEARCH
+    ========================== */
 
-    function showSearchSuggestions(){
+    function searchDini(term){
 
       const query =
         normalizeSearch(
-          searchInput.value
+          term
         );
 
 
       if(
-        !query ||
-        !allDiniArticles.length
+        !query
       ){
 
-        searchSuggestions.classList.remove(
-          "show"
+        return [];
+
+      }
+
+
+      return allDiniArticles
+
+        .filter(
+          article => {
+
+            const text = [
+
+              getTitle(article),
+
+              getCategory(article),
+
+              getDescription(article),
+
+              getBody(article),
+
+              getAuthor(article)
+
+            ]
+
+            .map(
+              normalizeSearch
+            )
+
+            .join(" ");
+
+
+            return text.includes(
+              query
+            );
+
+          }
+        )
+
+        .sort(
+          (a,b) => {
+
+            const q =
+              normalizeSearch(
+                term
+              );
+
+
+            const titleA =
+              normalizeSearch(
+                getTitle(a)
+              );
+
+
+            const titleB =
+              normalizeSearch(
+                getTitle(b)
+              );
+
+
+            const scoreA =
+
+              titleA === q
+                ? 3
+                : titleA.startsWith(q)
+                  ? 2
+                  : titleA.includes(q)
+                    ? 1
+                    : 0;
+
+
+            const scoreB =
+
+              titleB === q
+                ? 3
+                : titleB.startsWith(q)
+                  ? 2
+                  : titleB.includes(q)
+                    ? 1
+                    : 0;
+
+
+            return scoreB - scoreA;
+
+          }
         );
 
+    }
+
+
+    function renderSearchSuggestions(
+      term
+    ){
+
+      const clean =
+        term.trim();
+
+
+      if(
+        !clean
+      ){
 
         searchSuggestions.innerHTML =
           "";
+
+
+        searchSuggestions.classList.remove(
+          "active"
+        );
 
 
         return;
@@ -3888,107 +3549,9 @@
 
 
       const results =
-
-        allDiniArticles
-
-          .map(
-            function(article){
-
-              const title =
-                normalizeSearch(
-                  getTitle(article)
-                );
-
-
-              const description =
-                normalizeSearch(
-                  getDescription(article)
-                );
-
-
-              let score =
-                0;
-
-
-              if(
-                title === query
-              ){
-
-                score +=100;
-
-              }
-
-
-              if(
-                title.startsWith(
-                  query
-                )
-              ){
-
-                score +=70;
-
-              }
-
-
-              if(
-                title.includes(
-                  query
-                )
-              ){
-
-                score +=45;
-
-              }
-
-
-              if(
-                description.includes(
-                  query
-                )
-              ){
-
-                score +=20;
-
-              }
-
-
-              return {
-
-                article,
-
-                score
-
-              };
-
-            }
-          )
-
-
-          .filter(
-            function(item){
-
-              return item.score > 0;
-
-            }
-          )
-
-
-          .sort(
-            function(a,b){
-
-              return (
-                b.score -
-                a.score
-              );
-
-            }
-          )
-
-
-          .slice(
-            0,
-            6
-          );
+        searchDini(
+          clean
+        );
 
 
       if(
@@ -3997,13 +3560,14 @@
 
         searchSuggestions.innerHTML = `
 
-          <div class="search-item">
+          <div class="search-no-result">
 
-            Hakuna habari iliyopatikana.
+            Hakuna habari ya dini
+            inayolingana na
 
-            <small>
-              Jaribu neno jingine.
-            </small>
+            "<strong>
+              ${escapeHTML(clean)}
+            </strong>".
 
           </div>
 
@@ -4011,7 +3575,7 @@
 
 
         searchSuggestions.classList.add(
-          "show"
+          "active"
         );
 
 
@@ -4024,34 +3588,76 @@
 
         results
 
+          .slice(
+            0,
+            6
+          )
+
           .map(
-            function(item){
-
-              const article =
-                item.article;
-
+            article => {
 
               const title =
-                getTitle(article) ||
-                "Habari";
+                getTitle(article);
+
+
+              const image =
+                getImage(article);
+
+
+              const time =
+                formatRelativeTime(
+                  article
+                );
 
 
               return `
 
-                <a
-                  class="search-item"
-                  href="${articleLink(article)}"
+                <div
+                  class="search-suggestion"
+                  data-search-article-id="${escapeHTML(
+                    article.__id ||
+                    article.id ||
+                    ""
+                  )}"
                 >
 
-                  ${escapeHTML(
-                    title
+                  ${imageElement(
+                    image,
+                    title,
+                    "search-suggestion-image"
                   )}
 
-                  <small>
-                    Dini
-                  </small>
 
-                </a>
+                  <div
+                    class="search-suggestion-content"
+                  >
+
+                    <div
+                      class="search-suggestion-title"
+                    >
+
+                      ${escapeHTML(
+                        title
+                      )}
+
+                    </div>
+
+
+                    <div
+                      class="search-suggestion-category"
+                    >
+
+                      DINI
+                      •
+                      ${escapeHTML(
+                        time
+                      )}
+
+                    </div>
+
+                  </div>
+
+                </div>
 
               `;
 
@@ -4062,23 +3668,151 @@
 
 
       searchSuggestions.classList.add(
-        "show"
+        "active"
       );
+
+
+      searchSuggestions
+        .querySelectorAll(
+          "[data-search-article-id]"
+        )
+        .forEach(
+          element => {
+
+            element.addEventListener(
+              "click",
+              function(){
+
+                const article =
+                  allDiniArticles.find(
+                    item =>
+
+                      String(
+                        item.__id ||
+                        item.id ||
+                        ""
+                      ) ===
+                      String(
+                        element.dataset
+                          .searchArticleId
+                      )
+                  );
+
+
+                if(
+                  article
+                ){
+
+                  window.location.href =
+                    articleUrl(
+                      article
+                    );
+
+                }
+
+              }
+            );
+
+          }
+        );
 
     }
 
 
+    /* =========================
+       SEARCH INPUT
+    ========================== */
+
     searchInput.addEventListener(
       "input",
-      showSearchSuggestions
+      function(){
+
+        renderSearchSuggestions(
+          searchInput.value
+        );
+
+      }
     );
 
 
-    searchInput.addEventListener(
-      "focus",
-      showSearchSuggestions
+    /* =========================
+       SEARCH SUBMIT
+    ========================== */
+
+    searchForm.addEventListener(
+      "submit",
+      function(event){
+
+        event.preventDefault();
+
+
+        const term =
+          searchInput.value.trim();
+
+
+        if(
+          !term
+        ){
+
+          searchInput.focus();
+
+          return;
+
+        }
+
+
+        const results =
+          searchDini(
+            term
+          );
+
+
+        searchSuggestions.classList.remove(
+          "active"
+        );
+
+
+        if(
+          results.length === 1
+        ){
+
+          window.location.href =
+            articleUrl(
+              results[0]
+            );
+
+
+          return;
+
+        }
+
+
+        if(
+          results.length > 1
+        ){
+
+          window.location.href =
+            articleUrl(
+              results[0]
+            );
+
+
+          return;
+
+        }
+
+
+        renderSearchSuggestions(
+          term
+        );
+
+      }
     );
 
+
+    /* =========================
+       CLOSE SEARCH
+    ========================== */
 
     document.addEventListener(
       "click",
@@ -4086,12 +3820,12 @@
 
         if(
           !event.target.closest(
-            ".header-search"
+            ".search-box"
           )
         ){
 
           searchSuggestions.classList.remove(
-            "show"
+            "active"
           );
 
         }
@@ -4100,151 +3834,30 @@
     );
 
 
-    /* =====================================================
-       SEARCH SUBMIT
-    ===================================================== */
+    /* =========================
+       TOP DATE
+    ========================== */
 
     document.getElementById(
-      "searchForm"
-    ).addEventListener(
-      "submit",
-      function(event){
-
-        event.preventDefault();
-
-
-        const query =
-          cleanText(
-            searchInput.value
-          );
-
-
-        if(!query){
-
-          return;
-
-        }
-
-
-        const normalizedQuery =
-          normalizeSearch(
-            query
-          );
-
-
-        const results =
-
-          allDiniArticles.filter(
-            function(article){
-
-              const text =
-
-                normalizeSearch(
-                  getTitle(article)
-                )
-
-                + " " +
-
-                normalizeSearch(
-                  getDescription(article)
-                )
-
-                + " " +
-
-                normalizeSearch(
-                  getBody(article)
-                )
-
-                + " " +
-
-                normalizeSearch(
-                  getAuthor(article)
-                );
-
-
-              return text.includes(
-                normalizedQuery
-              );
-
-            }
-          );
-
-
-        searchSuggestions.classList.remove(
-          "show"
-        );
-
-
-        visibleGridCount =
-          INITIAL_GRID_COUNT;
-
-
-        if(
-          !results.length
-        ){
-
-          content.classList.add(
-            "hidden"
-          );
-
-
-          emptyState.classList.remove(
-            "hidden"
-          );
-
-
-          moreWrap.classList.add(
-            "hidden"
-          );
-
-
-          emptyText.textContent =
-            `Hakuna habari za Dini zinazolingana na "${query}".`;
-
-
-          return;
-
-        }
-
-
-        visibleArticles =
-          results;
-
-
-        renderFront(
-          visibleArticles
-        );
-
-      }
-    );
-
-
-    /* =====================================================
-       DATES
-    ===================================================== */
-
-    document.getElementById(
-      "pageDate"
+      "todayDate"
     ).textContent =
 
       new Intl.DateTimeFormat(
         "sw-TZ",
         {
-
           weekday:"long",
-
-          day:"numeric",
-
+          day:"2-digit",
           month:"long",
-
           year:"numeric"
-
         }
-
       ).format(
         new Date()
       );
 
+
+    /* =========================
+       PAGE DATE
+    ========================== */
 
     document.getElementById(
       "currentDate"
@@ -4253,19 +3866,19 @@
       new Intl.DateTimeFormat(
         "sw-TZ",
         {
-
+          weekday:"long",
           day:"numeric",
-
           month:"long",
-
           year:"numeric"
-
         }
-
       ).format(
         new Date()
       );
 
+
+    /* =========================
+       YEAR
+    ========================== */
 
     document.getElementById(
       "year"
@@ -4273,31 +3886,19 @@
       new Date().getFullYear();
 
 
-    /* =====================================================
-       UPDATE TIME
-    ===================================================== */
+    /* =========================
+       UPDATE RELATIVE TIMES
+    ========================== */
 
     setInterval(
-      function(){
-
-        if(
-          visibleArticles.length
-        ){
-
-          renderFront(
-            visibleArticles
-          );
-
-        }
-
-      },
+      updateArticleTimes,
       60000
     );
 
 
-    /* =====================================================
+    /* =========================
        START
-    ===================================================== */
+    ========================== */
 
     loadArticles();
 
