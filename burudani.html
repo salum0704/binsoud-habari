@@ -74,7 +74,12 @@
   content="Habari mpya za burudani Tanzania, Afrika na duniani."
 >
 
+
 <style>
+
+/* =========================
+   ROOT
+========================= */
 
 :root{
   --blue:#0757a6;
@@ -90,6 +95,11 @@
   --shadow:0 5px 18px rgba(13,47,79,.08);
   --radius:8px;
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 *{
   box-sizing:border-box;
@@ -128,6 +138,45 @@ input{
 .container{
   width:min(1180px,calc(100% - 30px));
   margin:auto;
+}
+
+
+/* =========================
+   TOP DATE BAR
+========================= */
+
+.top-date-bar{
+  background:var(--deep);
+  color:#fff;
+}
+
+.top-date-inner{
+  min-height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.top-date{
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+}
+
+.top-date-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.top-date-links a{
+  color:#d7e4ee;
+  font-size:12px;
+}
+
+.top-date-links a:hover{
+  color:#fff;
 }
 
 
@@ -653,7 +702,7 @@ main{
 
 
 /* =========================
-   MORE BUTTON
+   MORE
 ========================= */
 
 .more-wrap{
@@ -772,6 +821,18 @@ footer a:hover{
     width:min(1180px,calc(100% - 24px));
   }
 
+  .top-date-inner{
+    justify-content:center;
+  }
+
+  .top-date-links{
+    display:none;
+  }
+
+  .top-date{
+    font-size:12px;
+  }
+
   .header-inner{
     gap:14px;
   }
@@ -883,9 +944,43 @@ footer a:hover{
 }
 
 </style>
+
 </head>
 
 <body>
+
+
+<!-- =========================
+     TOP DATE BAR
+========================= -->
+
+<div class="top-date-bar">
+
+  <div class="container top-date-inner">
+
+    <div
+      class="top-date"
+      id="topDate"
+    >
+      Jumapili, 27 Septemba 2026
+    </div>
+
+
+    <div class="top-date-links">
+
+      <a href="makala.html">
+        Makala
+      </a>
+
+      <a href="contact.html">
+        Wasiliana Nasi
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
 
 
 <!-- =========================
@@ -939,7 +1034,7 @@ footer a:hover{
 
 
 <!-- =========================
-     NAVIGATION
+     NAV
 ========================= -->
 
 <nav
@@ -1111,15 +1206,11 @@ footer a:hover{
       <section class="hero-layout">
 
 
-        <!-- HERO -->
-
         <article
           class="hero"
           id="hero"
         ></article>
 
-
-        <!-- SIDE -->
 
         <div class="side-news">
 
@@ -1127,9 +1218,7 @@ footer a:hover{
             Habari Zinazofuatwa
           </div>
 
-          <div
-            id="sideNews"
-          ></div>
+          <div id="sideNews"></div>
 
         </div>
 
@@ -1177,7 +1266,6 @@ footer a:hover{
         </div>
 
       </section>
-
 
     </div>
 
@@ -1285,7 +1373,6 @@ footer a:hover{
 
     </div>
 
-
   </div>
 
 
@@ -1367,6 +1454,16 @@ const db =
    ELEMENTS
 ========================= */
 
+const topDate =
+  document.getElementById(
+    "topDate"
+  );
+
+const currentDate =
+  document.getElementById(
+    "currentDate"
+  );
+
 const error =
   document.getElementById(
     "error"
@@ -1407,11 +1504,6 @@ const breakingText =
     "breakingText"
   );
 
-const currentDate =
-  document.getElementById(
-    "currentDate"
-  );
-
 const searchForm =
   document.getElementById(
     "searchForm"
@@ -1434,7 +1526,7 @@ const moreBtn =
 
 
 /* =========================
-   STATE
+   VARIABLES
 ========================= */
 
 let allArticles = [];
@@ -1450,16 +1542,24 @@ let breakingTimer = null;
    DATE
 ========================= */
 
-currentDate.textContent =
+const today =
   new Date().toLocaleDateString(
     "sw-TZ",
     {
       weekday:"long",
-      year:"numeric",
+      day:"numeric",
       month:"long",
-      day:"numeric"
+      year:"numeric"
     }
   );
+
+
+topDate.textContent =
+  today;
+
+
+currentDate.textContent =
+  today;
 
 
 /* =========================
@@ -1522,7 +1622,9 @@ function removeHTML(value){
 }
 
 
-function getShortIntro(article){
+function getShortIntro(
+  article
+){
 
   let text =
     removeHTML(
@@ -1559,7 +1661,10 @@ function getShortIntro(article){
 
     return (
       words
-      .slice(0,35)
+      .slice(
+        0,
+        35
+      )
       .join(" ") +
       "..."
     );
@@ -1572,7 +1677,9 @@ function getShortIntro(article){
 }
 
 
-function getDateValue(article){
+function getDateValue(
+  article
+){
 
   const value =
     article.createdAt ||
@@ -1613,14 +1720,18 @@ function getDateValue(article){
     ).getTime();
 
 
-  return Number.isNaN(time)
-    ? 0
-    : time;
+  return Number.isNaN(
+    time
+  )
+  ? 0
+  : time;
 
 }
 
 
-function formatDate(article){
+function formatDate(
+  article
+){
 
   if(
     getText(
@@ -1728,7 +1839,9 @@ function imageHTML(
 }
 
 
-function articleLink(article){
+function articleLink(
+  article
+){
 
   return (
     "habari.html?id=" +
@@ -1742,7 +1855,7 @@ function articleLink(article){
 
 /* =========================
    BREAKING NEWS
-   ONE BY ONE
+   MOJA MOJA
 ========================= */
 
 function renderBreakingNews(
@@ -1778,7 +1891,10 @@ function renderBreakingNews(
 
   const headlines =
     articles
-      .slice(0,10)
+      .slice(
+        0,
+        10
+      )
       .map(
         article =>
           String(
@@ -1993,7 +2109,10 @@ function renderSideNews(
 
 
   articles
-    .slice(0,4)
+    .slice(
+      0,
+      4
+    )
     .forEach(
       article => {
 
@@ -2084,12 +2203,6 @@ function renderNewsGrid(
   newsGrid.innerHTML =
     "";
 
-
-  /*
-   * 1 = Hero
-   * 2 - 5 = Side
-   * 6+ = Grid
-   */
 
   const visibleArticles =
     articles.slice(
@@ -2248,7 +2361,7 @@ function renderNewsGrid(
 
 
 /* =========================
-   RENDER ALL
+   RENDER ARTICLES
 ========================= */
 
 function renderArticles(
@@ -2257,10 +2370,6 @@ function renderArticles(
 
   error.style.display =
     "none";
-
-
-  content.style.display =
-    "block";
 
 
   if(
@@ -2285,6 +2394,10 @@ function renderArticles(
   }
 
 
+  content.style.display =
+    "block";
+
+
   empty.style.display =
     "none";
 
@@ -2303,7 +2416,10 @@ function renderArticles(
 
 
   renderSideNews(
-    articles.slice(1,5)
+    articles.slice(
+      1,
+      5
+    )
   );
 
 
@@ -2519,7 +2635,10 @@ function updateSuggestions(){
 
         }
       )
-      .slice(0,5);
+      .slice(
+        0,
+        5
+      );
 
 
   if(!results.length){
