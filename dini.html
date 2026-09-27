@@ -601,7 +601,7 @@
 
 
     /* =========================
-       SECTION
+       SECTION HEAD
     ========================== */
 
     .section-head{
@@ -661,13 +661,21 @@
     .card-image{
       width:100%;
       height:210px;
+      object-fit:cover;
+      background:#e9eef5;
+    }
+
+
+    .card-image-wrap{
+      width:100%;
+      height:210px;
       overflow:hidden;
       background:#e9eef5;
       position:relative;
     }
 
 
-    .card-image img{
+    .card-image-wrap img{
       width:100%;
       height:100%;
       object-fit:cover;
@@ -711,7 +719,7 @@
     }
 
 
-    .card h3 a:hover{
+    .card h3:hover{
       color:var(--blue);
     }
 
@@ -1052,6 +1060,11 @@
       }
 
 
+      .card-image-wrap{
+        height:210px;
+      }
+
+
       .side-card{
         grid-template-columns:95px 1fr;
       }
@@ -1331,25 +1344,20 @@
 
       <div
         id="loading"
-        class="hidden"
+        class="state hidden"
       >
 
-        <div class="loading-grid">
-
-          <div class="loading-main"></div>
-
-
-          <div class="loading-side">
-
-            <div class="loading-card"></div>
-
-            <div class="loading-card"></div>
-
-            <div class="loading-card"></div>
-
-          </div>
-
+        <div class="state-icon">
+          🕌
         </div>
+
+        <h3>
+          Inapakia habari...
+        </h3>
+
+        <p>
+          Tafadhali subiri kidogo.
+        </p>
 
       </div>
 
@@ -1508,9 +1516,11 @@
 
 
         <p>
-          Chanzo chako cha habari za kitaifa,
-          kimataifa, siasa, biashara, michezo,
-          burudani, dini na makala.
+
+          BINSOUD HABARI ni jukwaa la habari
+          linalokuletea taarifa mbalimbali
+          kutoka Tanzania, Zanzibar na duniani.
+
         </p>
 
       </div>
@@ -1789,7 +1799,7 @@
        DATA
     ========================== */
 
-    let allDiniArticles = [];
+    let diniArticles = [];
 
     let visibleArticles = [];
 
@@ -1842,7 +1852,7 @@
 
 
     /* =========================
-       TEXT
+       CLEAN TEXT
     ========================== */
 
     function cleanText(value){
@@ -1863,6 +1873,10 @@
 
     }
 
+
+    /* =========================
+       ESCAPE HTML
+    ========================== */
 
     function escapeHTML(value){
 
@@ -1897,6 +1911,10 @@
 
     }
 
+
+    /* =========================
+       NORMALIZE
+    ========================== */
 
     function normalizeSearch(value){
 
@@ -2001,61 +2019,6 @@
 
       return cleanText(
         value
-      );
-
-    }
-
-
-    /* =========================
-       IMAGE
-    ========================== */
-
-    function getImage(article){
-
-      return (
-
-        article.image ||
-
-        article.imageUrl ||
-
-        article.imageURL ||
-
-        article.image_url ||
-
-        article.photo ||
-
-        article.photoUrl ||
-
-        article.photoURL ||
-
-        article.thumbnail ||
-
-        article.thumbnailUrl ||
-
-        article.thumbnailURL ||
-
-        article.picture ||
-
-        article.pictureUrl ||
-
-        article.cover ||
-
-        article.coverImage ||
-
-        article.coverUrl ||
-
-        article.featuredImage ||
-
-        article.featured_image ||
-
-        article.urlImage ||
-
-        article.img ||
-
-        article.imageLink ||
-
-        FALLBACK_IMAGE
-
       );
 
     }
@@ -2183,68 +2146,62 @@
 
 
     /* =========================
-       PUBLISHED
+       IMAGE
     ========================== */
 
-    function isPublished(article){
+    function getImage(article){
 
-      if(
-        article.isPublished === false ||
-        article.published === false
-      ){
+      return (
 
-        return false;
+        article.image ||
 
-      }
+        article.imageUrl ||
 
+        article.imageURL ||
 
-      if(
-        article.status !== undefined &&
-        article.status !== null
-      ){
+        article.image_url ||
 
-        const status =
-          normalizeSearch(
-            article.status
-          );
+        article.photo ||
 
+        article.photoUrl ||
 
-        const allowed = [
+        article.photoURL ||
 
-          "published",
+        article.thumbnail ||
 
-          "publish",
+        article.thumbnailUrl ||
 
-          "active",
+        article.thumbnailURL ||
 
-          "live",
+        article.picture ||
 
-          "true"
+        article.pictureUrl ||
 
-        ];
+        article.cover ||
 
+        article.coverImage ||
 
-        if(
-          status &&
-          !allowed.includes(
-            status
-          )
-        ){
+        article.coverUrl ||
 
-          return false;
+        article.featuredImage ||
 
-        }
+        article.featured_image ||
 
-      }
+        article.urlImage ||
 
+        article.img ||
 
-      return true;
+        article.imageLink ||
+
+        FALLBACK_IMAGE
+
+      );
 
     }
 
 
     /* =========================
-       DATE
+       DATE FIELD
     ========================== */
 
     function getDateValue(article){
@@ -2271,6 +2228,10 @@
 
     }
 
+
+    /* =========================
+       DATE TO MILLIS
+    ========================== */
 
     function dateToMillis(value){
 
@@ -2363,6 +2324,10 @@
 
     }
 
+
+    /* =========================
+       RELATIVE TIME
+    ========================== */
 
     function formatRelativeTime(article){
 
@@ -2504,14 +2469,111 @@
 
 
     /* =========================
-       IMAGE HTML
+       PUBLISHED
+    ========================== */
+
+    function isPublished(article){
+
+      if(
+        article.isPublished === false ||
+        article.published === false
+      ){
+
+        return false;
+
+      }
+
+
+      if(
+        article.status !== undefined &&
+        article.status !== null
+      ){
+
+        const status =
+          normalizeSearch(
+            article.status
+          );
+
+
+        const allowed = [
+
+          "published",
+          "publish",
+          "active",
+          "live",
+          "true"
+
+        ];
+
+
+        if(
+          status &&
+          !allowed.includes(
+            status
+          )
+        ){
+
+          return false;
+
+        }
+
+      }
+
+
+      return true;
+
+    }
+
+
+    /* =========================
+       CATEGORY MATCH
+    ========================== */
+
+    function isDini(article){
+
+      const category =
+        normalizeSearch(
+          getCategory(article)
+        );
+
+
+      if(
+        !category
+      ){
+
+        return false;
+
+      }
+
+
+      const parts =
+        category
+          .split(
+            /\s|,|\/|\|/
+          )
+          .filter(Boolean);
+
+
+      return (
+
+        parts.includes("dini") ||
+
+        parts.includes("religion")
+
+      );
+
+    }
+
+
+    /* =========================
+       IMAGE ELEMENT
     ========================== */
 
     function imageElement(
       source,
       title,
       className,
-      loading = "lazy"
+      loading="lazy"
     ){
 
       return `
@@ -2565,9 +2627,7 @@
 
 
       const time =
-        formatRelativeTime(
-          article
-        );
+        formatRelativeTime(article);
 
 
       heroCard.innerHTML = `
@@ -2593,12 +2653,20 @@
 
 
             <h1 class="hero-title">
-              ${escapeHTML(title)}
+
+              ${escapeHTML(
+                title
+              )}
+
             </h1>
 
 
             <p class="hero-description">
-              ${escapeHTML(description)}
+
+              ${escapeHTML(
+                description
+              )}
+
             </p>
 
 
@@ -2610,7 +2678,11 @@
                 ""
               )}"
             >
-              ${escapeHTML(time)}
+
+              ${escapeHTML(
+                time
+              )}
+
             </div>
 
           </div>
@@ -2640,7 +2712,7 @@
       list
         .slice(
           0,
-          3
+          4
         )
         .forEach(
           article => {
@@ -2750,27 +2822,6 @@
         getAuthor(article);
 
 
-      const readTime =
-        cleanText(
-
-          article.readTime ||
-
-          article.read_time ||
-
-          article.readingTime
-
-        ) ||
-
-        "Soma habari";
-
-
-      const featured =
-
-        article.featured === true ||
-
-        article.featured === "true";
-
-
       const card =
         document.createElement(
           "article"
@@ -2788,34 +2839,14 @@
           aria-label="${escapeHTML(title)}"
         >
 
-
-          <div class="card-image">
+          <div class="card-image-wrap">
 
             ${imageElement(
               image,
               title,
-              "card-image"
+              "card-image",
+              "lazy"
             )}
-
-
-            ${
-              featured
-
-                ?
-
-                `
-
-                  <span class="badge">
-                    MUHIMU
-                  </span>
-
-                `
-
-                :
-
-                ""
-
-            }
 
           </div>
 
@@ -2829,12 +2860,16 @@
 
 
             <h3>
-              ${escapeHTML(title)}
+              ${escapeHTML(
+                title
+              )}
             </h3>
 
 
             <p class="intro">
-              ${escapeHTML(description)}
+              ${escapeHTML(
+                description
+              )}
             </p>
 
 
@@ -2845,7 +2880,9 @@
               <span>
 
                 ✍️
-                ${escapeHTML(author)}
+                ${escapeHTML(
+                  author
+                )}
 
               </span>
 
@@ -2853,15 +2890,9 @@
               <span>
 
                 📅
-                ${escapeHTML(time)}
-
-              </span>
-
-
-              <span>
-
-                ⏱️
-                ${escapeHTML(readTime)}
+                ${escapeHTML(
+                  time
+                )}
 
               </span>
 
@@ -2874,7 +2905,6 @@
 
 
           </div>
-
 
         </a>
 
@@ -2890,16 +2920,14 @@
        RENDER FRONT
     ========================== */
 
-    function renderFront(
-      articles
-    ){
+    function renderFront(list){
 
       newsGrid.innerHTML =
         "";
 
 
       if(
-        !articles.length
+        !list.length
       ){
 
         content.classList.add(
@@ -2941,18 +2969,18 @@
       */
 
       renderHero(
-        articles[0]
+        list[0]
       );
 
 
       /*
-        SIDE
+        SIDE NEWS
       */
 
       renderSideNews(
-        articles.slice(
+        list.slice(
           1,
-          4
+          5
         )
       );
 
@@ -2962,8 +2990,8 @@
       */
 
       const gridArticles =
-        articles.slice(
-          4
+        list.slice(
+          5
         );
 
 
@@ -2975,7 +3003,7 @@
 
 
       shown.forEach(
-        function(article){
+        article => {
 
           newsGrid.appendChild(
             createCard(
@@ -2992,11 +3020,11 @@
       */
 
       count.textContent =
-        `${articles.length} habari`;
+        `${list.length} habari`;
 
 
       /*
-        MORE BUTTON
+        MORE
       */
 
       if(
@@ -3028,7 +3056,7 @@
 
 
     /* =========================
-       UPDATE TIMES
+       UPDATE ARTICLE TIMES
     ========================== */
 
     function updateArticleTimes(){
@@ -3045,7 +3073,7 @@
 
 
             const article =
-              allDiniArticles.find(
+              diniArticles.find(
                 item =>
 
                   String(
@@ -3082,7 +3110,7 @@
     function updateBreakingNews(){
 
       if(
-        !allDiniArticles.length
+        !diniArticles.length
       ){
 
         breakingNews.textContent =
@@ -3100,7 +3128,7 @@
 
       if(
         breakingIndex >=
-        allDiniArticles.length
+        diniArticles.length
       ){
 
         breakingIndex =
@@ -3110,7 +3138,7 @@
 
 
       const article =
-        allDiniArticles[
+        diniArticles[
           breakingIndex
         ];
 
@@ -3203,10 +3231,6 @@
               item.data();
 
 
-            /*
-              PUBLISHED ONLY
-            */
-
             if(
               !isPublished(
                 data
@@ -3218,41 +3242,10 @@
             }
 
 
-            /*
-              CATEGORY
-            */
-
-            const category =
-              normalizeSearch(
-                getCategory(
-                  data
-                )
-              );
-
-
-            const parts =
-              category
-                .split(
-                  /\s|,|\/|\|/
-                )
-                .filter(Boolean);
-
-
-            const isDini =
-
-              parts.includes(
-                "dini"
-              )
-
-              ||
-
-              parts.includes(
-                "religion"
-              );
-
-
             if(
-              !isDini
+              !isDini(
+                data
+              )
             ){
 
               return;
@@ -3277,7 +3270,7 @@
 
 
         /*
-          NEWEST FIRST
+          MPYA KWANZA
         */
 
         articles.sort(
@@ -3305,7 +3298,7 @@
           SAVE
         */
 
-        allDiniArticles =
+        diniArticles =
           articles;
 
 
@@ -3344,7 +3337,7 @@
         */
 
         if(
-          !allDiniArticles.length
+          !diniArticles.length
         ){
 
           content.classList.add(
@@ -3363,7 +3356,7 @@
 
 
         /*
-          SHOW FRONT
+          SHOW
         */
 
         renderFront(
@@ -3438,8 +3431,7 @@
       }
 
 
-      return allDiniArticles
-
+      return diniArticles
         .filter(
           article => {
 
@@ -3472,7 +3464,7 @@
         )
 
         .sort(
-          (a,b) => {
+          function(a,b){
 
             const q =
               normalizeSearch(
@@ -3495,22 +3487,34 @@
             const scoreA =
 
               titleA === q
+
                 ? 3
+
                 : titleA.startsWith(q)
+
                   ? 2
+
                   : titleA.includes(q)
+
                     ? 1
+
                     : 0;
 
 
             const scoreB =
 
               titleB === q
+
                 ? 3
+
                 : titleB.startsWith(q)
+
                   ? 2
+
                   : titleB.includes(q)
+
                     ? 1
+
                     : 0;
 
 
@@ -3521,6 +3525,10 @@
 
     }
 
+
+    /* =========================
+       SEARCH SUGGESTIONS
+    ========================== */
 
     function renderSearchSuggestions(
       term
@@ -3562,8 +3570,7 @@
 
           <div class="search-no-result">
 
-            Hakuna habari ya dini
-            inayolingana na
+            Hakuna habari ya dini inayolingana na
 
             "<strong>
               ${escapeHTML(clean)}
@@ -3587,12 +3594,10 @@
       searchSuggestions.innerHTML =
 
         results
-
           .slice(
             0,
             6
           )
-
           .map(
             article => {
 
@@ -3663,7 +3668,6 @@
 
             }
           )
-
           .join("");
 
 
@@ -3684,7 +3688,7 @@
               function(){
 
                 const article =
-                  allDiniArticles.find(
+                  diniArticles.find(
                     item =>
 
                       String(
@@ -3692,6 +3696,7 @@
                         item.id ||
                         ""
                       ) ===
+
                       String(
                         element.dataset
                           .searchArticleId
@@ -3772,14 +3777,31 @@
         );
 
 
+        visibleGridCount =
+          INITIAL_GRID_COUNT;
+
+
         if(
-          results.length === 1
+          !results.length
         ){
 
-          window.location.href =
-            articleUrl(
-              results[0]
-            );
+          content.classList.add(
+            "hidden"
+          );
+
+
+          emptyState.classList.remove(
+            "hidden"
+          );
+
+
+          moreWrap.classList.add(
+            "hidden"
+          );
+
+
+          emptyText.textContent =
+            `Hakuna habari za Dini zinazolingana na "${term}".`;
 
 
           return;
@@ -3787,23 +3809,12 @@
         }
 
 
-        if(
-          results.length > 1
-        ){
-
-          window.location.href =
-            articleUrl(
-              results[0]
-            );
+        visibleArticles =
+          results;
 
 
-          return;
-
-        }
-
-
-        renderSearchSuggestions(
-          term
+        renderFront(
+          visibleArticles
         );
 
       }
@@ -3835,7 +3846,7 @@
 
 
     /* =========================
-       TOP DATE
+       TODAY DATE
     ========================== */
 
     document.getElementById(
@@ -3856,7 +3867,7 @@
 
 
     /* =========================
-       PAGE DATE
+       CURRENT PAGE DATE
     ========================== */
 
     document.getElementById(
@@ -3887,7 +3898,7 @@
 
 
     /* =========================
-       UPDATE RELATIVE TIMES
+       REFRESH TIMES
     ========================== */
 
     setInterval(
