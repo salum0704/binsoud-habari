@@ -77,10 +77,6 @@
 
 <style>
 
-/* =========================
-   ROOT
-========================= */
-
 :root{
   --blue:#0757a6;
   --blue-2:#0878c9;
@@ -95,11 +91,6 @@
   --shadow:0 5px 18px rgba(13,47,79,.08);
   --radius:8px;
 }
-
-
-/* =========================
-   RESET
-========================= */
 
 *{
   box-sizing:border-box;
@@ -154,29 +145,14 @@ input{
   min-height:38px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  justify-content:center;
 }
 
 .top-date{
   color:#fff;
   font-size:13px;
   font-weight:600;
-}
-
-.top-date-links{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
-.top-date-links a{
-  color:#d7e4ee;
-  font-size:12px;
-}
-
-.top-date-links a:hover{
-  color:#fff;
+  text-align:center;
 }
 
 
@@ -185,7 +161,7 @@ input{
 ========================= */
 
 .site-header{
-  background:var(--white);
+  background:#fff;
   border-bottom:1px solid var(--border);
 }
 
@@ -702,7 +678,7 @@ main{
 
 
 /* =========================
-   MORE
+   MORE BUTTON
 ========================= */
 
 .more-wrap{
@@ -821,14 +797,6 @@ footer a:hover{
     width:min(1180px,calc(100% - 24px));
   }
 
-  .top-date-inner{
-    justify-content:center;
-  }
-
-  .top-date-links{
-    display:none;
-  }
-
   .top-date{
     font-size:12px;
   }
@@ -944,14 +912,14 @@ footer a:hover{
 }
 
 </style>
-
 </head>
+
 
 <body>
 
 
 <!-- =========================
-     TOP DATE BAR
+     TOP DATE
 ========================= -->
 
 <div class="top-date-bar">
@@ -963,19 +931,6 @@ footer a:hover{
       id="topDate"
     >
       Jumapili, 27 Septemba 2026
-    </div>
-
-
-    <div class="top-date-links">
-
-      <a href="makala.html">
-        Makala
-      </a>
-
-      <a href="contact.html">
-        Wasiliana Nasi
-      </a>
-
     </div>
 
   </div>
@@ -1034,7 +989,7 @@ footer a:hover{
 
 
 <!-- =========================
-     NAV
+     NAVIGATION
 ========================= -->
 
 <nav
@@ -1206,11 +1161,15 @@ footer a:hover{
       <section class="hero-layout">
 
 
+        <!-- HERO -->
+
         <article
           class="hero"
           id="hero"
         ></article>
 
+
+        <!-- SIDE -->
 
         <div class="side-news">
 
@@ -1218,7 +1177,9 @@ footer a:hover{
             Habari Zinazofuatwa
           </div>
 
-          <div id="sideNews"></div>
+          <div
+            id="sideNews"
+          ></div>
 
         </div>
 
@@ -1251,8 +1212,6 @@ footer a:hover{
         ></div>
 
 
-        <!-- MORE -->
-
         <div class="more-wrap">
 
           <button
@@ -1266,6 +1225,7 @@ footer a:hover{
         </div>
 
       </section>
+
 
     </div>
 
@@ -1385,10 +1345,6 @@ footer a:hover{
 
 </footer>
 
-
-<!-- =========================
-     FIREBASE
-========================= -->
 
 <script type="module">
 
@@ -1526,7 +1482,7 @@ const moreBtn =
 
 
 /* =========================
-   VARIABLES
+   STATE
 ========================= */
 
 let allArticles = [];
@@ -1542,16 +1498,24 @@ let breakingTimer = null;
    DATE
 ========================= */
 
+function getCurrentDate(){
+
+  return new Date()
+    .toLocaleDateString(
+      "sw-TZ",
+      {
+        weekday:"long",
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+      }
+    );
+
+}
+
+
 const today =
-  new Date().toLocaleDateString(
-    "sw-TZ",
-    {
-      weekday:"long",
-      day:"numeric",
-      month:"long",
-      year:"numeric"
-    }
-  );
+  getCurrentDate();
 
 
 topDate.textContent =
@@ -1855,7 +1819,6 @@ function articleLink(
 
 /* =========================
    BREAKING NEWS
-   MOJA MOJA
 ========================= */
 
 function renderBreakingNews(
