@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="sw">
 <head>
   <meta charset="UTF-8">
@@ -112,6 +113,7 @@
     .search-box{
       flex:1;
       max-width:430px;
+      position:relative;
     }
 
     .search-form{
@@ -141,6 +143,94 @@
 
     .search-form button:hover{
       background:var(--blue-dark);
+    }
+
+    /* =========================
+       SEARCH SUGGESTIONS
+    ========================== */
+
+    .search-suggestions{
+      display:none;
+      position:absolute;
+      top:calc(100% + 6px);
+      left:0;
+      right:0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:6px;
+      box-shadow:var(--shadow);
+      z-index:9999;
+      max-height:350px;
+      overflow-y:auto;
+    }
+
+    .search-suggestions.active{
+      display:block;
+    }
+
+    .search-suggestion{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:10px;
+      border-bottom:1px solid var(--border);
+      cursor:pointer;
+      background:#fff;
+    }
+
+    .search-suggestion:last-child{
+      border-bottom:0;
+    }
+
+    .search-suggestion:hover{
+      background:#f4f8fc;
+    }
+
+    .search-suggestion-image{
+      width:65px;
+      height:48px;
+      object-fit:cover;
+      border-radius:5px;
+      background:#e9eef5;
+      flex-shrink:0;
+    }
+
+    .search-suggestion-content{
+      min-width:0;
+    }
+
+    .search-suggestion-title{
+      color:var(--deep);
+      font-size:13px;
+      line-height:1.35;
+      font-weight:800;
+      margin-bottom:2px;
+    }
+
+    .search-suggestion-category{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .search-suggestion-category-page{
+      display:block;
+      padding:12px;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+      border-bottom:1px solid var(--border);
+    }
+
+    .search-suggestion-category-page:hover{
+      background:#f4f8fc;
+      color:var(--red);
+    }
+
+    .search-no-result{
+      padding:14px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
     }
 
     /* =========================
@@ -461,42 +551,11 @@
     }
 
     /* =========================
-       CONTACT
+       CONTACT ANCHOR
     ========================== */
 
-    .contact-box{
-      margin-top:30px;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:24px;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .contact-item h3{
-      color:var(--blue-dark);
-      margin-bottom:5px;
-      font-size:17px;
-    }
-
-    .contact-item p{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .contact-item a{
-      color:var(--blue);
-      font-weight:700;
-    }
-
-    .contact-item a:hover{
-      color:var(--red);
+    #mawasiliano{
+      scroll-margin-top:20px;
     }
 
     /* =========================
@@ -659,10 +718,6 @@
         grid-template-columns:repeat(2,1fr);
       }
 
-      .contact-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
       .footer-main{
         grid-template-columns:1fr 1fr;
       }
@@ -684,7 +739,6 @@
 
       .article-grid,
       .quick-links,
-      .contact-grid,
       .footer-main{
         grid-template-columns:1fr;
       }
@@ -727,6 +781,10 @@
 
       .breaking-content{
         padding-left:9px;
+      }
+
+      .search-suggestions{
+        max-height:300px;
       }
     }
   </style>
@@ -775,6 +833,11 @@
           </button>
 
         </form>
+
+        <div
+          id="searchSuggestions"
+          class="search-suggestions"
+        ></div>
 
       </div>
 
@@ -1025,98 +1088,20 @@
 
       <!-- =====================
            MAWASILIANO
+           ANCHOR PEKEE
       ====================== -->
 
-      <section id="mawasiliano">
-
-        <div class="section-title">
-
-          <h2>
-            Mawasiliano
-          </h2>
-
-        </div>
-
-
-        <div class="contact-box">
-
-          <div class="contact-grid">
-
-
-            <div class="contact-item">
-
-              <h3>
-                Barua Pepe
-              </h3>
-
-              <p>
-                Wasiliana na BINSOUD HABARI
-                kupitia barua pepe.
-              </p>
-
-              <p>
-                <a href="mailto:info@binsoudhabari.com">
-                  info@binsoudhabari.com
-                </a>
-              </p>
-
-            </div>
-
-
-            <div class="contact-item">
-
-              <h3>
-                Simu
-              </h3>
-
-              <p>
-                Kwa mawasiliano ya moja kwa moja
-                na timu yetu.
-              </p>
-
-              <p>
-                <a href="tel:+255000000000">
-                  Wasiliana nasi
-                </a>
-              </p>
-
-            </div>
-
-
-            <div class="contact-item">
-
-              <h3>
-                Ofisi
-              </h3>
-
-              <p>
-                Zanzibar, Tanzania.
-              </p>
-
-              <p>
-                <a href="#mawasiliano">
-                  Tuma ujumbe
-                </a>
-              </p>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </section>
+      <div id="mawasiliano"></div>
 
 
       <!-- =====================
-           NEWSLETTER
+           JARIDA LA HABARI
       ====================== -->
 
       <section class="newsletter">
 
         <h2>
-          Jiunge na Newsletter
+          Jiunge na Jarida la Habari
         </h2>
 
         <p>
@@ -1350,6 +1335,9 @@
     const searchResultsBox =
       document.getElementById("searchResultsBox");
 
+    const searchSuggestions =
+      document.getElementById("searchSuggestions");
+
     const todayDate =
       document.getElementById("todayDate");
 
@@ -1429,6 +1417,114 @@
 
 
     /* =========================
+       SEARCH NORMALIZER
+    ========================== */
+
+    function normalizeSearch(value){
+
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[^a-z0-9\s]/g," ")
+        .replace(/\s+/g," ")
+        .trim();
+
+    }
+
+
+    /* =========================
+       SEARCH WORD CORRECTION
+    ========================== */
+
+    function canonicalSearchTerm(value){
+
+      let term =
+        normalizeSearch(value);
+
+
+      const corrections = {
+
+        "raisi":"rais",
+        "raiss":"rais",
+        "rais":"rais",
+
+        "kitaiafa":"kitaifa",
+        "kitaifa":"kitaifa",
+        "taifa":"kitaifa",
+
+        "kimataifa":"kimataifa",
+        "mataifa":"kimataifa",
+
+        "uchumi":"uchumi",
+        "biashara":"uchumi"
+
+      };
+
+
+      return corrections[term] || term;
+
+    }
+
+
+    /* =========================
+       CATEGORY PAGES
+    ========================== */
+
+    const categoryPages = {
+
+      "kitaifa":
+        "kitaifa.html",
+
+      "kimataifa":
+        "kimataifa.html",
+
+      "dini":
+        "dini.html",
+
+      "michezo":
+        "michezo.html",
+
+      "mazingira":
+        "mazingira.html",
+
+      "burudani":
+        "burudani.html",
+
+      "siasa":
+        "siasa.html",
+
+      "uchumi":
+        "biashara.html",
+
+      "biashara":
+        "biashara.html",
+
+      "makala":
+        "makala.html",
+
+      "video":
+        "video.html",
+
+      "audio":
+        "audio.html"
+
+    };
+
+
+    function getCategoryPage(term){
+
+      const normalized =
+        canonicalSearchTerm(term);
+
+      return categoryPages[
+        normalized
+      ] || null;
+
+    }
+
+
+    /* =========================
        FIRST VALUE
     ========================== */
 
@@ -1487,22 +1583,33 @@
 
     function getCategory(article){
 
-      return firstValue(
-        article,
-        [
-          "category",
-          "categoryName",
-          "category_name",
-          "section",
-          "sectionName",
-          "section_name",
-          "kategoria",
-          "kategoriaName",
-          "newsCategory",
-          "news_category",
-          "categories"
-        ]
-      );
+      const value =
+        firstValue(
+          article,
+          [
+            "category",
+            "categoryName",
+            "category_name",
+            "section",
+            "sectionName",
+            "section_name",
+            "kategoria",
+            "kategoriaName",
+            "newsCategory",
+            "news_category",
+            "categories"
+          ]
+        );
+
+
+      if(Array.isArray(value)){
+
+        return value.join(" ");
+
+      }
+
+
+      return value || "";
 
     }
 
@@ -1601,6 +1708,7 @@
       if(short){
 
         return String(short)
+          .replace(/<[^>]*>/g," ")
           .replace(/\s+/g," ")
           .trim()
           .slice(0,220);
@@ -1612,6 +1720,7 @@
         String(
           getBody(article) || ""
         )
+        .replace(/<[^>]*>/g," ")
         .replace(/\s+/g," ")
         .trim();
 
@@ -2433,56 +2542,406 @@
 
 
     /* =========================
-       SEARCH
+       SEARCH SCORE
     ========================== */
 
-    searchForm.addEventListener(
-      "submit",
-      function(event){
+    function scoreArticle(
+      article,
+      queryText
+    ){
 
-        event.preventDefault();
+      const query =
+        normalizeSearch(
+          queryText
+        );
 
-        performSearch();
+
+      const title =
+        normalizeSearch(
+          getTitle(article)
+        );
+
+      const category =
+        normalizeSearch(
+          getCategory(article)
+        );
+
+      const description =
+        normalizeSearch(
+          getDescription(article)
+        );
+
+      const body =
+        normalizeSearch(
+          getBody(article)
+        );
+
+
+      let score = 0;
+
+
+      /* Kichwa */
+      if(title === query){
+        score += 1000;
+      }
+
+      if(title.includes(query)){
+        score += 600;
+      }
+
+
+      /* Kategoria */
+      if(category === query){
+        score += 500;
+      }
+
+      if(category.includes(query)){
+        score += 300;
+      }
+
+
+      /* Maelezo */
+      if(description.includes(query)){
+        score += 180;
+      }
+
+
+      /* Mwili wa habari */
+      if(body.includes(query)){
+        score += 100;
+      }
+
+
+      /* Maneno yote ya utafutaji */
+      const words =
+        query
+          .split(" ")
+          .filter(Boolean);
+
+
+      if(words.length > 1){
+
+        const fullText =
+          [
+            title,
+            category,
+            description,
+            body
+          ].join(" ");
+
+
+        let allWords = true;
+
+
+        words.forEach(
+          word => {
+
+            if(
+              !fullText.includes(word)
+            ){
+
+              allWords = false;
+
+            }
+
+          }
+        );
+
+
+        if(allWords){
+
+          score += 250;
+
+        }
 
       }
-    );
 
 
-    searchInput.addEventListener(
-      "input",
-      function(){
+      return score;
 
-        if(
-          searchInput.value.trim() === ""
-        ){
+    }
 
-          searchResults.classList.remove(
-            "active"
+
+    /* =========================
+       SEARCH ARTICLES
+    ========================== */
+
+    function searchArticles(
+      term
+    ){
+
+      const queryText =
+        canonicalSearchTerm(term);
+
+
+      if(!queryText){
+
+        return [];
+
+      }
+
+
+      const results =
+        articles.filter(
+          article => {
+
+            const searchableText = [
+
+              getTitle(article),
+
+              getCategory(article),
+
+              getDescription(article),
+
+              getBody(article)
+
+            ]
+              .map(normalizeSearch)
+              .join(" ");
+
+
+            const words =
+              queryText
+                .split(" ")
+                .filter(Boolean);
+
+
+            return words.every(
+              word =>
+                searchableText.includes(word)
+            );
+
+          }
+        );
+
+
+      results.sort(
+        (a,b) =>
+          scoreArticle(
+            b,
+            queryText
+          ) -
+          scoreArticle(
+            a,
+            queryText
+          )
+      );
+
+
+      return results;
+
+    }
+
+
+    /* =========================
+       SEARCH SUGGESTIONS
+    ========================== */
+
+    function renderSearchSuggestions(
+      term
+    ){
+
+      const cleanTerm =
+        term.trim();
+
+
+      if(!cleanTerm){
+
+        searchSuggestions.classList.remove(
+          "active"
+        );
+
+        searchSuggestions.innerHTML = "";
+
+        return;
+
+      }
+
+
+      const categoryPage =
+        getCategoryPage(
+          cleanTerm
+        );
+
+
+      const results =
+        searchArticles(
+          cleanTerm
+        );
+
+
+      let html = "";
+
+
+      if(categoryPage){
+
+        let categoryName =
+          canonicalSearchTerm(
+            cleanTerm
           );
 
-          latestBox.style.display =
-            "grid";
 
-          return;
+        if(
+          categoryName === "uchumi"
+        ){
+
+          categoryName =
+            "uchumi";
 
         }
 
 
-        performSearch();
+        html += `
+
+          <a
+            href="${categoryPage}"
+            class="search-suggestion-category-page"
+          >
+            Fungua sehemu ya
+            ${escapeHtml(
+              categoryName.toUpperCase()
+            )}
+            →
+          </a>
+
+        `;
 
       }
-    );
 
+
+      results
+        .slice(0,5)
+        .forEach(
+          article => {
+
+            html += `
+
+              <div
+                class="search-suggestion"
+                data-article-id="${escapeHtml(
+                  getArticleId(article)
+                )}"
+              >
+
+                <img
+                  class="search-suggestion-image"
+                  src="${escapeHtml(
+                    getImage(article)
+                  )}"
+                  alt="${escapeHtml(
+                    getTitle(article)
+                  )}"
+                  loading="lazy"
+                  onerror="
+                    this.onerror=null;
+                    this.src='${FALLBACK_IMAGE}'
+                  "
+                >
+
+                <div
+                  class="search-suggestion-content"
+                >
+
+                  <div
+                    class="search-suggestion-title"
+                  >
+                    ${escapeHtml(
+                      getTitle(article)
+                    )}
+                  </div>
+
+                  <div
+                    class="search-suggestion-category"
+                  >
+                    ${escapeHtml(
+                      getCategory(article) ||
+                      "Habari"
+                    )}
+
+                    ${
+                      formatDate(article)
+                        ? " • " +
+                          escapeHtml(
+                            formatDate(article)
+                          )
+                        : ""
+                    }
+                  </div>
+
+                </div>
+
+              </div>
+
+            `;
+
+          }
+        );
+
+
+      if(!html){
+
+        html = `
+          <div class="search-no-result">
+            Hakuna habari inayolingana na utafutaji wako.
+          </div>
+        `;
+
+      }
+
+
+      searchSuggestions.innerHTML =
+        html;
+
+
+      searchSuggestions
+        .classList.add(
+          "active"
+        );
+
+
+      searchSuggestions
+        .querySelectorAll(
+          ".search-suggestion[data-article-id]"
+        )
+        .forEach(
+          element => {
+
+            element.addEventListener(
+              "click",
+              () => {
+
+                const id =
+                  element.dataset.articleId;
+
+
+                if(id){
+
+                  window.location.href =
+                    "habari.html?id=" +
+                    encodeURIComponent(id);
+
+                }
+
+              }
+            );
+
+          }
+        );
+
+    }
+
+
+    /* =========================
+       FULL SEARCH
+    ========================== */
 
     function performSearch(){
 
-      const term =
-        searchInput.value
-          .toLowerCase()
-          .trim();
+      const typedTerm =
+        searchInput.value.trim();
 
 
-      if(!term){
+      if(!typedTerm){
 
         searchResults.classList.remove(
           "active"
@@ -2496,28 +2955,26 @@
       }
 
 
+      /* KITAIFA / KIMATAIFA / ETC */
+      const categoryPage =
+        getCategoryPage(
+          typedTerm
+        );
+
+
+      if(categoryPage){
+
+        window.location.href =
+          categoryPage;
+
+        return;
+
+      }
+
+
       const results =
-        articles.filter(
-          article => {
-
-            const text = [
-
-              getTitle(article),
-
-              getCategory(article),
-
-              getDescription(article),
-
-              getBody(article)
-
-            ]
-            .join(" ")
-            .toLowerCase();
-
-
-            return text.includes(term);
-
-          }
+        searchArticles(
+          typedTerm
         );
 
 
@@ -2533,11 +2990,23 @@
       if(!results.length){
 
         searchResultsBox.innerHTML = `
+
           <div class="empty-box">
+
             Hakuna habari iliyopatikana kwa
-            "${escapeHtml(term)}".
+
+            "<strong>
+              ${escapeHtml(typedTerm)}
+            </strong>".
+
           </div>
+
         `;
+
+        searchResults.scrollIntoView({
+          behavior:"smooth",
+          block:"start"
+        });
 
         return;
 
@@ -2565,6 +3034,86 @@
       });
 
     }
+
+
+    /* =========================
+       SEARCH EVENTS
+    ========================== */
+
+    searchInput.addEventListener(
+      "input",
+      function(){
+
+        const term =
+          searchInput.value.trim();
+
+
+        if(!term){
+
+          searchSuggestions.classList.remove(
+            "active"
+          );
+
+          searchResults.classList.remove(
+            "active"
+          );
+
+          latestBox.style.display =
+            "grid";
+
+          return;
+
+        }
+
+
+        /* Matokeo ya papo hapo bila
+           kuondoa user kwenye page */
+        renderSearchSuggestions(
+          term
+        );
+
+      }
+    );
+
+
+    searchForm.addEventListener(
+      "submit",
+      function(event){
+
+        event.preventDefault();
+
+        searchSuggestions.classList.remove(
+          "active"
+        );
+
+        performSearch();
+
+      }
+    );
+
+
+    /* =========================
+       FUNGUA SEARCH KWENYE NJE
+    ========================== */
+
+    document.addEventListener(
+      "click",
+      function(event){
+
+        if(
+          !event.target.closest(
+            ".search-box"
+          )
+        ){
+
+          searchSuggestions.classList.remove(
+            "active"
+          );
+
+        }
+
+      }
+    );
 
 
     /* =========================
@@ -2617,7 +3166,7 @@
 
 
         alert(
-          "Asante! Umefanikiwa kujiunga na Newsletter ya BINSOUD HABARI."
+          "Asante! Umefanikiwa kujiunga na Jarida la Habari la BINSOUD HABARI."
         );
 
 
