@@ -151,12 +151,13 @@
 
     .search-box form{
       display:flex;
-      width:310px;
+      width:350px;
+      position:relative;
     }
 
     .search-box input{
       flex:1;
-      height:42px;
+      height:44px;
       border:1px solid var(--border);
       border-right:none;
       border-radius:7px 0 0 7px;
@@ -168,6 +169,7 @@
 
     .search-box input:focus{
       border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(7,87,166,.08);
     }
 
     .search-box button{
@@ -181,6 +183,24 @@
 
     .search-box button:hover{
       background:var(--blue-dark);
+    }
+
+    .search-clear{
+      display:none;
+      position:absolute;
+      right:83px;
+      top:50%;
+      transform:translateY(-50%);
+      border:none;
+      background:none;
+      color:var(--muted);
+      font-size:20px;
+      line-height:1;
+      z-index:2;
+    }
+
+    .search-clear.show{
+      display:block;
     }
 
     /* =========================
@@ -302,6 +322,48 @@
     }
 
     /* =========================
+       SEARCH RESULTS
+    ========================== */
+
+    #searchSection{
+      display:none;
+    }
+
+    #searchSection.active{
+      display:block;
+    }
+
+    .search-summary{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:14px;
+    }
+
+    .search-summary strong{
+      color:var(--blue-dark);
+    }
+
+    .search-result-card{
+      border-top:3px solid var(--blue);
+    }
+
+    .search-empty{
+      background:#fff;
+      border:1px dashed var(--border);
+      border-radius:var(--radius);
+      padding:35px 20px;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .search-empty strong{
+      display:block;
+      color:var(--blue-dark);
+      font-size:18px;
+      margin-bottom:5px;
+    }
+
+    /* =========================
        HERO
     ========================== */
 
@@ -329,7 +391,7 @@
 
     .hero-image{
       width:100%;
-      height:390px;
+      height:370px;
       object-fit:cover;
       background:#e9eef5;
     }
@@ -376,7 +438,7 @@
     .side-card{
       background:#fff;
       display:grid;
-      grid-template-columns:120px 1fr;
+      grid-template-columns:105px 1fr;
       gap:12px;
       padding:10px;
       border-radius:var(--radius);
@@ -387,11 +449,12 @@
 
     .side-card:hover{
       transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(13,47,79,.12);
     }
 
     .side-card img{
-      width:120px;
-      height:90px;
+      width:105px;
+      height:88px;
       object-fit:cover;
       border-radius:6px;
       background:#e9eef5;
@@ -399,7 +462,7 @@
 
     .side-card h3{
       color:#111827;
-      font-size:15px;
+      font-size:14px;
       line-height:1.3;
       font-weight:900;
       margin-bottom:6px;
@@ -436,7 +499,7 @@
 
     .article-card img{
       width:100%;
-      height:190px;
+      height:175px;
       object-fit:cover;
       background:#e9eef5;
     }
@@ -447,7 +510,7 @@
 
     .article-card h3{
       color:#111827;
-      font-size:17px;
+      font-size:16px;
       line-height:1.3;
       font-weight:900;
       margin-bottom:7px;
@@ -458,6 +521,30 @@
       font-size:13px;
       line-height:1.5;
       margin-bottom:7px;
+    }
+
+    /* =========================
+       CATEGORY STRIP
+    ========================== */
+
+    .category-strip{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .category-chip{
+      display:inline-flex;
+      align-items:center;
+      background:#eef5fc;
+      color:var(--blue);
+      border:1px solid #d8e8f8;
+      border-radius:20px;
+      padding:5px 10px;
+      font-size:11px;
+      font-weight:800;
     }
 
     /* =========================
@@ -519,7 +606,7 @@
     }
 
     .video-placeholder{
-      min-height:180px;
+      min-height:160px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -695,24 +782,49 @@
       margin-top:18px;
     }
 
-    /* =========================
-       CATEGORY MODAL
-    ========================== */
-
-    .category-modal-box{
-      width:min(1100px,100%);
+    .modal-related{
+      margin-top:25px;
+      border-top:1px solid var(--border);
+      padding-top:20px;
     }
 
-    .category-modal-content{
-      padding:22px;
-    }
-
-    .category-modal-title{
+    .modal-related h3{
       color:var(--blue-dark);
-      font-size:25px;
-      font-weight:900;
-      margin-bottom:18px;
-      padding-right:45px;
+      font-size:17px;
+      margin-bottom:12px;
+    }
+
+    .related-list{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+    }
+
+    .related-item{
+      display:flex;
+      gap:10px;
+      padding:8px;
+      background:var(--light);
+      border-radius:7px;
+      cursor:pointer;
+    }
+
+    .related-item:hover{
+      background:#eaf2fa;
+    }
+
+    .related-item img{
+      width:80px;
+      height:60px;
+      object-fit:cover;
+      border-radius:5px;
+      flex-shrink:0;
+    }
+
+    .related-item h4{
+      font-size:13px;
+      line-height:1.3;
+      color:#111827;
     }
 
     /* =========================
@@ -868,6 +980,10 @@
       .modal-body{
         font-size:15px;
       }
+
+      .related-list{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
@@ -878,11 +994,13 @@
 
   <div class="topbar">
     <div class="container topbar-inner">
+
       <span id="todayDate"></span>
 
       <span>
         BINSOUD HABARI — Ukweli, Uadilifu na Habari Sahihi
       </span>
+
     </div>
   </div>
 
@@ -890,6 +1008,7 @@
   <!-- HEADER -->
 
   <header>
+
     <div class="container header-inner">
 
       <a href="index.html" class="brand">
@@ -899,14 +1018,21 @@
         </div>
 
         <div class="brand-text">
-          <h1>BINSOUD HABARI</h1>
+
+          <h1>
+            BINSOUD HABARI
+          </h1>
 
           <p>
             Habari za Zanzibar, Tanzania na Dunia
           </p>
+
         </div>
 
       </a>
+
+
+      <!-- SEARCH -->
 
       <div class="search-box">
 
@@ -917,7 +1043,16 @@
             id="searchInput"
             placeholder="Tafuta habari..."
             autocomplete="off"
+            aria-label="Tafuta habari"
           >
+
+          <button
+            type="button"
+            id="searchClear"
+            class="search-clear"
+            aria-label="Futa utafutaji">
+            ×
+          </button>
 
           <button type="submit">
             Tafuta
@@ -928,6 +1063,7 @@
       </div>
 
     </div>
+
   </header>
 
 
@@ -991,6 +1127,38 @@
 
     <div class="container">
 
+
+      <!-- SEARCH RESULTS -->
+
+      <section
+        class="section"
+        id="searchSection">
+
+        <div class="section-heading">
+
+          <h2>
+            MATOKEO YA UTAFUTAJI
+          </h2>
+
+          <button
+            class="see-all"
+            type="button"
+            id="closeSearch">
+            ONDOA ×
+          </button>
+
+        </div>
+
+        <div
+          id="searchSummary"
+          class="search-summary">
+        </div>
+
+        <div id="searchResults"></div>
+
+      </section>
+
+
       <!-- HERO + SIDE -->
 
       <section class="hero-grid">
@@ -1004,7 +1172,9 @@
 
       <!-- LATEST -->
 
-      <section class="section" id="latest">
+      <section
+        class="section"
+        id="latest">
 
         <div class="section-heading">
 
@@ -1021,11 +1191,15 @@
 
       <!-- KITAIFA -->
 
-      <section class="section" id="kitaifa">
+      <section
+        class="section"
+        id="kitaifa">
 
         <div class="section-heading">
 
-          <h2>KITAIFA</h2>
+          <h2>
+            KITAIFA
+          </h2>
 
           <a
             class="see-all"
@@ -1042,11 +1216,15 @@
 
       <!-- MATAIFA -->
 
-      <section class="section" id="mataifa">
+      <section
+        class="section"
+        id="mataifa">
 
         <div class="section-heading">
 
-          <h2>MATAIFA</h2>
+          <h2>
+            MATAIFA
+          </h2>
 
           <a
             class="see-all"
@@ -1063,11 +1241,15 @@
 
       <!-- DINI -->
 
-      <section class="section" id="dini">
+      <section
+        class="section"
+        id="dini">
 
         <div class="section-heading">
 
-          <h2>DINI</h2>
+          <h2>
+            DINI
+          </h2>
 
           <a
             class="see-all"
@@ -1084,11 +1266,15 @@
 
       <!-- MICHEZO -->
 
-      <section class="section" id="michezo">
+      <section
+        class="section"
+        id="michezo">
 
         <div class="section-heading">
 
-          <h2>MICHEZO</h2>
+          <h2>
+            MICHEZO
+          </h2>
 
           <a
             class="see-all"
@@ -1105,11 +1291,15 @@
 
       <!-- MAZINGIRA -->
 
-      <section class="section" id="mazingira">
+      <section
+        class="section"
+        id="mazingira">
 
         <div class="section-heading">
 
-          <h2>MAZINGIRA</h2>
+          <h2>
+            MAZINGIRA
+          </h2>
 
           <a
             class="see-all"
@@ -1126,11 +1316,15 @@
 
       <!-- BURUDANI -->
 
-      <section class="section" id="burudani">
+      <section
+        class="section"
+        id="burudani">
 
         <div class="section-heading">
 
-          <h2>BURUDANI</h2>
+          <h2>
+            BURUDANI
+          </h2>
 
           <a
             class="see-all"
@@ -1147,11 +1341,15 @@
 
       <!-- SIASA -->
 
-      <section class="section" id="siasa">
+      <section
+        class="section"
+        id="siasa">
 
         <div class="section-heading">
 
-          <h2>SIASA</h2>
+          <h2>
+            SIASA
+          </h2>
 
           <a
             class="see-all"
@@ -1168,11 +1366,15 @@
 
       <!-- UCHUMI -->
 
-      <section class="section" id="uchumi">
+      <section
+        class="section"
+        id="uchumi">
 
         <div class="section-heading">
 
-          <h2>UCHUMI</h2>
+          <h2>
+            UCHUMI
+          </h2>
 
           <a
             class="see-all"
@@ -1189,11 +1391,15 @@
 
       <!-- MAKALA -->
 
-      <section class="section" id="makala">
+      <section
+        class="section"
+        id="makala">
 
         <div class="section-heading">
 
-          <h2>MAKALA</h2>
+          <h2>
+            MAKALA
+          </h2>
 
           <a
             class="see-all"
@@ -1210,7 +1416,9 @@
 
       <!-- VIDEO / AUDIO -->
 
-      <section class="section" id="video">
+      <section
+        class="section"
+        id="video">
 
         <div class="section-heading">
 
@@ -1219,6 +1427,7 @@
           </h2>
 
           <div>
+
             <a
               class="see-all"
               href="video.html">
@@ -1232,11 +1441,16 @@
               href="audio.html">
               AUDIO →
             </a>
+
           </div>
 
         </div>
 
+
         <div class="media-grid">
+
+
+          <!-- VIDEO -->
 
           <div class="video-box">
 
@@ -1244,14 +1458,12 @@
               🎥 VIDEO
             </div>
 
-            <div id="videoContainer">
-              <div class="video-placeholder">
-                Hakuna video kwa sasa.
-              </div>
-            </div>
+            <div id="videoContainer"></div>
 
           </div>
 
+
+          <!-- AUDIO -->
 
           <div class="video-box">
 
@@ -1259,13 +1471,10 @@
               🎧 AUDIO
             </div>
 
-            <div id="audioContainer">
-              <div class="video-placeholder">
-                Hakuna audio kwa sasa.
-              </div>
-            </div>
+            <div id="audioContainer"></div>
 
           </div>
+
 
         </div>
 
@@ -1274,7 +1483,9 @@
 
       <!-- MAWASILIANO -->
 
-      <section class="section" id="mawasiliano">
+      <section
+        class="section"
+        id="mawasiliano">
 
         <div class="section-heading">
 
@@ -1350,11 +1561,14 @@
         ×
       </button>
 
+
       <img
         id="modalArticleImage"
         class="modal-image"
         src=""
-        alt="Picha ya habari">
+        alt="Picha ya habari"
+      >
+
 
       <div class="modal-content">
 
@@ -1364,22 +1578,28 @@
           HABARI
         </span>
 
+
         <h1
           id="modalArticleTitle"
           class="modal-title">
-          -
         </h1>
+
 
         <div
           id="modalArticleDate"
           class="article-date">
-          -
         </div>
+
 
         <div
           id="modalArticleBody"
           class="modal-body">
-          -
+        </div>
+
+
+        <div
+          id="modalRelated"
+          class="modal-related">
         </div>
 
       </div>
@@ -1396,6 +1616,7 @@
     <div class="container">
 
       <div class="footer-grid">
+
 
         <div>
 
@@ -1417,15 +1638,25 @@
             SEHEMU
           </h3>
 
-          <a href="kitaifa.html">Kitaifa</a>
+          <a href="kitaifa.html">
+            Kitaifa
+          </a>
 
-          <a href="kimataifa.html">Mataifa</a>
+          <a href="kimataifa.html">
+            Mataifa
+          </a>
 
-          <a href="dini.html">Dini</a>
+          <a href="dini.html">
+            Dini
+          </a>
 
-          <a href="michezo.html">Michezo</a>
+          <a href="michezo.html">
+            Michezo
+          </a>
 
-          <a href="mazingira.html">Mazingira</a>
+          <a href="mazingira.html">
+            Mazingira
+          </a>
 
         </div>
 
@@ -1436,19 +1667,33 @@
             ZAIDI
           </h3>
 
-          <a href="burudani.html">Burudani</a>
+          <a href="burudani.html">
+            Burudani
+          </a>
 
-          <a href="siasa.html">Siasa</a>
+          <a href="siasa.html">
+            Siasa
+          </a>
 
-          <a href="biashara.html">Uchumi</a>
+          <a href="biashara.html">
+            Uchumi
+          </a>
 
-          <a href="makala.html">Makala</a>
+          <a href="makala.html">
+            Makala
+          </a>
 
-          <a href="video.html">Video</a>
+          <a href="video.html">
+            Video
+          </a>
 
-          <a href="audio.html">Audio</a>
+          <a href="audio.html">
+            Audio
+          </a>
 
-          <a href="#mawasiliano">Mawasiliano</a>
+          <a href="#mawasiliano">
+            Mawasiliano
+          </a>
 
         </div>
 
@@ -1473,8 +1718,9 @@
 
   <script type="module">
 
-    import { initializeApp }
-      from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
     import {
       getFirestore,
@@ -1482,8 +1728,7 @@
       getDocs,
       query,
       limit
-    }
-      from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+    } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
     /* ==========================================
@@ -1549,21 +1794,28 @@
         value === null ||
         value === undefined
       ){
+
         return "";
+
       }
 
       return String(value)
+
         .replace(/&/g,"&amp;")
+
         .replace(/</g,"&lt;")
+
         .replace(/>/g,"&gt;")
+
         .replace(/"/g,"&quot;")
+
         .replace(/'/g,"&#039;");
 
     }
 
 
     /* ==========================================
-       VALUE HELPER
+       FIRST VALUE
     ========================================== */
 
     function firstValue(...values){
@@ -1638,6 +1890,7 @@
 
       const result = [];
 
+
       values.forEach(value => {
 
         if(Array.isArray(value)){
@@ -1670,6 +1923,7 @@
 
       });
 
+
       return result;
 
     }
@@ -1698,11 +1952,17 @@
     function normalizeText(value){
 
       return String(value || "")
+
         .trim()
+
         .toLowerCase()
+
         .normalize("NFD")
+
         .replace(/[\u0300-\u036f]/g,"")
+
         .replace(/[_\-]+/g," ")
+
         .replace(/\s+/g," ");
 
     }
@@ -1717,12 +1977,14 @@
       const category =
         normalizeText(value);
 
+
       if(!category){
         return "";
       }
 
 
       if(
+
         category === "kitaifa" ||
         category === "national" ||
         category === "national news" ||
@@ -1730,6 +1992,7 @@
         category === "tanzania news" ||
         category === "zanzibar" ||
         category === "zanzibar news"
+
       ){
 
         return "kitaifa";
@@ -1738,6 +2001,7 @@
 
 
       if(
+
         category === "mataifa" ||
         category === "kimataifa" ||
         category === "international" ||
@@ -1745,6 +2009,7 @@
         category === "dunia" ||
         category === "world" ||
         category === "world news"
+
       ){
 
         return "mataifa";
@@ -1753,6 +2018,7 @@
 
 
       if(
+
         category === "dini" ||
         category === "religion" ||
         category === "religious" ||
@@ -1761,6 +2027,7 @@
         category === "muslim" ||
         category === "christian" ||
         category === "christianity"
+
       ){
 
         return "dini";
@@ -1769,9 +2036,11 @@
 
 
       if(
+
         category === "michezo" ||
         category === "sports" ||
         category === "sport"
+
       ){
 
         return "michezo";
@@ -1780,9 +2049,11 @@
 
 
       if(
+
         category === "mazingira" ||
         category === "environment" ||
         category === "environmental"
+
       ){
 
         return "mazingira";
@@ -1791,11 +2062,13 @@
 
 
       if(
+
         category === "burudani" ||
         category === "entertainment" ||
         category === "sanaa" ||
         category === "muziki" ||
         category === "music"
+
       ){
 
         return "burudani";
@@ -1804,9 +2077,11 @@
 
 
       if(
+
         category === "siasa" ||
         category === "politics" ||
         category === "political"
+
       ){
 
         return "siasa";
@@ -1815,6 +2090,7 @@
 
 
       if(
+
         category === "uchumi" ||
         category === "economy" ||
         category === "economic" ||
@@ -1822,6 +2098,7 @@
         category === "business" ||
         category === "fedha" ||
         category === "finance"
+
       ){
 
         return "uchumi";
@@ -1830,11 +2107,13 @@
 
 
       if(
+
         category === "makala" ||
         category === "feature" ||
         category === "features" ||
         category === "analysis" ||
         category === "opinion"
+
       ){
 
         return "makala";
@@ -1842,11 +2121,11 @@
       }
 
 
-      /* Values zenye maneno */
-
       if(
+
         category.includes("kitaifa") ||
         category.includes("national")
+
       ){
 
         return "kitaifa";
@@ -1855,10 +2134,12 @@
 
 
       if(
+
         category.includes("mataifa") ||
         category.includes("kimataifa") ||
         category.includes("international") ||
         category.includes("world")
+
       ){
 
         return "mataifa";
@@ -1867,9 +2148,11 @@
 
 
       if(
+
         category.includes("dini") ||
         category.includes("religion") ||
         category.includes("islam")
+
       ){
 
         return "dini";
@@ -1878,8 +2161,10 @@
 
 
       if(
+
         category.includes("michezo") ||
         category.includes("sports")
+
       ){
 
         return "michezo";
@@ -1888,8 +2173,10 @@
 
 
       if(
+
         category.includes("mazingira") ||
         category.includes("environment")
+
       ){
 
         return "mazingira";
@@ -1898,11 +2185,13 @@
 
 
       if(
+
         category.includes("burudani") ||
         category.includes("entertainment") ||
         category.includes("muziki") ||
         category.includes("music") ||
         category.includes("sanaa")
+
       ){
 
         return "burudani";
@@ -1911,8 +2200,10 @@
 
 
       if(
+
         category.includes("siasa") ||
         category.includes("politic")
+
       ){
 
         return "siasa";
@@ -1921,11 +2212,13 @@
 
 
       if(
+
         category.includes("uchumi") ||
         category.includes("econom") ||
         category.includes("biashara") ||
         category.includes("business") ||
         category.includes("finance")
+
       ){
 
         return "uchumi";
@@ -1934,10 +2227,12 @@
 
 
       if(
+
         category.includes("makala") ||
         category.includes("feature") ||
         category.includes("analysis") ||
         category.includes("opinion")
+
       ){
 
         return "makala";
@@ -1960,6 +2255,7 @@
         getCategoryKey(category);
 
       return getCategoryValues(article)
+
         .some(value =>
           getCategoryKey(value) === wanted
         );
@@ -2042,6 +2338,7 @@
         const parsed =
           new Date(value).getTime();
 
+
         return isNaN(parsed)
           ? 0
           : parsed;
@@ -2064,21 +2361,29 @@
       const timestamp =
         dateToNumber(value);
 
+
       if(!timestamp){
         return "";
       }
 
+
       try{
 
         return new Date(timestamp)
+
           .toLocaleDateString(
+
             "sw-TZ",
+
             {
+
               weekday:"long",
               day:"2-digit",
               month:"long",
               year:"numeric"
+
             }
+
           );
 
       }catch(error){
@@ -2099,6 +2404,7 @@
       if(!article){
         return PLACEHOLDER_IMAGE;
       }
+
 
       const images = [
 
@@ -2139,10 +2445,13 @@
           const url =
             image.trim();
 
+
           if(
+
             url.startsWith("http://") ||
             url.startsWith("https://") ||
             url.startsWith("data:image/")
+
           ){
 
             return url;
@@ -2168,8 +2477,11 @@
 
             );
 
+
           if(url){
+
             return String(url).trim();
+
           }
 
         }
@@ -2252,25 +2564,26 @@
         return false;
       }
 
-      /*
-        Kama status haijawekwa,
-        article inaruhusiwa kuonekana.
-      */
 
       if(
+
         article.status === undefined ||
         article.status === null ||
         article.status === ""
+
       ){
 
         if(
+
           article.isPublished === false ||
           article.published === false
+
         ){
 
           return false;
 
         }
+
 
         return true;
 
@@ -2303,9 +2616,12 @@
       const id =
         getArticleId(article);
 
+
       return id
+
         ? "makala.html?id=" +
           encodeURIComponent(id)
+
         : "makala.html";
 
     }
@@ -2320,20 +2636,24 @@
       const id =
         getArticleId(article);
 
+
       const title =
         escapeHTML(
           getTitle(article)
         );
+
 
       const category =
         escapeHTML(
           getCategory(article)
         );
 
+
       const image =
         escapeHTML(
           getImage(article)
         );
+
 
       const date =
         escapeHTML(
@@ -2341,6 +2661,7 @@
             getDate(article)
           )
         );
+
 
       const description =
         escapeHTML(
@@ -2351,19 +2672,31 @@
       return `
 
         <article
+
           class="article-card article-open"
+
           data-article-id="${escapeHTML(id)}"
+
           tabindex="0"
+
           role="button"
+
           aria-label="Fungua habari: ${title}"
+
         >
 
           <img
+
             src="${image}"
+
             alt="${title}"
+
             loading="lazy"
+
             onerror="this.onerror=null;this.src='${PLACEHOLDER_IMAGE}'"
+
           >
+
 
           <div class="article-card-content">
 
@@ -2371,15 +2704,18 @@
               ${category}
             </span>
 
+
             <h3>
               ${title}
             </h3>
+
 
             ${
               description
                 ? `<p>${description}</p>`
                 : ""
             }
+
 
             ${
               date
@@ -2405,6 +2741,7 @@
       if(!container){
         return;
       }
+
 
       if(
         !list ||
@@ -2451,6 +2788,7 @@
           "heroBox"
         );
 
+
       if(!box){
         return;
       }
@@ -2474,23 +2812,28 @@
       const article =
         articles[0];
 
+
       const id =
         getArticleId(article);
+
 
       const title =
         escapeHTML(
           getTitle(article)
         );
 
+
       const image =
         escapeHTML(
           getImage(article)
         );
 
+
       const category =
         escapeHTML(
           getCategory(article)
         );
+
 
       const date =
         escapeHTML(
@@ -2503,19 +2846,31 @@
       box.innerHTML = `
 
         <article
+
           class="hero-card article-open"
+
           data-article-id="${escapeHTML(id)}"
+
           tabindex="0"
+
           role="button"
+
           aria-label="Fungua habari: ${title}"
+
         >
 
           <img
+
             class="hero-image"
+
             src="${image}"
+
             alt="${title}"
+
             onerror="this.onerror=null;this.src='${PLACEHOLDER_IMAGE}'"
+
           >
+
 
           <div class="hero-content">
 
@@ -2523,9 +2878,11 @@
               ${category}
             </span>
 
+
             <h2 class="hero-title">
               ${title}
             </h2>
+
 
             ${
               date
@@ -2553,13 +2910,14 @@
           "sideBox"
         );
 
+
       if(!box){
         return;
       }
 
 
       const list =
-        articles.slice(1,4);
+        articles.slice(1,3);
 
 
       if(!list.length){
@@ -2586,20 +2944,24 @@
             const id =
               getArticleId(article);
 
+
             const title =
               escapeHTML(
                 getTitle(article)
               );
+
 
             const image =
               escapeHTML(
                 getImage(article)
               );
 
+
             const category =
               escapeHTML(
                 getCategory(article)
               );
+
 
             const date =
               escapeHTML(
@@ -2612,19 +2974,31 @@
             return `
 
               <article
+
                 class="side-card article-open"
+
                 data-article-id="${escapeHTML(id)}"
+
                 tabindex="0"
+
                 role="button"
+
                 aria-label="Fungua habari: ${title}"
+
               >
 
                 <img
+
                   src="${image}"
+
                   alt="${title}"
+
                   loading="lazy"
+
                   onerror="this.onerror=null;this.src='${PLACEHOLDER_IMAGE}'"
+
                 >
+
 
                 <div>
 
@@ -2632,9 +3006,11 @@
                     ${category}
                   </span>
 
+
                   <h3>
                     ${title}
                   </h3>
+
 
                   ${
                     date
@@ -2668,16 +3044,17 @@
           "latestBox"
         );
 
+
       renderGrid(
         box,
-        list
+        list.slice(0,6)
       );
 
     }
 
 
     /* ==========================================
-       CATEGORIES
+       CATEGORY
     ========================================== */
 
     function renderCategory(category,boxId){
@@ -2687,6 +3064,7 @@
           boxId
         );
 
+
       if(!box){
         return;
       }
@@ -2694,13 +3072,15 @@
 
       const list =
         articles
+
           .filter(article =>
             categoryMatches(
               article,
               category
             )
           )
-          .slice(0,6);
+
+          .slice(0,3);
 
 
       renderGrid(
@@ -2711,6 +3091,10 @@
     }
 
 
+    /* ==========================================
+       ALL CATEGORIES
+    ========================================== */
+
     function renderAllCategories(){
 
       renderCategory(
@@ -2718,40 +3102,48 @@
         "kitaifaBox"
       );
 
+
       renderCategory(
         "MATAIFA",
         "mataifaBox"
       );
+
 
       renderCategory(
         "DINI",
         "diniBox"
       );
 
+
       renderCategory(
         "MICHEZO",
         "michezoBox"
       );
+
 
       renderCategory(
         "MAZINGIRA",
         "mazingiraBox"
       );
 
+
       renderCategory(
         "BURUDANI",
         "burudaniBox"
       );
+
 
       renderCategory(
         "SIASA",
         "siasaBox"
       );
 
+
       renderCategory(
         "UCHUMI",
         "uchumiBox"
       );
+
 
       renderCategory(
         "MAKALA",
@@ -2783,13 +3175,16 @@
           article.videoURL,
           article.video_url,
           article.video,
+
           article.youtubeUrl,
           article.youtubeURL,
           article.youtube,
           article.youtubeLink,
+
           article.embedUrl,
           article.embedURL,
           article.embed,
+
           article.mediaUrl,
           article.mediaURL
 
@@ -2803,12 +3198,15 @@
           article.audioURL,
           article.audio_url,
           article.audio,
+
           article.soundUrl,
           article.soundURL,
           article.sound,
+
           article.podcastUrl,
           article.podcastURL,
           article.podcast,
+
           article.mediaUrl,
           article.mediaURL
 
@@ -2824,9 +3222,12 @@
           const url =
             value.trim();
 
+
           if(
+
             url.startsWith("http://") ||
             url.startsWith("https://")
+
           ){
 
             return url;
@@ -2852,8 +3253,11 @@
 
             );
 
+
           if(url){
+
             return String(url).trim();
+
           }
 
         }
@@ -2876,11 +3280,13 @@
         normalizeText(
 
           firstValue(
+
             article?.mediaType,
             article?.contentType,
             article?.format,
             article?.media,
             article?.type
+
           )
 
         );
@@ -2896,12 +3302,26 @@
       }
 
 
-      if(getMediaUrl(article,"video")){
+      const video =
+        getMediaUrl(
+          article,
+          "video"
+        );
+
+
+      const audio =
+        getMediaUrl(
+          article,
+          "audio"
+        );
+
+
+      if(video){
         return "video";
       }
 
 
-      if(getMediaUrl(article,"audio")){
+      if(audio){
         return "audio";
       }
 
@@ -2912,7 +3332,7 @@
 
 
     /* ==========================================
-       YOUTUBE EMBED
+       YOUTUBE
     ========================================== */
 
     function youtubeEmbed(url){
@@ -2921,6 +3341,7 @@
 
         const u =
           new URL(url);
+
 
         let videoId = "";
 
@@ -2942,13 +3363,17 @@
           videoId =
             u.searchParams.get("v") || "";
 
+
           if(
+
             !videoId &&
             u.pathname.includes("/embed/")
+
           ){
 
             videoId =
-              u.pathname.split("/embed/")[1];
+              u.pathname
+                .split("/embed/")[1];
 
           }
 
@@ -2961,8 +3386,11 @@
 
 
         return (
+
           "https://www.youtube.com/embed/" +
+
           encodeURIComponent(videoId)
+
         );
 
       }catch(error){
@@ -2985,6 +3413,7 @@
           "videoContainer"
         );
 
+
       const audioBox =
         document.getElementById(
           "audioContainer"
@@ -2993,18 +3422,22 @@
 
       const videos =
         articles
+
           .filter(article =>
             getMediaType(article) === "video"
           )
-          .slice(0,3);
+
+          .slice(0,2);
 
 
       const audios =
         articles
+
           .filter(article =>
             getMediaType(article) === "audio"
           )
-          .slice(0,3);
+
+          .slice(0,2);
 
 
       if(videoBox){
@@ -3022,6 +3455,7 @@
         }else{
 
           videoBox.innerHTML =
+
             videos.map(article => {
 
               const url =
@@ -3030,8 +3464,10 @@
                   "video"
                 );
 
+
               const embed =
                 youtubeEmbed(url);
+
 
               const title =
                 escapeHTML(
@@ -3049,11 +3485,17 @@
                       ${title}
                     </h3>
 
+
                     <iframe
+
                       src="${escapeHTML(embed)}"
+
                       title="${title}"
+
                       loading="lazy"
+
                       allowfullscreen>
+
                     </iframe>
 
                   </div>
@@ -3071,11 +3513,16 @@
                     ${title}
                   </h3>
 
+
                   <video
+
                     controls
+
                     preload="metadata">
+
                     <source
                       src="${escapeHTML(url)}">
+
                   </video>
 
                 </div>
@@ -3104,6 +3551,7 @@
         }else{
 
           audioBox.innerHTML =
+
             audios.map(article => {
 
               const url =
@@ -3111,6 +3559,7 @@
                   article,
                   "audio"
                 );
+
 
               const title =
                 escapeHTML(
@@ -3126,11 +3575,16 @@
                     ${title}
                   </h3>
 
+
                   <audio
+
                     controls
+
                     preload="metadata">
+
                     <source
                       src="${escapeHTML(url)}">
+
                   </audio>
 
                 </div>
@@ -3157,6 +3611,7 @@
           "breakingText"
         );
 
+
       if(!box){
         return;
       }
@@ -3174,6 +3629,7 @@
 
 
       let breakingArticles =
+
         articles.filter(article => (
 
           article.breaking === true ||
@@ -3187,7 +3643,7 @@
       if(!breakingArticles.length){
 
         breakingArticles =
-          articles.slice(0,8);
+          articles.slice(0,5);
 
       }
 
@@ -3209,10 +3665,13 @@
         const article =
           breakingArticles[index];
 
+
         box.textContent =
           getTitle(article);
 
+
         index++;
+
 
         if(
           index >=
@@ -3249,6 +3708,7 @@
           "breakingText"
         );
 
+
       if(!box){
         return;
       }
@@ -3260,6 +3720,7 @@
 
           const title =
             box.textContent.trim();
+
 
           if(!title){
             return;
@@ -3286,6 +3747,155 @@
 
 
     /* ==========================================
+       RELATED ARTICLES
+    ========================================== */
+
+    function renderRelated(article){
+
+      const box =
+        document.getElementById(
+          "modalRelated"
+        );
+
+
+      if(!box){
+        return;
+      }
+
+
+      const currentCategory =
+        getCategoryKey(
+          getCategory(article)
+        );
+
+
+      const related =
+        articles
+
+          .filter(item =>
+
+            item !== article &&
+
+            categoryMatches(
+              item,
+              currentCategory
+            )
+
+          )
+
+          .slice(0,4);
+
+
+      if(!related.length){
+
+        box.innerHTML = "";
+
+        return;
+
+      }
+
+
+      box.innerHTML = `
+
+        <h3>
+          Habari nyingine za ${escapeHTML(getCategory(article))}
+        </h3>
+
+
+        <div class="related-list">
+
+          ${related.map(item => {
+
+            const id =
+              getArticleId(item);
+
+
+            const title =
+              escapeHTML(
+                getTitle(item)
+              );
+
+
+            const image =
+              escapeHTML(
+                getImage(item)
+              );
+
+
+            return `
+
+              <div
+
+                class="related-item"
+
+                data-related-id="${escapeHTML(id)}"
+
+              >
+
+                <img
+
+                  src="${image}"
+
+                  alt="${title}"
+
+                  onerror="this.onerror=null;this.src='${PLACEHOLDER_IMAGE}'"
+
+                >
+
+
+                <h4>
+                  ${title}
+                </h4>
+
+              </div>
+
+            `;
+
+          }).join("")}
+
+        </div>
+
+      `;
+
+
+      box
+        .querySelectorAll(".related-item")
+        .forEach(item => {
+
+          item.addEventListener(
+            "click",
+            function(){
+
+              const id =
+                this.dataset.relatedId;
+
+
+              const relatedArticle =
+                articles.find(
+                  article =>
+                    String(
+                      getArticleId(article)
+                    ) === String(id)
+                );
+
+
+              if(relatedArticle){
+
+                openArticle(
+                  relatedArticle
+                );
+
+              }
+
+            }
+          );
+
+        });
+
+    }
+
+
+    /* ==========================================
        OPEN ARTICLE
     ========================================== */
 
@@ -3301,25 +3911,30 @@
           "articleModal"
         );
 
+
       const image =
         document.getElementById(
           "modalArticleImage"
         );
+
 
       const category =
         document.getElementById(
           "modalArticleCategory"
         );
 
+
       const title =
         document.getElementById(
           "modalArticleTitle"
         );
 
+
       const date =
         document.getElementById(
           "modalArticleDate"
         );
+
 
       const body =
         document.getElementById(
@@ -3328,18 +3943,15 @@
 
 
       if(
+
         !modal ||
         !image ||
         !category ||
         !title ||
         !date ||
         !body
-      ){
 
-        /*
-          Kama modal haipo,
-          fungua ukurasa wa makala.
-        */
+      ){
 
         window.location.href =
           articleUrl(article);
@@ -3363,6 +3975,7 @@
       image.src =
         getImage(article);
 
+
       image.alt =
         getTitle(article);
 
@@ -3385,14 +3998,19 @@
         getArticleBody(article);
 
 
+      renderRelated(article);
+
+
       modal.classList.add(
         "show"
       );
+
 
       modal.setAttribute(
         "aria-hidden",
         "false"
       );
+
 
       document.body.classList.add(
         "modal-open"
@@ -3412,6 +4030,7 @@
           "articleModal"
         );
 
+
       if(!modal){
         return;
       }
@@ -3420,6 +4039,7 @@
       modal.classList.remove(
         "show"
       );
+
 
       modal.setAttribute(
         "aria-hidden",
@@ -3449,6 +4069,7 @@
               ".article-open"
             );
 
+
           if(!element){
             return;
           }
@@ -3463,8 +4084,7 @@
               item =>
                 String(
                   getArticleId(item)
-                ) ===
-                String(id)
+                ) === String(id)
             );
 
 
@@ -3483,8 +4103,10 @@
         function(event){
 
           if(
+
             event.key !== "Enter" &&
             event.key !== " "
+
           ){
 
             return;
@@ -3515,8 +4137,7 @@
               item =>
                 String(
                   getArticleId(item)
-                ) ===
-                String(id)
+                ) === String(id)
             );
 
 
@@ -3542,6 +4163,7 @@
         document.getElementById(
           "articleModal"
         );
+
 
       const close =
         document.getElementById(
@@ -3601,6 +4223,167 @@
        SEARCH
     ========================================== */
 
+    function performSearch(term){
+
+      const searchSection =
+        document.getElementById(
+          "searchSection"
+        );
+
+
+      const searchResults =
+        document.getElementById(
+          "searchResults"
+        );
+
+
+      const searchSummary =
+        document.getElementById(
+          "searchSummary"
+        );
+
+
+      if(
+
+        !searchSection ||
+        !searchResults ||
+        !searchSummary
+
+      ){
+
+        return;
+
+      }
+
+
+      const cleanTerm =
+        normalizeText(term);
+
+
+      if(!cleanTerm){
+
+        searchSection.classList.remove(
+          "active"
+        );
+
+        searchResults.innerHTML =
+          "";
+
+        searchSummary.textContent =
+          "";
+
+        return;
+
+      }
+
+
+      const results =
+        articles.filter(article => {
+
+          const title =
+            normalizeText(
+              getTitle(article)
+            );
+
+
+          const category =
+            normalizeText(
+              getCategory(article)
+            );
+
+
+          const description =
+            normalizeText(
+              getDescription(article)
+            );
+
+
+          const content =
+            normalizeText(
+              getArticleBody(article)
+            );
+
+
+          return (
+
+            title.includes(cleanTerm) ||
+            category.includes(cleanTerm) ||
+            description.includes(cleanTerm) ||
+            content.includes(cleanTerm)
+
+          );
+
+        });
+
+
+      searchSection.classList.add(
+        "active"
+      );
+
+
+      searchSummary.innerHTML = `
+
+        Umetafuta:
+        <strong>
+          ${escapeHTML(term)}
+        </strong>
+
+        — ${results.length}
+        ${
+          results.length === 1
+            ? "habari imepatikana."
+            : "habari zimepatikana."
+        }
+
+      `;
+
+
+      if(!results.length){
+
+        searchResults.innerHTML = `
+
+          <div class="search-empty">
+
+            <strong>
+              Hakuna habari iliyopatikana
+            </strong>
+
+            Jaribu neno jingine au jina
+            la category.
+
+          </div>
+
+        `;
+
+      }else{
+
+        searchResults.innerHTML = `
+
+          <div class="article-grid">
+
+            ${results
+              .map(article =>
+
+                articleCard(article)
+
+              )
+              .join("")}
+
+          </div>
+
+        `;
+
+      }
+
+
+      searchSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+    }
+
+
     function setupSearch(){
 
       const form =
@@ -3608,9 +4391,22 @@
           "searchForm"
         );
 
+
       const input =
         document.getElementById(
           "searchInput"
+        );
+
+
+      const clear =
+        document.getElementById(
+          "searchClear"
+        );
+
+
+      const closeSearch =
+        document.getElementById(
+          "closeSearch"
         );
 
 
@@ -3624,79 +4420,121 @@
       }
 
 
+      input.addEventListener(
+        "input",
+        function(){
+
+          if(
+            this.value.trim()
+          ){
+
+            clear.classList.add(
+              "show"
+            );
+
+          }else{
+
+            clear.classList.remove(
+              "show"
+            );
+
+          }
+
+        }
+      );
+
+
       form.addEventListener(
         "submit",
         function(event){
 
           event.preventDefault();
 
+          performSearch(
+            input.value
+          );
 
-          const term =
-            normalizeText(
-              input.value
-            );
+        }
+      );
 
 
-          if(!term){
+      if(clear){
 
-            renderLatest(
-              articles.slice(0,9)
+        clear.addEventListener(
+          "click",
+          function(){
+
+            input.value = "";
+
+            clear.classList.remove(
+              "show"
             );
 
             document
-              .getElementById("latest")
-              .scrollIntoView({
-                behavior:"smooth"
-              });
-
-            return;
-
-          }
-
-
-          const results =
-            articles.filter(article => {
-
-              const title =
-                normalizeText(
-                  getTitle(article)
-                );
-
-              const category =
-                normalizeText(
-                  getCategory(article)
-                );
-
-              const description =
-                normalizeText(
-                  getDescription(article)
-                );
-
-              const content =
-                normalizeText(
-                  getArticleBody(article)
-                );
-
-              return (
-
-                title.includes(term) ||
-                category.includes(term) ||
-                description.includes(term) ||
-                content.includes(term)
-
+              .getElementById(
+                "searchSection"
+              )
+              .classList.remove(
+                "active"
               );
 
-            });
+            input.focus();
+
+          }
+        );
+
+      }
 
 
-          renderLatest(results);
+      if(closeSearch){
+
+        closeSearch.addEventListener(
+          "click",
+          function(){
+
+            input.value = "";
+
+            clear.classList.remove(
+              "show"
+            );
+
+            document
+              .getElementById(
+                "searchSection"
+              )
+              .classList.remove(
+                "active"
+              );
+
+          }
+        );
+
+      }
 
 
-          document
-            .getElementById("latest")
-            .scrollIntoView({
-              behavior:"smooth"
-            });
+      input.addEventListener(
+        "keydown",
+        function(event){
+
+          if(
+            event.key === "Escape"
+          ){
+
+            input.value = "";
+
+            clear.classList.remove(
+              "show"
+            );
+
+            document
+              .getElementById(
+                "searchSection"
+              )
+              .classList.remove(
+                "active"
+              );
+
+          }
 
         }
       );
@@ -3714,6 +4552,7 @@
         document.getElementById(
           "newsletterForm"
         );
+
 
       if(!form){
         return;
@@ -3733,8 +4572,12 @@
             );
 
 
-          if(!input.value.trim()){
+          if(
+            !input.value.trim()
+          ){
+
             return;
+
           }
 
 
@@ -3765,10 +4608,12 @@
         date.toLocaleDateString(
           "sw-TZ",
           {
+
             weekday:"long",
             day:"2-digit",
             month:"long",
             year:"numeric"
+
           }
         );
 
@@ -3885,12 +4730,6 @@
           );
 
 
-        /*
-          Hatusimamishi mfumo kwa
-          orderBy ya field ambayo inaweza
-          kutokuwepo kwenye baadhi ya data.
-        */
-
         const q =
           query(
             articlesRef,
@@ -3917,7 +4756,7 @@
 
 
         /*
-          FILTER PUBLISHED
+          ONLY PUBLISHED
         */
 
         articles =
@@ -3927,17 +4766,22 @@
 
 
         /*
-          SORT BY DATE
+          NEWEST FIRST
         */
 
         articles.sort(
           (a,b) =>
+
             dateToNumber(
               getDate(b)
-            ) -
+            )
+
+            -
+
             dateToNumber(
               getDate(a)
             )
+
         );
 
 
@@ -3946,7 +4790,6 @@
         */
 
         renderAll();
-
 
       }catch(error){
 
