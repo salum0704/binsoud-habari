@@ -6,574 +6,856 @@
 
   <title>Habari | BINSOUD HABARI</title>
 
-  <meta name="description" content="Soma habari kamili kutoka BINSOUD HABARI.">
-  <meta name="theme-color" content="#063b78">
+  <meta
+    name="description"
+    content="Soma habari kamili kutoka BINSOUD HABARI."
+  >
+
+  <meta name="theme-color" content="#0757a6">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="BINSOUD HABARI">
-  <meta property="og:description" content="Soma habari kamili kutoka BINSOUD HABARI.">
+  <meta
+    property="og:description"
+    content="Soma habari kamili kutoka BINSOUD HABARI."
+  >
   <meta property="og:site_name" content="BINSOUD HABARI">
+  <meta property="og:image" content="">
 
   <link rel="icon" href="favicon.ico">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root{
+      --blue:#0757a6;
+      --blue-2:#0878c9;
+      --blue-dark:#043d78;
+      --deep:#062e5b;
+      --red:#e51d2a;
+      --light:#f4f6f9;
+      --white:#fff;
+      --text:#17202a;
+      --muted:#718096;
+      --border:#e3e8ef;
+      --shadow:0 5px 18px rgba(13,47,79,.08);
+      --radius:8px;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f7fb;
-      color: #172033;
-      line-height: 1.7;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--light);
+      color:var(--text);
+      line-height:1.7;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    button,
+    input{
+      font-family:inherit;
     }
 
     /* =========================
-       TOP BAR
+       TOP DATE BAR
     ========================== */
 
-    .topbar {
-      background: #042a57;
-      color: #fff;
-      font-size: 13px;
-      padding: 8px 20px;
+    .topbar{
+      background:var(--deep);
+      color:#fff;
+      font-size:13px;
     }
 
-    .topbar-inner {
-      max-width: 1250px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .topbar-inner{
+      max-width:1250px;
+      margin:auto;
+      min-height:34px;
+      padding:7px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
     }
 
     /* =========================
        HEADER
     ========================== */
 
-    header {
-      background: linear-gradient(135deg, #063b78, #075bb5);
-      color: #fff;
+    header{
+      background:#fff;
+      border-bottom:1px solid var(--border);
     }
 
-    .header-inner {
-      max-width: 1250px;
-      margin: auto;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
+    .header-inner{
+      max-width:1250px;
+      margin:auto;
+      padding:16px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
     }
 
-    .logo-box {
-      width: 58px;
-      height: 58px;
-      background: #fff;
-      color: #063b78;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: 900;
-      border-radius: 8px;
+    .logo-mark{
+      width:52px;
+      height:52px;
+      border-radius:8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--blue);
+      color:#fff;
+      font-size:22px;
+      font-weight:900;
+      letter-spacing:.5px;
     }
 
-    .logo-text h1 {
-      font-size: 24px;
-      line-height: 1.1;
-      font-weight: 900;
+    .logo-text h1{
+      font-size:24px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-.4px;
     }
 
-    .logo-text span {
-      font-size: 12px;
-      opacity: .85;
+    .logo-text h1 .red{
+      color:var(--red);
+    }
+
+    .logo-text span{
+      display:block;
+      margin-top:5px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    /* =========================
+       SEARCH
+    ========================== */
+
+    .header-search{
+      width:min(390px, 100%);
+      position:relative;
+    }
+
+    .search-form{
+      display:flex;
+      width:100%;
+    }
+
+    .search-input{
+      flex:1;
+      min-width:0;
+      height:42px;
+      border:1px solid #d7e0ea;
+      border-right:0;
+      outline:none;
+      padding:0 13px;
+      font-size:14px;
+      color:var(--text);
+      background:#fff;
+      border-radius:7px 0 0 7px;
+    }
+
+    .search-input:focus{
+      border-color:var(--blue-2);
+      box-shadow:0 0 0 2px rgba(8,120,201,.10);
+    }
+
+    .search-btn{
+      width:50px;
+      border:0;
+      cursor:pointer;
+      background:var(--blue);
+      color:#fff;
+      font-size:17px;
+      border-radius:0 7px 7px 0;
+    }
+
+    .search-btn:hover{
+      background:var(--blue-dark);
+    }
+
+    .search-suggestions{
+      position:absolute;
+      top:47px;
+      left:0;
+      right:0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:7px;
+      box-shadow:0 8px 20px rgba(0,0,0,.10);
+      z-index:500;
+      overflow:hidden;
+      display:none;
+    }
+
+    .search-suggestions.show{
+      display:block;
+    }
+
+    .search-item{
+      display:block;
+      padding:11px 13px;
+      border-bottom:1px solid #eef2f6;
+      font-size:13px;
+      color:#20364e;
+    }
+
+    .search-item:last-child{
+      border-bottom:0;
+    }
+
+    .search-item:hover{
+      background:#f4f8fc;
+    }
+
+    .search-item small{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:11px;
     }
 
     /* =========================
        NAVIGATION
     ========================== */
 
-    nav {
-      background: #fff;
-      border-bottom: 1px solid #dce5f0;
-      box-shadow: 0 2px 8px rgba(0,0,0,.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    nav{
+      background:var(--blue);
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
     }
 
-    .nav-inner {
-      max-width: 1250px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      overflow-x: auto;
-      padding: 0 15px;
+    .nav-inner{
+      max-width:1250px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      gap:2px;
+      overflow-x:auto;
+      scrollbar-width:none;
+      padding:0 15px;
     }
 
-    nav a {
-      display: block;
-      padding: 14px 13px;
-      color: #183653;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
+    .nav-inner::-webkit-scrollbar{
+      display:none;
+    }
+
+    nav a{
+      color:#fff;
+      display:block;
+      padding:13px 12px;
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
+      border-bottom:3px solid transparent;
     }
 
     nav a:hover,
-    nav a.active {
-      color: #075bb5;
-      background: #eef6ff;
+    nav a.active{
+      background:rgba(255,255,255,.10);
+      border-bottom-color:#fff;
     }
 
     /* =========================
-       BLUE NEWS BAR
-       NO YELLOW
+       BREAKING NEWS
     ========================== */
 
-    .breaking {
-      background: #075bb5;
-      color: #fff;
-      border-bottom: 1px solid #064f9d;
+    .breaking{
+      background:var(--blue-2);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    .breaking-inner {
-      max-width: 1250px;
-      margin: auto;
-      min-height: 42px;
-      display: flex;
-      align-items: center;
+    .breaking-inner{
+      max-width:1250px;
+      margin:auto;
+      min-height:42px;
+      display:flex;
+      align-items:center;
     }
 
-    .breaking-label {
-      background: #d71920;
-      color: #fff;
-      padding: 9px 15px;
-      font-size: 13px;
-      font-weight: 900;
-      white-space: nowrap;
+    .breaking-label{
+      background:var(--red);
+      color:#fff;
+      padding:9px 15px;
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+      flex-shrink:0;
     }
 
-    #breakingNews {
-      padding: 0 15px;
-      font-size: 14px;
-      font-weight: 700;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    .breaking-link{
+      flex:1;
+      color:#fff;
+      padding:0 15px;
+      font-size:14px;
+      font-weight:700;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      cursor:pointer;
+    }
+
+    .breaking-link:hover{
+      text-decoration:underline;
     }
 
     /* =========================
-       MAIN
+       MAIN CONTAINER
     ========================== */
 
-    .container {
-      max-width: 1250px;
-      margin: auto;
-      padding: 30px 20px 60px;
+    .container{
+      max-width:1250px;
+      margin:auto;
+      padding:28px 20px 55px;
     }
 
-    .breadcrumb {
-      color: #68788b;
-      font-size: 14px;
-      margin-bottom: 18px;
+    .breadcrumb{
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:13px;
     }
 
-    .breadcrumb a {
-      color: #075bb5;
-      font-weight: 700;
+    .breadcrumb a{
+      color:var(--blue);
+      font-weight:700;
     }
 
-    .article-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
-      gap: 30px;
-      align-items: start;
+    /* =========================
+       LOADING STATE
+    ========================== */
+
+    .state{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:55px 25px;
+      text-align:center;
+    }
+
+    .loading-spinner{
+      width:38px;
+      height:38px;
+      border:4px solid #dce8f3;
+      border-top-color:var(--blue);
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+      margin:0 auto 15px;
+    }
+
+    @keyframes spin{
+      to{
+        transform:rotate(360deg);
+      }
+    }
+
+    .state h2{
+      color:var(--blue-dark);
+      margin-bottom:6px;
+      font-size:20px;
+    }
+
+    .state p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .error-state{
+      border-top:4px solid var(--red);
+    }
+
+    .error-state h2{
+      color:#b31318;
+    }
+
+    .hidden{
+      display:none !important;
+    }
+
+    /* =========================
+       ARTICLE LAYOUT
+    ========================== */
+
+    .article-layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) 320px;
+      gap:24px;
+      align-items:start;
     }
 
     /* =========================
        ARTICLE
     ========================== */
 
-    .article {
-      background: #fff;
-      border: 1px solid #e1e8f0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(20,55,90,.08);
+    .article{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
 
-    .article-header {
-      padding: 30px 32px 22px;
+    .article-header{
+      padding:27px 30px 22px;
     }
 
-    .category {
-      display: inline-block;
-      background: #075bb5;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 15px;
+    .category{
+      display:inline-block;
+      background:var(--blue);
+      color:#fff;
+      border-radius:5px;
+      padding:6px 11px;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:14px;
     }
 
-    .article-title {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.12;
-      color: #092d55;
-      margin-bottom: 20px;
-      font-weight: 900;
+    .article-title{
+      color:var(--deep);
+      font-size:clamp(30px, 4vw, 46px);
+      line-height:1.14;
+      font-weight:900;
+      letter-spacing:-.7px;
+      margin-bottom:17px;
     }
 
-    /* =========================
-       META
-    ========================== */
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:13px 20px;
+      padding-top:14px;
+      border-top:1px solid #edf1f5;
+      color:var(--muted);
+      font-size:13px;
+    }
 
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      color: #718096;
-      font-size: 13px;
-      padding-top: 14px;
-      border-top: 1px solid #edf1f5;
+    .meta strong{
+      color:#52667b;
     }
 
     /* =========================
        MAIN IMAGE
     ========================== */
 
-    .article-image {
-      width: 100%;
-      max-height: 650px;
-      object-fit: cover;
-      background: #e9eef5;
+    .article-image-wrap{
+      background:#edf2f7;
+      border-top:1px solid #edf1f5;
+      border-bottom:1px solid #edf1f5;
+    }
+
+    .article-image{
+      width:100%;
+      max-height:680px;
+      object-fit:cover;
+      background:#edf2f7;
     }
 
     /* =========================
        ARTICLE BODY
     ========================== */
 
-    .article-body {
-      padding: 30px 32px 40px;
-      font-size: 18px;
-      line-height: 1.9;
-      color: #29394d;
+    .article-body{
+      padding:30px 32px 36px;
+      color:#2a3949;
+      font-size:18px;
+      line-height:1.95;
+      overflow-wrap:anywhere;
     }
 
-    .article-body p {
-      margin-bottom: 22px;
+    .article-body p{
+      margin:0 0 22px;
+      text-align:left;
     }
 
-    .article-body h2 {
-      color: #073b73;
-      margin: 30px 0 15px;
-      line-height: 1.3;
+    .article-body p:last-child{
+      margin-bottom:0;
     }
 
-    .article-body h3 {
-      color: #073b73;
-      margin: 25px 0 12px;
+    .article-body h2{
+      margin:30px 0 15px;
+      color:var(--blue-dark);
+      font-size:28px;
+      line-height:1.3;
     }
 
-    .article-body img {
-      width: 100%;
-      height: auto;
-      margin: 25px 0;
-      border-radius: 8px;
+    .article-body h3{
+      margin:25px 0 13px;
+      color:var(--blue-dark);
+      font-size:22px;
+      line-height:1.35;
     }
 
-    .article-body a {
-      color: #075bb5;
-      text-decoration: underline;
+    .article-body ul,
+    .article-body ol{
+      margin:0 0 22px 24px;
+      padding-left:18px;
+    }
+
+    .article-body li{
+      margin-bottom:8px;
+    }
+
+    .article-body blockquote{
+      margin:22px 0;
+      padding:14px 18px;
+      border-left:4px solid var(--blue);
+      background:#f4f8fc;
+      color:#44566a;
+      border-radius:4px;
+    }
+
+    .article-body a{
+      color:var(--blue);
+      text-decoration:underline;
+    }
+
+    .article-body strong{
+      color:#1d2d3d;
+    }
+
+    .article-body img{
+      width:100%;
+      height:auto;
+      margin:25px 0;
+      border-radius:8px;
+    }
+
+    .article-body br{
+      line-height:1.8;
     }
 
     /* =========================
        SHARE
     ========================== */
 
-    .share {
-      padding: 22px 32px 30px;
-      border-top: 1px solid #edf1f5;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .share{
+      padding:20px 30px 27px;
+      border-top:1px solid #edf1f5;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
     }
 
-    .share button {
-      border: 0;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 700;
-      color: #fff;
-      background: #075bb5;
+    .share button{
+      border:0;
+      cursor:pointer;
+      color:#fff;
+      background:var(--blue);
+      padding:10px 15px;
+      border-radius:5px;
+      font-size:13px;
+      font-weight:800;
     }
 
-    .share button:hover {
-      opacity: .88;
+    .share button:hover{
+      opacity:.90;
     }
 
-    .share .whatsapp {
-      background: #168c42;
+    .share .whatsapp{
+      background:#168c42;
     }
 
-    .share .facebook {
-      background: #1877f2;
+    .share .facebook{
+      background:#1877f2;
     }
 
     /* =========================
        SIDEBAR
     ========================== */
 
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .sidebar{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
     }
 
-    .side-box {
-      background: #fff;
-      border: 1px solid #e1e8f0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 15px rgba(20,55,90,.06);
+    .side-box{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
 
-    .side-title {
-      background: #063b78;
-      color: #fff;
-      padding: 13px 16px;
-      font-size: 16px;
-      font-weight: 900;
-      border-left: 5px solid #075bb5;
+    .side-title{
+      background:var(--deep);
+      color:#fff;
+      padding:13px 15px;
+      border-left:5px solid var(--blue-2);
+      font-size:15px;
+      font-weight:900;
     }
 
-    .side-content {
-      padding: 15px;
+    .side-content{
+      padding:10px 15px 13px;
     }
 
-    .side-story {
-      display: flex;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid #edf1f5;
+    .side-story{
+      display:flex;
+      gap:11px;
+      padding:12px 0;
+      border-bottom:1px solid #edf1f5;
     }
 
-    .side-story:last-child {
-      border-bottom: 0;
+    .side-story:last-child{
+      border-bottom:0;
     }
 
-    .side-story img {
-      width: 90px;
-      height: 65px;
-      object-fit: cover;
-      border-radius: 5px;
-      background: #e8eef5;
-      flex-shrink: 0;
+    .side-story img{
+      width:88px;
+      height:62px;
+      border-radius:5px;
+      object-fit:cover;
+      background:#e8eef5;
+      flex-shrink:0;
     }
 
-    .side-story h3 {
-      font-size: 14px;
-      line-height: 1.35;
-      color: #183653;
+    .side-story.no-image{
+      display:block;
     }
 
-    .side-story span {
-      display: block;
-      color: #7b8a9b;
-      font-size: 11px;
-      margin-top: 4px;
+    .side-story h3{
+      color:#183653;
+      font-size:13px;
+      line-height:1.4;
+      font-weight:800;
     }
 
-    /* =========================
-       LOADING / ERROR
-    ========================== */
-
-    .state {
-      background: #fff;
-      border-radius: 12px;
-      padding: 60px 25px;
-      text-align: center;
-      border: 1px solid #e1e8f0;
-      box-shadow: 0 4px 20px rgba(20,55,90,.06);
+    .side-story span{
+      display:block;
+      margin-top:5px;
+      color:#7a8999;
+      font-size:10px;
+      line-height:1.4;
     }
 
-    .state h2 {
-      color: #073b73;
-      margin-bottom: 10px;
+    .side-story:hover h3{
+      color:var(--blue);
     }
 
-    .state p {
-      color: #68788b;
-    }
-
-    .error-state {
-      border-top: 5px solid #d71920;
-    }
-
-    .error-state h2 {
-      color: #b31318;
-    }
-
-    .hidden {
-      display: none !important;
+    .about-box{
+      padding:15px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
     }
 
     /* =========================
        FOOTER
     ========================== */
 
-    footer {
-      background: #052c59;
-      color: #fff;
-      margin-top: 30px;
+    footer{
+      background:var(--deep);
+      color:#fff;
+      margin-top:20px;
     }
 
-    .footer-inner {
-      max-width: 1250px;
-      margin: auto;
-      padding: 40px 20px 25px;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 35px;
+    .footer-inner{
+      max-width:1250px;
+      margin:auto;
+      padding:38px 20px 24px;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:34px;
     }
 
-    .footer-inner h3 {
-      margin-bottom: 12px;
-      color: #fff;
+    .footer-inner h3{
+      margin-bottom:11px;
+      color:#fff;
+      font-size:16px;
     }
 
     .footer-inner p,
-    .footer-inner a {
-      color: #d6e1ed;
-      font-size: 14px;
+    .footer-inner a{
+      color:#d6e1ed;
+      font-size:13px;
+      line-height:1.8;
     }
 
-    .footer-inner a {
-      display: block;
-      margin: 6px 0;
+    .footer-inner a{
+      display:block;
+      margin:4px 0;
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.12);
-      text-align: center;
-      padding: 15px 20px;
-      color: #b9c9da;
-      font-size: 13px;
+    .footer-inner a:hover{
+      color:#fff;
+      text-decoration:underline;
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding:14px 20px;
+      text-align:center;
+      color:#b9c9da;
+      font-size:12px;
     }
 
     /* =========================
        MOBILE
     ========================== */
 
-    @media (max-width: 900px) {
+    @media (max-width:950px){
 
-      .article-layout {
-        grid-template-columns: 1fr;
+      .header-inner{
+        flex-direction:column;
+        align-items:stretch;
       }
 
-      .sidebar {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+      .header-search{
+        width:100%;
       }
 
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
+      .article-layout{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+      }
+
+      .footer-inner{
+        grid-template-columns:1fr 1fr;
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width:650px){
 
-      .topbar-inner {
-        justify-content: center;
+      .topbar-inner{
+        justify-content:center;
+        padding:6px 12px;
       }
 
-      .topbar-inner span:last-child {
-        display: none;
+      .topbar-inner span:last-child{
+        display:none;
       }
 
-      .header-inner {
-        padding: 14px 15px;
+      .header-inner{
+        padding:13px 15px 15px;
+        gap:12px;
       }
 
-      .logo-box {
-        width: 48px;
-        height: 48px;
-        font-size: 20px;
+      .logo-mark{
+        width:46px;
+        height:46px;
+        font-size:19px;
       }
 
-      .logo-text h1 {
-        font-size: 20px;
+      .logo-text h1{
+        font-size:20px;
       }
 
-      .breaking-inner {
-        min-height: 38px;
+      .logo-text span{
+        font-size:10px;
       }
 
-      .breaking-label {
-        padding: 8px 10px;
-        font-size: 11px;
+      nav a{
+        padding:12px 10px;
+        font-size:12px;
       }
 
-      #breakingNews {
-        font-size: 12px;
+      .breaking-inner{
+        min-height:38px;
       }
 
-      .container {
-        padding: 20px 12px 40px;
+      .breaking-label{
+        padding:8px 10px;
+        font-size:11px;
       }
 
-      .article-header {
-        padding: 22px 18px 18px;
+      .breaking-link{
+        padding:0 10px;
+        font-size:12px;
       }
 
-      .article-title {
-        font-size: 30px;
+      .container{
+        padding:19px 12px 40px;
       }
 
-      .article-body {
-        padding: 22px 18px 30px;
-        font-size: 17px;
-        line-height: 1.8;
+      .breadcrumb{
+        margin-bottom:13px;
+        font-size:12px;
       }
 
-      .share {
-        padding-left: 18px;
-        padding-right: 18px;
+      .article-header{
+        padding:21px 18px 17px;
       }
 
-      .sidebar {
-        display: block;
+      .article-title{
+        font-size:30px;
+        line-height:1.18;
+        letter-spacing:-.3px;
       }
 
-      .side-box {
-        margin-bottom: 18px;
+      .meta{
+        gap:9px 14px;
+        font-size:12px;
       }
 
-      .footer-inner {
-        grid-template-columns: 1fr;
-        padding: 30px 20px 20px;
+      .article-body{
+        padding:22px 18px 29px;
+        font-size:17px;
+        line-height:1.88;
+      }
+
+      .article-body p{
+        margin-bottom:20px;
+      }
+
+      .article-body h2{
+        font-size:24px;
+      }
+
+      .article-body h3{
+        font-size:20px;
+      }
+
+      .share{
+        padding:18px 18px 23px;
+      }
+
+      .share button{
+        padding:9px 12px;
+        font-size:12px;
+      }
+
+      .sidebar{
+        display:block;
+      }
+
+      .side-box{
+        margin-bottom:17px;
+      }
+
+      .footer-inner{
+        grid-template-columns:1fr;
+        gap:25px;
+        padding:30px 20px 20px;
       }
     }
   </style>
@@ -581,59 +863,95 @@
 
 <body>
 
-  <!-- TOP BAR -->
+  <!-- =========================
+       TOP BAR
+  ========================== -->
   <div class="topbar">
     <div class="topbar-inner">
-      <span>📰 BINSOUD HABARI</span>
+      <span id="currentDate">📰 BINSOUD HABARI</span>
       <span>Habari kwa wakati • Ukweli • Uhakika</span>
     </div>
   </div>
 
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================== -->
   <header>
     <div class="header-inner">
 
       <a href="index.html" class="logo">
-
-        <div class="logo-box">
-          BH
-        </div>
+        <div class="logo-mark">BH</div>
 
         <div class="logo-text">
-          <h1>BINSOUD HABARI</h1>
+          <h1>
+            BINSOUD <span class="red">HABARI</span>
+          </h1>
           <span>Chanzo chako cha habari</span>
         </div>
-
       </a>
+
+
+      <div class="header-search">
+
+        <form id="searchForm" class="search-form">
+
+          <input
+            id="searchInput"
+            class="search-input"
+            type="search"
+            placeholder="Tafuta habari..."
+            autocomplete="off"
+          >
+
+          <button
+            type="submit"
+            class="search-btn"
+            aria-label="Tafuta"
+          >
+            🔍
+          </button>
+
+        </form>
+
+        <div
+          id="searchSuggestions"
+          class="search-suggestions"
+        ></div>
+
+      </div>
 
     </div>
   </header>
 
 
-  <!-- NAVIGATION -->
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
   <nav>
     <div class="nav-inner">
 
-      <a href="index.html">Mwanzo</a>
-      <a href="kitaifa.html">Kitaifa</a>
-      <a href="siasa.html">Siasa</a>
-      <a href="biashara.html">Biashara</a>
-      <a href="michezo.html">Michezo</a>
-      <a href="burudani.html">Burudani</a>
-      <a href="dini.html">Dini</a>
-      <a href="mazingira.html">Mazingira</a>
-      <a href="kimataifa.html">Kimataifa</a>
-      <a href="video.html">Video</a>
-      <a href="audio.html">Audio</a>
-      <a href="makala.html">Makala</a>
-      <a href="contact.html">Mawasiliano</a>
+      <a href="index.html">HOME</a>
+      <a href="kitaifa.html">KITAIFA</a>
+      <a href="kimataifa.html">MATAIFA</a>
+      <a href="dini.html">DINI</a>
+      <a href="michezo.html">MICHEZO</a>
+      <a href="mazingira.html">MAZINGIRA</a>
+      <a href="burudani.html">BURUDANI</a>
+      <a href="siasa.html">SIASA</a>
+      <a href="biashara.html">UCHUMI</a>
+      <a href="makala.html">MAKALA</a>
+      <a href="video.html">VIDEO</a>
+      <a href="audio.html">AUDIO</a>
+      <a href="contact.html">MAWASILIANO</a>
 
     </div>
   </nav>
 
 
-  <!-- BREAKING NEWS -->
+  <!-- =========================
+       BREAKING NEWS
+  ========================== -->
   <section class="breaking">
 
     <div class="breaking-inner">
@@ -642,19 +960,24 @@
         🔴 HABARI MPYA
       </div>
 
-      <div id="breakingNews">
-        Inapakia habari...
-      </div>
+      <a
+        id="breakingNews"
+        class="breaking-link"
+        href="#"
+      >
+        Inafungua habari...
+      </a>
 
     </div>
 
   </section>
 
 
-  <!-- MAIN -->
+  <!-- =========================
+       MAIN
+  ========================== -->
   <main class="container">
 
-    <!-- BREADCRUMB -->
     <div class="breadcrumb">
 
       <a href="index.html">
@@ -663,29 +986,42 @@
 
       <span> › </span>
 
-      <span id="breadcrumbCategory">
-        Habari
-      </span>
+      <a
+        id="breadcrumbLink"
+        href="index.html"
+      >
+        <span id="breadcrumbCategory">
+          Habari
+        </span>
+      </a>
 
     </div>
 
 
     <!-- LOADING -->
-    <div id="loadingState" class="state">
+    <div
+      id="loadingState"
+      class="state"
+    >
+
+      <div class="loading-spinner"></div>
 
       <h2>
-        Inapakia habari...
+        Inafungua habari
       </h2>
 
       <p>
-        Tafadhali subiri kidogo.
+        Tafadhali subiri kidogo...
       </p>
 
     </div>
 
 
     <!-- ERROR -->
-    <div id="errorState" class="state error-state hidden">
+    <div
+      id="errorState"
+      class="state error-state hidden"
+    >
 
       <h2>
         Habari haipatikani
@@ -695,31 +1031,40 @@
         Habari uliyochagua haikupatikana.
       </p>
 
-      <br>
+      <div style="margin-top:18px;">
 
-      <a
-        href="kitaifa.html"
-        style="
-          display:inline-block;
-          background:#075bb5;
-          color:#fff;
-          padding:10px 18px;
-          border-radius:5px;
-          font-weight:700;
-        "
-      >
-        ← Rudi kwenye habari
-      </a>
+        <a
+          id="errorBackLink"
+          href="index.html"
+          style="
+            display:inline-block;
+            background:#0757a6;
+            color:#fff;
+            padding:10px 18px;
+            border-radius:5px;
+            font-weight:800;
+            font-size:13px;
+          "
+        >
+          ← Rudi kwenye habari
+        </a>
+
+      </div>
 
     </div>
 
 
-    <!-- ARTICLE -->
-    <div id="articleLayout" class="article-layout hidden">
+    <!-- ARTICLE LAYOUT -->
+    <div
+      id="articleLayout"
+      class="article-layout hidden"
+    >
 
+      <!-- =========================
+           ARTICLE
+      ========================== -->
       <article class="article">
 
-        <!-- ARTICLE HEADER -->
         <div class="article-header">
 
           <div
@@ -736,12 +1081,6 @@
           >
             -
           </h1>
-
-
-          <!--
-            HAPA HAKUNA INTRO.
-            HABARI ITAONEKANA MARA MOJA TU.
-          -->
 
 
           <div class="meta">
@@ -772,31 +1111,48 @@
         </div>
 
 
-        <!-- ARTICLE IMAGE -->
-        <img
-          id="articleImage"
-          class="article-image"
-          src=""
-          alt=""
+        <!-- =========================
+             MAIN IMAGE
+        ========================== -->
+        <div
+          id="articleImageWrap"
+          class="article-image-wrap"
           style="display:none;"
         >
 
+          <img
+            id="articleImage"
+            class="article-image"
+            src=""
+            alt=""
+          >
 
-        <!-- ARTICLE CONTENT -->
+        </div>
+
+
+        <!-- =========================
+             ARTICLE CONTENT
+        ========================== -->
         <div
           id="articleBody"
           class="article-body"
         ></div>
 
 
-        <!-- SHARE -->
+        <!-- =========================
+             SHARE
+        ========================== -->
         <div class="share">
 
-          <button onclick="copyArticleLink()">
+          <button
+            type="button"
+            onclick="copyArticleLink()"
+          >
             🔗 Nakili Link
           </button>
 
           <button
+            type="button"
             class="whatsapp"
             onclick="shareWhatsApp()"
           >
@@ -804,6 +1160,7 @@
           </button>
 
           <button
+            type="button"
             class="facebook"
             onclick="shareFacebook()"
           >
@@ -815,7 +1172,9 @@
       </article>
 
 
-      <!-- SIDEBAR -->
+      <!-- =========================
+           SIDEBAR
+      ========================== -->
       <aside class="sidebar">
 
         <div class="side-box">
@@ -828,7 +1187,13 @@
             id="latestStories"
             class="side-content"
           >
-            Inapakia...
+            <div style="
+              padding:10px 0;
+              color:#718096;
+              font-size:13px;
+            ">
+              Inapakia...
+            </div>
           </div>
 
         </div>
@@ -840,15 +1205,13 @@
             BINSOUD HABARI
           </div>
 
-          <div class="side-content">
+          <div class="about-box">
 
-            <p style="
-              font-size:14px;
-              color:#63758a;
-            ">
-              Endelea kupata habari mpya na taarifa
-              mbalimbali kutoka BINSOUD HABARI.
-            </p>
+            Endelea kupata habari mpya,
+            taarifa za kitaifa, kimataifa,
+            siasa, michezo, biashara,
+            burudani, dini na makala
+            kutoka BINSOUD HABARI.
 
           </div>
 
@@ -861,7 +1224,9 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
   <footer>
 
     <div class="footer-inner">
@@ -896,7 +1261,7 @@
         </a>
 
         <a href="biashara.html">
-          Biashara
+          Uchumi
         </a>
 
         <a href="michezo.html">
@@ -946,9 +1311,8 @@
 
 
   <!-- =========================
-       FIREBASE
+       FIREBASE + JAVASCRIPT
   ========================== -->
-
   <script type="module">
 
     import {
@@ -972,7 +1336,6 @@
     ========================== */
 
     const firebaseConfig = {
-
       apiKey:
         "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
 
@@ -993,13 +1356,11 @@
 
       measurementId:
         "G-MH266J0XKE"
-
     };
 
 
     const app =
       initializeApp(firebaseConfig);
-
 
     const db =
       getFirestore(app);
@@ -1010,319 +1371,722 @@
     ========================== */
 
     const loadingState =
-      document.getElementById(
-        "loadingState"
-      );
-
+      document.getElementById("loadingState");
 
     const errorState =
-      document.getElementById(
-        "errorState"
-      );
-
+      document.getElementById("errorState");
 
     const errorMessage =
-      document.getElementById(
-        "errorMessage"
-      );
-
+      document.getElementById("errorMessage");
 
     const articleLayout =
-      document.getElementById(
-        "articleLayout"
-      );
+      document.getElementById("articleLayout");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const searchSuggestions =
+      document.getElementById("searchSuggestions");
+
+    const breakingNews =
+      document.getElementById("breakingNews");
 
 
-    document.getElementById(
-      "year"
-    ).textContent =
+    document.getElementById("year").textContent =
       new Date().getFullYear();
 
 
     /* =========================
-       HELPERS
+       TOP DATE
     ========================== */
 
-    function cleanText(value) {
+    function updateCurrentDate(){
 
-      if (
+      const now = new Date();
+
+      const text =
+        new Intl.DateTimeFormat(
+          "sw-TZ",
+          {
+            weekday:"long",
+            day:"2-digit",
+            month:"long",
+            year:"numeric"
+          }
+        ).format(now);
+
+      document.getElementById(
+        "currentDate"
+      ).textContent =
+        "📰 " + text;
+    }
+
+    updateCurrentDate();
+
+
+    /* =========================
+       TEXT HELPERS
+    ========================== */
+
+    function cleanText(value){
+
+      if(
         value === null ||
         value === undefined
-      ) {
+      ){
         return "";
       }
 
       return String(value).trim();
-
     }
 
 
-    function escapeHTML(value) {
+    function escapeHTML(value){
 
       return cleanText(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+    }
 
-        .replace(
-          /&/g,
-          "&amp;"
-        )
 
-        .replace(
-          /</g,
-          "&lt;"
-        )
+    function stripHTML(value){
 
-        .replace(
-          />/g,
-          "&gt;"
-        )
-
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-
-        .replace(
-          /'/g,
-          "&#039;"
-        );
-
+      return cleanText(value)
+        .replace(/<[^>]*>/g," ")
+        .replace(/\s+/g," ")
+        .trim();
     }
 
 
     /* =========================
-       DATE
+       NORMALIZE SEARCH
     ========================== */
 
-    function getArticleDate(article) {
+    function normalizeSearch(value){
 
-      if (article.createdAt) {
-
-        if (
-          typeof article.createdAt === "object" &&
-          article.createdAt.toDate
-        ) {
-
-          return article.createdAt.toDate();
-
-        }
-
-
-        const d =
-          new Date(
-            article.createdAt
-          );
-
-
-        if (
-          !isNaN(
-            d.getTime()
-          )
-        ) {
-
-          return d;
-
-        }
-
-      }
-
-
-      if (article.date) {
-
-        if (
-          typeof article.date === "object" &&
-          article.date.toDate
-        ) {
-
-          return article.date.toDate();
-
-        }
-
-
-        const d =
-          new Date(
-            article.date
-          );
-
-
-        if (
-          !isNaN(
-            d.getTime()
-          )
-        ) {
-
-          return d;
-
-        }
-
-      }
-
-
-      return null;
-
+      return cleanText(value)
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[^a-z0-9\s]/g," ")
+        .replace(/\s+/g," ")
+        .trim();
     }
 
 
-    function formatDate(article) {
+    /* =========================
+       ARTICLE FIELD HELPERS
+    ========================== */
 
-      const date =
-        getArticleDate(article);
+    function getTitle(article){
+
+      return cleanText(
+        article.title ||
+        article.headline ||
+        article.heading ||
+        article.name ||
+        article.caption
+      );
+    }
 
 
-      if (!date) {
+    function getCategory(article){
 
-        return "Tarehe haijawekwa";
+      const value =
+        article.category ||
+        article.categoryName ||
+        article.category_name ||
+        article.section ||
+        article.sectionName ||
+        article.section_name ||
+        article.kategoria ||
+        article.kategoriaName ||
+        article.newsCategory ||
+        article.news_category;
 
+      if(Array.isArray(value)){
+        return cleanText(value.join(", "));
       }
 
+      return cleanText(value);
+    }
+
+
+    function getAuthor(article){
+
+      return cleanText(
+        article.author ||
+        article.authorName ||
+        article.writer ||
+        article.reporter ||
+        article.createdBy ||
+        article.byline
+      );
+    }
+
+
+    function getBody(article){
+
+      return cleanText(
+        article.content ||
+        article.body ||
+        article.article ||
+        article.text ||
+        article.details ||
+        article.description ||
+        article.excerpt ||
+        article.summary ||
+        article.intro
+      );
+    }
+
+
+    function getDescription(article){
+
+      return cleanText(
+        article.intro ||
+        article.excerpt ||
+        article.summary ||
+        article.shortDescription ||
+        article.description
+      );
+    }
+
+
+    function getImage(article){
+
+      return cleanText(
+        article.image ||
+        article.imageUrl ||
+        article.imageURL ||
+        article.image_url ||
+        article.photo ||
+        article.photoUrl ||
+        article.photoURL ||
+        article.thumbnail ||
+        article.thumbnailUrl ||
+        article.thumbnailURL ||
+        article.picture ||
+        article.pictureUrl ||
+        article.cover ||
+        article.coverImage ||
+        article.coverUrl ||
+        article.featuredImage ||
+        article.featured_image ||
+        article.urlImage ||
+        article.img ||
+        article.imageLink
+      );
+    }
+
+
+    /* =========================
+       DATE HELPERS
+    ========================== */
+
+    function getDateObject(value){
+
+      if(!value){
+        return null;
+      }
+
+      if(
+        typeof value === "object" &&
+        typeof value.toDate === "function"
+      ){
+        const date = value.toDate();
+
+        if(date && !isNaN(date.getTime())){
+          return date;
+        }
+      }
+
+      if(
+        typeof value === "object" &&
+        typeof value.toMillis === "function"
+      ){
+        const date = new Date(value.toMillis());
+
+        if(!isNaN(date.getTime())){
+          return date;
+        }
+      }
+
+      if(
+        typeof value === "object" &&
+        typeof value.seconds === "number"
+      ){
+        const millis =
+          value.seconds * 1000 +
+          Math.floor(
+            (value.nanoseconds || 0) / 1000000
+          );
+
+        const date = new Date(millis);
+
+        if(!isNaN(date.getTime())){
+          return date;
+        }
+      }
+
+      const date =
+        new Date(value);
+
+      if(!isNaN(date.getTime())){
+        return date;
+      }
+
+      return null;
+    }
+
+
+    function getArticleDate(article){
+
+      const fields = [
+        article.createdAt,
+        article.publishedAt,
+        article.updatedAt,
+        article.date,
+        article.timestamp,
+        article.createdDate,
+        article.publishDate
+      ];
+
+      for(
+        const value of fields
+      ){
+
+        const date =
+          getDateObject(value);
+
+        if(date){
+          return date;
+        }
+      }
+
+      return null;
+    }
+
+
+    function formatDateTime(date){
+
+      if(!date){
+        return "Tarehe haijawekwa";
+      }
 
       return new Intl.DateTimeFormat(
         "sw-TZ",
         {
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit"
+          day:"2-digit",
+          month:"long",
+          year:"numeric",
+          hour:"2-digit",
+          minute:"2-digit"
         }
       ).format(date);
+    }
 
+
+    function formatRelativeTime(date){
+
+      if(!date){
+        return "Tarehe haijawekwa";
+      }
+
+      const now =
+        new Date();
+
+      const diff =
+        now.getTime() -
+        date.getTime();
+
+      if(diff < 0){
+        return formatDateTime(date);
+      }
+
+      const minute =
+        60 * 1000;
+
+      const hour =
+        60 * minute;
+
+      const day =
+        24 * hour;
+
+      if(diff < minute){
+        return "Imetumwa hivi punde";
+      }
+
+      if(diff < hour){
+
+        const minutes =
+          Math.floor(
+            diff / minute
+          );
+
+        return (
+          "Imetumwa dakika " +
+          minutes +
+          " zilizopita"
+        );
+      }
+
+      if(diff < day){
+
+        const hours =
+          Math.floor(
+            diff / hour
+          );
+
+        return (
+          "Imetumwa saa " +
+          hours +
+          (
+            hours === 1
+              ? " iliyopita"
+              : " zilizopita"
+          )
+        );
+      }
+
+      return formatDateTime(date);
     }
 
 
     /* =========================
-       IMAGE
+       READ TIME
     ========================== */
 
-    function getImage(article) {
+    function calculateReadTime(article){
 
-      return cleanText(
+      const supplied =
+        cleanText(
+          article.readTime ||
+          article.read_time ||
+          article.readingTime
+        );
 
-        article.image ||
+      if(supplied){
+        return supplied;
+      }
 
-        article.imageUrl ||
+      const body =
+        stripHTML(
+          getBody(article)
+        );
 
-        article.photo ||
+      if(!body){
+        return "Soma habari";
+      }
 
-        article.thumbnail
+      const words =
+        body.split(/\s+/).filter(Boolean).length;
 
+      const minutes =
+        Math.max(
+          1,
+          Math.ceil(words / 200)
+        );
+
+      return (
+        minutes +
+        (
+          minutes === 1
+            ? " dakika"
+            : " dakika"
+        )
       );
-
     }
 
 
     /* =========================
-       CONTENT
+       PUBLISHED CHECK
     ========================== */
 
-    function renderContent(content) {
+    function isPublished(article){
+
+      if(
+        article.isPublished === false ||
+        article.published === false
+      ){
+        return false;
+      }
+
+      if(
+        article.status !== undefined &&
+        article.status !== null
+      ){
+
+        const status =
+          normalizeSearch(
+            article.status
+          );
+
+        const accepted = [
+          "published",
+          "publish",
+          "active",
+          "live",
+          "true"
+        ];
+
+        if(
+          status &&
+          !accepted.includes(status)
+        ){
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+
+    /* =========================
+       CONTENT RENDERING
+    ========================== */
+
+    function renderContent(content){
 
       const raw =
         cleanText(content);
 
-
-      if (!raw) {
+      if(!raw){
 
         return `
           <p>
             Maudhui ya habari hii hayajawekwa.
           </p>
         `;
-
       }
 
 
       /*
-        Kama content tayari ina HTML,
-        iache kama ilivyo.
+        Kama tayari ni HTML,
+        tunaihifadhi muundo wake.
       */
 
-      if (
+      if(
         /<p[\s>]/i.test(raw) ||
         /<div[\s>]/i.test(raw) ||
         /<h2[\s>]/i.test(raw) ||
         /<h3[\s>]/i.test(raw) ||
+        /<ul[\s>]/i.test(raw) ||
+        /<ol[\s>]/i.test(raw) ||
+        /<blockquote[\s>]/i.test(raw) ||
         /<img[\s>]/i.test(raw)
-      ) {
+      ){
 
         return raw;
-
       }
 
 
       /*
-        Kama ni plain text,
-        gawa katika paragraphs.
+        Plain text:
+        kwanza tunarekebisha line endings.
       */
 
-      const paragraphs =
+      const normalized =
         raw
-          .split(/\n\s*\n|\r\n\s*\r\n/)
-          .map(function(paragraph) {
-
-            const text =
-              paragraph.trim();
+          .replace(/\r\n/g,"\n")
+          .replace(/\r/g,"\n")
+          .trim();
 
 
-            if (!text) {
+      /*
+        Kama kuna mistari wazi kati
+        ya aya, tunatumia mistari hiyo.
+      */
 
-              return "";
+      const blocks =
+        normalized
+          .split(/\n\s*\n+/)
+          .map(
+            function(block){
 
+              return block.trim();
             }
+          )
+          .filter(Boolean);
 
+
+      /*
+        Kama hakuna blank lines lakini
+        kuna newline nyingi, kila mstari
+        usio mtupu unawekwa kama aya.
+      */
+
+      if(
+        blocks.length === 1 &&
+        normalized.includes("\n")
+      ){
+
+        const lines =
+          normalized
+            .split("\n")
+            .map(
+              function(line){
+                return line.trim();
+              }
+            )
+            .filter(Boolean);
+
+        return lines
+          .map(
+            function(line){
+
+              return `
+                <p>
+                  ${escapeHTML(line)}
+                </p>
+              `;
+            }
+          )
+          .join("");
+      }
+
+
+      /*
+        Aya za kawaida.
+      */
+
+      return blocks
+        .map(
+          function(paragraph){
+
+            const safe =
+              escapeHTML(
+                paragraph
+              )
+              .replace(/\n/g,"<br>");
 
             return `
               <p>
-                ${escapeHTML(text)
-                  .replace(/\n/g, "<br>")}
+                ${safe}
               </p>
             `;
-
-          })
-          .filter(Boolean)
-          .join("");
-
-
-      return paragraphs ||
-        `<p>${escapeHTML(raw)}</p>`;
-
+          }
+        )
+        .join("");
     }
 
 
     /* =========================
-       GET ID FROM URL
+       ARTICLE ID
     ========================== */
 
-    function getArticleId() {
+    function getArticleId(){
 
       const params =
         new URLSearchParams(
           window.location.search
         );
 
-
       let id =
         params.get("id");
 
-
-      if (!id) {
-
-        id =
-          params.get("article");
-
+      if(!id){
+        id = params.get("article");
       }
 
-
-      if (!id) {
-
+      if(!id){
         return "";
-
       }
 
+      return decodeURIComponent(id).trim();
+    }
 
-      return decodeURIComponent(
-        id
-      ).trim();
 
+    /* =========================
+       CATEGORY LINK
+    ========================== */
+
+    function getCategoryLink(category){
+
+      const value =
+        normalizeSearch(category);
+
+      if(
+        value.includes("kitaifa") ||
+        value.includes("national")
+      ){
+        return "kitaifa.html";
+      }
+
+      if(
+        value.includes("kimataifa") ||
+        value.includes("mataifa") ||
+        value.includes("international")
+      ){
+        return "kimataifa.html";
+      }
+
+      if(
+        value.includes("dini") ||
+        value.includes("relig")
+      ){
+        return "dini.html";
+      }
+
+      if(
+        value.includes("michezo") ||
+        value.includes("sports")
+      ){
+        return "michezo.html";
+      }
+
+      if(
+        value.includes("mazingira") ||
+        value.includes("environment")
+      ){
+        return "mazingira.html";
+      }
+
+      if(
+        value.includes("burudani") ||
+        value.includes("entertainment")
+      ){
+        return "burudani.html";
+      }
+
+      if(
+        value.includes("siasa") ||
+        value.includes("polit")
+      ){
+        return "siasa.html";
+      }
+
+      if(
+        value.includes("uchumi") ||
+        value.includes("biashara") ||
+        value.includes("business")
+      ){
+        return "biashara.html";
+      }
+
+      if(
+        value.includes("makala") ||
+        value.includes("feature")
+      ){
+        return "makala.html";
+      }
+
+      if(
+        value.includes("video")
+      ){
+        return "video.html";
+      }
+
+      if(
+        value.includes("audio")
+      ){
+        return "audio.html";
+      }
+
+      return "index.html";
     }
 
 
@@ -1330,21 +2094,18 @@
        FIND ARTICLE
     ========================== */
 
-    async function findArticle(articleId) {
+    async function findArticle(articleId){
 
-      if (!articleId) {
-
+      if(!articleId){
         return null;
-
       }
 
 
       /*
-        1. Tafuta moja kwa moja
-        kwa Firestore document ID.
+        1. Direct document ID
       */
 
-      try {
+      try{
 
         const articleRef =
           doc(
@@ -1353,45 +2114,40 @@
             articleId
           );
 
-
         const snap =
-          await getDoc(
-            articleRef
-          );
+          await getDoc(articleRef);
 
-
-        if (
+        if(
           snap.exists()
-        ) {
+        ){
+
+          const data =
+            snap.data();
+
+          if(!isPublished(data)){
+            return null;
+          }
 
           return {
-
-            id: snap.id,
-
-            ...snap.data()
-
+            id:snap.id,
+            ...data
           };
-
         }
 
-      } catch (error) {
+      }catch(error){
 
         console.warn(
           "Direct lookup error:",
           error
         );
-
       }
 
 
       /*
-        2. FALLBACK
-
-        Ikiwa document ID haikupatikana,
-        tafuta kwenye fields mbalimbali.
+        2. Fallback search
       */
 
-      try {
+      try{
 
         const snapshot =
           await getDocs(
@@ -1401,24 +2157,22 @@
             )
           );
 
-
         let found =
           null;
 
-
         snapshot.forEach(
-          function(item) {
+          function(item){
 
-            if (found) {
-
+            if(found){
               return;
-
             }
-
 
             const data =
               item.data();
 
+            if(!isPublished(data)){
+              return;
+            }
 
             const possibleIds = [
 
@@ -1437,54 +2191,42 @@
               data.newsID
 
             ]
+            .filter(
+              function(value){
 
-              .filter(
-                function(value) {
+                return (
+                  value !== undefined &&
+                  value !== null
+                );
+              }
+            )
+            .map(
+              function(value){
 
-                  return (
-                    value !== undefined &&
-                    value !== null
-                  );
-
-                }
-              )
-
-              .map(
-                function(value) {
-
-                  return String(
-                    value
-                  ).trim();
-
-                }
-              );
+                return String(
+                  value
+                ).trim();
+              }
+            );
 
 
-            if (
+            if(
               possibleIds.includes(
-                String(
-                  articleId
-                ).trim()
+                String(articleId).trim()
               )
-            ) {
+            ){
 
               found = {
-
-                id: item.id,
-
+                id:item.id,
                 ...data
-
               };
-
             }
-
           }
         );
 
-
         return found;
 
-      } catch (error) {
+      }catch(error){
 
         console.error(
           "Fallback search error:",
@@ -1492,9 +2234,132 @@
         );
 
         throw error;
-
       }
+    }
 
+
+    /* =========================
+       ACTIVE NAVIGATION
+    ========================== */
+
+    function setActiveNavigation(category){
+
+      const value =
+        normalizeSearch(category);
+
+      const navLinks =
+        document.querySelectorAll(
+          "nav a"
+        );
+
+      navLinks.forEach(
+        function(link){
+
+          link.classList.remove("active");
+
+          const href =
+            link.getAttribute("href") || "";
+
+          const text =
+            normalizeSearch(
+              link.textContent
+            );
+
+          let active =
+            false;
+
+          if(
+            value.includes("kitaifa") &&
+            href === "kitaifa.html"
+          ){
+            active = true;
+          }
+
+          if(
+            (
+              value.includes("kimataifa") ||
+              value.includes("mataifa")
+            ) &&
+            href === "kimataifa.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("dini") &&
+            href === "dini.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("michezo") &&
+            href === "michezo.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("mazingira") &&
+            href === "mazingira.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("burudani") &&
+            href === "burudani.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("siasa") &&
+            href === "siasa.html"
+          ){
+            active = true;
+          }
+
+          if(
+            (
+              value.includes("uchumi") ||
+              value.includes("biashara")
+            ) &&
+            href === "biashara.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("makala") &&
+            href === "makala.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("video") &&
+            href === "video.html"
+          ){
+            active = true;
+          }
+
+          if(
+            value.includes("audio") &&
+            href === "audio.html"
+          ){
+            active = true;
+          }
+
+          if(
+            active &&
+            text
+          ){
+            link.classList.add("active");
+          }
+
+        }
+      );
     }
 
 
@@ -1502,49 +2367,41 @@
        RENDER ARTICLE
     ========================== */
 
-    function renderArticle(article) {
+    function renderArticle(article){
 
       const title =
-        cleanText(
-          article.title
-        ) ||
+        getTitle(article) ||
         "BINSOUD HABARI";
-
 
       const category =
-        cleanText(
-          article.category
-        ) ||
+        getCategory(article) ||
         "Habari";
 
-
       const author =
-        cleanText(
-          article.author
-        ) ||
+        getAuthor(article) ||
         "BINSOUD HABARI";
 
-
-      const readTime =
-        cleanText(
-          article.readTime
-        );
-
+      const body =
+        getBody(article);
 
       const image =
-        getImage(
-          article
-        );
+        getImage(article);
+
+      const date =
+        getArticleDate(article);
+
+      const categoryLink =
+        getCategoryLink(category);
 
 
-      /*
-        TITLE
-      */
+      /* PAGE TITLE */
 
       document.title =
         title +
         " | BINSOUD HABARI";
 
+
+      /* ARTICLE TITLE */
 
       document.getElementById(
         "articleTitle"
@@ -1552,9 +2409,7 @@
         title;
 
 
-      /*
-        CATEGORY
-      */
+      /* CATEGORY */
 
       document.getElementById(
         "articleCategory"
@@ -1568,9 +2423,19 @@
         category;
 
 
-      /*
-        AUTHOR
-      */
+      document.getElementById(
+        "breadcrumbLink"
+      ).href =
+        categoryLink;
+
+
+      document.getElementById(
+        "errorBackLink"
+      ).href =
+        categoryLink;
+
+
+      /* AUTHOR */
 
       document.getElementById(
         "articleAuthor"
@@ -1578,40 +2443,35 @@
         author;
 
 
-      /*
-        DATE
-      */
+      /* DATE */
 
       document.getElementById(
         "articleDate"
       ).textContent =
-        formatDate(
-          article
-        );
+        formatRelativeTime(date);
 
 
-      /*
-        READ TIME
-      */
+      /* READ TIME */
 
       document.getElementById(
         "articleReadTime"
       ).textContent =
-        readTime ||
-        "Soma habari";
+        calculateReadTime(article);
 
 
-      /*
-        IMAGE
-      */
+      /* IMAGE */
+
+      const imageWrap =
+        document.getElementById(
+          "articleImageWrap"
+        );
 
       const imageElement =
         document.getElementById(
           "articleImage"
         );
 
-
-      if (image) {
+      if(image){
 
         imageElement.src =
           image;
@@ -1619,56 +2479,71 @@
         imageElement.alt =
           title;
 
-        imageElement.style.display =
+        imageWrap.style.display =
           "block";
 
-
         imageElement.onerror =
-          function() {
+          function(){
 
-            this.style.display =
+            imageWrap.style.display =
               "none";
-
           };
 
-      } else {
+      }else{
 
-        imageElement.style.display =
+        imageWrap.style.display =
           "none";
-
       }
 
 
       /*
-        CONTENT
-
-        MUHIMU:
-        Hapa ndipo habari inaonekana
-        mara moja tu.
+        OG IMAGE
       */
+
+      const ogImage =
+        document.querySelector(
+          'meta[property="og:image"]'
+        );
+
+      if(
+        ogImage &&
+        image
+      ){
+
+        ogImage.setAttribute(
+          "content",
+          image
+        );
+      }
+
+
+      /* ARTICLE CONTENT */
 
       document.getElementById(
         "articleBody"
       ).innerHTML =
         renderContent(
-          article.content
+          body
         );
 
 
       /*
-        SEO
+        SEO DESCRIPTION
       */
 
-      const description =
-        cleanText(
-          article.intro
-        ) ||
-        cleanText(
-          article.content
-        ).replace(
-          /<[^>]*>/g,
-          " "
-        );
+      let description =
+        getDescription(article);
+
+      if(!description){
+
+        description =
+          stripHTML(body);
+      }
+
+      const cleanDescription =
+        description
+          .replace(/\s+/g," ")
+          .trim();
 
 
       const metaDescription =
@@ -1676,19 +2551,15 @@
           'meta[name="description"]'
         );
 
-
-      if (
-        metaDescription
-      ) {
+      if(metaDescription){
 
         metaDescription.setAttribute(
           "content",
-          description.substring(
+          cleanDescription.substring(
             0,
             160
           )
         );
-
       }
 
 
@@ -1697,54 +2568,52 @@
           'meta[property="og:title"]'
         );
 
+      if(ogTitle){
+
+        ogTitle.setAttribute(
+          "content",
+          title
+        );
+      }
+
 
       const ogDescription =
         document.querySelector(
           'meta[property="og:description"]'
         );
 
-
-      if (ogTitle) {
-
-        ogTitle.setAttribute(
-          "content",
-          title
-        );
-
-      }
-
-
-      if (ogDescription) {
+      if(ogDescription){
 
         ogDescription.setAttribute(
           "content",
-          description.substring(
+          cleanDescription.substring(
             0,
             200
           )
         );
-
       }
 
 
-      /*
-        SHOW ARTICLE
-      */
+      /* ACTIVE CATEGORY */
+
+      setActiveNavigation(
+        category
+      );
+
+
+      /* SHOW ARTICLE */
 
       loadingState.classList.add(
         "hidden"
       );
 
-
       errorState.classList.add(
         "hidden"
       );
 
-
       articleLayout.classList.remove(
         "hidden"
       );
-
     }
 
 
@@ -1752,26 +2621,22 @@
        ERROR
     ========================== */
 
-    function showError(message) {
+    function showError(message){
 
       loadingState.classList.add(
         "hidden"
       );
 
-
       articleLayout.classList.add(
         "hidden"
       );
-
 
       errorState.classList.remove(
         "hidden"
       );
 
-
       errorMessage.textContent =
         message;
-
     }
 
 
@@ -1779,30 +2644,22 @@
        LOAD ARTICLE
     ========================== */
 
-    async function loadArticle() {
+    async function loadArticle(){
 
       const articleId =
         getArticleId();
 
-
-      console.log(
-        "Article ID:",
-        articleId
-      );
-
-
-      if (!articleId) {
+      if(!articleId){
 
         showError(
-          "Kiungo cha habari hakina ID. Tafadhali fungua habari kupitia kitufe cha Soma zaidi."
+          "Kiungo cha habari hakina ID. Tafadhali fungua habari kupitia habari kutoka kwenye ukurasa wa mwanzo."
         );
 
         return;
-
       }
 
 
-      try {
+      try{
 
         const article =
           await findArticle(
@@ -1810,22 +2667,14 @@
           );
 
 
-        if (!article) {
+        if(!article){
 
           showError(
-            "Habari hii haikupatikana. ID iliyotumwa ni: " +
-            articleId
+            "Habari hii haikupatikana. Inawezekana imeondolewa au haijachapishwa."
           );
 
           return;
-
         }
-
-
-        console.log(
-          "Article found:",
-          article
-        );
 
 
         renderArticle(
@@ -1833,43 +2682,38 @@
         );
 
 
-        loadLatestStories(
+        await loadLatestStories(
           article.id
         );
 
-
-      } catch (error) {
+      }catch(error){
 
         console.error(
           "Load article error:",
           error
         );
 
-
         showError(
           "Kumetokea tatizo wakati wa kupakia habari. Tafadhali jaribu tena."
         );
-
       }
-
     }
 
 
     /* =========================
-       LATEST STORIES
+       LOAD LATEST STORIES
     ========================== */
 
     async function loadLatestStories(
       currentId
-    ) {
+    ){
 
       const container =
         document.getElementById(
           "latestStories"
         );
 
-
-      try {
+      try{
 
         const snapshot =
           await getDocs(
@@ -1879,29 +2723,28 @@
             )
           );
 
-
-        const articles =
-          [];
+        const articles = [];
 
 
         snapshot.forEach(
-          function(item) {
+          function(item){
 
-            if (
+            if(
               item.id === currentId
-            ) {
-
+            ){
               return;
-
             }
 
+            const data =
+              item.data();
+
+            if(!isPublished(data)){
+              return;
+            }
 
             articles.push({
-
-              id: item.id,
-
-              ...item.data()
-
+              id:item.id,
+              ...data
             });
 
           }
@@ -1909,30 +2752,24 @@
 
 
         articles.sort(
-          function(a, b) {
+          function(a,b){
 
             const dateA =
               getArticleDate(a);
 
-
             const dateB =
               getArticleDate(b);
 
-
             return (
-
               (dateB
                 ? dateB.getTime()
-                : 0)
-
-              -
-
+                : 0
+              ) -
               (dateA
                 ? dateA.getTime()
-                : 0)
-
+                : 0
+              )
             );
-
           }
         );
 
@@ -1940,79 +2777,94 @@
         const latest =
           articles.slice(
             0,
-            5
+            6
           );
 
 
-        if (
-          !latest.length
-        ) {
+        if(!latest.length){
 
           container.innerHTML =
             `
               <p style="
                 color:#718096;
-                font-size:14px;
+                font-size:13px;
+                padding:8px 0;
               ">
                 Hakuna habari nyingine.
               </p>
             `;
 
           return;
-
         }
 
 
         container.innerHTML =
           latest
             .map(
-              function(article) {
+              function(article){
+
+                const title =
+                  getTitle(article) ||
+                  "Habari";
 
                 const image =
-                  getImage(
-                    article
-                  );
+                  getImage(article);
 
+                const date =
+                  getArticleDate(article);
 
-                const imageHTML =
-                  image
-                    ? `
+                if(image){
+
+                  return `
+                    <a
+                      class="side-story"
+                      href="habari.html?id=${encodeURIComponent(
+                        article.id
+                      )}"
+                    >
+
                       <img
                         src="${escapeHTML(image)}"
-                        alt="${escapeHTML(
-                          article.title || ""
-                        )}"
+                        alt="${escapeHTML(title)}"
+                        loading="lazy"
                       >
-                    `
-                    : "";
+
+                      <div>
+
+                        <h3>
+                          ${escapeHTML(title)}
+                        </h3>
+
+                        <span>
+                          ${escapeHTML(
+                            formatRelativeTime(date)
+                          )}
+                        </span>
+
+                      </div>
+
+                    </a>
+                  `;
+                }
 
 
                 return `
                   <a
-                    class="side-story"
+                    class="side-story no-image"
                     href="habari.html?id=${encodeURIComponent(
                       article.id
                     )}"
                   >
 
-                    ${imageHTML}
+                    <h3>
+                      ${escapeHTML(title)}
+                    </h3>
 
-                    <div>
-
-                      <h3>
-                        ${escapeHTML(
-                          article.title ||
-                          "Habari"
-                        )}
-                      </h3>
-
-                      <span>
-                        ${escapeHTML(
-                          formatDate(article)
-                        )}
-                      </span>
-
-                    </div>
+                    <span>
+                      ${escapeHTML(
+                        formatRelativeTime(date)
+                      )}
+                    </span>
 
                   </a>
                 `;
@@ -2022,26 +2874,24 @@
             .join("");
 
 
-      } catch (error) {
+      }catch(error){
 
         console.error(
           "Latest stories error:",
           error
         );
 
-
         container.innerHTML =
           `
             <p style="
               color:#718096;
-              font-size:14px;
+              font-size:13px;
+              padding:8px 0;
             ">
               Imeshindikana kupakia habari.
             </p>
           `;
-
       }
-
     }
 
 
@@ -2049,15 +2899,13 @@
        BREAKING NEWS
     ========================== */
 
-    async function loadBreakingNews() {
-
-      const element =
-        document.getElementById(
-          "breakingNews"
-        );
+    let breakingArticles = [];
+    let breakingIndex = 0;
 
 
-      try {
+    async function loadBreakingNews(){
+
+      try{
 
         const snapshot =
           await getDocs(
@@ -2067,104 +2915,413 @@
             )
           );
 
-
-        const articles =
-          [];
+        breakingArticles = [];
 
 
         snapshot.forEach(
-          function(item) {
+          function(item){
 
-            articles.push({
+            const data =
+              item.data();
 
-              id: item.id,
+            if(!isPublished(data)){
+              return;
+            }
 
-              ...item.data()
-
+            breakingArticles.push({
+              id:item.id,
+              ...data
             });
 
           }
         );
 
 
-        articles.sort(
-          function(a, b) {
+        breakingArticles.sort(
+          function(a,b){
 
             const dateA =
               getArticleDate(a);
 
-
             const dateB =
               getArticleDate(b);
 
-
             return (
-
               (dateB
                 ? dateB.getTime()
-                : 0)
-
-              -
-
+                : 0
+              ) -
               (dateA
                 ? dateA.getTime()
-                : 0)
-
+                : 0
+              )
             );
-
           }
         );
 
 
-        const latest =
-          articles.slice(
-            0,
-            3
-          );
+        if(!breakingArticles.length){
 
-
-        if (
-          !latest.length
-        ) {
-
-          element.textContent =
+          breakingNews.textContent =
             "Karibu BINSOUD HABARI";
 
-          return;
+          breakingNews.href =
+            "index.html";
 
+          return;
         }
 
 
-        element.textContent =
-          latest
-            .map(
-              function(article) {
+        showBreakingNews();
 
-                return (
-                  article.title ||
-                  ""
-                );
-
-              }
-            )
-            .filter(Boolean)
-            .join("  •  ");
+        setInterval(
+          showBreakingNews,
+          5000
+        );
 
 
-      } catch (error) {
+      }catch(error){
 
         console.error(
           "Breaking news error:",
           error
         );
 
-
-        element.textContent =
+        breakingNews.textContent =
           "Karibu BINSOUD HABARI";
 
+        breakingNews.href =
+          "index.html";
+      }
+    }
+
+
+    function showBreakingNews(){
+
+      if(!breakingArticles.length){
+        return;
       }
 
+      if(
+        breakingIndex >=
+        breakingArticles.length
+      ){
+        breakingIndex = 0;
+      }
+
+
+      const article =
+        breakingArticles[
+          breakingIndex
+        ];
+
+      const title =
+        getTitle(article) ||
+        "Habari mpya";
+
+
+      breakingNews.textContent =
+        title;
+
+
+      breakingNews.href =
+        "habari.html?id=" +
+        encodeURIComponent(
+          article.id
+        );
+
+
+      breakingIndex++;
     }
+
+
+    /* =========================
+       SEARCH DATA
+    ========================== */
+
+    let searchArticles = [];
+
+
+    async function loadSearchArticles(){
+
+      try{
+
+        const snapshot =
+          await getDocs(
+            collection(
+              db,
+              "articles"
+            )
+          );
+
+        searchArticles = [];
+
+
+        snapshot.forEach(
+          function(item){
+
+            const data =
+              item.data();
+
+            if(!isPublished(data)){
+              return;
+            }
+
+            searchArticles.push({
+              id:item.id,
+              ...data
+            });
+
+          }
+        );
+
+        searchArticles.sort(
+          function(a,b){
+
+            const dateA =
+              getArticleDate(a);
+
+            const dateB =
+              getArticleDate(b);
+
+            return (
+              (dateB
+                ? dateB.getTime()
+                : 0
+              ) -
+              (dateA
+                ? dateA.getTime()
+                : 0
+              )
+            );
+          }
+        );
+
+      }catch(error){
+
+        console.error(
+          "Search data error:",
+          error
+        );
+      }
+    }
+
+
+    /* =========================
+       SEARCH SUGGESTIONS
+    ========================== */
+
+    function showSearchSuggestions(){
+
+      const query =
+        normalizeSearch(
+          searchInput.value
+        );
+
+      if(
+        !query ||
+        !searchArticles.length
+      ){
+
+        searchSuggestions.classList.remove(
+          "show"
+        );
+
+        searchSuggestions.innerHTML =
+          "";
+
+        return;
+      }
+
+
+      const results =
+        searchArticles
+          .map(
+            function(article){
+
+              const title =
+                getTitle(article);
+
+              const category =
+                getCategory(article);
+
+              const titleN =
+                normalizeSearch(title);
+
+              const categoryN =
+                normalizeSearch(category);
+
+              let score = 0;
+
+              if(
+                titleN === query
+              ){
+                score += 100;
+              }
+
+              if(
+                titleN.startsWith(query)
+              ){
+                score += 60;
+              }
+
+              if(
+                titleN.includes(query)
+              ){
+                score += 40;
+              }
+
+              if(
+                categoryN.includes(query)
+              ){
+                score += 25;
+              }
+
+
+              return {
+                article,
+                score
+              };
+            }
+          )
+          .filter(
+            function(item){
+              return item.score > 0;
+            }
+          )
+          .sort(
+            function(a,b){
+              return b.score - a.score;
+            }
+          )
+          .slice(
+            0,
+            6
+          );
+
+
+      if(!results.length){
+
+        searchSuggestions.innerHTML =
+          `
+            <div class="search-item">
+              Hakuna habari iliyopatikana.
+              <small>
+                Bonyeza kitufe cha kutafuta kuona matokeo zaidi.
+              </small>
+            </div>
+          `;
+
+        searchSuggestions.classList.add(
+          "show"
+        );
+
+        return;
+      }
+
+
+      searchSuggestions.innerHTML =
+        results
+          .map(
+            function(item){
+
+              const article =
+                item.article;
+
+              const title =
+                getTitle(article) ||
+                "Habari";
+
+              const category =
+                getCategory(article) ||
+                "Habari";
+
+              return `
+                <a
+                  class="search-item"
+                  href="habari.html?id=${encodeURIComponent(
+                    article.id
+                  )}"
+                >
+
+                  ${escapeHTML(title)}
+
+                  <small>
+                    ${escapeHTML(category)}
+                  </small>
+
+                </a>
+              `;
+            }
+          )
+          .join("");
+
+
+      searchSuggestions.classList.add(
+        "show"
+      );
+    }
+
+
+    searchInput.addEventListener(
+      "input",
+      showSearchSuggestions
+    );
+
+
+    searchInput.addEventListener(
+      "focus",
+      showSearchSuggestions
+    );
+
+
+    document.addEventListener(
+      "click",
+      function(event){
+
+        if(
+          !event.target.closest(
+            ".header-search"
+          )
+        ){
+
+          searchSuggestions.classList.remove(
+            "show"
+          );
+        }
+      }
+    );
+
+
+    /* =========================
+       SEARCH SUBMIT
+    ========================== */
+
+    document.getElementById(
+      "searchForm"
+    ).addEventListener(
+      "submit",
+      function(event){
+
+        event.preventDefault();
+
+        const value =
+          cleanText(
+            searchInput.value
+          );
+
+        if(!value){
+          return;
+        }
+
+
+        window.location.href =
+          "index.html?search=" +
+          encodeURIComponent(
+            value
+          );
+      }
+    );
 
 
     /* =========================
@@ -2172,43 +3329,77 @@
     ========================== */
 
     window.copyArticleLink =
-      async function() {
+      async function(){
 
         const url =
           window.location.href;
 
 
-        try {
+        try{
 
-          await navigator.clipboard.writeText(
-            url
-          );
+          if(
+            navigator.clipboard &&
+            navigator.clipboard.writeText
+          ){
+
+            await navigator.clipboard.writeText(
+              url
+            );
+
+          }else{
+
+            const textarea =
+              document.createElement(
+                "textarea"
+              );
+
+            textarea.value =
+              url;
+
+            textarea.style.position =
+              "fixed";
+
+            textarea.style.opacity =
+              "0";
+
+            document.body.appendChild(
+              textarea
+            );
+
+            textarea.select();
+
+            document.execCommand(
+              "copy"
+            );
+
+            textarea.remove();
+          }
 
 
           alert(
             "Link ya habari imenakiliwa."
           );
 
+        }catch(error){
 
-        } catch (error) {
+          console.error(
+            error
+          );
 
           alert(
             "Imeshindikana kunakili link."
           );
-
         }
-
       };
 
 
     window.shareWhatsApp =
-      function() {
+      function(){
 
         const url =
           encodeURIComponent(
             window.location.href
           );
-
 
         const title =
           encodeURIComponent(
@@ -2225,12 +3416,11 @@
           url,
           "_blank"
         );
-
       };
 
 
     window.shareFacebook =
-      function() {
+      function(){
 
         const url =
           encodeURIComponent(
@@ -2244,17 +3434,105 @@
           "_blank",
           "width=700,height=500"
         );
-
       };
+
+
+    /* =========================
+       UPDATE RELATIVE TIME
+    ========================== */
+
+    let activeArticle = null;
+
+
+    function refreshArticleTime(){
+
+      if(!activeArticle){
+        return;
+      }
+
+      const date =
+        getArticleDate(
+          activeArticle
+        );
+
+      document.getElementById(
+        "articleDate"
+      ).textContent =
+        formatRelativeTime(date);
+    }
+
+
+    setInterval(
+      refreshArticleTime,
+      60000
+    );
 
 
     /* =========================
        START
     ========================== */
 
-    loadBreakingNews();
+    async function startPage(){
 
-    loadArticle();
+      await Promise.all([
+        loadBreakingNews(),
+        loadSearchArticles()
+      ]);
+
+
+      const articleId =
+        getArticleId();
+
+
+      try{
+
+        const article =
+          await findArticle(
+            articleId
+          );
+
+
+        if(!article){
+
+          showError(
+            articleId
+              ? "Habari hii haikupatikana. Inawezekana imeondolewa au haijachapishwa."
+              : "Kiungo cha habari hakina ID. Tafadhali fungua habari kupitia ukurasa wa BINSOUD HABARI."
+          );
+
+          return;
+        }
+
+
+        activeArticle =
+          article;
+
+
+        renderArticle(
+          article
+        );
+
+
+        await loadLatestStories(
+          article.id
+        );
+
+
+      }catch(error){
+
+        console.error(
+          "Start page error:",
+          error
+        );
+
+        showError(
+          "Kumetokea tatizo wakati wa kupakia habari. Tafadhali jaribu tena."
+        );
+      }
+    }
+
+
+    startPage();
 
   </script>
 
