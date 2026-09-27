@@ -1,37 +1,73 @@
 <!DOCTYPE html>
 <html lang="sw">
+
 <head>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Kimataifa | BINSOUD HABARI</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Kimataifa | BINSOUD HABARI
+  </title>
+
 
   <meta
     name="description"
     content="Habari za kimataifa kutoka Afrika na dunia kupitia BINSOUD HABARI."
   >
 
-  <meta name="theme-color" content="#0757a6">
-  <meta name="robots" content="index, follow">
+  <meta
+    name="theme-color"
+    content="#0757a6"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Kimataifa | BINSOUD HABARI"
+  >
+
+  <meta
+    property="og:description"
+    content="Habari mpya za kimataifa kutoka Afrika na dunia."
+  >
+
+  <meta
+    property="og:site_name"
+    content="BINSOUD HABARI"
+  >
+
 
   <link
     rel="canonical"
     href="https://salum0704.github.io/binsoud-habari/kimataifa.html"
   >
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Kimataifa | BINSOUD HABARI">
-  <meta
-    property="og:description"
-    content="Habari mpya za kimataifa kutoka Afrika na dunia."
+  <link
+    rel="icon"
+    href="favicon.ico"
   >
-  <meta property="og:site_name" content="BINSOUD HABARI">
-
-  <link rel="icon" href="favicon.ico">
 
 
   <style>
+
+    /* =====================================================
+       ROOT
+    ===================================================== */
 
     :root{
       --blue:#0757a6;
@@ -49,6 +85,10 @@
     }
 
 
+    /* =====================================================
+       RESET
+    ===================================================== */
+
     *{
       box-sizing:border-box;
       margin:0;
@@ -57,10 +97,19 @@
 
 
     body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:var(--light);
-      color:var(--text);
-      line-height:1.7;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        var(--light);
+
+      color:
+        var(--text);
+
+      line-height:
+        1.7;
     }
 
 
@@ -82,50 +131,72 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        TOP BAR
-    ========================== */
+    ===================================================== */
 
     .topbar{
-      background:var(--deep);
+      background:
+        var(--deep);
+
       color:#fff;
-      font-size:13px;
+
+      font-size:
+        13px;
     }
 
 
     .topbar-inner{
-      max-width:1250px;
+      max-width:
+        1250px;
+
       margin:auto;
-      padding:7px 20px;
-      min-height:34px;
+
+      min-height:
+        34px;
+
+      padding:
+        7px 20px;
 
       display:flex;
-      justify-content:space-between;
-      align-items:center;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
 
       gap:15px;
     }
 
 
-    /* =========================
+    /* =====================================================
        HEADER
-    ========================== */
+    ===================================================== */
 
     header{
       background:#fff;
-      border-bottom:1px solid var(--border);
+
+      border-bottom:
+        1px solid var(--border);
     }
 
 
     .header-inner{
-      max-width:1250px;
+      max-width:
+        1250px;
+
       margin:auto;
 
-      padding:16px 20px;
+      padding:
+        16px 20px;
 
       display:flex;
+
       align-items:center;
-      justify-content:space-between;
+
+      justify-content:
+        space-between;
 
       gap:25px;
     }
@@ -133,7 +204,9 @@
 
     .logo{
       display:flex;
+
       align-items:center;
+
       gap:12px;
 
       flex-shrink:0;
@@ -144,31 +217,39 @@
       width:52px;
       height:52px;
 
-      background:var(--blue);
-      color:#fff;
-
       border-radius:8px;
 
       display:flex;
+
       align-items:center;
+
       justify-content:center;
 
+      background:
+        var(--blue);
+
+      color:#fff;
+
       font-size:22px;
+
       font-weight:900;
     }
 
 
     .logo-text h1{
       font-size:24px;
+
       line-height:1;
 
       font-weight:900;
+
       letter-spacing:-.4px;
     }
 
 
     .logo-text .red{
-      color:var(--red);
+      color:
+        var(--red);
     }
 
 
@@ -178,53 +259,66 @@
       margin-top:5px;
 
       font-size:12px;
-      color:var(--muted);
+
+      color:
+        var(--muted);
 
       font-weight:600;
     }
 
 
-    /* =========================
+    /* =====================================================
        SEARCH
-    ========================== */
+    ===================================================== */
 
     .header-search{
-      width:min(390px,100%);
+      width:
+        min(390px,100%);
+
       position:relative;
     }
 
 
     .search-form{
       display:flex;
+
       width:100%;
     }
 
 
     .search-input{
       flex:1;
+
       min-width:0;
 
       height:42px;
 
-      border:1px solid #d7e0ea;
+      border:
+        1px solid #d7e0ea;
+
       border-right:0;
 
       outline:none;
 
-      padding:0 13px;
+      padding:
+        0 13px;
 
       font-size:14px;
 
-      border-radius:7px 0 0 7px;
+      border-radius:
+        7px 0 0 7px;
+
       background:#fff;
     }
 
 
     .search-input:focus{
-      border-color:var(--blue-2);
+      border-color:
+        var(--blue-2);
 
       box-shadow:
-        0 0 0 2px rgba(8,120,201,.10);
+        0 0 0 2px
+        rgba(8,120,201,.10);
     }
 
 
@@ -233,19 +327,23 @@
 
       border:0;
 
-      background:var(--blue);
-      color:#fff;
-
       cursor:pointer;
+
+      background:
+        var(--blue);
+
+      color:#fff;
 
       font-size:17px;
 
-      border-radius:0 7px 7px 0;
+      border-radius:
+        0 7px 7px 0;
     }
 
 
     .search-btn:hover{
-      background:var(--blue-dark);
+      background:
+        var(--blue-dark);
     }
 
 
@@ -253,19 +351,23 @@
       position:absolute;
 
       top:47px;
+
       left:0;
+
       right:0;
 
       display:none;
 
       background:#fff;
 
-      border:1px solid var(--border);
+      border:
+        1px solid var(--border);
 
       border-radius:7px;
 
       box-shadow:
-        0 8px 20px rgba(0,0,0,.10);
+        0 8px 20px
+        rgba(0,0,0,.10);
 
       z-index:500;
 
@@ -281,7 +383,8 @@
     .search-item{
       display:block;
 
-      padding:11px 13px;
+      padding:
+        11px 13px;
 
       border-bottom:
         1px solid #eef2f6;
@@ -307,34 +410,41 @@
 
       margin-top:2px;
 
-      color:var(--muted);
+      color:
+        var(--muted);
 
       font-size:11px;
     }
 
 
-    /* =========================
-       NAV
-    ========================== */
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
 
     nav{
-      background:var(--blue);
+      background:
+        var(--blue);
 
       position:sticky;
+
       top:0;
 
       z-index:100;
 
       box-shadow:
-        0 2px 8px rgba(0,0,0,.08);
+        0 2px 8px
+        rgba(0,0,0,.08);
     }
 
 
     .nav-inner{
-      max-width:1250px;
+      max-width:
+        1250px;
+
       margin:auto;
 
       display:flex;
+
       align-items:center;
 
       gap:2px;
@@ -343,7 +453,8 @@
 
       scrollbar-width:none;
 
-      padding:0 15px;
+      padding:
+        0 15px;
     }
 
 
@@ -357,7 +468,8 @@
 
       display:block;
 
-      padding:13px 12px;
+      padding:
+        13px 12px;
 
       font-size:13px;
 
@@ -372,39 +484,57 @@
 
     nav a:hover,
     nav a.active{
-      background:rgba(255,255,255,.10);
+      background:
+        rgba(255,255,255,.10);
+
       border-bottom-color:#fff;
     }
 
 
-    /* =========================
+    /* =====================================================
        BREAKING NEWS
-    ========================== */
+       WHITE KAMA KITAIFA
+    ===================================================== */
 
     .breaking{
-      background:var(--blue-2);
-      color:#fff;
+      background:#fff;
+
+      color:
+        var(--text);
+
+      border-bottom:
+        1px solid var(--border);
     }
 
 
     .breaking-inner{
-      max-width:1250px;
+      max-width:
+        1250px;
+
       margin:auto;
 
-      min-height:42px;
+      min-height:
+        42px;
 
       display:flex;
+
       align-items:center;
+
+      overflow:hidden;
     }
 
 
     .breaking-label{
-      background:var(--red);
+      background:
+        var(--red);
+
       color:#fff;
 
-      padding:9px 15px;
+      padding:
+        9px 15px;
 
-      font-size:13px;
+      font-size:12px;
+
       font-weight:900;
 
       white-space:nowrap;
@@ -416,16 +546,19 @@
     #breakingNews{
       flex:1;
 
-      padding:0 15px;
+      padding:
+        0 15px;
 
-      color:#fff;
+      color:#405268;
 
-      font-size:14px;
-      font-weight:700;
+      font-size:13px;
+
+      font-weight:800;
 
       white-space:nowrap;
 
       overflow:hidden;
+
       text-overflow:ellipsis;
 
       cursor:pointer;
@@ -433,21 +566,32 @@
 
 
     #breakingNews:hover{
-      text-decoration:underline;
+      color:
+        var(--blue);
+
+      text-decoration:
+        underline;
     }
 
 
-    /* =========================
+    /* =====================================================
        MAIN
-    ========================== */
+    ===================================================== */
 
     .container{
-      max-width:1250px;
+      max-width:
+        1250px;
+
       margin:auto;
 
-      padding:28px 20px 55px;
+      padding:
+        28px 20px 55px;
     }
 
+
+    /* =====================================================
+       PAGE HEADER
+    ===================================================== */
 
     .page-header{
       background:#fff;
@@ -455,13 +599,17 @@
       border:
         1px solid var(--border);
 
-      border-radius:var(--radius);
+      border-radius:
+        var(--radius);
 
-      box-shadow:var(--shadow);
+      box-shadow:
+        var(--shadow);
 
-      padding:22px 24px;
+      padding:
+        22px 24px;
 
-      margin-bottom:22px;
+      margin-bottom:
+        22px;
     }
 
 
@@ -469,12 +617,14 @@
       border-left:
         5px solid var(--blue);
 
-      padding-left:14px;
+      padding-left:
+        14px;
     }
 
 
     .page-title{
-      color:var(--deep);
+      color:
+        var(--deep);
 
       font-size:32px;
 
@@ -485,7 +635,8 @@
 
 
     .page-subtitle{
-      color:var(--muted);
+      color:
+        var(--muted);
 
       margin-top:5px;
 
@@ -494,7 +645,8 @@
 
 
     .page-date{
-      color:var(--muted);
+      color:
+        var(--muted);
 
       font-size:12px;
 
@@ -502,9 +654,9 @@
     }
 
 
-    /* =========================
-       HERO LAYOUT
-    ========================== */
+    /* =====================================================
+       HERO
+    ===================================================== */
 
     .hero-layout{
       display:grid;
@@ -515,13 +667,10 @@
 
       gap:22px;
 
-      margin-bottom:30px;
+      margin-bottom:
+        30px;
     }
 
-
-    /* =========================
-       HERO
-    ========================== */
 
     .hero{
       background:#fff;
@@ -529,11 +678,13 @@
       border:
         1px solid var(--border);
 
-      border-radius:var(--radius);
+      border-radius:
+        var(--radius);
 
       overflow:hidden;
 
-      box-shadow:var(--shadow);
+      box-shadow:
+        var(--shadow);
     }
 
 
@@ -550,6 +701,7 @@
 
     .hero-image img{
       width:100%;
+
       height:100%;
 
       object-fit:cover;
@@ -558,8 +710,10 @@
     }
 
 
-    .hero:hover .hero-image img{
-      transform:scale(1.03);
+    .hero:hover
+    .hero-image img{
+      transform:
+        scale(1.03);
     }
 
 
@@ -586,15 +740,19 @@
     .hero-category{
       display:inline-block;
 
-      background:var(--red);
+      background:
+        var(--red);
 
       color:#fff;
 
-      padding:5px 9px;
+      padding:
+        5px 9px;
 
-      border-radius:4px;
+      border-radius:
+        4px;
 
       font-size:10px;
+
       font-weight:900;
 
       margin-bottom:8px;
@@ -619,12 +777,13 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        SIDE NEWS
-    ========================== */
+    ===================================================== */
 
     .side-news{
       display:flex;
+
       flex-direction:column;
 
       gap:14px;
@@ -632,7 +791,8 @@
 
 
     .side-title{
-      color:var(--deep);
+      color:
+        var(--deep);
 
       font-size:18px;
 
@@ -651,7 +811,8 @@
       border:
         1px solid var(--border);
 
-      border-radius:var(--radius);
+      border-radius:
+        var(--radius);
 
       padding:10px;
 
@@ -670,14 +831,17 @@
 
 
     .side-card:hover{
-      transform:translateY(-2px);
+      transform:
+        translateY(-2px);
 
-      box-shadow:var(--shadow);
+      box-shadow:
+        var(--shadow);
     }
 
 
     .side-image{
       width:100px;
+
       height:78px;
 
       overflow:hidden;
@@ -690,6 +854,7 @@
 
     .side-image img{
       width:100%;
+
       height:100%;
 
       object-fit:cover;
@@ -697,7 +862,8 @@
 
 
     .side-card h3{
-      color:#183653;
+      color:
+        #183653;
 
       font-size:14px;
 
@@ -708,14 +874,16 @@
 
 
     .side-card h3:hover{
-      color:var(--blue);
+      color:
+        var(--blue);
     }
 
 
     .side-card small{
       display:block;
 
-      color:var(--muted);
+      color:
+        var(--muted);
 
       font-size:10px;
 
@@ -723,25 +891,28 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        SECTION
-    ========================== */
+    ===================================================== */
 
     .section-head{
       display:flex;
 
-      justify-content:space-between;
+      justify-content:
+        space-between;
 
       align-items:center;
 
       gap:15px;
 
-      margin-bottom:17px;
+      margin-bottom:
+        17px;
     }
 
 
     .section-head h2{
-      color:var(--deep);
+      color:
+        var(--deep);
 
       font-size:22px;
 
@@ -755,7 +926,8 @@
 
 
     .section-count{
-      color:var(--blue);
+      color:
+        var(--blue);
 
       font-size:12px;
 
@@ -765,9 +937,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        NEWS GRID
-    ========================== */
+    ===================================================== */
 
     .news-grid{
       display:grid;
@@ -785,21 +957,25 @@
       border:
         1px solid var(--border);
 
-      border-radius:var(--radius);
+      border-radius:
+        var(--radius);
 
       overflow:hidden;
 
-      box-shadow:var(--shadow);
+      box-shadow:
+        var(--shadow);
 
       transition:.22s;
     }
 
 
     .card:hover{
-      transform:translateY(-4px);
+      transform:
+        translateY(-4px);
 
       box-shadow:
-        0 9px 24px rgba(13,47,79,.13);
+        0 9px 24px
+        rgba(13,47,79,.13);
     }
 
 
@@ -816,6 +992,7 @@
 
     .card-image img{
       width:100%;
+
       height:100%;
 
       object-fit:cover;
@@ -824,8 +1001,10 @@
     }
 
 
-    .card:hover .card-image img{
-      transform:scale(1.04);
+    .card:hover
+    .card-image img{
+      transform:
+        scale(1.04);
     }
 
 
@@ -833,15 +1012,19 @@
       position:absolute;
 
       top:11px;
+
       left:11px;
 
-      background:var(--red);
+      background:
+        var(--red);
 
       color:#fff;
 
-      padding:4px 8px;
+      padding:
+        4px 8px;
 
-      border-radius:4px;
+      border-radius:
+        4px;
 
       font-size:9px;
 
@@ -855,11 +1038,13 @@
 
 
     .category{
-      color:var(--blue);
+      color:
+        var(--blue);
 
       font-size:10px;
 
-      text-transform:uppercase;
+      text-transform:
+        uppercase;
 
       letter-spacing:.8px;
 
@@ -870,7 +1055,8 @@
 
 
     .card h3{
-      color:#122c3d;
+      color:
+        #122c3d;
 
       font-size:19px;
 
@@ -882,24 +1068,27 @@
     }
 
 
-    .card h3:hover,
     .card h3 a:hover{
-      color:var(--blue);
+      color:
+        var(--blue);
     }
 
 
     .intro{
-      color:#68798a;
+      color:
+        #68798a;
 
       font-size:13px;
 
       line-height:1.65;
 
-      display:-webkit-box;
+      display:
+        -webkit-box;
 
       -webkit-line-clamp:3;
 
-      -webkit-box-orient:vertical;
+      -webkit-box-orient:
+        vertical;
 
       overflow:hidden;
 
@@ -932,7 +1121,8 @@
 
       text-align:center;
 
-      background:var(--blue);
+      background:
+        var(--blue);
 
       color:#fff;
 
@@ -949,13 +1139,70 @@
 
 
     .read:hover{
-      background:var(--blue-dark);
+      background:
+        var(--blue-dark);
     }
 
 
-    /* =========================
+    /* =====================================================
+       MORE BUTTON
+    ===================================================== */
+
+    .more-wrap{
+      text-align:center;
+
+      margin-top:
+        28px;
+
+      padding-top:
+        10px;
+    }
+
+
+    .more-btn{
+      border:0;
+
+      background:
+        var(--blue);
+
+      color:#fff;
+
+      padding:
+        12px 28px;
+
+      border-radius:6px;
+
+      font-size:13px;
+
+      font-weight:900;
+
+      cursor:pointer;
+
+      box-shadow:
+        0 4px 12px
+        rgba(7,87,166,.18);
+
+      transition:.2s;
+    }
+
+
+    .more-btn:hover{
+      background:
+        var(--blue-dark);
+
+      transform:
+        translateY(-1px);
+    }
+
+
+    .more-btn.hidden{
+      display:none;
+    }
+
+
+    /* =====================================================
        LOADING
-    ========================== */
+    ===================================================== */
 
     .loading-grid{
       display:grid;
@@ -978,11 +1225,14 @@
           #e9eef3 63%
         );
 
-      background-size:400% 100%;
+      background-size:
+        400% 100%;
 
-      animation:loading 1.4s infinite;
+      animation:
+        loading 1.4s infinite;
 
-      border-radius:var(--radius);
+      border-radius:
+        var(--radius);
     }
 
 
@@ -1008,19 +1258,21 @@
     @keyframes loading{
 
       0%{
-        background-position:100% 50%;
+        background-position:
+          100% 50%;
       }
 
       100%{
-        background-position:0 50%;
+        background-position:
+          0 50%;
       }
 
     }
 
 
-    /* =========================
+    /* =====================================================
        STATES
-    ========================== */
+    ===================================================== */
 
     .state{
       background:#fff;
@@ -1028,13 +1280,16 @@
       border:
         1px solid var(--border);
 
-      border-radius:var(--radius);
+      border-radius:
+        var(--radius);
 
-      padding:55px 20px;
+      padding:
+        55px 20px;
 
       text-align:center;
 
-      box-shadow:var(--shadow);
+      box-shadow:
+        var(--shadow);
     }
 
 
@@ -1046,7 +1301,8 @@
 
 
     .state h3{
-      color:var(--deep);
+      color:
+        var(--deep);
 
       margin-bottom:6px;
 
@@ -1055,7 +1311,8 @@
 
 
     .state p{
-      color:var(--muted);
+      color:
+        var(--muted);
 
       font-size:13px;
     }
@@ -1077,12 +1334,13 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        FOOTER
-    ========================== */
+    ===================================================== */
 
     footer{
-      background:var(--deep);
+      background:
+        var(--deep);
 
       color:#fff;
 
@@ -1091,7 +1349,8 @@
 
 
     .footer-inner{
-      max-width:1250px;
+      max-width:
+        1250px;
 
       margin:auto;
 
@@ -1142,9 +1401,11 @@
 
     .footer-bottom{
       border-top:
-        1px solid rgba(255,255,255,.12);
+        1px solid
+        rgba(255,255,255,.12);
 
-      padding:14px 20px;
+      padding:
+        14px 20px;
 
       text-align:center;
 
@@ -1154,9 +1415,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        RESPONSIVE
-    ========================== */
+    ===================================================== */
 
     @media(max-width:950px){
 
@@ -1186,7 +1447,8 @@
 
 
       .side-title{
-        grid-column:1/-1;
+        grid-column:
+          1/-1;
       }
 
 
@@ -1222,7 +1484,8 @@
       .topbar-inner{
         justify-content:center;
 
-        padding:6px 12px;
+        padding:
+          6px 12px;
       }
 
 
@@ -1258,7 +1521,8 @@
 
 
       nav a{
-        padding:12px 10px;
+        padding:
+          12px 10px;
 
         font-size:12px;
       }
@@ -1273,12 +1537,13 @@
         padding:
           8px 10px;
 
-        font-size:11px;
+        font-size:10px;
       }
 
 
       #breakingNews{
-        padding:0 10px;
+        padding:
+          0 10px;
 
         font-size:12px;
       }
@@ -1382,6 +1647,7 @@
 
     }
 
+
   </style>
 
 </head>
@@ -1390,9 +1656,9 @@
 <body>
 
 
-  <!-- =========================
+  <!-- =====================================================
        TOP BAR
-  ========================== -->
+  ===================================================== -->
 
   <div class="topbar">
 
@@ -1401,6 +1667,7 @@
       <span id="currentDate">
         📰 BINSOUD HABARI
       </span>
+
 
       <span>
         Habari kwa wakati • Ukweli • Uhakika
@@ -1411,13 +1678,14 @@
   </div>
 
 
-  <!-- =========================
+  <!-- =====================================================
        HEADER
-  ========================== -->
+  ===================================================== -->
 
   <header>
 
     <div class="header-inner">
+
 
       <a
         href="index.html"
@@ -1437,6 +1705,7 @@
               HABARI
             </span>
           </h1>
+
 
           <span>
             Chanzo chako cha habari
@@ -1466,8 +1735,8 @@
 
 
           <button
-            type="submit"
             class="search-btn"
+            type="submit"
             aria-label="Tafuta"
           >
             🔍
@@ -1488,9 +1757,9 @@
   </header>
 
 
-  <!-- =========================
-       NAV
-  ========================== -->
+  <!-- =====================================================
+       NAVIGATION
+  ===================================================== -->
 
   <nav>
 
@@ -1500,9 +1769,11 @@
         HOME
       </a>
 
+
       <a href="kitaifa.html">
         KITAIFA
       </a>
+
 
       <a
         href="kimataifa.html"
@@ -1511,41 +1782,51 @@
         MATAIFA
       </a>
 
+
       <a href="dini.html">
         DINI
       </a>
+
 
       <a href="michezo.html">
         MICHEZO
       </a>
 
+
       <a href="mazingira.html">
         MAZINGIRA
       </a>
+
 
       <a href="burudani.html">
         BURUDANI
       </a>
 
+
       <a href="siasa.html">
         SIASA
       </a>
+
 
       <a href="biashara.html">
         UCHUMI
       </a>
 
+
       <a href="makala.html">
         MAKALA
       </a>
+
 
       <a href="video.html">
         VIDEO
       </a>
 
+
       <a href="audio.html">
         AUDIO
       </a>
+
 
       <a href="contact.html">
         MAWASILIANO
@@ -1556,24 +1837,25 @@
   </nav>
 
 
-  <!-- =========================
+  <!-- =====================================================
        BREAKING NEWS
-  ========================== -->
+  ===================================================== -->
 
   <section class="breaking">
 
     <div class="breaking-inner">
 
+
       <div class="breaking-label">
-        🔴 HABARI MPYA
+        BREAKING NEWS
       </div>
 
 
       <a
         id="breakingNews"
-        href="#"
+        href="index.html"
       >
-        Inapakia habari...
+        Karibu BINSOUD HABARI
       </a>
 
     </div>
@@ -1581,9 +1863,9 @@
   </section>
 
 
-  <!-- =========================
+  <!-- =====================================================
        MAIN
-  ========================== -->
+  ===================================================== -->
 
   <main class="container">
 
@@ -1611,21 +1893,20 @@
         id="pageDate"
         class="page-date"
       >
-        Inapakia...
+        -
       </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- ===================================================
          LOADING
-    ========================== -->
+    ==================================================== -->
 
-    <div
-      id="loading"
-    >
+    <div id="loading">
 
       <div class="loading-grid">
+
 
         <div class="loading-main"></div>
 
@@ -1645,9 +1926,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ===================================================
          ERROR
-    ========================== -->
+    ==================================================== -->
 
     <div
       id="errorState"
@@ -1671,9 +1952,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ===================================================
          EMPTY
-    ========================== -->
+    ==================================================== -->
 
     <div
       id="emptyState"
@@ -1698,9 +1979,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ===================================================
          CONTENT
-    ========================== -->
+    ==================================================== -->
 
     <div
       id="content"
@@ -1708,9 +1989,10 @@
     >
 
 
-      <!-- HERO + SIDE -->
+      <!-- HERO -->
 
       <div class="hero-layout">
+
 
         <div
           id="hero"
@@ -1722,6 +2004,7 @@
           id="sideNews"
           class="side-news"
         ></div>
+
 
       </div>
 
@@ -1745,21 +2028,39 @@
       </div>
 
 
-      <!-- NEWS -->
+      <!-- NEWS GRID -->
 
       <div
         id="newsGrid"
         class="news-grid"
       ></div>
 
+
+      <!-- MORE -->
+
+      <div
+        id="moreWrap"
+        class="more-wrap hidden"
+      >
+
+        <button
+          id="moreBtn"
+          class="more-btn"
+          type="button"
+        >
+          ONA HABARI ZAIDI
+        </button>
+
+      </div>
+
     </div>
 
   </main>
 
 
-  <!-- =========================
+  <!-- =====================================================
        FOOTER
-  ========================== -->
+  ===================================================== -->
 
   <footer>
 
@@ -1854,9 +2155,9 @@
   </footer>
 
 
-  <!-- =========================
+  <!-- =====================================================
        FIREBASE
-  ========================== -->
+  ===================================================== -->
 
   <script type="module">
 
@@ -1877,9 +2178,9 @@
       "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
-    /* =========================
+    /* =====================================================
        FIREBASE CONFIG
-    ========================== */
+    ===================================================== */
 
     const firebaseConfig = {
 
@@ -1919,9 +2220,9 @@
       );
 
 
-    /* =========================
+    /* =====================================================
        ELEMENTS
-    ========================== */
+    ===================================================== */
 
     const loading =
       document.getElementById(
@@ -1983,6 +2284,18 @@
       );
 
 
+    const moreWrap =
+      document.getElementById(
+        "moreWrap"
+      );
+
+
+    const moreBtn =
+      document.getElementById(
+        "moreBtn"
+      );
+
+
     const breakingNews =
       document.getElementById(
         "breakingNews"
@@ -2001,16 +2314,38 @@
       );
 
 
-    /* =========================
+    /* =====================================================
        DATA
-    ========================== */
+    ===================================================== */
 
     let allInternationalArticles = [];
 
 
-    /* =========================
+    let visibleArticles = [];
+
+
+    let visibleGridCount = 3;
+
+
+    /*
+      Habari zinazoonekana mwanzoni
+      ni chache.
+    */
+
+    const INITIAL_GRID_COUNT = 3;
+
+
+    /*
+      Kila kubonyeza "ONA HABARI ZAIDI"
+      zinaongezwa.
+    */
+
+    const LOAD_MORE_COUNT = 3;
+
+
+    /* =====================================================
        CLEAN TEXT
-    ========================== */
+    ===================================================== */
 
     function cleanText(value){
 
@@ -2018,70 +2353,96 @@
         value === null ||
         value === undefined
       ){
+
         return "";
+
       }
 
-      return String(value).trim();
+
+      return String(
+        value
+      ).trim();
 
     }
 
 
-    /* =========================
-       ESCAPE
-    ========================== */
+    /* =====================================================
+       ESCAPE HTML
+    ===================================================== */
 
     function escapeHTML(value){
 
-      return cleanText(value)
+      return cleanText(
+        value
+      )
 
-        .replace(/&/g,"&amp;")
+      .replace(
+        /&/g,
+        "&amp;"
+      )
 
-        .replace(/</g,"&lt;")
+      .replace(
+        /</g,
+        "&lt;"
+      )
 
-        .replace(/>/g,"&gt;")
+      .replace(
+        />/g,
+        "&gt;"
+      )
 
-        .replace(/"/g,"&quot;")
+      .replace(
+        /"/g,
+        "&quot;"
+      )
 
-        .replace(/'/g,"&#039;");
+      .replace(
+        /'/g,
+        "&#039;"
+      );
 
     }
 
 
-    /* =========================
-       NORMALIZE SEARCH
-    ========================== */
+    /* =====================================================
+       NORMALIZE
+    ===================================================== */
 
     function normalizeSearch(value){
 
-      return cleanText(value)
+      return cleanText(
+        value
+      )
 
-        .toLowerCase()
+      .toLowerCase()
 
-        .normalize("NFD")
+      .normalize(
+        "NFD"
+      )
 
-        .replace(
-          /[\u0300-\u036f]/g,
-          ""
-        )
+      .replace(
+        /[\u0300-\u036f]/g,
+        ""
+      )
 
-        .replace(
-          /[^a-z0-9\s]/g,
-          " "
-        )
+      .replace(
+        /[^a-z0-9\s]/g,
+        " "
+      )
 
-        .replace(
-          /\s+/g,
-          " "
-        )
+      .replace(
+        /\s+/g,
+        " "
+      )
 
-        .trim();
+      .trim();
 
     }
 
 
-    /* =========================
+    /* =====================================================
        TITLE
-    ========================== */
+    ===================================================== */
 
     function getTitle(article){
 
@@ -2102,9 +2463,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        CATEGORY
-    ========================== */
+    ===================================================== */
 
     function getCategory(article){
 
@@ -2151,9 +2512,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        IMAGE
-    ========================== */
+    ===================================================== */
 
     function getImage(article){
 
@@ -2204,9 +2565,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        BODY
-    ========================== */
+    ===================================================== */
 
     function getBody(article){
 
@@ -2235,9 +2596,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        DESCRIPTION
-    ========================== */
+    ===================================================== */
 
     function getDescription(article){
 
@@ -2258,9 +2619,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        AUTHOR
-    ========================== */
+    ===================================================== */
 
     function getAuthor(article){
 
@@ -2283,9 +2644,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        PUBLISHED
-    ========================== */
+    ===================================================== */
 
     function isPublished(article){
 
@@ -2293,7 +2654,9 @@
         article.isPublished === false ||
         article.published === false
       ){
+
         return false;
+
       }
 
 
@@ -2338,14 +2701,16 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        DATE
-    ========================== */
+    ===================================================== */
 
     function toDate(value){
 
       if(!value){
+
         return null;
+
       }
 
 
@@ -2403,18 +2768,12 @@
           typeof value.seconds === "number"
         ){
 
-          const millis =
-
-            value.seconds * 1000 +
-
-            Math.floor(
-              (value.nanoseconds || 0) / 1000000
-            );
-
-
           const date =
             new Date(
-              millis
+              value.seconds * 1000 +
+              Math.floor(
+                (value.nanoseconds || 0) / 1000000
+              )
             );
 
 
@@ -2494,7 +2853,9 @@
 
 
         if(date){
+
           return date;
+
         }
 
       }
@@ -2520,9 +2881,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        RELATIVE TIME
-    ========================== */
+    ===================================================== */
 
     function formatRelativeTime(article){
 
@@ -2560,7 +2921,9 @@
         24 * hour;
 
 
-      if(diff < 0){
+      if(
+        diff < 0
+      ){
 
         return formatFullDate(
           date
@@ -2569,14 +2932,18 @@
       }
 
 
-      if(diff < minute){
+      if(
+        diff < minute
+      ){
 
         return "Imetumwa hivi punde";
 
       }
 
 
-      if(diff < hour){
+      if(
+        diff < hour
+      ){
 
         const minutes =
           Math.floor(
@@ -2593,7 +2960,9 @@
       }
 
 
-      if(diff < day){
+      if(
+        diff < day
+      ){
 
         const hours =
           Math.floor(
@@ -2625,24 +2994,30 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        FULL DATE
-    ========================== */
+    ===================================================== */
 
     function formatFullDate(date){
 
       return new Intl.DateTimeFormat(
+
         "sw-TZ",
+
         {
 
           day:"2-digit",
+
           month:"long",
+
           year:"numeric",
 
           hour:"2-digit",
+
           minute:"2-digit"
 
         }
+
       ).format(
         date
       );
@@ -2650,11 +3025,13 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        SHORT DESCRIPTION
-    ========================== */
+    ===================================================== */
 
-    function getShortDescription(article){
+    function getShortDescription(
+      article
+    ){
 
       let text =
         getDescription(
@@ -2673,24 +3050,28 @@
 
 
       text =
-        cleanText(text)
+        cleanText(
+          text
+        )
 
-          .replace(
-            /<[^>]*>/g,
-            " "
-          )
+        .replace(
+          /<[^>]*>/g,
+          " "
+        )
 
-          .replace(
-            /\s+/g,
-            " "
-          )
+        .replace(
+          /\s+/g,
+          " "
+        )
 
-          .trim();
+        .trim();
 
 
       if(!text){
 
-        return "Soma habari hii kwa maelezo zaidi.";
+        return (
+          "Soma habari hii kwa maelezo zaidi."
+        );
 
       }
 
@@ -2708,7 +3089,10 @@
         return (
 
           words
-            .slice(0,35)
+            .slice(
+              0,
+              35
+            )
             .join(" ") +
 
           "..."
@@ -2723,28 +3107,27 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        LINK
-    ========================== */
+    ===================================================== */
 
-    function articleLink(article){
+    function articleLink(
+      article
+    ){
 
       return (
-
         "habari.html?id=" +
-
         encodeURIComponent(
           article.id
         )
-
       );
 
     }
 
 
-    /* =========================
-       IMAGE RENDER
-    ========================== */
+    /* =====================================================
+       IMAGE
+    ===================================================== */
 
     function renderImage(
       image,
@@ -2793,11 +3176,13 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        HERO
-    ========================== */
+    ===================================================== */
 
-    function renderHero(article){
+    function renderHero(
+      article
+    ){
 
       if(!article){
 
@@ -2879,9 +3264,9 @@
     }
 
 
-    /* =========================
+    /* =====================================================
        SIDE NEWS
-    ========================== */
+    ===================================================== */
 
     function renderSideNews(
       articles
@@ -2897,7 +3282,10 @@
 
 
       articles
-        .slice(0,4)
+        .slice(
+          0,
+          3
+        )
         .forEach(
           function(article){
 
@@ -2978,11 +3366,13 @@
     }
 
 
-    /* =========================
-       NEWS CARD
-    ========================== */
+    /* =====================================================
+       CREATE CARD
+    ===================================================== */
 
-    function createCard(article){
+    function createCard(
+      article
+    ){
 
       const title =
         getTitle(article) ||
@@ -3024,7 +3414,9 @@
 
 
       const featured =
+
         article.featured === true ||
+
         article.featured === "true";
 
 
@@ -3067,6 +3459,7 @@
 
 
         <div class="card-body">
+
 
           <div class="category">
             KIMATAIFA
@@ -3140,17 +3533,21 @@
     }
 
 
-    /* =========================
-       RENDER
-    ========================== */
+    /* =====================================================
+       RENDER FRONT
+    ===================================================== */
 
-    function renderArticles(
+    function renderFront(
       articles
     ){
 
       newsGrid.innerHTML =
         "";
 
+
+      /*
+        Kama hakuna data.
+      */
 
       if(
         !articles.length
@@ -3169,6 +3566,12 @@
         emptyText.textContent =
           "Hakuna habari za Kimataifa zinazolingana na utafutaji wako.";
 
+
+        moreWrap.classList.add(
+          "hidden"
+        );
+
+
         return;
 
       }
@@ -3184,12 +3587,8 @@
       );
 
 
-      count.textContent =
-        `${articles.length} habari`;
-
-
       /*
-        Hero
+        HERO
       */
 
       renderHero(
@@ -3198,252 +3597,97 @@
 
 
       /*
-        Side
+        HABARI ZA PEMBENI
       */
 
       renderSideNews(
         articles.slice(
           1,
-          5
+          4
         )
       );
 
 
       /*
-        Grid
+        GRID
+        Zinaanza article ya 4.
       */
 
-      articles
-        .slice(1)
-        .forEach(
-          function(article){
-
-            newsGrid.appendChild(
-              createCard(
-                article
-              )
-            );
-
-          }
-        );
-
-    }
-
-
-    /* =========================
-       LOAD
-    ========================== */
-
-    async function loadArticles(){
-
-      try{
-
-        loading.classList.remove(
-          "hidden"
+      const gridArticles =
+        articles.slice(
+          4
         );
 
 
-        errorState.classList.add(
-          "hidden"
+      /*
+        Idadi ya cards zinazoonekana
+      */
+
+      const shown =
+        gridArticles.slice(
+          0,
+          visibleGridCount
         );
 
 
-        emptyState.classList.add(
-          "hidden"
-        );
+      shown.forEach(
+        function(article){
 
-
-        content.classList.add(
-          "hidden"
-        );
-
-
-        const snapshot =
-          await getDocs(
-            collection(
-              db,
-              "articles"
+          newsGrid.appendChild(
+            createCard(
+              article
             )
           );
 
-
-        const articles = [];
-
-
-        snapshot.forEach(
-          function(item){
-
-            const data =
-              item.data();
-
-
-            /*
-              Published only
-            */
-
-            if(
-              !isPublished(data)
-            ){
-
-              return;
-
-            }
-
-
-            const category =
-              normalizeSearch(
-                getCategory(data)
-              );
-
-
-            /*
-              Kimataifa
-            */
-
-            const international =
-
-              category.includes(
-                "kimataifa"
-              )
-
-              ||
-
-              category.includes(
-                "mataifa"
-              )
-
-              ||
-
-              category.includes(
-                "international"
-              );
-
-
-            if(
-              !international
-            ){
-
-              return;
-
-            }
-
-
-            articles.push({
-
-              id:item.id,
-
-              ...data
-
-            });
-
-          }
-        );
-
-
-        /*
-          Mpya kwanza
-        */
-
-        articles.sort(
-          function(a,b){
-
-            return (
-
-              getDateValue(b) -
-
-              getDateValue(a)
-
-            );
-
-          }
-        );
-
-
-        allInternationalArticles =
-          articles;
-
-
-        /*
-          BREAKING
-        */
-
-        updateBreakingNews();
-
-
-        /*
-          LOADING OFF
-        */
-
-        loading.classList.add(
-          "hidden"
-        );
-
-
-        /*
-          Empty
-        */
-
-        if(
-          !allInternationalArticles.length
-        ){
-
-          emptyState.classList.remove(
-            "hidden"
-          );
-
-          return;
-
         }
+      );
 
 
-        /*
-          Content
-        */
+      /*
+        COUNT
+        Inahesabu habari zote
+        zilizopo Firestore category hii.
+      */
 
-        renderArticles(
-          allInternationalArticles
-        );
-
-
-      }catch(error){
-
-        console.error(
-          "Firestore error:",
-          error
-        );
+      count.textContent =
+        `${articles.length} habari`;
 
 
-        loading.classList.add(
+      /*
+        MORE BUTTON
+      */
+
+      if(
+        gridArticles.length >
+        visibleGridCount
+      ){
+
+        moreWrap.classList.remove(
           "hidden"
         );
 
 
-        content.classList.add(
+        moreBtn.classList.remove(
           "hidden"
         );
 
+        moreBtn.textContent =
+          "ONA HABARI ZAIDI";
 
-        emptyState.classList.add(
+      }else{
+
+        moreWrap.classList.add(
           "hidden"
         );
-
-
-        errorState.classList.remove(
-          "hidden"
-        );
-
-
-        errorText.textContent =
-          "Kuna tatizo la kuunganisha na Firestore. Tafadhali hakikisha Firebase na Firestore vinafanya kazi vizuri.";
 
       }
 
     }
 
 
-    /* =========================
+    /* =====================================================
        BREAKING NEWS
-    ========================== */
+    ===================================================== */
 
     let breakingIndex = 0;
 
@@ -3503,15 +3747,291 @@
     }
 
 
-    setInterval(
-      updateBreakingNews,
-      5000
+    /* =====================================================
+       MORE BUTTON
+    ===================================================== */
+
+    moreBtn.addEventListener(
+      "click",
+      function(){
+
+        visibleGridCount +=
+          LOAD_MORE_COUNT;
+
+
+        renderFront(
+          visibleArticles
+        );
+
+      }
     );
 
 
-    /* =========================
+    /* =====================================================
+       LOAD ARTICLES
+    ===================================================== */
+
+    async function loadArticles(){
+
+      try{
+
+        loading.classList.remove(
+          "hidden"
+        );
+
+
+        errorState.classList.add(
+          "hidden"
+        );
+
+
+        emptyState.classList.add(
+          "hidden"
+        );
+
+
+        content.classList.add(
+          "hidden"
+        );
+
+
+        moreWrap.classList.add(
+          "hidden"
+        );
+
+
+        /*
+          FIRESTORE
+        */
+
+        const snapshot =
+          await getDocs(
+
+            collection(
+              db,
+              "articles"
+            )
+
+          );
+
+
+        const articles = [];
+
+
+        snapshot.forEach(
+          function(item){
+
+            const data =
+              item.data();
+
+
+            /*
+              Published only
+            */
+
+            if(
+              !isPublished(
+                data
+              )
+            ){
+
+              return;
+
+            }
+
+
+            /*
+              Category
+            */
+
+            const category =
+              normalizeSearch(
+                getCategory(
+                  data
+                )
+              );
+
+
+            const international =
+
+              category.includes(
+                "kimataifa"
+              )
+
+              ||
+
+              category.includes(
+                "mataifa"
+              )
+
+              ||
+
+              category.includes(
+                "international"
+              );
+
+
+            if(
+              !international
+            ){
+
+              return;
+
+            }
+
+
+            articles.push({
+
+              id:
+                item.id,
+
+              ...data
+
+            });
+
+          }
+        );
+
+
+        /*
+          MPYA KWANZA
+        */
+
+        articles.sort(
+          function(a,b){
+
+            return (
+
+              getDateValue(b) -
+
+              getDateValue(a)
+
+            );
+
+          }
+        );
+
+
+        /*
+          SAVE
+        */
+
+        allInternationalArticles =
+          articles;
+
+
+        /*
+          SEARCH DEFAULT
+        */
+
+        visibleArticles =
+          [
+            ...allInternationalArticles
+          ];
+
+
+        visibleGridCount =
+          INITIAL_GRID_COUNT;
+
+
+        /*
+          BREAKING
+        */
+
+        updateBreakingNews();
+
+
+        /*
+          ONDOA LOADING
+        */
+
+        loading.classList.add(
+          "hidden"
+        );
+
+
+        /*
+          HAKUNA HABARI
+        */
+
+        if(
+          !allInternationalArticles.length
+        ){
+
+          content.classList.add(
+            "hidden"
+          );
+
+
+          emptyState.classList.remove(
+            "hidden"
+          );
+
+
+          return;
+
+        }
+
+
+        /*
+          ONYESHA
+        */
+
+        renderFront(
+          visibleArticles
+        );
+
+
+        /*
+          BADILISHA BREAKING
+          KILA SEKUNDE 5
+        */
+
+        setInterval(
+          updateBreakingNews,
+          5000
+        );
+
+
+      }catch(error){
+
+        console.error(
+          "Firestore error:",
+          error
+        );
+
+
+        loading.classList.add(
+          "hidden"
+        );
+
+
+        content.classList.add(
+          "hidden"
+        );
+
+
+        emptyState.classList.add(
+          "hidden"
+        );
+
+
+        errorState.classList.remove(
+          "hidden"
+        );
+
+
+        errorText.textContent =
+          "Kuna tatizo la kuunganisha na Firestore. Tafadhali hakikisha Firebase na Firestore vinafanya kazi vizuri.";
+
+      }
+
+    }
+
+
+    /* =====================================================
        SEARCH SUGGESTIONS
-    ========================== */
+    ===================================================== */
 
     function showSearchSuggestions(){
 
@@ -3548,11 +4068,15 @@
             function(article){
 
               const title =
-                getTitle(article);
+                getTitle(
+                  article
+                );
 
 
               const description =
-                getDescription(article);
+                getDescription(
+                  article
+                );
 
 
               const titleN =
@@ -3567,41 +4091,52 @@
                 );
 
 
-              let score = 0;
+              let score =
+                0;
 
 
               if(
                 titleN === query
               ){
 
-                score += 100;
+                score +=
+                  100;
 
               }
 
 
               if(
-                titleN.startsWith(query)
+                titleN.startsWith(
+                  query
+                )
               ){
 
-                score += 70;
+                score +=
+                  70;
 
               }
 
 
               if(
-                titleN.includes(query)
+                titleN.includes(
+                  query
+                )
               ){
 
-                score += 45;
+                score +=
+                  50;
 
               }
 
 
               if(
-                descriptionN.includes(query)
+                descriptionN.includes(
+                  query
+                )
               ){
 
-                score += 20;
+                score +=
+                  20;
 
               }
 
@@ -3609,6 +4144,7 @@
               return {
 
                 article,
+
                 score
 
               };
@@ -3616,13 +4152,17 @@
             }
           )
 
+
           .filter(
             function(item){
 
-              return item.score > 0;
+              return (
+                item.score > 0
+              );
 
             }
           )
+
 
           .sort(
             function(a,b){
@@ -3634,6 +4174,7 @@
 
             }
           )
+
 
           .slice(
             0,
@@ -3682,7 +4223,9 @@
 
 
               const title =
-                getTitle(article) ||
+                getTitle(
+                  article
+                ) ||
                 "Habari";
 
 
@@ -3748,9 +4291,9 @@
     );
 
 
-    /* =========================
-       SEARCH
-    ========================== */
+    /* =====================================================
+       SEARCH SUBMIT
+    ===================================================== */
 
     document.getElementById(
       "searchForm"
@@ -3782,53 +4325,53 @@
 
         const results =
 
-          allInternationalArticles
+          allInternationalArticles.filter(
+            function(article){
 
-            .filter(
-              function(article){
+              const text =
 
-                const text =
+                normalizeSearch(
+                  getTitle(article)
+                )
 
-                  normalizeSearch(
-                    getTitle(article)
-                  )
+                + " " +
 
-                  +
+                normalizeSearch(
+                  getDescription(article)
+                )
 
-                  " " +
+                + " " +
 
-                  normalizeSearch(
-                    getDescription(article)
-                  )
+                normalizeSearch(
+                  getBody(article)
+                )
 
-                  +
+                + " " +
 
-                  " " +
-
-                  normalizeSearch(
-                    getBody(article)
-                  )
-
-                  +
-
-                  " " +
-
-                  normalizeSearch(
-                    getAuthor(article)
-                  );
-
-
-                return text.includes(
-                  normalizedQuery
+                normalizeSearch(
+                  getAuthor(article)
                 );
 
-              }
-            );
+
+              return text.includes(
+                normalizedQuery
+              );
+
+            }
+          );
 
 
         searchSuggestions.classList.remove(
           "show"
         );
+
+
+        /*
+          Reset count
+        */
+
+        visibleGridCount =
+          INITIAL_GRID_COUNT;
 
 
         if(
@@ -3845,6 +4388,11 @@
           );
 
 
+          moreWrap.classList.add(
+            "hidden"
+          );
+
+
           emptyText.textContent =
             `Hakuna habari za Kimataifa zinazolingana na "${query}".`;
 
@@ -3854,17 +4402,21 @@
         }
 
 
-        renderArticles(
-          results
+        visibleArticles =
+          results;
+
+
+        renderFront(
+          visibleArticles
         );
 
       }
     );
 
 
-    /* =========================
+    /* =====================================================
        PAGE DATE
-    ========================== */
+    ===================================================== */
 
     document.getElementById(
       "pageDate"
@@ -3873,19 +4425,28 @@
       new Intl.DateTimeFormat(
         "sw-TZ",
         {
-          weekday:"long",
-          day:"numeric",
-          month:"long",
-          year:"numeric"
+
+          weekday:
+            "long",
+
+          day:
+            "numeric",
+
+          month:
+            "long",
+
+          year:
+            "numeric"
+
         }
       ).format(
         new Date()
       );
 
 
-    /* =========================
+    /* =====================================================
        TOP DATE
-    ========================== */
+    ===================================================== */
 
     document.getElementById(
       "currentDate"
@@ -3894,18 +4455,25 @@
       new Intl.DateTimeFormat(
         "sw-TZ",
         {
-          day:"numeric",
-          month:"long",
-          year:"numeric"
+
+          day:
+            "numeric",
+
+          month:
+            "long",
+
+          year:
+            "numeric"
+
         }
       ).format(
         new Date()
       );
 
 
-    /* =========================
+    /* =====================================================
        YEAR
-    ========================== */
+    ===================================================== */
 
     document.getElementById(
       "year"
@@ -3913,19 +4481,20 @@
       new Date().getFullYear();
 
 
-    /* =========================
+    /* =====================================================
        UPDATE TIME
-    ========================== */
+       KILA DAKIKA
+    ===================================================== */
 
     setInterval(
       function(){
 
         if(
-          allInternationalArticles.length
+          visibleArticles.length
         ){
 
-          renderArticles(
-            allInternationalArticles
+          renderFront(
+            visibleArticles
           );
 
         }
@@ -3935,9 +4504,9 @@
     );
 
 
-    /* =========================
+    /* =====================================================
        START
-    ========================== */
+    ===================================================== */
 
     loadArticles();
 
