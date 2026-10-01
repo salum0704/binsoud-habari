@@ -896,7 +896,6 @@
         AUDIO
       </a>
 
-      <!-- MAWASILIANO -->
       <a href="contact.html">
         MAWASILIANO
       </a>
@@ -1210,7 +1209,6 @@
             Audio
           </a>
 
-          <!-- MAWASILIANO -->
           <a href="contact.html">
             Mawasiliano
           </a>
@@ -1250,9 +1248,7 @@
     import {
       getFirestore,
       collection,
-      getDocs,
-      query,
-      limit
+      getDocs
     } from
       "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
@@ -1933,18 +1929,23 @@
 
       try{
 
-        const q =
-          query(
+        /*
+          HAPA NDIPO MAREKEBISHO MAKUU YAMEFANYIKA.
+
+          Hapo awali kulikuwa na:
+          limit(100)
+
+          Sasa tunasoma articles zote za Firestore,
+          kisha tunachukua zilizopublish pekee.
+        */
+
+        const snapshot =
+          await getDocs(
             collection(
               db,
               "articles"
-            ),
-            limit(100)
+            )
           );
-
-
-        const snapshot =
-          await getDocs(q);
 
 
         articles =
