@@ -896,6 +896,7 @@
         AUDIO
       </a>
 
+      <!-- MAWASILIANO -->
       <a href="contact.html">
         MAWASILIANO
       </a>
@@ -1209,6 +1210,7 @@
             Audio
           </a>
 
+          <!-- MAWASILIANO -->
           <a href="contact.html">
             Mawasiliano
           </a>
@@ -1751,13 +1753,13 @@
       return firstValue(
         article,
         [
-          "date",
           "publishedAt",
           "publishDate",
           "timestamp",
           "createdAt",
           "created_at",
-          "updatedAt"
+          "updatedAt",
+          "date"
         ]
       );
 
@@ -1928,16 +1930,6 @@
     async function loadArticles(){
 
       try{
-
-        /*
-          HAPA NDIPO MAREKEBISHO MAKUU YAMEFANYIKA.
-
-          Hapo awali kulikuwa na:
-          limit(100)
-
-          Sasa tunasoma articles zote za Firestore,
-          kisha tunachukua zilizopublish pekee.
-        */
 
         const snapshot =
           await getDocs(
