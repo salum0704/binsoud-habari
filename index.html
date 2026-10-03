@@ -1250,7 +1250,7 @@
     import {
       getFirestore,
       collection,
-      getDocs
+      getDocs,
     } from
       "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
@@ -1604,7 +1604,7 @@
 
     function getImage(article){
 
-      const image =
+      let image =
         firstValue(
           article,
           [
@@ -1639,6 +1639,29 @@
           ]
         );
 
+      /*
+         Picha inaweza kuhifadhiwa kama URL ya kawaida,
+         au kama object yenye url/downloadURL/src.
+         Hapa tunabadilisha tu thamani ya picha kuwa URL
+         bila kugusa sehemu nyingine ya website.
+      */
+      if(Array.isArray(image)){
+        image = image[0];
+      }
+
+      if(image && typeof image === "object"){
+        image =
+          image.url ||
+          image.downloadURL ||
+          image.downloadUrl ||
+          image.src ||
+          image.href ||
+          image.imageUrl ||
+          image.image ||
+          "";
+      }
+
+      image = String(image || "").trim();
 
       return image ||
         FALLBACK_IMAGE;
@@ -1753,13 +1776,13 @@
       return firstValue(
         article,
         [
+          "date",
           "publishedAt",
           "publishDate",
           "timestamp",
           "createdAt",
           "created_at",
-          "updatedAt",
-          "date"
+          "updatedAt"
         ]
       );
 
