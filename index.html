@@ -1255,6 +1255,14 @@
       "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
+    import {
+      getStorage,
+      ref,
+      getDownloadURL
+    } from
+      "https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
+
+
     /* =========================
        FIREBASE
     ========================== */
@@ -1289,6 +1297,10 @@
 
     const db =
       getFirestore(app);
+
+
+    const storage =
+      getStorage(app);
 
 
     /* =========================
@@ -1604,6 +1616,17 @@
 
     function getImage(article){
 
+      /*
+         Kipaumbele ni URL iliyokwishaandikwa kwenye
+         Firestore. Ikiwa picha ilihifadhiwa kama
+         Firebase Storage path/gs:// path, __imageResolved
+         iliyotengenezwa wakati wa loadArticles() ndiyo
+         itatumika.
+      */
+      if(article && article.__imageResolved){
+        return article.__imageResolved;
+      }
+
       let image =
         firstValue(
           article,
@@ -1639,12 +1662,6 @@
           ]
         );
 
-      /*
-         Picha inaweza kuhifadhiwa kama URL ya kawaida,
-         au kama object yenye url/downloadURL/src.
-         Hapa tunabadilisha tu thamani ya picha kuwa URL
-         bila kugusa sehemu nyingine ya website.
-      */
       if(Array.isArray(image)){
         image = image[0];
       }
@@ -1665,6 +1682,129 @@
 
       return image ||
         FALLBACK_IMAGE;
+
+    }
+
+
+    /* =========================
+       RESOLVE IMAGE
+       Firebase Storage / URL
+    ========================== */
+
+    async function resolveImage(article){
+
+      let image =
+        firstValue(
+          article,
+          [
+
+            "image",
+            "imageUrl",
+            "imageURL",
+            "image_url",
+
+            "photo",
+            "photoUrl",
+            "photoURL",
+
+            "thumbnail",
+            "thumbnailUrl",
+            "thumbnailURL",
+
+            "picture",
+            "pictureUrl",
+
+            "cover",
+            "coverImage",
+            "coverUrl",
+
+            "featuredImage",
+            "featured_image",
+
+            "urlImage",
+            "img",
+            "imageLink"
+
+          ]
+        );
+
+      if(Array.isArray(image)){
+        image = image[0];
+      }
+
+      if(image && typeof image === "object"){
+        image =
+          image.url ||
+          image.downloadURL ||
+          image.downloadUrl ||
+          image.src ||
+          image.href ||
+          image.imageUrl ||
+          image.image ||
+          "";
+      }
+
+      image = String(image || "").trim();
+
+      if(!image){
+        return FALLBACK_IMAGE;
+      }
+
+      /*
+         URL za kawaida, data URL, blob URL, n.k.
+         Hazihitaji Firebase Storage.
+      */
+      if(
+        image.startsWith("http://") ||
+        image.startsWith("https://") ||
+        image.startsWith("data:") ||
+        image.startsWith("blob:")
+      ){
+        return image;
+      }
+
+      /*
+         Ikiwa Admin imehifadhi gs://... au Storage path,
+         tunapata download URL halisi ya picha.
+      */
+      try{
+
+        let storagePath = image;
+
+        if(storagePath.startsWith("gs://")){
+
+          const withoutProtocol =
+            storagePath.substring(5);
+
+          const slashIndex =
+            withoutProtocol.indexOf("/");
+
+          if(slashIndex !== -1){
+
+            storagePath =
+              withoutProtocol.substring(
+                slashIndex + 1
+              );
+
+          }
+
+        }
+
+        return await getDownloadURL(
+          ref(storage, storagePath)
+        );
+
+      }catch(error){
+
+        console.warn(
+          "Picha haikupatikana Firebase Storage:",
+          image,
+          error
+        );
+
+        return image || FALLBACK_IMAGE;
+
+      }
 
     }
 
@@ -1984,6 +2124,22 @@
               getDateValue(a)
             )
         );
+
+
+        /*
+           Tunatatua picha tu. Mfumo wa kuchota habari,
+           filtering, sorting na rendering unabaki ule ule.
+        */
+        articles =
+          await Promise.all(
+            articles.map(
+              async article => ({
+                ...article,
+                __imageResolved:
+                  await resolveImage(article)
+              })
+            )
+          );
 
 
         renderAll();
