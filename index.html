@@ -1604,47 +1604,37 @@
 
     function getImage(article){
 
-      const image =
-        firstValue(
-          article,
-          [
+  const image =
+    firstValue(
+      article,
+      [
+        "image",
+        "imageUrl",
+        "imageURL",
+        "image_url",
+        "photo",
+        "photoUrl",
+        "photoURL",
+        "thumbnail",
+        "thumbnailUrl",
+        "thumbnailURL",
+        "picture",
+        "pictureUrl",
+        "cover",
+        "coverImage",
+        "coverUrl",
+        "featuredImage",
+        "featured_image",
+        "urlImage",
+        "img",
+        "imageLink"
+      ]
+    );
 
-            "image",
-            "imageUrl",
-            "imageURL",
-            "image_url",
+  return image ||
+    FALLBACK_IMAGE;
 
-            "photo",
-            "photoUrl",
-            "photoURL",
-
-            "thumbnail",
-            "thumbnailUrl",
-            "thumbnailURL",
-
-            "picture",
-            "pictureUrl",
-
-            "cover",
-            "coverImage",
-            "coverUrl",
-
-            "featuredImage",
-            "featured_image",
-
-            "urlImage",
-            "img",
-            "imageLink"
-
-          ]
-        );
-
-
-      return image ||
-        FALLBACK_IMAGE;
-
-    }
-
+}
 
     /* =========================
        BODY
