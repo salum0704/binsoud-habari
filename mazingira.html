@@ -140,7 +140,7 @@ input{
 }
 
 
- /* =========================
+    /* =========================
        TOP DATE
     ========================== */
 
@@ -260,52 +260,134 @@ header {
     .search-form button:hover{
       background:var(--blue-dark);
     }
-/* =========================
-   SEARCH
-========================= */
 
-.search-box{
-  position:relative;
-  width:min(430px,100%);
-  flex:1;
-  max-width:430px;
-}
+    /* =========================
+       SEARCH
+    ========================== */
 
-.search-form{
-  display:flex;
-  gap:8px;
-  width:100%;
-}
+    .search-box{
+      flex:1;
+      max-width:430px;
+      position:relative;
+    }
 
-.search-form input{
-  flex:1;
-  min-width:0;
-  border:1px solid #ccd6df;
-  border-radius:6px;
-  padding:11px 13px;
-  outline:none;
-  background:#fff;
-  color:var(--text);
-}
 
-.search-form input:focus{
-  border-color:var(--blue);
-}
+    .search-form{
+      display:flex;
+      width:100%;
+    }
 
-.search-form button{
-  border:0;
-  border-radius:6px;
-  padding:0 17px;
-  min-width:86px;
-  background:var(--blue);
-  color:#fff;
-  font-weight:800;
-  cursor:pointer;
-}
 
-.search-form button:hover{
-  background:var(--blue-dark);
-}
+    .search-form input{
+      width:100%;
+      border:1px solid var(--border);
+      border-right:0;
+      outline:none;
+      padding:11px 14px;
+      border-radius:6px 0 0 6px;
+      background:#fff;
+    }
+
+
+    .search-form input:focus{
+      border-color:var(--blue);
+    }
+
+
+    .search-form button{
+      border:0;
+      padding:0 18px;
+      color:#fff;
+      background:var(--blue);
+      cursor:pointer;
+      border-radius:0 6px 6px 0;
+      font-weight:700;
+    }
+
+
+    .search-form button:hover{
+      background:var(--blue-dark);
+    }
+
+
+    .search-suggestions{
+      display:none;
+      position:absolute;
+      top:calc(100% + 6px);
+      left:0;
+      right:0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:6px;
+      box-shadow:var(--shadow);
+      z-index:9999;
+      max-height:350px;
+      overflow-y:auto;
+    }
+
+
+    .search-suggestions.active{
+      display:block;
+    }
+
+
+    .search-suggestion{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:10px;
+      border-bottom:1px solid var(--border);
+      cursor:pointer;
+      background:#fff;
+    }
+
+
+    .search-suggestion:last-child{
+      border-bottom:0;
+    }
+
+
+    .search-suggestion:hover{
+      background:#f4f8fc;
+    }
+
+
+    .search-suggestion-image{
+      width:65px;
+      height:48px;
+      object-fit:cover;
+      border-radius:5px;
+      background:#e9eef5;
+      flex-shrink:0;
+    }
+
+
+    .search-suggestion-content{
+      min-width:0;
+    }
+
+
+    .search-suggestion-title{
+      color:var(--deep);
+      font-size:13px;
+      line-height:1.35;
+      font-weight:800;
+    }
+
+
+    .search-suggestion-category{
+      color:var(--muted);
+      font-size:11px;
+      margin-top:2px;
+    }
+
+
+    .search-no-result{
+      padding:14px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
   
 /* =========================
    NAV
