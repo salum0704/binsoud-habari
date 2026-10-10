@@ -1,14 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="sw-TZ">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Mazingira | BINSOUD HABARI</title>
 
@@ -22,35 +18,18 @@
     content="index, follow, max-image-preview:large"
   >
 
-  <meta
-    name="author"
-    content="BINSOUD HABARI"
-  >
-
-  <meta
-    name="theme-color"
-    content="#0757a6"
-  >
+  <meta name="author" content="BINSOUD HABARI">
+  <meta name="theme-color" content="#0757a6">
 
   <link
     rel="canonical"
     href="https://salum0704.github.io/binsoud-habari/mazingira.html"
   >
 
-  <link
-    rel="icon"
-    href="favicon.ico"
-  >
+  <link rel="icon" href="favicon.ico">
 
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:title"
-    content="Mazingira | BINSOUD HABARI"
-  >
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mazingira | BINSOUD HABARI">
 
   <meta
     property="og:description"
@@ -62,25 +41,11 @@
     content="https://salum0704.github.io/binsoud-habari/mazingira.html"
   >
 
-  <meta
-    property="og:site_name"
-    content="BINSOUD HABARI"
-  >
+  <meta property="og:site_name" content="BINSOUD HABARI">
+  <meta property="og:locale" content="sw_TZ">
 
-  <meta
-    property="og:locale"
-    content="sw_TZ"
-  >
-
-  <meta
-    name="twitter:card"
-    content="summary"
-  >
-
-  <meta
-    name="twitter:title"
-    content="Mazingira | BINSOUD HABARI"
-  >
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mazingira | BINSOUD HABARI">
 
   <meta
     name="twitter:description"
@@ -88,7 +53,6 @@
   >
 
   <style>
-
     :root {
       --blue: #0757a6;
       --blue-2: #0878c9;
@@ -128,7 +92,6 @@
 
     img {
       display: block;
-      width: 100%;
       max-width: 100%;
     }
 
@@ -143,7 +106,7 @@
     }
 
     /* =========================
-       TOP DATE
+       TAREHE - UPANDE WA KULIA
     ========================== */
 
     .top-date {
@@ -161,7 +124,7 @@
     }
 
     /* =========================
-       HEADER - NEMBO KAMILI
+       HEADER - NEMBO KUSHOTO
     ========================== */
 
     header {
@@ -182,7 +145,6 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: 88% 100px;
-
       border-bottom: 1px solid #b7ccd5;
     }
 
@@ -199,17 +161,15 @@
       z-index: 1;
     }
 
-    /* LOGO IWE KUSHOTO */
-
     .logo {
       display: block;
+      flex-shrink: 0;
+      margin-right: auto;
       font-size: 30px;
       font-weight: 900;
       color: var(--blue);
       letter-spacing: -1px;
       white-space: nowrap;
-      flex-shrink: 0;
-      margin-right: auto;
     }
 
     .logo span {
@@ -226,7 +186,7 @@
     }
 
     /* =========================
-       SEARCH - IWE KULIA
+       SEARCH - UPANDE WA KULIA
     ========================== */
 
     .search-box {
@@ -348,7 +308,7 @@
     }
 
     /* =========================
-       NAVIGATION
+       MENYU KUU
     ========================== */
 
     .nav {
@@ -380,6 +340,33 @@
     .nav a:hover,
     .nav a.active {
       background: var(--blue-dark);
+    }
+
+    /* =========================
+       SIMU NA VIFAA VIDOGO
+    ========================== */
+
+    @media (max-width: 600px) {
+      .header-main {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 10px 4%;
+      }
+
+      .logo {
+        margin-right: auto;
+      }
+
+      .search-box {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin-left: 0;
+      }
+
+      .top-date .container {
+        justify-content: flex-end;
+        text-align: right;
+      }
     }
 
 /* =========================
