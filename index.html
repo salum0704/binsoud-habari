@@ -87,27 +87,40 @@
 header {
   position: relative;
   width: 100%;
-  min-height: 75px;
+  min-height: 100px;
   background-color: transparent;
   background-image: url("images/binsoud-habari-logo.png.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto 55px;
+  background-size: auto 75px;
   border-bottom: 1px solid var(--border);
 }
 
 .header-main {
   width: 100%;
   max-width: none;
-  min-height: 75px;
-  padding: 6px 3%;
+  min-height: 100px;
+  padding: 10px 3%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 15px;
   position: relative;
   z-index: 1;
 }
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.logo span {
+  color: var(--red);
+}
+
 
 /* Punguza mwanga wa picha ya logo pekee */
 header {
