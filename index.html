@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<a href="index.html" class="logo" aria-label="BINSOUD HABARI - Mwanzo">
-  <img
-    src="images/binsoud-habari-logo.png.png"
-    alt="BINSOUD HABARI"
-  >
-</a>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>BINSOUD HABARI</title>
-
+ 
   <meta
     name="description"
     content="BINSOUD HABARI - Habari za Kitaifa, Kimataifa, Dini, Michezo, Mazingira, Burudani, Siasa, Uchumi na Makala."
@@ -88,20 +86,8 @@
     ========================== */
 
     header{
-      background:
-        radial-gradient(
-          ellipse at 12% 50%,
-          rgba(8,120,201,.12),
-          transparent 42%
-        ),
-        linear-gradient(
-          115deg,
-          #ffffff 0%,
-          #f4f9ff 48%,
-          #ffffff 100%
-        );
-      border-bottom:1px solid rgba(7,87,166,.18);
-      box-shadow:0 4px 18px rgba(13,47,79,.07);
+      background:var(--white);
+      border-bottom:1px solid var(--border);
     }
 
     .header-main{
@@ -113,22 +99,15 @@
     }
 
     .logo{
-      display:flex;
-      align-items:center;
-      flex:0 1 430px;
-      min-width:0;
+      font-size:30px;
+      font-weight:900;
+      color:var(--blue);
+      letter-spacing:-1px;
       white-space:nowrap;
     }
 
-    .logo img{
-      display:block;
-      width:min(100%,430px);
-      max-height:105px;
-      height:auto;
-      object-fit:contain;
-      filter:drop-shadow(
-        0 3px 5px rgba(7,55,105,.08)
-      );
+    .logo span{
+      color:var(--red);
     }
 
     .search-box{
@@ -650,7 +629,8 @@
     footer h3{
       margin-bottom:10px;
     }
-        .footer-links{
+
+    .footer-links{
       display:flex;
       flex-direction:column;
       gap:7px;
@@ -715,13 +695,7 @@
       }
 
       .logo{
-        justify-content:center;
-      }
-
-      .logo img{
-        width:min(100%,390px);
-        max-height:95px;
-        margin:auto;
+        text-align:center;
       }
 
       .search-box{
@@ -742,11 +716,6 @@
     }
 
     @media(max-width:600px){
-
-      .logo img{
-        width:min(100%,340px);
-        max-height:82px;
-      }
 
       main{
         padding-top:18px;
@@ -833,11 +802,8 @@
   <header>
     <div class="container header-main">
 
-      <a href="index.html" class="logo" aria-label="BINSOUD HABARI - Mwanzo">
-        <img
-          src="binsoud-habari-logo.png"
-          alt="BINSOUD HABARI - Taarifa Sahihi, Wakati Sahihi."
-        >
+      <a href="index.html" class="logo">
+        BINSOUD <span>HABARI</span>
       </a>
 
       <div class="search-box">
@@ -1296,7 +1262,10 @@
     const firebaseConfig = {
 
       apiKey:
-                "binsoud-habari-8a5fa.firebaseapp.com",
+        "AIzaSyCFpSNTqw9ljOFkx-A-szNcNi-HmVKZU-7I",
+
+      authDomain:
+        "binsoud-habari-8a5fa.firebaseapp.com",
 
       projectId:
         "binsoud-habari-8a5fa",
@@ -1946,7 +1915,7 @@
 
     /* =========================
        LOAD ARTICLES
-        ========================== */
+    ========================== */
 
     async function loadArticles(){
 
@@ -2929,7 +2898,9 @@
         );
 
     }
-        /* =========================
+
+
+    /* =========================
        FULL SEARCH
     ========================== */
 
@@ -3183,3 +3154,4 @@
 
 </body>
 </html>
+  
