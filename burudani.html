@@ -156,34 +156,108 @@ input{
 }
 
 
-/* =========================
-   HEADER
-========================= */
+ /* =========================
+       HEADER - NEMBO KAMILI
+    ========================== */
+    
+header {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
 
-.site-header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
+  /* Samawati ya bahari, weupe na nyeusi kwa mbali */
+  background-color: #dcecf2;
+  background-image:
+    linear-gradient(
+      115deg,
+      rgba(9, 66, 92, 0.10),
+      rgba(255, 255, 255, 0.82),
+      rgba(25, 45, 55, 0.08)
+    ),
+    url("images/binsoud-habari-logo.png.png");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 88% 100px;
+
+  border-bottom: 1px solid #b7ccd5;
+  box-sizing: border-box;
 }
 
-.header-inner{
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
+.header-main {
+  width: 100%;
+  max-width: none;
+  min-height: 100px;
+  padding: 8px 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
 }
 
-.logo{
-  font-size:30px;
-  font-weight:900;
-  color:var(--blue);
-  letter-spacing:-1px;
-  white-space:nowrap;
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.logo span{
-  color:var(--red);
+.logo span {
+  color: var(--red);
 }
+
+    /* MAANDISHI YA BINSOUD HABARI YAMEHIFADHIWA */
+    .logo{
+      font-size:30px;
+      font-weight:900;
+      color:var(--blue);
+      letter-spacing:-1px;
+      white-space:nowrap;
+      flex-shrink:0;
+    }
+
+    .logo span{
+      color:var(--red);
+    }
+
+    .search-box{
+      flex:1;
+      max-width:430px;
+      position:relative;
+    }
+
+    .search-form{
+      display:flex;
+      width:100%;
+    }
+
+    .search-form input{
+      width:100%;
+      border:1px solid var(--border);
+      border-right:0;
+      outline:none;
+      padding:11px 14px;
+      border-radius:6px 0 0 6px;
+      background:#fff;
+    }
+
+    .search-form button{
+      border:0;
+      padding:0 18px;
+      color:#fff;
+      background:var(--blue);
+      cursor:pointer;
+      border-radius:0 6px 6px 0;
+      font-weight:700;
+    }
+
+    .search-form button:hover{
+      background:var(--blue-dark);
+    }
 
 
 /* =========================
