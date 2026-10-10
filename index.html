@@ -86,18 +86,20 @@
     
 header {
   position: relative;
-  width: 1000%;
+  width: 100%;
   min-height: 150px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.25);
   background-image: url("images/binsoud-habari-logo.png.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto 75px;
+  background-size: 100% 150px;
+  background-blend-mode: multiply;
   border-bottom: 1px solid var(--border);
+  box-sizing: border-box;
 }
 
 .header-main {
-  width: 1000%;
+  width: 100%;
   max-width: none;
   min-height: 150px;
   padding: 10px 3%;
@@ -107,6 +109,7 @@ header {
   gap: 15px;
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -120,14 +123,6 @@ header {
 .logo span {
   color: var(--red);
 }
-
-
-/* Punguza mwanga wa picha ya logo pekee */
-header {
-  background-blend-mode: multiply;
-  background-color: rgba(255, 255, 255, 0.25);
-}
-    }
 
     /* MAANDISHI YA BINSOUD HABARI YAMEHIFADHIWA */
     .logo{
