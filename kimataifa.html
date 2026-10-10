@@ -128,10 +128,39 @@
        HEADER
     ========================== */
 
-    header{
-      background:var(--white);
-      border-bottom:1px solid var(--border);
-    }
+   header{
+  background:transparent;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  width:100%;
+  background-image:url("images/binsoud-habari-logo.png.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:auto 110px;
+}
+
+.header-main{
+  min-height:130px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  position:relative;
+  z-index:1;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+  color:var(--blue);
+  letter-spacing:-1px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+.logo span{
+  color:var(--red);
+}
 
 
     .header-main{
