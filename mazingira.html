@@ -174,23 +174,33 @@
     }
 
 
-    .header-main{
-      width:100%;
-      max-width:none;
-      min-height:100px;
-      padding:8px 3%;
+    <header>
+    <div class="header-main">
 
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+        <a href="index.html" class="logo" aria-label="BINSOUD HABARI - Mwanzo">
+            <img
+                src="images/binsoud-habari-logo.png.png"
+                alt="BINSOUD HABARI"
+            >
+        </a>
 
-      position:relative;
-      z-index:1;
-      box-sizing:border-box;
-    }
+        <div class="search-box">
+            <form class="search-form" action="tafuta.html" method="get" role="search">
+                <input
+                    type="search"
+                    name="q"
+                    id="search-input"
+                    placeholder="Tafuta habari..."
+                    aria-label="Tafuta habari"
+                    autocomplete="off"
+                >
+                <button type="submit">Tafuta</button>
+            </form>
 
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
 
+  
     /* =========================
        LOGO
     ========================== */
