@@ -140,30 +140,25 @@ input{
 }
 
 
-/* =========================
-   TOP DATE BAR
-========================= */
-
-.top-date-bar{
-  background:var(--deep);
-  color:#fff;
-}
-
-.top-date-inner{
-  min-height:38px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-}
-
-.top-date{
-  color:#fff;
-  font-size:13px;
-  font-weight:600;
-}
-
-
  /* =========================
+       TOP DATE
+    ========================== */
+
+    .top-date{
+      background:var(--deep);
+      color:#fff;
+      font-size:13px;
+      padding:7px 0;
+    }
+
+
+    .top-date .container{
+      display:flex;
+      justify-content:flex-end;
+    }
+
+
+    /* =========================
        HEADER - NEMBO KAMILI
     ========================== */
     
@@ -265,8 +260,6 @@ header {
     .search-form button:hover{
       background:var(--blue-dark);
     }
-
-
 /* =========================
    SEARCH
 ========================= */
@@ -313,47 +306,7 @@ header {
 .search-form button:hover{
   background:var(--blue-dark);
 }
-
-
-/* =========================
-   SEARCH SUGGESTIONS
-========================= */
-
-.search-suggestions{
-  position:absolute;
-  top:calc(100% + 6px);
-  left:0;
-  right:0;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:7px;
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  z-index:1200;
-  display:none;
-}
-
-.search-suggestions.show{
-  display:block;
-}
-
-.search-suggestion{
-  display:block;
-  padding:10px 12px;
-  border-bottom:1px solid var(--border);
-  font-size:13px;
-  background:#fff;
-}
-
-.search-suggestion:last-child{
-  border-bottom:0;
-}
-
-.search-suggestion:hover{
-  background:#f7f9fb;
-}
-
-
+  
 /* =========================
    NAV
 ========================= */
