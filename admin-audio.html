@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="sw-TZ">
 <head>
@@ -8,422 +9,431 @@
 <meta name="theme-color" content="#0878c9">
 
 <style>
-:root{
-  --blue:#0878c9;
-  --blue2:#075a99;
-  --deep:#032f52;
-  --dark:#021d32;
-  --red:#e31b23;
-  --green:#16803c;
-  --white:#fff;
-  --bg:#f4f7fa;
-  --text:#172b3a;
-  --muted:#71808c;
-  --border:#e3e9ee;
-  --shadow:0 8px 28px rgba(0,40,70,.09)
+:root {
+  --blue: #0878c9;
+  --blue2: #075a99;
+  --deep: #032f52;
+  --dark: #021d32;
+  --red: #e31b23;
+  --green: #16803c;
+  --bg: #f4f7fa;
+  --text: #172b3a;
+  --muted: #71808c;
+  --border: #e3e9ee;
+  --shadow: 0 8px 28px rgba(0,40,70,.09);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text)
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-button,input,textarea,select{
-  font:inherit
+button, input, textarea, select {
+  font: inherit;
 }
 
-.top{
-  background:var(--dark);
-  color:#fff;
-  padding:12px 20px
+.top {
+  background: var(--dark);
+  color: white;
+  padding: 12px 20px;
 }
 
-.top-inner{
-  width:min(1200px,100%);
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap
+.top-inner {
+  width: min(1200px, 100%);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-.brand{
-  font-weight:900
+.brand {
+  font-weight: 900;
 }
 
-.top-links{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap
+.top-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.top-links a,.logout{
-  color:#fff;
-  text-decoration:none;
-  border:1px solid rgba(255,255,255,.25);
-  background:transparent;
-  padding:8px 12px;
-  border-radius:8px;
-  cursor:pointer
+.top-links a,
+.logout {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.25);
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-.top-links a:hover,.top-links a.active{
-  background:#fff;
-  color:var(--deep)
+.top-links a:hover,
+.top-links a.active {
+  background: white;
+  color: var(--deep);
 }
 
-.logout{
-  background:var(--red);
-  border-color:var(--red)
+.logout {
+  background: var(--red);
+  border-color: var(--red);
 }
 
-header{
-  background:linear-gradient(135deg,var(--blue),var(--blue2));
-  color:#fff
+header {
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+  color: white;
 }
 
-.header-inner{
-  width:min(1200px,100%);
-  margin:auto;
-  padding:20px
+.header-inner {
+  width: min(1200px, 100%);
+  margin: auto;
+  padding: 24px 20px;
 }
 
-h1{
-  font-size:28px;
-  margin-bottom:5px
+h1 {
+  font-size: 28px;
+  margin-bottom: 7px;
 }
 
-.subtitle{
-  opacity:.92;
-  line-height:1.5
+.subtitle {
+  opacity: .92;
+  line-height: 1.5;
 }
 
-.container{
-  width:min(1200px,calc(100% - 30px));
-  margin:25px auto
+.container {
+  width: min(1200px, calc(100% - 30px));
+  margin: 25px auto;
 }
 
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-bottom:25px
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
 }
 
-.stat{
-  background:#fff;
-  border-radius:14px;
-  padding:20px;
-  box-shadow:var(--shadow);
-  border:1px solid var(--border)
+.stat {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  min-width: 0;
 }
 
-.stat strong{
-  display:block;
-  font-size:30px;
-  color:var(--blue);
-  overflow-wrap:anywhere
+.stat strong {
+  display: block;
+  font-size: 27px;
+  color: var(--blue);
+  overflow-wrap: anywhere;
 }
 
-.stat span{
-  color:var(--muted);
-  font-size:14px
+.stat span {
+  color: var(--muted);
+  font-size: 14px;
 }
 
-.tabs{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:20px
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
-.tab{
-  border:1px solid var(--border);
-  background:#fff;
-  padding:11px 16px;
-  border-radius:9px;
-  cursor:pointer;
-  font-weight:700;
-  color:var(--text)
+.tab {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 11px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
 }
 
-.tab.active{
-  background:var(--blue);
-  color:#fff;
-  border-color:var(--blue)
+.tab.active {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
 }
 
-.panel{
-  display:none;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:15px;
-  box-shadow:var(--shadow);
-  padding:22px
+.panel {
+  display: none;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 22px;
 }
 
-.panel.active{
-  display:block
+.panel.active {
+  display: block;
 }
 
-.panel h2{
-  margin-bottom:18px;
-  color:var(--deep)
+.panel h2 {
+  margin-bottom: 18px;
+  color: var(--deep);
 }
 
-form{
-  display:grid;
-  gap:14px
+form {
+  display: grid;
+  gap: 15px;
 }
 
-label{
-  font-weight:700;
-  font-size:14px;
-  display:block;
-  margin-bottom:7px
+label {
+  font-weight: 700;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 7px;
 }
 
-input,textarea,select{
-  width:100%;
-  padding:12px;
-  border:1px solid var(--border);
-  border-radius:9px;
-  outline:none;
-  background:#fff
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  background: white;
+  color: var(--text);
 }
 
-textarea{
-  min-height:130px;
-  resize:vertical
+textarea {
+  min-height: 130px;
+  resize: vertical;
 }
 
-input:focus,textarea:focus,select:focus{
-  border-color:var(--blue)
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--blue);
 }
 
-.help{
-  font-size:13px;
-  color:var(--muted);
-  margin-top:6px;
-  line-height:1.5
+.help {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.5;
 }
 
-.submit,.btn{
-  border:0;
-  border-radius:8px;
-  padding:11px 14px;
-  cursor:pointer;
-  font-weight:700
+.submit,
+.btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  cursor: pointer;
+  font-weight: 700;
 }
 
-.submit{
-  background:var(--blue);
-  color:#fff;
-  padding:13px
+.submit {
+  background: var(--blue);
+  color: white;
+  padding: 14px;
 }
 
-.submit:disabled{
-  opacity:.6;
-  cursor:not-allowed
+.submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
 }
 
-.btn-blue{
-  background:var(--blue);
-  color:#fff
+.btn-blue {
+  background: var(--blue);
+  color: white;
 }
 
-.btn-red{
-  background:var(--red);
-  color:#fff
+.btn-red {
+  background: var(--red);
+  color: white;
 }
 
-.btn-gray{
-  background:#edf1f4;
-  color:#334
+.message,
+.error-box {
+  display: none;
+  padding: 14px;
+  border-radius: 9px;
+  line-height: 1.5;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
 }
 
-.message,.error-box{
-  display:none;
-  padding:14px;
-  border-radius:9px;
-  line-height:1.5;
-  margin-top:12px;
-  overflow-wrap:anywhere
+.success {
+  display: block;
+  background: #e8f8ee;
+  color: #16723a;
 }
 
-.success{
-  display:block;
-  background:#e8f8ee;
-  color:#16723a
+.error {
+  display: block;
+  background: #fff0f0;
+  color: #9f1c1c;
+  border: 1px solid #f0bcbc;
 }
 
-.error{
-  display:block;
-  background:#fff0f0;
-  color:#9f1c1c;
-  border:1px solid #f0bcbc
+.error-box {
+  margin-bottom: 20px;
 }
 
-.error-box{
-  margin-bottom:20px
+.preview {
+  display: none;
+  background: #f4f7fa;
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-.preview{
-  display:none;
-  background:#f4f7fa;
-  border:1px solid var(--border);
-  padding:14px;
-  border-radius:10px
+.preview img {
+  width: 220px;
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.preview img{
-  width:220px;
-  max-width:100%;
-  height:140px;
-  object-fit:cover;
-  border-radius:8px
+.preview audio {
+  width: 100%;
+  margin-top: 10px;
 }
 
-.preview audio{
-  width:100%;
-  margin-top:10px
+.audio-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
 }
 
-.audio-list{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:15px
+.audio-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  min-width: 0;
 }
 
-.audio-card{
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-  background:#fff;
-  min-width:0
+.audio-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  background: #edf1f4;
 }
 
-.audio-card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  display:block;
-  background:#edf1f4
+.audio-content {
+  padding: 15px;
 }
 
-.audio-content{
-  padding:15px
+.category {
+  display: inline-block;
+  background: #e6f3fc;
+  color: var(--blue2);
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 9px;
 }
 
-.category{
-  display:inline-block;
-  background:#e6f3fc;
-  color:var(--blue2);
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:800;
-  margin-bottom:9px
+.audio-content h3 {
+  color: var(--deep);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
 }
 
-.audio-content h3{
-  color:var(--deep);
-  line-height:1.4;
-  margin-bottom:8px;
-  overflow-wrap:anywhere
+.meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+  line-height: 1.5;
 }
 
-.meta{
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:10px;
-  line-height:1.5
+.audio-content p {
+  color: #435563;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
 }
 
-.audio-content p{
-  color:#435563;
-  line-height:1.55;
-  margin-bottom:12px;
-  overflow-wrap:anywhere
+.audio-player {
+  width: 100%;
+  margin-bottom: 12px;
 }
 
-.audio-player{
-  width:100%;
-  margin-bottom:12px
+.audio-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.audio-actions{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap
+.audio-actions button {
+  flex: 1;
 }
 
-.audio-actions button{
-  flex:1
+.empty,
+.loading {
+  padding: 30px;
+  text-align: center;
+  color: var(--muted);
+  background: #f8fafc;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  grid-column: 1 / -1;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
-.empty,.loading{
-  padding:30px;
-  text-align:center;
-  color:var(--muted);
-  background:#f8fafc;
-  border:1px dashed var(--border);
-  border-radius:10px;
-  grid-column:1/-1
+#accessDenied {
+  display: none;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+  line-height: 1.6;
 }
 
-.footer{
-  text-align:center;
-  padding:22px;
-  color:var(--muted);
-  font-size:13px
+.footer {
+  text-align: center;
+  padding: 22px;
+  color: var(--muted);
+  font-size: 13px;
 }
 
-#accessDenied{
-  display:none;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:25px;
-  box-shadow:var(--shadow);
-  line-height:1.6
-}
-
-@media(max-width:850px){
-  .audio-list{
-    grid-template-columns:repeat(2,minmax(0,1fr))
+@media (max-width: 850px) {
+  .audio-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media(max-width:600px){
-  .stats,.audio-list{
-    grid-template-columns:1fr
+@media (max-width: 600px) {
+  .stats,
+  .audio-list {
+    grid-template-columns: 1fr;
   }
 
-  .container{
-    width:calc(100% - 20px)
+  .container {
+    width: calc(100% - 20px);
   }
 
-  .panel{
-    padding:16px
+  .panel {
+    padding: 16px;
   }
 
-  h1{
-    font-size:24px
+  h1 {
+    font-size: 24px;
   }
 
-  .top-inner{
-    align-items:flex-start;
-    flex-direction:column
+  .top-inner {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 </style>
@@ -433,18 +443,14 @@ input:focus,textarea:focus,select:focus{
 
 <div class="top">
   <div class="top-inner">
-
-    <div class="brand">
-      📰 BINSOUD HABARI — ADMIN
-    </div>
+    <div class="brand">📰 BINSOUD HABARI — ADMIN</div>
 
     <nav class="top-links">
       <a href="admin.html">Dashboard</a>
       <a href="audio.html">Audio</a>
       <a href="admin-audio.html" class="active">Admin Audio</a>
-      <button class="logout" id="logoutBtn">Toka</button>
+      <button class="logout" id="logoutBtn" type="button">Toka</button>
     </nav>
-
   </div>
 </div>
 
@@ -459,22 +465,24 @@ input:focus,textarea:focus,select:focus{
 
 <main class="container">
 
-  <div id="errorBox" class="error-box"></div>
+  <div id="errorBox" class="error-box" role="alert"></div>
 
   <div id="accessDenied">
     <h2>Huna ruhusa ya kufungua ukurasa huu</h2>
     <p>
-      Akaunti yako lazima iwe na role
-      <strong>admin</strong> na
-      <strong>active: true</strong>
-      ndani ya mkusanyiko wa users wa Firebase.
+      Akaunti yako lazima iwe na <strong>role: "admin"</strong>
+      na <strong>active: true</strong> ndani ya hati ya
+      <strong>users/{uid}</strong> katika Firebase.
+    </p>
+    <p style="margin-top:12px">
+      Hakikisha umeingia kwa akaunti sahihi na hati yako ya admin
+      ina taarifa hizo.
     </p>
   </div>
 
   <div id="adminContent" style="display:none">
 
     <section class="stats">
-
       <div class="stat">
         <strong id="totalCount">0</strong>
         <span>Audio zote</span>
@@ -489,21 +497,19 @@ input:focus,textarea:focus,select:focus{
         <strong id="adminEmail">—</strong>
         <span>Admin aliyeingia</span>
       </div>
-
     </section>
 
     <nav class="tabs">
-      <button class="tab active" data-tab="add">
+      <button class="tab active" type="button" data-tab="add">
         ➕ Ongeza Audio
       </button>
 
-      <button class="tab" data-tab="all">
+      <button class="tab" type="button" data-tab="all">
         🎧 Audio zilizohifadhiwa
       </button>
     </nav>
 
     <section class="panel active" id="add">
-
       <h2>Ongeza Audio Mpya</h2>
 
       <form id="audioForm">
@@ -512,15 +518,16 @@ input:focus,textarea:focus,select:focus{
           <label for="title">Kichwa cha Audio</label>
           <input
             id="title"
+            name="title"
             required
+            maxlength="200"
             placeholder="Mfano: Uchambuzi wa habari za leo"
           >
         </div>
 
         <div>
           <label for="category">Mada ya Audio</label>
-
-          <select id="category" required>
+          <select id="category" name="category" required>
             <option value="">Chagua mada</option>
             <option value="Kitaifa">Kitaifa</option>
             <option value="Siasa">Siasa</option>
@@ -538,7 +545,9 @@ input:focus,textarea:focus,select:focus{
           <label for="author">✍️ Mwandishi</label>
           <input
             id="author"
+            name="author"
             required
+            maxlength="120"
             placeholder="Mfano: Abdallah Binsoud"
           >
         </div>
@@ -547,8 +556,10 @@ input:focus,textarea:focus,select:focus{
           <label for="description">Maelezo ya Audio</label>
           <textarea
             id="description"
+            name="description"
             required
-            placeholder="Andika maelezo mafupi kuhusu audio hii..."
+            maxlength="5000"
+            placeholder="Andika maelezo kuhusu audio hii..."
           ></textarea>
         </div>
 
@@ -557,18 +568,18 @@ input:focus,textarea:focus,select:focus{
           <input
             type="url"
             id="imageUrl"
+            name="imageUrl"
             required
             placeholder="https://example.com/picha.jpg"
           >
           <p class="help">
             Weka kiungo cha picha kinachopatikana mtandaoni.
           </p>
-        </div>
 
-        <div class="preview" id="imagePreviewBox">
-          <strong>Preview ya Picha</strong>
-          <br><br>
-          <img id="imagePreview" alt="Preview ya picha">
+          <div class="preview" id="imagePreviewBox">
+            <strong>Preview ya Picha</strong><br><br>
+            <img id="imagePreview" alt="Preview ya picha">
+          </div>
         </div>
 
         <div>
@@ -576,37 +587,35 @@ input:focus,textarea:focus,select:focus{
           <input
             type="url"
             id="audioUrl"
+            name="audioUrl"
             required
             placeholder="https://example.com/audio.mp3"
           >
           <p class="help">
-            Weka URL ya moja kwa moja ya faili la sauti, kwa mfano MP3.
+            Weka URL ya moja kwa moja ya faili la sauti.
+            Kiungo kinapaswa kuruhusu kivinjari kucheza sauti.
           </p>
-        </div>
 
-        <div class="preview" id="audioPreviewBox">
-          <strong>Preview ya Audio</strong>
-          <audio id="audioPreview" controls></audio>
+          <div class="preview" id="audioPreviewBox">
+            <strong>Preview ya Audio</strong>
+            <audio id="audioPreview" controls preload="none"></audio>
+          </div>
         </div>
 
         <button type="submit" class="submit" id="saveBtn">
           🚀 Hifadhi Audio
         </button>
-
       </form>
 
-      <div id="message" class="message"></div>
-
+      <div id="message" class="message" role="status"></div>
     </section>
 
     <section class="panel" id="all">
-
       <h2>Audio Zilizohifadhiwa</h2>
 
       <div class="audio-list" id="audioList">
-        <div class="loading">Inapakia audio...</div>
+        <div class="loading">Inasubiri uthibitisho wa admin...</div>
       </div>
-
     </section>
 
   </div>
@@ -617,7 +626,6 @@ input:focus,textarea:focus,select:focus{
 </div>
 
 <script type="module">
-
 import {
   initializeApp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
@@ -658,18 +666,25 @@ const $ = id => document.getElementById(id);
 
 let currentUser = null;
 let audioRecords = [];
+let authProcessing = false;
 
 
 function showError(error) {
   console.error("Admin Audio Error:", error);
 
   $("errorBox").textContent =
-    "Kosa: " +
+    "Kosa la mfumo " +
     (error?.code || "") +
     " — " +
-    (error?.message || error);
+    (error?.message || String(error));
 
   $("errorBox").style.display = "block";
+}
+
+
+function clearError() {
+  $("errorBox").textContent = "";
+  $("errorBox").style.display = "none";
 }
 
 
@@ -691,23 +706,23 @@ function escapeHTML(value) {
 
 
 function dateValue(item) {
-  const v = item.createdAt || item.date || "";
+  const value = item.createdAt || item.date || "";
 
-  if (v && typeof v.toDate === "function") {
-    return v.toDate().getTime();
+  if (value && typeof value.toDate === "function") {
+    return value.toDate().getTime();
   }
 
-  const t = new Date(v).getTime();
+  const timestamp = new Date(value).getTime();
 
-  return Number.isNaN(t) ? 0 : t;
+  return Number.isNaN(timestamp) ? 0 : timestamp;
 }
 
 
 function dateText(item) {
-  const v = item.createdAt;
+  const value = item.createdAt;
 
-  if (v && typeof v.toDate === "function") {
-    return v.toDate().toLocaleDateString("sw-TZ", {
+  if (value && typeof value.toDate === "function") {
+    return value.toDate().toLocaleDateString("sw-TZ", {
       year: "numeric",
       month: "long",
       day: "numeric"
@@ -722,18 +737,21 @@ function dateText(item) {
 
 document.querySelectorAll(".tab").forEach(tab => {
   tab.addEventListener("click", () => {
-
-    document.querySelectorAll(".tab").forEach(t => {
-      t.classList.remove("active");
+    document.querySelectorAll(".tab").forEach(button => {
+      button.classList.remove("active");
     });
 
-    document.querySelectorAll(".panel").forEach(p => {
-      p.classList.remove("active");
+    document.querySelectorAll(".panel").forEach(panel => {
+      panel.classList.remove("active");
     });
 
     tab.classList.add("active");
-    $(tab.dataset.tab).classList.add("active");
 
+    const panel = $(tab.dataset.tab);
+
+    if (panel) {
+      panel.classList.add("active");
+    }
   });
 });
 
@@ -753,21 +771,36 @@ $("logoutBtn").addEventListener("click", async () => {
 /* ADMIN AUTHENTICATION */
 
 onAuthStateChanged(auth, async user => {
-
-  if (!user) {
-    window.location.replace("login.html");
-    return;
-  }
+  if (authProcessing) return;
+  authProcessing = true;
 
   try {
+    clearError();
+
+    if (!user) {
+      currentUser = null;
+      $("adminName").textContent =
+        "Hujaingia. Inaelekezwa kwenye ukurasa wa kuingia...";
+
+      window.location.replace("login.html");
+      return;
+    }
+
+    $("adminName").textContent =
+      "Inathibitisha ruhusa za admin...";
 
     const userSnap = await getDoc(
       doc(db, "users", user.uid)
     );
 
     if (!userSnap.exists()) {
-      await signOut(auth);
-      window.location.replace("login.html");
+      currentUser = null;
+      $("adminContent").style.display = "none";
+      $("accessDenied").style.display = "block";
+
+      $("adminName").textContent =
+        "Hati ya akaunti haijapatikana kwenye users.";
+
       return;
     }
 
@@ -777,14 +810,12 @@ onAuthStateChanged(auth, async user => {
       userData.role !== "admin" ||
       userData.active !== true
     ) {
-
-      await signOut(auth);
-
+      currentUser = null;
       $("adminContent").style.display = "none";
       $("accessDenied").style.display = "block";
 
       $("adminName").textContent =
-        "Akaunti hii haina ruhusa ya admin.";
+        "Akaunti hii haina ruhusa za admin.";
 
       return;
     }
@@ -803,16 +834,23 @@ onAuthStateChanged(auth, async user => {
     await loadAudio();
 
   } catch (error) {
-    showError(error);
-  }
+    $("adminName").textContent =
+      "Imeshindikana kuthibitisha akaunti.";
 
+    $("audioList").innerHTML =
+      '<div class="empty">Imeshindikana kuanzisha mfumo. Angalia ujumbe wa kosa hapo juu.</div>';
+
+    showError(error);
+
+  } finally {
+    authProcessing = false;
+  }
 });
 
 
 /* IMAGE PREVIEW */
 
 $("imageUrl").addEventListener("input", () => {
-
   const url = $("imageUrl").value.trim();
 
   $("imagePreviewBox").style.display =
@@ -823,19 +861,17 @@ $("imageUrl").addEventListener("input", () => {
   } else {
     $("imagePreview").removeAttribute("src");
   }
-
 });
 
 $("imagePreview").addEventListener("error", () => {
   $("imagePreview").alt =
-    "Picha haikuweza kupakiwa; hakiki URL.";
+    "Picha haikuweza kupakiwa. Hakiki URL.";
 });
 
 
 /* AUDIO PREVIEW */
 
 $("audioUrl").addEventListener("input", () => {
-
   const url = $("audioUrl").value.trim();
 
   $("audioPreviewBox").style.display =
@@ -845,20 +881,20 @@ $("audioUrl").addEventListener("input", () => {
     $("audioPreview").src = url;
   } else {
     $("audioPreview").removeAttribute("src");
+    $("audioPreview").load();
   }
-
 });
 
 
 /* SAVE AUDIO */
 
 $("audioForm").addEventListener("submit", async event => {
-
   event.preventDefault();
+  clearError();
 
   if (!currentUser) {
     showMessage(
-      "Tafadhali ingia kama admin kwanza.",
+      "Akaunti ya admin haijathibitishwa. Tafadhali ingia tena.",
       "error"
     );
     return;
@@ -887,97 +923,80 @@ $("audioForm").addEventListener("submit", async event => {
   }
 
   try {
-
     $("saveBtn").disabled = true;
     $("saveBtn").textContent = "Inahifadhi...";
 
     await addDoc(collection(db, "articles"), {
-
       title: title,
-
       category: "Audio",
       audioTopic: topic,
-
       author: author,
-
       description: description,
       intro: description,
       content: description,
-
       image: imageUrl,
       imageUrl: imageUrl,
-
       audioUrl: audioUrl,
-
       authorId: currentUser.uid,
       adminEmail: currentUser.email || "",
-
       status: "published",
-
       createdAt: serverTimestamp(),
-
       date: new Date().toLocaleDateString("sw-TZ", {
         year: "numeric",
         month: "long",
         day: "numeric"
       })
-
     });
 
     $("audioForm").reset();
 
     $("imagePreviewBox").style.display = "none";
     $("audioPreviewBox").style.display = "none";
-
     $("imagePreview").removeAttribute("src");
     $("audioPreview").removeAttribute("src");
+    $("audioPreview").load();
 
     showMessage(
-      "Audio imehifadhiwa kikamilifu na imeongezwa kwenye articles kwa category Audio.",
+      "Audio imehifadhiwa kikamilifu kwenye articles.",
       "success"
     );
 
     await loadAudio();
 
   } catch (error) {
-
     showMessage(
-      "Imeshindikana kuhifadhi audio: " + error.message,
+      "Imeshindikana kuhifadhi audio: " +
+      (error?.message || error),
       "error"
     );
 
-    console.error(error);
+    showError(error);
 
   } finally {
-
     $("saveBtn").disabled = false;
     $("saveBtn").textContent = "🚀 Hifadhi Audio";
-
   }
-
 });
 
 
-/* LOAD SAVED AUDIO */
+/* LOAD AUDIO */
 
 async function loadAudio() {
-
   $("audioList").innerHTML =
     '<div class="loading">Inapakia audio...</div>';
 
   try {
-
     const snapshot = await getDocs(
       collection(db, "articles")
     );
 
     audioRecords = snapshot.docs
-      .map(d => ({
-        id: d.id,
-        ...d.data()
+      .map(document => ({
+        id: document.id,
+        ...document.data()
       }))
-      .filter(a =>
-        String(a.category || "")
+      .filter(item =>
+        String(item.category || "")
           .trim()
           .toLowerCase() === "audio"
       )
@@ -989,70 +1008,65 @@ async function loadAudio() {
     $("topicCount").textContent =
       new Set(
         audioRecords
-          .map(a => a.audioTopic)
+          .map(item => item.audioTopic)
           .filter(Boolean)
       ).size;
 
-    if (!audioRecords.length) {
-
+    if (audioRecords.length === 0) {
       $("audioList").innerHTML =
-        '<div class="empty">Hakuna audio iliyohifadhiwa bado.</div>';
-
+        '<div class="empty">Hakuna audio iliyopatikana kwenye articles. Audio mpya zitahifadhiwa hapa baada ya kuongezwa.</div>';
       return;
     }
 
-    $("audioList").innerHTML = audioRecords.map(a => `
+    $("audioList").innerHTML = audioRecords.map(item => {
+      const image =
+        item.image ||
+        item.imageUrl ||
+        "images/habari.jpg";
 
-      <article class="audio-card">
+      const audioUrl = item.audioUrl || "";
 
-        <img
-          src="${escapeHTML(a.image || a.imageUrl || "images/habari.jpg")}"
-          alt="${escapeHTML(a.title || "Audio")}"
-          onerror="this.onerror=null;this.style.display='none'"
-        >
+      return `
+        <article class="audio-card">
+          <img
+            src="${escapeHTML(image)}"
+            alt="${escapeHTML(item.title || "Audio")}"
+            onerror="this.onerror=null;this.style.display='none'"
+          >
 
-        <div class="audio-content">
+          <div class="audio-content">
+            <span class="category">
+              ${escapeHTML(item.audioTopic || "Audio")}
+            </span>
 
-          <span class="category">
-            ${escapeHTML(a.audioTopic || "Audio")}
-          </span>
+            <h3>${escapeHTML(item.title || "Bila kichwa")}</h3>
 
-          <h3>
-            ${escapeHTML(a.title || "Bila kichwa")}
-          </h3>
+            <div class="meta">
+              Mwandishi: ${escapeHTML(item.author || "Haijawekwa")}
+              · ${escapeHTML(dateText(item))}
+            </div>
 
-          <div class="meta">
-            Mwandishi:
-            ${escapeHTML(a.author || "Haijawekwa")}
-            ·
-            ${escapeHTML(dateText(a))}
+            <p>
+              ${escapeHTML(item.description || item.intro || "")}
+            </p>
+
+            ${
+              audioUrl
+                ? `<audio class="audio-player" controls preload="none" src="${escapeHTML(audioUrl)}"></audio>`
+                : `<p>URL ya sauti haijawekwa.</p>`
+            }
+
+            <div class="audio-actions">
+              <button
+                type="button"
+                class="btn btn-red delete-btn"
+                data-id="${escapeHTML(item.id)}"
+              >🗑️ Futa Audio</button>
+            </div>
           </div>
-
-          <p>
-            ${escapeHTML(a.description || a.intro || "")}
-          </p>
-
-          <audio
-            class="audio-player"
-            controls
-            preload="none"
-            src="${escapeHTML(a.audioUrl || "")}"
-          ></audio>
-
-          <div class="audio-actions">
-            <button
-              class="btn btn-red delete-btn"
-              data-id="${escapeHTML(a.id)}"
-            >
-              🗑️ Futa Audio
-            </button>
-          </div>
-
-        </div>
-
-      </article>
-
-    `).join("");
+        </article>
+      `;
+    }).join("");
 
     document.querySelectorAll(".delete-btn").forEach(button => {
       button.addEventListener("click", () => {
@@ -1061,20 +1075,18 @@ async function loadAudio() {
     });
 
   } catch (error) {
-
-    showError(error);
-
     $("audioList").innerHTML =
       '<div class="empty">Imeshindikana kupakia audio. Angalia ujumbe wa kosa hapo juu.</div>';
 
+    showError(error);
   }
-
 }
 
 
 /* DELETE AUDIO */
 
 async function deleteAudio(id) {
+  clearError();
 
   if (!currentUser) {
     alert("Tafadhali ingia kama admin.");
@@ -1088,40 +1100,34 @@ async function deleteAudio(id) {
   }
 
   try {
-
-    const item = audioRecords.find(a => a.id === id);
+    const item = audioRecords.find(record => record.id === id);
 
     if (
       !item ||
       String(item.category || "").trim().toLowerCase() !== "audio"
     ) {
-      alert(
-        "Rekodi hii si audio inayosimamiwa na ukurasa huu."
-      );
+      alert("Rekodi hii si audio inayosimamiwa na ukurasa huu.");
       return;
     }
 
-    await deleteDoc(
-      doc(db, "articles", id)
-    );
+    await deleteDoc(doc(db, "articles", id));
 
     await loadAudio();
 
     alert("Audio imefutwa.");
 
   } catch (error) {
-
     showError(error);
 
     alert(
-      "Imeshindikana kufuta audio: " + error.message
+      "Imeshindikana kufuta audio: " +
+      (error?.message || error)
     );
-
   }
-
 }
 
 </script>
 
 </body>
 </html>
+```
