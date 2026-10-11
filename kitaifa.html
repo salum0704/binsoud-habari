@@ -37,7 +37,6 @@
     href="https://salum0704.github.io/binsoud-habari/kitaifa.html"
   >
 
-
   <style>
 
     :root{
@@ -55,18 +54,15 @@
       --radius:8px;
     }
 
-
     *{
       box-sizing:border-box;
       margin:0;
       padding:0;
     }
 
-
     html{
       scroll-behavior:smooth;
     }
-
 
     body{
       font-family:Arial,Helvetica,sans-serif;
@@ -75,12 +71,10 @@
       line-height:1.6;
     }
 
-
     a{
       color:inherit;
       text-decoration:none;
     }
-
 
     img{
       display:block;
@@ -88,18 +82,15 @@
       max-width:100%;
     }
 
-
     button,
     input{
       font:inherit;
     }
 
-
     .container{
       width:min(1180px,92%);
       margin:auto;
     }
-
 
     /* =========================
        TOP DATE
@@ -112,68 +103,65 @@
       padding:7px 0;
     }
 
-
     .top-date .container{
       display:flex;
       justify-content:flex-end;
     }
 
-
     /* =========================
        HEADER - NEMBO KAMILI
     ========================== */
-    
-header {
-  position: relative;
-  width: 100%;
-  min-height: 100px;
 
-  /* Samawati ya bahari, weupe na nyeusi kwa mbali */
-  background-color: #dcecf2;
-  background-image:
-    linear-gradient(
-      115deg,
-      rgba(9, 66, 92, 0.10),
-      rgba(255, 255, 255, 0.82),
-      rgba(25, 45, 55, 0.08)
-    ),
-    url("images/binsoud-habari-logo.png.png");
+    header {
+      position: relative;
+      width: 100%;
+      min-height: 100px;
+      background-color: #dcecf2;
+      background-image:
+        linear-gradient(
+          115deg,
+          rgba(9, 66, 92, 0.10),
+          rgba(255, 255, 255, 0.82),
+          rgba(25, 45, 55, 0.08)
+        ),
+        url("images/binsoud-habari-logo.png.png");
 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 88% 100px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 88% 100px;
 
-  border-bottom: 1px solid #b7ccd5;
-  box-sizing: border-box;
-}
+      border-bottom: 1px solid #b7ccd5;
+      box-sizing: border-box;
+    }
 
-.header-main {
-  width: 100%;
-  max-width: none;
-  min-height: 100px;
-  padding: 8px 3%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-}
+    .header-main {
+      width: 100%;
+      max-width: none;
+      min-height: 100px;
+      padding: 8px 3%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+    }
 
-.logo {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: 0;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
-.logo span {
-  color: var(--red);
-}
+    .logo span {
+      color: var(--red);
+    }
 
     /* MAANDISHI YA BINSOUD HABARI YAMEHIFADHIWA */
+
     .logo{
       font-size:30px;
       font-weight:900;
@@ -232,12 +220,10 @@ header {
       position:relative;
     }
 
-
     .search-form{
       display:flex;
       width:100%;
     }
-
 
     .search-form input{
       width:100%;
@@ -249,11 +235,9 @@ header {
       background:#fff;
     }
 
-
     .search-form input:focus{
       border-color:var(--blue);
     }
-
 
     .search-form button{
       border:0;
@@ -265,11 +249,9 @@ header {
       font-weight:700;
     }
 
-
     .search-form button:hover{
       background:var(--blue-dark);
     }
-
 
     .search-suggestions{
       display:none;
@@ -286,11 +268,9 @@ header {
       overflow-y:auto;
     }
 
-
     .search-suggestions.active{
       display:block;
     }
-
 
     .search-suggestion{
       display:flex;
@@ -302,16 +282,13 @@ header {
       background:#fff;
     }
 
-
     .search-suggestion:last-child{
       border-bottom:0;
     }
 
-
     .search-suggestion:hover{
       background:#f4f8fc;
     }
-
 
     .search-suggestion-image{
       width:65px;
@@ -322,11 +299,9 @@ header {
       flex-shrink:0;
     }
 
-
     .search-suggestion-content{
       min-width:0;
     }
-
 
     .search-suggestion-title{
       color:var(--deep);
@@ -335,13 +310,11 @@ header {
       font-weight:800;
     }
 
-
     .search-suggestion-category{
       color:var(--muted);
       font-size:11px;
       margin-top:2px;
     }
-
 
     .search-no-result{
       padding:14px;
@@ -349,7 +322,6 @@ header {
       color:var(--muted);
       font-size:13px;
     }
-
 
     /* =========================
        NAVIGATION
@@ -360,7 +332,6 @@ header {
       color:#fff;
     }
 
-
     .nav .container{
       display:flex;
       align-items:center;
@@ -369,11 +340,9 @@ header {
       scrollbar-width:none;
     }
 
-
     .nav .container::-webkit-scrollbar{
       display:none;
     }
-
 
     .nav a{
       display:block;
@@ -384,12 +353,10 @@ header {
       transition:.2s;
     }
 
-
     .nav a:hover,
     .nav a.active{
       background:var(--blue-dark);
     }
-
 
     /* =========================
        BREAKING NEWS
@@ -400,13 +367,11 @@ header {
       border-bottom:1px solid var(--border);
     }
 
-
     .breaking-inner{
       display:flex;
       align-items:center;
       min-height:44px;
     }
-
 
     .breaking-label{
       background:var(--red);
@@ -417,13 +382,11 @@ header {
       white-space:nowrap;
     }
 
-
     .breaking-content{
       flex:1;
       overflow:hidden;
       padding-left:14px;
     }
-
 
     #breakingText{
       display:block;
@@ -435,11 +398,9 @@ header {
       cursor:pointer;
     }
 
-
     #breakingText:hover{
       color:var(--red);
     }
-
 
     /* =========================
        PAGE HEADER
@@ -451,7 +412,6 @@ header {
       padding:28px 0 22px;
     }
 
-
     .page-heading{
       display:flex;
       align-items:end;
@@ -459,12 +419,10 @@ header {
       gap:20px;
     }
 
-
     .heading-left{
       border-left:5px solid var(--blue);
       padding-left:14px;
     }
-
 
     .heading-left h1{
       color:var(--deep);
@@ -473,19 +431,16 @@ header {
       margin-bottom:6px;
     }
 
-
     .heading-left p{
       color:var(--muted);
       font-size:14px;
     }
-
 
     .current-date{
       color:var(--muted);
       font-size:12px;
       white-space:nowrap;
     }
-
 
     /* =========================
        MAIN
@@ -494,7 +449,6 @@ header {
     main{
       padding:28px 0 55px;
     }
-
 
     /* =========================
        HERO
@@ -507,7 +461,6 @@ header {
       margin-bottom:30px;
     }
 
-
     .hero-card{
       background:#fff;
       border:1px solid var(--border);
@@ -518,12 +471,10 @@ header {
       transition:.2s;
     }
 
-
     .hero-card:hover{
       transform:translateY(-3px);
       box-shadow:0 9px 25px rgba(13,47,79,.12);
     }
-
 
     .hero-image{
       width:100%;
@@ -532,11 +483,9 @@ header {
       background:#e9eef5;
     }
 
-
     .hero-content{
       padding:18px;
     }
-
 
     .category-label{
       display:inline-block;
@@ -547,7 +496,6 @@ header {
       margin-bottom:7px;
     }
 
-
     .hero-title{
       font-size:28px;
       line-height:1.22;
@@ -556,20 +504,17 @@ header {
       font-weight:900;
     }
 
-
     .hero-description{
       color:var(--muted);
       font-size:14px;
       line-height:1.6;
     }
 
-
     .article-time{
       color:var(--muted);
       font-size:12px;
       margin-top:10px;
     }
-
 
     /* =========================
        SIDE NEWS
@@ -581,7 +526,6 @@ header {
       gap:14px;
     }
 
-
     .side-heading{
       font-size:18px;
       color:var(--deep);
@@ -589,7 +533,6 @@ header {
       padding-bottom:9px;
       border-bottom:3px solid var(--blue);
     }
-
 
     .side-card{
       background:#fff;
@@ -604,12 +547,10 @@ header {
       cursor:pointer;
     }
 
-
     .side-card:hover{
       transform:translateY(-2px);
       box-shadow:var(--shadow);
     }
-
 
     .side-image{
       width:105px;
@@ -619,11 +560,9 @@ header {
       background:#e9eef5;
     }
 
-
     .side-content{
       min-width:0;
     }
-
 
     .side-title{
       font-size:14px;
@@ -632,18 +571,15 @@ header {
       color:var(--deep);
     }
 
-
     .side-title:hover{
       color:var(--blue);
     }
-
 
     .side-time{
       color:var(--muted);
       font-size:10px;
       margin-top:6px;
     }
-
 
     /* =========================
        SECTION HEAD
@@ -659,20 +595,17 @@ header {
       padding-bottom:8px;
     }
 
-
     .section-head h2{
       font-size:21px;
       color:var(--blue-dark);
       text-transform:uppercase;
     }
 
-
     .section-head span{
       color:var(--blue);
       font-size:12px;
       font-weight:700;
     }
-
 
     /* =========================
        NEWS GRID
@@ -684,7 +617,6 @@ header {
       gap:18px;
     }
 
-
     .news-card{
       background:#fff;
       border:1px solid var(--border);
@@ -695,12 +627,10 @@ header {
       transition:transform .2s,box-shadow .2s;
     }
 
-
     .news-card:hover{
       transform:translateY(-3px);
       box-shadow:0 9px 25px rgba(13,47,79,.12);
     }
-
 
     .news-image{
       width:100%;
@@ -709,11 +639,9 @@ header {
       background:#e9eef5;
     }
 
-
     .news-body{
       padding:14px;
     }
-
 
     .news-category{
       display:inline-block;
@@ -724,7 +652,6 @@ header {
       margin-bottom:6px;
     }
 
-
     .news-title{
       font-size:18px;
       line-height:1.3;
@@ -732,7 +659,6 @@ header {
       font-weight:900;
       margin-bottom:8px;
     }
-
 
     .news-description{
       color:var(--muted);
@@ -744,13 +670,42 @@ header {
       overflow:hidden;
     }
 
-
     .news-time{
       color:var(--muted);
       font-size:11px;
       margin-top:10px;
     }
 
+    /* =========================
+       ONA HABARI ZAIDI
+    ========================== */
+
+    .load-more-container{
+      display:flex;
+      justify-content:center;
+      margin-top:25px;
+    }
+
+    .load-more-button{
+      background:var(--blue);
+      color:#fff;
+      border:0;
+      border-radius:6px;
+      padding:12px 28px;
+      font-size:14px;
+      font-weight:800;
+      cursor:pointer;
+      transition:background .2s;
+    }
+
+    .load-more-button:hover{
+      background:var(--blue-dark);
+    }
+
+    .load-more-button:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+    }
 
     /* =========================
        STATES
@@ -765,29 +720,24 @@ header {
       text-align:center;
     }
 
-
     .state-icon{
       font-size:42px;
       margin-bottom:10px;
     }
-
 
     .state h3{
       color:var(--deep);
       margin-bottom:6px;
     }
 
-
     .state p{
       color:var(--muted);
       font-size:13px;
     }
 
-
     .hidden{
       display:none !important;
     }
-
 
     /* =========================
        FOOTER
@@ -799,7 +749,6 @@ header {
       margin-top:10px;
     }
 
-
     .footer-main{
       padding:35px 0;
       display:grid;
@@ -807,29 +756,24 @@ header {
       gap:30px;
     }
 
-
     .footer-logo{
       font-size:25px;
       font-weight:900;
       margin-bottom:10px;
     }
 
-
     .footer-logo span{
       color:var(--red);
     }
-
 
     footer p{
       color:#cbd5e1;
       font-size:14px;
     }
 
-
     footer h3{
       margin-bottom:10px;
     }
-
 
     .footer-links{
       display:flex;
@@ -837,17 +781,14 @@ header {
       gap:7px;
     }
 
-
     .footer-links a{
       color:#dbe7f5;
       font-size:14px;
     }
 
-
     .footer-links a:hover{
       color:#fff;
     }
-
 
     .copyright{
       border-top:1px solid rgba(255,255,255,.12);
@@ -856,7 +797,6 @@ header {
       font-size:13px;
       text-align:center;
     }
-
 
     /* =========================
        RESPONSIVE
@@ -870,26 +810,21 @@ header {
         padding:16px 0;
       }
 
-
       .logo{
         text-align:center;
       }
-
 
       .search-box{
         max-width:none;
       }
 
-
       .hero-grid{
         grid-template-columns:1fr;
       }
 
-
       .news-grid{
         grid-template-columns:repeat(2,1fr);
       }
-
 
       .footer-main{
         grid-template-columns:1fr 1fr;
@@ -897,81 +832,66 @@ header {
 
     }
 
-
     @media(max-width:600px){
 
       main{
         padding-top:18px;
       }
 
-
       .page-header{
         padding:22px 0 18px;
       }
-
 
       .page-heading{
         display:block;
       }
 
-
       .heading-left h1{
         font-size:26px;
       }
-
 
       .current-date{
         margin-top:9px;
         margin-left:19px;
       }
 
-
       .hero-image{
         height:260px;
       }
-
 
       .hero-title{
         font-size:23px;
       }
 
-
       .news-grid{
         grid-template-columns:1fr;
       }
-
 
       .news-image{
         height:210px;
       }
 
-
       .side-card{
         grid-template-columns:95px 1fr;
       }
-
 
       .side-image{
         width:95px;
         height:80px;
       }
 
-
       .footer-main{
         grid-template-columns:1fr;
       }
-
 
       .breaking-label{
         padding:10px;
         font-size:11px;
       }
 
-
       .breaking-content{
         padding-left:9px;
       }
-
 
       .search-suggestions{
         max-height:300px;
@@ -983,9 +903,7 @@ header {
 
 </head>
 
-
 <body>
-
 
   <!-- =========================
        TOP DATE
@@ -1001,7 +919,6 @@ header {
 
   </div>
 
-
   <!-- =========================
        HEADER
   ========================== -->
@@ -1009,7 +926,6 @@ header {
   <header>
 
     <div class="container header-main">
-
 
       <a
         href="index.html"
@@ -1019,7 +935,6 @@ header {
         BINSOUD <span>HABARI</span>
 
       </a>
-
 
       <!-- SEARCH -->
 
@@ -1043,7 +958,6 @@ header {
 
         </form>
 
-
         <div
           id="searchSuggestions"
           class="search-suggestions"
@@ -1051,11 +965,9 @@ header {
 
       </div>
 
-
     </div>
 
   </header>
-
 
   <!-- =========================
        NAVIGATION
@@ -1065,11 +977,9 @@ header {
 
     <div class="container">
 
-
       <a href="index.html">
         HOME
       </a>
-
 
       <a
         href="kitaifa.html"
@@ -1078,66 +988,53 @@ header {
         KITAIFA
       </a>
 
-
       <a href="kimataifa.html">
         MATAIFA
       </a>
-
 
       <a href="dini.html">
         DINI
       </a>
 
-
       <a href="michezo.html">
         MICHEZO
       </a>
-
 
       <a href="mazingira.html">
         MAZINGIRA
       </a>
 
-
       <a href="burudani.html">
         BURUDANI
       </a>
-
 
       <a href="siasa.html">
         SIASA
       </a>
 
-
       <a href="biashara.html">
         UCHUMI
       </a>
-
 
       <a href="makala.html">
         MAKALA
       </a>
 
-
       <a href="video.html">
         VIDEO
       </a>
-
 
       <a href="audio.html">
         AUDIO
       </a>
 
-
       <a href="contact.html">
         MAWASILIANO
       </a>
 
-
     </div>
 
   </nav>
-
 
   <!-- =========================
        BREAKING NEWS
@@ -1147,11 +1044,9 @@ header {
 
     <div class="container breaking-inner">
 
-
       <div class="breaking-label">
         BREAKING NEWS
       </div>
-
 
       <div class="breaking-content">
 
@@ -1161,11 +1056,9 @@ header {
 
       </div>
 
-
     </div>
 
   </section>
-
 
   <!-- =========================
        PAGE HEADER
@@ -1175,9 +1068,7 @@ header {
 
     <div class="container">
 
-
       <div class="page-heading">
-
 
         <div class="heading-left">
 
@@ -1191,20 +1082,16 @@ header {
 
         </div>
 
-
         <div
           id="currentDate"
           class="current-date"
         ></div>
 
-
       </div>
-
 
     </div>
 
   </section>
-
 
   <!-- =========================
        MAIN
@@ -1213,7 +1100,6 @@ header {
   <main>
 
     <div class="container">
-
 
       <!-- ERROR -->
 
@@ -1236,7 +1122,6 @@ header {
 
       </div>
 
-
       <!-- EMPTY -->
 
       <div
@@ -1258,36 +1143,29 @@ header {
 
       </div>
 
-
       <!-- CONTENT -->
 
       <div id="content" class="hidden">
 
-
         <!-- HERO + SIDE -->
 
         <section class="hero-grid">
-
 
           <article
             class="hero-card"
             id="heroCard"
           ></article>
 
-
           <aside
             class="side-news"
             id="sideNews"
           ></aside>
 
-
         </section>
-
 
         <!-- HABARI MPYA -->
 
         <section>
-
 
           <div class="section-head">
 
@@ -1301,23 +1179,32 @@ header {
 
           </div>
 
-
           <div
             id="newsGrid"
             class="news-grid"
           ></div>
 
+          <!-- ONA HABARI ZAIDI -->
+
+          <div class="load-more-container">
+
+            <button
+              type="button"
+              id="loadMoreButton"
+              class="load-more-button"
+            >
+              ONA HABARI ZAIDI
+            </button>
+
+          </div>
 
         </section>
 
-
       </div>
-
 
     </div>
 
   </main>
-
 
   <!-- =========================
        FOOTER
@@ -1325,9 +1212,7 @@ header {
 
   <footer>
 
-
     <div class="container footer-main">
-
 
       <div>
 
@@ -1337,7 +1222,6 @@ header {
 
         </div>
 
-
         <p>
           BINSOUD HABARI ni jukwaa la habari
           linalokuletea taarifa mbalimbali
@@ -1346,13 +1230,11 @@ header {
 
       </div>
 
-
       <div>
 
         <h3>
           SEHEMU
         </h3>
-
 
         <div class="footer-links">
 
@@ -1384,13 +1266,11 @@ header {
 
       </div>
 
-
       <div>
 
         <h3>
           ZAIDI
         </h3>
-
 
         <div class="footer-links">
 
@@ -1426,9 +1306,7 @@ header {
 
       </div>
 
-
     </div>
-
 
     <div class="copyright">
 
@@ -1439,9 +1317,7 @@ header {
 
     </div>
 
-
   </footer>
-
 
   <!-- =========================
        JAVASCRIPT
@@ -1454,14 +1330,12 @@ header {
     } from
     "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
-
     import {
       getFirestore,
       collection,
       getDocs
     } from
     "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
 
     /* =========================
        FIREBASE
@@ -1492,14 +1366,11 @@ header {
 
     };
 
-
     const app =
       initializeApp(firebaseConfig);
 
-
     const db =
       getFirestore(app);
-
 
     /* =========================
        ELEMENTS
@@ -1508,50 +1379,41 @@ header {
     const heroCard =
       document.getElementById("heroCard");
 
-
     const sideNews =
       document.getElementById("sideNews");
-
 
     const newsGrid =
       document.getElementById("newsGrid");
 
-
     const content =
       document.getElementById("content");
-
 
     const empty =
       document.getElementById("empty");
 
-
     const errorBox =
       document.getElementById("error");
-
 
     const errorText =
       document.getElementById("errorText");
 
-
     const count =
       document.getElementById("count");
-
 
     const breakingText =
       document.getElementById("breakingText");
 
-
     const searchForm =
       document.getElementById("searchForm");
-
 
     const searchInput =
       document.getElementById("searchInput");
 
-
     const searchSuggestions =
       document.getElementById("searchSuggestions");
 
+    const loadMoreButton =
+      document.getElementById("loadMoreButton");
 
     /* =========================
        DATA
@@ -1563,6 +1425,9 @@ header {
 
     let breakingIndex = 0;
 
+    let visibleNewsCount = 6;
+
+    const NEWS_PER_CLICK = 6;
 
     /* =========================
        FALLBACK IMAGE
@@ -1601,7 +1466,6 @@ header {
 
       `);
 
-
     /* =========================
        ESCAPE
     ========================== */
@@ -1616,7 +1480,6 @@ header {
         .replaceAll("'","&#039;");
 
     }
-
 
     /* =========================
        NORMALIZE SEARCH
@@ -1634,7 +1497,6 @@ header {
 
     }
 
-
     /* =========================
        GET TITLE
     ========================== */
@@ -1651,7 +1513,6 @@ header {
       );
 
     }
-
 
     /* =========================
        GET CATEGORY
@@ -1673,18 +1534,15 @@ header {
         article.categories ??
         "";
 
-
       if(Array.isArray(value)){
 
         return value.join(" ");
 
       }
 
-
       return String(value || "");
 
     }
-
 
     /* =========================
        GET BODY
@@ -1707,7 +1565,6 @@ header {
 
     }
 
-
     /* =========================
        GET DESCRIPTION
     ========================== */
@@ -1723,13 +1580,11 @@ header {
         getBody(article) ||
         "";
 
-
       const clean =
         String(value)
           .replace(/<[^>]*>/g," ")
           .replace(/\s+/g," ")
           .trim();
-
 
       if(!clean){
 
@@ -1737,13 +1592,11 @@ header {
 
       }
 
-
       return clean.length > 190
         ? clean.slice(0,190).trim() + "..."
         : clean;
 
     }
-
 
     /* =========================
        GET IMAGE
@@ -1777,7 +1630,6 @@ header {
 
     }
 
-
     /* =========================
        GET DATE
     ========================== */
@@ -1797,7 +1649,6 @@ header {
 
     }
 
-
     /* =========================
        DATE → MILLISECONDS
     ========================== */
@@ -1809,7 +1660,6 @@ header {
         return 0;
 
       }
-
 
       if(
         typeof value === "object" &&
@@ -1824,7 +1674,6 @@ header {
 
       }
 
-
       if(
         typeof value === "object" &&
         value.seconds !== undefined
@@ -1833,7 +1682,6 @@ header {
         return Number(value.seconds) * 1000;
 
       }
-
 
       if(
         typeof value === "object" &&
@@ -1848,7 +1696,6 @@ header {
 
       }
 
-
       if(typeof value === "number"){
 
         return value < 10000000000
@@ -1857,17 +1704,14 @@ header {
 
       }
 
-
       const parsed =
         Date.parse(value);
-
 
       return Number.isNaN(parsed)
         ? 0
         : parsed;
 
     }
-
 
     /* =========================
        FORMAT RELATIVE TIME
@@ -1880,17 +1724,14 @@ header {
           getDateValue(article)
         );
 
-
       if(!millis){
 
         return "Tarehe haijawekwa";
 
       }
 
-
       let difference =
         Date.now() - millis;
-
 
       if(difference < 0){
 
@@ -1898,25 +1739,20 @@ header {
 
       }
 
-
       const minute =
         60 * 1000;
-
 
       const hour =
         60 * minute;
 
-
       const day =
         24 * hour;
-
 
       if(difference < minute){
 
         return "Imetumwa hivi punde";
 
       }
-
 
       if(difference < hour){
 
@@ -1925,13 +1761,11 @@ header {
             difference / minute
           );
 
-
         return minutes === 1
           ? "Imetumwa dakika 1 iliyopita"
           : `Imetumwa dakika ${minutes} zilizopita`;
 
       }
-
 
       if(difference < day){
 
@@ -1940,13 +1774,11 @@ header {
             difference / hour
           );
 
-
         return hours === 1
           ? "Imetumwa saa 1 iliyopita"
           : `Imetumwa saa ${hours} zilizopita`;
 
       }
-
 
       return new Intl.DateTimeFormat(
         "sw-TZ",
@@ -1963,7 +1795,6 @@ header {
 
     }
 
-
     /* =========================
        ARTICLE URL
     ========================== */
@@ -1976,13 +1807,11 @@ header {
         article.articleId ||
         "";
 
-
       if(!id){
 
         return "habari.html";
 
       }
-
 
       return (
         "habari.html?id=" +
@@ -1990,7 +1819,6 @@ header {
       );
 
     }
-
 
     /* =========================
        CATEGORY MATCH
@@ -2003,19 +1831,16 @@ header {
           getCategory(article)
         );
 
-
       if(!value){
 
         return false;
 
       }
 
-
       const parts =
         value
           .split(/\s|,|\/|\|/)
           .filter(Boolean);
-
 
       return (
         parts.includes("kitaifa") ||
@@ -2023,7 +1848,6 @@ header {
       );
 
     }
-
 
     /* =========================
        IMAGE HTML
@@ -2055,7 +1879,6 @@ header {
 
     }
 
-
     /* =========================
        HERO
     ========================== */
@@ -2070,22 +1893,17 @@ header {
 
       }
 
-
       const title =
         getTitle(article);
-
 
       const description =
         getDescription(article);
 
-
       const image =
         getImage(article);
 
-
       const time =
         formatArticleTime(article);
-
 
       heroCard.innerHTML = `
 
@@ -2101,23 +1919,19 @@ header {
             "eager"
           )}
 
-
           <div class="hero-content">
 
             <div class="category-label">
               KITAIFA
             </div>
 
-
             <h1 class="hero-title">
               ${escapeHtml(title)}
             </h1>
 
-
             <p class="hero-description">
               ${escapeHtml(description)}
             </p>
-
 
             <div
               class="article-time"
@@ -2136,7 +1950,6 @@ header {
 
     }
 
-
     /* =========================
        SIDE NEWS
     ========================== */
@@ -2151,7 +1964,6 @@ header {
 
       `;
 
-
       list
         .slice(0,4)
         .forEach(article => {
@@ -2159,22 +1971,17 @@ header {
           const title =
             getTitle(article);
 
-
           const image =
             getImage(article);
-
 
           const time =
             formatArticleTime(article);
 
-
           const card =
             document.createElement("article");
 
-
           card.className =
             "side-card";
-
 
           card.innerHTML = `
 
@@ -2184,7 +1991,6 @@ header {
               "side-image"
             )}
 
-
             <div class="side-content">
 
               <a
@@ -2193,7 +1999,6 @@ header {
               >
                 ${escapeHtml(title)}
               </a>
-
 
               <div
                 class="side-time"
@@ -2208,107 +2013,117 @@ header {
 
           `;
 
-
           sideNews.appendChild(card);
 
         });
 
     }
 
-
     /* =========================
        NEWS GRID
+       HABARI 6 MWANZONI
     ========================== */
 
     function renderNewsGrid(list){
 
       newsGrid.innerHTML = "";
 
+      const visibleArticles =
+        list.slice(0, visibleNewsCount);
 
-      list
-        .forEach(article => {
+      visibleArticles.forEach(article => {
 
-          const title =
-            getTitle(article);
+        const title =
+          getTitle(article);
 
+        const description =
+          getDescription(article);
 
-          const description =
-            getDescription(article);
+        const image =
+          getImage(article);
 
+        const time =
+          formatArticleTime(article);
 
-          const image =
-            getImage(article);
+        const card =
+          document.createElement("article");
 
+        card.className =
+          "news-card";
 
-          const time =
-            formatArticleTime(article);
+        card.innerHTML = `
 
+          <a
+            href="${articleUrl(article)}"
+            aria-label="${escapeHtml(title)}"
+          >
 
-          const card =
-            document.createElement("article");
+            ${imageElement(
+              image,
+              title,
+              "news-image"
+            )}
 
+            <div class="news-body">
 
-          card.className =
-            "news-card";
-
-
-          card.innerHTML = `
-
-            <a
-              href="${articleUrl(article)}"
-              aria-label="${escapeHtml(title)}"
-            >
-
-
-              ${imageElement(
-                image,
-                title,
-                "news-image"
-              )}
-
-
-              <div class="news-body">
-
-
-                <div class="news-category">
-                  KITAIFA
-                </div>
-
-
-                <h3 class="news-title">
-                  ${escapeHtml(title)}
-                </h3>
-
-
-                <p class="news-description">
-                  ${escapeHtml(description)}
-                </p>
-
-
-                <div
-                  class="news-time"
-                  data-time-article="${escapeHtml(
-                    article.__id || article.id || ""
-                  )}"
-                >
-                  ${escapeHtml(time)}
-                </div>
-
-
+              <div class="news-category">
+                KITAIFA
               </div>
 
+              <h3 class="news-title">
+                ${escapeHtml(title)}
+              </h3>
 
-            </a>
+              <p class="news-description">
+                ${escapeHtml(description)}
+              </p>
 
-          `;
+              <div
+                class="news-time"
+                data-time-article="${escapeHtml(
+                  article.__id || article.id || ""
+                )}"
+              >
+                ${escapeHtml(time)}
+              </div>
 
+            </div>
 
-          newsGrid.appendChild(card);
+          </a>
 
-        });
+        `;
+
+        newsGrid.appendChild(card);
+
+      });
+
+      /* Ficha kitufe habari zote zikishaonyeshwa */
+
+      if(visibleNewsCount >= list.length){
+
+        loadMoreButton.classList.add("hidden");
+
+      }else{
+
+        loadMoreButton.classList.remove("hidden");
+
+      }
 
     }
 
+    /* =========================
+       ONA HABARI ZAIDI
+    ========================== */
+
+    loadMoreButton.addEventListener("click", () => {
+
+      visibleNewsCount += NEWS_PER_CLICK;
+
+      renderNewsGrid(
+        nationalArticles.slice(1)
+      );
+
+    });
 
     /* =========================
        UPDATE RELATIVE TIMES
@@ -2325,7 +2140,6 @@ header {
           const id =
             element.dataset.timeArticle;
 
-
           const article =
             nationalArticles.find(
               item =>
@@ -2336,7 +2150,6 @@ header {
                   ""
                 ) === String(id)
             );
-
 
           if(article){
 
@@ -2349,7 +2162,6 @@ header {
 
     }
 
-
     /* =========================
        BREAKING NEWS
     ========================== */
@@ -2358,7 +2170,6 @@ header {
 
       breakingArticles =
         nationalArticles.slice(0,10);
-
 
       if(!breakingArticles.length){
 
@@ -2369,12 +2180,9 @@ header {
 
       }
 
-
       breakingIndex = 0;
 
-
       showBreakingNews();
-
 
       setInterval(
         showBreakingNews,
@@ -2382,7 +2190,6 @@ header {
       );
 
     }
-
 
     function showBreakingNews(){
 
@@ -2392,16 +2199,13 @@ header {
 
       }
 
-
       const article =
         breakingArticles[
           breakingIndex
         ];
 
-
       breakingText.textContent =
         getTitle(article);
-
 
       breakingText.onclick =
         () => {
@@ -2411,7 +2215,6 @@ header {
 
         };
 
-
       breakingIndex =
         (
           breakingIndex + 1
@@ -2419,7 +2222,6 @@ header {
         breakingArticles.length;
 
     }
-
 
     /* =========================
        LOAD ARTICLES
@@ -2437,7 +2239,6 @@ header {
             )
           );
 
-
         const allArticles =
           snapshot.docs.map(
             doc => ({
@@ -2448,7 +2249,6 @@ header {
 
             })
           );
-
 
         nationalArticles =
           allArticles
@@ -2463,14 +2263,12 @@ header {
 
               }
 
-
               const status =
                 String(
                   article.status || ""
                 )
                 .toLowerCase()
                 .trim();
-
 
               if(status){
 
@@ -2482,7 +2280,6 @@ header {
                   "true"
                 ];
 
-
                 if(
                   !allowed.includes(status)
                 ){
@@ -2493,11 +2290,9 @@ header {
 
               }
 
-
               return isNational(article);
 
             });
-
 
         nationalArticles.sort(
           (a,b) =>
@@ -2509,68 +2304,58 @@ header {
             )
         );
 
-
         if(!nationalArticles.length){
 
           content.classList.add(
             "hidden"
           );
 
-
           errorBox.classList.add(
             "hidden"
           );
-
 
           empty.classList.remove(
             "hidden"
           );
 
-
           startBreakingNews();
-
 
           return;
 
         }
 
-
         content.classList.remove(
           "hidden"
         );
-
 
         empty.classList.add(
           "hidden"
         );
 
-
         errorBox.classList.add(
           "hidden"
         );
 
-
         count.textContent =
           `${nationalArticles.length} habari`;
-
 
         renderHero(
           nationalArticles[0]
         );
 
-
         renderSideNews(
           nationalArticles.slice(1,5)
         );
 
+        /* Anza kuonyesha habari 6 tu kwenye grid */
+
+        visibleNewsCount = 6;
 
         renderNewsGrid(
           nationalArticles.slice(1)
         );
 
-
         startBreakingNews();
-
 
       }catch(error){
 
@@ -2579,21 +2364,17 @@ header {
           error
         );
 
-
         content.classList.add(
           "hidden"
         );
-
 
         empty.classList.add(
           "hidden"
         );
 
-
         errorBox.classList.remove(
           "hidden"
         );
-
 
         errorText.textContent =
           "Kuna tatizo la kuunganisha na Firebase. Tafadhali jaribu tena.";
@@ -2601,7 +2382,6 @@ header {
       }
 
     }
-
 
     /* =========================
        SEARCH
@@ -2612,13 +2392,11 @@ header {
       const query =
         normalizeSearch(term);
 
-
       if(!query){
 
         return [];
 
       }
-
 
       return nationalArticles
         .filter(article => {
@@ -2637,7 +2415,6 @@ header {
             .map(normalizeSearch)
             .join(" ");
 
-
           return text.includes(query);
 
         })
@@ -2646,30 +2423,25 @@ header {
           const q =
             normalizeSearch(term);
 
-
           const titleA =
             normalizeSearch(
               getTitle(a)
             );
-
 
           const titleB =
             normalizeSearch(
               getTitle(b)
             );
 
-
           const aScore =
             titleA.includes(q)
               ? 2
               : 1;
 
-
           const bScore =
             titleB.includes(q)
               ? 2
               : 1;
-
 
           return bScore - aScore;
 
@@ -2677,12 +2449,10 @@ header {
 
     }
 
-
     function renderSearchSuggestions(term){
 
       const clean =
         term.trim();
-
 
       if(!clean){
 
@@ -2696,10 +2466,8 @@ header {
 
       }
 
-
       const results =
         searchNational(clean);
-
 
       if(!results.length){
 
@@ -2712,16 +2480,13 @@ header {
 
         `;
 
-
         searchSuggestions.classList.add(
           "active"
         );
 
-
         return;
 
       }
-
 
       searchSuggestions.innerHTML =
         results
@@ -2731,14 +2496,11 @@ header {
             const title =
               getTitle(article);
 
-
             const image =
               getImage(article);
 
-
             const time =
               formatArticleTime(article);
-
 
             return `
 
@@ -2754,7 +2516,6 @@ header {
                   title,
                   "search-suggestion-image"
                 )}
-
 
                 <div class="search-suggestion-content">
 
@@ -2775,11 +2536,9 @@ header {
           })
           .join("");
 
-
       searchSuggestions.classList.add(
         "active"
       );
-
 
       searchSuggestions
         .querySelectorAll(
@@ -2798,7 +2557,6 @@ header {
                     element.dataset.searchArticleId
                 );
 
-
               if(article){
 
                 window.location.href =
@@ -2813,7 +2571,6 @@ header {
 
     }
 
-
     searchInput.addEventListener(
       "input",
       () => {
@@ -2825,17 +2582,14 @@ header {
       }
     );
 
-
     searchForm.addEventListener(
       "submit",
       event => {
 
         event.preventDefault();
 
-
         const term =
           searchInput.value.trim();
-
 
         if(!term){
 
@@ -2845,10 +2599,8 @@ header {
 
         }
 
-
         const categoryTerm =
           normalizeSearch(term);
-
 
         if(
           categoryTerm === "kitaifa" ||
@@ -2871,10 +2623,8 @@ header {
 
         }
 
-
         const results =
           searchNational(term);
-
 
         if(
           results.length === 1
@@ -2889,12 +2639,10 @@ header {
 
         }
 
-
         if(results.length > 1){
 
           const target =
             results[0];
-
 
           window.location.href =
             articleUrl(target);
@@ -2903,14 +2651,12 @@ header {
 
         }
 
-
         renderSearchSuggestions(
           term
         );
 
       }
     );
-
 
     document.addEventListener(
       "click",
@@ -2930,7 +2676,6 @@ header {
 
       }
     );
-
 
     /* =========================
        CURRENT DATE
@@ -2952,7 +2697,6 @@ header {
         new Date()
       );
 
-
     document.getElementById(
       "currentDate"
     ).textContent =
@@ -2969,12 +2713,10 @@ header {
         new Date()
       );
 
-
     document.getElementById(
       "year"
     ).textContent =
       new Date().getFullYear();
-
 
     /* =========================
        REFRESH TIMES
@@ -2984,7 +2726,6 @@ header {
       updateArticleTimes,
       60000
     );
-
 
     /* =========================
        START
