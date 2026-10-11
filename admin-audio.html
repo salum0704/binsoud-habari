@@ -1,1748 +1,1123 @@
 <!DOCTYPE html>
-<html lang="sw">
-
+<html lang="sw-TZ">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BINSOUD HABARI - Admin Audio</title>
+<title>Admin Audio | BINSOUD HABARI</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0878c9">
 
 <style>
+:root{
+  --blue:#0878c9;
+  --blue2:#075a99;
+  --deep:#032f52;
+  --dark:#021d32;
+  --red:#e31b23;
+  --green:#16803c;
+  --white:#fff;
+  --bg:#f4f7fa;
+  --text:#172b3a;
+  --muted:#71808c;
+  --border:#e3e9ee;
+  --shadow:0 8px 28px rgba(0,40,70,.09)
+}
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#f4f7fa;
-    color:#111827;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text)
+}
+
+button,input,textarea,select{
+  font:inherit
+}
+
+.top{
+  background:var(--dark);
+  color:#fff;
+  padding:12px 20px
+}
+
+.top-inner{
+  width:min(1200px,100%);
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap
+}
+
+.brand{
+  font-weight:900
+}
+
+.top-links{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap
+}
+
+.top-links a,.logout{
+  color:#fff;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.25);
+  background:transparent;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer
+}
+
+.top-links a:hover,.top-links a.active{
+  background:#fff;
+  color:var(--deep)
+}
+
+.logout{
+  background:var(--red);
+  border-color:var(--red)
 }
 
 header{
-    background:#001a32;
-    color:white;
-    padding:18px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
+  background:linear-gradient(135deg,var(--blue),var(--blue2));
+  color:#fff
 }
 
-.logo{
-    font-size:25px;
-    font-weight:bold;
+.header-inner{
+  width:min(1200px,100%);
+  margin:auto;
+  padding:20px
 }
 
-nav{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    align-items:center;
+h1{
+  font-size:28px;
+  margin-bottom:5px
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:8px 12px;
-    border-radius:5px;
+.subtitle{
+  opacity:.92;
+  line-height:1.5
 }
 
-nav a:hover,
-nav a.active{
-    background:#fee40c;
-    color:#001a32;
+.container{
+  width:min(1200px,calc(100% - 30px));
+  margin:25px auto
 }
 
-.logout-btn{
-    background:#b91c1c;
-    color:white;
-    border:0;
-    padding:9px 14px;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:25px
 }
 
-.logout-btn:hover{
-    background:#7f1d1d;
+.stat{
+  background:#fff;
+  border-radius:14px;
+  padding:20px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border)
 }
 
-main{
-    max-width:1200px;
-    margin:auto;
-    padding:30px 20px;
+.stat strong{
+  display:block;
+  font-size:30px;
+  color:var(--blue);
+  overflow-wrap:anywhere
 }
 
-.page-title{
-    color:#002f54;
-    border-bottom:3px solid #c0ac00;
-    padding-bottom:12px;
-    margin-bottom:25px;
+.stat span{
+  color:var(--muted);
+  font-size:14px
 }
 
-.login-box{
-    max-width:450px;
-    margin:70px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 2px 12px rgba(0,0,0,.12);
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px
 }
 
-.login-box h1{
-    color:#002f54;
-    margin-bottom:10px;
+.tab{
+  border:1px solid var(--border);
+  background:#fff;
+  padding:11px 16px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:700;
+  color:var(--text)
 }
 
-.login-box p{
-    color:#667788;
-    margin-bottom:25px;
-    line-height:1.6;
+.tab.active{
+  background:var(--blue);
+  color:#fff;
+  border-color:var(--blue)
 }
 
-.admin-content{
-    display:none;
+.panel{
+  display:none;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:15px;
+  box-shadow:var(--shadow);
+  padding:22px
 }
 
-.admin-box{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-    margin-bottom:30px;
+.panel.active{
+  display:block
 }
 
-.admin-box h2{
-    color:#002f54;
-    margin-bottom:20px;
+.panel h2{
+  margin-bottom:18px;
+  color:var(--deep)
 }
 
-.form-group{
-    margin-bottom:18px;
+form{
+  display:grid;
+  gap:14px
 }
 
-.form-group label{
-    display:block;
-    font-weight:bold;
-    color:#002f54;
-    margin-bottom:7px;
+label{
+  font-weight:700;
+  font-size:14px;
+  display:block;
+  margin-bottom:7px
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    padding:13px;
-    border:1px solid #ccd5dd;
-    border-radius:6px;
-    font-size:16px;
-    outline:none;
-    font-family:Arial,sans-serif;
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  outline:none;
+  background:#fff
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:#002f54;
+textarea{
+  min-height:130px;
+  resize:vertical
 }
 
-.form-group textarea{
-    min-height:140px;
-    resize:vertical;
+input:focus,textarea:focus,select:focus{
+  border-color:var(--blue)
 }
 
-.file-info{
-    margin-top:7px;
-    color:#667788;
-    font-size:13px;
+.help{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:6px;
+  line-height:1.5
 }
 
-.preview{
-    display:none;
-    margin-top:15px;
-    background:#f4f7fa;
-    padding:15px;
-    border-radius:8px;
+.submit,.btn{
+  border:0;
+  border-radius:8px;
+  padding:11px 14px;
+  cursor:pointer;
+  font-weight:700
 }
 
-.preview img{
-    width:220px;
-    max-width:100%;
-    height:150px;
-    object-fit:cover;
-    border-radius:7px;
+.submit{
+  background:var(--blue);
+  color:#fff;
+  padding:13px
 }
 
-.audio-preview{
-    width:100%;
-    margin-top:10px;
+.submit:disabled{
+  opacity:.6;
+  cursor:not-allowed
 }
 
-.btn{
-    width:100%;
-    padding:15px;
-    border:0;
-    border-radius:6px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+.btn-blue{
+  background:var(--blue);
+  color:#fff
 }
 
-.login-btn{
-    background:#002f54;
-    color:white;
+.btn-red{
+  background:var(--red);
+  color:#fff
 }
 
-.login-btn:hover{
-    background:#c0ac00;
-    color:#001a32;
+.btn-gray{
+  background:#edf1f4;
+  color:#334
 }
 
-.upload-btn{
-    background:#002f54;
-    color:white;
-}
-
-.upload-btn:hover{
-    background:#c0ac00;
-    color:#001a32;
-}
-
-.btn:disabled{
-    background:#8996a3;
-    cursor:not-allowed;
-}
-
-.message{
-    display:none;
-    margin-top:20px;
-    padding:15px;
-    border-radius:7px;
-    line-height:1.6;
+.message,.error-box{
+  display:none;
+  padding:14px;
+  border-radius:9px;
+  line-height:1.5;
+  margin-top:12px;
+  overflow-wrap:anywhere
 }
 
 .success{
-    background:#dcfce7;
-    color:#166534;
+  display:block;
+  background:#e8f8ee;
+  color:#16723a
 }
 
 .error{
-    background:#fee2e2;
-    color:#991b1b;
+  display:block;
+  background:#fff0f0;
+  color:#9f1c1c;
+  border:1px solid #f0bcbc
 }
 
-.admin-user{
-    background:#e8f1f7;
-    color:#002f54;
-    padding:12px 15px;
-    border-radius:7px;
-    margin-bottom:20px;
-    font-weight:bold;
+.error-box{
+  margin-bottom:20px
+}
+
+.preview{
+  display:none;
+  background:#f4f7fa;
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:10px
+}
+
+.preview img{
+  width:220px;
+  max-width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:8px
+}
+
+.preview audio{
+  width:100%;
+  margin-top:10px
 }
 
 .audio-list{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px
 }
 
 .audio-card{
-    background:white;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+  min-width:0
 }
 
 .audio-card img{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-    display:block;
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+  background:#edf1f4
 }
 
 .audio-content{
-    padding:18px;
+  padding:15px
 }
 
 .category{
-    display:inline-block;
-    background:#002f54;
-    color:white;
-    padding:5px 9px;
-    border-radius:4px;
-    font-size:12px;
-    margin-bottom:10px;
+  display:inline-block;
+  background:#e6f3fc;
+  color:var(--blue2);
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:9px
 }
 
 .audio-content h3{
-    color:#002f54;
-    line-height:1.4;
-    margin-bottom:10px;
+  color:var(--deep);
+  line-height:1.4;
+  margin-bottom:8px;
+  overflow-wrap:anywhere
+}
+
+.meta{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:10px;
+  line-height:1.5
 }
 
 .audio-content p{
-    color:#556677;
-    line-height:1.6;
-    margin-bottom:12px;
-}
-
-.author{
-    color:#002f54;
-    font-size:14px;
-    font-weight:bold;
-    margin-bottom:12px;
+  color:#435563;
+  line-height:1.55;
+  margin-bottom:12px;
+  overflow-wrap:anywhere
 }
 
 .audio-player{
-    width:100%;
-    margin-bottom:15px;
+  width:100%;
+  margin-bottom:12px
 }
 
-.delete-btn{
-    width:100%;
-    padding:10px;
-    border:0;
-    border-radius:5px;
-    background:#b91c1c;
-    color:white;
-    cursor:pointer;
-    font-weight:bold;
+.audio-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap
 }
 
-.delete-btn:hover{
-    background:#7f1d1d;
+.audio-actions button{
+  flex:1
 }
 
-.empty{
-    background:white;
-    padding:30px;
-    text-align:center;
-    border-radius:8px;
-    color:#667788;
+.empty,.loading{
+  padding:30px;
+  text-align:center;
+  color:var(--muted);
+  background:#f8fafc;
+  border:1px dashed var(--border);
+  border-radius:10px;
+  grid-column:1/-1
 }
 
-footer{
-    background:#001a32;
-    color:white;
-    text-align:center;
-    padding:30px 20px;
-    margin-top:40px;
+.footer{
+  text-align:center;
+  padding:22px;
+  color:var(--muted);
+  font-size:13px
 }
 
-footer p{
-    margin-top:10px;
-    color:#dbe4ec;
+#accessDenied{
+  display:none;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:25px;
+  box-shadow:var(--shadow);
+  line-height:1.6
 }
 
 @media(max-width:850px){
-
-    header{
-        flex-direction:column;
-    }
-
-    nav{
-        justify-content:center;
-    }
-
-    .audio-list{
-        grid-template-columns:1fr;
-    }
-
+  .audio-list{
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
 }
 
+@media(max-width:600px){
+  .stats,.audio-list{
+    grid-template-columns:1fr
+  }
+
+  .container{
+    width:calc(100% - 20px)
+  }
+
+  .panel{
+    padding:16px
+  }
+
+  h1{
+    font-size:24px
+  }
+
+  .top-inner{
+    align-items:flex-start;
+    flex-direction:column
+  }
+}
 </style>
 </head>
 
-
 <body>
 
+<div class="top">
+  <div class="top-inner">
 
-<!-- =========================================
-     HEADER
-========================================= -->
+    <div class="brand">
+      📰 BINSOUD HABARI — ADMIN
+    </div>
+
+    <nav class="top-links">
+      <a href="admin.html">Dashboard</a>
+      <a href="audio.html">Audio</a>
+      <a href="admin-audio.html" class="active">Admin Audio</a>
+      <button class="logout" id="logoutBtn">Toka</button>
+    </nav>
+
+  </div>
+</div>
 
 <header>
-
-<div class="logo">
-BINSOUD HABARI - ADMIN
-</div>
-
-<nav>
-
-<a href="index.html">
-Tovuti
-</a>
-
-<a href="audio.html">
-Audio
-</a>
-
-<a href="admin-audio.html"
-   class="active">
-Admin Audio
-</a>
-
-<button
-    id="logoutBtn"
-    class="logout-btn"
-    style="display:none;">
-    🚪 Toka
-</button>
-
-</nav>
-
+  <div class="header-inner">
+    <h1>Dashboard ya Usimamizi wa Audio</h1>
+    <div class="subtitle" id="adminName">
+      Inathibitisha akaunti ya admin...
+    </div>
+  </div>
 </header>
 
-
-<!-- =========================================
-     LOGIN
-========================================= -->
-
-<section id="loginSection">
-
-<div class="login-box">
-
-<h1>
-🔐 Admin Login
-</h1>
-
-<p>
-Ingia ili uweze kusimamia Audio za BINSOUD HABARI.
-</p>
-
-<form id="loginForm">
-
-<div class="form-group">
-
-<label for="loginEmail">
-Email ya Admin
-</label>
-
-<input
-    type="email"
-    id="loginEmail"
-    placeholder="admin@example.com"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="loginPassword">
-Password
-</label>
-
-<input
-    type="password"
-    id="loginPassword"
-    placeholder="Weka password"
-    required
->
-
-</div>
-
-
-<button
-    type="submit"
-    class="btn login-btn"
-    id="loginBtn">
-
-🔐 Ingia
-
-</button>
-
-
-<div
-    id="loginMessage"
-    class="message">
-</div>
-
-</form>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-     ADMIN CONTENT
-========================================= -->
-
-<main
-    id="adminContent"
-    class="admin-content">
-
-<div class="admin-user">
-
-👤 Umeingia kama:
-<span id="loggedUser">
-Admin
-</span>
-
-</div>
-
-
-<h1 class="page-title">
-🎧 Admin - Ingiza Audio
-</h1>
-
-
-<section class="admin-box">
-
-<h2>
-Ongeza Audio Mpya
-</h2>
-
-
-<form id="audioForm">
-
-
-<!-- =========================================
-     TITLE
-========================================= -->
-
-<div class="form-group">
-
-<label for="title">
-Kichwa cha Audio
-</label>
-
-<input
-    type="text"
-    id="title"
-    placeholder="Mfano: Uchambuzi wa Siasa za Leo"
-    required
->
-
-</div>
-
-
-<!-- =========================================
-     CATEGORY
-========================================= -->
-
-<div class="form-group">
-
-<label for="category">
-Category
-</label>
-
-<select
-    id="category"
-    required>
-
-<option value="">
--- Chagua Category --
-</option>
-
-<option value="Siasa">
-Siasa
-</option>
-
-<option value="Kitaifa">
-Kitaifa
-</option>
-
-<option value="Biashara">
-Biashara
-</option>
-
-<option value="Michezo">
-Michezo
-</option>
-
-<option value="Dini">
-Dini
-</option>
-
-<option value="Kimataifa">
-Kimataifa
-</option>
-
-<option value="Burudani">
-Burudani
-</option>
-
-<option value="Mazingira">
-Mazingira
-</option>
-
-<!-- =====================================
-     MAKALA IMEONGEZWA
-===================================== -->
-
-<option value="Makala">
-Makala
-</option>
-
-</select>
-
-</div>
-
-
-<!-- =========================================
-     AUTHOR
-========================================= -->
-
-<div class="form-group">
-
-<label for="author">
-✍️ Muandishi
-</label>
-
-<input
-    type="text"
-    id="author"
-    placeholder="Mfano: Abdallah Binsoud"
-    required
->
-
-<div class="file-info">
-Jina hili litaonekana pamoja na audio kwenye tovuti.
-</div>
-
-</div>
-
-
-<!-- =========================================
-     DESCRIPTION
-========================================= -->
-
-<div class="form-group">
-
-<label for="description">
-Maelezo
-</label>
-
-<textarea
-    id="description"
-    placeholder="Andika maelezo ya audio hii..."
-    required
-></textarea>
-
-</div>
-
-
-<!-- =========================================
-     IMAGE URL
-========================================= -->
-
-<div class="form-group">
-
-<label for="imageUrl">
-🖼️ URL ya Picha
-</label>
-
-<input
-    type="url"
-    id="imageUrl"
-    placeholder="https://example.com/picha.jpg"
-    required
->
-
-<div class="file-info">
-Weka URL ya picha inayopatikana mtandaoni.
-</div>
-
-</div>
-
-
-<!-- =========================================
-     IMAGE PREVIEW
-========================================= -->
-
-<div
-    class="preview"
-    id="imagePreviewBox">
-
-<strong>
-Preview ya Picha
-</strong>
-
-<br><br>
-
-<img
-    id="imagePreview"
-    src=""
-    alt="Preview">
-
-</div>
-
-
-<!-- =========================================
-     AUDIO URL
-========================================= -->
-
-<div class="form-group">
-
-<label for="audioUrl">
-🎵 URL ya MP3
-</label>
-
-<input
-    type="url"
-    id="audioUrl"
-    placeholder="https://example.com/audio.mp3"
-    required
->
-
-<div class="file-info">
-Weka URL ya moja kwa moja ya MP3.
-</div>
-
-</div>
-
-
-<!-- =========================================
-     AUDIO PREVIEW
-========================================= -->
-
-<div
-    class="preview"
-    id="audioPreviewBox">
-
-<strong>
-Preview ya Audio
-</strong>
-
-<audio
-    id="audioPreview"
-    class="audio-preview"
-    controls>
-</audio>
-
-</div>
-
-
-<!-- =========================================
-     SAVE
-========================================= -->
-
-<button
-    type="submit"
-    class="btn upload-btn"
-    id="uploadBtn">
-
-🚀 Hifadhi Audio
-
-</button>
-
-
-<div
-    id="message"
-    class="message">
-</div>
-
-
-</form>
-
-</section>
-
-
-<!-- =========================================
-     AUDIO LIST
-========================================= -->
-
-<section>
-
-<h2 class="page-title">
-🎧 Audio Zilizopo
-</h2>
-
-<div
-    class="audio-list"
-    id="audioList">
-
-<div class="empty">
-⏳ Inapakia audio...
-</div>
-
-</div>
-
-</section>
-
+<main class="container">
+
+  <div id="errorBox" class="error-box"></div>
+
+  <div id="accessDenied">
+    <h2>Huna ruhusa ya kufungua ukurasa huu</h2>
+    <p>
+      Akaunti yako lazima iwe na role
+      <strong>admin</strong> na
+      <strong>active: true</strong>
+      ndani ya mkusanyiko wa users wa Firebase.
+    </p>
+  </div>
+
+  <div id="adminContent" style="display:none">
+
+    <section class="stats">
+
+      <div class="stat">
+        <strong id="totalCount">0</strong>
+        <span>Audio zote</span>
+      </div>
+
+      <div class="stat">
+        <strong id="topicCount">0</strong>
+        <span>Mada zilizotumika</span>
+      </div>
+
+      <div class="stat">
+        <strong id="adminEmail">—</strong>
+        <span>Admin aliyeingia</span>
+      </div>
+
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="add">
+        ➕ Ongeza Audio
+      </button>
+
+      <button class="tab" data-tab="all">
+        🎧 Audio zilizohifadhiwa
+      </button>
+    </nav>
+
+    <section class="panel active" id="add">
+
+      <h2>Ongeza Audio Mpya</h2>
+
+      <form id="audioForm">
+
+        <div>
+          <label for="title">Kichwa cha Audio</label>
+          <input
+            id="title"
+            required
+            placeholder="Mfano: Uchambuzi wa habari za leo"
+          >
+        </div>
+
+        <div>
+          <label for="category">Mada ya Audio</label>
+
+          <select id="category" required>
+            <option value="">Chagua mada</option>
+            <option value="Kitaifa">Kitaifa</option>
+            <option value="Siasa">Siasa</option>
+            <option value="Biashara">Biashara</option>
+            <option value="Michezo">Michezo</option>
+            <option value="Dini">Dini</option>
+            <option value="Kimataifa">Kimataifa</option>
+            <option value="Burudani">Burudani</option>
+            <option value="Mazingira">Mazingira</option>
+            <option value="Makala">Makala</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="author">✍️ Mwandishi</label>
+          <input
+            id="author"
+            required
+            placeholder="Mfano: Abdallah Binsoud"
+          >
+        </div>
+
+        <div>
+          <label for="description">Maelezo ya Audio</label>
+          <textarea
+            id="description"
+            required
+            placeholder="Andika maelezo mafupi kuhusu audio hii..."
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="imageUrl">🖼️ URL ya Picha</label>
+          <input
+            type="url"
+            id="imageUrl"
+            required
+            placeholder="https://example.com/picha.jpg"
+          >
+          <p class="help">
+            Weka kiungo cha picha kinachopatikana mtandaoni.
+          </p>
+        </div>
+
+        <div class="preview" id="imagePreviewBox">
+          <strong>Preview ya Picha</strong>
+          <br><br>
+          <img id="imagePreview" alt="Preview ya picha">
+        </div>
+
+        <div>
+          <label for="audioUrl">🎵 URL ya MP3</label>
+          <input
+            type="url"
+            id="audioUrl"
+            required
+            placeholder="https://example.com/audio.mp3"
+          >
+          <p class="help">
+            Weka URL ya moja kwa moja ya faili la sauti, kwa mfano MP3.
+          </p>
+        </div>
+
+        <div class="preview" id="audioPreviewBox">
+          <strong>Preview ya Audio</strong>
+          <audio id="audioPreview" controls></audio>
+        </div>
+
+        <button type="submit" class="submit" id="saveBtn">
+          🚀 Hifadhi Audio
+        </button>
+
+      </form>
+
+      <div id="message" class="message"></div>
+
+    </section>
+
+    <section class="panel" id="all">
+
+      <h2>Audio Zilizohifadhiwa</h2>
+
+      <div class="audio-list" id="audioList">
+        <div class="loading">Inapakia audio...</div>
+      </div>
+
+    </section>
+
+  </div>
 </main>
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
-<footer>
-
-<h3>
-BINSOUD HABARI
-</h3>
-
-<p>
-Mfumo wa usimamizi wa Audio
-</p>
-
-<p>
-© 2026 BINSOUD HABARI
-</p>
-
-</footer>
-
+<div class="footer">
+  © 2026 BINSOUD HABARI · Mfumo wa usimamizi wa Audio
+</div>
 
 <script type="module">
 
-
-/* =========================================
-   FIREBASE IMPORTS
-========================================= */
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
 import {
-    initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-
-import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    deleteDoc,
-    doc,
-    serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+  getAuth,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 import {
-    getAuth,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  addDoc,
+  deleteDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-
-/* =========================================
-   FIREBASE CONFIG
-========================================= */
 
 const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
-
-    authDomain:
-    "binsoud-habari-8a5fa.firebaseapp.com",
-
-    projectId:
-    "binsoud-habari-8a5fa",
-
-    storageBucket:
-    "binsoud-habari-8a5fa.firebasestorage.app",
-
-    messagingSenderId:
-    "865091074307",
-
-    appId:
-    "1:865091074307:web:27b26aa8f0f3476ef45136",
-
-    measurementId:
-    "G-MH266J0XKE"
-
+  apiKey: "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+  authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
+  projectId: "binsoud-habari-8a5fa",
+  storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
+  messagingSenderId: "865091074307",
+  appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
+  measurementId: "G-MH266J0XKE"
 };
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-/* =========================================
-   INITIALIZE
-========================================= */
+const $ = id => document.getElementById(id);
 
-const app =
-initializeApp(firebaseConfig);
-
-const db =
-getFirestore(app);
-
-const auth =
-getAuth(app);
+let currentUser = null;
+let audioRecords = [];
 
 
-/* =========================================
-   ELEMENTS
-========================================= */
+function showError(error) {
+  console.error("Admin Audio Error:", error);
 
-const loginSection =
-document.getElementById("loginSection");
+  $("errorBox").textContent =
+    "Kosa: " +
+    (error?.code || "") +
+    " — " +
+    (error?.message || error);
 
-const adminContent =
-document.getElementById("adminContent");
-
-const logoutBtn =
-document.getElementById("logoutBtn");
-
-const loginForm =
-document.getElementById("loginForm");
-
-const loginEmail =
-document.getElementById("loginEmail");
-
-const loginPassword =
-document.getElementById("loginPassword");
-
-const loginBtn =
-document.getElementById("loginBtn");
-
-const loginMessage =
-document.getElementById("loginMessage");
-
-const loggedUser =
-document.getElementById("loggedUser");
-
-const audioForm =
-document.getElementById("audioForm");
-
-const titleInput =
-document.getElementById("title");
-
-const categoryInput =
-document.getElementById("category");
-
-const authorInput =
-document.getElementById("author");
-
-const descriptionInput =
-document.getElementById("description");
-
-const imageUrlInput =
-document.getElementById("imageUrl");
-
-const audioUrlInput =
-document.getElementById("audioUrl");
-
-const imagePreviewBox =
-document.getElementById("imagePreviewBox");
-
-const imagePreview =
-document.getElementById("imagePreview");
-
-const audioPreviewBox =
-document.getElementById("audioPreviewBox");
-
-const audioPreview =
-document.getElementById("audioPreview");
-
-const uploadBtn =
-document.getElementById("uploadBtn");
-
-const message =
-document.getElementById("message");
-
-const audioList =
-document.getElementById("audioList");
-
-
-/* =========================================
-   MESSAGE
-========================================= */
-
-function showMessage(
-    element,
-    text,
-    type
-){
-
-    element.textContent =
-        text;
-
-    element.className =
-        "message " + type;
-
-    element.style.display =
-        "block";
-
+  $("errorBox").style.display = "block";
 }
 
 
-/* =========================================
-   ESCAPE HTML
-========================================= */
-
-function escapeHtml(value){
-
-    return String(value ?? "")
-
-        .replace(/&/g,"&amp;")
-
-        .replace(/</g,"&lt;")
-
-        .replace(/>/g,"&gt;")
-
-        .replace(/"/g,"&quot;")
-
-        .replace(/'/g,"&#039;");
-
+function showMessage(text, type) {
+  $("message").textContent = text;
+  $("message").className = "message " + type;
+  $("message").style.display = "block";
 }
 
 
-/* =========================================
-   LOGIN
-========================================= */
-
-loginForm.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-        const email =
-            loginEmail.value.trim();
-
-        const password =
-            loginPassword.value;
+function escapeHTML(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 
-        try{
+function dateValue(item) {
+  const v = item.createdAt || item.date || "";
 
-            loginBtn.disabled =
-                true;
+  if (v && typeof v.toDate === "function") {
+    return v.toDate().getTime();
+  }
 
-            loginBtn.textContent =
-                "⏳ Inaingia...";
+  const t = new Date(v).getTime();
 
-            loginMessage.style.display =
-                "none";
-
-
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+  return Number.isNaN(t) ? 0 : t;
+}
 
 
-        }catch(error){
+function dateText(item) {
+  const v = item.createdAt;
 
-            console.error(
-                "LOGIN ERROR:",
-                error
-            );
+  if (v && typeof v.toDate === "function") {
+    return v.toDate().toLocaleDateString("sw-TZ", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+  }
 
-
-            let text =
-                "❌ Imeshindikana kuingia.";
-
-
-            if(
-                error.code ===
-                "auth/invalid-credential"
-            ){
-
-                text =
-                    "❌ Email au password si sahihi.";
-
-            }
-
-            else if(
-                error.code ===
-                "auth/invalid-email"
-            ){
-
-                text =
-                    "❌ Email uliyoingiza si sahihi.";
-
-            }
-
-            else if(
-                error.code ===
-                "auth/too-many-requests"
-            ){
-
-                text =
-                    "❌ Majaribio yamekuwa mengi. Jaribu tena baadaye.";
-
-            }
+  return item.date || "";
+}
 
 
-            showMessage(
-                loginMessage,
-                text,
-                "error"
-            );
+/* TABS */
+
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+
+    document.querySelectorAll(".tab").forEach(t => {
+      t.classList.remove("active");
+    });
+
+    document.querySelectorAll(".panel").forEach(p => {
+      p.classList.remove("active");
+    });
+
+    tab.classList.add("active");
+    $(tab.dataset.tab).classList.add("active");
+
+  });
+});
 
 
-        }finally{
+/* LOGOUT */
 
-            loginBtn.disabled =
-                false;
+$("logoutBtn").addEventListener("click", async () => {
+  try {
+    await signOut(auth);
+    window.location.replace("login.html");
+  } catch (error) {
+    showError(error);
+  }
+});
 
-            loginBtn.textContent =
-                "🔐 Ingia";
 
-        }
+/* ADMIN AUTHENTICATION */
 
+onAuthStateChanged(auth, async user => {
+
+  if (!user) {
+    window.location.replace("login.html");
+    return;
+  }
+
+  try {
+
+    const userSnap = await getDoc(
+      doc(db, "users", user.uid)
+    );
+
+    if (!userSnap.exists()) {
+      await signOut(auth);
+      window.location.replace("login.html");
+      return;
     }
-);
 
+    const userData = userSnap.data();
 
-/* =========================================
-   AUTH STATE
-========================================= */
+    if (
+      userData.role !== "admin" ||
+      userData.active !== true
+    ) {
 
-onAuthStateChanged(
-    auth,
-    function(user){
+      await signOut(auth);
 
-        if(user){
+      $("adminContent").style.display = "none";
+      $("accessDenied").style.display = "block";
 
-            loginSection.style.display =
-                "none";
+      $("adminName").textContent =
+        "Akaunti hii haina ruhusa ya admin.";
 
-            adminContent.style.display =
-                "block";
-
-            logoutBtn.style.display =
-                "inline-block";
-
-            loggedUser.textContent =
-                user.email || "Admin";
-
-
-            loadAudio();
-
-        }else{
-
-            loginSection.style.display =
-                "block";
-
-            adminContent.style.display =
-                "none";
-
-            logoutBtn.style.display =
-                "none";
-
-        }
-
+      return;
     }
-);
+
+    currentUser = user;
+
+    $("adminName").textContent =
+      userData.name || user.email || "Admin";
+
+    $("adminEmail").textContent =
+      user.email || "Admin";
+
+    $("adminContent").style.display = "block";
+    $("accessDenied").style.display = "none";
+
+    await loadAudio();
+
+  } catch (error) {
+    showError(error);
+  }
+
+});
 
 
-/* =========================================
-   LOGOUT
-========================================= */
+/* IMAGE PREVIEW */
 
-logoutBtn.addEventListener(
-    "click",
-    async function(){
+$("imageUrl").addEventListener("input", () => {
 
-        try{
+  const url = $("imageUrl").value.trim();
 
-            await signOut(auth);
+  $("imagePreviewBox").style.display =
+    url ? "block" : "none";
 
-        }catch(error){
+  if (url) {
+    $("imagePreview").src = url;
+  } else {
+    $("imagePreview").removeAttribute("src");
+  }
 
-            console.error(
-                "LOGOUT ERROR:",
-                error
-            );
+});
 
-            alert(
-                "❌ Imeshindikana kutoka."
-            );
+$("imagePreview").addEventListener("error", () => {
+  $("imagePreview").alt =
+    "Picha haikuweza kupakiwa; hakiki URL.";
+});
 
-        }
 
+/* AUDIO PREVIEW */
+
+$("audioUrl").addEventListener("input", () => {
+
+  const url = $("audioUrl").value.trim();
+
+  $("audioPreviewBox").style.display =
+    url ? "block" : "none";
+
+  if (url) {
+    $("audioPreview").src = url;
+  } else {
+    $("audioPreview").removeAttribute("src");
+  }
+
+});
+
+
+/* SAVE AUDIO */
+
+$("audioForm").addEventListener("submit", async event => {
+
+  event.preventDefault();
+
+  if (!currentUser) {
+    showMessage(
+      "Tafadhali ingia kama admin kwanza.",
+      "error"
+    );
+    return;
+  }
+
+  const title = $("title").value.trim();
+  const topic = $("category").value;
+  const author = $("author").value.trim();
+  const description = $("description").value.trim();
+  const imageUrl = $("imageUrl").value.trim();
+  const audioUrl = $("audioUrl").value.trim();
+
+  if (
+    !title ||
+    !topic ||
+    !author ||
+    !description ||
+    !imageUrl ||
+    !audioUrl
+  ) {
+    showMessage(
+      "Tafadhali jaza sehemu zote zinazohitajika.",
+      "error"
+    );
+    return;
+  }
+
+  try {
+
+    $("saveBtn").disabled = true;
+    $("saveBtn").textContent = "Inahifadhi...";
+
+    await addDoc(collection(db, "articles"), {
+
+      title: title,
+
+      category: "Audio",
+      audioTopic: topic,
+
+      author: author,
+
+      description: description,
+      intro: description,
+      content: description,
+
+      image: imageUrl,
+      imageUrl: imageUrl,
+
+      audioUrl: audioUrl,
+
+      authorId: currentUser.uid,
+      adminEmail: currentUser.email || "",
+
+      status: "published",
+
+      createdAt: serverTimestamp(),
+
+      date: new Date().toLocaleDateString("sw-TZ", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      })
+
+    });
+
+    $("audioForm").reset();
+
+    $("imagePreviewBox").style.display = "none";
+    $("audioPreviewBox").style.display = "none";
+
+    $("imagePreview").removeAttribute("src");
+    $("audioPreview").removeAttribute("src");
+
+    showMessage(
+      "Audio imehifadhiwa kikamilifu na imeongezwa kwenye articles kwa category Audio.",
+      "success"
+    );
+
+    await loadAudio();
+
+  } catch (error) {
+
+    showMessage(
+      "Imeshindikana kuhifadhi audio: " + error.message,
+      "error"
+    );
+
+    console.error(error);
+
+  } finally {
+
+    $("saveBtn").disabled = false;
+    $("saveBtn").textContent = "🚀 Hifadhi Audio";
+
+  }
+
+});
+
+
+/* LOAD SAVED AUDIO */
+
+async function loadAudio() {
+
+  $("audioList").innerHTML =
+    '<div class="loading">Inapakia audio...</div>';
+
+  try {
+
+    const snapshot = await getDocs(
+      collection(db, "articles")
+    );
+
+    audioRecords = snapshot.docs
+      .map(d => ({
+        id: d.id,
+        ...d.data()
+      }))
+      .filter(a =>
+        String(a.category || "")
+          .trim()
+          .toLowerCase() === "audio"
+      )
+      .sort((a, b) => dateValue(b) - dateValue(a));
+
+    $("totalCount").textContent =
+      audioRecords.length;
+
+    $("topicCount").textContent =
+      new Set(
+        audioRecords
+          .map(a => a.audioTopic)
+          .filter(Boolean)
+      ).size;
+
+    if (!audioRecords.length) {
+
+      $("audioList").innerHTML =
+        '<div class="empty">Hakuna audio iliyohifadhiwa bado.</div>';
+
+      return;
     }
-);
 
+    $("audioList").innerHTML = audioRecords.map(a => `
+
+      <article class="audio-card">
+
+        <img
+          src="${escapeHTML(a.image || a.imageUrl || "images/habari.jpg")}"
+          alt="${escapeHTML(a.title || "Audio")}"
+          onerror="this.onerror=null;this.style.display='none'"
+        >
+
+        <div class="audio-content">
+
+          <span class="category">
+            ${escapeHTML(a.audioTopic || "Audio")}
+          </span>
+
+          <h3>
+            ${escapeHTML(a.title || "Bila kichwa")}
+          </h3>
+
+          <div class="meta">
+            Mwandishi:
+            ${escapeHTML(a.author || "Haijawekwa")}
+            ·
+            ${escapeHTML(dateText(a))}
+          </div>
+
+          <p>
+            ${escapeHTML(a.description || a.intro || "")}
+          </p>
+
+          <audio
+            class="audio-player"
+            controls
+            preload="none"
+            src="${escapeHTML(a.audioUrl || "")}"
+          ></audio>
+
+          <div class="audio-actions">
+            <button
+              class="btn btn-red delete-btn"
+              data-id="${escapeHTML(a.id)}"
+            >
+              🗑️ Futa Audio
+            </button>
+          </div>
 
-/* =========================================
-   IMAGE PREVIEW
-========================================= */
-
-imageUrlInput.addEventListener(
-    "input",
-    function(){
-
-        const url =
-            imageUrlInput.value.trim();
-
-
-        if(!url){
-
-            imagePreviewBox.style.display =
-                "none";
-
-            return;
-
-        }
-
-
-        imagePreview.src =
-            url;
-
-        imagePreviewBox.style.display =
-            "block";
-
-    }
-);
-
-
-/* =========================================
-   AUDIO PREVIEW
-========================================= */
-
-audioUrlInput.addEventListener(
-    "input",
-    function(){
-
-        const url =
-            audioUrlInput.value.trim();
-
-
-        if(!url){
-
-            audioPreviewBox.style.display =
-                "none";
-
-            return;
-
-        }
-
-
-        audioPreview.src =
-            url;
-
-        audioPreviewBox.style.display =
-            "block";
-
-    }
-);
-
-
-/* =========================================
-   SAVE AUDIO
-========================================= */
-
-audioForm.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        const user =
-            auth.currentUser;
-
-
-        if(!user){
-
-            showMessage(
-                message,
-                "❌ Tafadhali ingia kwanza.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        const title =
-            titleInput.value.trim();
-
-        const category =
-            categoryInput.value;
-
-        const author =
-            authorInput.value.trim();
-
-        const description =
-            descriptionInput.value.trim();
-
-        const imageUrl =
-            imageUrlInput.value.trim();
-
-        const audioUrl =
-            audioUrlInput.value.trim();
-
-
-        /* ===============================
-           VALIDATION
-        =============================== */
-
-        if(!title){
-
-            showMessage(
-                message,
-                "Tafadhali ingiza kichwa cha audio.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!category){
-
-            showMessage(
-                message,
-                "Tafadhali chagua category.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!author){
-
-            showMessage(
-                message,
-                "Tafadhali ingiza jina la muandishi.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!description){
-
-            showMessage(
-                message,
-                "Tafadhali ingiza maelezo.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!imageUrl){
-
-            showMessage(
-                message,
-                "Tafadhali weka URL ya picha.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        if(!audioUrl){
-
-            showMessage(
-                message,
-                "Tafadhali weka URL ya MP3.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        try{
-
-            uploadBtn.disabled =
-                true;
-
-            uploadBtn.textContent =
-                "⏳ Inahifadhi...";
-
-            message.style.display =
-                "none";
-
-
-            /* ===============================
-               SAVE TO FIRESTORE
-            =============================== */
-
-            await addDoc(
-
-                collection(
-                    db,
-                    "audio"
-                ),
-
-                {
-
-                    title:
-                        title,
-
-                    category:
-                        category,
-
-                    author:
-                        author,
-
-                    description:
-                        description,
-
-                    image:
-                        imageUrl,
-
-                    audioUrl:
-                        audioUrl,
-
-                    adminEmail:
-                        user.email,
-
-                    date:
-                        new Date()
-                        .toLocaleDateString(
-                            "sw-TZ"
-                        ),
-
-                    createdAt:
-                        serverTimestamp()
-
-                }
-
-            );
-
-
-            showMessage(
-                message,
-                "✅ Audio imehifadhiwa kikamilifu.",
-                "success"
-            );
-
-
-            /* ===============================
-               RESET FORM
-            =============================== */
-
-            audioForm.reset();
-
-
-            imagePreviewBox.style.display =
-                "none";
-
-            audioPreviewBox.style.display =
-                "none";
-
-            imagePreview.src =
-                "";
-
-            audioPreview.src =
-                "";
-
-
-            await loadAudio();
-
-
-        }catch(error){
-
-            console.error(
-                "SAVE AUDIO ERROR:",
-                error
-            );
-
-
-            showMessage(
-                message,
-                "❌ Imeshindikana kuhifadhi audio: " +
-                error.message,
-                "error"
-            );
-
-
-        }finally{
-
-            uploadBtn.disabled =
-                false;
-
-            uploadBtn.textContent =
-                "🚀 Hifadhi Audio";
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   LOAD AUDIO
-========================================= */
-
-async function loadAudio(){
-
-    audioList.innerHTML = `
-
-        <div class="empty">
-            ⏳ Inapakia audio...
         </div>
 
-    `;
+      </article>
 
+    `).join("");
 
-    try{
+    document.querySelectorAll(".delete-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        deleteAudio(button.dataset.id);
+      });
+    });
 
-        const snapshot =
-            await getDocs(
-                collection(
-                    db,
-                    "audio"
-                )
-            );
+  } catch (error) {
 
+    showError(error);
 
-        if(snapshot.empty){
+    $("audioList").innerHTML =
+      '<div class="empty">Imeshindikana kupakia audio. Angalia ujumbe wa kosa hapo juu.</div>';
 
-            audioList.innerHTML = `
-
-                <div class="empty">
-
-                    🎧 Hakuna audio bado.
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        let html = "";
-
-
-        snapshot.forEach(
-            function(docSnap){
-
-                const audio =
-                    docSnap.data();
-
-
-                html += `
-
-                    <article
-                        class="audio-card"
-                    >
-
-                        <img
-                            src="${escapeHtml(
-                                audio.image ||
-                                "images/habari.jpg"
-                            )}"
-                            alt="${escapeHtml(
-                                audio.title ||
-                                "Audio"
-                            )}"
-                            onerror="
-                                this.onerror=null;
-                                this.src='images/habari.jpg';
-                            "
-                        >
-
-
-                        <div
-                            class="audio-content"
-                        >
-
-
-                            <span
-                                class="category"
-                            >
-
-                                ${escapeHtml(
-                                    audio.category ||
-                                    "Audio"
-                                )}
-
-                            </span>
-
-
-                            <h3>
-
-                                ${escapeHtml(
-                                    audio.title ||
-                                    "Bila kichwa"
-                                )}
-
-                            </h3>
-
-
-                            <div
-                                class="author"
-                            >
-
-                                ✍️ Muandishi:
-                                ${escapeHtml(
-                                    audio.author ||
-                                    "Haijawekwa"
-                                )}
-
-                            </div>
-
-
-                            <p>
-
-                                ${escapeHtml(
-                                    audio.description ||
-                                    ""
-                                )}
-
-                            </p>
-
-
-                            <audio
-                                class="audio-player"
-                                controls
-                                src="${escapeHtml(
-                                    audio.audioUrl ||
-                                    ""
-                                )}"
-                            ></audio>
-
-
-                            <button
-                                class="delete-btn"
-                                data-id="${escapeHtml(
-                                    docSnap.id
-                                )}"
-                            >
-
-                                🗑️ Futa Audio
-
-                            </button>
-
-
-                        </div>
-
-                    </article>
-
-                `;
-
-            }
-        );
-
-
-        audioList.innerHTML =
-            html;
-
-
-        /* =====================================
-           DELETE EVENTS
-        ===================================== */
-
-        document
-            .querySelectorAll(".delete-btn")
-            .forEach(
-                function(button){
-
-                    button.addEventListener(
-                        "click",
-                        function(){
-
-                            deleteAudio(
-                                button.dataset.id
-                            );
-
-                        }
-                    );
-
-                }
-            );
-
-
-    }catch(error){
-
-        console.error(
-            "LOAD AUDIO ERROR:",
-            error
-        );
-
-
-        audioList.innerHTML = `
-
-            <div class="empty">
-
-                ❌ Imeshindikana kupakia audio.
-
-                <br><br>
-
-                ${escapeHtml(
-                    error.message
-                )}
-
-            </div>
-
-        `;
-
-    }
+  }
 
 }
 
 
-/* =========================================
-   DELETE AUDIO
-========================================= */
+/* DELETE AUDIO */
 
-async function deleteAudio(
-    audioId
-){
+async function deleteAudio(id) {
 
-    const confirmDelete =
-        confirm(
-            "Una uhakika unataka kufuta audio hii?"
-        );
+  if (!currentUser) {
+    alert("Tafadhali ingia kama admin.");
+    return;
+  }
 
+  if (!confirm(
+    "Una uhakika unataka kufuta audio hii? Kitendo hiki hakiwezi kurudishwa."
+  )) {
+    return;
+  }
 
-    if(!confirmDelete){
+  try {
 
-        return;
+    const item = audioRecords.find(a => a.id === id);
 
+    if (
+      !item ||
+      String(item.category || "").trim().toLowerCase() !== "audio"
+    ) {
+      alert(
+        "Rekodi hii si audio inayosimamiwa na ukurasa huu."
+      );
+      return;
     }
 
+    await deleteDoc(
+      doc(db, "articles", id)
+    );
 
-    try{
+    await loadAudio();
 
-        await deleteDoc(
+    alert("Audio imefutwa.");
 
-            doc(
-                db,
-                "audio",
-                audioId
-            )
+  } catch (error) {
 
-        );
+    showError(error);
 
+    alert(
+      "Imeshindikana kufuta audio: " + error.message
+    );
 
-        alert(
-            "✅ Audio imefutwa."
-        );
-
-
-        await loadAudio();
-
-
-    }catch(error){
-
-        console.error(
-            "DELETE ERROR:",
-            error
-        );
-
-
-        alert(
-            "❌ Imeshindikana kufuta: " +
-            error.message
-        );
-
-    }
+  }
 
 }
 
