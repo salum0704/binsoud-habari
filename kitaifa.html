@@ -2227,160 +2227,119 @@
        LOAD ARTICLES
     ========================== */
 
-    async function loadArticles(){
+    const NATIONAL_CACHE_KEY = "binsoud_national_articles_cache_v1";
 
-      try{
+    function filterNationalArticles(allArticles){
+      return allArticles
+        .filter(article => {
+          if(
+            article.isPublished === false ||
+            article.published === false
+          ){
+            return false;
+          }
 
-        const snapshot =
-          await getDocs(
-            collection(
-              db,
-              "articles"
-            )
-          );
+          const status = String(article.status || "")
+            .toLowerCase()
+            .trim();
 
-        const allArticles =
-          snapshot.docs.map(
-            doc => ({
+          if(status){
+            const allowed = [
+              "published",
+              "publish",
+              "active",
+              "live",
+              "true"
+            ];
 
-              __id:doc.id,
+            if(!allowed.includes(status)){
+              return false;
+            }
+          }
 
-              ...doc.data()
-
-            })
-          );
-
-        nationalArticles =
-          allArticles
-            .filter(article => {
-
-              if(
-                article.isPublished === false ||
-                article.published === false
-              ){
-
-                return false;
-
-              }
-
-              const status =
-                String(
-                  article.status || ""
-                )
-                .toLowerCase()
-                .trim();
-
-              if(status){
-
-                const allowed = [
-                  "published",
-                  "publish",
-                  "active",
-                  "live",
-                  "true"
-                ];
-
-                if(
-                  !allowed.includes(status)
-                ){
-
-                  return false;
-
-                }
-
-              }
-
-              return isNational(article);
-
-            });
-
-        nationalArticles.sort(
-          (a,b) =>
-            dateToMillis(
-              getDateValue(b)
-            ) -
-            dateToMillis(
-              getDateValue(a)
-            )
+          return isNational(article);
+        })
+        .sort((a,b) =>
+          dateToMillis(getDateValue(b)) -
+          dateToMillis(getDateValue(a))
         );
+    }
 
-        if(!nationalArticles.length){
-
-          content.classList.add(
-            "hidden"
-          );
-
-          errorBox.classList.add(
-            "hidden"
-          );
-
-          empty.classList.remove(
-            "hidden"
-          );
-
-          startBreakingNews();
-
-          return;
-
-        }
-
-        content.classList.remove(
-          "hidden"
-        );
-
-        empty.classList.add(
-          "hidden"
-        );
-
-        errorBox.classList.add(
-          "hidden"
-        );
-
-        count.textContent =
-          `${nationalArticles.length} habari`;
-
-        renderHero(
-          nationalArticles[0]
-        );
-
-        renderSideNews(
-          nationalArticles.slice(1,5)
-        );
-
-        /* Anza kuonyesha habari 6 tu kwenye grid */
-
-        visibleNewsCount = 6;
-
-        renderNewsGrid(
-          nationalArticles.slice(1)
-        );
-
-        startBreakingNews();
-
-      }catch(error){
-
-        console.error(
-          "Kitaifa Firestore Error:",
-          error
-        );
-
-        content.classList.add(
-          "hidden"
-        );
-
-        empty.classList.add(
-          "hidden"
-        );
-
-        errorBox.classList.remove(
-          "hidden"
-        );
-
-        errorText.textContent =
-          "Kuna tatizo la kuunganisha na Firebase. Tafadhali jaribu tena.";
-
+    function renderNationalPage(){
+      if(!nationalArticles.length){
+        content.classList.add("hidden");
+        errorBox.classList.add("hidden");
+        empty.classList.remove("hidden");
+        return;
       }
 
+      content.classList.remove("hidden");
+      empty.classList.add("hidden");
+      errorBox.classList.add("hidden");
+
+      count.textContent = `${nationalArticles.length} habari`;
+      renderHero(nationalArticles[0]);
+      renderSideNews(nationalArticles.slice(1,5));
+      visibleNewsCount = 6;
+      renderNewsGrid(nationalArticles.slice(1));
+      startBreakingNews();
+    }
+
+    /* ONESHA CACHE MARA MOJA ILI HABARI ZIONEKANE BILA KUSUBIRI FIREBASE */
+    function loadNationalCache(){
+      try{
+        const saved = localStorage.getItem(NATIONAL_CACHE_KEY);
+        if(!saved) return false;
+
+        const cached = JSON.parse(saved);
+        if(!Array.isArray(cached) || !cached.length) return false;
+
+        nationalArticles = filterNationalArticles(cached);
+        renderNationalPage();
+        return nationalArticles.length > 0;
+      }catch(error){
+        console.warn("National cache haikuweza kusomwa:", error);
+        return false;
+      }
+    }
+
+    async function loadArticles(){
+      try{
+        const snapshot = await getDocs(collection(db,"articles"));
+
+        const allArticles = snapshot.docs.map(doc => ({
+          __id:doc.id,
+          ...doc.data()
+        }));
+
+        nationalArticles = filterNationalArticles(allArticles);
+
+        try{
+          localStorage.setItem(
+            NATIONAL_CACHE_KEY,
+            JSON.stringify(nationalArticles)
+          );
+        }catch(cacheError){
+          console.warn("National cache haikuweza kuhifadhiwa:", cacheError);
+        }
+
+        renderNationalPage();
+
+      }catch(error){
+        console.error("Kitaifa Firestore Error:",error);
+
+        /* Usifute habari zilizotoka cache ikiwa Firebase imechelewa au imeshindwa */
+        if(nationalArticles.length){
+          renderNationalPage();
+          return;
+        }
+
+        content.classList.add("hidden");
+        empty.classList.add("hidden");
+        errorBox.classList.remove("hidden");
+        errorText.textContent =
+          "Kuna tatizo la kuunganisha na Firebase. Tafadhali jaribu tena.";
+      }
     }
 
     /* =========================
@@ -2731,6 +2690,7 @@
        START
     ========================== */
 
+    loadNationalCache();
     loadArticles();
 
   </script>
