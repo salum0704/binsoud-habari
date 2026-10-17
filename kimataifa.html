@@ -3025,211 +3025,108 @@ header {
 
 
     /* =========================
-       LOAD ARTICLES
+       CACHE + LOAD ARTICLES
+       Habari huonekana kwanza kutoka cache,
+       kisha data mpya husawazishwa kutoka Firebase.
     ========================== */
 
-    async function loadArticles(){
-
-      try{
-
-        errorState.classList.add(
-          "hidden"
-        );
-
-
-        emptyState.classList.add(
-          "hidden"
-        );
-
-
-        content.classList.add(
-          "hidden"
-        );
-
-
-        moreWrap.classList.add(
-          "hidden"
-        );
-
-
-        const snapshot =
-          await getDocs(
-            collection(
-              db,
-              "articles"
-            )
-          );
-
-
-        const articles =
-          [];
-
-
-        snapshot.forEach(
-          doc => {
-
-            const data =
-              doc.data();
-
-
-            if(
-              !isPublished(data)
-            ){
-
-              return;
-
-            }
-
-
-            if(
-              !isInternational(data)
-            ){
-
-              return;
-
-            }
-
-
-            articles.push({
-
-              __id:
-                doc.id,
-
-              ...data
-
-            });
-
-          }
-        );
-
-
-        /*
-          NEWEST FIRST
-        */
-
-        articles.sort(
-          (a,b) =>
-
-            dateToMillis(
-              getDateValue(b)
-            )
-
-            -
-
-            dateToMillis(
-              getDateValue(a)
-            )
-
-        );
-
-
-        allInternationalArticles =
-          articles;
-
-
-        visibleArticles =
-          [
-            ...articles
-          ];
-
-
-        visibleGridCount =
-          INITIAL_GRID_COUNT;
-
-
-        /*
-          BREAKING
-        */
-
-        breakingIndex = 0;
-
-        updateBreakingNews();
-
-
-        /*
-          LOADING OFF
-        */
-
-        loading.classList.add(
-          "hidden"
-        );
-
-
-        /*
-          EMPTY
-        */
-
-        if(
-          !allInternationalArticles.length
-        ){
-
-          content.classList.add(
-            "hidden"
-          );
-
-
-          emptyState.classList.remove(
-            "hidden"
-          );
-
-
-          return;
-
-        }
-
-
-        /*
-          SHOW CONTENT
-        */
-
-        renderFront(
-          visibleArticles
-        );
-
-
-        /*
-          BREAKING ROTATION
-        */
-
-        setInterval(
-          updateBreakingNews,
-          5000
-        );
-
-
-      }catch(error){
-
-        console.error(
-          "Kimataifa Firestore Error:",
-          error
-        );
-
-
-        loading.classList.add(
-          "hidden"
-        );
-
-
-        content.classList.add(
-          "hidden"
-        );
-
-
-        emptyState.classList.add(
-          "hidden"
-        );
-
-
-        errorState.classList.remove(
-          "hidden"
-        );
-
-
-        errorText.textContent =
-          "Kuna tatizo la kuunganisha na Firebase. Tafadhali hakikisha Firebase na Firestore vinafanya kazi vizuri.";
-
+    const INTERNATIONAL_CACHE_KEY = "binsoud_international_articles_cache_v1";
+    let breakingRotationStarted = false;
+    let hasInternationalCache = false;
+
+    function showInternationalArticles(articles){
+
+      allInternationalArticles = articles;
+      visibleArticles = [...articles];
+      visibleGridCount = INITIAL_GRID_COUNT;
+      breakingIndex = 0;
+      updateBreakingNews();
+      loading.classList.add("hidden");
+
+      if(!allInternationalArticles.length){
+        content.classList.add("hidden");
+        emptyState.classList.remove("hidden");
+        return;
       }
 
+      errorState.classList.add("hidden");
+      emptyState.classList.add("hidden");
+      renderFront(visibleArticles);
+
+      if(!breakingRotationStarted){
+        breakingRotationStarted = true;
+        setInterval(updateBreakingNews, 5000);
+      }
+    }
+
+    function loadInternationalCache(){
+      try{
+        const cached = localStorage.getItem(INTERNATIONAL_CACHE_KEY);
+        if(!cached) return;
+
+        const parsed = JSON.parse(cached);
+        if(!Array.isArray(parsed) || !parsed.length) return;
+
+        const articles = parsed
+          .filter(article => isPublished(article) && isInternational(article))
+          .sort((a,b) => dateToMillis(getDateValue(b)) - dateToMillis(getDateValue(a)));
+
+        if(!articles.length) return;
+
+        hasInternationalCache = true;
+        showInternationalArticles(articles);
+      }catch(error){
+        console.warn("Kimataifa cache haikuweza kusomwa:", error);
+      }
+    }
+
+    async function loadArticles(){
+      try{
+        errorState.classList.add("hidden");
+        if(!hasInternationalCache){
+          emptyState.classList.add("hidden");
+          content.classList.add("hidden");
+          moreWrap.classList.add("hidden");
+        }
+
+        const snapshot = await getDocs(collection(db, "articles"));
+        const articles = [];
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          if(!isPublished(data)) return;
+          if(!isInternational(data)) return;
+          articles.push({ __id: doc.id, ...data });
+        });
+
+        articles.sort((a,b) => dateToMillis(getDateValue(b)) - dateToMillis(getDateValue(a)));
+
+        // Hifadhi nakala kwa ziara inayofuata bila kubadili muundo wa ukurasa.
+        try{
+          localStorage.setItem(INTERNATIONAL_CACHE_KEY, JSON.stringify(articles));
+        }catch(cacheError){
+          console.warn("Kimataifa cache haikuweza kuhifadhiwa:", cacheError);
+        }
+
+        hasInternationalCache = articles.length > 0;
+        showInternationalArticles(articles);
+
+      }catch(error){
+        console.error("Kimataifa Firestore Error:", error);
+        loading.classList.add("hidden");
+
+        // Ikiwa cache ipo, ibaki kuonekana hata Firebase ikichelewa au ikishindwa.
+        if(hasInternationalCache && allInternationalArticles.length){
+          content.classList.remove("hidden");
+          errorState.classList.add("hidden");
+          return;
+        }
+
+        content.classList.add("hidden");
+        emptyState.classList.add("hidden");
+        errorState.classList.remove("hidden");
+        errorText.textContent = "Kuna tatizo la kuunganisha na Firebase. Tafadhali hakikisha Firebase na Firestore vinafanya kazi vizuri.";
+      }
     }
 
 
@@ -3652,6 +3549,7 @@ header {
        START
     ========================== */
 
+    loadInternationalCache();
     loadArticles();
 
   </script>
