@@ -4,35 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>BINSOUD HABARI</title>
 
-<title>BINSOUD HABARI | Habari za Tanzania, Zanzibar na Dunia</title>
+  <meta
+    name="description"
+    content="BINSOUD HABARI - Habari za Kitaifa, Kimataifa, Dini, Michezo, Mazingira, Burudani, Siasa, Uchumi na Makala."
+  >
 
-<meta
-  name="description"
-  content="BINSOUD HABARI ni chanzo cha habari za Tanzania, Zanzibar, Afrika na dunia. Soma habari za kitaifa, kimataifa, siasa, michezo, dini, biashara, mazingira na burudani."
->
-
-<meta name="robots" content="index, follow">
-
-<link
-  rel="canonical"
-  href="https://salum0704.github.io/binsoud-habari/"
->
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="BINSOUD HABARI">
-<meta
-  property="og:title"
-  content="BINSOUD HABARI | Habari za Tanzania, Zanzibar na Dunia"
->
-<meta
-  property="og:description"
-  content="Soma habari za Tanzania, Zanzibar, Afrika na dunia kupitia BINSOUD HABARI."
->
-<meta
-  property="og:url"
-  content="https://salum0704.github.io/binsoud-habari/"
->
   <style>
     :root{
       --blue:#0757a6;
@@ -105,7 +83,7 @@
     /* =========================
        HEADER - NEMBO KAMILI
     ========================== */
-    
+
 header {
   position: relative;
   width: 100%;
@@ -580,8 +558,21 @@ header {
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:22px;
+      padding:0;
+      overflow:hidden;
       transition:transform .2s,box-shadow .2s;
+    }
+
+    .quick-link-image{
+      display:block;
+      width:100%;
+      height:190px;
+      object-fit:cover;
+      background:#e9eef5;
+    }
+
+    .quick-link-content{
+      padding:22px;
     }
 
     .quick-link:hover{
@@ -862,7 +853,6 @@ header {
     }
   </style>
 </head>
-
 <body>
 
   <!-- =========================
@@ -1014,31 +1004,51 @@ header {
 
           <a href="video.html" class="quick-link">
 
-            <h3>VIDEO</h3>
+            <img
+              class="quick-link-image"
+              src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=900&q=75"
+              alt="Vifaa vya kurekodia video"
+              loading="lazy"
+              decoding="async"
+            >
 
-            <p>
-              Tazama video mbalimbali za habari
-              na matukio kutoka BINSOUD HABARI.
-            </p>
+            <div class="quick-link-content">
+              <h3>VIDEO</h3>
 
-            <span class="read-more">
-              Fungua VIDEO →
-            </span>
+              <p>
+                Tazama video mbalimbali za habari
+                na matukio kutoka BINSOUD HABARI.
+              </p>
+
+              <span class="read-more">
+                Fungua VIDEO →
+              </span>
+            </div>
 
           </a>
 
           <a href="audio.html" class="quick-link">
 
-            <h3>AUDIO</h3>
+            <img
+              class="quick-link-image"
+              src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=75"
+              alt="Kipaza sauti cha kurekodia audio"
+              loading="lazy"
+              decoding="async"
+            >
 
-            <p>
-              Sikiliza habari na vipindi vya sauti
-              kutoka BINSOUD HABARI.
-            </p>
+            <div class="quick-link-content">
+              <h3>AUDIO</h3>
 
-            <span class="read-more">
-              Fungua AUDIO →
-            </span>
+              <p>
+                Sikiliza habari na vipindi vya sauti
+                kutoka BINSOUD HABARI.
+              </p>
+
+              <span class="read-more">
+                Fungua AUDIO →
+              </span>
+            </div>
 
           </a>
 
@@ -1287,7 +1297,7 @@ header {
           value !== undefined &&
           value !== null &&
           String(value).trim() !== ""
-        ){
+                  ){
           return value;
         }
       }
@@ -1532,6 +1542,31 @@ header {
       return "habari.html?id=" + encodeURIComponent(id);
     }
 
+    /* CACHE YA HABARI: ONESHA HABARI ZILIZOHIFADHIWA MARA MOJA */
+
+    const ARTICLES_CACHE_KEY = "binsoud_habari_articles_cache_v1";
+
+    function loadCachedArticles(){
+      try{
+        const cached = localStorage.getItem(ARTICLES_CACHE_KEY);
+        if(!cached) return false;
+
+        const parsed = JSON.parse(cached);
+        if(!Array.isArray(parsed) || !parsed.length) return false;
+
+        articles = parsed.filter(isPublished);
+        articles.sort((a,b) =>
+          dateToMillis(getDateValue(b)) - dateToMillis(getDateValue(a))
+        );
+        renderAll();
+        setupBreakingNews();
+        return true;
+      }catch(error){
+        console.warn("Articles cache haikuweza kusomwa:", error);
+        return false;
+      }
+    }
+
     /* LOAD ARTICLES */
 
     async function loadArticles(){
@@ -1551,12 +1586,23 @@ header {
             dateToMillis(getDateValue(a))
         );
 
+        try{
+          localStorage.setItem(
+            ARTICLES_CACHE_KEY,
+            JSON.stringify(articles)
+          );
+        }catch(cacheError){
+          console.warn("Articles cache haikuweza kuhifadhiwa:", cacheError);
+        }
+
         renderAll();
         setupBreakingNews();
 
       }catch(error){
         console.error("Firestore error:",error);
-        renderError();
+        if(!articles.length){
+          renderError();
+        }
       }
     }
 
@@ -1599,6 +1645,7 @@ header {
             src="${escapeHtml(image)}"
             alt="${title}"
             loading="lazy"
+            decoding="async"
             onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
           >
 
@@ -1637,6 +1684,7 @@ header {
             src="${escapeHtml(image)}"
             alt="${title}"
             loading="lazy"
+            decoding="async"
             onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
           >
 
@@ -1685,6 +1733,8 @@ header {
             class="hero-image"
             src="${escapeHtml(image)}"
             alt="${title}"
+            fetchpriority="high"
+            decoding="async"
             onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
           >
 
@@ -1706,8 +1756,7 @@ header {
         heroBox.querySelector("[data-article-id]")
       );
     }
-
-    /* SIDE */
+        /* SIDE */
 
     function renderSide(){
       const list = articles.slice(1,4);
@@ -1957,6 +2006,7 @@ header {
               src="${escapeHtml(getImage(article))}"
               alt="${escapeHtml(getTitle(article))}"
               loading="lazy"
+              decoding="async"
               onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
             >
 
@@ -2118,8 +2168,9 @@ header {
       newsletterForm.reset();
     });
 
-    /* START */
+    /* START: ONESHA CACHE KWANZA, KISHA SASISHA KUTOKA FIREBASE */
 
+    loadCachedArticles();
     loadArticles();
 
   </script>
