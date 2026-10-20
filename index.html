@@ -1077,10 +1077,8 @@
       radioPlayer.load();
       radioStatus.textContent = "Redio iko tayari. Bonyeza Play kusikiliza.";
     } else {
-      radioStatus.textContent = "Redio itapatikana baada ya kuweka URL yake.";
-    }
-
-    radioPlayer.addEventListener("error", () => {
+      }
+     radioPlayer.addEventListener("error", () => {
       if (RADIO_STREAM_URL !== "WEKA_URL_YA_REDIO_HAPA") {
         radioStatus.textContent = "Redio haijaunganishwa. Hakikisha URL ya mtiririko wa sauti ni sahihi.";
       }
