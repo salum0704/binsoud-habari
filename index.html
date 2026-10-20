@@ -1,23 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="sw">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title>BINSOUD HABARI | Habari za Tanzania na Dunia</title>
-<meta name="description" content="BINSOUD HABARI ni chanzo cha habari za Tanzania, Zanzibar, Afrika na dunia.">
-<link rel="canonical" href="https://salum0704.github.io/binsoud-habari/">
+  <title>BINSOUD HABARI | Habari za Tanzania na Dunia</title>
+  <meta name="description" content="BINSOUD HABARI ni chanzo cha habari za Tanzania, Zanzibar, Afrika na dunia.">
+  <link rel="canonical" href="https://salum0704.github.io/binsoud-habari/">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "BINSOUD HABARI",
-  "alternateName": "Binsoud Habari",
-  "url": "https://salum0704.github.io/binsoud-habari/"
-}
-</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "BINSOUD HABARI",
+    "alternateName": "Binsoud Habari",
+    "url": "https://salum0704.github.io/binsoud-habari/"
+  }
+  </script>
 
   <style>
     :root{
@@ -41,9 +40,7 @@
       padding:0;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       font-family:Arial,Helvetica,sans-serif;
@@ -52,29 +49,14 @@
       line-height:1.6;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    img{
-      display:block;
-      max-width:100%;
-    }
-
-    button,
-    input{
-      font:inherit;
-    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button,input,textarea{font:inherit}
 
     .container{
       width:min(1180px,92%);
       margin:auto;
     }
-
-    /* =========================
-       TOP DATE
-    ========================== */
 
     .top-date{
       background:var(--deep);
@@ -88,61 +70,38 @@
       justify-content:flex-end;
     }
 
-    /* =========================
-       HEADER - NEMBO KAMILI
-    ========================== */
+    header{
+      position:relative;
+      width:100%;
+      min-height:100px;
+      background-color:#dcecf2;
+      background-image:
+        linear-gradient(
+          115deg,
+          rgba(9,66,92,.10),
+          rgba(255,255,255,.82),
+          rgba(25,45,55,.08)
+        ),
+        url("images/binsoud-habari-logo.png.png");
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:88% 100px;
+      border-bottom:1px solid #b7ccd5;
+    }
 
-header {
-  position: relative;
-  width: 100%;
-  min-height: 100px;
+    .header-main{
+      width:100%;
+      max-width:none;
+      min-height:100px;
+      padding:8px 3%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      position:relative;
+      z-index:1;
+    }
 
-  /* Samawati ya bahari, weupe na nyeusi kwa mbali */
-  background-color: #dcecf2;
-  background-image:
-    linear-gradient(
-      115deg,
-      rgba(9, 66, 92, 0.10),
-      rgba(255, 255, 255, 0.82),
-      rgba(25, 45, 55, 0.08)
-    ),
-    url("images/binsoud-habari-logo.png.png");
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 88% 100px;
-
-  border-bottom: 1px solid #b7ccd5;
-  box-sizing: border-box;
-}
-
-.header-main {
-  width: 100%;
-  max-width: none;
-  min-height: 100px;
-  padding: 8px 3%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: 0;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.logo span {
-  color: var(--red);
-}
-
-    /* MAANDISHI YA BINSOUD HABARI YAMEHIFADHIWA */
     .logo{
       font-size:30px;
       font-weight:900;
@@ -152,9 +111,7 @@ header {
       flex-shrink:0;
     }
 
-    .logo span{
-      color:var(--red);
-    }
+    .logo span,.footer-logo span{color:var(--red)}
 
     .search-box{
       flex:1;
@@ -162,10 +119,7 @@ header {
       position:relative;
     }
 
-    .search-form{
-      display:flex;
-      width:100%;
-    }
+    .search-form{display:flex;width:100%}
 
     .search-form input{
       width:100%;
@@ -187,13 +141,7 @@ header {
       font-weight:700;
     }
 
-    .search-form button:hover{
-      background:var(--blue-dark);
-    }
-
-    /* =========================
-       SEARCH SUGGESTIONS
-    ========================== */
+    .search-form button:hover{background:var(--blue-dark)}
 
     .search-suggestions{
       display:none;
@@ -210,9 +158,7 @@ header {
       overflow-y:auto;
     }
 
-    .search-suggestions.active{
-      display:block;
-    }
+    .search-suggestions.active{display:block}
 
     .search-suggestion{
       display:flex;
@@ -224,13 +170,8 @@ header {
       background:#fff;
     }
 
-    .search-suggestion:last-child{
-      border-bottom:0;
-    }
-
-    .search-suggestion:hover{
-      background:#f4f8fc;
-    }
+    .search-suggestion:last-child{border-bottom:0}
+    .search-suggestion:hover{background:#f4f8fc}
 
     .search-suggestion-image{
       width:65px;
@@ -241,9 +182,7 @@ header {
       flex-shrink:0;
     }
 
-    .search-suggestion-content{
-      min-width:0;
-    }
+    .search-suggestion-content{min-width:0}
 
     .search-suggestion-title{
       color:var(--deep);
@@ -279,14 +218,7 @@ header {
       font-size:13px;
     }
 
-    /* =========================
-       NAVIGATION
-    ========================== */
-
-    .nav{
-      background:var(--blue);
-      color:#fff;
-    }
+    .nav{background:var(--blue);color:#fff}
 
     .nav .container{
       display:flex;
@@ -296,9 +228,7 @@ header {
       scrollbar-width:none;
     }
 
-    .nav .container::-webkit-scrollbar{
-      display:none;
-    }
+    .nav .container::-webkit-scrollbar{display:none}
 
     .nav a{
       display:block;
@@ -309,14 +239,7 @@ header {
       transition:.2s;
     }
 
-    .nav a:hover,
-    .nav a.active{
-      background:var(--blue-dark);
-    }
-
-    /* =========================
-       BREAKING NEWS
-    ========================== */
+    .nav a:hover,.nav a.active{background:var(--blue-dark)}
 
     .breaking{
       background:#fff;
@@ -338,11 +261,7 @@ header {
       white-space:nowrap;
     }
 
-    .breaking-content{
-      flex:1;
-      overflow:hidden;
-      padding-left:14px;
-    }
+    .breaking-content{flex:1;overflow:hidden;padding-left:14px}
 
     #breakingText{
       display:block;
@@ -354,17 +273,9 @@ header {
       cursor:pointer;
     }
 
-    #breakingText:hover{
-      color:var(--red);
-    }
+    #breakingText:hover{color:var(--red)}
 
-    /* =========================
-       MAIN
-    ========================== */
-
-    main{
-      padding:28px 0 45px;
-    }
+    main{padding:28px 0 45px}
 
     .section-title{
       display:flex;
@@ -388,13 +299,7 @@ header {
       font-weight:700;
     }
 
-    .section-title a:hover{
-      color:var(--red);
-    }
-
-    /* =========================
-       HERO
-    ========================== */
+    .section-title a:hover{color:var(--red)}
 
     .hero-grid{
       display:grid;
@@ -402,8 +307,7 @@ header {
       gap:20px;
     }
 
-    .hero-card,
-    .side-card{
+    .hero-card,.side-card{
       background:#fff;
       border-radius:var(--radius);
       overflow:hidden;
@@ -412,11 +316,9 @@ header {
       cursor:pointer;
     }
 
-    .hero-card{
-      transition:transform .2s,box-shadow .2s;
-    }
+    .hero-card{transition:transform .2s,box-shadow .2s}
 
-    .hero-card:hover{
+    .hero-card:hover,.article-card:hover,.side-card:hover,.quick-link:hover{
       transform:translateY(-3px);
       box-shadow:0 9px 25px rgba(13,47,79,.12);
     }
@@ -428,9 +330,7 @@ header {
       background:#e9eef5;
     }
 
-    .hero-content{
-      padding:18px;
-    }
+    .hero-content{padding:18px}
 
     .category-label{
       display:inline-block;
@@ -448,10 +348,7 @@ header {
       margin-bottom:9px;
     }
 
-    .hero-description{
-      color:var(--muted);
-      font-size:15px;
-    }
+    .hero-description{color:var(--muted);font-size:15px}
 
     .article-date{
       color:var(--muted);
@@ -459,26 +356,13 @@ header {
       margin-top:10px;
     }
 
-    /* =========================
-       SIDE NEWS
-    ========================== */
-
-    .side-list{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
+    .side-list{display:flex;flex-direction:column;gap:14px}
 
     .side-card{
       display:grid;
       grid-template-columns:115px 1fr;
       min-height:112px;
       transition:transform .2s,box-shadow .2s;
-    }
-
-    .side-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 9px 25px rgba(13,47,79,.12);
     }
 
     .side-image{
@@ -489,9 +373,7 @@ header {
       background:#e9eef5;
     }
 
-    .side-content{
-      padding:11px;
-    }
+    .side-content{padding:11px}
 
     .side-title{
       font-size:16px;
@@ -499,10 +381,6 @@ header {
       font-weight:800;
       color:var(--deep);
     }
-
-    /* =========================
-       HABARI MPYA
-    ========================== */
 
     .article-grid{
       display:grid;
@@ -520,11 +398,6 @@ header {
       transition:transform .2s,box-shadow .2s;
     }
 
-    .article-card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 9px 25px rgba(13,47,79,.12);
-    }
-
     .article-image{
       width:100%;
       height:190px;
@@ -532,9 +405,7 @@ header {
       background:#e9eef5;
     }
 
-    .article-content{
-      padding:14px;
-    }
+    .article-content{padding:14px}
 
     .article-title{
       font-size:18px;
@@ -549,10 +420,6 @@ header {
       font-size:14px;
       line-height:1.5;
     }
-
-    /* =========================
-       QUICK LINKS
-    ========================== */
 
     .quick-links{
       margin-top:30px;
@@ -579,25 +446,9 @@ header {
       background:#e9eef5;
     }
 
-    .quick-link-content{
-      padding:22px;
-    }
-
-    .quick-link:hover{
-      transform:translateY(-3px);
-      box-shadow:0 9px 25px rgba(13,47,79,.12);
-    }
-
-    .quick-link h3{
-      color:var(--blue-dark);
-      margin-bottom:5px;
-    }
-
-    .quick-link p{
-      color:var(--muted);
-      font-size:14px;
-      margin-bottom:12px;
-    }
+    .quick-link-content{padding:22px}
+    .quick-link h3{color:var(--blue-dark);margin-bottom:5px}
+    .quick-link p{color:var(--muted);font-size:14px;margin-bottom:12px}
 
     .quick-link .read-more{
       color:var(--blue);
@@ -605,13 +456,7 @@ header {
       font-weight:800;
     }
 
-    .quick-link:hover .read-more{
-      color:var(--red);
-    }
-
-    /* =========================
-       SEHEMU MPYA: REDIO MUBASHARA
-    ========================== */
+    .quick-link:hover .read-more{color:var(--red)}
 
     .live-radio{
       margin-top:30px;
@@ -622,36 +467,14 @@ header {
       box-shadow:var(--shadow);
     }
 
-    .live-radio h2{
-      font-size:22px;
-      margin-bottom:7px;
-    }
+    .live-radio h2{font-size:22px;margin-bottom:7px}
+    .live-radio p{color:#e5efff;font-size:14px;margin-bottom:15px}
+    .radio-player{display:block;width:100%;margin-top:12px}
+    .radio-note{margin-top:10px;font-size:12px;color:#e5efff}
 
-    .live-radio p{
-      color:#e5efff;
-      font-size:14px;
-      margin-bottom:15px;
-    }
+    /* MATANGAZO YA BIASHARA */
 
-    .radio-player{
-      display:block;
-      width:100%;
-      margin-top:12px;
-    }
-
-    .radio-note{
-      margin-top:10px;
-      font-size:12px;
-      color:#e5efff;
-    }
-
-    /* =========================
-       SEHEMU MPYA: MATANGAZO YA BIASHARA
-    ========================== */
-
-    .business-ads{
-      margin-top:30px;
-    }
+    .business-ads{margin-top:30px}
 
     .business-ads-intro{
       margin:-5px 0 16px;
@@ -674,6 +497,7 @@ header {
       display:flex;
       flex-direction:column;
       align-items:flex-start;
+      min-width:0;
     }
 
     .business-ad-icon{
@@ -707,18 +531,88 @@ header {
       padding:9px 13px;
       background:var(--blue);
       color:#fff;
+      border:0;
       border-radius:5px;
       font-size:13px;
       font-weight:800;
+      cursor:pointer;
     }
 
-    .business-ad-button:hover{
-      background:var(--blue-dark);
+    .business-ad-button:hover{background:var(--blue-dark)}
+
+    /* Picha za matangazo */
+
+    .business-ad-image{
+      width:100%;
+      height:190px;
+      object-fit:cover;
+      border-radius:6px;
+      background:#e9eef5;
+      margin-bottom:13px;
     }
 
-    /* =========================
-       NEWSLETTER
-    ========================== */
+    .ad-upload-panel{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+      margin-bottom:20px;
+    }
+
+    .ad-upload-panel h3{
+      color:var(--blue-dark);
+      margin-bottom:12px;
+    }
+
+    .ad-upload-form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .ad-upload-form input,
+    .ad-upload-form textarea{
+      width:100%;
+      min-width:0;
+      padding:11px;
+      border:1px solid var(--border);
+      border-radius:5px;
+      background:#fff;
+    }
+
+    .ad-upload-form textarea{
+      min-height:85px;
+      resize:vertical;
+      grid-column:1/-1;
+    }
+
+    .ad-upload-form input[type="file"]{grid-column:1/-1}
+    .ad-upload-form button{grid-column:1/-1;justify-self:start}
+
+    .ad-preview{
+      display:none;
+      width:100%;
+      max-width:420px;
+      max-height:260px;
+      object-fit:contain;
+      background:#f4f6f9;
+      border:1px solid var(--border);
+      border-radius:6px;
+      margin:12px 0;
+    }
+
+    .ad-status{
+      font-size:13px;
+      margin-top:10px;
+      color:var(--blue-dark);
+      overflow-wrap:anywhere;
+    }
+
+    .ad-delete-button{
+      margin-top:10px;
+      background:#b4232e;
+    }
 
     .newsletter{
       margin-top:30px;
@@ -728,14 +622,8 @@ header {
       border-radius:var(--radius);
     }
 
-    .newsletter h2{
-      margin-bottom:6px;
-    }
-
-    .newsletter p{
-      opacity:.9;
-      margin-bottom:15px;
-    }
+    .newsletter h2{margin-bottom:6px}
+    .newsletter p{opacity:.9;margin-bottom:15px}
 
     .newsletter-form{
       display:flex;
@@ -760,10 +648,6 @@ header {
       border-radius:0 6px 6px 0;
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
-
     footer{
       background:var(--deep);
       color:#fff;
@@ -777,39 +661,13 @@ header {
       gap:30px;
     }
 
-    .footer-logo{
-      font-size:25px;
-      font-weight:900;
-      margin-bottom:10px;
-    }
+    .footer-logo{font-size:25px;font-weight:900;margin-bottom:10px}
+    footer p{color:#cbd5e1;font-size:14px}
+    footer h3{margin-bottom:10px}
 
-    .footer-logo span{
-      color:var(--red);
-    }
-
-    footer p{
-      color:#cbd5e1;
-      font-size:14px;
-    }
-
-    footer h3{
-      margin-bottom:10px;
-    }
-
-    .footer-links{
-      display:flex;
-      flex-direction:column;
-      gap:7px;
-    }
-
-    .footer-links a{
-      color:#dbe7f5;
-      font-size:14px;
-    }
-
-    .footer-links a:hover{
-      color:#fff;
-    }
+    .footer-links{display:flex;flex-direction:column;gap:7px}
+    .footer-links a{color:#dbe7f5;font-size:14px}
+    .footer-links a:hover{color:#fff}
 
     .copyright{
       border-top:1px solid rgba(255,255,255,.12);
@@ -819,18 +677,8 @@ header {
       text-align:center;
     }
 
-    /* =========================
-       SEARCH RESULTS
-    ========================== */
-
-    .search-results{
-      display:none;
-      margin-top:20px;
-    }
-
-    .search-results.active{
-      display:block;
-    }
+    .search-results{display:none;margin-top:20px}
+    .search-results.active{display:block}
 
     .search-results-title{
       margin-bottom:15px;
@@ -848,12 +696,7 @@ header {
       grid-column:1/-1;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
     @media(max-width:900px){
-
       .header-main{
         width:100%;
         min-height:180px;
@@ -863,125 +706,49 @@ header {
         padding:20px 4%;
       }
 
-      .logo{
-        text-align:center;
-      }
-
-      .search-box{
-        width:100%;
-        max-width:430px;
-        flex:none;
-      }
-
-      .hero-grid{
-        grid-template-columns:1fr;
-      }
-
-      .article-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .business-ads-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-
-      .footer-main{
-        grid-template-columns:1fr 1fr;
-      }
+      .logo{text-align:center}
+      .search-box{width:100%;max-width:430px;flex:none}
+      .hero-grid{grid-template-columns:1fr}
+      .article-grid{grid-template-columns:repeat(2,1fr)}
+      .business-ads-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .footer-main{grid-template-columns:1fr 1fr}
     }
 
     @media(max-width:600px){
-
       header{
         min-height:180px;
         background-position:center;
         background-size:100% 100%;
       }
 
-      .header-main{
-        min-height:180px;
-        gap:15px;
-        padding:18px 4%;
-      }
+      .header-main{min-height:180px;gap:15px;padding:18px 4%}
+      .logo{font-size:27px}
+      main{padding-top:18px}
+      .hero-image{height:240px}
+      .hero-title{font-size:23px}
 
-      .logo{
-        font-size:27px;
-      }
-
-      main{
-        padding-top:18px;
-      }
-
-      .hero-image{
-        height:240px;
-      }
-
-      .hero-title{
-        font-size:23px;
-      }
-
-      .article-grid,
-      .quick-links,
-      .footer-main,
-      .business-ads-grid{
+      .article-grid,.quick-links,.footer-main,.business-ads-grid{
         grid-template-columns:1fr;
       }
 
-      .article-image{
-        height:210px;
-      }
-
-      .side-card{
-        grid-template-columns:100px 1fr;
-      }
-
-      .side-image{
-        width:100px;
-        min-height:100px;
-      }
-
-      .newsletter{
-        padding:22px 17px;
-      }
-
-      .newsletter-form{
-        flex-direction:column;
-      }
-
-      .newsletter-form input{
-        border-radius:6px;
-        margin-bottom:8px;
-      }
-
-      .newsletter-form button{
-        border-radius:6px;
-        padding:12px;
-      }
-
-      .breaking-label{
-        padding:10px;
-        font-size:11px;
-      }
-
-      .breaking-content{
-        padding-left:9px;
-      }
-
-      .search-suggestions{
-        max-height:300px;
-      }
-
-      .live-radio{
-        padding:19px;
-      }
+      .article-image{height:210px}
+      .side-card{grid-template-columns:100px 1fr}
+      .side-image{width:100px;min-height:100px}
+      .newsletter{padding:22px 17px}
+      .newsletter-form{flex-direction:column}
+      .newsletter-form input{border-radius:6px;margin-bottom:8px}
+      .newsletter-form button{border-radius:6px;padding:12px}
+      .breaking-label{padding:10px;font-size:11px}
+      .breaking-content{padding-left:9px}
+      .search-suggestions{max-height:300px}
+      .live-radio{padding:19px}
+      .ad-upload-form{grid-template-columns:1fr}
+      .ad-upload-form textarea,.ad-upload-form input[type="file"],
+      .ad-upload-form button{grid-column:1}
     }
   </style>
 </head>
 <body>
-
-  <!-- =========================
-       DATE
-  ========================== -->
 
   <div class="top-date">
     <div class="container">
@@ -989,51 +756,23 @@ header {
     </div>
   </div>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
   <header>
     <div class="container header-main">
-
-      <a href="index.html" class="logo">
-        BINSOUD <span>HABARI</span>
-      </a>
+      <a href="index.html" class="logo">BINSOUD <span>HABARI</span></a>
 
       <div class="search-box">
-
         <form class="search-form" id="searchForm">
-
-          <input
-            type="search"
-            id="searchInput"
-            placeholder="Tafuta habari..."
-            autocomplete="off"
-          >
-
-          <button type="submit">
-            TAFUTA
-          </button>
-
+          <input type="search" id="searchInput"
+                 placeholder="Tafuta habari..." autocomplete="off">
+          <button type="submit">TAFUTA</button>
         </form>
-
-        <div
-          id="searchSuggestions"
-          class="search-suggestions"
-        ></div>
-
+        <div id="searchSuggestions" class="search-suggestions"></div>
       </div>
-
     </div>
   </header>
 
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
-
   <nav class="nav">
     <div class="container">
-
       <a href="index.html" class="active">HOME</a>
       <a href="kitaifa.html">KITAIFA</a>
       <a href="kimataifa.html">MATAIFA</a>
@@ -1047,36 +786,20 @@ header {
       <a href="video.html">VIDEO</a>
       <a href="audio.html">AUDIO</a>
       <a href="contact.html">MAWASILIANO</a>
-
     </div>
   </nav>
 
-  <!-- =========================
-       BREAKING NEWS
-  ========================== -->
-
   <section class="breaking">
     <div class="container breaking-inner">
-
-      <div class="breaking-label">
-        BREAKING NEWS
-      </div>
-
+      <div class="breaking-label">BREAKING NEWS</div>
       <div class="breaking-content">
         <span id="breakingText"></span>
       </div>
-
     </div>
   </section>
 
-  <!-- =========================
-       MAIN
-  ========================== -->
-
   <main>
     <div class="container">
-
-      <!-- HABARI KUU -->
 
       <div class="section-title">
         <h2>Habari Kuu</h2>
@@ -1084,171 +807,104 @@ header {
 
       <section class="hero-grid">
         <div id="heroBox"></div>
-
         <div id="sideBox" class="side-list"></div>
       </section>
 
-      <!-- HABARI MPYA -->
-
       <section>
-
         <div class="section-title">
           <h2>Habari Mpya</h2>
-
-          <a href="kitaifa.html">
-            Ona zaidi
-          </a>
+          <a href="kitaifa.html">Ona zaidi</a>
         </div>
 
         <div id="latestBox" class="article-grid"></div>
 
-        <!-- SEARCH RESULTS -->
-
         <div id="searchResults" class="search-results">
-
-          <h3 class="search-results-title">
-            Matokeo ya utafutaji
-          </h3>
-
+          <h3 class="search-results-title">Matokeo ya utafutaji</h3>
           <div id="searchResultsBox" class="article-grid"></div>
-
         </div>
-
       </section>
 
-      <!-- =========================
-           SEHEMU MPYA: REDIO MUBASHARA
-      ========================== -->
-
       <section class="live-radio" id="redio">
-
         <h2>🎙️ Redio Mubashara</h2>
+        <p>Sikiliza matangazo ya BINSOUD HABARI moja kwa moja. Bonyeza kitufe cha kucheza redio.</p>
 
-        <p>
-          Sikiliza matangazo ya BINSOUD HABARI moja kwa moja.
-          Bonyeza kitufe cha kucheza redio.
-        </p>
-
-        <audio
-          class="radio-player"
-          id="radioPlayer"
-          controls
-          preload="none"
-        >
-          <source
-            id="radioSource"
-            src="WEKA_URL_YA_REDIO_HAPA"
-            type="audio/mpeg"
-          >
-
+        <audio class="radio-player" id="radioPlayer" controls preload="none">
+          <source id="radioSource" src="WEKA_URL_YA_REDIO_HAPA" type="audio/mpeg">
           Kivinjari chako hakiwezi kucheza sauti hii.
         </audio>
 
         <div class="radio-note" id="radioStatus" aria-live="polite">
           URL ya redio itawekwa hapa baadaye.
         </div>
-
       </section>
 
-      <!-- =========================
-           SEHEMU MPYA: MATANGAZO YA BIASHARA
-      ========================== -->
-
+      <!-- MATANGAZO YA BIASHARA -->
       <section class="business-ads" id="matangazo">
-
         <div class="section-title">
           <h2>Matangazo ya Biashara</h2>
         </div>
 
         <p class="business-ads-intro">
-          Nafasi ya kutangaza biashara, bidhaa na huduma mbalimbali
-          kupitia BINSOUD HABARI.
+          Nafasi ya kutangaza biashara, bidhaa na huduma mbalimbali kupitia BINSOUD HABARI.
         </p>
 
-        <div class="business-ads-grid">
+        <!-- Fomu ya kupakia picha za matangazo -->
+        <div class="ad-upload-panel">
+          <h3>Weka Tangazo Jipya</h3>
 
-          <article class="business-ad-card">
-
-            <div class="business-ad-icon" aria-hidden="true">
-              🏪
-            </div>
-
-            <h3>Tangaza Biashara Yako</h3>
-
-            <p>
-              Weka tangazo la duka, kampuni au biashara yako
-              ili kuwafikia wateja wapya.
-            </p>
-
-            <a
-              href="contact.html"
-              class="business-ad-button"
+          <form id="adUploadForm" class="ad-upload-form">
+            <input
+              type="text"
+              id="adTitle"
+              placeholder="Jina la tangazo / biashara"
+              maxlength="100"
+              required
             >
-              Wasiliana Nasi
-            </a>
 
-          </article>
-
-          <article class="business-ad-card">
-
-            <div class="business-ad-icon" aria-hidden="true">
-              📢
-            </div>
-
-            <h3>Tangaza Bidhaa Zako</h3>
-
-            <p>
-              Tumia nafasi hii kutangaza bidhaa zako na
-              kuwafahamisha wateja kuhusu huduma unazotoa.
-            </p>
-
-            <a
-              href="contact.html"
-              class="business-ad-button"
+            <input
+              type="url"
+              id="adLink"
+              placeholder="Kiungo cha tangazo (hiari, mfano https://...)"
             >
-              Omba Tangazo
-            </a>
 
-          </article>
+            <textarea
+              id="adDescription"
+              placeholder="Maelezo mafupi ya tangazo"
+              maxlength="500"
+              required
+            ></textarea>
 
-          <article class="business-ad-card">
-
-            <div class="business-ad-icon" aria-hidden="true">
-              🤝
-            </div>
-
-            <h3>Ushirikiano wa Biashara</h3>
-
-            <p>
-              Kwa maelezo kuhusu nafasi za matangazo na
-              ushirikiano wa kibiashara, tembelea ukurasa wetu wa mawasiliano.
-            </p>
-
-            <a
-              href="contact.html"
-              class="business-ad-button"
+            <input
+              type="file"
+              id="adImage"
+              accept="image/jpeg,image/png,image/webp,image/gif"
+              required
             >
-              Pata Maelezo
-            </a>
 
-          </article>
+            <img id="adPreview" class="ad-preview" alt="Muonekano wa picha ya tangazo">
 
+            <button type="submit" id="adSubmitButton" class="business-ad-button">
+              PAKIA TANGAZO
+            </button>
+          </form>
+
+          <p id="adUploadStatus" class="ad-status" aria-live="polite">
+            Chagua picha na ujaze taarifa za tangazo.
+          </p>
         </div>
 
+        <div id="businessAdsGrid" class="business-ads-grid">
+          <div class="empty-box">Inapakia matangazo...</div>
+        </div>
       </section>
 
-      <!-- QUICK LINKS -->
-
       <section>
-
         <div class="section-title">
           <h2>Vipengele</h2>
         </div>
 
         <div class="quick-links">
-
           <a href="video.html" class="quick-link">
-
             <img
               class="quick-link-image"
               src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=900&q=75"
@@ -1256,24 +912,14 @@ header {
               loading="lazy"
               decoding="async"
             >
-
             <div class="quick-link-content">
               <h3>VIDEO</h3>
-
-              <p>
-                Tazama video mbalimbali za habari
-                na matukio kutoka BINSOUD HABARI.
-              </p>
-
-              <span class="read-more">
-                Fungua VIDEO →
-              </span>
+              <p>Tazama video mbalimbali za habari na matukio kutoka BINSOUD HABARI.</p>
+              <span class="read-more">Fungua VIDEO →</span>
             </div>
-
           </a>
 
           <a href="audio.html" class="quick-link">
-
             <img
               class="quick-link-image"
               src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=75"
@@ -1281,101 +927,50 @@ header {
               loading="lazy"
               decoding="async"
             >
-
             <div class="quick-link-content">
               <h3>AUDIO</h3>
-
-              <p>
-                Sikiliza habari na vipindi vya sauti
-                kutoka BINSOUD HABARI.
-              </p>
-
-              <span class="read-more">
-                Fungua AUDIO →
-              </span>
+              <p>Sikiliza habari na vipindi vya sauti kutoka BINSOUD HABARI.</p>
+              <span class="read-more">Fungua AUDIO →</span>
             </div>
-
           </a>
-
         </div>
-
       </section>
 
-      <!-- JARIDA LA HABARI -->
-
       <section class="newsletter">
-
         <h2>Jiunge na Jarida la Habari</h2>
-
-        <p>
-          Pokea habari muhimu na taarifa mpya
-          moja kwa moja.
-        </p>
+        <p>Pokea habari muhimu na taarifa mpya moja kwa moja.</p>
 
         <form id="newsletterForm" class="newsletter-form">
-
-          <input
-            type="email"
-            id="newsletterEmail"
-            placeholder="Weka barua pepe yako"
-            required
-          >
-
-          <button type="submit">
-            JIUNGE
-          </button>
-
+          <input type="email" id="newsletterEmail"
+                 placeholder="Weka barua pepe yako" required>
+          <button type="submit">JIUNGE</button>
         </form>
-
       </section>
 
     </div>
   </main>
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
   <footer>
-
     <div class="container footer-main">
-
       <div>
-
-        <div class="footer-logo">
-          BINSOUD <span>HABARI</span>
-        </div>
-
-        <p>
-          BINSOUD HABARI ni jukwaa la habari
-          linalokuletea taarifa mbalimbali
-          za ndani na nje ya nchi.
-        </p>
-
+        <div class="footer-logo">BINSOUD <span>HABARI</span></div>
+        <p>BINSOUD HABARI ni jukwaa la habari linalokuletea taarifa mbalimbali za ndani na nje ya nchi.</p>
       </div>
 
       <div>
-
         <h3>SEHEMU</h3>
-
         <div class="footer-links">
-
           <a href="kitaifa.html">Kitaifa</a>
           <a href="kimataifa.html">Mataifa</a>
           <a href="dini.html">Dini</a>
           <a href="michezo.html">Michezo</a>
           <a href="mazingira.html">Mazingira</a>
-
         </div>
-
       </div>
 
       <div>
-
         <h3>ZAIDI</h3>
-
         <div class="footer-links">
-
           <a href="burudani.html">Burudani</a>
           <a href="siasa.html">Siasa</a>
           <a href="biashara.html">Uchumi</a>
@@ -1383,28 +978,15 @@ header {
           <a href="video.html">Video</a>
           <a href="audio.html">Audio</a>
           <a href="contact.html">Mawasiliano</a>
-
         </div>
-
       </div>
-
     </div>
 
     <div class="copyright">
-      ©
-      <span id="year"></span>
-      BINSOUD HABARI.
-      Haki zote zimehifadhiwa.
+      © <span id="year"></span> BINSOUD HABARI. Haki zote zimehifadhiwa.
     </div>
-
   </footer>
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
-  <script type="module">
-
+    <script type="module">
     import {
       initializeApp
     } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
@@ -1412,8 +994,17 @@ header {
     import {
       getFirestore,
       collection,
-      getDocs
+      getDocs,
+      addDoc,
+      serverTimestamp
     } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+    import {
+      getStorage,
+      ref,
+      uploadBytes,
+      getDownloadURL
+    } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
 
     /* FIREBASE */
 
@@ -1429,6 +1020,7 @@ header {
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const storage = getStorage(app);
 
     /* ELEMENTS */
 
@@ -1489,10 +1081,8 @@ header {
         .trim();
     }
 
-    /* SEARCH WORD CORRECTION */
-
     function canonicalSearchTerm(value){
-      let term = normalizeSearch(value);
+      const term = normalizeSearch(value);
 
       const corrections = {
         "raisi":"rais",
@@ -1510,8 +1100,6 @@ header {
       return corrections[term] || term;
     }
 
-    /* CATEGORY PAGES */
-
     const categoryPages = {
       "kitaifa":"kitaifa.html",
       "kimataifa":"kimataifa.html",
@@ -1528,11 +1116,8 @@ header {
     };
 
     function getCategoryPage(term){
-      const normalized = canonicalSearchTerm(term);
-      return categoryPages[normalized] || null;
+      return categoryPages[canonicalSearchTerm(term)] || null;
     }
-
-    /* FIRST VALUE */
 
     function firstValue(object, fields){
       for(const field of fields){
@@ -1550,8 +1135,6 @@ header {
       return "";
     }
 
-    /* TITLE */
-
     function getTitle(article){
       return firstValue(
         article,
@@ -1559,97 +1142,39 @@ header {
       ) || "Bila kichwa";
     }
 
-    /* CATEGORY */
-
     function getCategory(article){
-      const value = firstValue(
-        article,
-        [
-          "category",
-          "categoryName",
-          "category_name",
-          "section",
-          "sectionName",
-          "section_name",
-          "kategoria",
-          "kategoriaName",
-          "newsCategory",
-          "news_category",
-          "categories"
-        ]
-      );
+      const value = firstValue(article,[
+        "category","categoryName","category_name",
+        "section","sectionName","section_name",
+        "kategoria","kategoriaName","newsCategory",
+        "news_category","categories"
+      ]);
 
-      if(Array.isArray(value)){
-        return value.join(" ");
-      }
-
-      return value || "";
+      return Array.isArray(value) ? value.join(" ") : (value || "");
     }
-
-    /* IMAGE */
 
     function getImage(article){
-      const image = firstValue(
-        article,
-        [
-          "image",
-          "imageUrl",
-          "imageURL",
-          "image_url",
-          "photo",
-          "photoUrl",
-          "photoURL",
-          "thumbnail",
-          "thumbnailUrl",
-          "thumbnailURL",
-          "picture",
-          "pictureUrl",
-          "cover",
-          "coverImage",
-          "coverUrl",
-          "featuredImage",
-          "featured_image",
-          "urlImage",
-          "img",
-          "imageLink"
-        ]
-      );
-
-      return image || FALLBACK_IMAGE;
+      return firstValue(article,[
+        "image","imageUrl","imageURL","image_url",
+        "photo","photoUrl","photoURL","thumbnail",
+        "thumbnailUrl","thumbnailURL","picture",
+        "pictureUrl","cover","coverImage","coverUrl",
+        "featuredImage","featured_image","urlImage",
+        "img","imageLink"
+      ]) || FALLBACK_IMAGE;
     }
-
-    /* BODY */
 
     function getBody(article){
-      return firstValue(
-        article,
-        [
-          "content",
-          "body",
-          "article",
-          "text",
-          "details",
-          "description",
-          "excerpt",
-          "summary",
-          "intro"
-        ]
-      );
+      return firstValue(article,[
+        "content","body","article","text","details",
+        "description","excerpt","summary","intro"
+      ]);
     }
 
-    /* SHORT DESCRIPTION */
-
     function getDescription(article){
-      const short = firstValue(
-        article,
-        [
-          "intro",
-          "excerpt",
-          "summary",
-          "shortDescription",
-          "description"
-        ]
-      );
+      const short = firstValue(article,[
+        "intro","excerpt","summary","shortDescription","description"
+      ]);
 
       if(short){
         return String(short)
@@ -1664,130 +1189,75 @@ header {
         .replace(/\s+/g," ")
         .trim();
 
-      if(!body){
-        return "Soma habari hii kwa maelezo zaidi.";
-      }
+      if(!body) return "Soma habari hii kwa maelezo zaidi.";
 
-      return body.slice(0,220) +
-        (body.length > 220 ? "..." : "");
+      return body.slice(0,220) + (body.length > 220 ? "..." : "");
     }
-
-    /* ARTICLE ID */
 
     function getArticleId(article){
-      return String(
-        article.__id ||
-        article.id ||
-        article.articleId ||
-        ""
-      );
+      return String(article.__id || article.id || article.articleId || "");
     }
-
-    /* DATE VALUE */
 
     function getDateValue(article){
-      return firstValue(
-        article,
-        [
-          "publishedAt",
-          "publishDate",
-          "timestamp",
-          "createdAt",
-          "created_at",
-          "updatedAt",
-          "date"
-        ]
-      );
+      return firstValue(article,[
+        "publishedAt","publishDate","timestamp",
+        "createdAt","created_at","updatedAt","date"
+      ]);
     }
 
-    /* DATE TO MILLIS */
-
     function dateToMillis(value){
-      if(!value){
-        return 0;
-      }
+      if(!value) return 0;
 
-      if(
-        typeof value === "object" &&
-        typeof value.toMillis === "function"
-      ){
+      if(typeof value === "object" && typeof value.toMillis === "function"){
         return value.toMillis();
       }
 
-      if(
-        typeof value === "object" &&
-        value.seconds
-      ){
+      if(typeof value === "object" && value.seconds){
         return Number(value.seconds) * 1000;
       }
 
       const number = Number(value);
 
-      if(!Number.isNaN(number)){
-        return number;
-      }
+      if(!Number.isNaN(number)) return number;
 
       const parsed = Date.parse(value);
-
       return Number.isNaN(parsed) ? 0 : parsed;
     }
 
-    /* FORMAT DATE */
-
     function formatDate(article){
       const millis = dateToMillis(getDateValue(article));
+      if(!millis) return "";
 
-      if(!millis){
-        return "";
-      }
-
-      return new Intl.DateTimeFormat("sw-TZ", {
+      return new Intl.DateTimeFormat("sw-TZ",{
         day:"2-digit",
         month:"short",
         year:"numeric"
       }).format(new Date(millis));
     }
 
-    /* PUBLISHED */
-
     function isPublished(article){
-      if(
-        article.isPublished === false ||
-        article.published === false
-      ){
+      if(article.isPublished === false || article.published === false){
         return false;
       }
 
-      const status = String(article.status || "")
-        .toLowerCase()
-        .trim();
+      const status = String(article.status || "").toLowerCase().trim();
 
-      if(!status){
-        return true;
-      }
+      if(!status) return true;
 
       return [
-        "published",
-        "publish",
-        "active",
-        "live",
-        "true"
+        "published","publish","active","live","true"
       ].includes(status);
     }
-
-    /* ARTICLE URL */
 
     function articleUrl(article){
       const id = getArticleId(article);
 
-      if(!id){
-        return "habari.html";
-      }
-
-      return "habari.html?id=" + encodeURIComponent(id);
+      return id
+        ? "habari.html?id=" + encodeURIComponent(id)
+        : "habari.html";
     }
 
-    /* CACHE YA HABARI: ONESHA HABARI ZILIZOHIFADHIWA MARA MOJA */
+    /* HABARI CACHE */
 
     const ARTICLES_CACHE_KEY = "binsoud_habari_articles_cache_v1";
 
@@ -1800,35 +1270,35 @@ header {
         if(!Array.isArray(parsed) || !parsed.length) return false;
 
         articles = parsed.filter(isPublished);
+
         articles.sort((a,b) =>
-          dateToMillis(getDateValue(b)) - dateToMillis(getDateValue(a))
+          dateToMillis(getDateValue(b)) -
+          dateToMillis(getDateValue(a))
         );
+
         renderAll();
         setupBreakingNews();
         return true;
+
       }catch(error){
-        console.warn("Articles cache haikuweza kusomwa:", error);
+        console.warn("Articles cache haikuweza kusomwa:",error);
         return false;
       }
     }
 
-    /* LOAD ARTICLES */
+    /* PAKUA HABARI FIREBASE */
 
     async function loadArticles(){
       try{
         const snapshot = await getDocs(collection(db,"articles"));
 
         articles = snapshot.docs
-          .map(doc => ({
-            __id:doc.id,
-            ...doc.data()
-          }))
+          .map(doc => ({__id:doc.id,...doc.data()}))
           .filter(isPublished);
 
-        articles.sort(
-          (a,b) =>
-            dateToMillis(getDateValue(b)) -
-            dateToMillis(getDateValue(a))
+        articles.sort((a,b) =>
+          dateToMillis(getDateValue(b)) -
+          dateToMillis(getDateValue(a))
         );
 
         try{
@@ -1837,7 +1307,7 @@ header {
             JSON.stringify(articles)
           );
         }catch(cacheError){
-          console.warn("Articles cache haikuweza kuhifadhiwa:", cacheError);
+          console.warn("Articles cache haikuweza kuhifadhiwa:",cacheError);
         }
 
         renderAll();
@@ -1845,31 +1315,28 @@ header {
 
       }catch(error){
         console.error("Firestore error:",error);
+
         if(!articles.length){
           renderError();
         }
       }
     }
 
-    /* ERROR */
-
     function renderError(){
       heroBox.innerHTML = `
         <div class="empty-box">
           Imeshindikana kupata habari kwa sasa.
-        </div>
-      `;
+        </div>`;
 
       sideBox.innerHTML = "";
 
       latestBox.innerHTML = `
         <div class="empty-box">
           Jaribu tena baada ya muda.
-        </div>
-      `;
+        </div>`;
     }
 
-    /* ARTICLE CARD */
+    /* KADI YA HABARI */
 
     function articleCard(article){
       const id = getArticleId(article);
@@ -1880,36 +1347,19 @@ header {
       const date = escapeHtml(formatDate(article));
 
       return `
-        <article
-          class="article-card"
-          data-article-id="${escapeHtml(id)}"
-          tabindex="0"
-        >
-          <img
-            class="article-image"
+        <article class="article-card"
+          data-article-id="${escapeHtml(id)}" tabindex="0">
+          <img class="article-image"
             src="${escapeHtml(image)}"
-            alt="${title}"
-            loading="lazy"
-            decoding="async"
-            onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
-          >
-
+            alt="${title}" loading="lazy" decoding="async">
           <div class="article-content">
             <div class="category-label">${category}</div>
             <h3 class="article-title">${title}</h3>
             <p class="article-description">${description}</p>
-
-            ${
-              date
-                ? `<div class="article-date">${date}</div>`
-                : ""
-            }
+            ${date ? `<div class="article-date">${date}</div>` : ""}
           </div>
-        </article>
-      `;
+        </article>`;
     }
-
-    /* SIDE CARD */
 
     function sideCard(article){
       const id = getArticleId(article);
@@ -1919,45 +1369,25 @@ header {
       const date = escapeHtml(formatDate(article));
 
       return `
-        <article
-          class="side-card"
-          data-article-id="${escapeHtml(id)}"
-          tabindex="0"
-        >
-          <img
-            class="side-image"
+        <article class="side-card"
+          data-article-id="${escapeHtml(id)}" tabindex="0">
+          <img class="side-image"
             src="${escapeHtml(image)}"
-            alt="${title}"
-            loading="lazy"
-            decoding="async"
-            onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
-          >
-
+            alt="${title}" loading="lazy" decoding="async">
           <div class="side-content">
             <div class="category-label">${category}</div>
             <h3 class="side-title">${title}</h3>
-
-            ${
-              date
-                ? `<div class="article-date">${date}</div>`
-                : ""
-            }
+            ${date ? `<div class="article-date">${date}</div>` : ""}
           </div>
-        </article>
-      `;
+        </article>`;
     }
-
-    /* HERO */
 
     function renderHero(){
       const hero = articles[0];
 
       if(!hero){
         heroBox.innerHTML = `
-          <div class="empty-box">
-            Hakuna habari kuu kwa sasa.
-          </div>
-        `;
+          <div class="empty-box">Hakuna habari kuu kwa sasa.</div>`;
         return;
       }
 
@@ -1969,40 +1399,21 @@ header {
       const date = escapeHtml(formatDate(hero));
 
       heroBox.innerHTML = `
-        <article
-          class="hero-card"
-          data-article-id="${escapeHtml(id)}"
-          tabindex="0"
-        >
-          <img
-            class="hero-image"
+        <article class="hero-card"
+          data-article-id="${escapeHtml(id)}" tabindex="0">
+          <img class="hero-image"
             src="${escapeHtml(image)}"
-            alt="${title}"
-            fetchpriority="high"
-            decoding="async"
-            onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
-          >
-
+            alt="${title}" fetchpriority="high" decoding="async">
           <div class="hero-content">
             <div class="category-label">${category}</div>
             <h1 class="hero-title">${title}</h1>
             <p class="hero-description">${description}</p>
-
-            ${
-              date
-                ? `<div class="article-date">${date}</div>`
-                : ""
-            }
+            ${date ? `<div class="article-date">${date}</div>` : ""}
           </div>
-        </article>
-      `;
+        </article>`;
 
-      attachArticleClick(
-        heroBox.querySelector("[data-article-id]")
-      );
+      attachArticleClick(heroBox.querySelector("[data-article-id]"));
     }
-
-    /* SIDE */
 
     function renderSide(){
       const list = articles.slice(1,4);
@@ -2014,44 +1425,30 @@ header {
 
       sideBox.innerHTML = list.map(sideCard).join("");
 
-      sideBox
-        .querySelectorAll("[data-article-id]")
+      sideBox.querySelectorAll("[data-article-id]")
         .forEach(attachArticleClick);
     }
-
-    /* HABARI MPYA - 3 TU */
 
     function renderLatest(){
       const latest = articles.slice(0,3);
 
       if(!latest.length){
         latestBox.innerHTML = `
-          <div class="empty-box">
-            Hakuna habari mpya kwa sasa.
-          </div>
-        `;
+          <div class="empty-box">Hakuna habari mpya kwa sasa.</div>`;
         return;
       }
 
       latestBox.innerHTML = latest.map(articleCard).join("");
 
-      latestBox
-        .querySelectorAll("[data-article-id]")
+      latestBox.querySelectorAll("[data-article-id]")
         .forEach(attachArticleClick);
     }
 
-    /* ARTICLE CLICK → HABARI.HTML */
-
     function attachArticleClick(element){
-      if(!element){
-        return;
-      }
+      if(!element) return;
 
       const id = element.dataset.articleId;
-
-      if(!id){
-        return;
-      }
+      if(!id) return;
 
       function openArticle(){
         window.location.href =
@@ -2068,14 +1465,11 @@ header {
       });
     }
 
-    /* RENDER ALL */
-
     function renderAll(){
       renderHero();
       renderSide();
       renderLatest();
       renderDate();
-
       year.textContent = new Date().getFullYear();
     }
 
@@ -2085,15 +1479,13 @@ header {
       breakingArticles = articles.slice(0,10);
 
       if(!breakingArticles.length){
-        breakingText.textContent =
-          "Hakuna breaking news kwa sasa.";
+        breakingText.textContent = "Hakuna breaking news kwa sasa.";
         return;
       }
 
       breakingIndex = 0;
       showBreaking();
 
-      /* Zuia timer kuanzishwa mara nyingi */
       if(!breakingTimerStarted){
         setInterval(showBreaking,5000);
         breakingTimerStarted = true;
@@ -2109,19 +1501,16 @@ header {
     }
 
     function showBreaking(){
-      if(!breakingArticles.length){
-        return;
-      }
+      if(!breakingArticles.length) return;
 
       const article = breakingArticles[breakingIndex];
-
       breakingText.textContent = getTitle(article);
 
       breakingIndex =
         (breakingIndex + 1) % breakingArticles.length;
     }
 
-    /* SEARCH SCORE */
+    /* UTAFUTAJI */
 
     function scoreArticle(article,queryText){
       const query = normalizeSearch(queryText);
@@ -2132,44 +1521,19 @@ header {
 
       let score = 0;
 
-      if(title === query){
-        score += 1000;
-      }
-
-      if(title.includes(query)){
-        score += 600;
-      }
-
-      if(category === query){
-        score += 500;
-      }
-
-      if(category.includes(query)){
-        score += 300;
-      }
-
-      if(description.includes(query)){
-        score += 180;
-      }
-
-      if(body.includes(query)){
-        score += 100;
-      }
+      if(title === query) score += 1000;
+      if(title.includes(query)) score += 600;
+      if(category === query) score += 500;
+      if(category.includes(query)) score += 300;
+      if(description.includes(query)) score += 180;
+      if(body.includes(query)) score += 100;
 
       const words = query.split(" ").filter(Boolean);
 
       if(words.length > 1){
         const fullText = [title,category,description,body].join(" ");
 
-        let allWords = true;
-
-        words.forEach(word => {
-          if(!fullText.includes(word)){
-            allWords = false;
-          }
-        });
-
-        if(allWords){
+        if(words.every(word => fullText.includes(word))){
           score += 250;
         }
       }
@@ -2177,14 +1541,9 @@ header {
       return score;
     }
 
-    /* SEARCH ARTICLES */
-
     function searchArticles(term){
       const queryText = canonicalSearchTerm(term);
-
-      if(!queryText){
-        return [];
-      }
+      if(!queryText) return [];
 
       const results = articles.filter(article => {
         const searchableText = [
@@ -2192,25 +1551,18 @@ header {
           getCategory(article),
           getDescription(article),
           getBody(article)
-        ]
-          .map(normalizeSearch)
-          .join(" ");
+        ].map(normalizeSearch).join(" ");
 
-        const words = queryText.split(" ").filter(Boolean);
-
-        return words.every(word => searchableText.includes(word));
+        return queryText.split(" ").filter(Boolean)
+          .every(word => searchableText.includes(word));
       });
 
-      results.sort(
-        (a,b) =>
-          scoreArticle(b,queryText) -
-          scoreArticle(a,queryText)
+      results.sort((a,b) =>
+        scoreArticle(b,queryText) - scoreArticle(a,queryText)
       );
 
       return results;
     }
-
-    /* SEARCH SUGGESTIONS */
 
     function renderSearchSuggestions(term){
       const cleanTerm = term.trim();
@@ -2223,63 +1575,42 @@ header {
 
       const categoryPage = getCategoryPage(cleanTerm);
       const results = searchArticles(cleanTerm);
-
       let html = "";
 
       if(categoryPage){
-        const categoryName = canonicalSearchTerm(cleanTerm);
-
         html += `
-          <a
-            href="${categoryPage}"
-            class="search-suggestion-category-page"
-          >
+          <a href="${categoryPage}"
+            class="search-suggestion-category-page">
             Fungua sehemu ya
-            ${escapeHtml(categoryName.toUpperCase())}
-            →
-          </a>
-        `;
+            ${escapeHtml(canonicalSearchTerm(cleanTerm).toUpperCase())} →
+          </a>`;
       }
 
       results.slice(0,5).forEach(article => {
         html += `
-          <div
-            class="search-suggestion"
-            data-article-id="${escapeHtml(getArticleId(article))}"
-          >
-            <img
-              class="search-suggestion-image"
+          <div class="search-suggestion"
+            data-article-id="${escapeHtml(getArticleId(article))}">
+            <img class="search-suggestion-image"
               src="${escapeHtml(getImage(article))}"
               alt="${escapeHtml(getTitle(article))}"
-              loading="lazy"
-              decoding="async"
-              onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
-            >
-
+              loading="lazy" decoding="async">
             <div class="search-suggestion-content">
               <div class="search-suggestion-title">
                 ${escapeHtml(getTitle(article))}
               </div>
-
               <div class="search-suggestion-category">
                 ${escapeHtml(getCategory(article) || "Habari")}
-                ${
-                  formatDate(article)
-                    ? " • " + escapeHtml(formatDate(article))
-                    : ""
-                }
+                ${formatDate(article) ? " • " + escapeHtml(formatDate(article)) : ""}
               </div>
             </div>
-          </div>
-        `;
+          </div>`;
       });
 
       if(!html){
         html = `
           <div class="search-no-result">
             Hakuna habari inayolingana na utafutaji wako.
-          </div>
-        `;
+          </div>`;
       }
 
       searchSuggestions.innerHTML = html;
@@ -2298,8 +1629,6 @@ header {
           });
         });
     }
-
-    /* FULL SEARCH */
 
     function performSearch(){
       const typedTerm = searchInput.value.trim();
@@ -2327,8 +1656,7 @@ header {
           <div class="empty-box">
             Hakuna habari iliyopatikana kwa
             "<strong>${escapeHtml(typedTerm)}</strong>".
-          </div>
-        `;
+          </div>`;
 
         searchResults.scrollIntoView({
           behavior:"smooth",
@@ -2340,8 +1668,7 @@ header {
 
       searchResultsBox.innerHTML = results.map(articleCard).join("");
 
-      searchResultsBox
-        .querySelectorAll("[data-article-id]")
+      searchResultsBox.querySelectorAll("[data-article-id]")
         .forEach(attachArticleClick);
 
       searchResults.scrollIntoView({
@@ -2349,8 +1676,6 @@ header {
         block:"start"
       });
     }
-
-    /* SEARCH EVENTS */
 
     searchInput.addEventListener("input",function(){
       const term = searchInput.value.trim();
@@ -2367,13 +1692,9 @@ header {
 
     searchForm.addEventListener("submit",function(event){
       event.preventDefault();
-
       searchSuggestions.classList.remove("active");
-
       performSearch();
     });
-
-    /* FUNGUA SEARCH KWENYE NJE */
 
     document.addEventListener("click",function(event){
       if(!event.target.closest(".search-box")){
@@ -2381,7 +1702,7 @@ header {
       }
     });
 
-    /* DATE */
+    /* TAREHE */
 
     function renderDate(){
       todayDate.textContent =
@@ -2393,19 +1714,13 @@ header {
         }).format(new Date());
     }
 
-    /* NEWSLETTER */
+    /* JARIDA */
 
     newsletterForm.addEventListener("submit",function(event){
       event.preventDefault();
 
-      const email = document
-        .getElementById("newsletterEmail")
-        .value
-        .trim();
-
-      if(!email){
-        return;
-      }
+      const email = document.getElementById("newsletterEmail").value.trim();
+      if(!email) return;
 
       alert(
         "Asante! Umefanikiwa kujiunga na Jarida la Habari la BINSOUD HABARI."
@@ -2414,44 +1729,310 @@ header {
       newsletterForm.reset();
     });
 
-    /* START: ONESHA CACHE KWANZA, KISHA SASISHA KUTOKA FIREBASE */
-
-    loadCachedArticles();
-    loadArticles();
-
     /* =========================
-       SEHEMU MPYA: URL YA REDIO
-       Weka URL halisi baadaye.
-    ========================== */
+       MATANGAZO YENYE PICHA
+    ========================= */
+
+    const adUploadForm = document.getElementById("adUploadForm");
+    const adTitle = document.getElementById("adTitle");
+    const adLink = document.getElementById("adLink");
+    const adDescription = document.getElementById("adDescription");
+    const adImage = document.getElementById("adImage");
+    const adPreview = document.getElementById("adPreview");
+    const adSubmitButton = document.getElementById("adSubmitButton");
+    const adUploadStatus = document.getElementById("adUploadStatus");
+    const businessAdsGrid = document.getElementById("businessAdsGrid");
+
+    const ADS_COLLECTION = "advertisements";
+    const MAX_AD_IMAGE_SIZE = 5 * 1024 * 1024;
+
+    let adPreviewUrl = null;
+
+    /* ONESHA PREVIEW YA PICHA */
+
+    adImage.addEventListener("change",function(){
+      const file = adImage.files?.[0];
+
+      if(adPreviewUrl){
+        URL.revokeObjectURL(adPreviewUrl);
+        adPreviewUrl = null;
+      }
+
+      if(!file){
+        adPreview.removeAttribute("src");
+        adPreview.style.display = "none";
+        return;
+      }
+
+      if(!file.type.startsWith("image/")){
+        adImage.value = "";
+        adPreview.style.display = "none";
+        adUploadStatus.textContent = "Tafadhali chagua faili la picha.";
+        return;
+      }
+
+      if(file.size > MAX_AD_IMAGE_SIZE){
+        adImage.value = "";
+        adPreview.style.display = "none";
+        adUploadStatus.textContent =
+          "Picha ni kubwa sana. Tafadhali tumia picha isiyozidi MB 5.";
+        return;
+      }
+
+      adPreviewUrl = URL.createObjectURL(file);
+      adPreview.src = adPreviewUrl;
+      adPreview.style.display = "block";
+      adUploadStatus.textContent =
+        "Picha imechaguliwa. Jaza taarifa kisha bonyeza PAKIA TANGAZO.";
+    });
+
+    /* SALAMA: KIUNGO CHA HTTP/HTTPS PEKEE */
+
+    function safeAdLink(value){
+      const clean = String(value || "").trim();
+
+      if(!clean) return "";
+
+      try{
+        const url = new URL(clean);
+
+        if(url.protocol === "https:" || url.protocol === "http:"){
+          return url.href;
+        }
+      }catch(error){
+        // Kiungo si halali.
+      }
+
+      return "";
+    }
+
+    /* PAKIA TANGAZO FIREBASE */
+
+    adUploadForm.addEventListener("submit",async function(event){
+      event.preventDefault();
+
+      const title = adTitle.value.trim();
+      const description = adDescription.value.trim();
+      const file = adImage.files?.[0];
+      const linkInput = adLink.value.trim();
+
+      if(!title || !description || !file){
+        adUploadStatus.textContent =
+          "Jaza jina, maelezo na uchague picha ya tangazo.";
+        return;
+      }
+
+      if(!file.type.startsWith("image/")){
+        adUploadStatus.textContent =
+          "Faili ulilochagua si picha inayokubalika.";
+        return;
+      }
+
+      if(file.size > MAX_AD_IMAGE_SIZE){
+        adUploadStatus.textContent =
+          "Picha isizidi MB 5. Chagua picha ndogo zaidi.";
+        return;
+      }
+
+      const link = safeAdLink(linkInput);
+
+      if(linkInput && !link){
+        adUploadStatus.textContent =
+          "Kiungo si sahihi. Tumia kiungo kinachoanza na https:// au http://.";
+        return;
+      }
+
+      adSubmitButton.disabled = true;
+      adSubmitButton.textContent = "INAPAKIA...";
+      adUploadStatus.textContent =
+        "Subiri, picha na taarifa za tangazo zinapakiwa...";
+
+      try{
+        const safeFileName = file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+        const uniqueName =
+          Date.now() + "_" + Math.random().toString(36).slice(2) + "_" + safeFileName;
+
+        const imageRef = ref(storage,"advertisements/" + uniqueName);
+
+        await uploadBytes(imageRef,file,{
+          contentType:file.type
+        });
+
+        const imageUrl = await getDownloadURL(imageRef);
+
+        await addDoc(collection(db,ADS_COLLECTION),{
+          title:title,
+          description:description,
+          imageUrl:imageUrl,
+          link:link,
+          createdAt:serverTimestamp(),
+          active:true
+        });
+
+        adUploadStatus.textContent =
+          "Tangazo limehifadhiwa. Linapakia upya orodha ya matangazo...";
+
+        adUploadForm.reset();
+        adPreview.style.display = "none";
+        adPreview.removeAttribute("src");
+
+        if(adPreviewUrl){
+          URL.revokeObjectURL(adPreviewUrl);
+          adPreviewUrl = null;
+        }
+
+        await loadAdvertisements();
+
+        adUploadStatus.textContent =
+          "Tangazo limeongezwa kwa mafanikio.";
+
+      }catch(error){
+        console.error("Tatizo la kupakia tangazo:",error);
+
+        if(error.code === "storage/unauthorized"){
+          adUploadStatus.textContent =
+            "Firebase Storage imekataa kupakia. Ruhusa za Storage zinahitaji kusanidiwa.";
+        }else if(error.code === "permission-denied"){
+          adUploadStatus.textContent =
+            "Firebase imekataa ruhusa ya kuhifadhi tangazo. Kagua Firestore Rules.";
+        }else{
+          adUploadStatus.textContent =
+            "Tangazo halijapakiwa. Kagua Firebase Storage, Firestore na mtandao, kisha jaribu tena.";
+        }
+      }finally{
+        adSubmitButton.disabled = false;
+        adSubmitButton.textContent = "PAKIA TANGAZO";
+      }
+    });
+
+    /* ONESHA MATANGAZO YALIYOHIFADHIWA */
+
+    function renderAdvertisements(advertisements){
+      if(!advertisements.length){
+        businessAdsGrid.innerHTML = `
+          <div class="empty-box">
+            Hakuna matangazo yaliyowekwa kwa sasa.
+          </div>`;
+        return;
+      }
+
+      businessAdsGrid.innerHTML = advertisements.map(ad => {
+        const title = escapeHtml(ad.title || "Tangazo");
+        const description = escapeHtml(ad.description || "");
+        const imageUrl = escapeHtml(ad.imageUrl || FALLBACK_IMAGE);
+        const link = safeAdLink(ad.link || "");
+
+        const image = `
+          <img class="business-ad-image"
+            src="${imageUrl}"
+            alt="${title}"
+            loading="lazy"
+            decoding="async">`;
+
+        const titleHtml = `<h3>${title}</h3>`;
+        const descriptionHtml = `<p>${description}</p>`;
+
+        const content = link
+          ? `<a href="${escapeHtml(link)}"
+                target="_blank" rel="noopener noreferrer"
+                aria-label="Fungua tangazo: ${title}">
+                ${image}${titleHtml}${descriptionHtml}
+             </a>`
+          : `${image}${titleHtml}${descriptionHtml}`;
+
+        return `
+          <article class="business-ad-card">
+            ${content}
+          </article>`;
+      }).join("");
+
+      businessAdsGrid.querySelectorAll("img").forEach(img => {
+        img.addEventListener("error",function(){
+          this.src = FALLBACK_IMAGE;
+        },{once:true});
+      });
+    }
+
+    async function loadAdvertisements(){
+      try{
+        const snapshot = await getDocs(collection(db,ADS_COLLECTION));
+
+        const advertisements = snapshot.docs
+          .map(doc => ({id:doc.id,...doc.data()}))
+          .filter(ad => ad.active !== false)
+          .sort((a,b) =>
+            dateToMillis(b.createdAt) - dateToMillis(a.createdAt)
+          );
+
+        renderAdvertisements(advertisements);
+
+      }catch(error){
+        console.error("Matangazo hayajapakiwa:",error);
+
+        businessAdsGrid.innerHTML = `
+          <div class="empty-box">
+            Matangazo hayajapatikana kwa sasa.
+            Hakikisha Firebase Firestore na ruhusa zake zimesanidiwa.
+          </div>`;
+      }
+    }
+
+    /* REDIO */
 
     const RADIO_STREAM_URL = "WEKA_URL_YA_REDIO_HAPA";
-
     const radioPlayer = document.getElementById("radioPlayer");
     const radioSource = document.getElementById("radioSource");
     const radioStatus = document.getElementById("radioStatus");
 
-    if (
+    if(
       RADIO_STREAM_URL &&
       RADIO_STREAM_URL !== "WEKA_URL_YA_REDIO_HAPA"
-    ) {
+    ){
       radioSource.src = RADIO_STREAM_URL;
       radioPlayer.load();
 
       radioStatus.textContent =
         "Redio iko tayari. Bonyeza Play kusikiliza.";
-    } else {
+    }else{
       radioStatus.textContent =
         "Redio itapatikana baada ya kuweka URL yake.";
     }
 
-    radioPlayer.addEventListener("error", function(){
+    radioPlayer.addEventListener("error",function(){
       if(RADIO_STREAM_URL !== "WEKA_URL_YA_REDIO_HAPA"){
         radioStatus.textContent =
           "Redio haijaunganishwa. Hakikisha URL ya mtiririko wa sauti ni sahihi.";
       }
     });
 
-  </script>
+    /* KUANZA */
 
+    loadCachedArticles();
+    loadArticles();
+    loadAdvertisements();
+
+    /* MAREKEBISHO YA KURUDI HOME / BACK-FORWARD CACHE */
+
+    window.addEventListener("pageshow",function(){
+      renderDate();
+      year.textContent = new Date().getFullYear();
+
+      /*
+       * Ikiwa ukurasa umerejeshwa na browser na habari hazipo,
+       * pakia cache na uombe habari tena.
+       */
+      if(!articles.length){
+        loadCachedArticles();
+        loadArticles();
+      }
+
+      /*
+       * Orodha ya matangazo pia isasishwe ukurasa unaporudishwa.
+       */
+      loadAdvertisements();
+    });
+
+  </script>
 </body>
 </html>
+  
