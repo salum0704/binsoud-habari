@@ -234,7 +234,7 @@
         <h2>🎙️ Redio Mubashara</h2>
         <p>Sikiliza matangazo ya BINSOUD HABARI moja kwa moja. Bonyeza kitufe cha kucheza redio.</p>
         <audio class="radio-player" id="radioPlayer" controls preload="none">
-          <source id="radioSource" src="https://binsoudhabari2.airtime.pro/showbuilder#tracks" type="audio/mpeg">
+          <source id="radioSource" src="http://binsoudhabari2.airtime.pro/" type="audio/mpeg">
           Kivinjari chako hakiwezi kucheza sauti hii.
         </audio>
         <div class="radio-note" id="radioStatus" aria-live="polite"></div>
@@ -1067,19 +1067,19 @@
 
     /* REDIO */
 
-    const RADIO_STREAM_URL = "https://binsoudhabari2.airtime.pro/showbuilder#tracks";
+    const RADIO_STREAM_URL = http://binsoudhabari2.airtime.pro/";
     const radioPlayer = document.getElementById("radioPlayer");
     const radioSource = document.getElementById("radioSource");
     const radioStatus = document.getElementById("radioStatus");
 
-    if (RADIO_STREAM_URL !== "https://binsoudhabari2.airtime.pro/showbuilder#tracks") {
+    if (RADIO_STREAM_URL !== "http://binsoudhabari2.airtime.pro/) {
       radioSource.src = RADIO_STREAM_URL;
       radioPlayer.load();
       radioStatus.textContent = "Redio iko tayari. Bonyeza Play kusikiliza.";
     } else {
       }
      radioPlayer.addEventListener("error", () => {
-      if (RADIO_STREAM_URL !== "https://binsoudhabari2.airtime.pro/showbuilder#tracks") {
+      if (RADIO_STREAM_URL !== "http://binsoudhabari2.airtime.pro/) {
         radioStatus.textContent = "Redio haijaunganishwa. Hakikisha URL ya mtiririko wa sauti ni sahihi.";
       }
     });
