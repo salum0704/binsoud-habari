@@ -107,7 +107,12 @@
     .live-radio{margin-top:30px;padding:24px;background:linear-gradient(135deg,#043d78,#0878c9);color:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
     .live-radio h2{font-size:22px;margin-bottom:7px}
     .live-radio p{color:#e5efff;font-size:14px;margin-bottom:15px}
-    .radio-player{display:block;width:100%;margin-top:12px}
+    .radio-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .radio-button{border:0;border-radius:8px;padding:12px 20px;background:#fff;color:var(--blue-dark);font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.12);transition:transform .15s,background .15s}
+    .radio-button:hover{background:#eaf3ff;transform:translateY(-1px)}
+    .radio-button:focus-visible{outline:3px solid #ffd166;outline-offset:3px}
+    .radio-status{font-size:13px;color:#e5efff}
+    .radio-audio{display:none}
     .radio-note{margin-top:10px;font-size:12px;color:#e5efff}
     /* MATANGAZO: PICHA PEKEE */
     .business-ads{margin-top:30px}
@@ -233,7 +238,11 @@
       <section class="live-radio" id="redio">
         <h2>🎙️ Redio Mubashara</h2>
         <p>Sikiliza matangazo ya BINSOUD HABARI moja kwa moja. Bonyeza kitufe cha kucheza redio.</p>
-        <iframe class="radio-player" id="radioPlayer" src="https://binsoudhabari2.airtime.pro/Dashboard/stream-player" title="Kicheza redio cha BINSOUD HABARI" width="100%" height="180" style="border:0;border-radius:8px;background:#fff" allow="autoplay" loading="lazy"></iframe>
+        <div class="radio-controls">
+          <button class="radio-button" type="button" id="radioToggle" aria-pressed="false" aria-controls="radioAudio">▶ CHEZA REDIO</button>
+          <span class="radio-status" id="radioStatus" role="status" aria-live="polite">Bonyeza kucheza redio mubashara.</span>
+        </div>
+        <audio class="radio-audio" id="radioAudio" preload="none" src="https://binsoudhabari2.out.airtime.pro/binsoudhabari2_a?utm_source=chatgpt.com"></audio>
       </section>
 
       <!-- MATANGAZO HALISI HUPAKIWA KUTOKA FIREBASE -->
@@ -1061,7 +1070,46 @@
       newsletterForm.reset();
     });
 
-    /* REDIO: kicheza redio kinafunguliwa kupitia iframe hapo juu. */
+    /* REDIO MUBASHARA: kicheza maalum kinatumia direct stream ya Airtime Pro. */
+    const radioAudio = document.getElementById("radioAudio");
+    const radioToggle = document.getElementById("radioToggle");
+    const radioStatus = document.getElementById("radioStatus");
+
+    if (radioAudio && radioToggle && radioStatus) {
+      radioToggle.addEventListener("click", async () => {
+        if (radioAudio.paused) {
+          radioToggle.disabled = true;
+          radioStatus.textContent = "Inaunganisha na redio...";
+          try {
+            await radioAudio.play();
+          } catch (error) {
+            radioStatus.textContent = "Imeshindikana kuanza redio. Jaribu tena au hakiki muunganisho.";
+            radioToggle.textContent = "▶ JARIBU TENA";
+            radioToggle.setAttribute("aria-pressed", "false");
+          } finally {
+            radioToggle.disabled = false;
+          }
+        } else {
+          radioAudio.pause();
+        }
+      });
+
+      radioAudio.addEventListener("playing", () => {
+        radioToggle.textContent = "⏸ SIMAMISHA REDIO";
+        radioToggle.setAttribute("aria-pressed", "true");
+        radioStatus.textContent = "Redio inacheza mubashara.";
+      });
+
+      radioAudio.addEventListener("pause", () => {
+        radioToggle.textContent = "▶ CHEZA REDIO";
+        radioToggle.setAttribute("aria-pressed", "false");
+        radioStatus.textContent = "Redio imesimama.";
+      });
+
+      radioAudio.addEventListener("error", () => {
+        radioStatus.textContent = "Stream haijapatikana. Tafadhali jaribu tena baadaye.";
+      });
+    }
 
     /* KUANZA NA KURUDI HOME */
 
