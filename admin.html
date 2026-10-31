@@ -544,6 +544,14 @@
 
 
       <div>
+        <label for="author">
+          Jina la mwandishi
+        </label>
+        <input id="author" type="text" placeholder="Andika jina la mwandishi" required>
+      </div>
+
+
+      <div>
         <label for="intro">
           Utangulizi
         </label>
@@ -620,7 +628,13 @@
           type="url"
           placeholder="https://..."
         >
+      </div>
 
+      <div>
+        <label for="imageFile">
+          Chagua picha kutoka kwenye kifaa
+        </label>
+        <input id="imageFile" type="file" accept="image/*">
       </div>
 
 
@@ -693,6 +707,14 @@
 
 
       <div>
+        <label for="editAuthor">
+          Jina la mwandishi
+        </label>
+        <input id="editAuthor" type="text" required>
+      </div>
+
+
+      <div>
 
         <label for="editIntro">
           Utangulizi
@@ -746,6 +768,13 @@
 
       </div>
 
+      <div>
+        <label for="editImageFile">
+          Chagua picha mpya kutoka kwenye kifaa (hiari)
+        </label>
+        <input id="editImageFile" type="file" accept="image/*">
+      </div>
+
 
       <button class="submit" type="submit">
         💾 Hifadhi Mabadiliko
@@ -785,6 +814,13 @@ import {
   addDoc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+import {
+  getStorage,
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
 
 
 /* =========================================================
@@ -831,6 +867,9 @@ const auth =
 const db =
   getFirestore(app);
 
+const storage =
+  getStorage(app);
+
 
 /* =========================================================
    VARIABLES
@@ -839,6 +878,25 @@ const db =
 let currentUser = null;
 
 let allArticles = [];
+
+
+/* =========================================================
+   IMAGE UPLOAD
+========================================================= */
+
+async function uploadArticleImage(file){
+  if(!file) return "";
+
+  const imagePath =
+    "articles/" + Date.now() + "_" + file.name;
+
+  const imageReference =
+    storageRef(storage, imagePath);
+
+  await uploadBytes(imageReference, file);
+
+  return await getDownloadURL(imageReference);
+}
 
 
 /* =========================================================
