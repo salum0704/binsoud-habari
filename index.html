@@ -96,6 +96,17 @@
     .article-content{padding:14px}
     .article-title{font-size:18px;line-height:1.3;color:var(--deep);margin-bottom:7px;font-weight:800}
     .article-description{color:var(--muted);font-size:14px;line-height:1.5}
+
+    /* MUONEKANO WA HABARI ZA AUDIO NA VIDEO */
+    .media-news-section{margin-top:30px}
+    .media-news-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .media-news-card audio,.media-news-card video{display:block;width:100%;background:#111}
+    .media-news-card video{aspect-ratio:16/9;object-fit:contain}
+    .media-news-card-content{padding:14px}
+    .media-news-card-content h3{font-size:18px;line-height:1.3;color:var(--deep);margin-bottom:7px}
+    .media-news-card-content p{color:var(--muted);font-size:14px;line-height:1.5}
+    .media-author{color:var(--muted);font-size:12px;margin-top:9px}
+
     .quick-links{margin-top:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
     .quick-link{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:0;overflow:hidden}
     .quick-link-image{display:block;width:100%;height:190px;object-fit:cover;background:#e9eef5}
@@ -235,6 +246,24 @@
         </div>
       </section>
 
+      <!-- HABARI ZA AUDIO ZINAZOTOKA FIREBASE -->
+      <section class="media-news-section" id="audioNewsSection" hidden>
+        <div class="section-title">
+          <h2>Habari za Audio</h2>
+          <a href="audio.html">Ona zaidi</a>
+        </div>
+        <div id="audioNewsBox" class="article-grid"></div>
+      </section>
+
+      <!-- HABARI ZA VIDEO ZINAZOTOKA FIREBASE -->
+      <section class="media-news-section" id="videoNewsSection" hidden>
+        <div class="section-title">
+          <h2>Habari za Video</h2>
+          <a href="video.html">Ona zaidi</a>
+        </div>
+        <div id="videoNewsBox" class="article-grid"></div>
+      </section>
+
       <section class="live-radio" id="redio">
         <h2>🎙️ Redio Mubashara</h2>
         <p>Sikiliza matangazo ya BINSOUD HABARI moja kwa moja. Bonyeza kitufe cha kucheza redio.</p>
@@ -315,7 +344,8 @@
     </div>
     <div class="copyright">© <span id="year"></span> BINSOUD HABARI. Haki zote zimehifadhiwa.</div>
   </footer>
-    <script type="module">
+
+  <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
     import {
       getFirestore, collection, getDocs
@@ -350,11 +380,13 @@
     const adsSection = document.getElementById("matangazo");
 
     let articles = [];
+    let videos = [];
     let breakingArticles = [];
     let breakingIndex = 0;
     let breakingTimer = null;
     let articlesRequest = null;
     let adsRequest = null;
+    let videosRequest = null;
 
     const FALLBACK_IMAGE =
       "data:image/svg+xml;charset=UTF-8," +
@@ -472,8 +504,6 @@
             .filter(ad => safeUrl(getAdImage(ad)));
 
           businessAdsGrid.innerHTML = ads.map(renderAdCard).join("");
-
-          // Usionyeshe hata kichwa cha MATANGAZO kama hakuna picha.
           adsSection.hidden = ads.length === 0;
         } catch (error) {
           console.error("Imeshindikana kupakia matangazo:", error);
@@ -845,10 +875,174 @@
       latestBox.querySelectorAll("[data-article-id]").forEach(attachArticleClick);
     }
 
+    /* HABARI ZA AUDIO */
+
+    function getAudioUrl(article) {
+      return safeUrl(firstValue(article, [
+        "audioUrl", "audioURL", "audio_url",
+        "audio", "audioLink", "audio_link", "fileUrl"
+      ]));
+    }
+
+    function isAudioArticle(article) {
+      const category = normalizeSearch(getCategory(article));
+      return category.includes("audio") &&
+        Boolean(getAudioUrl(article)) &&
+        isPublished(article);
+    }
+
+    function renderAudioNews() {
+      const audioNewsBox = document.getElementById("audioNewsBox");
+      const audioNewsSection = document.getElementById("audioNewsSection");
+
+      if (!audioNewsBox || !audioNewsSection) return;
+
+      const list = articles
+        .filter(isAudioArticle)
+        .slice(0, 6);
+
+      audioNewsSection.hidden = list.length === 0;
+
+      if (!list.length) {
+        audioNewsBox.innerHTML = "";
+        return;
+      }
+
+      audioNewsBox.innerHTML = list.map(article => {
+        const title = escapeHtml(getTitle(article));
+        const description = escapeHtml(getDescription(article));
+        const author = escapeHtml(firstValue(article, ["author", "writer", "journalist"]));
+        const image = escapeHtml(getImage(article));
+        const audioUrl = escapeHtml(getAudioUrl(article));
+        const date = escapeHtml(formatDate(article));
+
+        return `
+          <article class="media-news-card">
+            <img class="article-image" src="${image}" alt="${title}"
+                 loading="lazy" decoding="async"
+                 onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+            <div class="media-news-card-content">
+              <div class="category-label">AUDIO</div>
+              <h3>${title}</h3>
+              <p>${description}</p>
+              <audio controls preload="none">
+                <source src="${audioUrl}">
+                Kivinjari chako hakiwezi kucheza sauti hii.
+              </audio>
+              ${author ? `<div class="media-author">Mwandishi: ${author}</div>` : ""}
+              ${date ? `<div class="article-date">${date}</div>` : ""}
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    /* HABARI ZA VIDEO */
+
+    function getVideoDateValue(video) {
+      return video.createdAt || video.date || "";
+    }
+
+    function sortVideos() {
+      videos.sort((a, b) =>
+        dateToMillis(getVideoDateValue(b)) -
+        dateToMillis(getVideoDateValue(a))
+      );
+    }
+
+    function renderVideoNews() {
+      const videoNewsBox = document.getElementById("videoNewsBox");
+      const videoNewsSection = document.getElementById("videoNewsSection");
+
+      if (!videoNewsBox || !videoNewsSection) return;
+
+      const list = videos.slice(0, 6);
+
+      videoNewsSection.hidden = list.length === 0;
+
+      if (!list.length) {
+        videoNewsBox.innerHTML = "";
+        return;
+      }
+
+      videoNewsBox.innerHTML = list.map(video => {
+        const title = escapeHtml(video.title || "Bila kichwa");
+        const description = escapeHtml(video.description || "");
+        const author = escapeHtml(video.author || "");
+        const category = escapeHtml(video.category || "Video");
+        const thumbnail = escapeHtml(
+          safeUrl(video.thumbnail) || FALLBACK_IMAGE
+        );
+        const videoUrl = escapeHtml(safeUrl(video.videoUrl));
+        const date = escapeHtml(
+          video.date || formatDate(video)
+        );
+
+        if (!videoUrl) return "";
+
+        return `
+          <article class="media-news-card">
+            <video controls playsinline preload="metadata"
+                   poster="${thumbnail}">
+              <source src="${videoUrl}" type="video/mp4">
+              Kivinjari chako hakiwezi kucheza video hii.
+            </video>
+            <div class="media-news-card-content">
+              <div class="category-label">VIDEO · ${category}</div>
+              <h3>${title}</h3>
+              <p>${description}</p>
+              ${author ? `<div class="media-author">Mwandishi: ${author}</div>` : ""}
+              ${date ? `<div class="article-date">${date}</div>` : ""}
+            </div>
+          </article>
+        `;
+      }).filter(Boolean).join("");
+
+      if (!videoNewsBox.innerHTML.trim()) {
+        videoNewsSection.hidden = true;
+      }
+    }
+
+    async function loadVideoNews() {
+      if (videosRequest) return videosRequest;
+
+      videosRequest = (async () => {
+        try {
+          // Admin Video huhifadhi taarifa kwenye collection ya "videos".
+          const snapshot = await getDocs(collection(db, "videos"));
+
+          videos = snapshot.docs
+            .map(doc => ({ id: doc.id, ...doc.data() }));
+
+          sortVideos();
+          renderVideoNews();
+        } catch (error) {
+          console.error("Tatizo la kupakia video:", error);
+
+          const videoNewsBox = document.getElementById("videoNewsBox");
+
+          if (videoNewsBox) {
+            videoNewsBox.innerHTML =
+              '<div class="empty-box">Imeshindikana kupakia video kwa sasa.</div>';
+          }
+        } finally {
+          videosRequest = null;
+        }
+      })();
+
+      return videosRequest;
+    }
+
+    function renderMediaNews() {
+      renderAudioNews();
+      renderVideoNews();
+    }
+
     function renderAll() {
       renderHero();
       renderSide();
       renderLatest();
+      renderMediaNews();
       renderDate();
       year.textContent = new Date().getFullYear();
     }
@@ -1070,7 +1264,7 @@
       newsletterForm.reset();
     });
 
-    /* REDIO MUBASHARA: kicheza maalum kinatumia direct stream ya Airtime Pro. */
+    /* REDIO MUBASHARA */
     const radioAudio = document.getElementById("radioAudio");
     const radioToggle = document.getElementById("radioToggle");
     const radioStatus = document.getElementById("radioStatus");
@@ -1080,6 +1274,7 @@
         if (radioAudio.paused) {
           radioToggle.disabled = true;
           radioStatus.textContent = "Inaunganisha na redio...";
+
           try {
             await radioAudio.play();
           } catch (error) {
@@ -1118,6 +1313,7 @@
 
     loadCachedArticles();
     loadArticles();
+    loadVideoNews();
     loadBusinessAds();
 
     window.addEventListener("pageshow", event => {
@@ -1127,6 +1323,7 @@
       if (event.persisted) {
         loadCachedArticles();
         loadArticles();
+        loadVideoNews();
         loadBusinessAds();
       }
     });
