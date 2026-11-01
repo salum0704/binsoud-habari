@@ -148,7 +148,10 @@ main{padding-top:18px}.page-header{padding:22px 0 18px}
 </head>
 
 <body>
-<div class="top-date"><div class="container"><span id="todayDate"></span></div></div>
+
+<div class="top-date">
+<div class="container"><span id="todayDate"></span></div>
+</div>
 
 <header>
 <div class="container header-main">
@@ -163,7 +166,8 @@ main{padding-top:18px}.page-header{padding:22px 0 18px}
 </div>
 </header>
 
-<nav class="nav"><div class="container">
+<nav class="nav">
+<div class="container">
 <a href="index.html">HOME</a>
 <a href="kitaifa.html">KITAIFA</a>
 <a href="kimataifa.html">MATAIFA</a>
@@ -177,14 +181,20 @@ main{padding-top:18px}.page-header{padding:22px 0 18px}
 <a href="video.html" class="active">VIDEO</a>
 <a href="audio.html">AUDIO</a>
 <a href="contact.html">MAWASILIANO</a>
-</div></nav>
+</div>
+</nav>
 
-<section class="breaking"><div class="container breaking-inner">
+<section class="breaking">
+<div class="container breaking-inner">
 <div class="breaking-label">BREAKING NEWS</div>
-<div class="breaking-content"><span id="breakingText">Habari za video</span></div>
-</div></section>
+<div class="breaking-content">
+<span id="breakingText">Habari za video</span>
+</div>
+</div>
+</section>
 
-<section class="page-header"><div class="container">
+<section class="page-header">
+<div class="container">
 <div class="page-heading">
 <div class="heading-left">
 <h1>Video</h1>
@@ -192,14 +202,11 @@ main{padding-top:18px}.page-header{padding:22px 0 18px}
 </div>
 <div id="currentDate" class="current-date"></div>
 </div>
-</div></section>
-
-<main><div class="container">
-<div id="loading" class="state">
-<div class="state-icon">⏳</div>
-<h3>Inapakia video...</h3>
-<p>Tafadhali subiri kidogo.</p>
 </div>
+</section>
+
+<main>
+<div class="container">
 
 <div id="error" class="state hidden">
 <div class="state-icon">⚠️</div>
@@ -218,16 +225,21 @@ main{padding-top:18px}.page-header{padding:22px 0 18px}
 <article class="hero-card" id="heroCard"></article>
 <aside class="side-news" id="sideNews"></aside>
 </section>
+
 <section>
 <div class="section-head">
 <h2>Video Mpya</h2>
 <span id="count">0 video</span>
 </div>
 <div id="videoGrid" class="video-grid"></div>
-<div class="more-wrap"><button id="moreBtn" type="button">ONA HABARI ZAIDI</button></div>
+<div class="more-wrap">
+<button id="moreBtn" type="button">ONA HABARI ZAIDI</button>
+</div>
 </section>
 </div>
-</div></main>
+
+</div>
+</main>
 
 <footer>
 <div class="container footer-main">
@@ -235,24 +247,48 @@ main{padding-top:18px}.page-header{padding:22px 0 18px}
 <div class="footer-logo">BINSOUD <span>HABARI</span></div>
 <p>BINSOUD HABARI ni jukwaa la habari linalokuletea taarifa mbalimbali kutoka Tanzania, Zanzibar na duniani.</p>
 </div>
-<div><h3>SEHEMU</h3><div class="footer-links">
-<a href="index.html">Nyumbani</a><a href="kitaifa.html">Kitaifa</a>
-<a href="kimataifa.html">Mataifa</a><a href="dini.html">Dini</a>
-<a href="michezo.html">Michezo</a><a href="mazingira.html">Mazingira</a>
-</div></div>
-<div><h3>ZAIDI</h3><div class="footer-links">
-<a href="burudani.html">Burudani</a><a href="siasa.html">Siasa</a>
-<a href="biashara.html">Uchumi</a><a href="makala.html">Makala</a>
-<a href="video.html">Video</a><a href="audio.html">Audio</a>
-<a href="contact.html">Mawasiliano</a>
-</div></div>
+
+<div>
+<h3>SEHEMU</h3>
+<div class="footer-links">
+<a href="index.html">Nyumbani</a>
+<a href="kitaifa.html">Kitaifa</a>
+<a href="kimataifa.html">Mataifa</a>
+<a href="dini.html">Dini</a>
+<a href="michezo.html">Michezo</a>
+<a href="mazingira.html">Mazingira</a>
 </div>
+</div>
+
+<div>
+<h3>ZAIDI</h3>
+<div class="footer-links">
+<a href="burudani.html">Burudani</a>
+<a href="siasa.html">Siasa</a>
+<a href="biashara.html">Uchumi</a>
+<a href="makala.html">Makala</a>
+<a href="video.html">Video</a>
+<a href="audio.html">Audio</a>
+<a href="contact.html">Mawasiliano</a>
+</div>
+</div>
+</div>
+
 <div class="copyright">© 2026 BINSOUD HABARI. Haki zote zimehifadhiwa.</div>
 </footer>
 
 <script type="module">
+
 import {initializeApp} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-import {getFirestore,collection,getDocs} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+import {
+getFirestore,
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+/* FIREBASE CONFIG */
 
 const firebaseConfig={
 apiKey:"AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
@@ -267,12 +303,15 @@ measurementId:"G-MH266J0XKE"
 const app=initializeApp(firebaseConfig);
 const db=getFirestore(app);
 
+
+/* ELEMENTS */
+
 const $=id=>document.getElementById(id);
+
 const heroCard=$("heroCard");
 const sideNews=$("sideNews");
 const videoGrid=$("videoGrid");
 const content=$("content");
-const loading=$("loading");
 const empty=$("empty");
 const error=$("error");
 const errorText=$("errorText");
@@ -292,9 +331,20 @@ const FALLBACK_IMAGE="data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(
 '<svg xmlns="http://www.w3.org/2000/svg" width="900" height="550"><rect width="100%" height="100%" fill="#e9eef5"/><text x="50%" y="50%" text-anchor="middle" font-family="Arial" font-size="34" fill="#718096">BINSOUD HABARI</text></svg>'
 );
 
+
+/* ESCAPE HTML */
+
 function escapeHTML(value){
-return String(value??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+return String(value??"")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 }
+
+
+/* REMOVE HTML */
 
 function removeHTML(value){
 const div=document.createElement("div");
@@ -302,234 +352,543 @@ div.innerHTML=String(value??"");
 return div.textContent||div.innerText||"";
 }
 
+
+/* INTRO */
+
 function getIntro(article){
-const text=removeHTML(article.description||article.intro||article.content||"").replace(/\s+/g," ").trim();
-return text?(text.length>190?text.slice(0,190)+"...":text):"Tazama video hii kwa maelezo zaidi.";
+const text=removeHTML(
+article.description||
+article.intro||
+article.content||
+""
+).replace(/\s+/g," ").trim();
+
+return text
+?(text.length>190?text.slice(0,190)+"...":text)
+:"Tazama video hii kwa maelezo zaidi.";
 }
 
+
+/* IMAGE */
+
 function getImage(article){
-return article.thumbnail||article.image||article.imageUrl||article.imageURL||article.thumbnailUrl||"";
+return article.thumbnail||
+article.image||
+article.imageUrl||
+article.imageURL||
+article.thumbnailUrl||
+"";
 }
+
+
+/* VIDEO URL */
 
 function getVideoUrl(article){
 const fields=[
-article.videoUrl,article.videoURL,article.video_url,
-article.video,article.youtubeUrl,article.youtubeURL,
-article.youtube,article.videoLink,article.video_link,
-article.mediaUrl,article.mediaURL,article.fileUrl,
-article.fileURL,article.downloadURL,article.downloadUrl
+article.videoUrl,
+article.videoURL,
+article.video_url,
+article.video,
+article.youtubeUrl,
+article.youtubeURL,
+article.youtube,
+article.videoLink,
+article.video_link,
+article.mediaUrl,
+article.mediaURL,
+article.fileUrl,
+article.fileURL,
+article.downloadURL,
+article.downloadUrl
 ];
+
 for(const value of fields){
-if(typeof value==="string"&&value.trim())return value.trim();
+if(typeof value==="string"&&value.trim()){
+return value.trim();
 }
+}
+
 return "";
 }
 
+
+/* YOUTUBE ID */
+
 function getYouTubeId(article){
-const direct=article.youtubeId||article.youtubeID||article.youtube_id;
+
+const direct=
+article.youtubeId||
+article.youtubeID||
+article.youtube_id;
+
 if(direct)return String(direct).trim();
+
 const url=getVideoUrl(article);
 if(!url)return "";
+
 try{
 const parsed=new URL(url);
 const host=parsed.hostname.toLowerCase().replace(/^www\./,"");
-if(host==="youtu.be")return parsed.pathname.split("/").filter(Boolean)[0]||"";
-if(["youtube.com","m.youtube.com","youtube-nocookie.com"].includes(host)){
-if(parsed.pathname==="/watch")return parsed.searchParams.get("v")||"";
-if(parsed.pathname.startsWith("/embed/")||parsed.pathname.startsWith("/shorts/"))return parsed.pathname.split("/")[2]||"";
+
+if(host==="youtu.be"){
+return parsed.pathname.split("/").filter(Boolean)[0]||"";
 }
+
+if(["youtube.com","m.youtube.com","youtube-nocookie.com"].includes(host)){
+
+if(parsed.pathname==="/watch"){
+return parsed.searchParams.get("v")||"";
+}
+
+if(parsed.pathname.startsWith("/embed/")||parsed.pathname.startsWith("/shorts/")){
+return parsed.pathname.split("/")[2]||"";
+}
+}
+
 }catch(e){}
+
 return "";
 }
 
+
+/* DATE VALUE */
+
 function getDateValue(article){
+
 const value=article.createdAt||article.date;
+
 if(!value)return 0;
-if(typeof value.toDate==="function")return value.toDate().getTime();
-if(typeof value.seconds==="number")return value.seconds*1000;
+
+if(value&&typeof value.toDate==="function"){
+return value.toDate().getTime();
+}
+
+if(value&&typeof value.seconds==="number"){
+return value.seconds*1000;
+}
+
 const result=new Date(value).getTime();
+
 return Number.isNaN(result)?0:result;
 }
 
+
+/* FORMAT DATE */
+
 function formatDate(article){
+
 const value=article.createdAt||article.date;
+
 if(!value)return "Tarehe haijawekwa";
-let date;
+
 try{
-if(value&&typeof value.toDate==="function")date=value.toDate();
-else if(value&&typeof value.seconds==="number")date=new Date(value.seconds*1000);
-else date=new Date(value);
-if(Number.isNaN(date.getTime()))return "Tarehe haijawekwa";
-return date.toLocaleDateString("sw-TZ",{year:"numeric",month:"long",day:"numeric"});
-}catch(e){return "Tarehe haijawekwa";}
+
+let date;
+
+if(value&&typeof value.toDate==="function"){
+date=value.toDate();
+}else if(value&&typeof value.seconds==="number"){
+date=new Date(value.seconds*1000);
+}else{
+date=new Date(value);
 }
+
+if(Number.isNaN(date.getTime())){
+return "Tarehe haijawekwa";
+}
+
+return date.toLocaleDateString("sw-TZ",{
+year:"numeric",
+month:"long",
+day:"numeric"
+});
+
+}catch(e){
+return "Tarehe haijawekwa";
+}
+}
+
+
+/* ARTICLE LINK */
 
 function articleLink(article){
 return "habari.html?id="+encodeURIComponent(article.id);
 }
 
+
+/* VIDEO PLAYER */
+
 function createVideoPlayer(article){
+
 const title=article.title||"Video ya BINSOUD HABARI";
 const youtubeId=getYouTubeId(article);
 const videoUrl=getVideoUrl(article);
 const image=getImage(article);
+
 const wrapper=document.createElement("div");
 wrapper.className="video-player";
 
 if(youtubeId){
+
 const iframe=document.createElement("iframe");
+
 iframe.src="https://www.youtube.com/embed/"+encodeURIComponent(youtubeId);
 iframe.title=title;
 iframe.loading="lazy";
+
 iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
 iframe.allowFullscreen=true;
+
 wrapper.appendChild(iframe);
+
 return wrapper;
 }
 
 if(videoUrl){
+
 const video=document.createElement("video");
+
 video.controls=true;
 video.preload="metadata";
 video.playsInline=true;
+
 if(image)video.poster=image;
+
 const source=document.createElement("source");
 source.src=videoUrl;
-if(/\.mp4(\?|#|$)/i.test(videoUrl))source.type="video/mp4";
-else if(/\.webm(\?|#|$)/i.test(videoUrl))source.type="video/webm";
-else if(/\.ogg(\?|#|$)/i.test(videoUrl))source.type="video/ogg";
+
+if(/\.mp4(\?|#|$)/i.test(videoUrl)){
+source.type="video/mp4";
+}else if(/\.webm(\?|#|$)/i.test(videoUrl)){
+source.type="video/webm";
+}else if(/\.ogg(\?|#|$)/i.test(videoUrl)){
+source.type="video/ogg";
+}
+
 video.appendChild(source);
 wrapper.appendChild(video);
+
 return wrapper;
 }
 
 const fallback=document.createElement("a");
+
 fallback.href=articleLink(article);
 fallback.className="video-fallback";
+
 const img=document.createElement("img");
 img.src=image||FALLBACK_IMAGE;
 img.alt=title;
+
 const play=document.createElement("span");
 play.className="video-play";
 play.textContent="▶";
+
 fallback.append(img,play);
 wrapper.appendChild(fallback);
+
 return wrapper;
 }
 
+
+/* HERO */
+
 function renderHero(article){
+
 heroCard.innerHTML="";
+
 heroCard.appendChild(createVideoPlayer(article));
+
 const body=document.createElement("div");
 body.className="hero-content";
+
 body.innerHTML=`
 <div class="category-label">${escapeHTML(article.category||"VIDEO")}</div>
-<a href="${articleLink(article)}"><h1 class="hero-title">${escapeHTML(article.title||"Video mpya")}</h1></a>
+
+<a href="${articleLink(article)}">
+<h1 class="hero-title">${escapeHTML(article.title||"Video mpya")}</h1>
+</a>
+
 <p class="hero-description">${escapeHTML(getIntro(article))}</p>
-<div class="article-time">✍️ ${escapeHTML(article.author||"BINSOUD HABARI")} &nbsp; • &nbsp; 📅 ${escapeHTML(formatDate(article))}</div>`;
+
+<div class="article-time">
+✍️ ${escapeHTML(article.author||"BINSOUD HABARI")}
+&nbsp; • &nbsp;
+📅 ${escapeHTML(formatDate(article))}
+</div>
+`;
+
 heroCard.appendChild(body);
 }
 
+
+/* SIDE NEWS */
+
 function renderSideNews(articles){
+
 sideNews.innerHTML='<div class="side-heading">Video Zinazofuatwa</div>';
+
 articles.slice(0,4).forEach(article=>{
+
 const item=document.createElement("article");
 item.className="side-card";
+
 const image=getImage(article)||FALLBACK_IMAGE;
 const link=articleLink(article);
+
 item.innerHTML=`
-<a href="${link}"><div class="side-thumb"><img src="${escapeHTML(image)}" alt="${escapeHTML(article.title||"Video")}" loading="lazy"><span class="side-play">▶</span></div></a>
-<div><a class="side-title" href="${link}">${escapeHTML(article.title||"Video mpya")}</a><div class="side-time">${escapeHTML(formatDate(article))}</div></div>`;
+<a href="${link}">
+<div class="side-thumb">
+<img src="${escapeHTML(image)}" alt="${escapeHTML(article.title||"Video")}" loading="lazy">
+<span class="side-play">▶</span>
+</div>
+</a>
+
+<div>
+<a class="side-title" href="${link}">
+${escapeHTML(article.title||"Video mpya")}
+</a>
+<div class="side-time">${escapeHTML(formatDate(article))}</div>
+</div>
+`;
+
 sideNews.appendChild(item);
 });
 }
 
+
+/* VIDEO GRID */
+
 function renderVideoGrid(){
+
 videoGrid.innerHTML="";
-const visible=allVideos.slice(5,5+visibleVideoCount);
+
+const visible=allVideos.slice(
+5,
+5+visibleVideoCount
+);
+
 visible.forEach(article=>{
+
 const card=document.createElement("article");
 card.className="video-card";
+
 const title=article.title||"Video mpya";
 const image=getImage(article)||FALLBACK_IMAGE;
 const link=articleLink(article);
+
 card.innerHTML=`
-<a href="${link}"><div class="video-thumb"><img src="${escapeHTML(image)}" alt="${escapeHTML(title)}" loading="lazy"><span class="video-thumb-play">▶</span></div></a>
+<a href="${link}">
+<div class="video-thumb">
+<img src="${escapeHTML(image)}" alt="${escapeHTML(title)}" loading="lazy">
+<span class="video-thumb-play">▶</span>
+</div>
+</a>
+
 <div class="video-body">
-<div class="video-category">${escapeHTML(article.category||"VIDEO")}</div>
-<a href="${link}"><h3 class="video-title">${escapeHTML(title)}</h3></a>
+
+<div class="video-category">
+${escapeHTML(article.category||"VIDEO")}
+</div>
+
+<a href="${link}">
+<h3 class="video-title">${escapeHTML(title)}</h3>
+</a>
+
 <p class="video-description">${escapeHTML(getIntro(article))}</p>
-<div class="video-time">✍️ ${escapeHTML(article.author||"BINSOUD HABARI")} &nbsp; • &nbsp; 📅 ${escapeHTML(formatDate(article))}</div>
-</div>`;
+
+<div class="video-time">
+✍️ ${escapeHTML(article.author||"BINSOUD HABARI")}
+&nbsp; • &nbsp;
+📅 ${escapeHTML(formatDate(article))}
+</div>
+
+</div>
+`;
+
 videoGrid.appendChild(card);
 });
-moreBtn.style.display=allVideos.length>5+visibleVideoCount?"inline-block":"none";
+
+moreBtn.style.display=
+allVideos.length>5+visibleVideoCount
+?"inline-block"
+:"none";
 }
 
+
+/* BREAKING NEWS */
+
 function startBreakingNews(){
-if(breakingTimer)clearInterval(breakingTimer);
+
+if(breakingTimer){
+clearInterval(breakingTimer);
+}
+
 const headlines=allVideos.slice(0,10);
-if(!headlines.length){breakingText.textContent="Hakuna video mpya kwa sasa.";return;}
+
+if(!headlines.length){
+breakingText.textContent="Hakuna video mpya kwa sasa.";
+return;
+}
+
 breakingIndex=0;
+
 function show(){
+
 const article=headlines[breakingIndex];
-breakingText.textContent=removeHTML(article.title||"Video mpya");
-breakingText.onclick=()=>window.location.href=articleLink(article);
+
+breakingText.textContent=
+removeHTML(article.title||"Video mpya");
+
+breakingText.onclick=()=>{
+window.location.href=articleLink(article);
+};
+
 breakingIndex=(breakingIndex+1)%headlines.length;
 }
+
 show();
+
 breakingTimer=setInterval(show,4000);
 }
 
+
+/* SEARCH */
+
 function searchVideos(term){
+
 const query=term.toLowerCase().trim();
+
 if(!query)return [];
+
 return allVideos.filter(article=>{
-const text=[article.title,article.description,article.intro,article.content,article.author,article.category].join(" ").toLowerCase();
+
+const text=[
+article.title,
+article.description,
+article.intro,
+article.content,
+article.author,
+article.category
+].join(" ").toLowerCase();
+
 return text.includes(query);
 });
 }
 
+
 function renderSuggestions(term){
+
 const clean=term.trim();
-if(!clean){searchSuggestions.innerHTML="";searchSuggestions.classList.remove("active");return;}
+
+if(!clean){
+searchSuggestions.innerHTML="";
+searchSuggestions.classList.remove("active");
+return;
+}
+
 const results=searchVideos(clean);
+
 if(!results.length){
-searchSuggestions.innerHTML=`<div class="search-no-result">Hakuna video inayolingana na "<strong>${escapeHTML(clean)}</strong>".</div>`;
+
+searchSuggestions.innerHTML=`
+<div class="search-no-result">
+Hakuna video inayolingana na
+"<strong>${escapeHTML(clean)}</strong>".
+</div>
+`;
+
 searchSuggestions.classList.add("active");
 return;
 }
+
 searchSuggestions.innerHTML=results.slice(0,6).map(article=>`
+
 <div class="search-suggestion" data-id="${escapeHTML(article.id)}">
-<img class="search-suggestion-image" src="${escapeHTML(getImage(article)||FALLBACK_IMAGE)}" alt="">
-<div><div class="search-suggestion-title">${escapeHTML(article.title||"Video mpya")}</div><div class="search-suggestion-category">${escapeHTML(article.category||"VIDEO")} • ${escapeHTML(formatDate(article))}</div></div>
-</div>`).join("");
+
+<img
+class="search-suggestion-image"
+src="${escapeHTML(getImage(article)||FALLBACK_IMAGE)}"
+alt=""
+>
+
+<div>
+<div class="search-suggestion-title">
+${escapeHTML(article.title||"Video mpya")}
+</div>
+
+<div class="search-suggestion-category">
+${escapeHTML(article.category||"VIDEO")} • ${escapeHTML(formatDate(article))}
+</div>
+</div>
+
+</div>
+
+`).join("");
+
 searchSuggestions.classList.add("active");
+
 searchSuggestions.querySelectorAll("[data-id]").forEach(item=>{
-item.addEventListener("click",()=>window.location.href="habari.html?id="+encodeURIComponent(item.dataset.id));
+
+item.addEventListener("click",()=>{
+window.location.href=
+"habari.html?id="+encodeURIComponent(item.dataset.id);
+});
+
 });
 }
 
-searchInput.addEventListener("input",()=>renderSuggestions(searchInput.value));
-searchInput.addEventListener("focus",()=>renderSuggestions(searchInput.value));
-searchForm.addEventListener("submit",event=>{
-event.preventDefault();
-const results=searchVideos(searchInput.value);
-if(results.length===1)window.location.href=articleLink(results[0]);
-else renderSuggestions(searchInput.value);
-});
-document.addEventListener("click",event=>{
-if(!event.target.closest(".search-box"))searchSuggestions.classList.remove("active");
-});
-moreBtn.addEventListener("click",()=>{
-visibleVideoCount+=3;
-renderVideoGrid();
+
+/* SEARCH EVENTS */
+
+searchInput.addEventListener("input",()=>{
+renderSuggestions(searchInput.value);
 });
 
-/* SOMA VIDEO MOJA KWA MOJA KUTOKA COLLECTION YA VIDEOS */
+searchInput.addEventListener("focus",()=>{
+renderSuggestions(searchInput.value);
+});
+
+searchForm.addEventListener("submit",event=>{
+
+event.preventDefault();
+
+const results=searchVideos(searchInput.value);
+
+if(results.length===1){
+window.location.href=articleLink(results[0]);
+}else{
+renderSuggestions(searchInput.value);
+}
+
+});
+
+document.addEventListener("click",event=>{
+
+if(!event.target.closest(".search-box")){
+searchSuggestions.classList.remove("active");
+}
+
+});
+
+
+/* MORE BUTTON */
+
+moreBtn.addEventListener("click",()=>{
+
+visibleVideoCount+=3;
+
+renderVideoGrid();
+
+});
+
+
+/* LOAD VIDEOS FROM FIREBASE */
+
 async function loadVideos(){
+
 try{
-loading.classList.remove("hidden");
+
 content.classList.add("hidden");
 empty.classList.add("hidden");
 error.classList.add("hidden");
@@ -537,59 +896,116 @@ error.classList.add("hidden");
 const snapshot=await getDocs(collection(db,"videos"));
 
 allVideos=snapshot.docs.map(documentSnapshot=>({
+
 id:documentSnapshot.id,
 ...documentSnapshot.data()
+
 }));
 
-/* Hakuna kichujio cha category=Video au isPublished.
-   Video zote zilizohifadhiwa na Admin Video zinaonyeshwa. */
+/*
+Video zote zinachukuliwa moja kwa moja kutoka
+Firestore collection ya videos.
+
+Hakuna sharti la category kuwa Video.
+Hakuna sharti la isPublished.
+*/
+
 allVideos=allVideos.filter(video=>{
+
 return Boolean(
-video.title ||
-video.videoUrl ||
-video.videoURL ||
-video.youtubeUrl ||
-video.youtube ||
+video.title||
+video.videoUrl||
+video.videoURL||
+video.youtubeUrl||
+video.youtube||
 video.thumbnail
 );
+
 });
+
+
+/* VIDEO MPYA KWANZA */
 
 allVideos.sort((a,b)=>getDateValue(b)-getDateValue(a));
 
-loading.classList.add("hidden");
+
+/* KAMA HAKUNA VIDEO */
 
 if(!allVideos.length){
+
+content.classList.add("hidden");
 empty.classList.remove("hidden");
+
 startBreakingNews();
+
 return;
 }
 
+
+/* ONYESHA VIDEO */
+
 content.classList.remove("hidden");
+empty.classList.add("hidden");
+error.classList.add("hidden");
+
 visibleVideoCount=3;
+
 count.textContent=allVideos.length+" video";
 
+
+/* VIDEO KUU */
+
 renderHero(allVideos[0]);
+
+
+/* VIDEO ZA PEMBENI */
+
 renderSideNews(allVideos.slice(1,5));
+
+
+/* VIDEO NYINGINE */
+
 renderVideoGrid();
+
+
+/* BREAKING NEWS */
+
 startBreakingNews();
 
 }catch(err){
+
 console.error("Firebase video error:",err);
-loading.classList.add("hidden");
+
 content.classList.add("hidden");
 empty.classList.add("hidden");
 error.classList.remove("hidden");
-errorText.textContent="Imeshindikana kusoma video kutoka Firebase. Angalia ruhusa za Firestore na muunganisho wa intaneti.";
-}
+
+errorText.textContent=
+"Imeshindikana kusoma video kutoka Firebase. Angalia ruhusa za Firestore na muunganisho wa intaneti.";
+
 }
 
+}
+
+
+/* DATE */
+
 const today=new Intl.DateTimeFormat("sw-TZ",{
-weekday:"long",day:"numeric",month:"long",year:"numeric"
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
 }).format(new Date());
+
 $("todayDate").textContent=today;
 $("currentDate").textContent=today;
 
+
+/* START */
+
 loadVideos();
+
 </script>
+
 </body>
 </html>
