@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sw">
 <head>
@@ -19,873 +18,837 @@
 
   <style>
     :root {
-      --blue: #0757a6;
-      --blue-2: #0878c9;
-      --blue-dark: #043d78;
-      --deep: #062e5b;
-      --red: #e51d2a;
-      --light: #f4f6f9;
-      --white: #fff;
-      --text: #17202a;
-      --muted: #718096;
-      --border: #e3e8ef;
-      --shadow: 0 5px 18px rgba(13,47,79,.08);
-      --radius: 8px;
+      --blue:#0757a6;
+      --blue-2:#0878c9;
+      --blue-dark:#043d78;
+      --deep:#062e5b;
+      --red:#e51d2a;
+      --light:#f4f6f9;
+      --white:#fff;
+      --text:#17202a;
+      --muted:#718096;
+      --border:#e3e8ef;
+      --shadow:0 5px 18px rgba(13,47,79,.08);
+      --radius:8px;
     }
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--light);
-      color: var(--text);
-      line-height: 1.7;
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--light);
+      color:var(--text);
+      line-height:1.7;
     }
 
     a {
-      text-decoration: none;
-      color: inherit;
+      text-decoration:none;
+      color:inherit;
     }
 
     img {
-      max-width: 100%;
-      display: block;
+      max-width:100%;
+      display:block;
     }
 
-    button,
-    input {
-      font-family: inherit;
+    button,input {
+      font-family:inherit;
     }
 
     .topbar {
-      background: var(--deep);
-      color: #fff;
-      font-size: 13px;
+      background:var(--deep);
+      color:#fff;
+      font-size:13px;
     }
 
     .topbar-inner {
-      max-width: 1250px;
-      margin: auto;
-      min-height: 34px;
-      padding: 7px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
+      max-width:1250px;
+      margin:auto;
+      min-height:34px;
+      padding:7px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
     }
 
-    /* HEADER */
-
     header {
-      position: relative;
-      width: 100%;
-      min-height: 100px;
-      background-color: #dcecf2;
+      position:relative;
+      width:100%;
+      min-height:100px;
+      background-color:#dcecf2;
       background-image:
-        linear-gradient(
-          115deg,
-          rgba(9,66,92,.10),
-          rgba(255,255,255,.82),
-          rgba(25,45,55,.08)
-        ),
+        linear-gradient(115deg,rgba(9,66,92,.10),rgba(255,255,255,.82),rgba(25,45,55,.08)),
         url("images/binsoud-habari-logo.png.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 88% 100px;
-      border-bottom: 1px solid #b7ccd5;
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:88% 100px;
+      border-bottom:1px solid #b7ccd5;
     }
 
     .header-inner {
-      width: 100%;
-      min-height: 100px;
-      padding: 10px 3%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      position: relative;
-      z-index: 1;
+      width:100%;
+      min-height:100px;
+      padding:10px 3%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      position:relative;
+      z-index:1;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-      color: var(--blue);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
+      color:var(--blue);
     }
 
     .logo-mark {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: var(--blue);
-      color: #fff;
-      border-radius: 8px;
-      font-size: 23px;
-      font-weight: 900;
+      width:56px;
+      height:56px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      background:var(--blue);
+      color:#fff;
+      border-radius:8px;
+      font-size:23px;
+      font-weight:900;
     }
 
     .logo-text h1 {
-      margin: 0;
-      color: var(--blue);
-      font-size: 27px;
-      line-height: 1.15;
-      font-weight: 900;
-      letter-spacing: -.6px;
-      white-space: nowrap;
+      margin:0;
+      color:var(--blue);
+      font-size:27px;
+      line-height:1.15;
+      font-weight:900;
+      letter-spacing:-.6px;
+      white-space:nowrap;
     }
 
     .logo-text h1 .red {
-      color: var(--red);
+      color:var(--red);
     }
 
-    .logo-text > span {
-      display: block;
-      margin-top: 4px;
-      color: #52667b;
-      font-size: 12px;
-      font-weight: 600;
+    .logo-text>span {
+      display:block;
+      margin-top:4px;
+      color:#52667b;
+      font-size:12px;
+      font-weight:600;
     }
-
-    /* SEARCH */
 
     .header-search {
-      width: min(390px,100%);
-      flex-shrink: 0;
-      position: relative;
-      margin-left: auto;
+      width:min(390px,100%);
+      flex-shrink:0;
+      position:relative;
+      margin-left:auto;
     }
 
     .search-form {
-      display: flex;
-      width: 100%;
+      display:flex;
+      width:100%;
     }
 
     .search-input {
-      flex: 1;
-      min-width: 0;
-      height: 42px;
-      border: 1px solid #d7e0ea;
-      border-right: 0;
-      outline: none;
-      padding: 0 13px;
-      font-size: 14px;
-      color: var(--text);
-      background: #fff;
-      border-radius: 7px 0 0 7px;
+      flex:1;
+      min-width:0;
+      height:42px;
+      border:1px solid #d7e0ea;
+      border-right:0;
+      outline:none;
+      padding:0 13px;
+      font-size:14px;
+      color:var(--text);
+      background:#fff;
+      border-radius:7px 0 0 7px;
     }
 
     .search-input:focus {
-      border-color: var(--blue-2);
-      box-shadow: 0 0 0 2px rgba(8,120,201,.10);
+      border-color:var(--blue-2);
+      box-shadow:0 0 0 2px rgba(8,120,201,.10);
     }
 
     .search-btn {
-      width: 50px;
-      flex-shrink: 0;
-      border: 0;
-      cursor: pointer;
-      background: var(--blue);
-      color: #fff;
-      font-size: 17px;
-      border-radius: 0 7px 7px 0;
+      width:50px;
+      flex-shrink:0;
+      border:0;
+      cursor:pointer;
+      background:var(--blue);
+      color:#fff;
+      font-size:17px;
+      border-radius:0 7px 7px 0;
     }
 
     .search-btn:hover {
-      background: var(--blue-dark);
+      background:var(--blue-dark);
     }
 
     .search-suggestions {
-      position: absolute;
-      top: 47px;
-      left: 0;
-      right: 0;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.10);
-      z-index: 500;
-      overflow: hidden;
-      display: none;
+      position:absolute;
+      top:47px;
+      left:0;
+      right:0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:7px;
+      box-shadow:0 8px 20px rgba(0,0,0,.10);
+      z-index:500;
+      overflow:hidden;
+      display:none;
     }
 
     .search-suggestions.show {
-      display: block;
+      display:block;
     }
 
     .search-item {
-      display: block;
-      padding: 11px 13px;
-      border-bottom: 1px solid #eef2f6;
-      font-size: 13px;
-      color: #20364e;
+      display:block;
+      padding:11px 13px;
+      border-bottom:1px solid #eef2f6;
+      font-size:13px;
+      color:#20364e;
     }
 
     .search-item:last-child {
-      border-bottom: 0;
+      border-bottom:0;
     }
 
     .search-item:hover {
-      background: #f4f8fc;
+      background:#f4f8fc;
     }
 
     .search-item small {
-      display: block;
-      margin-top: 2px;
-      color: var(--muted);
-      font-size: 11px;
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:11px;
     }
 
-    /* NAVIGATION */
-
     nav {
-      background: var(--blue);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      background:var(--blue);
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
     }
 
     .nav-inner {
-      max-width: 1250px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      padding: 0 15px;
+      max-width:1250px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      gap:2px;
+      overflow-x:auto;
+      scrollbar-width:none;
+      padding:0 15px;
     }
 
     .nav-inner::-webkit-scrollbar {
-      display: none;
+      display:none;
     }
 
     nav a {
-      color: #fff;
-      display: block;
-      padding: 13px 12px;
-      font-size: 13px;
-      font-weight: 800;
-      white-space: nowrap;
-      border-bottom: 3px solid transparent;
+      color:#fff;
+      display:block;
+      padding:13px 12px;
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
+      border-bottom:3px solid transparent;
     }
 
     nav a:hover,
     nav a.active {
-      background: rgba(255,255,255,.10);
-      border-bottom-color: #fff;
+      background:rgba(255,255,255,.10);
+      border-bottom-color:#fff;
     }
 
-    /* BREAKING NEWS */
-
     .breaking {
-      background: #ffffff;
-      color: #111111;
-      border-bottom: 1px solid #dddddd;
+      background:#fff;
+      color:#111;
+      border-bottom:1px solid #ddd;
     }
 
     .breaking-inner {
-      max-width: 1250px;
-      margin: auto;
-      min-height: 42px;
-      display: flex;
-      align-items: center;
+      max-width:1250px;
+      margin:auto;
+      min-height:42px;
+      display:flex;
+      align-items:center;
     }
 
     .breaking-label {
-      background: #e51d2a;
-      color: #ffffff;
-      padding: 9px 15px;
-      font-size: 13px;
-      font-weight: 900;
-      white-space: nowrap;
-      flex-shrink: 0;
+      background:#e51d2a;
+      color:#fff;
+      padding:9px 15px;
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+      flex-shrink:0;
     }
 
     .breaking-link {
-      flex: 1;
-      color: #111111;
-      background: #ffffff;
-      padding: 0 15px;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      cursor: pointer;
+      flex:1;
+      color:#111;
+      background:#fff;
+      padding:0 15px;
+      font-size:14px;
+      font-weight:700;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      cursor:pointer;
     }
 
     .breaking-link:hover {
-      color: #000000;
-      text-decoration: underline;
+      color:#000;
+      text-decoration:underline;
     }
 
-    /* MAIN */
-
     .container {
-      max-width: 1250px;
-      margin: auto;
-      padding: 28px 20px 55px;
+      max-width:1250px;
+      margin:auto;
+      padding:28px 20px 55px;
     }
 
     .breadcrumb {
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 13px;
+      margin-bottom:18px;
+      color:var(--muted);
+      font-size:13px;
     }
 
     .breadcrumb a {
-      color: var(--blue);
-      font-weight: 700;
+      color:var(--blue);
+      font-weight:700;
     }
 
-    /* ERROR STATE */
-
     .state {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 35px 25px;
-      text-align: center;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:35px 25px;
+      text-align:center;
     }
 
     .state h2 {
-      color: var(--blue-dark);
-      margin-bottom: 6px;
-      font-size: 20px;
+      color:var(--blue-dark);
+      margin-bottom:6px;
+      font-size:20px;
     }
 
     .state p {
-      color: var(--muted);
-      font-size: 14px;
+      color:var(--muted);
+      font-size:14px;
     }
 
     .error-state {
-      border-top: 4px solid var(--red);
+      border-top:4px solid var(--red);
     }
 
     .error-state h2 {
-      color: #b31318;
+      color:#b31318;
     }
 
     .hidden {
-      display: none !important;
+      display:none !important;
     }
 
-    /* ARTICLE LAYOUT */
-
     .article-layout {
-      display: grid;
-      grid-template-columns: minmax(0,1fr) 320px;
-      gap: 24px;
-      align-items: start;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 320px;
+      gap:24px;
+      align-items:start;
     }
 
     .article {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      min-width: 0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-width:0;
     }
 
     .article-header {
-      padding: 27px 30px 22px;
+      padding:27px 30px 22px;
     }
 
     .category {
-      display: inline-block;
-      background: var(--blue);
-      color: #fff;
-      border-radius: 5px;
-      padding: 6px 11px;
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 14px;
+      display:inline-block;
+      background:var(--blue);
+      color:#fff;
+      border-radius:5px;
+      padding:6px 11px;
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      margin-bottom:14px;
     }
 
     .article-title {
-      color: var(--deep);
-      font-size: clamp(30px,4vw,46px);
-      line-height: 1.14;
-      font-weight: 900;
-      letter-spacing: -.7px;
-      margin-bottom: 17px;
-      overflow-wrap: anywhere;
+      color:var(--deep);
+      font-size:clamp(30px,4vw,46px);
+      line-height:1.14;
+      font-weight:900;
+      letter-spacing:-.7px;
+      margin-bottom:17px;
+      overflow-wrap:anywhere;
     }
 
     .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px 20px;
-      padding-top: 14px;
-      border-top: 1px solid #edf1f5;
-      color: var(--muted);
-      font-size: 13px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:13px 20px;
+      padding-top:14px;
+      border-top:1px solid #edf1f5;
+      color:var(--muted);
+      font-size:13px;
     }
 
     .meta strong {
-      color: #52667b;
+      color:#52667b;
     }
 
     .article-image-wrap {
-      background: #edf2f7;
-      border-top: 1px solid #edf1f5;
-      border-bottom: 1px solid #edf1f5;
+      background:#edf2f7;
+      border-top:1px solid #edf1f5;
+      border-bottom:1px solid #edf1f5;
     }
 
     .article-image {
-      width: 100%;
-      max-height: 680px;
-      object-fit: cover;
-      background: #edf2f7;
+      width:100%;
+      max-height:680px;
+      object-fit:cover;
+      background:#edf2f7;
     }
 
-    /* AUDIO NA VIDEO PLAYER */
-
     .article-media {
-      display: none;
-      padding: 20px 30px;
-      background: #f4f8fc;
-      border-top: 1px solid #edf1f5;
-      border-bottom: 1px solid #edf1f5;
+      display:none;
+      padding:20px 30px;
+      background:#f4f8fc;
+      border-top:1px solid #edf1f5;
+      border-bottom:1px solid #edf1f5;
     }
 
     .article-media.show {
-      display: block;
+      display:block;
     }
 
     .article-media h3 {
-      color: var(--blue-dark);
-      font-size: 17px;
-      margin-bottom: 12px;
+      color:var(--blue-dark);
+      font-size:17px;
+      margin-bottom:12px;
     }
 
     .article-media audio,
     .article-media video {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      border-radius: 8px;
+      display:block;
+      width:100%;
+      max-width:100%;
+      border-radius:8px;
     }
 
     .article-media video {
-      max-height: 520px;
-      background: #000;
+      max-height:520px;
+      background:#000;
     }
 
     .media-message {
-      color: #718096;
-      font-size: 14px;
+      color:#718096;
+      font-size:14px;
     }
 
     .article-body {
-      padding: 30px 32px 36px;
-      color: #2a3949;
-      font-size: 18px;
-      line-height: 1.95;
-      overflow-wrap: anywhere;
+      padding:30px 32px 36px;
+      color:#2a3949;
+      font-size:18px;
+      line-height:1.95;
+      overflow-wrap:anywhere;
     }
 
     .article-body p {
-      margin: 0 0 22px;
-      text-align: left;
+      margin:0 0 22px;
+      text-align:left;
     }
 
     .article-body p:last-child {
-      margin-bottom: 0;
+      margin-bottom:0;
     }
 
     .article-body h2 {
-      margin: 30px 0 15px;
-      color: var(--blue-dark);
-      font-size: 28px;
-      line-height: 1.3;
+      margin:30px 0 15px;
+      color:var(--blue-dark);
+      font-size:28px;
+      line-height:1.3;
     }
 
     .article-body h3 {
-      margin: 25px 0 13px;
-      color: var(--blue-dark);
-      font-size: 22px;
-      line-height: 1.35;
+      margin:25px 0 13px;
+      color:var(--blue-dark);
+      font-size:22px;
+      line-height:1.35;
     }
 
     .article-body ul,
     .article-body ol {
-      margin: 0 0 22px 24px;
-      padding-left: 18px;
+      margin:0 0 22px 24px;
+      padding-left:18px;
     }
 
     .article-body li {
-      margin-bottom: 8px;
+      margin-bottom:8px;
     }
 
     .article-body blockquote {
-      margin: 22px 0;
-      padding: 14px 18px;
-      border-left: 4px solid var(--blue);
-      background: #f4f8fc;
-      color: #44566a;
-      border-radius: 4px;
+      margin:22px 0;
+      padding:14px 18px;
+      border-left:4px solid var(--blue);
+      background:#f4f8fc;
+      color:#44566a;
+      border-radius:4px;
     }
 
     .article-body a {
-      color: var(--blue);
-      text-decoration: underline;
+      color:var(--blue);
+      text-decoration:underline;
     }
 
     .article-body strong {
-      color: #1d2d3d;
+      color:#1d2d3d;
     }
 
     .article-body img {
-      width: 100%;
-      height: auto;
-      margin: 25px 0;
-      border-radius: 8px;
+      width:100%;
+      height:auto;
+      margin:25px 0;
+      border-radius:8px;
     }
-
-    .article-body br {
-      line-height: 1.8;
-    }
-
-    /* SHARE */
 
     .share {
-      padding: 20px 30px 27px;
-      border-top: 1px solid #edf1f5;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      padding:20px 30px 27px;
+      border-top:1px solid #edf1f5;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
     }
 
     .share button {
-      border: 0;
-      cursor: pointer;
-      color: #fff;
-      background: var(--blue);
-      padding: 10px 15px;
-      border-radius: 5px;
-      font-size: 13px;
-      font-weight: 800;
+      border:0;
+      cursor:pointer;
+      color:#fff;
+      background:var(--blue);
+      padding:10px 15px;
+      border-radius:5px;
+      font-size:13px;
+      font-weight:800;
     }
 
     .share button:hover {
-      opacity: .90;
+      opacity:.90;
     }
 
     .share .whatsapp {
-      background: #168c42;
+      background:#168c42;
     }
 
     .share .facebook {
-      background: #1877f2;
+      background:#1877f2;
     }
 
-    /* SIDEBAR */
-
     .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
     }
 
     .side-box {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
     }
 
     .side-title {
-      background: var(--deep);
-      color: #fff;
-      padding: 13px 15px;
-      border-left: 5px solid var(--blue-2);
-      font-size: 15px;
-      font-weight: 900;
+      background:var(--deep);
+      color:#fff;
+      padding:13px 15px;
+      border-left:5px solid var(--blue-2);
+      font-size:15px;
+      font-weight:900;
     }
 
     .side-content {
-      padding: 10px 15px 13px;
+      padding:10px 15px 13px;
     }
 
     .side-story {
-      display: flex;
-      gap: 11px;
-      padding: 12px 0;
-      border-bottom: 1px solid #edf1f5;
+      display:flex;
+      gap:11px;
+      padding:12px 0;
+      border-bottom:1px solid #edf1f5;
     }
 
     .side-story:last-child {
-      border-bottom: 0;
+      border-bottom:0;
     }
 
     .side-story img {
-      width: 88px;
-      height: 62px;
-      border-radius: 5px;
-      object-fit: cover;
-      background: #e8eef5;
-      flex-shrink: 0;
+      width:88px;
+      height:62px;
+      border-radius:5px;
+      object-fit:cover;
+      background:#e8eef5;
+      flex-shrink:0;
     }
 
     .side-story.no-image {
-      display: block;
+      display:block;
     }
 
     .side-story h3 {
-      color: #183653;
-      font-size: 13px;
-      line-height: 1.4;
-      font-weight: 800;
+      color:#183653;
+      font-size:13px;
+      line-height:1.4;
+      font-weight:800;
     }
 
     .side-story span {
-      display: block;
-      margin-top: 5px;
-      color: #7a8999;
-      font-size: 10px;
-      line-height: 1.4;
+      display:block;
+      margin-top:5px;
+      color:#7a8999;
+      font-size:10px;
+      line-height:1.4;
     }
 
     .side-story:hover h3 {
-      color: var(--blue);
+      color:var(--blue);
     }
 
     .about-box {
-      padding: 15px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
+      padding:15px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
     }
 
-    /* FOOTER */
-
     footer {
-      background: var(--deep);
-      color: #fff;
-      margin-top: 20px;
+      background:var(--deep);
+      color:#fff;
+      margin-top:20px;
     }
 
     .footer-inner {
-      max-width: 1250px;
-      margin: auto;
-      padding: 38px 20px 24px;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 34px;
+      max-width:1250px;
+      margin:auto;
+      padding:38px 20px 24px;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      gap:34px;
     }
 
     .footer-inner h3 {
-      margin-bottom: 11px;
-      color: #fff;
-      font-size: 16px;
+      margin-bottom:11px;
+      color:#fff;
+      font-size:16px;
     }
 
     .footer-inner p,
     .footer-inner a {
-      color: #d6e1ed;
-      font-size: 13px;
-      line-height: 1.8;
+      color:#d6e1ed;
+      font-size:13px;
+      line-height:1.8;
     }
 
     .footer-inner a {
-      display: block;
-      margin: 4px 0;
+      display:block;
+      margin:4px 0;
     }
 
     .footer-inner a:hover {
-      color: #fff;
-      text-decoration: underline;
+      color:#fff;
+      text-decoration:underline;
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.12);
-      padding: 14px 20px;
-      text-align: center;
-      color: #b9c9da;
-      font-size: 12px;
+      border-top:1px solid rgba(255,255,255,.12);
+      padding:14px 20px;
+      text-align:center;
+      color:#b9c9da;
+      font-size:12px;
     }
 
-    /* TABLET */
-
-    @media (max-width:950px) {
+    @media(max-width:950px) {
       .header-inner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px;
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        gap:15px;
       }
 
       .header-search {
-        width: min(350px,45%);
+        width:min(350px,45%);
       }
 
       .logo-text h1 {
-        font-size: 23px;
+        font-size:23px;
       }
 
       .article-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
       }
 
       .sidebar {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display:grid;
+        grid-template-columns:1fr 1fr;
       }
 
       .footer-inner {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:1fr 1fr;
       }
     }
 
-    /* MOBILE */
-
-    @media (max-width:650px) {
+    @media(max-width:650px) {
       .topbar-inner {
-        justify-content: center;
-        padding: 6px 12px;
+        justify-content:center;
+        padding:6px 12px;
       }
 
       .topbar-inner span:last-child {
-        display: none;
+        display:none;
       }
 
       header {
-        background-size: auto 100px;
+        background-size:auto 100px;
       }
 
       .header-inner {
-        padding: 12px 15px;
-        gap: 12px;
-        flex-wrap: wrap;
+        padding:12px 15px;
+        gap:12px;
+        flex-wrap:wrap;
       }
 
       .logo {
-        gap: 9px;
-        max-width: 100%;
+        gap:9px;
+        max-width:100%;
       }
 
       .logo-mark {
-        width: 42px;
-        height: 42px;
-        font-size: 17px;
+        width:42px;
+        height:42px;
+        font-size:17px;
       }
 
       .logo-text h1 {
-        font-size: 19px;
+        font-size:19px;
       }
 
-      .logo-text > span {
-        font-size: 10px;
+      .logo-text>span {
+        font-size:10px;
       }
 
       .header-search {
-        width: 100%;
-        flex-basis: 100%;
-        margin-left: 0;
+        width:100%;
+        flex-basis:100%;
+        margin-left:0;
       }
 
       nav a {
-        padding: 12px 10px;
-        font-size: 12px;
+        padding:12px 10px;
+        font-size:12px;
       }
 
       .breaking-inner {
-        min-height: 38px;
+        min-height:38px;
       }
 
       .breaking-label {
-        padding: 8px 10px;
-        font-size: 11px;
+        padding:8px 10px;
+        font-size:11px;
       }
 
       .breaking-link {
-        padding: 0 10px;
-        font-size: 12px;
+        padding:0 10px;
+        font-size:12px;
       }
 
       .container {
-        padding: 19px 12px 40px;
+        padding:19px 12px 40px;
       }
 
       .breadcrumb {
-        margin-bottom: 13px;
-        font-size: 12px;
+        margin-bottom:13px;
+        font-size:12px;
       }
 
       .article-header {
-        padding: 21px 18px 17px;
+        padding:21px 18px 17px;
       }
 
       .article-title {
-        font-size: 30px;
-        line-height: 1.18;
-        letter-spacing: -.3px;
+        font-size:30px;
+        line-height:1.18;
+        letter-spacing:-.3px;
       }
 
       .meta {
-        gap: 9px 14px;
-        font-size: 12px;
+        gap:9px 14px;
+        font-size:12px;
       }
 
       .article-media {
-        padding: 17px 18px;
+        padding:17px 18px;
       }
 
       .article-body {
-        padding: 22px 18px 29px;
-        font-size: 17px;
-        line-height: 1.88;
+        padding:22px 18px 29px;
+        font-size:17px;
+        line-height:1.88;
       }
 
       .article-body p {
-        margin-bottom: 20px;
+        margin-bottom:20px;
       }
 
       .article-body h2 {
-        font-size: 24px;
+        font-size:24px;
       }
 
       .article-body h3 {
-        font-size: 20px;
+        font-size:20px;
       }
 
       .share {
-        padding: 18px 18px 23px;
+        padding:18px 18px 23px;
       }
 
       .share button {
-        padding: 9px 12px;
-        font-size: 12px;
+        padding:9px 12px;
+        font-size:12px;
       }
 
       .sidebar {
-        display: block;
+        display:block;
       }
 
       .side-box {
-        margin-bottom: 17px;
+        margin-bottom:17px;
       }
 
       .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        padding: 30px 20px 20px;
+        grid-template-columns:1fr;
+        gap:25px;
+        padding:30px 20px 20px;
       }
     }
   </style>
@@ -893,7 +856,6 @@
 
 <body>
 
-  <!-- TOP DATE BAR -->
   <div class="topbar">
     <div class="topbar-inner">
       <span id="currentDate">📰 BINSOUD HABARI</span>
@@ -901,7 +863,6 @@
     </div>
   </div>
 
-  <!-- HEADER -->
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="BINSOUD HABARI - Mwanzo">
@@ -914,14 +875,9 @@
 
       <div class="header-search">
         <form id="searchForm" class="search-form">
-          <input
-            id="searchInput"
-            class="search-input"
-            type="search"
-            placeholder="Tafuta habari..."
-            autocomplete="off"
-            aria-label="Tafuta habari"
-          >
+          <input id="searchInput" class="search-input" type="search"
+            placeholder="Tafuta habari..." autocomplete="off"
+            aria-label="Tafuta habari">
           <button type="submit" class="search-btn" aria-label="Tafuta">🔍</button>
         </form>
         <div id="searchSuggestions" class="search-suggestions"></div>
@@ -929,7 +885,6 @@
     </div>
   </header>
 
-  <!-- NAVIGATION -->
   <nav>
     <div class="nav-inner">
       <a href="index.html">HOME</a>
@@ -948,7 +903,6 @@
     </div>
   </nav>
 
-  <!-- BREAKING NEWS -->
   <section class="breaking">
     <div class="breaking-inner">
       <div class="breaking-label">🔴 BREAKING NEWS</div>
@@ -958,7 +912,6 @@
     </div>
   </section>
 
-  <!-- MAIN -->
   <main class="container">
 
     <div class="breadcrumb">
@@ -969,20 +922,17 @@
       </a>
     </div>
 
-    <!-- ERROR -->
     <div id="errorState" class="state error-state hidden">
       <h2>Habari haipatikani</h2>
       <p id="errorMessage">Habari uliyochagua haikupatikana.</p>
       <div style="margin-top:18px;">
-        <a
-          id="errorBackLink"
-          href="index.html"
-          style="display:inline-block;background:#0757a6;color:#fff;padding:10px 18px;border-radius:5px;font-weight:800;font-size:13px;"
-        >← Rudi kwenye habari</a>
+        <a id="errorBackLink" href="index.html"
+          style="display:inline-block;background:#0757a6;color:#fff;padding:10px 18px;border-radius:5px;font-weight:800;font-size:13px;">
+          ← Rudi kwenye habari
+        </a>
       </div>
     </div>
 
-    <!-- ARTICLE LAYOUT -->
     <div id="articleLayout" class="article-layout hidden">
 
       <article class="article">
@@ -1001,7 +951,6 @@
           <img id="articleImage" class="article-image" src="" alt="">
         </div>
 
-        <!-- AUDIO / VIDEO PLAYER -->
         <div id="articleMedia" class="article-media">
           <h3 id="mediaTitle">Media ya habari</h3>
           <div id="mediaPlayer"></div>
@@ -1016,7 +965,6 @@
         </div>
       </article>
 
-      <!-- SIDEBAR -->
       <aside class="sidebar">
         <div class="side-box">
           <div class="side-title">Habari Mpya</div>
@@ -1041,7 +989,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div>
@@ -1075,7 +1022,6 @@
     </div>
   </footer>
 
-  <!-- FIREBASE + JAVASCRIPT -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
@@ -1086,8 +1032,6 @@
       doc,
       getDoc
     } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
-    /* FIREBASE CONFIG */
 
     const firebaseConfig = {
       apiKey: "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
@@ -1102,8 +1046,6 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    /* ELEMENTS */
-
     const errorState = document.getElementById("errorState");
     const errorMessage = document.getElementById("errorMessage");
     const articleLayout = document.getElementById("articleLayout");
@@ -1113,24 +1055,19 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* TOP DATE */
-
     function updateCurrentDate() {
       const now = new Date();
 
-      const text = new Intl.DateTimeFormat("sw-TZ", {
-        weekday: "long",
-        day: "2-digit",
-        month: "long",
-        year: "numeric"
-      }).format(now);
-
-      document.getElementById("currentDate").textContent = "📰 " + text;
+      document.getElementById("currentDate").textContent =
+        "📰 " + new Intl.DateTimeFormat("sw-TZ", {
+          weekday:"long",
+          day:"2-digit",
+          month:"long",
+          year:"numeric"
+        }).format(now);
     }
 
     updateCurrentDate();
-
-    /* TEXT HELPERS */
 
     function cleanText(value) {
       if (value === null || value === undefined) return "";
@@ -1139,17 +1076,17 @@
 
     function escapeHTML(value) {
       return cleanText(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
     }
 
     function stripHTML(value) {
       return cleanText(value)
-        .replace(/<[^>]*>/g, " ")
-        .replace(/\s+/g, " ")
+        .replace(/<[^>]*>/g," ")
+        .replace(/\s+/g," ")
         .trim();
     }
 
@@ -1157,13 +1094,11 @@
       return cleanText(value)
         .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9\s]/g, " ")
-        .replace(/\s+/g, " ")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/[^a-z0-9\s]/g," ")
+        .replace(/\s+/g," ")
         .trim();
     }
-
-    /* ARTICLE FIELD HELPERS */
 
     function getTitle(article) {
       return cleanText(
@@ -1252,8 +1187,6 @@
       );
     }
 
-    /* AUDIO NA VIDEO FIELD HELPERS */
-
     function safeMediaUrl(value) {
       if (value && typeof value === "object") {
         value =
@@ -1268,12 +1201,9 @@
       if (!url) return "";
 
       try {
-        const parsed = new URL(url, window.location.href);
+        const parsed = new URL(url,window.location.href);
 
-        if (
-          parsed.protocol !== "https:" &&
-          parsed.protocol !== "http:"
-        ) {
+        if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
           return "";
         }
 
@@ -1283,100 +1213,67 @@
       }
     }
 
-    function findMediaUrl(article, fields) {
+    function findMediaUrl(article,fields) {
       for (const field of fields) {
         const url = safeMediaUrl(article[field]);
         if (url) return url;
       }
-
       return "";
     }
 
     function getAudioUrl(article) {
-      return findMediaUrl(article, [
-        "audioUrl",
-        "audioURL",
-        "audio_url",
-        "audio",
-        "audioLink",
-        "audio_link",
-        "audioFile",
-        "audioFileUrl",
-        "audioFileURL",
-        "audioSrc",
-        "audioSource",
-        "soundUrl",
-        "sound",
-        "podcastUrl",
-        "podcast",
-        "mediaUrl",
-        "mediaURL",
-        "media_url",
-        "fileUrl",
-        "fileURL",
-        "file_url",
-        "downloadURL",
-        "downloadUrl",
-        "attachmentUrl"
+      return findMediaUrl(article,[
+        "audioUrl","audioURL","audio_url","audio","audioLink",
+        "audio_link","audioFile","audioFileUrl","audioFileURL",
+        "audioSrc","audioSource","soundUrl","sound","podcastUrl",
+        "podcast","mediaUrl","mediaURL","media_url","fileUrl",
+        "fileURL","file_url","downloadURL","downloadUrl","attachmentUrl"
       ]);
     }
 
     function getVideoUrl(article) {
-      return findMediaUrl(article, [
-        "videoUrl",
-        "videoURL",
-        "video_url",
-        "video",
-        "videoLink",
-        "video_link",
-        "videoFile",
-        "videoFileUrl",
-        "videoFileURL",
-        "videoSrc",
-        "videoSource",
-        "mediaUrl",
-        "mediaURL",
-        "media_url",
-        "fileUrl",
-        "fileURL",
-        "file_url",
-        "downloadURL",
-        "downloadUrl",
-        "attachmentUrl"
+      return findMediaUrl(article,[
+        "videoUrl","videoURL","video_url","video","videoLink",
+        "video_link","videoFile","videoFileUrl","videoFileURL",
+        "videoSrc","videoSource","youtubeUrl","youtubeURL",
+        "youtube","mediaUrl","mediaURL","media_url","fileUrl",
+        "fileURL","file_url","downloadURL","downloadUrl","attachmentUrl"
       ]);
     }
 
-    function renderArticleMedia(article, category) {
+    /* VIDEO NA AUDIO: VIDEO COLLECTION INATAMBULIWA MOJA KWA MOJA */
+
+    function renderArticleMedia(article,category) {
       const mediaBox = document.getElementById("articleMedia");
       const mediaPlayer = document.getElementById("mediaPlayer");
       const mediaTitle = document.getElementById("mediaTitle");
 
-      const categoryName = normalizeSearch(category);
-
       mediaBox.classList.remove("show");
       mediaPlayer.innerHTML = "";
 
+      const categoryName = normalizeSearch(category);
+
+      const isVideo =
+        article._sourceCollection === "videos" ||
+        categoryName.includes("video");
+
       const isAudio = categoryName.includes("audio");
-      const isVideo = categoryName.includes("video");
 
       if (!isAudio && !isVideo) return;
 
       if (isAudio) {
         const audioUrl = getAudioUrl(article);
-
         mediaTitle.textContent = "🎧 Sikiliza habari hii";
 
         if (!audioUrl) {
           mediaPlayer.innerHTML = `
             <p class="media-message">
               Kiungo cha Audio hakijapatikana kwenye habari hii.
-              Hakikisha link ya sauti imehifadhiwa kwenye Firebase
-              katika sehemu ya audioUrl au mediaUrl.
+              Hakikisha link ya sauti imehifadhiwa kwenye Firebase.
             </p>
           `;
         } else {
           const audio = document.createElement("audio");
-
           audio.controls = true;
           audio.preload = "none";
           audio.src = audioUrl;
@@ -1385,8 +1282,7 @@
             mediaPlayer.innerHTML = `
               <p class="media-message">
                 Imeshindikana kucheza sauti hii.
-                Tafadhali hakikisha link ya Audio inafanya kazi
-                na faili lina aina inayoungwa mkono kama MP3, WAV au M4A.
+                Tafadhali hakikisha link ya Audio inafanya kazi.
               </p>
             `;
           };
@@ -1400,20 +1296,18 @@
 
       if (isVideo) {
         const videoUrl = getVideoUrl(article);
-
         mediaTitle.textContent = "▶️ Tazama video hii";
 
         if (!videoUrl) {
           mediaPlayer.innerHTML = `
             <p class="media-message">
               Kiungo cha Video hakijapatikana kwenye habari hii.
-              Hakikisha link ya video imehifadhiwa kwenye Firebase
-              katika sehemu ya videoUrl au mediaUrl.
+              Hakikisha link imehifadhiwa kwenye Firebase katika
+              sehemu ya videoUrl, youtubeUrl au mediaUrl.
             </p>
           `;
         } else {
           const video = document.createElement("video");
-
           video.controls = true;
           video.preload = "metadata";
           video.playsInline = true;
@@ -1423,8 +1317,8 @@
             mediaPlayer.innerHTML = `
               <p class="media-message">
                 Imeshindikana kucheza video hii.
-                Hakikisha link ya Video inafanya kazi
-                na faili lina aina inayoungwa mkono kama MP4 au WebM.
+                Hakikisha link ya Video inafanya kazi na ni faili
+                linaloungwa mkono na kivinjari.
               </p>
             `;
           };
@@ -1435,8 +1329,6 @@
         mediaBox.classList.add("show");
       }
     }
-
-    /* DATE HELPERS */
 
     function getDateObject(value) {
       if (!value) return null;
@@ -1485,12 +1377,12 @@
     function formatDateTime(date) {
       if (!date) return "Tarehe haijawekwa";
 
-      return new Intl.DateTimeFormat("sw-TZ", {
-        day: "2-digit",
-        month: "long",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit"
+      return new Intl.DateTimeFormat("sw-TZ",{
+        day:"2-digit",
+        month:"long",
+        year:"numeric",
+        hour:"2-digit",
+        minute:"2-digit"
       }).format(date);
     }
 
@@ -1509,19 +1401,17 @@
 
       if (diff < hour) {
         return "Imetumwa dakika " +
-          Math.floor(diff / minute) + " zilizopita";
+          Math.floor(diff/minute) + " zilizopita";
       }
 
       if (diff < day) {
-        const hours = Math.floor(diff / hour);
+        const hours = Math.floor(diff/hour);
         return "Imetumwa saa " + hours +
           (hours === 1 ? " iliyopita" : " zilizopita");
       }
 
       return formatDateTime(date);
     }
-
-    /* READ TIME */
 
     function calculateReadTime(article) {
       const supplied = cleanText(
@@ -1536,10 +1426,8 @@
       if (!body) return "Soma habari";
 
       const words = body.split(/\s+/).filter(Boolean).length;
-      return Math.max(1, Math.ceil(words / 200)) + " dakika";
+      return Math.max(1,Math.ceil(words/200)) + " dakika";
     }
-
-    /* PUBLISHED CHECK */
 
     function isPublished(article) {
       if (article.isPublished === false || article.published === false) {
@@ -1550,11 +1438,7 @@
         const status = normalizeSearch(article.status);
 
         const accepted = [
-          "published",
-          "publish",
-          "active",
-          "live",
-          "true"
+          "published","publish","active","live","true"
         ];
 
         if (status && !accepted.includes(status)) return false;
@@ -1563,14 +1447,10 @@
       return true;
     }
 
-    /* CONTENT RENDERING */
-
     function renderContent(content) {
       const raw = cleanText(content);
 
-      if (!raw) {
-        return "<p>Maudhui ya habari hii hayajawekwa.</p>";
-      }
+      if (!raw) return "<p>Maudhui ya habari hii hayajawekwa.</p>";
 
       if (
         /<p[\s>]/i.test(raw) ||
@@ -1586,8 +1466,8 @@
       }
 
       const normalized = raw
-        .replace(/\r\n/g, "\n")
-        .replace(/\r/g, "\n")
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
         .trim();
 
       const blocks = normalized
@@ -1606,135 +1486,117 @@
 
       return blocks.map(paragraph => {
         return "<p>" +
-          escapeHTML(paragraph).replace(/\n/g, "<br>") +
+          escapeHTML(paragraph).replace(/\n/g,"<br>") +
           "</p>";
       }).join("");
     }
 
-    /* ARTICLE ID */
-
     function getArticleId() {
       const params = new URLSearchParams(window.location.search);
-      const id = params.get("id") || params.get("article") || "";
-      return id.trim();
+      return (
+        params.get("id") ||
+        params.get("article") ||
+        params.get("video") ||
+        ""
+      ).trim();
     }
-
-    /* CATEGORY LINK */
 
     function getCategoryLink(category) {
       const value = normalizeSearch(category);
 
-      if (value.includes("kitaifa") || value.includes("national")) {
-        return "kitaifa.html";
-      }
+      if (value.includes("kitaifa") || value.includes("national")) return "kitaifa.html";
 
       if (
         value.includes("kimataifa") ||
         value.includes("mataifa") ||
         value.includes("international")
-      ) {
-        return "kimataifa.html";
-      }
+      ) return "kimataifa.html";
 
-      if (value.includes("dini") || value.includes("relig")) {
-        return "dini.html";
-      }
-
-      if (value.includes("michezo") || value.includes("sports")) {
-        return "michezo.html";
-      }
-
-      if (value.includes("mazingira") || value.includes("environment")) {
-        return "mazingira.html";
-      }
-
-      if (value.includes("burudani") || value.includes("entertainment")) {
-        return "burudani.html";
-      }
-
-      if (value.includes("siasa") || value.includes("polit")) {
-        return "siasa.html";
-      }
+      if (value.includes("dini") || value.includes("relig")) return "dini.html";
+      if (value.includes("michezo") || value.includes("sports")) return "michezo.html";
+      if (value.includes("mazingira") || value.includes("environment")) return "mazingira.html";
+      if (value.includes("burudani") || value.includes("entertainment")) return "burudani.html";
+      if (value.includes("siasa") || value.includes("polit")) return "siasa.html";
 
       if (
         value.includes("uchumi") ||
         value.includes("biashara") ||
         value.includes("business")
-      ) {
-        return "biashara.html";
-      }
+      ) return "biashara.html";
 
-      if (value.includes("makala") || value.includes("feature")) {
-        return "makala.html";
-      }
-
+      if (value.includes("makala") || value.includes("feature")) return "makala.html";
       if (value.includes("video")) return "video.html";
       if (value.includes("audio")) return "audio.html";
 
       return "index.html";
     }
 
-    /* FIND ARTICLE */
+    /* TAFUTA HABARI KWENYE ARTICLES NA VIDEOS */
 
     async function findArticle(articleId) {
       if (!articleId) return null;
 
-      try {
-        const articleRef = doc(db, "articles", articleId);
-        const snap = await getDoc(articleRef);
+      const collections = ["articles","videos"];
 
-        if (snap.exists()) {
-          const data = snap.data();
+      for (const collectionName of collections) {
+        try {
+          const articleRef = doc(db,collectionName,articleId);
+          const snap = await getDoc(articleRef);
 
-          if (!isPublished(data)) return null;
+          if (snap.exists()) {
+            const data = snap.data();
 
-          return {
-            id: snap.id,
-            ...data
-          };
-        }
-      } catch (error) {
-        console.warn("Direct lookup error:", error);
-      }
-
-      try {
-        const snapshot = await getDocs(collection(db, "articles"));
-        let found = null;
-
-        snapshot.forEach(item => {
-          if (found) return;
-
-          const data = item.data();
-          if (!isPublished(data)) return;
-
-          const possibleIds = [
-            item.id,
-            data.id,
-            data.articleId,
-            data.articleID,
-            data.slug,
-            data.newsId,
-            data.newsID
-          ]
-            .filter(value => value !== undefined && value !== null)
-            .map(value => String(value).trim());
-
-          if (possibleIds.includes(String(articleId).trim())) {
-            found = {
-              id: item.id,
-              ...data
-            };
+            if (isPublished(data)) {
+              return {
+                id:snap.id,
+                ...data,
+                _sourceCollection:collectionName
+              };
+            }
           }
-        });
 
-        return found;
-      } catch (error) {
-        console.error("Fallback search error:", error);
-        throw error;
+          const snapshot = await getDocs(collection(db,collectionName));
+          let found = null;
+
+          snapshot.forEach(item => {
+            if (found) return;
+
+            const data = item.data();
+
+            if (!isPublished(data)) return;
+
+            const possibleIds = [
+              item.id,
+              data.id,
+              data.articleId,
+              data.articleID,
+              data.videoId,
+              data.videoID,
+              data.slug,
+              data.newsId,
+              data.newsID
+            ]
+              .filter(value => value !== undefined && value !== null)
+              .map(value => String(value).trim());
+
+            if (possibleIds.includes(String(articleId).trim())) {
+              found = {
+                id:item.id,
+                ...data,
+                _sourceCollection:collectionName
+              };
+            }
+          });
+
+          if (found) return found;
+
+        } catch (error) {
+          console.warn("Tatizo kutafuta kwenye " + collectionName,error);
+        }
       }
-    }
 
-    /* ACTIVE NAVIGATION */
+      return null;
+    }
 
     function setActiveNavigation(category) {
       const value = normalizeSearch(category);
@@ -1771,8 +1633,6 @@
       });
     }
 
-    /* RENDER ARTICLE */
-
     function renderArticle(article) {
       const title = getTitle(article) || "BINSOUD HABARI";
       const category = getCategory(article) || "Habari";
@@ -1780,13 +1640,17 @@
       const body = getBody(article);
       const image = getImage(article);
       const date = getArticleDate(article);
-      const categoryLink = getCategoryLink(category);
+      const categoryLink = article._sourceCollection === "videos"
+        ? "video.html"
+        : getCategoryLink(category);
 
       document.title = title + " | BINSOUD HABARI";
 
       document.getElementById("articleTitle").textContent = title;
       document.getElementById("articleCategory").textContent = category.toUpperCase();
-      document.getElementById("breadcrumbCategory").textContent = category;
+      document.getElementById("breadcrumbCategory").textContent =
+        article._sourceCollection === "videos" ? "Video" : category;
+
       document.getElementById("breadcrumbLink").href = categoryLink;
       document.getElementById("errorBackLink").href = categoryLink;
       document.getElementById("articleAuthor").textContent = author;
@@ -1809,40 +1673,28 @@
       }
 
       const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage && image) ogImage.setAttribute("content",image);
 
-      if (ogImage && image) {
-        ogImage.setAttribute("content", image);
-      }
+      renderArticleMedia(article,category);
 
-      /* ONYESHA AUDIO AU VIDEO KULINGANA NA CATEGORY */
-      renderArticleMedia(article, category);
-
-      /* ONYESHA MAELEZO YA HABARI */
       document.getElementById("articleBody").innerHTML = renderContent(body);
 
       let description = getDescription(article);
-
       if (!description) description = stripHTML(body);
 
-      const cleanDescription = description.replace(/\s+/g, " ").trim();
+      const cleanDescription = description.replace(/\s+/g," ").trim();
       const metaDescription = document.querySelector('meta[name="description"]');
 
       if (metaDescription) {
-        metaDescription.setAttribute(
-          "content",
-          cleanDescription.substring(0, 160)
-        );
+        metaDescription.setAttribute("content",cleanDescription.substring(0,160));
       }
 
       const ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.setAttribute("content", title);
+      if (ogTitle) ogTitle.setAttribute("content",title);
 
       const ogDescription = document.querySelector('meta[property="og:description"]');
       if (ogDescription) {
-        ogDescription.setAttribute(
-          "content",
-          cleanDescription.substring(0, 200)
-        );
+        ogDescription.setAttribute("content",cleanDescription.substring(0,200));
       }
 
       setActiveNavigation(category);
@@ -1851,36 +1703,39 @@
       articleLayout.classList.remove("hidden");
     }
 
-    /* ERROR */
-
     function showError(message) {
       articleLayout.classList.add("hidden");
       errorState.classList.remove("hidden");
       errorMessage.textContent = message;
     }
 
-    /* LOAD LATEST STORIES */
+    /* HABARI MPYA: ARTICLES NA VIDEOS */
 
     async function loadLatestStories(currentId) {
       const container = document.getElementById("latestStories");
 
       try {
-        const snapshot = await getDocs(collection(db, "articles"));
-        const articles = [];
+        const collections = ["articles","videos"];
+        const allStories = [];
 
-        snapshot.forEach(item => {
-          if (item.id === currentId) return;
+        for (const collectionName of collections) {
+          const snapshot = await getDocs(collection(db,collectionName));
 
-          const data = item.data();
-          if (!isPublished(data)) return;
+          snapshot.forEach(item => {
+            if (item.id === currentId) return;
 
-          articles.push({
-            id: item.id,
-            ...data
+            const data = item.data();
+            if (!isPublished(data)) return;
+
+            allStories.push({
+              id:item.id,
+              ...data,
+              _sourceCollection:collectionName
+            });
           });
-        });
+        }
 
-        articles.sort((a, b) => {
+        allStories.sort((a,b) => {
           const dateA = getArticleDate(a);
           const dateB = getArticleDate(b);
 
@@ -1888,7 +1743,7 @@
             (dateA ? dateA.getTime() : 0);
         });
 
-        const latest = articles.slice(0, 6);
+        const latest = allStories.slice(0,6);
 
         if (!latest.length) {
           container.innerHTML = `
@@ -1908,11 +1763,8 @@
           if (image) {
             return `
               <a class="side-story" href="${href}">
-                <img
-                  src="${escapeHTML(image)}"
-                  alt="${escapeHTML(title)}"
-                  loading="lazy"
-                >
+                <img src="${escapeHTML(image)}"
+                  alt="${escapeHTML(title)}" loading="lazy">
                 <div>
                   <h3>${escapeHTML(title)}</h3>
                   <span>${escapeHTML(formatRelativeTime(date))}</span>
@@ -1928,8 +1780,9 @@
             </a>
           `;
         }).join("");
+
       } catch (error) {
-        console.error("Latest stories error:", error);
+        console.error("Latest stories error:",error);
 
         container.innerHTML = `
           <p style="color:#718096;font-size:13px;padding:8px 0;">
@@ -1947,20 +1800,25 @@
 
     async function loadBreakingNews() {
       try {
-        const snapshot = await getDocs(collection(db, "articles"));
+        const collections = ["articles","videos"];
         breakingArticles = [];
 
-        snapshot.forEach(item => {
-          const data = item.data();
-          if (!isPublished(data)) return;
+        for (const collectionName of collections) {
+          const snapshot = await getDocs(collection(db,collectionName));
 
-          breakingArticles.push({
-            id: item.id,
-            ...data
+          snapshot.forEach(item => {
+            const data = item.data();
+            if (!isPublished(data)) return;
+
+            breakingArticles.push({
+              id:item.id,
+              ...data,
+              _sourceCollection:collectionName
+            });
           });
-        });
+        }
 
-        breakingArticles.sort((a, b) => {
+        breakingArticles.sort((a,b) => {
           const dateA = getArticleDate(a);
           const dateB = getArticleDate(b);
 
@@ -1977,9 +1835,10 @@
         showBreakingNews();
 
         if (breakingTimer) clearInterval(breakingTimer);
-        breakingTimer = setInterval(showBreakingNews, 5000);
+        breakingTimer = setInterval(showBreakingNews,5000);
+
       } catch (error) {
-        console.error("Breaking news error:", error);
+        console.error("Breaking news error:",error);
         breakingNews.textContent = "Karibu BINSOUD HABARI";
         breakingNews.href = "index.html";
       }
@@ -1988,9 +1847,7 @@
     function showBreakingNews() {
       if (!breakingArticles.length) return;
 
-      if (breakingIndex >= breakingArticles.length) {
-        breakingIndex = 0;
-      }
+      if (breakingIndex >= breakingArticles.length) breakingIndex = 0;
 
       const article = breakingArticles[breakingIndex];
       const title = getTitle(article) || "Habari mpya";
@@ -2007,32 +1864,36 @@
 
     async function loadSearchArticles() {
       try {
-        const snapshot = await getDocs(collection(db, "articles"));
+        const collections = ["articles","videos"];
         searchArticles = [];
 
-        snapshot.forEach(item => {
-          const data = item.data();
-          if (!isPublished(data)) return;
+        for (const collectionName of collections) {
+          const snapshot = await getDocs(collection(db,collectionName));
 
-          searchArticles.push({
-            id: item.id,
-            ...data
+          snapshot.forEach(item => {
+            const data = item.data();
+            if (!isPublished(data)) return;
+
+            searchArticles.push({
+              id:item.id,
+              ...data,
+              _sourceCollection:collectionName
+            });
           });
-        });
+        }
 
-        searchArticles.sort((a, b) => {
+        searchArticles.sort((a,b) => {
           const dateA = getArticleDate(a);
           const dateB = getArticleDate(b);
 
           return (dateB ? dateB.getTime() : 0) -
             (dateA ? dateA.getTime() : 0);
         });
+
       } catch (error) {
-        console.error("Search data error:", error);
+        console.error("Search data error:",error);
       }
     }
-
-    /* SEARCH SUGGESTIONS */
 
     function showSearchSuggestions() {
       const query = normalizeSearch(searchInput.value);
@@ -2043,22 +1904,21 @@
         return;
       }
 
-      const results = searchArticles
-        .map(article => {
-          const titleN = normalizeSearch(getTitle(article));
-          const categoryN = normalizeSearch(getCategory(article));
-          let score = 0;
+      const results = searchArticles.map(article => {
+        const titleN = normalizeSearch(getTitle(article));
+        const categoryN = normalizeSearch(getCategory(article));
+        let score = 0;
 
-          if (titleN === query) score += 100;
-          if (titleN.startsWith(query)) score += 60;
-          if (titleN.includes(query)) score += 40;
-          if (categoryN.includes(query)) score += 25;
+        if (titleN === query) score += 100;
+        if (titleN.startsWith(query)) score += 60;
+        if (titleN.includes(query)) score += 40;
+        if (categoryN.includes(query)) score += 25;
 
-          return { article, score };
-        })
-        .filter(item => item.score > 0)
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 6);
+        return {article,score};
+      })
+      .filter(item => item.score > 0)
+      .sort((a,b) => b.score-a.score)
+      .slice(0,6);
 
       if (!results.length) {
         searchSuggestions.innerHTML = `
@@ -2075,13 +1935,13 @@
       searchSuggestions.innerHTML = results.map(item => {
         const article = item.article;
         const title = getTitle(article) || "Habari";
-        const category = getCategory(article) || "Habari";
+        const category = article._sourceCollection === "videos"
+          ? "Video"
+          : getCategory(article) || "Habari";
 
         return `
-          <a
-            class="search-item"
-            href="habari.html?id=${encodeURIComponent(article.id)}"
-          >
+          <a class="search-item"
+            href="habari.html?id=${encodeURIComponent(article.id)}">
             ${escapeHTML(title)}
             <small>${escapeHTML(category)}</small>
           </a>
@@ -2091,18 +1951,16 @@
       searchSuggestions.classList.add("show");
     }
 
-    searchInput.addEventListener("input", showSearchSuggestions);
-    searchInput.addEventListener("focus", showSearchSuggestions);
+    searchInput.addEventListener("input",showSearchSuggestions);
+    searchInput.addEventListener("focus",showSearchSuggestions);
 
-    document.addEventListener("click", event => {
+    document.addEventListener("click",event => {
       if (!event.target.closest(".header-search")) {
         searchSuggestions.classList.remove("show");
       }
     });
 
-    /* SEARCH SUBMIT */
-
-    document.getElementById("searchForm").addEventListener("submit", event => {
+    document.getElementById("searchForm").addEventListener("submit",event => {
       event.preventDefault();
 
       const value = cleanText(searchInput.value);
@@ -2132,6 +1990,7 @@
         }
 
         alert("Link ya habari imenakiliwa.");
+
       } catch (error) {
         console.error(error);
         alert("Imeshindikana kunakili link.");
@@ -2160,8 +2019,6 @@
       );
     };
 
-    /* UPDATE RELATIVE TIME */
-
     let activeArticle = null;
 
     function refreshArticleTime() {
@@ -2171,9 +2028,9 @@
         formatRelativeTime(getArticleDate(activeArticle));
     }
 
-    setInterval(refreshArticleTime, 60000);
+    setInterval(refreshArticleTime,60000);
 
-    /* START */
+    /* ANZA UKURASA */
 
     async function startPage() {
       loadBreakingNews();
@@ -2187,7 +2044,7 @@
         if (!article) {
           showError(
             articleId
-              ? "Habari hii haikupatikana. Inawezekana imeondolewa au haijachapishwa."
+              ? "Habari hii haikupatikana kwenye articles wala videos. Hakikisha ID ya kiungo ni sahihi na rekodi ipo Firebase."
               : "Kiungo cha habari hakina ID. Tafadhali fungua habari kupitia ukurasa wa BINSOUD HABARI."
           );
           return;
@@ -2197,10 +2054,10 @@
 
         renderArticle(article);
 
-        /* Habari kuu ikishafunguka, pakia habari nyingine pembeni. */
         loadLatestStories(article.id);
+
       } catch (error) {
-        console.error("Start page error:", error);
+        console.error("Start page error:",error);
 
         showError(
           "Kumetokea tatizo wakati wa kupakia habari. Tafadhali jaribu tena."
