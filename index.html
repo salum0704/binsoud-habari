@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sw">
 <head>
@@ -97,14 +98,30 @@
     .article-title{font-size:18px;line-height:1.3;color:var(--deep);margin-bottom:7px;font-weight:800}
     .article-description{color:var(--muted);font-size:14px;line-height:1.5}
 
-    /* MUONEKANO WA HABARI ZA AUDIO NA VIDEO */
-    .media-news-section{margin-top:30px}
-    .media-news-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    .media-news-card audio,.media-news-card video{display:block;width:100%;background:#111}
-    .media-news-card video{aspect-ratio:16/9;object-fit:contain}
+    /* HABARI ZA VIDEO NA AUDIO NDANI YA VIPENGELE */
+    .media-feature{margin-bottom:30px}
+    .media-feature .section-title{margin-top:20px}
+    .media-news-card{
+      background:#fff;border:1px solid var(--border);
+      border-radius:var(--radius);overflow:hidden;
+      box-shadow:var(--shadow);min-width:0;
+    }
+    .media-news-card video{
+      display:block;width:100%;aspect-ratio:16/9;
+      object-fit:contain;background:#111;
+    }
+    .media-news-card audio{
+      display:block;width:100%;margin-top:12px;
+    }
     .media-news-card-content{padding:14px}
-    .media-news-card-content h3{font-size:18px;line-height:1.3;color:var(--deep);margin-bottom:7px}
-    .media-news-card-content p{color:var(--muted);font-size:14px;line-height:1.5}
+    .media-news-card-content h3{
+      font-size:17px;line-height:1.3;color:var(--deep);margin-bottom:7px;
+    }
+    .media-news-card-content p{
+      color:var(--muted);font-size:14px;line-height:1.5;
+      display:-webkit-box;-webkit-line-clamp:2;
+      -webkit-box-orient:vertical;overflow:hidden;
+    }
     .media-author{color:var(--muted);font-size:12px;margin-top:9px}
 
     .quick-links{margin-top:30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
@@ -125,7 +142,6 @@
     .radio-status{font-size:13px;color:#e5efff}
     .radio-audio{display:none}
     .radio-note{margin-top:10px;font-size:12px;color:#e5efff}
-    /* MATANGAZO: PICHA PEKEE */
     .business-ads{margin-top:30px}
     .business-ads-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
     .business-ad-card{padding:0;margin:0;overflow:hidden;background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -246,22 +262,25 @@
         </div>
       </section>
 
-      <!-- HABARI ZA AUDIO ZINAZOTOKA FIREBASE -->
-      <section class="media-news-section" id="audioNewsSection" hidden>
-        <div class="section-title">
-          <h2>Habari za Audio</h2>
-          <a href="audio.html">Ona zaidi</a>
-        </div>
-        <div id="audioNewsBox" class="article-grid"></div>
-      </section>
+      <!-- VIPENGELE: HABARI 3 MPYA ZA VIDEO NA AUDIO -->
+      <section id="vipengele">
+        <div class="section-title"><h2>Vipengele</h2></div>
 
-      <!-- HABARI ZA VIDEO ZINAZOTOKA FIREBASE -->
-      <section class="media-news-section" id="videoNewsSection" hidden>
-        <div class="section-title">
-          <h2>Habari za Video</h2>
-          <a href="video.html">Ona zaidi</a>
-        </div>
-        <div id="videoNewsBox" class="article-grid"></div>
+        <section class="media-feature" id="videoNewsSection" hidden>
+          <div class="section-title">
+            <h2>VIDEO</h2>
+            <a href="video.html">Ona video zote →</a>
+          </div>
+          <div id="videoNewsBox" class="article-grid"></div>
+        </section>
+
+        <section class="media-feature" id="audioNewsSection" hidden>
+          <div class="section-title">
+            <h2>AUDIO</h2>
+            <a href="audio.html">Sikiliza audio zote →</a>
+          </div>
+          <div id="audioNewsBox" class="article-grid"></div>
+        </section>
       </section>
 
       <section class="live-radio" id="redio">
@@ -274,32 +293,9 @@
         <audio class="radio-audio" id="radioAudio" preload="none" src="https://binsoudhabari2.out.airtime.pro/binsoudhabari2_a?utm_source=chatgpt.com"></audio>
       </section>
 
-      <!-- MATANGAZO HALISI HUPAKIWA KUTOKA FIREBASE -->
       <section class="business-ads" id="matangazo">
         <div class="section-title"><h2>MATANGAZO</h2></div>
         <div id="businessAdsGrid" class="business-ads-grid"></div>
-      </section>
-
-      <section>
-        <div class="section-title"><h2>Vipengele</h2></div>
-        <div class="quick-links">
-          <a href="video.html" class="quick-link">
-            <img class="quick-link-image" src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=900&q=75" alt="Vifaa vya kurekodia video" loading="lazy" decoding="async">
-            <div class="quick-link-content">
-              <h3>VIDEO</h3>
-              <p>Tazama video mbalimbali za habari na matukio kutoka BINSOUD HABARI.</p>
-              <span class="read-more">Fungua VIDEO →</span>
-            </div>
-          </a>
-          <a href="audio.html" class="quick-link">
-            <img class="quick-link-image" src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=900&q=75" alt="Kipaza sauti cha kurekodia audio" loading="lazy" decoding="async">
-            <div class="quick-link-content">
-              <h3>AUDIO</h3>
-              <p>Sikiliza habari na vipindi vya sauti kutoka BINSOUD HABARI.</p>
-              <span class="read-more">Fungua AUDIO →</span>
-            </div>
-          </a>
-        </div>
       </section>
 
       <section class="newsletter">
@@ -405,90 +401,44 @@
 
     function safeUrl(value) {
       const url = String(value || "").trim();
-
       if (/^https?:\/\//i.test(url)) return url;
-
-      // Ruhusu picha zilizohifadhiwa kwenye folda za tovuti.
       if (/^(images|uploads)\//i.test(url)) return url;
-
       return "";
     }
 
     /* MATANGAZO */
 
     function getAdImage(ad) {
-      return ad.imageUrl ||
-        ad.imageURL ||
-        ad.image ||
-        ad.image_url ||
-        ad.photoUrl ||
-        ad.photoURL ||
-        ad.photo ||
-        ad.bannerUrl ||
-        ad.banner ||
-        "";
+      return ad.imageUrl || ad.imageURL || ad.image ||
+        ad.image_url || ad.photoUrl || ad.photoURL ||
+        ad.photo || ad.bannerUrl || ad.banner || "";
     }
 
     function getAdLink(ad) {
-      return ad.linkUrl ||
-        ad.linkURL ||
-        ad.targetUrl ||
-        ad.targetURL ||
-        ad.clickUrl ||
-        ad.link ||
-        ad.url ||
-        "";
+      return ad.linkUrl || ad.linkURL || ad.targetUrl ||
+        ad.targetURL || ad.clickUrl || ad.link || ad.url || "";
     }
 
     function isAdActive(ad) {
-      if (
-        ad.active === false ||
-        ad.isActive === false ||
-        ad.enabled === false ||
-        ad.published === false
-      ) return false;
+      if (ad.active === false || ad.isActive === false ||
+          ad.enabled === false || ad.published === false) return false;
 
       const status = String(ad.status || "").toLowerCase().trim();
-
-      if (["inactive", "disabled", "draft", "expired"].includes(status)) {
-        return false;
-      }
-
-      return true;
+      return !["inactive", "disabled", "draft", "expired"].includes(status);
     }
 
     function renderAdCard(ad) {
       const image = safeUrl(getAdImage(ad));
-
       if (!image) return "";
 
       const link = safeUrl(getAdLink(ad));
-      const img = `
-        <img
-          src="${escapeHtml(image)}"
-          alt="Tangazo"
-          loading="lazy"
-          decoding="async"
-        >
-      `;
+      const img = `<img src="${escapeHtml(image)}" alt="Tangazo" loading="lazy" decoding="async">`;
 
       if (link) {
-        return `
-          <article class="business-ad-card">
-            <a href="${escapeHtml(link)}"
-               target="_blank"
-               rel="noopener noreferrer">
-              ${img}
-            </a>
-          </article>
-        `;
+        return `<article class="business-ad-card"><a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${img}</a></article>`;
       }
 
-      return `
-        <article class="business-ad-card">
-          ${img}
-        </article>
-      `;
+      return `<article class="business-ad-card">${img}</article>`;
     }
 
     async function loadBusinessAds() {
@@ -497,9 +447,7 @@
       adsRequest = (async () => {
         try {
           const snapshot = await getDocs(collection(db, "advertisements"));
-
-          const ads = snapshot.docs
-            .map(doc => ({ id: doc.id, ...doc.data() }))
+          const ads = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
             .filter(isAdActive)
             .filter(ad => safeUrl(getAdImage(ad)));
 
@@ -532,34 +480,21 @@
     function canonicalSearchTerm(value) {
       const term = normalizeSearch(value);
       const corrections = {
-        raisi: "rais",
-        raiss: "rais",
-        rais: "rais",
-        kitaiafa: "kitaifa",
-        kitaifa: "kitaifa",
-        taifa: "kitaifa",
-        kimataifa: "kimataifa",
-        mataifa: "kimataifa",
-        uchumi: "uchumi",
-        biashara: "uchumi"
+        raisi:"rais", raiss:"rais", rais:"rais",
+        kitaiafa:"kitaifa", kitaifa:"kitaifa", taifa:"kitaifa",
+        kimataifa:"kimataifa", mataifa:"kimataifa",
+        uchumi:"uchumi", biashara:"uchumi"
       };
-
       return corrections[term] || term;
     }
 
     const categoryPages = {
-      kitaifa: "kitaifa.html",
-      kimataifa: "kimataifa.html",
-      dini: "dini.html",
-      michezo: "michezo.html",
-      mazingira: "mazingira.html",
-      burudani: "burudani.html",
-      siasa: "siasa.html",
-      uchumi: "biashara.html",
-      biashara: "biashara.html",
-      makala: "makala.html",
-      video: "video.html",
-      audio: "audio.html"
+      kitaifa:"kitaifa.html", kimataifa:"kimataifa.html",
+      dini:"dini.html", michezo:"michezo.html",
+      mazingira:"mazingira.html", burudani:"burudani.html",
+      siasa:"siasa.html", uchumi:"biashara.html",
+      biashara:"biashara.html", makala:"makala.html",
+      video:"video.html", audio:"audio.html"
     };
 
     function getCategoryPage(term) {
@@ -569,72 +504,50 @@
     function firstValue(object, fields) {
       for (const field of fields) {
         const value = object?.[field];
-
-        if (
-          value !== undefined &&
-          value !== null &&
-          String(value).trim() !== ""
-        ) return value;
+        if (value !== undefined && value !== null && String(value).trim() !== "") {
+          return value;
+        }
       }
-
       return "";
     }
 
     function getTitle(article) {
-      return firstValue(article, [
-        "title", "headline", "heading", "name", "caption"
-      ]) || "Bila kichwa";
+      return firstValue(article, ["title","headline","heading","name","caption"]) || "Bila kichwa";
     }
 
     function getCategory(article) {
       const value = firstValue(article, [
-        "category", "categoryName", "category_name",
-        "section", "sectionName", "section_name",
-        "kategoria", "newsCategory", "news_category", "categories"
+        "category","categoryName","category_name","section",
+        "sectionName","section_name","kategoria","newsCategory",
+        "news_category","categories"
       ]);
-
       return Array.isArray(value) ? value.join(" ") : value || "";
     }
 
     function getImage(article) {
       return safeUrl(firstValue(article, [
-        "image", "imageUrl", "imageURL", "image_url",
-        "photo", "photoUrl", "photoURL", "thumbnail",
-        "thumbnailUrl", "thumbnailURL", "picture",
-        "pictureUrl", "cover", "coverImage", "coverUrl",
-        "featuredImage", "featured_image", "urlImage",
-        "img", "imageLink"
+        "image","imageUrl","imageURL","image_url","photo",
+        "photoUrl","photoURL","thumbnail","thumbnailUrl",
+        "thumbnailURL","picture","pictureUrl","cover",
+        "coverImage","coverUrl","featuredImage","featured_image",
+        "urlImage","img","imageLink"
       ])) || FALLBACK_IMAGE;
     }
 
     function getBody(article) {
-      return firstValue(article, [
-        "content", "body", "article", "text",
-        "details", "description", "excerpt", "summary", "intro"
-      ]);
+      return firstValue(article, ["content","body","article","text","details","description","excerpt","summary","intro"]);
     }
 
     function getDescription(article) {
-      const short = firstValue(article, [
-        "intro", "excerpt", "summary", "shortDescription", "description"
-      ]);
+      const short = firstValue(article, ["intro","excerpt","summary","shortDescription","description"]);
 
       if (short) {
-        return String(short)
-          .replace(/<[^>]*>/g, " ")
-          .replace(/\s+/g, " ")
-          .trim()
-          .slice(0, 220);
+        return String(short).replace(/<[^>]*>/g," ").replace(/\s+/g," ").trim().slice(0,220);
       }
 
-      const body = String(getBody(article) || "")
-        .replace(/<[^>]*>/g, " ")
-        .replace(/\s+/g, " ")
-        .trim();
-
+      const body = String(getBody(article) || "").replace(/<[^>]*>/g," ").replace(/\s+/g," ").trim();
       if (!body) return "Soma habari hii kwa maelezo zaidi.";
-
-      return body.slice(0, 220) + (body.length > 220 ? "..." : "");
+      return body.slice(0,220) + (body.length > 220 ? "..." : "");
     }
 
     function getArticleId(article) {
@@ -643,24 +556,16 @@
 
     function getDateValue(article) {
       return firstValue(article, [
-        "publishedAt", "publishDate", "timestamp",
-        "createdAt", "created_at", "updatedAt", "date"
+        "publishedAt","publishDate","timestamp","createdAt",
+        "created_at","updatedAt","date"
       ]);
     }
 
     function dateToMillis(value) {
       if (!value) return 0;
-
-      if (typeof value === "object" && typeof value.toMillis === "function") {
-        return value.toMillis();
-      }
-
-      if (typeof value === "object" && value.seconds) {
-        return Number(value.seconds) * 1000;
-      }
-
+      if (typeof value === "object" && typeof value.toMillis === "function") return value.toMillis();
+      if (typeof value === "object" && value.seconds) return Number(value.seconds) * 1000;
       if (typeof value === "number") return value;
-
       const parsed = Date.parse(value);
       return Number.isNaN(parsed) ? 0 : parsed;
     }
@@ -668,24 +573,16 @@
     function formatDate(article) {
       const millis = dateToMillis(getDateValue(article));
       if (!millis) return "";
-
       return new Intl.DateTimeFormat("sw-TZ", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
+        day:"2-digit",month:"short",year:"numeric"
       }).format(new Date(millis));
     }
 
     function isPublished(article) {
-      if (article.isPublished === false || article.published === false) {
-        return false;
-      }
-
+      if (article.isPublished === false || article.published === false) return false;
       const status = String(article.status || "").toLowerCase().trim();
-
       if (!status) return true;
-
-      return ["published", "publish", "active", "live", "true"].includes(status);
+      return ["published","publish","active","live","true"].includes(status);
     }
 
     function articleUrl(article) {
@@ -698,16 +595,13 @@
     const ARTICLES_CACHE_KEY = "binsoud_habari_articles_cache_v1";
 
     function sortArticles() {
-      articles.sort((a, b) =>
-        dateToMillis(getDateValue(b)) - dateToMillis(getDateValue(a))
-      );
+      articles.sort((a,b) => dateToMillis(getDateValue(b)) - dateToMillis(getDateValue(a)));
     }
 
     function loadCachedArticles() {
       try {
         const cached = localStorage.getItem(ARTICLES_CACHE_KEY);
         if (!cached) return false;
-
         const parsed = JSON.parse(cached);
         if (!Array.isArray(parsed) || !parsed.length) return false;
 
@@ -728,9 +622,8 @@
       articlesRequest = (async () => {
         try {
           const snapshot = await getDocs(collection(db, "articles"));
-
           articles = snapshot.docs
-            .map(doc => ({ __id: doc.id, ...doc.data() }))
+            .map(doc => ({ __id:doc.id, ...doc.data() }))
             .filter(isPublished);
 
           sortArticles();
@@ -745,7 +638,6 @@
           setupBreakingNews();
         } catch (error) {
           console.error("Tatizo la kupakia habari:", error);
-
           if (!articles.length) renderError();
         } finally {
           articlesRequest = null;
@@ -771,8 +663,7 @@
 
       return `
         <article class="article-card" data-article-id="${id}" tabindex="0">
-          <img class="article-image" src="${image}" alt="${title}"
-               loading="lazy" decoding="async"
+          <img class="article-image" src="${image}" alt="${title}" loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <div class="article-content">
             <div class="category-label">${category}</div>
@@ -780,8 +671,7 @@
             <p class="article-description">${description}</p>
             ${date ? `<div class="article-date">${date}</div>` : ""}
           </div>
-        </article>
-      `;
+        </article>`;
     }
 
     function sideCard(article) {
@@ -793,21 +683,18 @@
 
       return `
         <article class="side-card" data-article-id="${id}" tabindex="0">
-          <img class="side-image" src="${image}" alt="${title}"
-               loading="lazy" decoding="async"
+          <img class="side-image" src="${image}" alt="${title}" loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <div class="side-content">
             <div class="category-label">${category}</div>
             <h3 class="side-title">${title}</h3>
             ${date ? `<div class="article-date">${date}</div>` : ""}
           </div>
-        </article>
-      `;
+        </article>`;
     }
 
     function attachArticleClick(element) {
       if (!element) return;
-
       const id = element.dataset.articleId;
       if (!id) return;
 
@@ -815,9 +702,8 @@
         window.location.href = "habari.html?id=" + encodeURIComponent(id);
       }
 
-      element.addEventListener("click", openArticle);
-
-      element.addEventListener("keydown", event => {
+      element.addEventListener("click",openArticle);
+      element.addEventListener("keydown",event => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           openArticle();
@@ -827,7 +713,6 @@
 
     function renderHero() {
       const hero = articles[0];
-
       if (!hero) {
         heroBox.innerHTML = '<div class="empty-box">Hakuna habari kuu kwa sasa.</div>';
         return;
@@ -842,8 +727,7 @@
 
       heroBox.innerHTML = `
         <article class="hero-card" data-article-id="${id}" tabindex="0">
-          <img class="hero-image" src="${image}" alt="${title}"
-               fetchpriority="high" decoding="async"
+          <img class="hero-image" src="${image}" alt="${title}" fetchpriority="high" decoding="async"
                onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
           <div class="hero-content">
             <div class="category-label">${category}</div>
@@ -851,36 +735,31 @@
             <p class="hero-description">${description}</p>
             ${date ? `<div class="article-date">${date}</div>` : ""}
           </div>
-        </article>
-      `;
-
+        </article>`;
       attachArticleClick(heroBox.querySelector("[data-article-id]"));
     }
 
     function renderSide() {
-      const list = articles.slice(1, 4);
-      sideBox.innerHTML = list.map(sideCard).join("");
+      sideBox.innerHTML = articles.slice(1,4).map(sideCard).join("");
       sideBox.querySelectorAll("[data-article-id]").forEach(attachArticleClick);
     }
 
     function renderLatest() {
-      const list = articles.slice(0, 3);
-
+      const list = articles.slice(0,3);
       if (!list.length) {
         latestBox.innerHTML = '<div class="empty-box">Hakuna habari mpya kwa sasa.</div>';
         return;
       }
-
       latestBox.innerHTML = list.map(articleCard).join("");
       latestBox.querySelectorAll("[data-article-id]").forEach(attachArticleClick);
     }
 
-    /* HABARI ZA AUDIO */
+    /* AUDIO: COLLECTION YA ARTICLES */
 
     function getAudioUrl(article) {
       return safeUrl(firstValue(article, [
-        "audioUrl", "audioURL", "audio_url",
-        "audio", "audioLink", "audio_link", "fileUrl"
+        "audioUrl","audioURL","audio_url","audio",
+        "audioLink","audio_link","fileUrl","mediaUrl"
       ]));
     }
 
@@ -892,35 +771,27 @@
     }
 
     function renderAudioNews() {
-      const audioNewsBox = document.getElementById("audioNewsBox");
-      const audioNewsSection = document.getElementById("audioNewsSection");
+      const box = document.getElementById("audioNewsBox");
+      const section = document.getElementById("audioNewsSection");
+      if (!box || !section) return;
 
-      if (!audioNewsBox || !audioNewsSection) return;
-
-      const list = articles
-        .filter(isAudioArticle)
-        .slice(0, 6);
-
-      audioNewsSection.hidden = list.length === 0;
+      const list = articles.filter(isAudioArticle).slice(0,3);
+      section.hidden = list.length === 0;
 
       if (!list.length) {
-        audioNewsBox.innerHTML = "";
+        box.innerHTML = "";
         return;
       }
 
-      audioNewsBox.innerHTML = list.map(article => {
+      box.innerHTML = list.map(article => {
         const title = escapeHtml(getTitle(article));
         const description = escapeHtml(getDescription(article));
-        const author = escapeHtml(firstValue(article, ["author", "writer", "journalist"]));
-        const image = escapeHtml(getImage(article));
+        const author = escapeHtml(firstValue(article,["author","writer","journalist"]));
         const audioUrl = escapeHtml(getAudioUrl(article));
         const date = escapeHtml(formatDate(article));
 
         return `
           <article class="media-news-card">
-            <img class="article-image" src="${image}" alt="${title}"
-                 loading="lazy" decoding="async"
-                 onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
             <div class="media-news-card-content">
               <div class="category-label">AUDIO</div>
               <h3>${title}</h3>
@@ -932,59 +803,52 @@
               ${author ? `<div class="media-author">Mwandishi: ${author}</div>` : ""}
               ${date ? `<div class="article-date">${date}</div>` : ""}
             </div>
-          </article>
-        `;
+          </article>`;
       }).join("");
     }
 
-    /* HABARI ZA VIDEO */
+    /* VIDEO: COLLECTION YA VIDEOS */
 
     function getVideoDateValue(video) {
-      return video.createdAt || video.date || "";
+      return video.createdAt || video.date || video.publishedAt || "";
     }
 
     function sortVideos() {
-      videos.sort((a, b) =>
+      videos.sort((a,b) =>
         dateToMillis(getVideoDateValue(b)) -
         dateToMillis(getVideoDateValue(a))
       );
     }
 
     function renderVideoNews() {
-      const videoNewsBox = document.getElementById("videoNewsBox");
-      const videoNewsSection = document.getElementById("videoNewsSection");
+      const box = document.getElementById("videoNewsBox");
+      const section = document.getElementById("videoNewsSection");
+      if (!box || !section) return;
 
-      if (!videoNewsBox || !videoNewsSection) return;
+      const list = videos
+        .filter(video => isPublished(video) && safeUrl(video.videoUrl))
+        .slice(0,3);
 
-      const list = videos.slice(0, 6);
-
-      videoNewsSection.hidden = list.length === 0;
+      section.hidden = list.length === 0;
 
       if (!list.length) {
-        videoNewsBox.innerHTML = "";
+        box.innerHTML = "";
         return;
       }
 
-      videoNewsBox.innerHTML = list.map(video => {
+      box.innerHTML = list.map(video => {
         const title = escapeHtml(video.title || "Bila kichwa");
         const description = escapeHtml(video.description || "");
         const author = escapeHtml(video.author || "");
         const category = escapeHtml(video.category || "Video");
-        const thumbnail = escapeHtml(
-          safeUrl(video.thumbnail) || FALLBACK_IMAGE
-        );
+        const thumbnail = escapeHtml(safeUrl(video.thumbnail) || FALLBACK_IMAGE);
         const videoUrl = escapeHtml(safeUrl(video.videoUrl));
-        const date = escapeHtml(
-          video.date || formatDate(video)
-        );
-
-        if (!videoUrl) return "";
+        const date = escapeHtml(video.date || formatDate(video));
 
         return `
           <article class="media-news-card">
-            <video controls playsinline preload="metadata"
-                   poster="${thumbnail}">
-              <source src="${videoUrl}" type="video/mp4">
+            <video controls playsinline preload="metadata" poster="${thumbnail}">
+              <source src="${videoUrl}">
               Kivinjari chako hakiwezi kucheza video hii.
             </video>
             <div class="media-news-card-content">
@@ -994,13 +858,8 @@
               ${author ? `<div class="media-author">Mwandishi: ${author}</div>` : ""}
               ${date ? `<div class="article-date">${date}</div>` : ""}
             </div>
-          </article>
-        `;
-      }).filter(Boolean).join("");
-
-      if (!videoNewsBox.innerHTML.trim()) {
-        videoNewsSection.hidden = true;
-      }
+          </article>`;
+      }).join("");
     }
 
     async function loadVideoNews() {
@@ -1008,22 +867,15 @@
 
       videosRequest = (async () => {
         try {
-          // Admin Video huhifadhi taarifa kwenye collection ya "videos".
-          const snapshot = await getDocs(collection(db, "videos"));
-
-          videos = snapshot.docs
-            .map(doc => ({ id: doc.id, ...doc.data() }));
-
+          const snapshot = await getDocs(collection(db,"videos"));
+          videos = snapshot.docs.map(doc => ({id:doc.id,...doc.data()}));
           sortVideos();
           renderVideoNews();
         } catch (error) {
-          console.error("Tatizo la kupakia video:", error);
-
-          const videoNewsBox = document.getElementById("videoNewsBox");
-
-          if (videoNewsBox) {
-            videoNewsBox.innerHTML =
-              '<div class="empty-box">Imeshindikana kupakia video kwa sasa.</div>';
+          console.error("Tatizo la kupakia video:",error);
+          const box = document.getElementById("videoNewsBox");
+          if (box) {
+            box.innerHTML = '<div class="empty-box">Imeshindikana kupakia video kwa sasa.</div>';
           }
         } finally {
           videosRequest = null;
@@ -1050,7 +902,7 @@
     /* BREAKING NEWS */
 
     function setupBreakingNews() {
-      breakingArticles = articles.slice(0, 10);
+      breakingArticles = articles.slice(0,10);
       breakingIndex = 0;
 
       if (!breakingArticles.length) {
@@ -1060,35 +912,31 @@
       }
 
       showBreaking();
-
       if (breakingTimer) clearInterval(breakingTimer);
-      breakingTimer = setInterval(showBreaking, 5000);
+      breakingTimer = setInterval(showBreaking,5000);
 
       breakingText.onclick = () => {
         const article = breakingArticles[
           (breakingIndex - 1 + breakingArticles.length) % breakingArticles.length
         ];
-
         if (article) window.location.href = articleUrl(article);
       };
     }
 
     function showBreaking() {
       if (!breakingArticles.length) return;
-
       breakingText.textContent = getTitle(breakingArticles[breakingIndex]);
       breakingIndex = (breakingIndex + 1) % breakingArticles.length;
     }
 
     /* UTAFUTAJI */
 
-    function scoreArticle(article, term) {
+    function scoreArticle(article,term) {
       const query = normalizeSearch(term);
       const title = normalizeSearch(getTitle(article));
       const category = normalizeSearch(getCategory(article));
       const description = normalizeSearch(getDescription(article));
       const body = normalizeSearch(getBody(article));
-
       let score = 0;
 
       if (title === query) score += 1000;
@@ -1099,12 +947,8 @@
       if (body.includes(query)) score += 100;
 
       const words = query.split(" ").filter(Boolean);
-      const allText = [title, category, description, body].join(" ");
-
-      if (words.length > 1 && words.every(word => allText.includes(word))) {
-        score += 250;
-      }
-
+      const allText = [title,category,description,body].join(" ");
+      if (words.length > 1 && words.every(word => allText.includes(word))) score += 250;
       return score;
     }
 
@@ -1114,14 +958,11 @@
 
       return articles.filter(article => {
         const text = [
-          getTitle(article),
-          getCategory(article),
-          getDescription(article),
-          getBody(article)
+          getTitle(article),getCategory(article),
+          getDescription(article),getBody(article)
         ].map(normalizeSearch).join(" ");
-
         return query.split(" ").filter(Boolean).every(word => text.includes(word));
-      }).sort((a, b) => scoreArticle(b, query) - scoreArticle(a, query));
+      }).sort((a,b) => scoreArticle(b,query) - scoreArticle(a,query));
     }
 
     function renderSearchSuggestions(term) {
@@ -1138,14 +979,12 @@
       let html = "";
 
       if (categoryPage) {
-        html += `
-          <a href="${categoryPage}" class="search-suggestion-category-page">
-            Fungua sehemu ya ${escapeHtml(canonicalSearchTerm(cleanTerm).toUpperCase())} →
-          </a>
-        `;
+        html += `<a href="${categoryPage}" class="search-suggestion-category-page">
+          Fungua sehemu ya ${escapeHtml(canonicalSearchTerm(cleanTerm).toUpperCase())} →
+        </a>`;
       }
 
-      results.slice(0, 5).forEach(article => {
+      results.slice(0,5).forEach(article => {
         html += `
           <div class="search-suggestion" data-article-id="${escapeHtml(getArticleId(article))}">
             <img class="search-suggestion-image" src="${escapeHtml(getImage(article))}"
@@ -1158,23 +997,18 @@
                 ${formatDate(article) ? " • " + escapeHtml(formatDate(article)) : ""}
               </div>
             </div>
-          </div>
-        `;
+          </div>`;
       });
 
-      if (!html) {
-        html = '<div class="search-no-result">Hakuna habari inayolingana na utafutaji wako.</div>';
-      }
+      if (!html) html = '<div class="search-no-result">Hakuna habari inayolingana na utafutaji wako.</div>';
 
       searchSuggestions.innerHTML = html;
       searchSuggestions.classList.add("active");
 
       searchSuggestions.querySelectorAll(".search-suggestion[data-article-id]").forEach(element => {
-        element.addEventListener("click", () => {
+        element.addEventListener("click",() => {
           const id = element.dataset.articleId;
-          if (id) {
-            window.location.href = "habari.html?id=" + encodeURIComponent(id);
-          }
+          if (id) window.location.href = "habari.html?id=" + encodeURIComponent(id);
         });
       });
     }
@@ -1189,14 +1023,12 @@
       }
 
       const categoryPage = getCategoryPage(term);
-
       if (categoryPage) {
         window.location.href = categoryPage;
         return;
       }
 
       const results = searchArticles(term);
-
       latestBox.style.display = "none";
       searchResults.classList.add("active");
 
@@ -1204,17 +1036,16 @@
         searchResultsBox.innerHTML = `
           <div class="empty-box">
             Hakuna habari iliyopatikana kwa "<strong>${escapeHtml(term)}</strong>".
-          </div>
-        `;
+          </div>`;
       } else {
         searchResultsBox.innerHTML = results.map(articleCard).join("");
         searchResultsBox.querySelectorAll("[data-article-id]").forEach(attachArticleClick);
       }
 
-      searchResults.scrollIntoView({ behavior: "smooth", block: "start" });
+      searchResults.scrollIntoView({behavior:"smooth",block:"start"});
     }
 
-    searchInput.addEventListener("input", () => {
+    searchInput.addEventListener("input",() => {
       const term = searchInput.value.trim();
 
       if (!term) {
@@ -1227,13 +1058,13 @@
       renderSearchSuggestions(term);
     });
 
-    searchForm.addEventListener("submit", event => {
+    searchForm.addEventListener("submit",event => {
       event.preventDefault();
       searchSuggestions.classList.remove("active");
       performSearch();
     });
 
-    document.addEventListener("click", event => {
+    document.addEventListener("click",event => {
       if (!event.target.closest(".search-box")) {
         searchSuggestions.classList.remove("active");
       }
@@ -1243,34 +1074,28 @@
 
     function renderDate() {
       todayDate.textContent = new Intl.DateTimeFormat("sw-TZ", {
-        weekday: "long",
-        day: "2-digit",
-        month: "long",
-        year: "numeric"
+        weekday:"long",day:"2-digit",month:"long",year:"numeric"
       }).format(new Date());
     }
 
-    /* NEWSLETTER
-       Kwa sasa inaonyesha ujumbe tu; haihifadhi email Firebase.
-    */
+    /* NEWSLETTER */
 
-    newsletterForm.addEventListener("submit", event => {
+    newsletterForm.addEventListener("submit",event => {
       event.preventDefault();
-
       const email = document.getElementById("newsletterEmail").value.trim();
       if (!email) return;
-
       alert("Asante! Umefanikiwa kujiunga na Jarida la Habari la BINSOUD HABARI.");
       newsletterForm.reset();
     });
 
     /* REDIO MUBASHARA */
+
     const radioAudio = document.getElementById("radioAudio");
     const radioToggle = document.getElementById("radioToggle");
     const radioStatus = document.getElementById("radioStatus");
 
     if (radioAudio && radioToggle && radioStatus) {
-      radioToggle.addEventListener("click", async () => {
+      radioToggle.addEventListener("click",async () => {
         if (radioAudio.paused) {
           radioToggle.disabled = true;
           radioStatus.textContent = "Inaunganisha na redio...";
@@ -1280,7 +1105,7 @@
           } catch (error) {
             radioStatus.textContent = "Imeshindikana kuanza redio. Jaribu tena au hakiki muunganisho.";
             radioToggle.textContent = "▶ JARIBU TENA";
-            radioToggle.setAttribute("aria-pressed", "false");
+            radioToggle.setAttribute("aria-pressed","false");
           } finally {
             radioToggle.disabled = false;
           }
@@ -1289,19 +1114,19 @@
         }
       });
 
-      radioAudio.addEventListener("playing", () => {
+      radioAudio.addEventListener("playing",() => {
         radioToggle.textContent = "⏸ SIMAMISHA REDIO";
-        radioToggle.setAttribute("aria-pressed", "true");
+        radioToggle.setAttribute("aria-pressed","true");
         radioStatus.textContent = "Redio inacheza mubashara.";
       });
 
-      radioAudio.addEventListener("pause", () => {
+      radioAudio.addEventListener("pause",() => {
         radioToggle.textContent = "▶ CHEZA REDIO";
-        radioToggle.setAttribute("aria-pressed", "false");
+        radioToggle.setAttribute("aria-pressed","false");
         radioStatus.textContent = "Redio imesimama.";
       });
 
-      radioAudio.addEventListener("error", () => {
+      radioAudio.addEventListener("error",() => {
         radioStatus.textContent = "Stream haijapatikana. Tafadhali jaribu tena baadaye.";
       });
     }
@@ -1316,7 +1141,7 @@
     loadVideoNews();
     loadBusinessAds();
 
-    window.addEventListener("pageshow", event => {
+    window.addEventListener("pageshow",event => {
       renderDate();
       year.textContent = new Date().getFullYear();
 
