@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sw">
 <head>
@@ -286,48 +287,47 @@
 
     /* BREAKING NEWS */
 
-    
-.breaking {
-  background: #ffffff;
-  color: #111111;
-  border-bottom: 1px solid #dddddd;
-}
+    .breaking {
+      background: #ffffff;
+      color: #111111;
+      border-bottom: 1px solid #dddddd;
+    }
 
-.breaking-inner {
-  max-width: 1250px;
-  margin: auto;
-  min-height: 42px;
-  display: flex;
-  align-items: center;
-}
+    .breaking-inner {
+      max-width: 1250px;
+      margin: auto;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+    }
 
-.breaking-label {
-  background: #e51d2a;
-  color: #ffffff;
-  padding: 9px 15px;
-  font-size: 13px;
-  font-weight: 900;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+    .breaking-label {
+      background: #e51d2a;
+      color: #ffffff;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
-.breaking-link {
-  flex: 1;
-  color: #111111;
-  background: #ffffff;
-  padding: 0 15px;
-  font-size: 14px;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-}
+    .breaking-link {
+      flex: 1;
+      color: #111111;
+      background: #ffffff;
+      padding: 0 15px;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
 
-.breaking-link:hover {
-  color: #000000;
-  text-decoration: underline;
-}
+    .breaking-link:hover {
+      color: #000000;
+      text-decoration: underline;
+    }
 
     /* MAIN */
 
@@ -348,9 +348,7 @@
       font-weight: 700;
     }
 
-    /* ERROR STATE
-       Ujumbe wa kusubiri umeondolewa.
-    */
+    /* ERROR STATE */
 
     .state {
       background: #fff;
@@ -453,6 +451,44 @@
       max-height: 680px;
       object-fit: cover;
       background: #edf2f7;
+    }
+
+    /* AUDIO NA VIDEO PLAYER */
+
+    .article-media {
+      display: none;
+      padding: 20px 30px;
+      background: #f4f8fc;
+      border-top: 1px solid #edf1f5;
+      border-bottom: 1px solid #edf1f5;
+    }
+
+    .article-media.show {
+      display: block;
+    }
+
+    .article-media h3 {
+      color: var(--blue-dark);
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+
+    .article-media audio,
+    .article-media video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .article-media video {
+      max-height: 520px;
+      background: #000;
+    }
+
+    .media-message {
+      color: #718096;
+      font-size: 14px;
     }
 
     .article-body {
@@ -807,6 +843,10 @@
         font-size: 12px;
       }
 
+      .article-media {
+        padding: 17px 18px;
+      }
+
       .article-body {
         padding: 22px 18px 29px;
         font-size: 17px;
@@ -929,8 +969,6 @@
       </a>
     </div>
 
-    <!-- UJUMBE WA KUSUBIRI UMEONDOLEWA -->
-
     <!-- ERROR -->
     <div id="errorState" class="state error-state hidden">
       <h2>Habari haipatikani</h2>
@@ -961,6 +999,12 @@
 
         <div id="articleImageWrap" class="article-image-wrap" style="display:none;">
           <img id="articleImage" class="article-image" src="" alt="">
+        </div>
+
+        <!-- AUDIO / VIDEO PLAYER -->
+        <div id="articleMedia" class="article-media">
+          <h3 id="mediaTitle">Media ya habari</h3>
+          <div id="mediaPlayer"></div>
         </div>
 
         <div id="articleBody" class="article-body"></div>
@@ -1206,6 +1250,190 @@
         article.img ||
         article.imageLink
       );
+    }
+
+    /* AUDIO NA VIDEO FIELD HELPERS */
+
+    function safeMediaUrl(value) {
+      if (value && typeof value === "object") {
+        value =
+          value.url ||
+          value.downloadURL ||
+          value.downloadUrl ||
+          value.src ||
+          "";
+      }
+
+      const url = cleanText(value);
+      if (!url) return "";
+
+      try {
+        const parsed = new URL(url, window.location.href);
+
+        if (
+          parsed.protocol !== "https:" &&
+          parsed.protocol !== "http:"
+        ) {
+          return "";
+        }
+
+        return parsed.href;
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function findMediaUrl(article, fields) {
+      for (const field of fields) {
+        const url = safeMediaUrl(article[field]);
+        if (url) return url;
+      }
+
+      return "";
+    }
+
+    function getAudioUrl(article) {
+      return findMediaUrl(article, [
+        "audioUrl",
+        "audioURL",
+        "audio_url",
+        "audio",
+        "audioLink",
+        "audio_link",
+        "audioFile",
+        "audioFileUrl",
+        "audioFileURL",
+        "audioSrc",
+        "audioSource",
+        "soundUrl",
+        "sound",
+        "podcastUrl",
+        "podcast",
+        "mediaUrl",
+        "mediaURL",
+        "media_url",
+        "fileUrl",
+        "fileURL",
+        "file_url",
+        "downloadURL",
+        "downloadUrl",
+        "attachmentUrl"
+      ]);
+    }
+
+    function getVideoUrl(article) {
+      return findMediaUrl(article, [
+        "videoUrl",
+        "videoURL",
+        "video_url",
+        "video",
+        "videoLink",
+        "video_link",
+        "videoFile",
+        "videoFileUrl",
+        "videoFileURL",
+        "videoSrc",
+        "videoSource",
+        "mediaUrl",
+        "mediaURL",
+        "media_url",
+        "fileUrl",
+        "fileURL",
+        "file_url",
+        "downloadURL",
+        "downloadUrl",
+        "attachmentUrl"
+      ]);
+    }
+
+    function renderArticleMedia(article, category) {
+      const mediaBox = document.getElementById("articleMedia");
+      const mediaPlayer = document.getElementById("mediaPlayer");
+      const mediaTitle = document.getElementById("mediaTitle");
+
+      const categoryName = normalizeSearch(category);
+
+      mediaBox.classList.remove("show");
+      mediaPlayer.innerHTML = "";
+
+      const isAudio = categoryName.includes("audio");
+      const isVideo = categoryName.includes("video");
+
+      if (!isAudio && !isVideo) return;
+
+      if (isAudio) {
+        const audioUrl = getAudioUrl(article);
+
+        mediaTitle.textContent = "🎧 Sikiliza habari hii";
+
+        if (!audioUrl) {
+          mediaPlayer.innerHTML = `
+            <p class="media-message">
+              Kiungo cha Audio hakijapatikana kwenye habari hii.
+              Hakikisha link ya sauti imehifadhiwa kwenye Firebase
+              katika sehemu ya audioUrl au mediaUrl.
+            </p>
+          `;
+        } else {
+          const audio = document.createElement("audio");
+
+          audio.controls = true;
+          audio.preload = "none";
+          audio.src = audioUrl;
+
+          audio.onerror = function() {
+            mediaPlayer.innerHTML = `
+              <p class="media-message">
+                Imeshindikana kucheza sauti hii.
+                Tafadhali hakikisha link ya Audio inafanya kazi
+                na faili lina aina inayoungwa mkono kama MP3, WAV au M4A.
+              </p>
+            `;
+          };
+
+          mediaPlayer.appendChild(audio);
+        }
+
+        mediaBox.classList.add("show");
+        return;
+      }
+
+      if (isVideo) {
+        const videoUrl = getVideoUrl(article);
+
+        mediaTitle.textContent = "▶️ Tazama video hii";
+
+        if (!videoUrl) {
+          mediaPlayer.innerHTML = `
+            <p class="media-message">
+              Kiungo cha Video hakijapatikana kwenye habari hii.
+              Hakikisha link ya video imehifadhiwa kwenye Firebase
+              katika sehemu ya videoUrl au mediaUrl.
+            </p>
+          `;
+        } else {
+          const video = document.createElement("video");
+
+          video.controls = true;
+          video.preload = "metadata";
+          video.playsInline = true;
+          video.src = videoUrl;
+
+          video.onerror = function() {
+            mediaPlayer.innerHTML = `
+              <p class="media-message">
+                Imeshindikana kucheza video hii.
+                Hakikisha link ya Video inafanya kazi
+                na faili lina aina inayoungwa mkono kama MP4 au WebM.
+              </p>
+            `;
+          };
+
+          mediaPlayer.appendChild(video);
+        }
+
+        mediaBox.classList.add("show");
+      }
     }
 
     /* DATE HELPERS */
@@ -1586,6 +1814,10 @@
         ogImage.setAttribute("content", image);
       }
 
+      /* ONYESHA AUDIO AU VIDEO KULINGANA NA CATEGORY */
+      renderArticleMedia(article, category);
+
+      /* ONYESHA MAELEZO YA HABARI */
       document.getElementById("articleBody").innerHTML = renderContent(body);
 
       let description = getDescription(article);
@@ -1941,11 +2173,7 @@
 
     setInterval(refreshArticleTime, 60000);
 
-    /* START
-       Habari kuu inaanza kupakiwa mara moja.
-       Breaking News na utafutaji vinaendelea pembeni,
-       havizuii habari kuu kufunguka.
-    */
+    /* START */
 
     async function startPage() {
       loadBreakingNews();
