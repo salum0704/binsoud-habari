@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="sw">
 <head>
@@ -300,8 +299,7 @@ footer h3{margin-bottom:10px}
       <div id="audioNewsBox" class="article-grid"></div>
     </section>
   </section>
-
-  <section class="live-radio" id="redio">
+    <section class="live-radio" id="redio">
     <h2>🎙️ Redio Mubashara</h2>
     <p>Sikiliza matangazo ya BINSOUD HABARI moja kwa moja. Bonyeza kitufe cha kucheza redio.</p>
     <div class="radio-controls">
@@ -801,18 +799,35 @@ function renderLatest() {
 
 /* AUDIO: COLLECTION YA ARTICLES */
 
-/* Audio inatambuliwa kwa URL yake, si category pekee. */
 function getAudioUrl(article) {
   return safeUrl(firstValue(article, [
-    "audioUrl","audioURL","audio_url","audio",
-    "audioLink","audio_link","audioFile",
-    "audioFileUrl","audioFileURL","fileUrl",
-    "fileURL","mediaUrl","mediaURL"
+    "audioUrl",
+    "audioURL",
+    "audio_url",
+    "audio",
+    "audioLink",
+    "audio_link",
+    "audioFile",
+    "audioFileUrl",
+    "audioFileURL",
+    "fileUrl",
+    "fileURL",
+    "mediaUrl",
+    "mediaURL"
   ]));
 }
 
+/* Tambua habari za AUDIO kwa category au kiungo cha audio */
 function isAudioArticle(article) {
-  return Boolean(getAudioUrl(article)) && isPublished(article);
+  const category = String(getCategory(article) || "")
+    .trim()
+    .toLowerCase();
+
+  return isPublished(article) &&
+    (
+      category === "audio" ||
+      Boolean(getAudioUrl(article))
+    );
 }
 
 function renderAudioNews() {
@@ -832,40 +847,64 @@ function renderAudioNews() {
   section.hidden = list.length === 0;
 
   if (!list.length) {
-    box.innerHTML = '<div class="empty-box">Hakuna audio zilizochapishwa kwa sasa.</div>';
+    box.innerHTML =
+      '<div class="empty-box">Hakuna audio zilizochapishwa kwa sasa.</div>';
     return;
   }
 
   box.innerHTML = list.map(article => {
     const title = escapeHtml(getTitle(article));
     const description = escapeHtml(getDescription(article));
-    const author = escapeHtml(firstValue(article,["author","writer","journalist"]));
+    const author = escapeHtml(
+      firstValue(article,["author","writer","journalist"])
+    );
     const image = escapeHtml(getImage(article));
-    const audioUrl = escapeHtml(getAudioUrl(article));
+    const rawAudioUrl = getAudioUrl(article);
+    const audioUrl = escapeHtml(rawAudioUrl);
     const date = escapeHtml(formatDate(article));
+
+    const audioPlayer = rawAudioUrl
+      ? `
+        <audio class="media-player" controls preload="none">
+          <source src="${audioUrl}">
+          Kivinjari chako hakiwezi kucheza sauti hii.
+        </audio>
+      `
+      : `
+        <p class="article-description">
+          Kiungo cha audio hakijapatikana kwa sasa.
+        </p>
+      `;
 
     return `
       <article class="media-news-card">
-        <img class="media-cover"
+        <img
+          class="media-cover"
           src="${image}"
           alt="${title}"
           loading="lazy"
-          onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
+        >
 
         <div class="media-news-card-content">
           <div class="category-label">🎧 AUDIO</div>
           <h3>${title}</h3>
           <p>${description}</p>
 
-          <audio class="media-player" controls preload="none">
-            <source src="${audioUrl}">
-            Kivinjari chako hakiwezi kucheza sauti hii.
-          </audio>
+          ${audioPlayer}
 
-          ${author ? `<div class="media-author">Mwandishi: ${author}</div>` : ""}
-          ${date ? `<div class="article-date">${date}</div>` : ""}
+          ${author
+            ? `<div class="media-author">Mwandishi: ${author}</div>`
+            : ""
+          }
+
+          ${date
+            ? `<div class="article-date">${date}</div>`
+            : ""
+          }
         </div>
-      </article>`;
+      </article>
+    `;
   }).join("");
 }
 
