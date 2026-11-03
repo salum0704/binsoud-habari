@@ -617,18 +617,10 @@ select:focus {
         </div>
 
         <div>
-          <label for="mp3File">📁 Pakia faili la MP3 kutoka kwenye kifaa</label>
-          <input
-            class="file-input"
-            type="file"
-            id="mp3File"
-            name="mp3File"
-            accept=".mp3,audio/mpeg,audio/mp3"
-          >
           <p class="help">
-            Unaweza kuweka URL ya MP3 hapo juu au kupakia faili la MP3 hapa.
-            Ukichagua faili, mfumo utalipakia Firebase Storage na kuhifadhi URL yake.
-            Ukihariri audio bila kuchagua faili jipya, MP3 iliyopo itaendelea kutumika.
+            Mfumo huu unatumia URL pekee; hauhitaji Firebase Storage.
+            Bandika kiungo cha moja kwa moja cha MP3 au kiungo cha Google Drive
+            kilichowekwa ruhusa ya “Anyone with the link”.
           </p>
         </div>
 
@@ -683,19 +675,11 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-import {
-  getStorage,
-  ref as storageRef,
-  uploadBytes,
-  getDownloadURL
-} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
   authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
   projectId: "binsoud-habari-8a5fa",
-  storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
   messagingSenderId: "865091074307",
   appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
   measurementId: "G-MH266J0XKE"
@@ -704,7 +688,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app);
 
 const $ = id => document.getElementById(id);
 
@@ -946,7 +929,6 @@ function setEditMode(item) {
   $("description").value = item?.description || item?.intro || "";
   $("imageUrl").value = item?.image || item?.imageUrl || "";
   $("audioUrl").value = item?.audioUrl || "";
-  $("mp3File").value = "";
 
   $("imagePreviewBox").style.display = $("imageUrl").value ? "block" : "none";
   if ($("imageUrl").value) $("imagePreview").src = $("imageUrl").value;
@@ -981,31 +963,16 @@ $("cancelEditBtn").addEventListener("click", () => {
   $("message").style.display = "none";
 });
 
-async function uploadMp3IfSelected() {
-  const file = $("mp3File").files[0];
-  if (!file) return $("audioUrl").value.trim();
-
-  if (!file.name.toLowerCase().endsWith(".mp3") &&
-      file.type !== "audio/mpeg" &&
-      file.type !== "audio/mp3") {
-    throw new Error("Tafadhali chagua faili la MP3 pekee.");
+function normalizeAudioUrl(rawUrl) {
+  const value = String(rawUrl || "").trim();
+  if (!value) return "";
+  // Geuza Google Drive share link kuwa download/stream endpoint.
+  const driveMatch = value.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/)
+    || value.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (driveMatch && value.includes("drive.google.com")) {
+    return `https://drive.google.com/uc?export=download&id=${driveMatch[1]}`;
   }
-
-  const maxSize = 50 * 1024 * 1024;
-  if (file.size > maxSize) {
-    throw new Error("Faili la MP3 limezidi ukubwa wa 50MB.");
-  }
-
-  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-  const path = `audio/${currentUser.uid}/${Date.now()}-${safeName}`;
-  const fileRef = storageRef(storage, path);
-
-  $("saveBtn").textContent = "Inapakia MP3...";
-  const uploaded = await uploadBytes(fileRef, file, {
-    contentType: "audio/mpeg"
-  });
-
-  return await getDownloadURL(uploaded.ref);
+  return value;
 }
 
 
@@ -1028,13 +995,12 @@ $("audioForm").addEventListener("submit", async event => {
   const author = $("author").value.trim();
   const description = $("description").value.trim();
   const imageUrl = $("imageUrl").value.trim();
-  const typedAudioUrl = $("audioUrl").value.trim();
-  const selectedMp3 = $("mp3File").files[0];
+  const typedAudioUrl = normalizeAudioUrl($("audioUrl").value);
 
   if (!title || !topic || !author || !description || !imageUrl ||
-      (!typedAudioUrl && !selectedMp3 && !editingAudioId)) {
+      (!typedAudioUrl && !editingAudioId)) {
     showMessage(
-      "Jaza kichwa, mada, mwandishi, maelezo na URL ya picha. Weka URL ya MP3 au pakia faili la MP3.",
+      "Jaza kichwa, mada, mwandishi, maelezo, URL ya picha na URL ya MP3.",
       "error"
     );
     return;
@@ -1042,12 +1008,12 @@ $("audioForm").addEventListener("submit", async event => {
 
   try {
     $("saveBtn").disabled = true;
-    $("saveBtn").textContent = selectedMp3 ? "Inapakia MP3..." : "Inahifadhi...";
+    $("saveBtn").textContent = "Inahifadhi...";
 
-    const audioUrl = await uploadMp3IfSelected();
+    const audioUrl = typedAudioUrl || (editingAudioId ? (audioRecords.find(x => x.id === editingAudioId)?.audioUrl || "") : "");
 
     if (!audioUrl) {
-      throw new Error("Weka URL ya MP3 au chagua faili la MP3.");
+      throw new Error("Weka URL ya MP3.");
     }
 
     const audioData = {
