@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="sw-TZ">
 <head>
@@ -253,6 +252,21 @@ select:focus {
 .btn-red {
   background: var(--red);
   color: white;
+}
+
+.btn-edit {
+  background: #e6f3fc;
+  color: var(--blue2);
+}
+
+.btn-cancel {
+  background: #eef1f4;
+  color: var(--text);
+}
+
+.file-input {
+  padding: 10px;
+  background: #f8fafc;
 }
 
 .message,
@@ -602,9 +616,30 @@ select:focus {
           </div>
         </div>
 
-        <button type="submit" class="submit" id="saveBtn">
-          🚀 Hifadhi Audio
-        </button>
+        <div>
+          <label for="mp3File">📁 Pakia faili la MP3 kutoka kwenye kifaa</label>
+          <input
+            class="file-input"
+            type="file"
+            id="mp3File"
+            name="mp3File"
+            accept=".mp3,audio/mpeg,audio/mp3"
+          >
+          <p class="help">
+            Unaweza kuweka URL ya MP3 hapo juu au kupakia faili la MP3 hapa.
+            Ukichagua faili, mfumo utalipakia Firebase Storage na kuhifadhi URL yake.
+            Ukihariri audio bila kuchagua faili jipya, MP3 iliyopo itaendelea kutumika.
+          </p>
+        </div>
+
+        <div class="audio-actions">
+          <button type="submit" class="submit" id="saveBtn">
+            🚀 Hifadhi Audio
+          </button>
+          <button type="button" class="btn btn-cancel" id="cancelEditBtn" style="display:none">
+            Ghairi Kuhariri
+          </button>
+        </div>
       </form>
 
       <div id="message" class="message" role="status"></div>
@@ -643,9 +678,17 @@ import {
   getDoc,
   doc,
   addDoc,
+  updateDoc,
   deleteDoc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+import {
+  getStorage,
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
 
 
 const firebaseConfig = {
@@ -661,12 +704,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 const $ = id => document.getElementById(id);
 
 let currentUser = null;
 let audioRecords = [];
 let authProcessing = false;
+let editingAudioId = null;
 
 
 function showError(error) {
@@ -886,7 +931,82 @@ $("audioUrl").addEventListener("input", () => {
 });
 
 
-/* SAVE AUDIO */
+
+/* EDIT MODE + MP3 UPLOAD */
+
+function setEditMode(item) {
+  editingAudioId = item ? item.id : null;
+
+  $("title").value = item?.title || "";
+  $("category").value = item?.audioTopic || "";
+  $("author").value = item?.author || "";
+  $("description").value = item?.description || item?.intro || "";
+  $("imageUrl").value = item?.image || item?.imageUrl || "";
+  $("audioUrl").value = item?.audioUrl || "";
+  $("mp3File").value = "";
+
+  $("imagePreviewBox").style.display = $("imageUrl").value ? "block" : "none";
+  if ($("imageUrl").value) $("imagePreview").src = $("imageUrl").value;
+  else $("imagePreview").removeAttribute("src");
+
+  $("audioPreviewBox").style.display = $("audioUrl").value ? "block" : "none";
+  if ($("audioUrl").value) {
+    $("audioPreview").src = $("audioUrl").value;
+  } else {
+    $("audioPreview").removeAttribute("src");
+    $("audioPreview").load();
+  }
+
+  $("saveBtn").textContent = item ? "💾 Hifadhi Mabadiliko" : "🚀 Hifadhi Audio";
+  $("cancelEditBtn").style.display = item ? "inline-block" : "none";
+  $("add").querySelector("h2").textContent = item ? "Hariri Audio" : "Ongeza Audio Mpya";
+
+  document.querySelectorAll(".tab").forEach(button => button.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(panel => panel.classList.remove("active"));
+  document.querySelector('[data-tab="add"]').classList.add("active");
+  $("add").classList.add("active");
+}
+
+$("cancelEditBtn").addEventListener("click", () => {
+  $("audioForm").reset();
+  setEditMode(null);
+  $("imagePreviewBox").style.display = "none";
+  $("audioPreviewBox").style.display = "none";
+  $("imagePreview").removeAttribute("src");
+  $("audioPreview").removeAttribute("src");
+  $("audioPreview").load();
+  $("message").style.display = "none";
+});
+
+async function uploadMp3IfSelected() {
+  const file = $("mp3File").files[0];
+  if (!file) return $("audioUrl").value.trim();
+
+  if (!file.name.toLowerCase().endsWith(".mp3") &&
+      file.type !== "audio/mpeg" &&
+      file.type !== "audio/mp3") {
+    throw new Error("Tafadhali chagua faili la MP3 pekee.");
+  }
+
+  const maxSize = 50 * 1024 * 1024;
+  if (file.size > maxSize) {
+    throw new Error("Faili la MP3 limezidi ukubwa wa 50MB.");
+  }
+
+  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+  const path = `audio/${currentUser.uid}/${Date.now()}-${safeName}`;
+  const fileRef = storageRef(storage, path);
+
+  $("saveBtn").textContent = "Inapakia MP3...";
+  const uploaded = await uploadBytes(fileRef, file, {
+    contentType: "audio/mpeg"
+  });
+
+  return await getDownloadURL(uploaded.ref);
+}
+
+
+/* SAVE / UPDATE AUDIO */
 
 $("audioForm").addEventListener("submit", async event => {
   event.preventDefault();
@@ -905,18 +1025,13 @@ $("audioForm").addEventListener("submit", async event => {
   const author = $("author").value.trim();
   const description = $("description").value.trim();
   const imageUrl = $("imageUrl").value.trim();
-  const audioUrl = $("audioUrl").value.trim();
+  const typedAudioUrl = $("audioUrl").value.trim();
+  const selectedMp3 = $("mp3File").files[0];
 
-  if (
-    !title ||
-    !topic ||
-    !author ||
-    !description ||
-    !imageUrl ||
-    !audioUrl
-  ) {
+  if (!title || !topic || !author || !description || !imageUrl ||
+      (!typedAudioUrl && !selectedMp3 && !editingAudioId)) {
     showMessage(
-      "Tafadhali jaza sehemu zote zinazohitajika.",
+      "Jaza kichwa, mada, mwandishi, maelezo na URL ya picha. Weka URL ya MP3 au pakia faili la MP3.",
       "error"
     );
     return;
@@ -924,57 +1039,71 @@ $("audioForm").addEventListener("submit", async event => {
 
   try {
     $("saveBtn").disabled = true;
-    $("saveBtn").textContent = "Inahifadhi...";
+    $("saveBtn").textContent = selectedMp3 ? "Inapakia MP3..." : "Inahifadhi...";
 
-    await addDoc(collection(db, "articles"), {
-      title: title,
+    const audioUrl = await uploadMp3IfSelected();
+
+    if (!audioUrl) {
+      throw new Error("Weka URL ya MP3 au chagua faili la MP3.");
+    }
+
+    const audioData = {
+      title,
       category: "Audio",
       audioTopic: topic,
-      author: author,
-      description: description,
+      author,
+      description,
       intro: description,
       content: description,
       image: imageUrl,
-      imageUrl: imageUrl,
-      audioUrl: audioUrl,
-      authorId: currentUser.uid,
-      adminEmail: currentUser.email || "",
-      status: "published",
-      createdAt: serverTimestamp(),
-      date: new Date().toLocaleDateString("sw-TZ", {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      })
-    });
+      imageUrl,
+      audioUrl,
+      updatedAt: serverTimestamp(),
+      updatedBy: currentUser.uid
+    };
+
+    if (editingAudioId) {
+      await updateDoc(doc(db, "articles", editingAudioId), audioData);
+      showMessage("Mabadiliko ya audio yamehifadhiwa kikamilifu.", "success");
+    } else {
+      await addDoc(collection(db, "articles"), {
+        ...audioData,
+        authorId: currentUser.uid,
+        adminEmail: currentUser.email || "",
+        status: "published",
+        createdAt: serverTimestamp(),
+        date: new Date().toLocaleDateString("sw-TZ", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        })
+      });
+      showMessage("Audio imehifadhiwa kikamilifu kwenye articles.", "success");
+    }
 
     $("audioForm").reset();
-
     $("imagePreviewBox").style.display = "none";
     $("audioPreviewBox").style.display = "none";
     $("imagePreview").removeAttribute("src");
     $("audioPreview").removeAttribute("src");
     $("audioPreview").load();
-
-    showMessage(
-      "Audio imehifadhiwa kikamilifu kwenye articles.",
-      "success"
-    );
+    editingAudioId = null;
+    $("saveBtn").textContent = "🚀 Hifadhi Audio";
+    $("cancelEditBtn").style.display = "none";
+    $("add").querySelector("h2").textContent = "Ongeza Audio Mpya";
 
     await loadAudio();
 
   } catch (error) {
     showMessage(
-      "Imeshindikana kuhifadhi audio: " +
-      (error?.message || error),
+      "Imeshindikana kuhifadhi audio: " + (error?.message || error),
       "error"
     );
-
     showError(error);
-
   } finally {
     $("saveBtn").disabled = false;
-    $("saveBtn").textContent = "🚀 Hifadhi Audio";
+    if (!editingAudioId) $("saveBtn").textContent = "🚀 Hifadhi Audio";
+    else $("saveBtn").textContent = "💾 Hifadhi Mabadiliko";
   }
 });
 
@@ -1059,6 +1188,11 @@ async function loadAudio() {
             <div class="audio-actions">
               <button
                 type="button"
+                class="btn btn-edit edit-btn"
+                data-id="${escapeHTML(item.id)}"
+              >✏️ Hariri</button>
+              <button
+                type="button"
                 class="btn btn-red delete-btn"
                 data-id="${escapeHTML(item.id)}"
               >🗑️ Futa Audio</button>
@@ -1067,6 +1201,13 @@ async function loadAudio() {
         </article>
       `;
     }).join("");
+
+    document.querySelectorAll(".edit-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = audioRecords.find(record => record.id === button.dataset.id);
+        if (item) setEditMode(item);
+      });
+    });
 
     document.querySelectorAll(".delete-btn").forEach(button => {
       button.addEventListener("click", () => {
@@ -1130,4 +1271,3 @@ async function deleteAudio(id) {
 
 </body>
 </html>
-```
