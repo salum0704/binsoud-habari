@@ -1,3448 +1,588 @@
 <!DOCTYPE html>
-<html lang="sw-TZ">
-
+<html lang="sw">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+<title>Audio | BINSOUD HABARI</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <title>Audio | BINSOUD HABARI</title>
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f6f9;
+  color: #172b3a;
+}
 
-  <meta
-    name="description"
-    content="Sikiliza vipindi, mahojiano na habari za sauti kupitia BINSOUD HABARI."
-  >
-
-  <meta
-    name="robots"
-    content="index, follow"
-  >
-
-  <meta
-    name="author"
-    content="BINSOUD HABARI"
-  >
-
-  <meta
-    name="theme-color"
-    content="#0757a6"
-  >
-
-  <link
-    rel="canonical"
-    href="https://salum0704.github.io/binsoud-habari/audio.html"
-  >
-
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:title"
-    content="Audio | BINSOUD HABARI"
-  >
-
-  <meta
-    property="og:description"
-    content="Sikiliza vipindi, mahojiano na habari za sauti kupitia BINSOUD HABARI."
-  >
-
-  <style>
-
-    :root{
-      --blue:#0757a6;
-      --blue-2:#0878c9;
-      --blue-dark:#043d78;
-      --deep:#062e5b;
-      --red:#e51d2a;
-      --light:#f4f6f9;
-      --white:#fff;
-      --text:#17202a;
-      --muted:#718096;
-      --border:#e3e8ef;
-      --shadow:0 5px 18px rgba(13,47,79,.08);
-      --radius:8px;
-    }
-
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:var(--light);
-      color:var(--text);
-      line-height:1.6;
-    }
-
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-
-    img{
-      display:block;
-      width:100%;
-      max-width:100%;
-    }
-
-
-    button,
-    input{
-      font:inherit;
-    }
-
-
-    .container{
-      width:min(1180px,92%);
-      margin:auto;
-    }
-
-
-    /* =========================
-       TOP DATE
-    ========================== */
-
-    .top-date{
-      background:var(--deep);
-      color:#fff;
-      font-size:13px;
-      padding:7px 0;
-    }
-
-
-    .top-date .container{
-      display:flex;
-      justify-content:flex-end;
-    }
-
-
-     /* =========================
-       HEADER - NEMBO KAMILI
-    ========================== */
-    
 header {
-  position: relative;
-  width: 100%;
-  min-height: 100px;
-
-  /* Samawati ya bahari, weupe na nyeusi kwa mbali */
-  background-color: #dcecf2;
-  background-image:
-    linear-gradient(
-      115deg,
-      rgba(9, 66, 92, 0.10),
-      rgba(255, 255, 255, 0.82),
-      rgba(25, 45, 55, 0.08)
-    ),
-    url("images/binsoud-habari-logo.png.png");
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 88% 100px;
-
-  border-bottom: 1px solid #b7ccd5;
-  box-sizing: border-box;
+  background: #032f52;
+  color: white;
+  padding: 18px 5%;
 }
 
-.header-main {
-  width: 100%;
-  max-width: none;
-  min-height: 100px;
-  padding: 8px 3%;
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+header h1 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 12px;
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: 0;
-  white-space: nowrap;
-  flex-shrink: 0;
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 9px 13px;
+  background: #0878c9;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-.logo span {
-  color: var(--red);
+nav a:hover {
+  background: #005b99;
 }
 
-    /* MAANDISHI YA BINSOUD HABARI YAMEHIFADHIWA */
-    .logo{
-      font-size:30px;
-      font-weight:900;
-      color:var(--blue);
-      letter-spacing:-1px;
-      white-space:nowrap;
-      flex-shrink:0;
-    }
-
-    .logo span{
-      color:var(--red);
-    }
-
-    .search-box{
-      flex:1;
-      max-width:430px;
-      position:relative;
-    }
-
-    .search-form{
-      display:flex;
-      width:100%;
-    }
-
-    .search-form input{
-      width:100%;
-      border:1px solid var(--border);
-      border-right:0;
-      outline:none;
-      padding:11px 14px;
-      border-radius:6px 0 0 6px;
-      background:#fff;
-    }
-
-    .search-form button{
-      border:0;
-      padding:0 18px;
-      color:#fff;
-      background:var(--blue);
-      cursor:pointer;
-      border-radius:0 6px 6px 0;
-      font-weight:700;
-    }
-
-    .search-form button:hover{
-      background:var(--blue-dark);
-    }
-
-
-    /* =========================
-       SEARCH
-    ========================== */
-
-    .search-box{
-      flex:1;
-      max-width:430px;
-      position:relative;
-    }
-
-
-    .search-form{
-      display:flex;
-      width:100%;
-    }
-
-
-    .search-form input{
-      width:100%;
-      border:1px solid var(--border);
-      border-right:0;
-      outline:none;
-      padding:11px 14px;
-      border-radius:6px 0 0 6px;
-      background:#fff;
-    }
-
-
-    .search-form input:focus{
-      border-color:var(--blue);
-    }
-
-
-    .search-form button{
-      border:0;
-      padding:0 18px;
-      color:#fff;
-      background:var(--blue);
-      cursor:pointer;
-      border-radius:0 6px 6px 0;
-      font-weight:700;
-    }
-
-
-    .search-form button:hover{
-      background:var(--blue-dark);
-    }
-
-
-    .search-suggestions{
-      display:none;
-      position:absolute;
-      top:calc(100% + 6px);
-      left:0;
-      right:0;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:6px;
-      box-shadow:var(--shadow);
-      z-index:9999;
-      max-height:350px;
-      overflow-y:auto;
-    }
-
-
-    .search-suggestions.active{
-      display:block;
-    }
-
-
-    .search-suggestion{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:10px;
-      border-bottom:1px solid var(--border);
-      cursor:pointer;
-      background:#fff;
-    }
-
-
-    .search-suggestion:last-child{
-      border-bottom:0;
-    }
-
-
-    .search-suggestion:hover{
-      background:#f4f8fc;
-    }
-
-
-    .search-suggestion-image{
-      width:65px;
-      height:48px;
-      object-fit:cover;
-      border-radius:5px;
-      background:#e9eef5;
-      flex-shrink:0;
-    }
-
-
-    .search-suggestion-content{
-      min-width:0;
-    }
-
-
-    .search-suggestion-title{
-      color:var(--deep);
-      font-size:13px;
-      line-height:1.35;
-      font-weight:800;
-    }
-
-
-    .search-suggestion-category{
-      color:var(--muted);
-      font-size:11px;
-      margin-top:2px;
-    }
-
-
-    .search-no-result{
-      padding:14px;
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-
-    /* =========================
-       NAVIGATION
-    ========================== */
-
-    .nav{
-      background:var(--blue);
-      color:#fff;
-    }
-
-
-    .nav .container{
-      display:flex;
-      align-items:center;
-      gap:0;
-      overflow-x:auto;
-      scrollbar-width:none;
-    }
-
-
-    .nav .container::-webkit-scrollbar{
-      display:none;
-    }
-
-
-    .nav a{
-      display:block;
-      padding:13px 15px;
-      font-size:14px;
-      font-weight:700;
-      white-space:nowrap;
-      transition:.2s;
-    }
-
-
-    .nav a:hover,
-    .nav a.active{
-      background:var(--blue-dark);
-    }
-
-
-    /* =========================
-       BREAKING NEWS
-    ========================== */
-
-    .breaking{
-      background:#fff;
-      border-bottom:1px solid var(--border);
-    }
-
-
-    .breaking-inner{
-      display:flex;
-      align-items:center;
-      min-height:44px;
-    }
-
-
-    .breaking-label{
-      background:var(--red);
-      color:#fff;
-      font-size:13px;
-      font-weight:900;
-      padding:10px 15px;
-      white-space:nowrap;
-    }
-
-
-    .breaking-content{
-      flex:1;
-      overflow:hidden;
-      padding-left:14px;
-    }
-
-
-    #breakingText{
-      display:block;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      color:var(--blue-dark);
-      font-weight:700;
-      cursor:pointer;
-      opacity:1;
-      transition:opacity .25s ease;
-    }
-
-
-    #breakingText:hover{
-      color:var(--red);
-    }
-
-
-    /* =========================
-       PAGE HEADER
-    ========================== */
-
-    .page-header{
-      background:#fff;
-      border-bottom:1px solid var(--border);
-      padding:28px 0 22px;
-    }
-
-
-    .page-heading{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-
-    .heading-left{
-      border-left:5px solid var(--blue);
-      padding-left:14px;
-    }
-
-
-    .heading-left h1{
-      color:var(--deep);
-      font-size:31px;
-      line-height:1.2;
-      margin-bottom:6px;
-    }
-
-
-    .heading-left p{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-
-    .current-date{
-      color:var(--muted);
-      font-size:12px;
-      white-space:nowrap;
-    }
-
-
-    /* =========================
-       MAIN
-    ========================== */
-
-    main{
-      padding:28px 0 55px;
-    }
-
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr;
-      gap:20px;
-      margin-bottom:30px;
-    }
-
-
-    .hero-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      transition:.2s;
-    }
-
-
-    .hero-card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 9px 25px rgba(13,47,79,.12);
-    }
-
-
-    /* =========================
-       AUDIO HERO
-    ========================== */
-
-    .hero-image{
-      width:100%;
-      height:390px;
-      object-fit:cover;
-      background:#e9eef5;
-    }
-
-
-    .image-placeholder{
-      width:100%;
-      height:100%;
-      min-height:220px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#e9eef5;
-      color:var(--muted);
-      font-size:45px;
-    }
-
-
-    .hero-content{
-      padding:18px;
-    }
-
-
-    .category-label{
-      display:inline-block;
-      color:var(--red);
-      font-size:12px;
-      font-weight:900;
-      text-transform:uppercase;
-      margin-bottom:7px;
-    }
-
-
-    .hero-title{
-      font-size:28px;
-      line-height:1.22;
-      color:var(--deep);
-      margin-bottom:9px;
-      font-weight:900;
-    }
-
-
-    .hero-description{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-
-      display:-webkit-box;
-      -webkit-line-clamp:3;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-    }
-
-
-    .article-time{
-      color:var(--muted);
-      font-size:12px;
-      margin-top:10px;
-    }
-
-
-    .hero-audio{
-      width:100%;
-      display:block;
-      margin-top:15px;
-    }
-
-
-    /* =========================
-       SIDE AUDIO
-    ========================== */
-
-    .side-news{
-      display:grid;
-      gap:14px;
-    }
-
-
-    .side-heading{
-      font-size:18px;
-      color:var(--deep);
-      font-weight:900;
-      padding-bottom:9px;
-      border-bottom:3px solid var(--blue);
-    }
-
-
-    .side-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:10px;
-      display:grid;
-      grid-template-columns:115px 1fr;
-      gap:12px;
-      box-shadow:0 4px 15px rgba(0,0,0,.04);
-      transition:.2s;
-    }
-
-
-    .side-card:hover{
-      transform:translateY(-2px);
-      box-shadow:var(--shadow);
-    }
-
-
-    .side-thumb{
-      width:115px;
-      height:95px;
-      border-radius:6px;
-      overflow:hidden;
-      background:#e9eef5;
-    }
-
-
-    .side-thumb img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-
-    .side-thumb-placeholder{
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#e9eef5;
-      color:var(--muted);
-      font-size:27px;
-    }
-
-
-    .side-title{
-      font-size:15px;
-      line-height:1.35;
-      font-weight:800;
-      color:var(--deep);
-      margin-bottom:6px;
-      display:block;
-    }
-
-
-    .side-title:hover{
-      color:var(--blue);
-    }
-
-
-    .side-meta{
-      font-size:11px;
-      color:var(--muted);
-    }
-
-
-    /* =========================
-       SECTION HEAD
-    ========================== */
-
-    .section-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:15px;
-      margin:28px 0 17px;
-      border-bottom:2px solid var(--blue);
-      padding-bottom:8px;
-    }
-
-
-    .section-head h2{
-      font-size:21px;
-      color:var(--blue-dark);
-      text-transform:uppercase;
-    }
-
-
-    .section-head span{
-      color:var(--blue);
-      font-size:12px;
-      font-weight:700;
-    }
-
-
-    /* =========================
-       AUDIO GRID
-    ========================== */
-
-    .audio-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-
-    .audio-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      transition:transform .2s,box-shadow .2s;
-    }
-
-
-    .audio-card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 9px 25px rgba(13,47,79,.12);
-    }
-
-
-    .audio-image{
-      width:100%;
-      height:210px;
-      overflow:hidden;
-      background:#e9eef5;
-    }
-
-
-    .audio-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-
-    .audio-placeholder{
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#e9eef5;
-      color:var(--muted);
-      font-size:45px;
-    }
-
-
-    .audio-body{
-      padding:14px;
-    }
-
-
-    .audio-category{
-      display:inline-block;
-      color:var(--red);
-      font-size:11px;
-      font-weight:900;
-      text-transform:uppercase;
-      margin-bottom:6px;
-    }
-
-
-    .audio-title{
-      font-size:18px;
-      line-height:1.3;
-      color:var(--deep);
-      font-weight:900;
-      margin-bottom:8px;
-
-      display:-webkit-box;
-      -webkit-line-clamp:3;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-    }
-
-
-    .audio-title:hover{
-      color:var(--blue);
-    }
-
-
-    .audio-description{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
-
-      display:-webkit-box;
-      -webkit-line-clamp:3;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-
-      margin-bottom:9px;
-    }
-
-
-    .audio-meta{
-      color:var(--muted);
-      font-size:11px;
-      margin-bottom:12px;
-    }
-
-
-    .audio-player{
-      width:100%;
-      display:block;
-      margin-top:12px;
-    }
-
-
-    .read-more{
-      display:block;
-      margin-top:12px;
-      text-align:center;
-      background:var(--blue);
-      color:#fff;
-      padding:9px;
-      border-radius:6px;
-      font-size:12px;
-      font-weight:900;
-    }
-
-
-    .read-more:hover{
-      background:var(--blue-dark);
-    }
-
-
-    .no-audio{
-      background:#f4f7fa;
-      border:1px solid var(--border);
-      border-radius:6px;
-      padding:10px;
-      text-align:center;
-      color:var(--muted);
-      font-size:11px;
-      margin-top:12px;
-    }
-
-
-    /* =========================
-       MORE
-    ========================== */
-
-    .more-wrap{
-      text-align:center;
-      margin-top:25px;
-    }
-
-
-    #moreBtn{
-      display:none;
-      border:0;
-      background:var(--blue);
-      color:#fff;
-      padding:11px 20px;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:13px;
-      font-weight:800;
-    }
-
-
-    #moreBtn:hover{
-      background:var(--blue-dark);
-    }
-
-
-    /* =========================
-       STATES
-    ========================== */
-
-    .state{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:40px 20px;
-      text-align:center;
-    }
-
-
-    .state-icon{
-      font-size:42px;
-      margin-bottom:10px;
-    }
-
-
-    .state h3{
-      color:var(--deep);
-      margin-bottom:6px;
-    }
-
-
-    .state p{
-      color:var(--muted);
-      font-size:13px;
-    }
-
-
-    .hidden{
-      display:none !important;
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer{
-      background:var(--deep);
-      color:#fff;
-      margin-top:10px;
-    }
-
-
-    .footer-main{
-      padding:35px 0;
-      display:grid;
-      grid-template-columns:2fr 1fr 1fr;
-      gap:30px;
-    }
-
-
-    .footer-logo{
-      font-size:25px;
-      font-weight:900;
-      margin-bottom:10px;
-    }
-
-
-    .footer-logo span{
-      color:var(--red);
-    }
-
-
-    footer p{
-      color:#cbd5e1;
-      font-size:14px;
-    }
-
-
-    footer h3{
-      margin-bottom:10px;
-    }
-
-
-    .footer-links{
-      display:flex;
-      flex-direction:column;
-      gap:7px;
-    }
-
-
-    .footer-links a{
-      color:#dbe7f5;
-      font-size:14px;
-    }
-
-
-    .footer-links a:hover{
-      color:#fff;
-    }
-
-
-    .copyright{
-      border-top:1px solid rgba(255,255,255,.12);
-      padding:15px 0;
-      color:#cbd5e1;
-      font-size:13px;
-      text-align:center;
-    }
-
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media(max-width:900px){
-
-      .header-main{
-        flex-direction:column;
-        align-items:stretch;
-        padding:16px 0;
-      }
-
-
-      .logo{
-        text-align:center;
-      }
-
-
-      .search-box{
-        max-width:none;
-      }
-
-
-      .hero-grid{
-        grid-template-columns:1fr;
-      }
-
-
-      .audio-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-
-      .footer-main{
-        grid-template-columns:1fr 1fr;
-      }
-
-    }
-
-
-    @media(max-width:600px){
-
-      main{
-        padding-top:18px;
-      }
-
-
-      .page-header{
-        padding:22px 0 18px;
-      }
-
-
-      .page-heading{
-        display:block;
-      }
-
-
-      .heading-left h1{
-        font-size:26px;
-      }
-
-
-      .current-date{
-        margin-top:9px;
-        margin-left:19px;
-      }
-
-
-      .hero-image{
-        height:260px;
-      }
-
-
-      .hero-title{
-        font-size:23px;
-      }
-
-
-      .audio-grid{
-        grid-template-columns:1fr;
-      }
-
-
-      .side-card{
-        grid-template-columns:95px 1fr;
-      }
-
-
-      .side-thumb{
-        width:95px;
-        height:90px;
-      }
-
-
-      .footer-main{
-        grid-template-columns:1fr;
-      }
-
-
-      .breaking-label{
-        padding:10px;
-        font-size:11px;
-      }
-
-
-      .breaking-content{
-        padding-left:9px;
-      }
-
-
-    }
-
-  </style>
-
+.container {
+  width: min(1150px, 94%);
+  margin: 25px auto;
+}
+
+.page-title {
+  margin-bottom: 20px;
+}
+
+.page-title h2 {
+  font-size: 27px;
+  margin-bottom: 8px;
+}
+
+.page-title p {
+  color: #667784;
+  line-height: 1.5;
+}
+
+.search-box {
+  margin-bottom: 22px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d2dce5;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.audio-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.audio-card {
+  background: white;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px #0000000d;
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-image {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #dce5ec;
+}
+
+.audio-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.audio-topic {
+  display: inline-block;
+  background: #e5f3fc;
+  color: #0768a9;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.audio-card h3 {
+  font-size: 19px;
+  line-height: 1.4;
+  margin-bottom: 9px;
+}
+
+.audio-meta {
+  color: #71808b;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.audio-description {
+  color: #4c5c68;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+audio {
+  width: 100%;
+  margin-top: auto;
+  min-height: 42px;
+}
+
+.audio-error {
+  color: #b42318;
+  font-size: 13px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.empty-message {
+  background: white;
+  padding: 25px;
+  text-align: center;
+  border-radius: 10px;
+  color: #667784;
+  grid-column: 1 / -1;
+}
+
+.loading {
+  text-align: center;
+  padding: 30px;
+  color: #667784;
+}
+
+footer {
+  background: #032f52;
+  color: white;
+  text-align: center;
+  padding: 22px;
+  margin-top: 40px;
+}
+
+@media(max-width: 850px) {
+  .audio-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 550px) {
+  .audio-list {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  .page-title h2 {
+    font-size: 23px;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
+<header>
+  <div class="header-inner">
+    <h1>📰 BINSOUD HABARI</h1>
 
-  <!-- =========================
-       TOP DATE
-  ========================== -->
-
-  <div class="top-date">
-
-    <div class="container">
-
-      <span id="todayDate"></span>
-
-    </div>
-
+    <nav>
+      <a href="index.html">Mwanzo</a>
+      <a href="habari.html">Habari</a>
+      <a href="audio.html">Audio</a>
+      <a href="kuhusu.html">Kuhusu Sisi</a>
+      <a href="wasiliana.html">Wasiliana</a>
+    </nav>
   </div>
-
-
-  <!-- =========================
-       HEADER
-  ========================== -->
-
-  <header>
-
-    <div class="container header-main">
-
-
-      <a
-        href="index.html"
-        class="logo"
-      >
-
-        BINSOUD <span>HABARI</span>
-
-      </a>
-
-
-      <div class="search-box">
-
-        <form
-          class="search-form"
-          id="searchForm"
-        >
-
-          <input
-            type="search"
-            id="searchInput"
-            placeholder="Tafuta audio..."
-            autocomplete="off"
-          >
-
-          <button type="submit">
-            TAFUTA
-          </button>
-
-        </form>
-
-
-        <div
-          id="searchSuggestions"
-          class="search-suggestions"
-        ></div>
-
-      </div>
-
-
-    </div>
-
-  </header>
-
-
-  <!-- =========================
-       NAVIGATION
-  ========================== -->
-
-  <nav class="nav">
-
-    <div class="container">
-
-
-      <a href="index.html">
-        HOME
-      </a>
-
-
-      <a href="kitaifa.html">
-        KITAIFA
-      </a>
-
-
-      <a href="kimataifa.html">
-        MATAIFA
-      </a>
-
-
-      <a href="dini.html">
-        DINI
-      </a>
-
-
-      <a href="michezo.html">
-        MICHEZO
-      </a>
-
-
-      <a href="mazingira.html">
-        MAZINGIRA
-      </a>
-
-
-      <a href="burudani.html">
-        BURUDANI
-      </a>
-
-
-      <a href="siasa.html">
-        SIASA
-      </a>
-
-
-      <a href="biashara.html">
-        UCHUMI
-      </a>
-
-
-      <a href="makala.html">
-        MAKALA
-      </a>
-
-
-      <a href="video.html">
-        VIDEO
-      </a>
-
-
-      <a
-        href="audio.html"
-        class="active"
-      >
-        AUDIO
-      </a>
-
-
-      <a href="contact.html">
-        MAWASILIANO
-      </a>
-
-
-    </div>
-
-  </nav>
-
-
-  <!-- =========================
-       BREAKING NEWS
-  ========================== -->
-
-  <section class="breaking">
-
-    <div class="container breaking-inner">
-
-
-      <div class="breaking-label">
-        BREAKING NEWS
-      </div>
-
-
-      <div class="breaking-content">
-
-        <span id="breakingText">
-          Habari za audio
-        </span>
-
-      </div>
-
-
-    </div>
-
+</header>
+
+<main class="container">
+
+  <section class="page-title">
+    <h2>🎧 Habari za Kusikiliza</h2>
+    <p>
+      Sikiliza habari, makala na mazungumzo mbalimbali
+      kupitia BINSOUD HABARI.
+    </p>
   </section>
 
-
-  <!-- =========================
-       PAGE HEADER
-  ========================== -->
-
-  <section class="page-header">
-
-    <div class="container">
-
-
-      <div class="page-heading">
-
-
-        <div class="heading-left">
-
-          <h1>
-            Audio
-          </h1>
-
-          <p>
-            Sikiliza habari, mahojiano, vipindi na maudhui mbalimbali ya sauti kutoka BINSOUD HABARI.
-          </p>
-
-        </div>
-
-
-        <div
-          id="currentDate"
-          class="current-date"
-        ></div>
-
-
-      </div>
-
-
-    </div>
-
+  <section class="search-box">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Tafuta audio..."
+      aria-label="Tafuta audio"
+    >
   </section>
 
-
-  <!-- =========================
-       MAIN
-  ========================== -->
-
-  <main>
-
-    <div class="container">
-
-
-      <!-- ERROR -->
-
-      <div
-        id="error"
-        class="state hidden"
-      >
-
-        <div class="state-icon">
-          ⚠️
-        </div>
-
-        <h3>
-          Imeshindikana kupata audio
-        </h3>
-
-        <p id="errorText">
-          Tafadhali jaribu tena baadaye.
-        </p>
-
-      </div>
-
-
-      <!-- EMPTY -->
-
-      <div
-        id="empty"
-        class="state hidden"
-      >
-
-        <div class="state-icon">
-          🎧
-        </div>
-
-        <h3>
-          Hakuna audio kwa sasa
-        </h3>
-
-        <p>
-          Kwa sasa hakuna audio zilizowekwa katika kundi la Audio.
-        </p>
-
-      </div>
-
-
-      <!-- CONTENT -->
-
-      <div
-        id="content"
-        class="hidden"
-      >
-
-
-        <!-- HERO + SIDE -->
-
-        <section class="hero-grid">
-
-
-          <article
-            class="hero-card"
-            id="heroCard"
-          ></article>
-
-
-          <aside
-            class="side-news"
-            id="sideNews"
-          ></aside>
-
-
-        </section>
-
-
-        <!-- SECTION -->
-
-        <section>
-
-
-          <div class="section-head">
-
-            <h2>
-              Audio Mpya
-            </h2>
-
-            <span id="count">
-              0 audio
-            </span>
-
-          </div>
-
-
-          <div
-            id="audioGrid"
-            class="audio-grid"
-          ></div>
-
-
-          <div class="more-wrap">
-
-            <button
-              id="moreBtn"
-              type="button"
-            >
-              ONA HABARI ZAIDI
-            </button>
-
-          </div>
-
-
-        </section>
-
-
-      </div>
-
-
+  <section>
+    <div id="audioList" class="audio-list">
+      <div class="loading">Inapakia audio...</div>
     </div>
+  </section>
 
-  </main>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> BINSOUD HABARI. Haki zote zimehifadhiwa.</p>
+</footer>
+
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+/* FIREBASE CONFIGURATION */
 
-  <footer>
+const firebaseConfig = {
+  apiKey: "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+  authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
+  projectId: "binsoud-habari-8a5fa",
+  messagingSenderId: "865091074307",
+  appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
+  measurementId: "G-MH266J0XKE"
+};
 
 
-    <div class="container footer-main">
+/* INITIALIZE FIREBASE */
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 
-      <div>
+/* VARIABLES */
 
-        <div class="footer-logo">
-          BINSOUD <span>HABARI</span>
-        </div>
+const audioList = document.getElementById("audioList");
+const searchInput = document.getElementById("searchInput");
 
-        <p>
-          BINSOUD HABARI ni jukwaa la habari
-          linalokuletea taarifa mbalimbali
-          kutoka Tanzania, Zanzibar na duniani.
-        </p>
+let allAudio = [];
 
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+
+/* SAFE TEXT */
+
+function escapeHTML(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+
+/* NORMALIZE GOOGLE DRIVE URL */
+
+function normalizeAudioUrl(rawUrl) {
+
+  const value = String(rawUrl || "").trim();
+
+  if (!value) return "";
+
+  const match =
+    value.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/) ||
+    value.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+  if (match && value.includes("drive.google.com")) {
+    return "https://drive.google.com/uc?export=download&id=" + match[1];
+  }
+
+  return value;
+}
+
+
+/* FORMAT DATE */
+
+function formatDate(item) {
+
+  if (item.createdAt && item.createdAt.toDate) {
+    return item.createdAt.toDate().toLocaleDateString("sw-TZ", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+  }
+
+  return item.date || "";
+}
+
+
+/* LOAD AUDIO FROM FIRESTORE */
+
+async function loadAudio() {
+
+  try {
+
+    audioList.innerHTML =
+      '<div class="loading">Inapakia audio...</div>';
+
+    const snapshot = await getDocs(
+      collection(db, "articles")
+    );
+
+    allAudio = snapshot.docs
+      .map(document => ({
+        id: document.id,
+        ...document.data()
+      }))
+      .filter(item => {
+
+        const category =
+          String(item.category || "").toLowerCase();
+
+        const status =
+          String(item.status || "").toLowerCase();
+
+        return category === "audio" &&
+          (status === "published" || status === "");
+
+      })
+      .sort((a, b) => {
+
+        const dateA =
+          a.createdAt?.toMillis?.() || 0;
+
+        const dateB =
+          b.createdAt?.toMillis?.() || 0;
+
+        return dateB - dateA;
+
+      });
+
+    renderAudio(allAudio);
+
+  } catch (error) {
+
+    console.error("Audio loading error:", error);
+
+    audioList.innerHTML = `
+      <div class="empty-message">
+        Imeshindikana kupakia audio.
+        Tafadhali jaribu tena baadaye.
+        <p>${escapeHTML(error.message)}</p>
       </div>
+    `;
+
+  }
+
+}
 
 
-      <div>
+/* DISPLAY AUDIO */
 
-        <h3>
-          SEHEMU
-        </h3>
+function renderAudio(items) {
 
+  if (!items.length) {
 
-        <div class="footer-links">
-
-          <a href="index.html">
-            Nyumbani
-          </a>
-
-          <a href="kitaifa.html">
-            Kitaifa
-          </a>
-
-          <a href="kimataifa.html">
-            Mataifa
-          </a>
-
-          <a href="dini.html">
-            Dini
-          </a>
-
-          <a href="michezo.html">
-            Michezo
-          </a>
-
-          <a href="mazingira.html">
-            Mazingira
-          </a>
-
-        </div>
-
+    audioList.innerHTML = `
+      <div class="empty-message">
+        <h3>Hakuna audio iliyopatikana.</h3>
+        <p>Jaribu kutafuta jina lingine au rudi baadaye.</p>
       </div>
+    `;
 
+    return;
 
-      <div>
+  }
 
-        <h3>
-          ZAIDI
-        </h3>
+  audioList.innerHTML = items.map(item => {
 
+    const title =
+      escapeHTML(item.title || "Audio bila kichwa");
 
-        <div class="footer-links">
+    const topic =
+      escapeHTML(item.audioTopic || "Audio");
 
-          <a href="burudani.html">
-            Burudani
-          </a>
+    const author =
+      escapeHTML(item.author || "BINSOUD HABARI");
 
-          <a href="siasa.html">
-            Siasa
-          </a>
-
-          <a href="biashara.html">
-            Uchumi
-          </a>
-
-          <a href="makala.html">
-            Makala
-          </a>
-
-          <a href="video.html">
-            Video
-          </a>
-
-          <a href="audio.html">
-            Audio
-          </a>
-
-          <a href="contact.html">
-            Mawasiliano
-          </a>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <div class="copyright">
-
-      © 2026 BINSOUD HABARI.
-      Haki zote zimehifadhiwa.
-
-    </div>
-
-
-  </footer>
-
-
-  <!-- =========================
-       FIREBASE
-  ========================== -->
-
-  <script type="module">
-
-    import {
-      initializeApp
-    } from
-      "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
-
-
-    import {
-      getFirestore,
-      collection,
-      getDocs
-    } from
-      "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
-
-    /* =========================
-       FIREBASE CONFIG
-    ========================== */
-
-    const firebaseConfig = {
-
-      apiKey:
-        "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
-
-      authDomain:
-        "binsoud-habari-8a5fa.firebaseapp.com",
-
-      projectId:
-        "binsoud-habari-8a5fa",
-
-      storageBucket:
-        "binsoud-habari-8a5fa.firebasestorage.app",
-
-      messagingSenderId:
-        "865091074307",
-
-      appId:
-        "1:865091074307:web:27b26aa8f0f3476ef45136",
-
-      measurementId:
-        "G-MH266J0XKE"
-
-    };
-
-
-    const app =
-      initializeApp(
-        firebaseConfig
+    const description =
+      escapeHTML(
+        item.description ||
+        item.intro ||
+        "Sikiliza audio hii."
       );
 
+    const date =
+      escapeHTML(formatDate(item));
 
-    const db =
-      getFirestore(app);
+    const image =
+      escapeHTML(item.image || item.imageUrl || "");
 
+    const audioUrl =
+      escapeHTML(normalizeAudioUrl(item.audioUrl || ""));
 
-    /* =========================
-       ELEMENTS
-    ========================== */
+    return `
 
-    const heroCard =
-      document.getElementById(
-        "heroCard"
-      );
-
-
-    const sideNews =
-      document.getElementById(
-        "sideNews"
-      );
-
-
-    const audioGrid =
-      document.getElementById(
-        "audioGrid"
-      );
-
-
-    const content =
-      document.getElementById(
-        "content"
-      );
-
-
-    const empty =
-      document.getElementById(
-        "empty"
-      );
-
-
-    const error =
-      document.getElementById(
-        "error"
-      );
-
-
-    const errorText =
-      document.getElementById(
-        "errorText"
-      );
-
-
-    const count =
-      document.getElementById(
-        "count"
-      );
-
-
-    const breakingText =
-      document.getElementById(
-        "breakingText"
-      );
-
-
-    const searchForm =
-      document.getElementById(
-        "searchForm"
-      );
-
-
-    const searchInput =
-      document.getElementById(
-        "searchInput"
-      );
-
-
-    const searchSuggestions =
-      document.getElementById(
-        "searchSuggestions"
-      );
-
-
-    const moreBtn =
-      document.getElementById(
-        "moreBtn"
-      );
-
-
-    let allAudio = [];
-
-    let visibleAudioCount = 3;
-
-    let breakingIndex = 0;
-
-    let breakingTimer = null;
-
-
-    /* =========================
-       FALLBACK IMAGE
-    ========================== */
-
-    const FALLBACK_IMAGE =
-      "data:image/svg+xml;charset=UTF-8," +
-      encodeURIComponent(`
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="900"
-          height="550"
-          viewBox="0 0 900 550"
-        >
-
-          <rect
-            width="900"
-            height="550"
-            fill="#e9eef5"
-          />
-
-          <text
-            x="450"
-            y="275"
-            text-anchor="middle"
-            font-family="Arial"
-            font-size="34"
-            font-weight="700"
-            fill="#718096"
-          >
-            BINSOUD HABARI
-          </text>
-
-        </svg>
-
-      `);
-
-
-    /* =========================
-       ESCAPE HTML
-    ========================== */
-
-    function escapeHTML(value){
-
-      return String(
-        value ?? ""
-      )
-      .replace(/&/g,"&amp;")
-      .replace(/</g,"&lt;")
-      .replace(/>/g,"&gt;")
-      .replace(/"/g,"&quot;")
-      .replace(/'/g,"&#039;");
-
-    }
-
-
-    /* =========================
-       REMOVE HTML
-    ========================== */
-
-    function removeHTML(value){
-
-      if(!value){
-
-        return "";
-
-      }
-
-
-      const div =
-        document.createElement(
-          "div"
-        );
-
-
-      div.innerHTML =
-        String(value);
-
-
-      return (
-        div.textContent ||
-        div.innerText ||
-        ""
-      );
-
-    }
-
-
-    /* =========================
-       SHORT DESCRIPTION
-    ========================== */
-
-    function getDescription(article){
-
-      const value =
-        article.intro ||
-        article.excerpt ||
-        article.summary ||
-        article.description ||
-        article.content ||
-        article.body ||
-        "";
-
-
-      const clean =
-        removeHTML(value)
-          .replace(/\s+/g," ")
-          .trim();
-
-
-      if(!clean){
-
-        return "Sikiliza audio hii kwa maelezo zaidi.";
-
-      }
-
-
-      return clean.length > 190
-        ? clean.slice(0,190).trim() + "..."
-        : clean;
-
-    }
-
-
-    /* =========================
-       DATE VALUE
-    ========================== */
-
-    function getDateValue(article){
-
-      const value =
-        article.createdAt ||
-        article.date ||
-        "";
-
-
-      if(!value){
-
-        return 0;
-
-      }
-
-
-      if(
-        typeof value === "object" &&
-        value !== null &&
-        typeof value.toDate === "function"
-      ){
-
-        try{
-
-          return value
-            .toDate()
-            .getTime();
-
-        }catch(e){}
-
-      }
-
-
-      if(
-        typeof value === "object" &&
-        value !== null &&
-        typeof value.seconds === "number"
-      ){
-
-        return (
-          value.seconds * 1000
-        );
-
-      }
-
-
-      const time =
-        new Date(value).getTime();
-
-
-      return Number.isNaN(time)
-        ? 0
-        : time;
-
-    }
-
-
-    /* =========================
-       FORMAT DATE
-    ========================== */
-
-    function formatDate(article){
-
-      const value =
-        article.date ||
-        article.createdAt ||
-        "";
-
-
-      if(!value){
-
-        return "Tarehe haijawekwa";
-
-      }
-
-
-      if(
-        typeof value === "object" &&
-        value !== null &&
-        typeof value.toDate === "function"
-      ){
-
-        try{
-
-          return value
-            .toDate()
-            .toLocaleDateString(
-              "sw-TZ",
-              {
-                year:"numeric",
-                month:"long",
-                day:"numeric"
-              }
-            );
-
-        }catch(e){}
-
-      }
-
-
-      if(
-        typeof value === "object" &&
-        value !== null &&
-        typeof value.seconds === "number"
-      ){
-
-        return new Date(
-          value.seconds * 1000
-        ).toLocaleDateString(
-          "sw-TZ",
-          {
-            year:"numeric",
-            month:"long",
-            day:"numeric"
-          }
-        );
-
-      }
-
-
-      const parsed =
-        new Date(value);
-
-
-      if(
-        !Number.isNaN(
-          parsed.getTime()
-        )
-      ){
-
-        return parsed
-          .toLocaleDateString(
-            "sw-TZ",
-            {
-              year:"numeric",
-              month:"long",
-              day:"numeric"
-            }
-          );
-
-      }
-
-
-      return String(value);
-
-    }
-
-
-    /* =========================
-       IMAGE
-    ========================== */
-
-    function getImage(article){
-
-      return String(
-        article.image ||
-        article.imageUrl ||
-        article.imageURL ||
-        article.image_url ||
-        article.thumbnail ||
-        article.thumbnailUrl ||
-        ""
-      ).trim();
-
-    }
-
-
-    /* =========================
-       AUDIO URL
-    ========================== */
-
-    function getAudioUrl(article){
-
-      return String(
-
-        article.audioUrl ||
-
-        article.audio ||
-
-        article.audioURL ||
-
-        article.audio_url ||
-
-        article.soundUrl ||
-
-        article.soundURL ||
-
-        article.mp3 ||
-
-        article.mp3Url ||
-
-        article.mediaUrl ||
-
-        article.mediaURL ||
-
-        ""
-
-      ).trim();
-
-    }
-
-
-    /* =========================
-       ARTICLE LINK
-    ========================== */
-
-    function articleLink(article){
-
-      return (
-        "habari.html?id=" +
-        encodeURIComponent(
-          article.id
-        )
-      );
-
-    }
-
-
-    /* =========================
-       IMAGE HTML
-    ========================== */
-
-    function imageHTML(
-      image,
-      title,
-      mode="normal"
-    ){
-
-      const src =
-        String(
-          image || ""
-        ).trim();
-
-
-      if(!src){
-
-        if(mode === "side"){
-
-          return `
-            <div class="side-thumb-placeholder">
-              🎧
-            </div>
-          `;
-
-        }
-
-
-        return `
-          <div class="image-placeholder">
-            🎧
-          </div>
-        `;
-
-      }
-
-
-      return `
-
-        <img
-          src="${escapeHTML(src)}"
-          alt="${escapeHTML(title)}"
-          loading="${mode === "hero" ? "eager" : "lazy"}"
-          onerror="
-            this.style.display='none';
-            this.nextElementSibling.style.display='flex';
-          "
-        >
-
+      <article class="audio-card">
 
         ${
-          mode === "side"
-          ?
+          image
+          ? `
+            <img
+              class="audio-image"
+              src="${image}"
+              alt="${title}"
+              loading="lazy"
+            >
           `
-          <div
-            class="side-thumb-placeholder"
-            style="display:none;"
-          >
-            🎧
-          </div>
-          `
-          :
-          `
-          <div
-            class="image-placeholder"
-            style="display:none;"
-          >
-            🎧
-          </div>
+          : `
+            <div
+              class="audio-image"
+              style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:55px;
+              "
+            >
+              🎧
+            </div>
           `
         }
 
-      `;
+        <div class="audio-content">
 
-    }
+          <span class="audio-topic">
+            ${topic}
+          </span>
 
+          <h3>${title}</h3>
 
-    /* =========================
-       HERO
-    ========================== */
-
-    function renderHero(article){
-
-      if(!article){
-
-        heroCard.innerHTML =
-          "";
-
-        return;
-
-      }
-
-
-      const title =
-        article.title ||
-        "Audio mpya";
-
-
-      const link =
-        articleLink(
-          article
-        );
-
-
-      const description =
-        getDescription(
-          article
-        );
-
-
-      const audioUrl =
-        getAudioUrl(
-          article
-        );
-
-
-      heroCard.innerHTML = `
-
-        <a
-          href="${link}"
-          aria-label="${escapeHTML(title)}"
-        >
-
-          <div>
-
-            ${imageHTML(
-              getImage(article),
-              title,
-              "hero"
-            )}
-
-          </div>
-
-        </a>
-
-
-        <div class="hero-content">
-
-
-          <div class="category-label">
-            AUDIO
-          </div>
-
-
-          <a href="${link}">
-
-            <h1 class="hero-title">
-
-              ${escapeHTML(title)}
-
-            </h1>
-
-          </a>
-
-
-          <p class="hero-description">
-
-            ${escapeHTML(
-              description
-            )}
-
+          <p class="audio-meta">
+            ${author}
+            ${date ? " • " + date : ""}
           </p>
 
-
-          <div class="article-time">
-
-            ✍️
-            ${escapeHTML(
-              article.author ||
-              "BINSOUD HABARI"
-            )}
-
-            &nbsp; • &nbsp;
-
-            📅
-            ${escapeHTML(
-              formatDate(article)
-            )}
-
-          </div>
-
+          <p class="audio-description">
+            ${description}
+          </p>
 
           ${
             audioUrl
-            ?
-            `
+            ? `
               <audio
-                class="hero-audio"
                 controls
-                preload="metadata"
+                preload="none"
+                src="${audioUrl}"
               >
-
-                <source
-                  src="${escapeHTML(audioUrl)}"
-                >
-
-                Kivinjari chako hakiwezi kucheza audio hii.
-
+                Kivinjari chako hakiwezi kucheza sauti hii.
               </audio>
+
+              <p class="audio-error"></p>
             `
-            :
-            `
-              <div class="no-audio">
-                🎧 Audio haijawekwa bado.
-              </div>
-            `
-          }
-
-        </div>
-
-      `;
-
-    }
-
-
-    /* =========================
-       SIDE AUDIO
-    ========================== */
-
-    function renderSideNews(
-      articles
-    ){
-
-      sideNews.innerHTML = `
-
-        <div class="side-heading">
-          Audio Zinazofuatwa
-        </div>
-
-      `;
-
-
-      articles
-        .slice(
-          0,
-          4
-        )
-        .forEach(
-          article => {
-
-            const title =
-              article.title ||
-              "Audio mpya";
-
-
-            const link =
-              articleLink(
-                article
-              );
-
-
-            const item =
-              document.createElement(
-                "article"
-              );
-
-
-            item.className =
-              "side-card";
-
-
-            item.innerHTML = `
-
-              <a
-                href="${link}"
-              >
-
-                <div class="side-thumb">
-
-                  ${imageHTML(
-                    getImage(article),
-                    title,
-                    "side"
-                  )}
-
-                </div>
-
-              </a>
-
-
-              <div>
-
-                <a
-                  class="side-title"
-                  href="${link}"
-                >
-
-                  ${escapeHTML(title)}
-
-                </a>
-
-
-                <div class="side-meta">
-
-                  ${escapeHTML(
-                    formatDate(article)
-                  )}
-
-                </div>
-
-              </div>
-
-            `;
-
-
-            sideNews.appendChild(
-              item
-            );
-
-          }
-        );
-
-    }
-
-
-    /* =========================
-       AUDIO GRID
-    ========================== */
-
-    function renderAudioGrid(){
-
-      audioGrid.innerHTML =
-        "";
-
-
-      const visibleArticles =
-        allAudio.slice(
-          5,
-          5 + visibleAudioCount
-        );
-
-
-      visibleArticles.forEach(
-        article => {
-
-          const title =
-            article.title ||
-            "Audio mpya";
-
-
-          const link =
-            articleLink(
-              article
-            );
-
-
-          const audioUrl =
-            getAudioUrl(
-              article
-            );
-
-
-          const card =
-            document.createElement(
-              "article"
-            );
-
-
-          card.className =
-            "audio-card";
-
-
-          card.innerHTML = `
-
-            <a
-              href="${link}"
-              aria-label="${escapeHTML(title)}"
-            >
-
-              <div class="audio-image">
-
-                ${
-                  getImage(article)
-                  ?
-                  `
-                    <img
-                      src="${escapeHTML(
-                        getImage(article)
-                      )}"
-                      alt="${escapeHTML(title)}"
-                      loading="lazy"
-                      onerror="
-                        this.style.display='none';
-                        this.nextElementSibling.style.display='flex';
-                      "
-                    >
-
-                    <div
-                      class="audio-placeholder"
-                      style="display:none;"
-                    >
-                      🎧
-                    </div>
-                  `
-                  :
-                  `
-                    <div class="audio-placeholder">
-                      🎧
-                    </div>
-                  `
-                }
-
-              </div>
-
-            </a>
-
-
-            <div class="audio-body">
-
-
-              <div class="audio-category">
-                AUDIO
-              </div>
-
-
-              <a href="${link}">
-
-                <h3 class="audio-title">
-
-                  ${escapeHTML(title)}
-
-                </h3>
-
-              </a>
-
-
-              <p class="audio-description">
-
-                ${escapeHTML(
-                  getDescription(article)
-                )}
-
+            : `
+              <p class="audio-error">
+                Kiungo cha sauti hakijawekwa.
               </p>
-
-
-              <div class="audio-meta">
-
-                ✍️
-                ${escapeHTML(
-                  article.author ||
-                  "BINSOUD HABARI"
-                )}
-
-                &nbsp; • &nbsp;
-
-                📅
-                ${escapeHTML(
-                  formatDate(article)
-                )}
-
-              </div>
-
-
-              ${
-                audioUrl
-                ?
-                `
-                  <audio
-                    class="audio-player"
-                    controls
-                    preload="none"
-                  >
-
-                    <source
-                      src="${escapeHTML(
-                        audioUrl
-                      )}"
-                    >
-
-                    Kivinjari chako hakiwezi kucheza audio hii.
-
-                  </audio>
-                `
-                :
-                `
-                  <div class="no-audio">
-                    🎧 Audio haijawekwa bado.
-                  </div>
-                `
-              }
-
-
-              <a
-                class="read-more"
-                href="${link}"
-              >
-                Soma habari yote →
-              </a>
-
-
-            </div>
-
-          `;
-
-
-          audioGrid.appendChild(
-            card
-          );
-
-        }
-      );
-
-
-      const remaining =
-        allAudio.length -
-        5 -
-        visibleAudioCount;
-
-
-      if(
-        allAudio.length > 8 &&
-        remaining > 0
-      ){
-
-        moreBtn.style.display =
-          "inline-block";
-
-      }else{
-
-        moreBtn.style.display =
-          "none";
-
-      }
-
-    }
-
-
-    /* =========================
-       RENDER ARTICLES
-    ========================== */
-
-    function renderArticles(
-      articles
-    ){
-
-      error.classList.add(
-        "hidden"
-      );
-
-
-      if(
-        !articles ||
-        !articles.length
-      ){
-
-        content.classList.add(
-          "hidden"
-        );
-
-
-        empty.classList.remove(
-          "hidden"
-        );
-
-
-        moreBtn.style.display =
-          "none";
-
-
-        return;
-
-      }
-
-
-      content.classList.remove(
-        "hidden"
-      );
-
-
-      empty.classList.add(
-        "hidden"
-      );
-
-
-      visibleAudioCount = 3;
-
-
-      count.textContent =
-        `${articles.length} audio`;
-
-
-      renderHero(
-        articles[0]
-      );
-
-
-      renderSideNews(
-        articles.slice(
-          1,
-          5
-        )
-      );
-
-
-      renderAudioGrid();
-
-
-      startBreakingNews(
-        articles
-      );
-
-    }
-
-
-    /* =========================
-       BREAKING NEWS
-    ========================== */
-
-    function startBreakingNews(
-      articles
-    ){
-
-      if(breakingTimer){
-
-        clearInterval(
-          breakingTimer
-        );
-
-        breakingTimer = null;
-
-      }
-
-
-      const headlines =
-        articles
-          .slice(0,10)
-          .map(
-            article =>
-              String(
-                article.title ||
-                "Audio mpya"
-              )
-              .trim()
-          )
-          .filter(Boolean);
-
-
-      if(!headlines.length){
-
-        breakingText.textContent =
-          "Hakuna audio mpya kwa sasa.";
-
-
-        return;
-
-      }
-
-
-      breakingIndex = 0;
-
-
-      function showBreaking(){
-
-        const article =
-          articles[
-            breakingIndex
-          ];
-
-
-        breakingText.style.opacity =
-          "0";
-
-
-        setTimeout(
-          () => {
-
-            breakingText.textContent =
-              headlines[
-                breakingIndex
-              ];
-
-
-            breakingText.style.opacity =
-              "1";
-
-
-            if(article){
-
-              breakingText.onclick =
-                () => {
-
-                  window.location.href =
-                    articleLink(
-                      article
-                    );
-
-                };
-
-            }
-
-
-            breakingIndex++;
-
-            if(
-              breakingIndex >=
-              headlines.length
-            ){
-
-              breakingIndex = 0;
-
-            }
-
-          },
-          250
-        );
-
-      }
-
-
-      showBreaking();
-
-
-      breakingTimer =
-        setInterval(
-          showBreaking,
-          4000
-        );
-
-    }
-
-
-    /* =========================
-       SEARCH
-    ========================== */
-
-    function searchAudio(
-      term
-    ){
-
-      const query =
-        removeHTML(
-          term
-        )
-        .toLowerCase()
-        .trim();
-
-
-      if(!query){
-
-        return [];
-
-      }
-
-
-      return allAudio.filter(
-        article => {
-
-          const text = [
-
-            article.title,
-            article.intro,
-            article.content,
-            article.author,
-            "audio"
-
-          ]
-          .join(" ")
-          .toLowerCase();
-
-
-          return text.includes(
-            query
-          );
-
-        }
-      );
-
-    }
-
-
-    /* =========================
-       SEARCH SUGGESTIONS
-    ========================== */
-
-    function renderSearchSuggestions(
-      term
-    ){
-
-      const clean =
-        term.trim();
-
-
-      if(!clean){
-
-        searchSuggestions.innerHTML =
-          "";
-
-        searchSuggestions.classList.remove(
-          "active"
-        );
-
-        return;
-
-      }
-
-
-      const results =
-        searchAudio(
-          clean
-        );
-
-
-      if(!results.length){
-
-        searchSuggestions.innerHTML = `
-
-          <div class="search-no-result">
-
-            Hakuna audio inayolingana na
-            "<strong>${escapeHTML(clean)}</strong>".
-
-          </div>
-
-        `;
-
-
-        searchSuggestions.classList.add(
-          "active"
-        );
-
-
-        return;
-
-      }
-
-
-      searchSuggestions.innerHTML =
-        results
-          .slice(
-            0,
-            6
-          )
-          .map(
-            article => {
-
-              return `
-
-                <div
-                  class="search-suggestion"
-                  data-audio-id="${escapeHTML(
-                    article.id
-                  )}"
-                >
-
-                  ${
-                    getImage(article)
-                    ?
-                    `
-                      <img
-                        class="search-suggestion-image"
-                        src="${escapeHTML(
-                          getImage(article)
-                        )}"
-                        alt="${escapeHTML(
-                          article.title ||
-                          "Audio"
-                        )}"
-                      >
-                    `
-                    :
-                    `
-                      <div
-                        class="search-suggestion-image"
-                        style="
-                          display:flex;
-                          align-items:center;
-                          justify-content:center;
-                          color:#718096;
-                          font-size:20px;
-                        "
-                      >
-                        🎧
-                      </div>
-                    `
-                  }
-
-
-                  <div class="search-suggestion-content">
-
-                    <div class="search-suggestion-title">
-
-                      ${escapeHTML(
-                        article.title ||
-                        "Audio mpya"
-                      )}
-
-                    </div>
-
-
-                    <div class="search-suggestion-category">
-
-                      AUDIO •
-                      ${escapeHTML(
-                        formatDate(article)
-                      )}
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              `;
-
-            }
-          )
-          .join("");
-
-
-      searchSuggestions.classList.add(
-        "active"
-      );
-
-
-      searchSuggestions
-        .querySelectorAll(
-          "[data-audio-id]"
-        )
-        .forEach(
-          element => {
-
-            element.addEventListener(
-              "click",
-              () => {
-
-                window.location.href =
-                  "habari.html?id=" +
-                  encodeURIComponent(
-                    element.dataset.audioId
-                  );
-
-              }
-            );
-
+            `
           }
-        );
 
-    }
+        </div>
+
+      </article>
+
+    `;
+
+  }).join("");
 
 
-    searchInput.addEventListener(
-      "input",
-      () => {
+  /* SHOW AUDIO PLAYBACK ERRORS */
 
-        renderSearchSuggestions(
-          searchInput.value
-        );
+  document.querySelectorAll(".audio-card audio").forEach(player => {
 
+    player.addEventListener("error", () => {
+
+      const message =
+        player.parentElement.querySelector(".audio-error");
+
+      if (message) {
+        message.textContent =
+          "Sauti haijafunguka. Huenda URL si ya moja kwa moja ya MP3, au faili halijaruhusiwa kwa umma.";
       }
+
+    });
+
+  });
+
+}
+
+
+/* SEARCH AUDIO */
+
+searchInput.addEventListener("input", () => {
+
+  const term =
+    searchInput.value.trim().toLowerCase();
+
+  const filtered = allAudio.filter(item => {
+
+    const title =
+      String(item.title || "").toLowerCase();
+
+    const topic =
+      String(item.audioTopic || "").toLowerCase();
+
+    const description =
+      String(item.description || "").toLowerCase();
+
+    const author =
+      String(item.author || "").toLowerCase();
+
+    return (
+      title.includes(term) ||
+      topic.includes(term) ||
+      description.includes(term) ||
+      author.includes(term)
     );
 
+  });
 
-    searchInput.addEventListener(
-      "focus",
-      () => {
+  renderAudio(filtered);
 
-        renderSearchSuggestions(
-          searchInput.value
-        );
+});
 
-      }
-    );
 
+/* START */
 
-    /* =========================
-       SEARCH FORM
-    ========================== */
+loadAudio();
 
-    searchForm.addEventListener(
-      "submit",
-      event => {
-
-        event.preventDefault();
-
-
-        const term =
-          searchInput.value.trim();
-
-
-        if(!term){
-
-          searchInput.focus();
-
-          return;
-
-        }
-
-
-        const results =
-          searchAudio(
-            term
-          );
-
-
-        if(
-          results.length === 1
-        ){
-
-          window.location.href =
-            articleLink(
-              results[0]
-            );
-
-          return;
-
-        }
-
-
-        if(
-          results.length > 1
-        ){
-
-          renderSearchSuggestions(
-            term
-          );
-
-          return;
-
-        }
-
-
-        renderSearchSuggestions(
-          term
-        );
-
-      }
-    );
-
-
-    /* =========================
-       CLOSE SEARCH
-    ========================== */
-
-    document.addEventListener(
-      "click",
-      event => {
-
-        if(
-          !event.target.closest(
-            ".search-box"
-          )
-        ){
-
-          searchSuggestions.classList.remove(
-            "active"
-          );
-
-        }
-
-      }
-    );
-
-
-    /* =========================
-       MORE BUTTON
-    ========================== */
-
-    moreBtn.addEventListener(
-      "click",
-      () => {
-
-        visibleAudioCount += 3;
-
-        renderAudioGrid();
-
-      }
-    );
-
-
-    /* =========================
-       LOAD FIRESTORE
-    ========================== */
-
-    async function loadAudio(){
-
-      try{
-
-        const snapshot =
-          await getDocs(
-            collection(
-              db,
-              "articles"
-            )
-          );
-
-
-        allAudio = [];
-
-
-        snapshot.forEach(
-          doc => {
-
-            const data =
-              doc.data();
-
-
-            const category =
-              String(
-                data.category ||
-                ""
-              )
-              .trim()
-              .toLowerCase();
-
-
-            /*
-             * AUDIO INAPATIKANA
-             * KAMA CATEGORY NI AUDIO
-             */
-
-            if(
-              category !== "audio"
-            ){
-
-              return;
-
-            }
-
-
-            allAudio.push({
-
-              id:
-                doc.id,
-
-              title:
-                data.title ||
-                "",
-
-              intro:
-                data.intro ||
-                "",
-
-              content:
-                data.content ||
-                "",
-
-              category:
-                data.category ||
-                "audio",
-
-              image:
-                data.image ||
-                data.imageUrl ||
-                data.imageURL ||
-                "",
-
-              author:
-                data.author ||
-                "BINSOUD HABARI",
-
-              date:
-                data.date ||
-                "",
-
-              createdAt:
-                data.createdAt ||
-                "",
-
-              audioUrl:
-                data.audioUrl ||
-                data.audio ||
-                data.audioURL ||
-                data.audio_url ||
-                data.soundUrl ||
-                data.mp3 ||
-                data.mp3Url ||
-                data.mediaUrl ||
-                ""
-
-            });
-
-          }
-        );
-
-
-        /* =========================
-           SORT NEWEST
-        ========================== */
-
-        allAudio.sort(
-          (a,b) =>
-            getDateValue(b) -
-            getDateValue(a)
-        );
-
-
-        /* =========================
-           EMPTY
-        ========================== */
-
-        if(
-          !allAudio.length
-        ){
-
-          content.classList.add(
-            "hidden"
-          );
-
-
-          error.classList.add(
-            "hidden"
-          );
-
-
-          empty.classList.remove(
-            "hidden"
-          );
-
-
-          breakingText.textContent =
-            "Hakuna audio mpya kwa sasa.";
-
-
-          return;
-
-        }
-
-
-        /* =========================
-           SHOW CONTENT
-        ========================== */
-
-        content.classList.remove(
-          "hidden"
-        );
-
-
-        empty.classList.add(
-          "hidden"
-        );
-
-
-        error.classList.add(
-          "hidden"
-        );
-
-
-        visibleAudioCount = 3;
-
-
-        count.textContent =
-          `${allAudio.length} audio`;
-
-
-        /* HERO */
-
-        renderHero(
-          allAudio[0]
-        );
-
-
-        /* SIDE */
-
-        renderSideNews(
-          allAudio.slice(
-            1,
-            5
-          )
-        );
-
-
-        /* GRID */
-
-        renderAudioGrid();
-
-
-        /* BREAKING */
-
-        startBreakingNews(
-          allAudio
-        );
-
-
-      }catch(err){
-
-        console.error(
-          "Audio Firestore Error:",
-          err
-        );
-
-
-        content.classList.add(
-          "hidden"
-        );
-
-
-        empty.classList.add(
-          "hidden"
-        );
-
-
-        error.classList.remove(
-          "hidden"
-        );
-
-
-        errorText.textContent =
-          "Kuna tatizo la kuunganisha na Firebase. Tafadhali jaribu tena.";
-
-      }
-
-    }
-
-
-    /* =========================
-       CURRENT DATE
-    ========================== */
-
-    document.getElementById(
-      "todayDate"
-    ).textContent =
-
-      new Intl.DateTimeFormat(
-        "sw-TZ",
-        {
-          weekday:"long",
-          day:"2-digit",
-          month:"long",
-          year:"numeric"
-        }
-      ).format(
-        new Date()
-      );
-
-
-    document.getElementById(
-      "currentDate"
-    ).textContent =
-
-      new Intl.DateTimeFormat(
-        "sw-TZ",
-        {
-          weekday:"long",
-          day:"numeric",
-          month:"long",
-          year:"numeric"
-        }
-      ).format(
-        new Date()
-      );
-
-
-    /* =========================
-       START
-    ========================== */
-
-    loadAudio();
-
-  </script>
+</script>
 
 </body>
-
 </html>
