@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sw">
 <head>
@@ -189,7 +190,7 @@
     <a href="admin.html">Dashboard</a>
     <a href="audio.html">Audio</a>
     <a href="admin-audio.html">Admin Audio</a>
-    <button id="logoutBtn">Toka</button>
+    <button id="logoutBtn" type="button">Toka</button>
   </nav>
 </header>
 
@@ -371,8 +372,10 @@ function showMessage(text, type) {
 
 function showError(error) {
   console.error(error);
+
   $("errorBox").textContent =
     "Kosa: " + (error.message || String(error));
+
   $("errorBox").className = "message error";
 }
 
@@ -412,17 +415,35 @@ function normalizeAudioUrl(rawUrl) {
 
 /* AUTHENTICATION */
 
+/*
+  MUHIMU:
+  Logout inarudisha mtumiaji kwenye login.html
+  ikiwa na next=admin-audio.html.
+*/
+
 $("logoutBtn").addEventListener("click", async () => {
   try {
+    $("logoutBtn").disabled = true;
+    $("logoutBtn").textContent = "Inatoka...";
+
     await signOut(auth);
-    window.location.replace("login.html");
+
+    window.location.replace(
+      "login.html?next=admin-audio.html"
+    );
+
   } catch (error) {
     showError(error);
+
+    $("logoutBtn").disabled = false;
+    $("logoutBtn").textContent = "Toka";
   }
 });
 
+
 onAuthStateChanged(auth, async user => {
   if (authProcessing) return;
+
   authProcessing = true;
 
   try {
@@ -442,8 +463,10 @@ onAuthStateChanged(auth, async user => {
 
     if (!userSnap.exists()) {
       $("accessDenied").style.display = "block";
+
       $("adminName").textContent =
         "Akaunti haijapatikana kwenye users.";
+
       return;
     }
 
@@ -454,8 +477,10 @@ onAuthStateChanged(auth, async user => {
       userData.active !== true
     ) {
       $("accessDenied").style.display = "block";
+
       $("adminName").textContent =
         "Akaunti hii haina ruhusa za admin.";
+
       return;
     }
 
@@ -471,6 +496,7 @@ onAuthStateChanged(auth, async user => {
 
   } catch (error) {
     showError(error);
+
   } finally {
     authProcessing = false;
   }
@@ -593,6 +619,7 @@ $("audioForm").addEventListener("submit", async event => {
       "Imeshindikana kuhifadhi: " + error.message,
       "error"
     );
+
     showError(error);
 
   } finally {
@@ -606,6 +633,7 @@ $("audioForm").addEventListener("submit", async event => {
 
 function resetForm() {
   editingAudioId = null;
+
   $("audioForm").reset();
 
   $("formHeading").textContent = "Ongeza Audio Mpya";
@@ -641,6 +669,7 @@ async function loadAudio() {
       .sort((a, b) => {
         const dateA = a.createdAt?.toMillis?.() || 0;
         const dateB = b.createdAt?.toMillis?.() || 0;
+
         return dateB - dateA;
       });
 
@@ -649,6 +678,7 @@ async function loadAudio() {
     if (!audioRecords.length) {
       $("audioList").innerHTML =
         "<p>Hakuna audio iliyohifadhiwa bado.</p>";
+
       return;
     }
 
@@ -709,6 +739,7 @@ async function loadAudio() {
   } catch (error) {
     $("audioList").textContent =
       "Imeshindikana kupakia audio: " + error.message;
+
     showError(error);
   }
 }
@@ -726,10 +757,13 @@ function editAudio(id) {
   $("title").value = item.title || "";
   $("category").value = item.audioTopic || "";
   $("author").value = item.author || "";
+
   $("description").value =
     item.description || item.intro || "";
+
   $("imageUrl").value =
     item.image || item.imageUrl || "";
+
   $("audioUrl").value = item.audioUrl || "";
 
   $("formHeading").textContent = "Hariri Audio";
@@ -762,11 +796,15 @@ async function deleteAudio(id) {
     );
 
     alert("Audio imefutwa.");
+
     await loadAudio();
 
   } catch (error) {
     showError(error);
-    alert("Imeshindikana kufuta audio: " + error.message);
+
+    alert(
+      "Imeshindikana kufuta audio: " + error.message
+    );
   }
 }
 
