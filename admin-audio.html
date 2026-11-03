@@ -827,7 +827,10 @@ onAuthStateChanged(auth, async user => {
       $("adminName").textContent =
         "Hujaingia. Inaelekezwa kwenye ukurasa wa kuingia...";
 
-      window.location.replace("login.html");
+      // Baada ya login, mrudishe admin kwenye ukurasa huu.
+      window.location.replace(
+        "login.html?next=admin-audio.html"
+      );
       return;
     }
 
