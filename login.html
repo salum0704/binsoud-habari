@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="sw">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Ingia | BINSOUD HABARI</title>
 
   <style>
@@ -30,10 +28,10 @@
     }
 
     .login-box {
-      background: #ffffff;
+      background: #fff;
       border-radius: 18px;
       padding: 35px 30px;
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 45px rgba(0,0,0,.3);
     }
 
     .logo {
@@ -73,12 +71,11 @@
       border-radius: 10px;
       outline: none;
       font-size: 16px;
-      transition: 0.2s;
     }
 
     .input-group input:focus {
       border-color: #0b78a8;
-      box-shadow: 0 0 0 3px rgba(11, 120, 168, 0.12);
+      box-shadow: 0 0 0 3px rgba(11,120,168,.12);
     }
 
     .login-btn {
@@ -91,7 +88,6 @@
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      transition: 0.2s;
     }
 
     .login-btn:hover {
@@ -144,97 +140,67 @@
       font-weight: 600;
     }
 
-    .back-home:hover {
-      text-decoration: underline;
-    }
-
     .loading {
       display: inline-block;
       width: 16px;
       height: 16px;
-      border: 2px solid rgba(255,255,255,0.5);
+      border: 2px solid rgba(255,255,255,.5);
       border-top-color: white;
       border-radius: 50%;
-      animation: spin 0.7s linear infinite;
+      animation: spin .7s linear infinite;
       vertical-align: middle;
       margin-right: 7px;
     }
 
     @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+      to { transform: rotate(360deg); }
     }
   </style>
-
 </head>
 
 <body>
-
   <div class="login-container">
+    <div class="login-box">
 
-<div class="login-box">
+      <div class="logo">
+        <h1>BINSOUD HABARI</h1>
+        <p>Sehemu ya Waandishi na Wasimamizi</p>
+      </div>
 
-  <div class="logo">
-    <h1>BINSOUD HABARI</h1>
-    <p>Sehemu ya Waandishi na Wasimamizi</p>
-  </div>
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="email">Barua pepe</label>
+          <input type="email" id="email"
+            placeholder="Ingiza barua pepe"
+            autocomplete="email" required>
+        </div>
 
-  <form id="loginForm">
+        <div class="input-group">
+          <label for="password">Nenosiri</label>
+          <input type="password" id="password"
+            placeholder="Ingiza nenosiri"
+            autocomplete="current-password" required>
+        </div>
 
-    <div class="input-group">
-      <label for="email">Barua pepe</label>
+        <button type="submit" class="login-btn" id="loginBtn">
+          INGIA
+        </button>
 
-      <input
-        type="email"
-        id="email"
-        placeholder="Ingiza barua pepe"
-        autocomplete="email"
-        required
-      >
+        <div id="message"></div>
+      </form>
+
+      <a href="index.html" class="back-home">
+        ← Rudi kwenye BINSOUD HABARI
+      </a>
+
+      <div class="footer">
+        © 2026 BINSOUD HABARI
+      </div>
+
     </div>
-
-    <div class="input-group">
-      <label for="password">Nenosiri</label>
-
-      <input
-        type="password"
-        id="password"
-        placeholder="Ingiza nenosiri"
-        autocomplete="current-password"
-        required
-      >
-    </div>
-
-    <button
-      type="submit"
-      class="login-btn"
-      id="loginBtn"
-    >
-      INGIA
-    </button>
-
-    <div id="message"></div>
-
-  </form>
-
-  <a href="index.html" class="back-home">
-    ← Rudi kwenye BINSOUD HABARI
-  </a>
-
-  <div class="footer">
-    © 2026 BINSOUD HABARI
   </div>
-
-</div>
-  </div>
-
-  <!-- ==========================================
-       FIREBASE
-  =========================================== -->
 
   <script type="module">
-
     import { initializeApp }
       from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 
@@ -242,481 +208,189 @@
       getAuth,
       signInWithEmailAndPassword,
       signOut
-    }
-      from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+    } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
     import {
       getFirestore,
       doc,
       getDoc
-    }
-      from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
-
-
-    // ==========================================
-    // FIREBASE CONFIG
-    // ==========================================
+    } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
     const firebaseConfig = {
-
-      apiKey:
-        "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
-
-      authDomain:
-        "binsoud-habari-8a5fa.firebaseapp.com",
-
-      projectId:
-        "binsoud-habari-8a5fa",
-
-      storageBucket:
-        "binsoud-habari-8a5fa.firebasestorage.app",
-
-      messagingSenderId:
-        "865091074307",
-
-      appId:
-        "1:865091074307:web:27b26aa8f0f3476ef45136",
-
-      measurementId:
-        "G-MH266J0XKE"
+      apiKey: "AIzaSyCFpSNTqw9ljOFkxA-szNcNi-HmVKZU-7I",
+      authDomain: "binsoud-habari-8a5fa.firebaseapp.com",
+      projectId: "binsoud-habari-8a5fa",
+      storageBucket: "binsoud-habari-8a5fa.firebasestorage.app",
+      messagingSenderId: "865091074307",
+      appId: "1:865091074307:web:27b26aa8f0f3476ef45136",
+      measurementId: "G-MH266J0XKE"
     };
 
-
-    // ==========================================
-    // INITIALIZE FIREBASE
-    // ==========================================
-
     const app = initializeApp(firebaseConfig);
-
     const auth = getAuth(app);
-
     const db = getFirestore(app);
 
-
-    // ==========================================
-    // ELEMENTS
-    // ==========================================
-
-    const loginForm =
-      document.getElementById("loginForm");
-
-    const emailInput =
-      document.getElementById("email");
-
-    const passwordInput =
-      document.getElementById("password");
-
-    const loginBtn =
-      document.getElementById("loginBtn");
-
-    const message =
-      document.getElementById("message");
-
-
-    // ==========================================
-    // MESSAGE
-    // ==========================================
+    const loginForm = document.getElementById("loginForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const loginBtn = document.getElementById("loginBtn");
+    const message = document.getElementById("message");
 
     function showMessage(text, type = "error") {
-
       message.textContent = text;
-
-      message.className = "";
-
-      message.classList.add(type);
-
+      message.className = type;
       message.style.display = "block";
     }
 
-
     function hideMessage() {
-
       message.textContent = "";
-
       message.className = "";
-
       message.style.display = "none";
     }
 
+    // Tambua ukurasa ambao mtumiaji anataka kuufungua.
+    const params = new URLSearchParams(window.location.search);
+    const requestedPage = params.get("next");
 
-    // ==========================================
-    // LOGIN
-    // ==========================================
+    const allowedPages = [
+      "admin.html",
+      "admin-audio.html"
+    ];
 
-    loginForm.addEventListener(
-      "submit",
-      async (event) => {
+    const destination = allowedPages.includes(requestedPage)
+      ? requestedPage
+      : "admin.html";
 
-        event.preventDefault();
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      hideMessage();
 
-        hideMessage();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
 
+      if (!email || !password) {
+        showMessage("Tafadhali jaza barua pepe na nenosiri.");
+        return;
+      }
 
-        const email =
-          emailInput.value.trim();
+      loginBtn.disabled = true;
+      loginBtn.innerHTML =
+        '<span class="loading"></span> Inaingia...';
 
-        const password =
-          passwordInput.value;
+      try {
+        const credential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
 
+        const user = credential.user;
 
-        // ======================================
-        // VALIDATION
-        // ======================================
+        const userRef = doc(db, "users", user.uid);
+        const userSnapshot = await getDoc(userRef);
 
-        if (!email || !password) {
-
+        if (!userSnapshot.exists()) {
+          await signOut(auth);
           showMessage(
-            "Tafadhali jaza barua pepe na nenosiri."
+            "Profile ya mtumiaji haipo Firestore: users/" + user.uid
           );
-
           return;
         }
 
+        const userData = userSnapshot.data();
 
-        // ======================================
-        // LOADING
-        // ======================================
-
-        loginBtn.disabled = true;
-
-        loginBtn.innerHTML =
-          '<span class="loading"></span> Inaingia...';
-
-
-        try {
-
-          // ====================================
-          // 1. FIREBASE AUTH LOGIN
-          // ====================================
-
-          const credential =
-            await signInWithEmailAndPassword(
-              auth,
-              email,
-              password
-            );
-
-
-          const user =
-            credential.user;
-
-
-          console.log(
-            "LOGIN SUCCESS"
-          );
-
-          console.log(
-            "UID:",
-            user.uid
-          );
-
-          console.log(
-            "EMAIL:",
-            user.email
-          );
-
-
-          // ====================================
-          // 2. FIRESTORE USER PROFILE
-          // ====================================
-
-          const userRef =
-            doc(
-              db,
-              "users",
-              user.uid
-            );
-
-
-          const userSnapshot =
-            await getDoc(userRef);
-
-
-          console.log(
-            "PROFILE EXISTS:",
-            userSnapshot.exists()
-          );
-
-
-          // ====================================
-          // 3. PROFILE NOT FOUND
-          // ====================================
-
-          if (!userSnapshot.exists()) {
-
-            await signOut(auth);
-
-            showMessage(
-              "Login imefanikiwa kwenye Firebase Authentication, lakini profile ya mtumiaji haipo Firestore. Tafadhali hakikisha document ipo: users/" +
-              user.uid
-            );
-
-            return;
-          }
-
-
-          // ====================================
-          // 4. GET PROFILE DATA
-          // ====================================
-
-          const userData =
-            userSnapshot.data();
-
-
-          console.log(
-            "USER PROFILE:",
-            userData
-          );
-
-
-          console.log(
-            "ROLE:",
-            userData.role
-          );
-
-
-          console.log(
-            "ACTIVE:",
-            userData.active
-          );
-
-
-          console.log(
-            "ACTIVE TYPE:",
-            typeof userData.active
-          );
-
-
-          // ====================================
-          // 5. CHECK ACTIVE
-          // ====================================
-
-          if (userData.active !== true) {
-
-            await signOut(auth);
-
-            showMessage(
-              "Akaunti hii haijawezeshwa. Hakikisha users/" +
-              user.uid +
-              " ina active = true kama Boolean."
-            );
-
-            return;
-          }
-
-
-          // ====================================
-          // 6. ADMIN
-          // ====================================
-
-          if (userData.role === "admin") {
-
-            // Ruhusu kurudi kwenye ukurasa ulioombwa tu.
-            // Hii inazuia redirect kwenda URL nyingine zisizo salama.
-            const params = new URLSearchParams(
-              window.location.search
-            );
-
-            const requestedPage = params.get("next");
-            const allowedPages = [
-              "admin.html",
-              "admin-audio.html"
-            ];
-
-            const destination = allowedPages.includes(requestedPage)
-              ? requestedPage
-              : "admin.html";
-
-            showMessage(
-              "Umefanikiwa kuingia. Unaelekezwa kwenye ukurasa wa usimamizi...",
-              "success"
-            );
-
-            // Firebase Auth hutumia local persistence kwa chaguo-msingi.
-            // Subiri kidogo ili ujumbe uonekane kabla ya kuelekeza.
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-            window.location.replace(destination);
-            return;
-          }
-
-
-          // ====================================
-          // 7. WRITER
-          // ====================================
-
-          if (userData.role === "writer") {
-
-            showMessage(
-              "Umefanikiwa kuingia. Unaelekezwa Writer Panel...",
-              "success"
-            );
-
-
-            await new Promise(
-              resolve => setTimeout(resolve, 300)
-            );
-
-
-            window.location.replace(
-              "writer.html"
-            );
-
-            return;
-          }
-
-
-          // ====================================
-          // 8. UNKNOWN ROLE
-          // ====================================
-
+        if (userData.active !== true) {
           await signOut(auth);
-
           showMessage(
-            "Akaunti imeingia lakini role haijatambulika. Role iliyopatikana: " +
-            String(userData.role)
+            "Akaunti hii haijawezeshwa. Hakikisha active = true."
           );
-
+          return;
         }
 
-
-        // ========================================
-        // FIREBASE ERRORS
-        // ========================================
-
-        catch (error) {
-
-          console.error(
-            "FIREBASE ERROR:",
-            error
-          );
-
-
-          console.error(
-            "ERROR CODE:",
-            error.code
-          );
-
-
-          console.error(
-            "ERROR MESSAGE:",
-            error.message
-          );
-
-
-          let errorMessage =
-            "Imeshindikana kuingia.";
-
-
-          switch (error.code) {
-
-            case "auth/invalid-credential":
-
-              errorMessage =
-                "Barua pepe au nenosiri si sahihi.";
-
-              break;
-
-
-            case "auth/invalid-email":
-
-              errorMessage =
-                "Muundo wa barua pepe si sahihi.";
-
-              break;
-
-
-            case "auth/user-not-found":
-
-              errorMessage =
-                "Akaunti hii haipo kwenye Firebase Authentication.";
-
-              break;
-
-
-            case "auth/wrong-password":
-
-              errorMessage =
-                "Nenosiri si sahihi.";
-
-              break;
-
-
-            case "auth/user-disabled":
-
-              errorMessage =
-                "Akaunti hii imezimwa kwenye Firebase Authentication.";
-
-              break;
-
-
-            case "auth/too-many-requests":
-
-              errorMessage =
-                "Majaribio ya kuingia yamekuwa mengi. Subiri kidogo kisha ujaribu tena.";
-
-              break;
-
-
-            case "auth/network-request-failed":
-
-              errorMessage =
-                "Hakuna muunganisho mzuri wa internet.";
-
-              break;
-
-
-            case "auth/api-key-not-valid.-please-pass-a-valid-api-key.":
-
-              errorMessage =
-                "Firebase API Key si sahihi. Hakikisha umetumia API Key ya project binsoud-habari-8a5fa.";
-
-              break;
-
-
-            case "permission-denied":
-
-              errorMessage =
-                "Firestore imekataa kusoma users/" +
-                email +
-                ". Kagua Firestore Security Rules.";
-
-              break;
-
-
-            default:
-
-              errorMessage =
-                "Kosa la Firebase: " +
-                (error.code || "unknown-error") +
-                " — " +
-                (error.message || "Hakuna maelezo.");
-          }
-
-
+        if (userData.role === "admin") {
           showMessage(
-            errorMessage
+            "Umefanikiwa kuingia. Unaelekezwa...",
+            "success"
           );
 
+          await new Promise(resolve => setTimeout(resolve, 500));
+
+          window.location.replace(destination);
+          return;
         }
 
+        if (userData.role === "writer") {
+          showMessage(
+            "Umefanikiwa kuingia. Unaelekezwa Writer Panel...",
+            "success"
+          );
 
-        // ========================================
-        // RESET BUTTON
-        // ========================================
+          await new Promise(resolve => setTimeout(resolve, 500));
 
-        finally {
-
-          loginBtn.disabled = false;
-
-          loginBtn.textContent =
-            "INGIA";
+          window.location.replace("writer.html");
+          return;
         }
 
+        await signOut(auth);
+
+        showMessage(
+          "Role ya akaunti hii haijatambulika: " +
+          String(userData.role)
+        );
+
+      } catch (error) {
+        console.error("FIREBASE ERROR:", error);
+
+        let errorMessage = "Imeshindikana kuingia.";
+
+        switch (error.code) {
+          case "auth/invalid-credential":
+            errorMessage = "Barua pepe au nenosiri si sahihi.";
+            break;
+
+          case "auth/invalid-email":
+            errorMessage = "Muundo wa barua pepe si sahihi.";
+            break;
+
+          case "auth/user-not-found":
+            errorMessage = "Akaunti hii haipo Firebase Authentication.";
+            break;
+
+          case "auth/wrong-password":
+            errorMessage = "Nenosiri si sahihi.";
+            break;
+
+          case "auth/user-disabled":
+            errorMessage = "Akaunti hii imezimwa.";
+            break;
+
+          case "auth/too-many-requests":
+            errorMessage = "Majaribio yamekuwa mengi. Subiri kidogo.";
+            break;
+
+          case "auth/network-request-failed":
+            errorMessage = "Hakuna muunganisho mzuri wa internet.";
+            break;
+
+          case "permission-denied":
+            errorMessage = "Firestore imekataa kusoma taarifa za mtumiaji.";
+            break;
+
+          default:
+            errorMessage =
+              "Kosa la Firebase: " +
+              (error.code || "unknown-error") +
+              " — " +
+              (error.message || "Hakuna maelezo.");
+        }
+
+        showMessage(errorMessage);
+
+      } finally {
+        loginBtn.disabled = false;
+        loginBtn.textContent = "INGIA";
       }
-    );
-
+    });
   </script>
-
 </body>
 </html>
