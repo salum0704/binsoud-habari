@@ -1,4 +1,6 @@
+
 /* BINSOUD HABARI shared advertising placements */
+
 .bh-ad-slot {
   box-sizing: border-box;
   margin: 18px auto;
@@ -10,8 +12,14 @@
   border: 1px solid #e4e9f0;
   border-radius: 10px;
 }
-.bh-ad-slot[hidden], .bh-sponsored-slot[hidden] { display: none !important; }
-.bh-ad-label, .bh-sponsored-label {
+
+.bh-ad-slot[hidden],
+.bh-sponsored-slot[hidden] {
+  display: none !important;
+}
+
+.bh-ad-label,
+.bh-sponsored-label {
   display: block;
   margin: 0 0 7px;
   color: #778397;
@@ -19,14 +27,25 @@
   font-weight: 700;
   letter-spacing: .12em;
 }
+
+/* PICHA ZA MATANGAZO */
 .bh-ad-slot img {
   display: block;
   width: 100%;
-  max-height: 230px;
+  height: auto;
+  max-height: none;
   object-fit: contain;
   margin: 0 auto;
+  border-radius: 6px;
 }
-.bh-ad-slot iframe, .bh-ad-slot video {
+
+.bh-ad-click {
+  display: block;
+  width: 100%;
+}
+
+.bh-ad-slot iframe,
+.bh-ad-slot video {
   display: block;
   width: 100%;
   max-height: 300px;
@@ -35,8 +54,14 @@
   object-fit: contain;
   margin: 0 auto;
 }
-.bh-ad-click { display: block; }
-.bh-ad-caption { padding-top: 6px; color: #526071; font-size: 12px; }
+
+.bh-ad-caption {
+  padding-top: 6px;
+  color: #526071;
+  font-size: 12px;
+}
+
+/* TANGAZO LA PEMBENI */
 .bh-sidebar-slot {
   float: right;
   width: min(27%, 260px);
@@ -47,9 +72,26 @@
   border: 1px solid #e4e9f0;
   border-radius: 10px;
   text-align: center;
+  box-sizing: border-box;
 }
-.bh-sidebar-slot img { width: 100%; height: auto; display: block; }
-.bh-sidebar-slot iframe, .bh-sidebar-slot video { width: 100%; aspect-ratio: 4 / 5; border: 0; }
+
+.bh-sidebar-slot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.bh-sidebar-slot iframe,
+.bh-sidebar-slot video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border: 0;
+}
+
+/* MAKALA YA UDHAMINI */
 .bh-sponsored-slot {
   clear: both;
   margin: 20px 0;
@@ -58,17 +100,76 @@
   border: 1px solid #f0dfb6;
   border-radius: 12px;
 }
-.bh-sponsored-label { color: #946200; }
-.bh-sponsored-card { display: flex; align-items: flex-start; gap: 14px; text-align: left; }
-.bh-sponsored-card img { width: 180px; max-width: 35%; height: auto; object-fit: cover; border-radius: 8px; }
-.bh-sponsored-card h2 { margin: 0 0 8px; font-size: 19px; }
-.bh-sponsored-card h2 a { color: inherit; text-decoration: none; }
-.bh-sponsored-card p { margin: 0; line-height: 1.6; }
+
+.bh-sponsored-label {
+  color: #946200;
+}
+
+.bh-sponsored-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+}
+
+.bh-sponsored-card img {
+  width: 180px;
+  max-width: 35%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bh-sponsored-card h2 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+.bh-sponsored-card h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bh-sponsored-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* SIMU */
 @media (max-width: 700px) {
-  .bh-ad-slot { margin: 12px auto; padding: 7px; }
-  .bh-ad-slot img { max-height: 150px; }
-  .bh-ad-slot iframe, .bh-ad-slot video { aspect-ratio: 16 / 9; max-height: 220px; }
-  .bh-sidebar-slot { float: none; width: 100%; min-width: 0; max-width: 360px; margin: 14px auto; }
-  .bh-sponsored-card { display: block; }
-  .bh-sponsored-card img { width: 100%; max-width: 100%; max-height: 190px; margin-bottom: 10px; }
+  .bh-ad-slot {
+    margin: 12px auto;
+    padding: 7px;
+  }
+
+  .bh-ad-slot img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .bh-ad-slot iframe,
+  .bh-ad-slot video {
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+  }
+
+  .bh-sidebar-slot {
+    float: none;
+    width: 100%;
+    min-width: 0;
+    max-width: 360px;
+    margin: 14px auto;
+  }
+
+  .bh-sponsored-card {
+    display: block;
+  }
+
+  .bh-sponsored-card img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 250px;
+    margin-bottom: 10px;
+  }
 }
