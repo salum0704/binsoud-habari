@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tangaza biashara, huduma au taasisi yako kupitia BINSOUD HABARI. Chagua kifurushi cha matangazo na wasiliana nasi.">
+  <title>Tangaza Nasi | BINSOUD HABARI</title>
+  <style>
+    :root { --navy:#102a43; --blue:#1769aa; --gold:#f2b544; --ink:#243b53; --muted:#627d98; --bg:#f4f7fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--ink); background:var(--bg); line-height:1.65; }
+    header { background:var(--navy); color:#fff; padding:28px 18px; text-align:center; }
+    header h1 { margin:0 0 6px; font-size:clamp(1.7rem,4vw,2.4rem); }
+    header p { margin:0; color:#d9e7f5; }
+    nav { background:#fff; padding:12px; text-align:center; box-shadow:0 2px 8px #102a4312; }
+    nav a { color:var(--blue); text-decoration:none; margin:0 10px; font-weight:700; }
+    main { width:min(1000px,92%); margin:30px auto; }
+    .intro, .payment, .contact { background:#fff; border-radius:14px; padding:22px; margin-bottom:22px; box-shadow:0 5px 20px #102a430d; }
+    h2 { color:var(--navy); margin-top:0; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+    .plan { background:#fff; border:1px solid #d9e2ec; border-radius:14px; padding:20px; box-shadow:0 5px 18px #102a430a; }
+    .plan h3 { color:var(--navy); margin:0 0 6px; }
+    .price { color:var(--blue); font-size:1.55rem; font-weight:800; margin:8px 0; }
+    .tag { display:inline-block; background:#fff4d6; color:#805b10; padding:4px 9px; border-radius:20px; font-size:.8rem; font-weight:700; }
+    .btn { display:inline-block; background:#1769aa; color:#fff; text-decoration:none; padding:12px 18px; border-radius:8px; font-weight:700; margin-top:8px; }
+    .btn:hover { background:#0e4f86; }
+    .notice { background:#fff8e8; border-left:4px solid var(--gold); padding:12px 14px; border-radius:6px; }
+    .muted { color:var(--muted); }
+    footer { text-align:center; color:#d9e7f5; background:var(--navy); padding:20px; margin-top:40px; }
+    @media (max-width:520px) { nav a { display:inline-block; margin:5px 7px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BINSOUD HABARI</h1>
+    <p>Jukwaa la habari na matangazo ya biashara</p>
+  </header>
+  <nav>
+    <a href="index.html">Mwanzo</a>
+    <a href="about.html">Kuhusu Sisi</a>
+    <a href="contact.html">Wasiliana Nasi</a>
+    <a href="privacy-policy.html">Sera ya Faragha</a>
+  </nav>
+
+  <main>
+    <section class="intro">
+      <span class="tag">TANGAZA NASI</span>
+      <h2>Fikisha ujumbe wa biashara yako kwa wasomaji wa BINSOUD HABARI</h2>
+      <p>Tunakaribisha kampuni, taasisi, shule, vyuo, maduka na watoa huduma kutangaza bidhaa au huduma zao kupitia tovuti yetu.</p>
+      <p>Chagua kifurushi kinachokufaa, kisha wasiliana nasi ili kupanga nafasi na muda wa tangazo.</p>
+    </section>
+
+    <section>
+      <h2>Bei za matangazo — Starter</h2>
+      <div class="grid">
+        <article class="plan">
+          <h3>Bango la juu</h3><p class="muted">Linaonekana sehemu ya juu ya tovuti.</p>
+          <div class="price">TSh 20,000</div><p>Kwa wiki 1</p>
+          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20bango%20la%20juu%20kwa%20wiki%20moja.">Omba nafasi</a>
+        </article>
+        <article class="plan">
+          <h3>Bango la juu</h3><p class="muted">Nafasi ya tangazo la mwezi mzima.</p>
+          <div class="price">TSh 60,000</div><p>Kwa mwezi 1</p>
+          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20bango%20la%20juu%20kwa%20mwezi%20mmoja.">Omba nafasi</a>
+        </article>
+        <article class="plan">
+          <h3>Tangazo la pembeni</h3><p class="muted">Nafasi ya tangazo kwenye sehemu ya pembeni.</p>
+          <div class="price">TSh 30,000</div><p>Kwa mwezi 1</p>
+          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20tangazo%20la%20pembeni%20kwa%20mwezi%20mmoja.">Omba nafasi</a>
+        </article>
+        <article class="plan">
+          <h3>Tangazo ukurasa wa mwanzo</h3><p class="muted">Tangazo kwenye ukurasa mkuu wa tovuti.</p>
+          <div class="price">TSh 40,000</div><p>Kwa mwezi 1</p>
+          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20tangazo%20kwenye%20ukurasa%20wa%20mwanzo.">Omba nafasi</a>
+        </article>
+        <article class="plan">
+          <h3>Makala ya udhamini</h3><p class="muted">Makala kuhusu bidhaa, huduma au taasisi yako, ikiwa imewekewa alama ya udhamini.</p>
+          <div class="price">TSh 50,000</div><p>Kwa makala 1</p>
+          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20makala%20ya%20udhamini.">Omba huduma</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="payment" style="margin-top:24px">
+      <h2>Malipo</h2>
+      <p><strong>Njia ya malipo:</strong> Mixx by Yas</p>
+      <p><strong>Namba ya simu:</strong> 0777-101192</p>
+      <div class="notice">
+        <strong>Tafadhali zingatia:</strong> Wasiliana nasi kwanza ili kuthibitisha kiasi, jina la mpokeaji na maelekezo sahihi ya malipo. Usitume fedha kabla ya kuthibitisha jina la mpokeaji linaloonyeshwa kwenye simu yako. Hifadhi ujumbe wa uthibitisho wa muamala.
+      </div>
+      <p class="muted">Baada ya kuthibitisha malipo, tutakubaliana tarehe ya kuanza na kumalizika kwa tangazo. Nafasi ya tangazo itachapishwa baada ya malipo kuthibitishwa.</p>
+    </section>
+
+    <section class="contact">
+      <h2>Weka tangazo lako leo</h2>
+      <p>Tuandikie jina la kampuni/taasisi, aina ya tangazo unalohitaji na muda unaopendelea.</p>
+      <p><strong>WhatsApp:</strong> 0777-101192<br>
+         <strong>Barua pepe:</strong> binsoud2@gmail.com</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20kutangaza%20biashara%20yangu.%20Naomba%20maelezo%20ya%20nafasi%20na%20bei.">Wasiliana nasi WhatsApp</a>
+      <p class="muted">Bei zinaweza kujadiliwa kwa kampeni maalumu au matangazo ya muda mrefu.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 BINSOUD HABARI. Haki zote zimehifadhiwa.</p>
+  </footer>
+</body>
+</html>
