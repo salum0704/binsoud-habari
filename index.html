@@ -180,6 +180,10 @@ main{padding:28px 0 45px}
 .business-ad-card{padding:0;margin:0;overflow:hidden;background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
 .business-ad-card a{display:block;cursor:pointer}
 .business-ad-card img{display:block;width:100%;height:auto;aspect-ratio:8/3;object-fit:contain;background:#fff}
+.business-ad-card video,.business-ad-card iframe{display:block;width:100%;aspect-ratio:16/9;height:auto;border:0;background:#111}
+.business-ad-card-content{padding:10px 12px}
+.business-ad-card-content h3{font-size:15px;color:var(--blue-dark);margin-bottom:4px}
+.business-ad-card-content p{font-size:13px;color:var(--muted)}
 .business-ads:has(.business-ads-grid:empty){display:none}
 
 .newsletter{margin-top:30px;background:var(--blue);color:#fff;padding:30px;border-radius:var(--radius)}
@@ -282,6 +286,11 @@ footer h3{margin-bottom:10px}
 <main>
 <div class="container">
 
+  <section class="business-ads" id="matangazo">
+    <div class="section-title"><h2>MATANGAZO</h2></div>
+    <div id="businessAdsGrid" class="business-ads-grid"></div>
+  </section>
+
   <div class="section-title"><h2>Habari Kuu</h2></div>
   <section class="hero-grid">
     <div id="heroBox"></div>
@@ -328,11 +337,6 @@ footer h3{margin-bottom:10px}
       <span class="radio-status" id="radioStatus" role="status" aria-live="polite">Bonyeza kucheza redio mubashara.</span>
     </div>
     <audio class="radio-audio" id="radioAudio" preload="none" src="https://binsoudhabari2.out.airtime.pro/binsoudhabari2_a?utm_source=chatgpt.com"></audio>
-  </section>
-
-  <section class="business-ads" id="matangazo">
-    <div class="section-title"><h2>MATANGAZO</h2></div>
-    <div id="businessAdsGrid" class="business-ads-grid"></div>
   </section>
 
   <section class="newsletter">
@@ -459,6 +463,15 @@ function getAdLink(ad) {
     ad.targetURL || ad.clickUrl || ad.link || ad.url || "";
 }
 
+function getAdVideo(ad) {
+  return ad.videoUrl || ad.videoURL || ad.video_url ||
+    ad.video || ad.videoLink || ad.video_link || ad.mediaUrl || "";
+}
+
+function getAdTitle(ad) {
+  return String(ad.title || ad.businessName || ad.name || "").trim();
+}
+
 function isAdActive(ad) {
   if (ad.active === false || ad.isActive === false ||
       ad.enabled === false || ad.published === false) return false;
@@ -469,16 +482,38 @@ function isAdActive(ad) {
 
 function renderAdCard(ad) {
   const image = safeUrl(getAdImage(ad));
-  if (!image) return "";
-
+  const video = safeUrl(getAdVideo(ad));
   const link = safeUrl(getAdLink(ad));
-  const img = `<img src="${escapeHtml(image)}" alt="Tangazo" loading="lazy" decoding="async">`;
+  const title = escapeHtml(getAdTitle(ad));
+  const description = escapeHtml(ad.description || ad.caption || "");
+  const type = String(ad.mediaType || ad.type || "").toLowerCase();
+  const useVideo = Boolean(video) && (
+    ["video", "mp4", "youtube"].includes(type) || !image
+  );
 
-  if (link) {
-    return `<article class="business-ad-card"><a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${img}</a></article>`;
+  if (!image && !video) return "";
+
+  let media = "";
+  if (useVideo) {
+    const youtubeId = getYouTubeId(video);
+    const poster = safeUrl(ad.poster || ad.thumbnail || ad.thumbnailUrl || image);
+    if (youtubeId) {
+      media = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(youtubeId)}" title="${title || "Tangazo la video"}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+    } else {
+      media = `<video controls playsinline preload="metadata"${poster ? ` poster="${escapeHtml(poster)}"` : ""}><source src="${escapeHtml(video)}">Kivinjari chako hakiwezi kucheza video hii.</video>`;
+    }
+  } else {
+    const img = `<img src="${escapeHtml(image)}" alt="${title || "Tangazo"}" loading="lazy" decoding="async">`;
+    media = link
+      ? `<a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${img}</a>`
+      : img;
   }
 
-  return `<article class="business-ad-card">${img}</article>`;
+  const details = title || description
+    ? `<div class="business-ad-card-content">${title ? `<h3>${title}</h3>` : ""}${description ? `<p>${description}</p>` : ""}${useVideo && link ? `<p><a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Tembelea hapa →</a></p>` : ""}</div>`
+    : (useVideo && link ? `<div class="business-ad-card-content"><a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Tembelea hapa →</a></div>` : "");
+
+  return `<article class="business-ad-card">${media}${details}</article>`;
 }
 
 async function loadBusinessAds() {
@@ -490,7 +525,7 @@ async function loadBusinessAds() {
       const ads = snapshot.docs
         .map(doc => ({ id: doc.id, ...doc.data() }))
         .filter(isAdActive)
-        .filter(ad => safeUrl(getAdImage(ad)));
+        .filter(ad => safeUrl(getAdImage(ad)) || safeUrl(getAdVideo(ad)));
 
       businessAdsGrid.innerHTML = ads.map(renderAdCard).join("");
       adsSection.hidden = ads.length === 0;
