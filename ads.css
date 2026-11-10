@@ -1,0 +1,74 @@
+/* BINSOUD HABARI shared advertising placements */
+.bh-ad-slot {
+  box-sizing: border-box;
+  margin: 18px auto;
+  padding: 10px;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  background: #f7f9fc;
+  border: 1px solid #e4e9f0;
+  border-radius: 10px;
+}
+.bh-ad-slot[hidden], .bh-sponsored-slot[hidden] { display: none !important; }
+.bh-ad-label, .bh-sponsored-label {
+  display: block;
+  margin: 0 0 7px;
+  color: #778397;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+.bh-ad-slot img {
+  display: block;
+  width: 100%;
+  max-height: 230px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.bh-ad-slot iframe, .bh-ad-slot video {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  aspect-ratio: 16 / 5;
+  border: 0;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.bh-ad-click { display: block; }
+.bh-ad-caption { padding-top: 6px; color: #526071; font-size: 12px; }
+.bh-sidebar-slot {
+  float: right;
+  width: min(27%, 260px);
+  min-width: 170px;
+  margin: 0 0 18px 20px;
+  padding: 9px;
+  background: #f7f9fc;
+  border: 1px solid #e4e9f0;
+  border-radius: 10px;
+  text-align: center;
+}
+.bh-sidebar-slot img { width: 100%; height: auto; display: block; }
+.bh-sidebar-slot iframe, .bh-sidebar-slot video { width: 100%; aspect-ratio: 4 / 5; border: 0; }
+.bh-sponsored-slot {
+  clear: both;
+  margin: 20px 0;
+  padding: 14px;
+  background: #fffaf0;
+  border: 1px solid #f0dfb6;
+  border-radius: 12px;
+}
+.bh-sponsored-label { color: #946200; }
+.bh-sponsored-card { display: flex; align-items: flex-start; gap: 14px; text-align: left; }
+.bh-sponsored-card img { width: 180px; max-width: 35%; height: auto; object-fit: cover; border-radius: 8px; }
+.bh-sponsored-card h2 { margin: 0 0 8px; font-size: 19px; }
+.bh-sponsored-card h2 a { color: inherit; text-decoration: none; }
+.bh-sponsored-card p { margin: 0; line-height: 1.6; }
+@media (max-width: 700px) {
+  .bh-ad-slot { margin: 12px auto; padding: 7px; }
+  .bh-ad-slot img { max-height: 150px; }
+  .bh-ad-slot iframe, .bh-ad-slot video { aspect-ratio: 16 / 9; max-height: 220px; }
+  .bh-sidebar-slot { float: none; width: 100%; min-width: 0; max-width: 360px; margin: 14px auto; }
+  .bh-sponsored-card { display: block; }
+  .bh-sponsored-card img { width: 100%; max-width: 100%; max-height: 190px; margin-bottom: 10px; }
+}
