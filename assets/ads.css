@@ -1,6 +1,7 @@
 
-/* BINSOUD HABARI shared advertising placements */
+/* BINSOUD HABARI - ADVERTISING SYSTEM */
 
+/* MATANGAZO YA JUU NA CHINI */
 .bh-ad-slot {
   box-sizing: border-box;
   margin: 18px auto;
@@ -11,6 +12,7 @@
   background: #f7f9fc;
   border: 1px solid #e4e9f0;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .bh-ad-slot[hidden],
@@ -18,6 +20,7 @@
   display: none !important;
 }
 
+/* MAANDISHI YA TANGAZO */
 .bh-ad-label,
 .bh-sponsored-label {
   display: block;
@@ -28,13 +31,14 @@
   letter-spacing: .12em;
 }
 
-/* PICHA ZA MATANGAZO */
+/* PICHA WIDE - INAJAZA ENEO LOTE */
 .bh-ad-slot img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 280px;
   max-height: none;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   margin: 0 auto;
   border-radius: 6px;
 }
@@ -44,17 +48,20 @@
   width: 100%;
 }
 
+/* VIDEO ZA MATANGAZO */
 .bh-ad-slot iframe,
 .bh-ad-slot video {
   display: block;
   width: 100%;
+  height: 280px;
   max-height: 300px;
   aspect-ratio: 16 / 5;
   border: 0;
-  object-fit: contain;
+  object-fit: cover;
   margin: 0 auto;
 }
 
+/* MAELEZO YA TANGAZO */
 .bh-ad-caption {
   padding-top: 6px;
   color: #526071;
@@ -73,13 +80,14 @@
   border-radius: 10px;
   text-align: center;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .bh-sidebar-slot img {
   display: block;
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 6px;
 }
 
@@ -135,21 +143,27 @@
   line-height: 1.6;
 }
 
-/* SIMU */
+/* MUONEKANO WA SIMU */
 @media (max-width: 700px) {
+
   .bh-ad-slot {
     margin: 12px auto;
-    padding: 7px;
+    padding: 5px;
+    width: 100%;
   }
 
   .bh-ad-slot img {
     width: 100%;
-    height: auto;
+    height: 150px;
     max-height: none;
+    object-fit: cover;
+    object-position: center;
   }
 
   .bh-ad-slot iframe,
   .bh-ad-slot video {
+    width: 100%;
+    height: 180px;
     aspect-ratio: 16 / 9;
     max-height: 220px;
   }
