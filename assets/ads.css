@@ -1,222 +1,199 @@
 
-/* ========================================
-   BINSOUD HABARI - ADVERTISING SYSTEM
-======================================== */
+/* =================================
+   BINSOUD HABARI - MATANGAZO
+================================= */
 
-/* MATANGAZO YA JUU NA CHINI */
+/* BANGO LA JUU NA CHINI */
 .bh-ad-slot {
-  box-sizing: border-box;
-  margin: 18px auto;
-  padding: 10px;
-  width: 100%;
-  max-width: 1100px;
-  text-align: center;
-  background: #f7f9fc;
-  border: 1px solid #e4e9f0;
-  border-radius: 10px;
-  overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1100px;
+    height: 200px;
+    margin: 18px auto;
+    padding: 9px;
+    text-align: center;
+    background: #f7f9fc;
+    border: 1px solid #e4e9f0;
+    border-radius: 10px;
 }
 
 .bh-ad-slot[hidden],
 .bh-sponsored-slot[hidden] {
-  display: none !important;
+    display: none !important;
 }
 
-/* MAANDISHI YA TANGAZO */
 .bh-ad-label,
 .bh-sponsored-label {
-  display: block;
-  margin: 0 0 7px;
-  color: #778397;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .12em;
+    display: block;
+    margin: 0 0 7px;
+    color: #778397;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
 }
 
 /* PICHA ZA JUU NA CHINI */
 .bh-ad-slot img {
-  display: block;
-  width: 100%;
-  height: 180px;
-  max-height: none;
-  object-fit: fill;
-  object-position: center;
-  margin: 0 auto;
-  border-radius: 6px;
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: fill;
+    margin: 0 auto;
+}
+
+/* VIDEO ZA JUU NA CHINI */
+.bh-ad-slot iframe,
+.bh-ad-slot video {
+    display: block;
+    width: 100%;
+    height: 180px;
+    border: 0;
+    object-fit: contain;
+    margin: 0 auto;
 }
 
 .bh-ad-click {
-  display: block;
-  width: 100%;
+    display: block;
 }
 
-/* VIDEO ZA MATANGAZO */
-.bh-ad-slot iframe,
-.bh-ad-slot video {
-  display: block;
-  width: 100%;
-  height: 280px;
-  max-height: 300px;
-  aspect-ratio: 16 / 5;
-  border: 0;
-  object-fit: contain;
-  margin: 0 auto;
-}
-
-/* MAELEZO YA TANGAZO */
 .bh-ad-caption {
-  padding-top: 6px;
-  color: #526071;
-  font-size: 12px;
+    padding-top: 6px;
+    color: #526071;
+    font-size: 12px;
 }
 
-/* ========================================
-   TANGAZO LA PEMBENI - SIDEBAR
-   UREFU WA PICHA: 360px
-======================================== */
+/* =================================
+   BANGO LA PEMBENI
+================================= */
 
 .bh-sidebar-slot {
-  float: right;
-  width: min(27%, 260px);
-  min-width: 170px;
-  height: 380px;
-  margin: 0 0 18px 20px;
-  padding: 9px;
-  background: #f7f9fc;
-  border: 1px solid #e4e9f0;
-  border-radius: 10px;
-  text-align: center;
-  box-sizing: border-box;
-  overflow: hidden;
+    box-sizing: border-box;
+    float: right;
+    width: min(27%, 260px);
+    min-width: 170px;
+    height: 200px;
+    margin: 0 0 18px 20px;
+    padding: 9px;
+    background: #f7f9fc;
+    border: 1px solid #e4e9f0;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .bh-sidebar-slot img {
-  display: block;
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 6px;
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    object-position: center;
 }
 
 .bh-sidebar-slot iframe,
 .bh-sidebar-slot video {
-  display: block;
-  width: 100%;
-  height: 360px;
-  aspect-ratio: 4 / 5;
-  border: 0;
+    display: block;
+    width: 100%;
+    height: 180px;
+    border: 0;
+    object-fit: contain;
 }
 
-/* ========================================
-   MAKALA YA UDHAMINI
-======================================== */
+/* =================================
+   SPONSORED ARTICLE
+================================= */
 
 .bh-sponsored-slot {
-  clear: both;
-  margin: 20px 0;
-  padding: 14px;
-  background: #fffaf0;
-  border: 1px solid #f0dfb6;
-  border-radius: 12px;
+    clear: both;
+    margin: 20px 0;
+    padding: 14px;
+    background: #fffaf0;
+    border: 1px solid #f0dfb6;
+    border-radius: 12px;
 }
 
 .bh-sponsored-label {
-  color: #946200;
+    color: #946200;
 }
 
 .bh-sponsored-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    text-align: left;
 }
 
 .bh-sponsored-card img {
-  width: 180px;
-  max-width: 35%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
+    width: 180px;
+    max-width: 35%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .bh-sponsored-card h2 {
-  margin: 0 0 8px;
-  font-size: 19px;
+    margin: 0 0 8px;
+    font-size: 19px;
 }
 
 .bh-sponsored-card h2 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 .bh-sponsored-card p {
-  margin: 0;
-  line-height: 1.6;
+    margin: 0;
+    line-height: 1.6;
 }
 
-/* ========================================
-   MUONEKANO WA SIMU
-======================================== */
+/* =================================
+   SIMU
+================================= */
 
 @media (max-width: 700px) {
 
-  /* MATANGAZO YA JUU NA CHINI */
-  .bh-ad-slot {
-    margin: 12px auto;
-    padding: 5px;
-    width: 100%;
-  }
+    .bh-ad-slot {
+        height: 130px;
+        margin: 12px auto;
+        padding: 7px;
+    }
 
-  .bh-ad-slot img {
-    width: 100%;
-    height: 110px;
-    max-height: none;
-    object-fit: fill;
-    object-position: center;
-  }
+    .bh-ad-slot img {
+        height: 110px;
+        object-fit: fill;
+    }
 
-  .bh-ad-slot iframe,
-  .bh-ad-slot video {
-    width: 100%;
-    height: 180px;
-    aspect-ratio: 16 / 9;
-    max-height: 220px;
-  }
+    .bh-ad-slot iframe,
+    .bh-ad-slot video {
+        height: 110px;
+        aspect-ratio: 16 / 9;
+    }
 
-  /* TANGAZO LA PEMBENI KWENYE SIMU */
-  .bh-sidebar-slot {
-    float: none;
-    width: 100%;
-    min-width: 0;
-    max-width: 360px;
-    height: 380px;
-    margin: 14px auto;
-  }
+    .bh-sidebar-slot {
+        float: none;
+        width: 100%;
+        min-width: 0;
+        max-width: 360px;
+        height: 130px;
+        margin: 14px auto;
+    }
 
-  .bh-sidebar-slot img {
-    display: block;
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    object-position: center;
-  }
+    .bh-sidebar-slot img {
+        height: 110px;
+        object-fit: contain;
+    }
 
-  .bh-sidebar-slot iframe,
-  .bh-sidebar-slot video {
-    width: 100%;
-    height: 360px;
-  }
+    .bh-sidebar-slot iframe,
+    .bh-sidebar-slot video {
+        height: 110px;
+    }
 
-  /* MAKALA YA UDHAMINI */
-  .bh-sponsored-card {
-    display: block;
-  }
+    .bh-sponsored-card {
+        display: block;
+    }
 
-  .bh-sponsored-card img {
-    width: 100%;
-    max-width: 100%;
-    max-height: 250px;
-    margin-bottom: 10px;
-  }
+    .bh-sponsored-card img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 190px;
+        margin-bottom: 10px;
+    }
 }
