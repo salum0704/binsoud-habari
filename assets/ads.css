@@ -1,5 +1,7 @@
 
-/* BINSOUD HABARI - ADVERTISING SYSTEM */
+/* ========================================
+   BINSOUD HABARI - ADVERTISING SYSTEM
+======================================== */
 
 /* MATANGAZO YA JUU NA CHINI */
 .bh-ad-slot {
@@ -31,7 +33,7 @@
   letter-spacing: .12em;
 }
 
-/* PICHA ZA JUU NA CHINI */
+/* PICHA ZA JUU NA CHINI - WIDE */
 .bh-ad-slot img {
   display: block;
   width: 100%;
@@ -68,12 +70,16 @@
   font-size: 12px;
 }
 
-/* TANGAZO LA PEMBENI */
+/* ========================================
+   TANGAZO LA PEMBENI - SIDEBAR
+   UREFU WA PICHA: 250px
+======================================== */
+
 .bh-sidebar-slot {
   float: right;
   width: min(27%, 260px);
   min-width: 170px;
-  height: 320px;
+  height: 270px;
   margin: 0 0 18px 20px;
   padding: 9px;
   background: #f7f9fc;
@@ -87,7 +93,7 @@
 .bh-sidebar-slot img {
   display: block;
   width: 100%;
-  height: 300px;
+  height: 250px;
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
@@ -97,12 +103,15 @@
 .bh-sidebar-slot video {
   display: block;
   width: 100%;
-  height: 300px;
+  height: 250px;
   aspect-ratio: 4 / 5;
   border: 0;
 }
 
-/* MAKALA YA UDHAMINI */
+/* ========================================
+   MAKALA YA UDHAMINI
+======================================== */
+
 .bh-sponsored-slot {
   clear: both;
   margin: 20px 0;
@@ -146,8 +155,13 @@
   line-height: 1.6;
 }
 
-/* MUONEKANO WA SIMU */
+/* ========================================
+   MUONEKANO WA SIMU
+======================================== */
+
 @media (max-width: 700px) {
+
+  /* MATANGAZO YA JUU NA CHINI */
   .bh-ad-slot {
     margin: 12px auto;
     padding: 5px;
@@ -159,6 +173,7 @@
     height: 110px;
     max-height: none;
     object-fit: cover;
+    object-position: center;
   }
 
   .bh-ad-slot iframe,
@@ -169,21 +184,31 @@
     max-height: 220px;
   }
 
+  /* TANGAZO LA PEMBENI KWENYE SIMU */
   .bh-sidebar-slot {
     float: none;
     width: 100%;
     min-width: 0;
     max-width: 360px;
-    height: 320px;
+    height: 270px;
     margin: 14px auto;
   }
 
   .bh-sidebar-slot img {
+    display: block;
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
+    object-position: center;
   }
 
+  .bh-sidebar-slot iframe,
+  .bh-sidebar-slot video {
+    width: 100%;
+    height: 250px;
+  }
+
+  /* MAKALA YA UDHAMINI */
   .bh-sponsored-card {
     display: block;
   }
