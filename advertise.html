@@ -2,324 +2,332 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tangaza biashara, huduma au taasisi yako kupitia BINSOUD HABARI. Wasiliana nasi kupata nafasi na maelezo ya matangazo.">
-  <title>Tangaza Nasi | BINSOUD HABARI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tangaza biashara yako kupitia BINSOUD HABARI. Fahamu kuhusu sisi, wasiliana nasi na soma sera yetu ya faragha.">
+<title>Tangaza Nasi | BINSOUD HABARI</title>
 
-  <style>
-    :root {
-      --navy: #102a43;
-      --blue: #1769aa;
-      --gold: #f2b544;
-      --ink: #243b53;
-      --muted: #627d98;
-      --bg: #f4f7fb;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.65;
-    }
-
-    header {
-      background: linear-gradient(120deg, #102a43, #1769aa);
-      color: white;
-      padding: 30px 18px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0 0 6px;
-      font-size: clamp(1.7rem, 4vw, 2.4rem);
-    }
-
-    header p {
-      margin: 0;
-      color: #d9e7f5;
-    }
-
-    nav {
-      background: white;
-      padding: 13px 10px;
-      text-align: center;
-      box-shadow: 0 2px 8px #102a4312;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav a {
-      color: var(--blue);
-      text-decoration: none;
-      margin: 5px 10px;
-      font-weight: 700;
-      display: inline-block;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--navy);
-      text-decoration: underline;
-    }
-
-    main {
-      width: min(1000px, 92%);
-      margin: 30px auto;
-    }
-
-    .intro, .contact, .notice-box {
-      background: white;
-      border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 5px 20px #102a430d;
-    }
-
-    h2 { color: var(--navy); margin-top: 0; }
-
-    .tag {
-      display: inline-block;
-      background: #fff4d6;
-      color: #805b10;
-      padding: 4px 11px;
-      border-radius: 20px;
-      font-size: .8rem;
-      font-weight: 700;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 17px;
-      margin: 18px 0 25px;
-    }
-
-    .plan {
-      background: white;
-      border: 1px solid #d9e2ec;
-      border-radius: 14px;
-      padding: 21px;
-      box-shadow: 0 5px 18px #102a430a;
-    }
-
-    .plan h3 {
-      color: var(--navy);
-      margin: 0 0 8px;
-    }
-
-    .plan p { color: var(--muted); }
-
-    .btn {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: 700;
-      margin-top: 8px;
-    }
-
-    .btn:hover { background: #0e4f86; }
-
-    .notice-box {
-      background: #fff8e8;
-      border-left: 4px solid var(--gold);
-    }
-
-    .muted { color: var(--muted); }
-
-    footer {
-      text-align: center;
-      color: #d9e7f5;
-      background: var(--navy);
-      padding: 22px 15px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-      margin: 5px 9px;
-      display: inline-block;
-    }
-
-    @media (max-width: 520px) {
-      nav a { margin: 5px 7px; font-size: 14px; }
-      .intro, .contact, .notice-box { padding: 18px; }
-    }
-  </style>
+<style>
+:root {
+  --navy:#102a43;
+  --blue:#1769aa;
+  --gold:#f2b544;
+  --ink:#243b53;
+  --muted:#627d98;
+  --bg:#f4f7fb;
+}
+* { box-sizing:border-box; scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.7;
+}
+header {
+  background:linear-gradient(120deg,#102a43,#1769aa);
+  color:white;
+  padding:30px 18px;
+  text-align:center;
+}
+header h1 { margin:0 0 5px; }
+header p { margin:0; color:#d9e7f5; }
+nav {
+  background:white;
+  padding:13px 8px;
+  text-align:center;
+  box-shadow:0 2px 8px #102a4312;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+nav a {
+  display:inline-block;
+  color:var(--blue);
+  text-decoration:none;
+  margin:5px 9px;
+  font-weight:bold;
+  font-size:14px;
+}
+nav a:hover { color:var(--navy); text-decoration:underline; }
+main { width:min(1000px,92%); margin:28px auto; }
+section {
+  background:white;
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:25px;
+  box-shadow:0 5px 20px #102a430d;
+  scroll-margin-top:90px;
+}
+h2 { color:var(--navy); margin-top:0; }
+h3 { color:var(--blue); }
+.tag {
+  display:inline-block;
+  background:#fff4d6;
+  color:#805b10;
+  padding:4px 11px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:17px;
+}
+.plan {
+  background:#fff;
+  border:1px solid #d9e2ec;
+  border-radius:14px;
+  padding:20px;
+}
+.plan h3 { margin-top:0; color:var(--navy); }
+.btn {
+  display:inline-block;
+  background:var(--blue);
+  color:white;
+  text-decoration:none;
+  padding:11px 17px;
+  border-radius:8px;
+  font-weight:bold;
+  margin-top:8px;
+}
+.btn:hover { background:#0e4f86; }
+.notice {
+  background:#fff8e8;
+  border-left:4px solid var(--gold);
+  padding:14px;
+  border-radius:6px;
+}
+.muted { color:var(--muted); }
+footer {
+  text-align:center;
+  color:#d9e7f5;
+  background:var(--navy);
+  padding:22px 15px;
+  margin-top:40px;
+}
+footer a {
+  color:white;
+  text-decoration:none;
+  margin:5px 8px;
+  display:inline-block;
+}
+@media(max-width:600px) {
+  nav a { margin:5px 6px; font-size:13px; }
+  section { padding:18px; }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>BINSOUD HABARI</h1>
-    <p>Habari Sahihi, Wakati Sahihi.</p>
-    <p>Jukwaa la habari na matangazo ya biashara</p>
-  </header>
+<header>
+  <h1>BINSOUD HABARI</h1>
+  <p>Habari Sahihi, Wakati Sahihi.</p>
+  <p>Jukwaa la habari na matangazo ya biashara</p>
+</header>
 
-  <nav>
-    <a href="index.html">Mwanzo</a>
-    <a href="about.html">Kuhusu Sisi</a>
-    <a href="contact.html">Wasiliana Nasi</a>
-    <a href="privacy-policy.html">Sera ya Faragha</a>
-    <a href="tangaza.html" class="active">Tangaza Nasi</a>
-  </nav>
+<nav>
+  <a href="#tangaza">Tangaza Nasi</a>
+  <a href="#kuhusu">Kuhusu Sisi</a>
+  <a href="#wasiliana">Wasiliana Nasi</a>
+  <a href="#faragha">Sera ya Faragha</a>
+</nav>
 
-  <main>
+<main>
 
-    <section class="intro">
-      <span class="tag">TANGAZA NASI</span>
+<!-- TANGAZA NASI -->
+<section id="tangaza">
+  <span class="tag">TANGAZA NASI</span>
+  <h2>Fikisha ujumbe wa biashara yako kwa wasomaji wa BINSOUD HABARI</h2>
 
-      <h2>Fikisha ujumbe wa biashara yako kwa wasomaji wa BINSOUD HABARI</h2>
+  <p>
+    Tunakaribisha kampuni, taasisi, shule, vyuo, maduka,
+    mashirika na watoa huduma kutangaza bidhaa au huduma zao
+    kupitia tovuti yetu.
+  </p>
 
-      <p>
-        Tunakaribisha kampuni, taasisi, shule, vyuo, maduka,
-        mashirika na watoa huduma kutangaza bidhaa au huduma zao
-        kupitia tovuti yetu.
-      </p>
+  <p>
+    Chagua aina ya tangazo unalohitaji, kisha wasiliana nasi
+    ili kupata maelezo kuhusu nafasi, muda na gharama.
+  </p>
 
-      <p>
-        BINSOUD HABARI inakupa nafasi ya kufikisha ujumbe wako
-        kwa wasomaji wa ndani na nje ya Tanzania.
-      </p>
+  <h2>Nafasi za Matangazo</h2>
 
-      <p>
-        Chagua aina ya tangazo unalohitaji kisha wasiliana nasi
-        kwa maelezo zaidi kuhusu nafasi, muda na gharama.
-      </p>
-    </section>
+  <div class="grid">
 
-    <section>
-      <h2>Nafasi za matangazo</h2>
+    <article class="plan">
+      <h3>Bango la juu</h3>
+      <p class="muted">Tangazo lako huonekana sehemu ya juu ya tovuti.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20bango%20la%20juu.">Omba maelezo</a>
+    </article>
 
-      <div class="grid">
+    <article class="plan">
+      <h3>Tangazo la pembeni</h3>
+      <p class="muted">Nafasi ya tangazo kwenye sehemu ya pembeni ya tovuti.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20tangazo%20la%20pembeni.">Omba maelezo</a>
+    </article>
 
-        <article class="plan">
-          <h3>Bango la juu</h3>
-          <p>
-            Tangazo lako huonekana katika sehemu ya juu ya tovuti
-            ili kuwafikia wasomaji wanapotembelea kurasa zetu.
-          </p>
-          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20bango%20la%20juu.">
-            Omba maelezo
-          </a>
-        </article>
+    <article class="plan">
+      <h3>Bango la chini</h3>
+      <p class="muted">Tangazo kwenye sehemu ya chini ya tovuti.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20bango%20la%20chini.">Omba maelezo</a>
+    </article>
 
-        <article class="plan">
-          <h3>Tangazo la pembeni</h3>
-          <p>
-            Nafasi ya kuweka bango la biashara au huduma yako
-            kwenye sehemu ya pembeni ya tovuti.
-          </p>
-          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20tangazo%20la%20pembeni.">
-            Omba maelezo
-          </a>
-        </article>
+    <article class="plan">
+      <h3>Tangazo ukurasa wa mwanzo</h3>
+      <p class="muted">Tangazo kwenye ukurasa mkuu wa tovuti.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20tangazo%20la%20ukurasa%20wa%20mwanzo.">Omba maelezo</a>
+    </article>
 
-        <article class="plan">
-          <h3>Bango la chini</h3>
-          <p>
-            Tangazo huwekwa katika sehemu ya chini ya kurasa
-            za tovuti ili kuwafikia wasomaji.
-          </p>
-          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20bango%20la%20chini.">
-            Omba maelezo
-          </a>
-        </article>
+    <article class="plan">
+      <h3>Makala ya udhamini</h3>
+      <p class="muted">Makala kuhusu bidhaa, huduma au taasisi yako yenye alama ya udhamini.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20makala%20ya%20udhamini.">Omba maelezo</a>
+    </article>
 
-        <article class="plan">
-          <h3>Tangazo ukurasa wa mwanzo</h3>
-          <p>
-            Tangazo lako huwekwa kwenye ukurasa mkuu wa
-            BINSOUD HABARI.
-          </p>
-          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20tangazo%20la%20ukurasa%20wa%20mwanzo.">
-            Omba maelezo
-          </a>
-        </article>
+  </div>
 
-        <article class="plan">
-          <h3>Makala ya udhamini</h3>
-          <p>
-            Tunakupa nafasi ya kuwasilisha maelezo kuhusu
-            bidhaa, huduma au taasisi yako kupitia makala
-            yenye alama ya udhamini.
-          </p>
-          <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20makala%20ya%20udhamini.">
-            Omba maelezo
-          </a>
-        </article>
+  <div class="notice">
+    <strong>Maelezo kuhusu bei:</strong>
+    Gharama za matangazo ni siri ya biashara na hazitawekwa hadharani.
+    Tafadhali wasiliana nasi ili kupata bei na masharti ya nafasi
+    unayohitaji.
+  </div>
 
-      </div>
-    </section>
+  <p>
+    <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20kutangaza%20biashara%20yangu.">Wasiliana nasi WhatsApp</a>
+  </p>
+</section>
 
-    <section class="notice-box">
-      <h2>Maelezo kuhusu gharama za matangazo</h2>
+<!-- KUHUSU SISI -->
+<section id="kuhusu">
+  <span class="tag">ABOUT US</span>
+  <h2>Kuhusu Sisi</h2>
 
-      <p>
-        Tunathamini faragha ya wateja wetu. Kwa hiyo,
-        gharama za matangazo hazijawekwa hadharani kwenye tovuti.
-      </p>
+  <p>
+    <strong>BINSOUD HABARI</strong> ni jukwaa la habari mtandaoni
+    linalolenga kutoa taarifa sahihi, za kuaminika, na zenye
+    kuzingatia maadili ya taaluma ya uandishi wa habari.
+  </p>
 
-      <p>
-        Bei na masharti ya matangazo hutolewa moja kwa moja
-        baada ya mteja kuwasiliana nasi na kueleza aina ya
-        tangazo analohitaji.
-      </p>
+  <p>Tunajikita katika kuhabarisha, kuelimisha, na kuhamasisha jamii kupitia:</p>
+  <ul>
+    <li>Habari</li>
+    <li>Makala</li>
+    <li>Mahojiano</li>
+    <li>Uchambuzi wa masuala mbalimbali yanayogusa maisha ya kila siku</li>
+  </ul>
 
-      <p><strong>Wasiliana nasi kwa bei na maelezo ya nafasi zilizopo.</strong></p>
-    </section>
+  <p>Tunatoa kipaumbele kwa masuala ya:</p>
+  <ul>
+    <li>Kijamii</li>
+    <li>Afya</li>
+    <li>Mazingira</li>
+    <li>Maendeleo</li>
+    <li>Dini</li>
+    <li>Matukio ya kitaifa na kimataifa</li>
+  </ul>
 
-    <section class="contact">
-      <h2>Weka tangazo lako leo</h2>
+  <p>Lengo letu ni kujenga jamii yenye uelewa na maamuzi sahihi.</p>
 
-      <p>
-        Unapowasiliana nasi, tafadhali tueleze jina la kampuni
-        au taasisi yako, aina ya tangazo unalohitaji na muda
-        unaopendelea.
-      </p>
+  <h3>🎯 Dira Yetu (Vision)</h3>
+  <p>Kuwa jukwaa linaloongoza kwa utoaji wa habari sahihi na zenye ushawishi chanya katika jamii.</p>
 
-      <p>
-        <strong>WhatsApp:</strong> 0777 101 192
-      </p>
+  <h3>🎯 Dhima Yetu (Mission)</h3>
+  <p>Kutoa habari kwa wakati, kwa usahihi na kwa kuzingatia maadili ya taaluma ya uandishi wa habari, ili kuimarisha uelewa na maendeleo ya jamii.</p>
 
-      <p>
-        <strong>Barua pepe:</strong>
-        <a href="mailto:binsoud2@gmail.com">binsoud2@gmail.com</a>
-      </p>
+  <h3>🎯 Maadili Yetu (Core Values)</h3>
+  <ul>
+    <li><strong>Ukweli</strong> – Tunatanguliza ukweli katika kila taarifa.</li>
+    <li><strong>Uadilifu</strong> – Tunazingatia maadili ya kazi ya uandishi wa habari.</li>
+    <li><strong>Uwajibikaji</strong> – Tunawajibika kwa jamii na kwa tunachochapisha.</li>
+    <li><strong>Weledi</strong> – Tunafanya kazi kwa umakini na ubora.</li>
+  </ul>
+</section>
 
-      <a class="btn"
-         href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20kutangaza%20biashara%20yangu.%20Naomba%20maelezo%20ya%20nafasi%20na%20gharama.">
-        Wasiliana nasi WhatsApp
-      </a>
+<!-- WASILIANA NASI -->
+<section id="wasiliana">
+  <span class="tag">CONTACT US</span>
+  <h2>Wasiliana Nasi</h2>
 
-      <p class="muted">
-        Tutakujibu na kukupa maelezo kuhusu nafasi, gharama
-        na utaratibu wa kuweka tangazo lako.
-      </p>
-    </section>
+  <p>
+    Asante kwa kutembelea <strong>BINSOUD HABARI</strong>.
+    Tunathamini maoni, ushauri, taarifa na michango ya wasomaji wetu.
+    Ikiwa una habari, pendekezo la makala, tangazo au maoni yoyote,
+    tafadhali wasiliana nasi kupitia njia zifuatazo:
+  </p>
 
-  </main>
+  <p><strong>📞 Simu:</strong><br>0777 101 192</p>
 
-  <footer>
-    <p>&copy; 2026 BINSOUD HABARI. Haki zote zimehifadhiwa.</p>
+  <p><strong>📧 Barua Pepe:</strong><br>
+    <a href="mailto:binsoud2@gmail.com">binsoud2@gmail.com</a>
+  </p>
 
-    <p>
-      <a href="index.html">Mwanzo</a>
-      <a href="about.html">Kuhusu Sisi</a>
-      <a href="contact.html">Wasiliana Nasi</a>
-      <a href="privacy-policy.html">Sera ya Faragha</a>
-      <a href="tangaza.html">Tangaza Nasi</a>
-    </p>
-  </footer>
+  <p><strong>📍 Mahali:</strong><br>Zanzibar, Tanzania</p>
+
+  <a class="btn" href="https://wa.me/255777101192">Tuma ujumbe WhatsApp</a>
+</section>
+
+<!-- SERA YA FARAGHA -->
+<section id="faragha">
+  <span class="tag">PRIVACY POLICY</span>
+  <h2>Sera ya Faragha – BINSOUD HABARI</h2>
+
+  <p><strong>Imesasishwa: 01 Machi 2026</strong></p>
+
+  <p>
+    BINSOUD HABARI inaheshimu faragha ya wasomaji wake.
+    Tunaweza kukusanya taarifa chache kama anwani ya IP,
+    aina ya kifaa, na takwimu za matumizi ya tovuti ili
+    kuboresha huduma zetu.
+  </p>
+
+  <h3>Matangazo</h3>
+  <p>
+    Tovuti hii hutumia <strong>Google AdSense</strong>.
+    Google inaweza kutumia cookies kuonyesha matangazo
+    kulingana na ziara zako kwenye tovuti hii au tovuti nyingine.
+    Unaweza kudhibiti matangazo kupitia:
+    <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">
+      Google Ads Policy
+    </a>.
+  </p>
+
+  <h3>Cookies</h3>
+  <p>
+    Tunatumia cookies kuboresha uzoefu wa mtumiaji.
+    Unaweza kuzima cookies kupitia mipangilio ya kivinjari chako.
+  </p>
+
+  <h3>Viungo vya Nje</h3>
+  <p>
+    Blog inaweza kuwa na viungo vinavyoelekeza kwenye tovuti nyingine.
+    Hatuhusiki na sera za faragha za tovuti hizo.
+  </p>
+
+  <h3>Ridhaa</h3>
+  <p>
+    Kwa kutumia BINSOUD HABARI, unakubali sera hii ya faragha.
+  </p>
+
+  <h3>Mawasiliano</h3>
+  <p>
+    📧 Email:
+    <a href="mailto:binsoud2@gmail.com">binsoud2@gmail.com</a>
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 BINSOUD HABARI. Haki zote zimehifadhiwa.</p>
+  <a href="#tangaza">Tangaza Nasi</a>
+  <a href="#kuhusu">Kuhusu Sisi</a>
+  <a href="#wasiliana">Wasiliana Nasi</a>
+  <a href="#faragha">Sera ya Faragha</a>
+</footer>
 
 </body>
 </html>
