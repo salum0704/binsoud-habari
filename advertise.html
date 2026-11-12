@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="sw">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Tangaza biashara yako kupitia BINSOUD HABARI. Fahamu kuhusu sisi, wasiliana nasi na soma sera yetu ya faragha.">
+<meta name="description" content="Tangaza biashara yako kupitia BINSOUD HABARI. Soma kuhusu sisi, wasiliana nasi na fahamu sera yetu ya faragha.">
 <title>Tangaza Nasi | BINSOUD HABARI</title>
 
 <style>
@@ -22,23 +21,20 @@ body {
   font-family:Arial,Helvetica,sans-serif;
   color:var(--ink);
   background:var(--bg);
-  line-height:1.7;
+  line-height:1.6;
 }
 header {
   background:linear-gradient(120deg,#102a43,#1769aa);
   color:white;
-  padding:30px 18px;
+  padding:28px 18px;
   text-align:center;
 }
 header h1 { margin:0 0 5px; }
-header h1 a {
-  color:white;
-  text-decoration:none;
-}
+header h1 a { color:white; text-decoration:none; }
 header p { margin:0; color:#d9e7f5; }
 nav {
   background:white;
-  padding:13px 8px;
+  padding:11px 8px;
   text-align:center;
   box-shadow:0 2px 8px #102a4312;
   position:sticky;
@@ -49,7 +45,7 @@ nav a {
   display:inline-block;
   color:var(--blue);
   text-decoration:none;
-  margin:5px 9px;
+  margin:5px 8px;
   font-weight:bold;
   font-size:14px;
 }
@@ -61,17 +57,17 @@ nav a.home-link {
   border-radius:6px;
 }
 nav a.home-link:hover { background:var(--navy); }
-main { width:min(1000px,92%); margin:28px auto; }
+main { width:min(1000px,92%); margin:26px auto; }
 section {
   background:white;
   border-radius:14px;
-  padding:24px;
-  margin-bottom:25px;
+  padding:23px;
+  margin-bottom:22px;
   box-shadow:0 5px 20px #102a430d;
-  scroll-margin-top:90px;
+  scroll-margin-top:85px;
 }
-h2 { color:var(--navy); margin-top:0; }
-h3 { color:var(--blue); }
+h2 { color:var(--navy); margin-top:0; line-height:1.3; }
+h3 { color:var(--blue); margin-bottom:7px; }
 .tag {
   display:inline-block;
   background:#fff4d6;
@@ -84,13 +80,13 @@ h3 { color:var(--blue); }
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:17px;
+  gap:15px;
 }
 .plan {
   background:#fff;
   border:1px solid #d9e2ec;
-  border-radius:14px;
-  padding:20px;
+  border-radius:12px;
+  padding:18px;
 }
 .plan h3 { margin-top:0; color:var(--navy); }
 .btn {
@@ -98,25 +94,31 @@ h3 { color:var(--blue); }
   background:var(--blue);
   color:white;
   text-decoration:none;
-  padding:11px 17px;
+  padding:10px 15px;
   border-radius:8px;
   font-weight:bold;
-  margin-top:8px;
+  margin:6px 5px 0 0;
 }
 .btn:hover { background:#0e4f86; }
 .notice {
   background:#fff8e8;
   border-left:4px solid var(--gold);
-  padding:14px;
+  padding:13px;
   border-radius:6px;
+  margin-top:18px;
 }
 .muted { color:var(--muted); }
+.contact-number {
+  display:inline-block;
+  margin:4px 12px 4px 0;
+  font-weight:bold;
+}
 footer {
   text-align:center;
   color:#d9e7f5;
   background:var(--navy);
   padding:22px 15px;
-  margin-top:40px;
+  margin-top:35px;
 }
 footer a {
   color:white;
@@ -150,327 +152,131 @@ footer a:hover { text-decoration:underline; }
 
 <main>
 
-<!-- TANGAZA NASI -->
 <section id="tangaza">
   <span class="tag">TANGAZA NASI</span>
   <h2>Fikisha ujumbe wa biashara yako kwa wasomaji wa BINSOUD HABARI</h2>
-
-  <p>
-    Tunakaribisha kampuni, taasisi, shule, vyuo, maduka,
-    mashirika na watoa huduma kutangaza bidhaa au huduma zao
-    kupitia tovuti yetu.
-  </p>
-
-  <p>
-    Chagua aina ya tangazo unalohitaji, kisha wasiliana nasi
-    ili kupata maelezo kuhusu nafasi, muda na gharama.
-  </p>
+  <p>Tunakaribisha kampuni, taasisi, maduka na watoa huduma kutangaza bidhaa au huduma zao kupitia tovuti yetu.</p>
+  <p>Chagua nafasi ya tangazo, kisha wasiliana nasi kwa maelezo ya muda na gharama.</p>
 
   <h2>Nafasi za Matangazo</h2>
-
   <div class="grid">
-
     <article class="plan">
       <h3>Bango la juu</h3>
-      <p class="muted">Tangazo lako huonekana sehemu ya juu ya tovuti.</p>
-      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20bango%20la%20juu.">Omba maelezo</a>
+      <p class="muted">Tangazo sehemu ya juu ya tovuti.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%2C%20naomba%20maelezo%20kuhusu%20bango%20la%20juu.">Omba maelezo</a>
     </article>
 
     <article class="plan">
       <h3>Tangazo la pembeni</h3>
-      <p class="muted">Nafasi ya tangazo kwenye sehemu ya pembeni ya tovuti.</p>
-      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20tangazo%20la%20pembeni.">Omba maelezo</a>
+      <p class="muted">Tangazo kwenye sehemu ya pembeni.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%2C%20naomba%20maelezo%20kuhusu%20tangazo%20la%20pembeni.">Omba maelezo</a>
     </article>
 
     <article class="plan">
       <h3>Bango la chini</h3>
-      <p class="muted">Tangazo kwenye sehemu ya chini ya tovuti.</p>
-      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20bango%20la%20chini.">Omba maelezo</a>
+      <p class="muted">Tangazo sehemu ya chini ya tovuti.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%2C%20naomba%20maelezo%20kuhusu%20bango%20la%20chini.">Omba maelezo</a>
     </article>
 
     <article class="plan">
       <h3>Tangazo ukurasa wa mwanzo</h3>
-      <p class="muted">Tangazo kwenye ukurasa mkuu wa tovuti.</p>
-      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20tangazo%20la%20ukurasa%20wa%20mwanzo.">Omba maelezo</a>
+      <p class="muted">Tangazo kwenye ukurasa mkuu.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%2C%20naomba%20maelezo%20kuhusu%20tangazo%20la%20ukurasa%20wa%20mwanzo.">Omba maelezo</a>
     </article>
 
     <article class="plan">
       <h3>Makala ya udhamini</h3>
-      <p class="muted">Makala kuhusu bidhaa, huduma au taasisi yako yenye alama ya udhamini.</p>
-      <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20maelezo%20kuhusu%20makala%20ya%20udhamini.">Omba maelezo</a>
+      <p class="muted">Makala kuhusu bidhaa, huduma au taasisi yako.</p>
+      <a class="btn" href="https://wa.me/255777101192?text=Habari%2C%20naomba%20maelezo%20kuhusu%20makala%20ya%20udhamini.">Omba maelezo</a>
     </article>
-
   </div>
 
   <div class="notice">
-    <strong>Maelezo kuhusu bei:</strong>
-    Gharama za matangazo ni siri ya biashara na hazitawekwa hadharani.
-    Tafadhali wasiliana nasi ili kupata bei na masharti ya nafasi
-    unayohitaji.
+    <strong>Bei za matangazo:</strong> Bei hazijawekwa hadharani. Wasiliana nasi ili kupata gharama na masharti.
   </div>
-
   <p>
-    <a class="btn" href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nahitaji%20kutangaza%20biashara%20yangu.">Wasiliana nasi WhatsApp</a>
+    <a class="btn" href="https://wa.me/255777101192?text=Habari%2C%20nahitaji%20kutangaza%20biashara%20yangu%20kupitia%20BINSOUD%20HABARI.">Wasiliana nasi WhatsApp</a>
   </p>
 </section>
 
 <section id="kuhusu">
   <span class="tag">ABOUT US</span>
   <h2>Kuhusu BINSOUD HABARI</h2>
+  <p><strong>BINSOUD HABARI</strong> ni jukwaa la habari mtandaoni linalowafikishia wasomaji taarifa za ndani na nje ya nchi.</p>
+  <p>Tovuti yetu inajumuisha habari za kitaifa na kimataifa, dini, michezo, mazingira, burudani, siasa, uchumi, makala, video, audio na redio mubashara.</p>
 
-  <p>
-    <strong>BINSOUD HABARI</strong> ni jukwaa la habari mtandaoni
-    linalolenga kuwafikishia wasomaji taarifa mbalimbali za ndani
-    na nje ya nchi kwa wakati. Tunajikita katika kuhabarisha,
-    kuelimisha na kuhamasisha jamii kupitia habari, makala na
-    maudhui mbalimbali ya kidijitali.
-  </p>
+  <h3>Dira Yetu</h3>
+  <p>Kuwa jukwaa la habari linaloaminika na lenye mchango chanya kwa jamii.</p>
 
-  <p>
-    Kupitia tovuti yetu, wasomaji wanaweza kupata habari na taarifa
-    katika maeneo mbalimbali yakiwemo:
-  </p>
+  <h3>Dhima Yetu</h3>
+  <p>Kutoa habari kwa wakati na kwa kuzingatia ukweli, usahihi na maadili ya uandishi wa habari.</p>
 
+  <h3>Maadili Yetu</h3>
   <ul>
-    <li>Habari za Kitaifa na Kimataifa</li>
-    <li>Dini na masuala ya kijamii</li>
-    <li>Michezo na burudani</li>
-    <li>Mazingira na maendeleo</li>
-    <li>Siasa na uchumi</li>
-    <li>Makala na uchambuzi</li>
-    <li>Video na maudhui ya sauti (Audio)</li>
-    <li>Matangazo ya redio mubashara</li>
-  </ul>
-
-  <h3>Dira Yetu (Vision)</h3>
-  <p>
-    Kuwa jukwaa la habari linaloaminika na linalochangia
-    kuijenga jamii yenye uelewa kupitia taarifa sahihi,
-    zenye manufaa na zinazotolewa kwa wakati.
-  </p>
-
-  <h3>Dhima Yetu (Mission)</h3>
-  <p>
-    Kutoa na kusambaza habari, makala na maudhui mbalimbali
-    kwa kuzingatia ukweli, usahihi, uwajibikaji na maadili
-    ya taaluma ya uandishi wa habari.
-  </p>
-
-  <h3>Maadili Yetu (Our Values)</h3>
-  <ul>
-    <li><strong>Ukweli:</strong> Kutanguliza ukweli na usahihi wa taarifa.</li>
-    <li><strong>Uadilifu:</strong> Kuzingatia maadili ya uandishi wa habari.</li>
-    <li><strong>Uwajibikaji:</strong> Kuwajibika kwa taarifa tunazochapisha.</li>
+    <li><strong>Ukweli:</strong> Kutanguliza taarifa sahihi.</li>
+    <li><strong>Uadilifu:</strong> Kuzingatia maadili ya uandishi.</li>
+    <li><strong>Uwajibikaji:</strong> Kuwajibika kwa tunachochapisha.</li>
     <li><strong>Weledi:</strong> Kufanya kazi kwa umakini na ubora.</li>
-    <li><strong>Uwazi:</strong> Kujenga uhusiano mzuri na wasomaji wetu.</li>
   </ul>
-
-  <p>
-    Lengo letu ni kuwaunganisha wasomaji na taarifa muhimu,
-    kuwapa nafasi ya kujifunza na kuchangia katika maendeleo
-    ya jamii.
-  </p>
 </section>
-  
+
 <section id="wasiliana">
   <span class="tag">CONTACT US</span>
-  <h2>Wasiliana na BINSOUD HABARI</h2>
-
-  <p>
-    Tunathamini maoni, ushauri na ushirikiano kutoka kwa
-    wasomaji wetu. BINSOUD HABARI inakaribisha taarifa za
-    habari, mapendekezo ya makala, maoni, ushirikiano wa
-    kibiashara na maombi ya kutangaza bidhaa au huduma.
-  </p>
-
-  <p>
-    Unaweza kuwasiliana nasi kupitia njia zifuatazo:
-  </p>
+  <h2>Wasiliana Nasi</h2>
+  <p>Una habari, maoni, pendekezo au unahitaji kutangaza? Tunafurahi kusikia kutoka kwako.</p>
 
   <h3>Simu na WhatsApp</h3>
   <p>
-    <a href="tel:+255777101192">+255 777 101 192</a>
+    <span class="contact-number"><a href="tel:+255777101192">0777 101 192</a></span>
+    <span class="contact-number"><a href="tel:+255623587223">0623 587 223</a></span>
   </p>
   <p>
-    <a class="btn"
-       href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nimekutembelea%20kupitia%20tovuti%20yenu.">
-       Wasiliana nasi WhatsApp
-    </a>
+    <a class="btn" href="https://wa.me/255777101192">WhatsApp: 0777 101 192</a>
+    <a class="btn" href="https://wa.me/255623587223">WhatsApp: 0623 587 223</a>
   </p>
 
   <h3>Barua Pepe</h3>
-  <p>
-    <a href="mailto:binsoud2@gmail.com">
-      binsoud2@gmail.com
-    </a>
-  </p>
+  <p><a href="mailto:binsoud2@gmail.com">binsoud2@gmail.com</a></p>
 
-  <h3>Mahali Tulipo</h3>
+  <h3>Mahali</h3>
   <p>Zanzibar, Tanzania.</p>
-
-  <h3>Kwa Nini Uwasiliane Nasi?</h3>
-  <ul>
-    <li>Kutuma taarifa au habari za matukio.</li>
-    <li>Kupendekeza mada za makala na mahojiano.</li>
-    <li>Kuuliza kuhusu nafasi za matangazo.</li>
-    <li>Kupendekeza ushirikiano wa kibiashara.</li>
-    <li>Kutoa maoni au kuripoti marekebisho ya taarifa.</li>
-  </ul>
-
-  <p>
-    Asante kwa kuwa sehemu ya familia ya BINSOUD HABARI.
-    Tunathamini kila ujumbe na mchango wako.
-  </p>
 </section>
-  
+
 <section id="faragha">
   <span class="tag">PRIVACY POLICY</span>
-  <h2>Sera ya Faragha – BINSOUD HABARI</h2>
-
+  <h2>Sera ya Faragha</h2>
   <p><strong>Imesasishwa: 12 Novemba 2026</strong></p>
+  <p>BINSOUD HABARI inaheshimu faragha yako. Sera hii inaeleza kwa ufupi namna taarifa zinavyoweza kushughulikiwa unapotumia tovuti yetu.</p>
 
-  <p>
-    BINSOUD HABARI inaheshimu faragha ya wageni na wasomaji
-    wake. Sera hii inaeleza aina ya taarifa zinazoweza
-    kupatikana wakati unapotembelea tovuti yetu, namna
-    zinavyoweza kutumika na chaguo ulizonazo kuhusu taarifa hizo.
-  </p>
+  <h3>Taarifa za Matumizi</h3>
+  <p>Mifumo ya tovuti au huduma za nje inaweza kukusanya taarifa za kiufundi kama aina ya kifaa, kivinjari, anwani ya IP na kurasa zinazotembelewa.</p>
 
-  <h3>1. Taarifa Tunazoweza Kukusanya</h3>
-  <p>
-    Wakati wa kutumia tovuti yetu, baadhi ya taarifa za
-    kiufundi zinaweza kukusanywa na mifumo ya tovuti au
-    huduma za wahusika wengine. Taarifa hizo zinaweza
-    kujumuisha aina ya kifaa, kivinjari, anwani ya IP,
-    kurasa zilizotembelewa na takwimu za matumizi ya tovuti.
-  </p>
+  <h3>Mawasiliano na Jarida</h3>
+  <p>Tukipokea ujumbe wako kupitia simu, WhatsApp au barua pepe, tutatumia taarifa ulizotuma kujibu ombi lako. Ukiwasilisha barua pepe kwenye jarida, matumizi yake yatategemea huduma inayosimamia usajili huo.</p>
 
-  <p>
-    Ikiwa utawasiliana nasi kupitia barua pepe au WhatsApp,
-    tunaweza kupokea taarifa utakazochagua kututumia ili
-    tuweze kujibu ujumbe au ombi lako.
-  </p>
+  <h3>Cookies na Matangazo</h3>
+  <p>Tovuti au huduma za matangazo zinaweza kutumia cookies kwa utendaji, takwimu na matangazo. Ikiwa Google AdSense inatumika, Google inaweza kutumia teknolojia hizo kwa mujibu wa sera zake. <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Soma maelezo ya Google kuhusu matangazo</a>.</p>
 
-  <h3>2. Jarida la Habari (Newsletter)</h3>
-  <p>
-    Tovuti yetu ina sehemu ya kujiunga na jarida la habari.
-    Ikiwa utatoa anwani yako ya barua pepe kupitia sehemu hiyo,
-    taarifa hiyo inaweza kutumika kwa madhumuni ya kukutumia
-    habari au taarifa mpya, kulingana na huduma inayotumika
-    kuendesha usajili huo.
-  </p>
+  <h3>Video, Audio na Viungo vya Nje</h3>
+  <p>Baadhi ya video, audio, redio au viungo vinaweza kutoka kwa huduma nyingine. Huduma hizo zina sera zao za faragha ambazo tunakushauri uzisome.</p>
 
-  <h3>3. Matangazo</h3>
-  <p>
-    BINSOUD HABARI inaweza kuonyesha matangazo ya biashara
-    kutoka kwa watangazaji na huduma za matangazo za wahusika
-    wengine. Watoa huduma hao wanaweza kutumia teknolojia
-    kama cookies kukusanya taarifa za matumizi ya tovuti
-    na kusaidia kuonyesha au kupima matangazo.
-  </p>
+  <h3>Usalama na Mabadiliko</h3>
+  <p>Tunajitahidi kulinda taarifa tunazopokea. Tunaweza kusasisha sera hii kadri huduma zetu zinavyobadilika; toleo jipya litawekwa hapa.</p>
 
-  <p>
-    Ikiwa Google AdSense inatumika kwenye tovuti yetu,
-    matumizi ya taarifa na teknolojia za matangazo yatafuata
-    masharti na sera za Google.
-    Unaweza kusoma maelezo kupitia:
-    <a href="https://policies.google.com/technologies/ads"
-       target="_blank" rel="noopener noreferrer">
-       Sera ya Teknolojia za Matangazo ya Google
-    </a>.
-  </p>
-
-  <h3>4. Cookies</h3>
-  <p>
-    Cookies ni faili ndogo zinazoweza kuhifadhiwa kwenye
-    kifaa chako unapotembelea tovuti. Zinaweza kutumiwa
-    kusaidia utendaji wa tovuti, kukumbuka baadhi ya
-    mipangilio na kupata takwimu za matumizi.
-  </p>
-
-  <p>
-    Unaweza kudhibiti au kuzima cookies kupitia mipangilio
-    ya kivinjari chako. Kumbuka kuwa kuzizima kunaweza
-    kuathiri utendaji wa baadhi ya huduma za tovuti.
-  </p>
-
-  <h3>5. Video, Audio na Redio Mubashara</h3>
-  <p>
-    BINSOUD HABARI ina sehemu za video, audio na redio
-    mubashara. Baadhi ya maudhui haya yanaweza kutumia
-    huduma za wahusika wengine. Unapotumia huduma hizo,
-    watoa huduma husika wanaweza kuwa na sera zao za faragha
-    na matumizi ya taarifa.
-  </p>
-
-  <h3>6. Viungo vya Tovuti Nyingine</h3>
-  <p>
-    Tovuti yetu inaweza kuwa na viungo vinavyoelekeza
-    kwenye tovuti au huduma nyingine. BINSOUD HABARI
-    haiwajibikii namna tovuti hizo zinavyokusanya au
-    kutumia taarifa zako. Tunakushauri kusoma sera zao
-    za faragha kabla ya kuzitumia.
-  </p>
-
-  <h3>7. Matumizi na Usalama wa Taarifa</h3>
-  <p>
-    Taarifa zinazopatikana zinaweza kutumika kujibu mawasiliano,
-    kuboresha huduma zetu, kuelewa matumizi ya tovuti na
-    kuimarisha uzoefu wa wasomaji.
-  </p>
-
-  <p>
-    Tunajitahidi kulinda taarifa zinazopatikana kupitia
-    huduma zetu. Hata hivyo, hakuna mfumo wa mtandao
-    unaoweza kuhakikishiwa usalama wa asilimia mia moja.
-  </p>
-
-  <h3>8. Haki na Chaguo la Mtumiaji</h3>
-  <p>
-    Unaweza kudhibiti cookies kupitia mipangilio ya
-    kivinjari chako. Unaweza pia kuwasiliana nasi kuhusu
-    taarifa binafsi ulizotutumia na kuomba ufafanuzi
-    au hatua zinazofaa kuhusu taarifa hizo.
-  </p>
-
-  <h3>9. Faragha ya Watoto</h3>
-  <p>
-    Tovuti yetu haikusudii kukusanya kwa makusudi taarifa
-    binafsi za watoto bila idhini inayohitajika kutoka
-    kwa mzazi au mlezi. Ikiwa unaamini mtoto ametutumia
-    taarifa binafsi isivyofaa, tafadhali wasiliana nasi.
-  </p>
-
-  <h3>10. Mabadiliko ya Sera</h3>
-  <p>
-    Tunaweza kuboresha au kubadilisha sera hii kadri
-    huduma za BINSOUD HABARI zinavyokua au kubadilika.
-    Tarehe ya mwisho ya kusasishwa itaonyeshwa kwenye
-    sehemu hii.
-  </p>
-
-  <h3>11. Wasiliana Nasi Kuhusu Faragha</h3>
-  <p>
-    Ikiwa una swali, maoni au ombi kuhusu sera hii,
-    wasiliana nasi kupitia:
-  </p>
-
-  <p>
-    Barua pepe:
-    <a href="mailto:binsoud2@gmail.com">
-      binsoud2@gmail.com
-    </a>
-  </p>
-
-  <p>
-    Simu/WhatsApp:
-    <a href="https://wa.me/255777101192">
-      +255 777 101 192
-      +255 623 587 223
-    </a>
-  </p>
-
-  <p>Zanzibar, Tanzania.</p>
+  <h3>Maswali kuhusu Faragha</h3>
+  <p>Wasiliana nasi kwa <a href="mailto:binsoud2@gmail.com">binsoud2@gmail.com</a> au kwa simu/WhatsApp kupitia <a href="https://wa.me/255777101192">0777 101 192</a> au <a href="https://wa.me/255623587223">0623 587 223</a>.</p>
 </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 BINSOUD HABARI. Haki zote zimehifadhiwa.</p>
+  <a href="index.html">HOME</a>
+  <a href="#tangaza">Tangaza Nasi</a>
+  <a href="#kuhusu">Kuhusu Sisi</a>
+  <a href="#wasiliana">Wasiliana Nasi</a>
+  <a href="#faragha">Sera ya Faragha</a>
+</footer>
+
 </body>
 </html>
