@@ -31,6 +31,10 @@ header {
   text-align:center;
 }
 header h1 { margin:0 0 5px; }
+header h1 a {
+  color:white;
+  text-decoration:none;
+}
 header p { margin:0; color:#d9e7f5; }
 nav {
   background:white;
@@ -50,6 +54,13 @@ nav a {
   font-size:14px;
 }
 nav a:hover { color:var(--navy); text-decoration:underline; }
+nav a.home-link {
+  background:var(--blue);
+  color:white;
+  padding:7px 13px;
+  border-radius:6px;
+}
+nav a.home-link:hover { background:var(--navy); }
 main { width:min(1000px,92%); margin:28px auto; }
 section {
   background:white;
@@ -113,6 +124,7 @@ footer a {
   margin:5px 8px;
   display:inline-block;
 }
+footer a:hover { text-decoration:underline; }
 @media(max-width:600px) {
   nav a { margin:5px 6px; font-size:13px; }
   section { padding:18px; }
@@ -123,12 +135,13 @@ footer a {
 <body>
 
 <header>
-  <h1>BINSOUD HABARI</h1>
+  <h1><a href="index.html">BINSOUD HABARI</a></h1>
   <p>Habari Sahihi, Wakati Sahihi.</p>
   <p>Jukwaa la habari na matangazo ya biashara</p>
 </header>
 
 <nav>
+  <a href="index.html" class="home-link">HOME</a>
   <a href="#tangaza">Tangaza Nasi</a>
   <a href="#kuhusu">Kuhusu Sisi</a>
   <a href="#wasiliana">Wasiliana Nasi</a>
@@ -201,133 +214,263 @@ footer a {
   </p>
 </section>
 
-<!-- KUHUSU SISI -->
 <section id="kuhusu">
   <span class="tag">ABOUT US</span>
-  <h2>Kuhusu Sisi</h2>
+  <h2>Kuhusu BINSOUD HABARI</h2>
 
   <p>
     <strong>BINSOUD HABARI</strong> ni jukwaa la habari mtandaoni
-    linalolenga kutoa taarifa sahihi, za kuaminika, na zenye
-    kuzingatia maadili ya taaluma ya uandishi wa habari.
+    linalolenga kuwafikishia wasomaji taarifa mbalimbali za ndani
+    na nje ya nchi kwa wakati. Tunajikita katika kuhabarisha,
+    kuelimisha na kuhamasisha jamii kupitia habari, makala na
+    maudhui mbalimbali ya kidijitali.
   </p>
-
-  <p>Tunajikita katika kuhabarisha, kuelimisha, na kuhamasisha jamii kupitia:</p>
-  <ul>
-    <li>Habari</li>
-    <li>Makala</li>
-    <li>Mahojiano</li>
-    <li>Uchambuzi wa masuala mbalimbali yanayogusa maisha ya kila siku</li>
-  </ul>
-
-  <p>Tunatoa kipaumbele kwa masuala ya:</p>
-  <ul>
-    <li>Kijamii</li>
-    <li>Afya</li>
-    <li>Mazingira</li>
-    <li>Maendeleo</li>
-    <li>Dini</li>
-    <li>Matukio ya kitaifa na kimataifa</li>
-  </ul>
-
-  <p>Lengo letu ni kujenga jamii yenye uelewa na maamuzi sahihi.</p>
-
-  <h3>🎯 Dira Yetu (Vision)</h3>
-  <p>Kuwa jukwaa linaloongoza kwa utoaji wa habari sahihi na zenye ushawishi chanya katika jamii.</p>
-
-  <h3>🎯 Dhima Yetu (Mission)</h3>
-  <p>Kutoa habari kwa wakati, kwa usahihi na kwa kuzingatia maadili ya taaluma ya uandishi wa habari, ili kuimarisha uelewa na maendeleo ya jamii.</p>
-
-  <h3>🎯 Maadili Yetu (Core Values)</h3>
-  <ul>
-    <li><strong>Ukweli</strong> – Tunatanguliza ukweli katika kila taarifa.</li>
-    <li><strong>Uadilifu</strong> – Tunazingatia maadili ya kazi ya uandishi wa habari.</li>
-    <li><strong>Uwajibikaji</strong> – Tunawajibika kwa jamii na kwa tunachochapisha.</li>
-    <li><strong>Weledi</strong> – Tunafanya kazi kwa umakini na ubora.</li>
-  </ul>
-</section>
-
-<!-- WASILIANA NASI -->
-<section id="wasiliana">
-  <span class="tag">CONTACT US</span>
-  <h2>Wasiliana Nasi</h2>
 
   <p>
-    Asante kwa kutembelea <strong>BINSOUD HABARI</strong>.
-    Tunathamini maoni, ushauri, taarifa na michango ya wasomaji wetu.
-    Ikiwa una habari, pendekezo la makala, tangazo au maoni yoyote,
-    tafadhali wasiliana nasi kupitia njia zifuatazo:
+    Kupitia tovuti yetu, wasomaji wanaweza kupata habari na taarifa
+    katika maeneo mbalimbali yakiwemo:
   </p>
 
-  <p><strong>📞 Simu:</strong><br>0777 101 192</p>
+  <ul>
+    <li>Habari za Kitaifa na Kimataifa</li>
+    <li>Dini na masuala ya kijamii</li>
+    <li>Michezo na burudani</li>
+    <li>Mazingira na maendeleo</li>
+    <li>Siasa na uchumi</li>
+    <li>Makala na uchambuzi</li>
+    <li>Video na maudhui ya sauti (Audio)</li>
+    <li>Matangazo ya redio mubashara</li>
+  </ul>
 
-  <p><strong>📧 Barua Pepe:</strong><br>
-    <a href="mailto:binsoud2@gmail.com">binsoud2@gmail.com</a>
+  <h3>Dira Yetu (Vision)</h3>
+  <p>
+    Kuwa jukwaa la habari linaloaminika na linalochangia
+    kuijenga jamii yenye uelewa kupitia taarifa sahihi,
+    zenye manufaa na zinazotolewa kwa wakati.
   </p>
 
-  <p><strong>📍 Mahali:</strong><br>Zanzibar, Tanzania</p>
+  <h3>Dhima Yetu (Mission)</h3>
+  <p>
+    Kutoa na kusambaza habari, makala na maudhui mbalimbali
+    kwa kuzingatia ukweli, usahihi, uwajibikaji na maadili
+    ya taaluma ya uandishi wa habari.
+  </p>
 
-  <a class="btn" href="https://wa.me/255777101192">Tuma ujumbe WhatsApp</a>
+  <h3>Maadili Yetu (Our Values)</h3>
+  <ul>
+    <li><strong>Ukweli:</strong> Kutanguliza ukweli na usahihi wa taarifa.</li>
+    <li><strong>Uadilifu:</strong> Kuzingatia maadili ya uandishi wa habari.</li>
+    <li><strong>Uwajibikaji:</strong> Kuwajibika kwa taarifa tunazochapisha.</li>
+    <li><strong>Weledi:</strong> Kufanya kazi kwa umakini na ubora.</li>
+    <li><strong>Uwazi:</strong> Kujenga uhusiano mzuri na wasomaji wetu.</li>
+  </ul>
+
+  <p>
+    Lengo letu ni kuwaunganisha wasomaji na taarifa muhimu,
+    kuwapa nafasi ya kujifunza na kuchangia katika maendeleo
+    ya jamii.
+  </p>
 </section>
+  
+<section id="wasiliana">
+  <span class="tag">CONTACT US</span>
+  <h2>Wasiliana na BINSOUD HABARI</h2>
 
-<!-- SERA YA FARAGHA -->
+  <p>
+    Tunathamini maoni, ushauri na ushirikiano kutoka kwa
+    wasomaji wetu. BINSOUD HABARI inakaribisha taarifa za
+    habari, mapendekezo ya makala, maoni, ushirikiano wa
+    kibiashara na maombi ya kutangaza bidhaa au huduma.
+  </p>
+
+  <p>
+    Unaweza kuwasiliana nasi kupitia njia zifuatazo:
+  </p>
+
+  <h3>Simu na WhatsApp</h3>
+  <p>
+    <a href="tel:+255777101192">+255 777 101 192</a>
+  </p>
+  <p>
+    <a class="btn"
+       href="https://wa.me/255777101192?text=Habari%20BINSOUD%20HABARI%2C%20nimekutembelea%20kupitia%20tovuti%20yenu.">
+       Wasiliana nasi WhatsApp
+    </a>
+  </p>
+
+  <h3>Barua Pepe</h3>
+  <p>
+    <a href="mailto:binsoud2@gmail.com">
+      binsoud2@gmail.com
+    </a>
+  </p>
+
+  <h3>Mahali Tulipo</h3>
+  <p>Zanzibar, Tanzania.</p>
+
+  <h3>Kwa Nini Uwasiliane Nasi?</h3>
+  <ul>
+    <li>Kutuma taarifa au habari za matukio.</li>
+    <li>Kupendekeza mada za makala na mahojiano.</li>
+    <li>Kuuliza kuhusu nafasi za matangazo.</li>
+    <li>Kupendekeza ushirikiano wa kibiashara.</li>
+    <li>Kutoa maoni au kuripoti marekebisho ya taarifa.</li>
+  </ul>
+
+  <p>
+    Asante kwa kuwa sehemu ya familia ya BINSOUD HABARI.
+    Tunathamini kila ujumbe na mchango wako.
+  </p>
+</section>
+  
 <section id="faragha">
   <span class="tag">PRIVACY POLICY</span>
   <h2>Sera ya Faragha – BINSOUD HABARI</h2>
 
-  <p><strong>Imesasishwa: 01 Machi 2026</strong></p>
+  <p><strong>Imesasishwa: 12 Novemba 2026</strong></p>
 
   <p>
-    BINSOUD HABARI inaheshimu faragha ya wasomaji wake.
-    Tunaweza kukusanya taarifa chache kama anwani ya IP,
-    aina ya kifaa, na takwimu za matumizi ya tovuti ili
-    kuboresha huduma zetu.
+    BINSOUD HABARI inaheshimu faragha ya wageni na wasomaji
+    wake. Sera hii inaeleza aina ya taarifa zinazoweza
+    kupatikana wakati unapotembelea tovuti yetu, namna
+    zinavyoweza kutumika na chaguo ulizonazo kuhusu taarifa hizo.
   </p>
 
-  <h3>Matangazo</h3>
+  <h3>1. Taarifa Tunazoweza Kukusanya</h3>
   <p>
-    Tovuti hii hutumia <strong>Google AdSense</strong>.
-    Google inaweza kutumia cookies kuonyesha matangazo
-    kulingana na ziara zako kwenye tovuti hii au tovuti nyingine.
-    Unaweza kudhibiti matangazo kupitia:
-    <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">
-      Google Ads Policy
+    Wakati wa kutumia tovuti yetu, baadhi ya taarifa za
+    kiufundi zinaweza kukusanywa na mifumo ya tovuti au
+    huduma za wahusika wengine. Taarifa hizo zinaweza
+    kujumuisha aina ya kifaa, kivinjari, anwani ya IP,
+    kurasa zilizotembelewa na takwimu za matumizi ya tovuti.
+  </p>
+
+  <p>
+    Ikiwa utawasiliana nasi kupitia barua pepe au WhatsApp,
+    tunaweza kupokea taarifa utakazochagua kututumia ili
+    tuweze kujibu ujumbe au ombi lako.
+  </p>
+
+  <h3>2. Jarida la Habari (Newsletter)</h3>
+  <p>
+    Tovuti yetu ina sehemu ya kujiunga na jarida la habari.
+    Ikiwa utatoa anwani yako ya barua pepe kupitia sehemu hiyo,
+    taarifa hiyo inaweza kutumika kwa madhumuni ya kukutumia
+    habari au taarifa mpya, kulingana na huduma inayotumika
+    kuendesha usajili huo.
+  </p>
+
+  <h3>3. Matangazo</h3>
+  <p>
+    BINSOUD HABARI inaweza kuonyesha matangazo ya biashara
+    kutoka kwa watangazaji na huduma za matangazo za wahusika
+    wengine. Watoa huduma hao wanaweza kutumia teknolojia
+    kama cookies kukusanya taarifa za matumizi ya tovuti
+    na kusaidia kuonyesha au kupima matangazo.
+  </p>
+
+  <p>
+    Ikiwa Google AdSense inatumika kwenye tovuti yetu,
+    matumizi ya taarifa na teknolojia za matangazo yatafuata
+    masharti na sera za Google.
+    Unaweza kusoma maelezo kupitia:
+    <a href="https://policies.google.com/technologies/ads"
+       target="_blank" rel="noopener noreferrer">
+       Sera ya Teknolojia za Matangazo ya Google
     </a>.
   </p>
 
-  <h3>Cookies</h3>
+  <h3>4. Cookies</h3>
   <p>
-    Tunatumia cookies kuboresha uzoefu wa mtumiaji.
-    Unaweza kuzima cookies kupitia mipangilio ya kivinjari chako.
+    Cookies ni faili ndogo zinazoweza kuhifadhiwa kwenye
+    kifaa chako unapotembelea tovuti. Zinaweza kutumiwa
+    kusaidia utendaji wa tovuti, kukumbuka baadhi ya
+    mipangilio na kupata takwimu za matumizi.
   </p>
 
-  <h3>Viungo vya Nje</h3>
   <p>
-    Blog inaweza kuwa na viungo vinavyoelekeza kwenye tovuti nyingine.
-    Hatuhusiki na sera za faragha za tovuti hizo.
+    Unaweza kudhibiti au kuzima cookies kupitia mipangilio
+    ya kivinjari chako. Kumbuka kuwa kuzizima kunaweza
+    kuathiri utendaji wa baadhi ya huduma za tovuti.
   </p>
 
-  <h3>Ridhaa</h3>
+  <h3>5. Video, Audio na Redio Mubashara</h3>
   <p>
-    Kwa kutumia BINSOUD HABARI, unakubali sera hii ya faragha.
+    BINSOUD HABARI ina sehemu za video, audio na redio
+    mubashara. Baadhi ya maudhui haya yanaweza kutumia
+    huduma za wahusika wengine. Unapotumia huduma hizo,
+    watoa huduma husika wanaweza kuwa na sera zao za faragha
+    na matumizi ya taarifa.
   </p>
 
-  <h3>Mawasiliano</h3>
+  <h3>6. Viungo vya Tovuti Nyingine</h3>
   <p>
-    📧 Email:
-    <a href="mailto:binsoud2@gmail.com">binsoud2@gmail.com</a>
+    Tovuti yetu inaweza kuwa na viungo vinavyoelekeza
+    kwenye tovuti au huduma nyingine. BINSOUD HABARI
+    haiwajibikii namna tovuti hizo zinavyokusanya au
+    kutumia taarifa zako. Tunakushauri kusoma sera zao
+    za faragha kabla ya kuzitumia.
   </p>
+
+  <h3>7. Matumizi na Usalama wa Taarifa</h3>
+  <p>
+    Taarifa zinazopatikana zinaweza kutumika kujibu mawasiliano,
+    kuboresha huduma zetu, kuelewa matumizi ya tovuti na
+    kuimarisha uzoefu wa wasomaji.
+  </p>
+
+  <p>
+    Tunajitahidi kulinda taarifa zinazopatikana kupitia
+    huduma zetu. Hata hivyo, hakuna mfumo wa mtandao
+    unaoweza kuhakikishiwa usalama wa asilimia mia moja.
+  </p>
+
+  <h3>8. Haki na Chaguo la Mtumiaji</h3>
+  <p>
+    Unaweza kudhibiti cookies kupitia mipangilio ya
+    kivinjari chako. Unaweza pia kuwasiliana nasi kuhusu
+    taarifa binafsi ulizotutumia na kuomba ufafanuzi
+    au hatua zinazofaa kuhusu taarifa hizo.
+  </p>
+
+  <h3>9. Faragha ya Watoto</h3>
+  <p>
+    Tovuti yetu haikusudii kukusanya kwa makusudi taarifa
+    binafsi za watoto bila idhini inayohitajika kutoka
+    kwa mzazi au mlezi. Ikiwa unaamini mtoto ametutumia
+    taarifa binafsi isivyofaa, tafadhali wasiliana nasi.
+  </p>
+
+  <h3>10. Mabadiliko ya Sera</h3>
+  <p>
+    Tunaweza kuboresha au kubadilisha sera hii kadri
+    huduma za BINSOUD HABARI zinavyokua au kubadilika.
+    Tarehe ya mwisho ya kusasishwa itaonyeshwa kwenye
+    sehemu hii.
+  </p>
+
+  <h3>11. Wasiliana Nasi Kuhusu Faragha</h3>
+  <p>
+    Ikiwa una swali, maoni au ombi kuhusu sera hii,
+    wasiliana nasi kupitia:
+  </p>
+
+  <p>
+    Barua pepe:
+    <a href="mailto:binsoud2@gmail.com">
+      binsoud2@gmail.com
+    </a>
+  </p>
+
+  <p>
+    Simu/WhatsApp:
+    <a href="https://wa.me/255777101192">
+      +255 777 101 192
+      +255 623 587 223
+    </a>
+  </p>
+
+  <p>Zanzibar, Tanzania.</p>
 </section>
-
-</main>
-
-<footer>
-  <p>&copy; 2026 BINSOUD HABARI. Haki zote zimehifadhiwa.</p>
-  <a href="#tangaza">Tangaza Nasi</a>
-  <a href="#kuhusu">Kuhusu Sisi</a>
-  <a href="#wasiliana">Wasiliana Nasi</a>
-  <a href="#faragha">Sera ya Faragha</a>
-</footer>
-
 </body>
 </html>
