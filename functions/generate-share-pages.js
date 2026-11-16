@@ -1,4 +1,3 @@
-
 const admin = require("firebase-admin");
 const fs = require("fs");
 const path = require("path");
@@ -110,9 +109,11 @@ function createSharePage(id, article) {
   <meta property="og:title" content="${safeTitle}">
   <meta property="og:description" content="${safeDescription}">
   <meta property="og:image" content="${safeImage}">
-  <meta property="og:url" content="${safeShareUrl}">
+  <meta property="og:image:secure_url" content="${safeImage}">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:url" content="${safeShareUrl}">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${safeTitle}">
@@ -120,25 +121,34 @@ function createSharePage(id, article) {
   <meta name="twitter:image" content="${safeImage}">
 
   <link rel="canonical" href="${safeShareUrl}">
-
-  <meta http-equiv="refresh" content="0;url=${safeArticleUrl}">
 </head>
 
 <body>
+  <h1>${safeTitle}</h1>
+  <p>${safeDescription}</p>
+
   <p>
     Unaelekezwa kwenye habari...
-    <a href="${safeArticleUrl}">Bonyeza hapa kuendelea.</a>
+    <a href="${safeArticleUrl}">
+      Bonyeza hapa kusoma habari.
+    </a>
   </p>
 
   <script>
-    window.location.replace(${JSON.stringify(articleUrl)});
+    setTimeout(() => {
+      window.location.replace(
+        ${JSON.stringify(articleUrl)}
+      );
+    }, 3000);
   </script>
 </body>
 </html>`;
 }
 
 async function generateSharePages() {
-  fs.mkdirSync(SHARE_DIR, { recursive: true });
+  fs.mkdirSync(SHARE_DIR, {
+    recursive: true,
+  });
 
   let total = 0;
 
@@ -157,13 +167,19 @@ async function generateSharePages() {
         continue;
       }
 
-      const articleDir = path.join(SHARE_DIR, id);
+      const articleDir = path.join(
+        SHARE_DIR,
+        id
+      );
 
       fs.mkdirSync(articleDir, {
         recursive: true,
       });
 
-      const html = createSharePage(id, article);
+      const html = createSharePage(
+        id,
+        article
+      );
 
       fs.writeFileSync(
         path.join(articleDir, "index.html"),
