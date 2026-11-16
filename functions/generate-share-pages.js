@@ -40,6 +40,28 @@ function cleanDescription(value) {
     .substring(0, 200);
 }
 
+// Badilisha anwani fupi ya picha kuwa URL kamili
+function getFullImageUrl(image) {
+  if (!image || typeof image !== "string") {
+    return SITE_URL + "images/habari.jpg";
+  }
+
+  const cleanImage = image.trim();
+
+  if (
+    cleanImage.startsWith("http://") ||
+    cleanImage.startsWith("https://")
+  ) {
+    return cleanImage;
+  }
+
+  if (cleanImage.startsWith("//")) {
+    return "https:" + cleanImage;
+  }
+
+  return new URL(cleanImage, SITE_URL).href;
+}
+
 function isPublished(article) {
   if (
     article.isPublished === false ||
@@ -76,11 +98,11 @@ function createSharePage(id, article) {
     "Soma habari kamili kutoka BINSOUD HABARI."
   );
 
-  const image =
+  const image = getFullImageUrl(
     article.image ||
     article.imageUrl ||
-    article.imageURL ||
-    SITE_URL + "images/binsoud-habari-logo.png.png";
+    article.imageURL
+  );
 
   const shareUrl =
     SITE_URL + "share/" + encodeURIComponent(id) + "/";
