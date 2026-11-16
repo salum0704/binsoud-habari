@@ -1971,8 +1971,17 @@
 
     /* SHARE */
 
+    function getArticleShareUrl() {
+      if (!activeArticle || !activeArticle.id) return window.location.href;
+
+      return new URL(
+        "share/" + encodeURIComponent(activeArticle.id) + "/",
+        "https://salum0704.github.io/binsoud-habari/"
+      ).href;
+    }
+
     window.copyArticleLink = async function() {
-      const url = window.location.href;
+      const url = getArticleShareUrl();
 
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1998,7 +2007,7 @@
     };
 
     window.shareWhatsApp = function() {
-      const url = encodeURIComponent(window.location.href);
+      const url = encodeURIComponent(getArticleShareUrl());
       const title = encodeURIComponent(
         document.getElementById("articleTitle").textContent
       );
@@ -2010,7 +2019,7 @@
     };
 
     window.shareFacebook = function() {
-      const url = encodeURIComponent(window.location.href);
+      const url = encodeURIComponent(getArticleShareUrl());
 
       window.open(
         "https://www.facebook.com/sharer/sharer.php?u=" + url,
@@ -2053,6 +2062,17 @@
         activeArticle = article;
 
         renderArticle(article);
+
+        // Hifadhi URL ya ukurasa wa static wenye Open Graph metadata.
+        // Hii ndiyo link itakayonakiliwa au kushirikiwa na msomaji.
+        const publicShareUrl = getArticleShareUrl();
+        if (window.location.href !== publicShareUrl) {
+          window.history.replaceState(
+            window.history.state,
+            "",
+            publicShareUrl
+          );
+        }
 
         loadLatestStories(article.id);
 
