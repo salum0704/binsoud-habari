@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <base href="https://salum0704.github.io/binsoud-habari/">
+
   <title>Habari | BINSOUD HABARI</title>
   <meta name="description" content="Soma habari kamili kutoka BINSOUD HABARI.">
   <meta name="theme-color" content="#0757a6">
@@ -791,6 +793,12 @@
     const searchSuggestions = document.getElementById("searchSuggestions");
     const breakingNews = document.getElementById("breakingNews");
 
+    const SITE_BASE = "https://salum0704.github.io/binsoud-habari/";
+
+    function siteUrl(path) {
+      return new URL(path, SITE_BASE).href;
+    }
+
     document.getElementById("year").textContent = new Date().getFullYear();
 
     function updateCurrentDate() {
@@ -1376,6 +1384,7 @@
       const body = getBody(article);
       const image = getImage(article);
       const date = getArticleDate(article);
+
       const categoryLink = article._sourceCollection === "videos"
         ? "video.html"
         : getCategoryLink(category);
@@ -1387,8 +1396,8 @@
       document.getElementById("breadcrumbCategory").textContent =
         article._sourceCollection === "videos" ? "Video" : category;
 
-      document.getElementById("breadcrumbLink").href = categoryLink;
-      document.getElementById("errorBackLink").href = categoryLink;
+      document.getElementById("breadcrumbLink").href = siteUrl(categoryLink);
+      document.getElementById("errorBackLink").href = siteUrl(categoryLink);
       document.getElementById("articleAuthor").textContent = author;
       document.getElementById("articleDate").textContent = formatRelativeTime(date);
       document.getElementById("articleReadTime").textContent = calculateReadTime(article);
@@ -1494,11 +1503,11 @@
           const title = getTitle(article) || "Habari";
           const image = getImage(article);
           const date = getArticleDate(article);
-          const href = "habari.html?id=" + encodeURIComponent(article.id);
+          const href = siteUrl("habari.html?id=" + encodeURIComponent(article.id));
 
           if (image) {
             return `
-              <a class="side-story" href="${href}">
+              <a class="side-story" href="${escapeHTML(href)}">
                 <img src="${escapeHTML(image)}"
                   alt="${escapeHTML(title)}" loading="lazy">
                 <div>
@@ -1510,7 +1519,7 @@
           }
 
           return `
-            <a class="side-story no-image" href="${href}">
+            <a class="side-story no-image" href="${escapeHTML(href)}">
               <h3>${escapeHTML(title)}</h3>
               <span>${escapeHTML(formatRelativeTime(date))}</span>
             </a>
@@ -1564,7 +1573,7 @@
 
         if (!breakingArticles.length) {
           breakingNews.textContent = "Karibu BINSOUD HABARI";
-          breakingNews.href = "index.html";
+          breakingNews.href = siteUrl("index.html");
           return;
         }
 
@@ -1576,7 +1585,7 @@
       } catch (error) {
         console.error("Breaking news error:",error);
         breakingNews.textContent = "Karibu BINSOUD HABARI";
-        breakingNews.href = "index.html";
+        breakingNews.href = siteUrl("index.html");
       }
     }
 
@@ -1589,7 +1598,9 @@
       const title = getTitle(article) || "Habari mpya";
 
       breakingNews.textContent = title;
-      breakingNews.href = "habari.html?id=" + encodeURIComponent(article.id);
+      breakingNews.href = siteUrl(
+        "habari.html?id=" + encodeURIComponent(article.id)
+      );
 
       breakingIndex++;
     }
@@ -1675,9 +1686,12 @@
           ? "Video"
           : getCategory(article) || "Habari";
 
+        const href = siteUrl(
+          "habari.html?id=" + encodeURIComponent(article.id)
+        );
+
         return `
-          <a class="search-item"
-            href="habari.html?id=${encodeURIComponent(article.id)}">
+          <a class="search-item" href="${escapeHTML(href)}">
             ${escapeHTML(title)}
             <small>${escapeHTML(category)}</small>
           </a>
@@ -1702,7 +1716,9 @@
       const value = cleanText(searchInput.value);
       if (!value) return;
 
-      window.location.href = "index.html?search=" + encodeURIComponent(value);
+      window.location.href = siteUrl(
+        "index.html?search=" + encodeURIComponent(value)
+      );
     });
 
     /* SHARE */
@@ -1710,12 +1726,13 @@
     let activeArticle = null;
 
     function getArticleShareUrl() {
-      if (!activeArticle || !activeArticle.id) return window.location.href;
+      if (!activeArticle || !activeArticle.id) {
+        return window.location.href;
+      }
 
-      return new URL(
-        "share/" + encodeURIComponent(activeArticle.id) + "/",
-        "https://salum0704.github.io/binsoud-habari/"
-      ).href;
+      return siteUrl(
+        "share/" + encodeURIComponent(activeArticle.id) + "/"
+      );
     }
 
     window.copyArticleLink = async function() {
@@ -1803,7 +1820,7 @@
           MUHIMU:
           HATUBADILISHI URL YA HABARI KWA history.replaceState().
           URL INABAKI habari.html?id=...
-          HII INAHakikisha LINKS ZA HOME NA MENYU ZINAENDELEA KUFANYA KAZI.
+          LINKS ZA HOME NA MENYU ZINAENDELEA KUFANYA KAZI.
           Link ya /share/ID/ INATUMIKA KWA KUSHIRIKI TU.
         */
 
