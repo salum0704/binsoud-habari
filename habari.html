@@ -1722,65 +1722,64 @@
 
     /* SHARE */
 
-    let activeArticle = null;
+let activeArticle = null;
 
-    function getArticleShareUrl() {
-      if (!activeArticle || !activeArticle.id) {
-        return window.location.href;
-      }
+function getArticleShareUrl() {
+  if (!activeArticle || !activeArticle.id) {
+    return window.location.href;
+  }
 
-      return siteUrl(
-        "share/" + encodeURIComponent(activeArticle.id) + "/"
-      );
+  return "https://cbinsoud-habari-share.binsoud2.workers.dev/share/" +
+    encodeURIComponent(activeArticle.id);
+}
+
+window.copyArticleLink = async function() {
+  const url = getArticleShareUrl();
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(url);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = url;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
     }
 
-    window.copyArticleLink = async function() {
-      const url = getArticleShareUrl();
+    alert("Link ya habari imenakiliwa.");
 
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(url);
-        } else {
-          const textarea = document.createElement("textarea");
-          textarea.value = url;
-          textarea.style.position = "fixed";
-          textarea.style.opacity = "0";
+  } catch (error) {
+    console.error(error);
+    alert("Imeshindikana kunakili link.");
+  }
+};
 
-          document.body.appendChild(textarea);
-          textarea.select();
-          document.execCommand("copy");
-          textarea.remove();
-        }
+window.shareWhatsApp = function() {
+  const url = encodeURIComponent(getArticleShareUrl());
+  const title = encodeURIComponent(
+    document.getElementById("articleTitle").textContent
+  );
 
-        alert("Link ya habari imenakiliwa.");
+  window.open(
+    "https://wa.me/?text=" + title + "%20" + url,
+    "_blank"
+  );
+};
 
-      } catch (error) {
-        console.error(error);
-        alert("Imeshindikana kunakili link.");
-      }
-    };
+window.shareFacebook = function() {
+  const url = encodeURIComponent(getArticleShareUrl());
 
-    window.shareWhatsApp = function() {
-      const url = encodeURIComponent(getArticleShareUrl());
-      const title = encodeURIComponent(
-        document.getElementById("articleTitle").textContent
-      );
-
-      window.open(
-        "https://wa.me/?text=" + title + "%20" + url,
-        "_blank"
-      );
-    };
-
-    window.shareFacebook = function() {
-      const url = encodeURIComponent(getArticleShareUrl());
-
-      window.open(
-        "https://www.facebook.com/sharer/sharer.php?u=" + url,
-        "_blank",
-        "width=700,height=500"
-      );
-    };
+  window.open(
+    "https://www.facebook.com/sharer/sharer.php?u=" + url,
+    "_blank",
+    "width=700,height=500"
+  );
+};
 
     function refreshArticleTime() {
       if (!activeArticle) return;
