@@ -55,9 +55,7 @@ function getYouTubeId(value) {
 function asDate(value) {
   if (!value) return null;
 
-  if (typeof value.toDate === "function") {
-    return value.toDate();
-  }
+  if (typeof value.toDate === "function") return value.toDate();
 
   const date = new Date(value);
 
@@ -78,9 +76,9 @@ function isCurrentlyActive(ad) {
 }
 
 function placementOf(ad) {
-  const raw = String(
-    ad.placement || ad.position || ad.slot || "top"
-  ).toLowerCase().trim();
+  const raw = String(ad.placement || ad.position || ad.slot || "top")
+    .toLowerCase()
+    .trim();
 
   const aliases = {
     header: "top",
@@ -98,26 +96,13 @@ function placementOf(ad) {
   return aliases[raw] || raw;
 }
 
-/* ==================================================
-   MATANGAZO: VIDEO AUTOPLAY BILA SAUTI
-================================================== */
+/* VIDEO NA PICHA ZA MATANGAZO */
 
 function mediaMarkup(ad, label) {
-  const image = safeUrl(
-    ad.imageUrl || ad.imageURL || ad.image || ""
-  );
-
-  const video = safeUrl(
-    ad.videoUrl || ad.videoURL || ad.video || ""
-  );
-
-  const link = safeUrl(
-    ad.linkUrl || ad.linkURL || ad.link || ""
-  );
-
-  const type = String(
-    ad.mediaType || ad.type || ""
-  ).toLowerCase();
+  const image = safeUrl(ad.imageUrl || ad.imageURL || ad.image || "");
+  const video = safeUrl(ad.videoUrl || ad.videoURL || ad.video || "");
+  const link = safeUrl(ad.linkUrl || ad.linkURL || ad.link || "");
+  const type = String(ad.mediaType || ad.type || "").toLowerCase();
 
   const useVideo = Boolean(video) &&
     (type === "video" || type === "youtube" || !image);
@@ -132,7 +117,6 @@ function mediaMarkup(ad, label) {
         <iframe
           src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(youtubeId)}?autoplay=1&mute=1&loop=1&playlist=${encodeURIComponent(youtubeId)}"
           title="${escapeHtml(ad.title || label)}"
-          loading="lazy"
           allow="autoplay; encrypted-media; picture-in-picture"
           allowfullscreen>
         </iframe>
@@ -150,7 +134,6 @@ function mediaMarkup(ad, label) {
         </video>
       `;
     }
-
   } else if (image) {
     media = `
       <img
@@ -164,15 +147,7 @@ function mediaMarkup(ad, label) {
   if (!media) return "";
 
   const linked = link && !useVideo
-    ? `
-      <a
-        class="bh-ad-click"
-        href="${escapeHtml(link)}"
-        target="_blank"
-        rel="noopener noreferrer">
-        ${media}
-      </a>
-    `
+    ? `<a class="bh-ad-click" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${media}</a>`
     : media;
 
   const title = ad.title
@@ -182,16 +157,12 @@ function mediaMarkup(ad, label) {
   return `${linked}${title}`;
 }
 
-/* ==================================================
-   KUONYESHA MATANGAZO KWENYE SEHEMU ZAKE
-================================================== */
+/* KUONYESHA TANGAZO NA KUANZISHA VIDEO */
 
 function renderSlot(element, ads, placement, label) {
   if (!element) return;
 
-  const ad = ads.find(
-    item => placementOf(item) === placement
-  );
+  const ad = ads.find(item => placementOf(item) === placement);
 
   if (!ad) {
     element.hidden = true;
@@ -212,54 +183,38 @@ function renderSlot(element, ads, placement, label) {
 
   element.hidden = false;
 
-  // Jaribu kuanzisha video moja kwa moja ikiwa browser inaruhusu.
-  const video = element.querySelector("video");
+  const videoElement = element.querySelector("video");
 
-  if (video) {
-    video.muted = true;
-    video.defaultMuted = true;
+  if (videoElement) {
+    videoElement.muted = true;
+    videoElement.defaultMuted = true;
+    videoElement.autoplay = true;
+    videoElement.playsInline = true;
+    videoElement.loop = true;
 
-    const playPromise = video.play();
-
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Mtumiaji anaweza kubonyeza play mwenyewe.
-      });
-    }
+    videoElement.play().catch(error => {
+      console.log("Autoplay imezuiwa na browser:", error);
+    });
   }
 }
 
-/* ==================================================
-   MAKALA ZA UDHAMINI
-================================================== */
+/* MAKALA ZA UDHAMINI */
 
 function renderSponsored(element, ads) {
   if (!element) return;
 
-  const ad = ads.find(
-    item => placementOf(item) === "sponsored"
-  );
+  const ad = ads.find(item => placementOf(item) === "sponsored");
 
   if (!ad) {
     element.hidden = true;
     return;
   }
 
-  const image = safeUrl(
-    ad.imageUrl || ad.imageURL || ad.image || ""
-  );
+  const image = safeUrl(ad.imageUrl || ad.imageURL || ad.image || "");
+  const link = safeUrl(ad.articleUrl || ad.linkUrl || ad.link || "");
 
-  const link = safeUrl(
-    ad.articleUrl || ad.linkUrl || ad.link || ""
-  );
-
-  const title = String(
-    ad.articleTitle || ad.title || "Makala ya Udhamini"
-  );
-
-  const description = String(
-    ad.description || ad.summary || ""
-  );
+  const title = String(ad.articleTitle || ad.title || "Makala ya Udhamini");
+  const description = String(ad.description || ad.summary || "");
 
   if (!title || (!description && !image)) {
     element.hidden = true;
@@ -271,25 +226,13 @@ function renderSponsored(element, ads) {
     : "";
 
   const titleHtml = link
-    ? `
-      <a
-        href="${escapeHtml(link)}"
-        ${/^https?:\/\//i.test(link)
-          ? 'target="_blank" rel="noopener noreferrer"'
-          : ''}>
-        ${escapeHtml(title)}
-      </a>
-    `
+    ? `<a href="${escapeHtml(link)}" ${/^https?:\/\//i.test(link) ? 'target="_blank" rel="noopener noreferrer"' : ''}>${escapeHtml(title)}</a>`
     : escapeHtml(title);
 
   element.innerHTML = `
-    <div class="bh-sponsored-label">
-      MAKALA YA UDHAMINI
-    </div>
-
+    <div class="bh-sponsored-label">MAKALA YA UDHAMINI</div>
     <article class="bh-sponsored-card">
       ${imageHtml}
-
       <div>
         <h2>${titleHtml}</h2>
         ${description ? `<p>${escapeHtml(description)}</p>` : ""}
@@ -300,9 +243,7 @@ function renderSponsored(element, ads) {
   element.hidden = false;
 }
 
-/* ==================================================
-   KUPAKIA MATANGAZO KUTOKA FIREBASE
-================================================== */
+/* KUPAKIA MATANGAZO KUTOKA FIREBASE */
 
 async function loadAdvertisements() {
   try {
@@ -347,10 +288,7 @@ async function loadAdvertisements() {
     );
 
   } catch (error) {
-    console.error(
-      "Matangazo hayakuweza kupakiwa:",
-      error
-    );
+    console.error("Matangazo hayakuweza kupakiwa:", error);
   }
 }
 
