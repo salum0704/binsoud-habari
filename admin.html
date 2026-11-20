@@ -76,11 +76,12 @@ input:focus,textarea:focus,select:focus{border-color:var(--blue)}
 .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
 .close{border:0;background:#eee;border-radius:8px;padding:7px 12px;cursor:pointer}
 .ad-card{border:1px solid var(--border);border-radius:12px;padding:16px;margin:12px 0}
-.ad-preview{display:block;max-width:260px;width:100%;max-height:150px;object-fit:contain;margin:12px 0;border-radius:8px}
+.ad-preview{display:block;max-width:400px;width:100%;max-height:260px;object-fit:contain;margin:12px 0;border-radius:8px;background:#000}
 .ad-status{font-weight:bold;margin:8px 0}
 .ad-on{color:var(--green)}
 .ad-off{color:var(--red)}
 .form-note{font-size:13px;color:var(--muted);line-height:1.5}
+.ad-video-preview{display:block;width:100%;max-width:500px;max-height:300px;background:#000;border-radius:10px;margin:12px 0}
 @media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:500px){
   .stats{grid-template-columns:1fr}
@@ -176,12 +177,11 @@ input:focus,textarea:focus,select:focus{border-color:var(--blue)}
   <div id="writersList"><div class="loading">Inapakia...</div></div>
 </section>
 
-<!-- SEHEMU MPYA YA MATANGAZO -->
 <section class="panel" id="ads">
   <h2>📢 Usimamizi wa Matangazo</h2>
   <p class="form-note" style="margin-bottom:18px;">
     Weka matangazo ya juu, pembeni, chini au matangazo yaliyodhaminiwa.
-    Tumia URL ya picha au video. Hakuna kupakia picha kwenye Firebase Storage hapa.
+    Tumia URL ya moja kwa moja ya picha au video. Video za MP4 zinapendekezwa.
   </p>
 
   <form id="adForm">
@@ -217,7 +217,11 @@ input:focus,textarea:focus,select:focus{border-color:var(--blue)}
 
     <div id="adVideoField" style="display:none;">
       <label for="adVideoUrl">URL ya video</label>
-      <input id="adVideoUrl" type="url" placeholder="https://...">
+      <input id="adVideoUrl" type="url" placeholder="https://example.com/tangazo.mp4">
+      <p class="form-note">
+        Weka URL ya moja kwa moja ya video. Inashauriwa kutumia MP4.
+        URL ya ukurasa wa YouTube au Google Drive si sawa na URL ya moja kwa moja ya video.
+      </p>
     </div>
 
     <div>
@@ -241,7 +245,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--blue)}
 
 </main>
 
-<!-- EDIT MODAL -->
 <div class="modal" id="editModal">
   <div class="modal-box">
     <div class="modal-head">
@@ -575,7 +578,8 @@ async function loadWriters(){
     });
   }catch(error){showError(error);}
 }
-  /* =========================================================
+
+/* =========================================================
    MFUMO WA MATANGAZO - BINSOUD HABARI
 ========================================================= */
 
@@ -595,86 +599,59 @@ const adImageField = document.getElementById("adImageField");
 const adVideoField = document.getElementById("adVideoField");
 const cancelAdEdit = document.getElementById("cancelAdEdit");
 
-
 /* MAJINA YA SEHEMU ZA MATANGAZO */
 
 function adPlacementName(placement){
-
   const names = {
     top:"Juu ya ukurasa",
     sidebar:"Pembeni mwa ukurasa",
     bottom:"Chini ya ukurasa",
     sponsored:"Habari iliyodhaminiwa"
   };
-
   return names[placement] || placement || "-";
 }
-
 
 /* KUHAKIKISHA LINK NI SALAMA */
 
 function safeAdUrl(value){
-
   if(!value) return "";
 
   try{
+    const url = new URL(value.trim());
 
-    const url = new URL(value);
-
-    if(
-      url.protocol === "https:" ||
-      url.protocol === "http:"
-    ){
-
+    if(url.protocol === "https:" || url.protocol === "http:"){
       return url.href;
-
     }
-
   }catch(error){
-
     return "";
-
   }
 
   return "";
-
 }
-
 
 /* KUBADILISHA PICHA NA VIDEO KWENYE FOMU */
 
 adMediaTypeInput.addEventListener("change",function(){
 
   if(this.value === "video"){
-
     adImageField.style.display = "none";
     adVideoField.style.display = "block";
-
     adImageUrlInput.required = false;
     adVideoUrlInput.required = true;
-
   }else{
-
     adImageField.style.display = "block";
     adVideoField.style.display = "none";
-
     adImageUrlInput.required = true;
     adVideoUrlInput.required = false;
-
   }
 
 });
 
-
 /* KUPAKIA MATANGAZO KUTOKA FIRESTORE */
 
 async function loadAdsAdmin(){
-
   try{
-
-    const snapshot = await getDocs(
-      collection(db,"advertisements")
-    );
+    const snapshot = await getDocs(collection(db,"advertisements"));
 
     allAds = snapshot.docs.map(d=>({
       id:d.id,
@@ -682,7 +659,6 @@ async function loadAdsAdmin(){
     }));
 
     allAds.sort((a,b)=>{
-
       const order = {
         top:1,
         sidebar:2,
@@ -692,46 +668,31 @@ async function loadAdsAdmin(){
 
       return (order[a.placement] || 5) -
              (order[b.placement] || 5);
-
     });
 
     renderAdsAdmin();
 
   }catch(error){
-
     showError(error);
-
     adsList.innerHTML =
       '<div class="empty">Imeshindikana kupakia matangazo.</div>';
-
   }
-
 }
-
 
 /* KUONYESHA MATANGAZO KWENYE ADMIN */
 
 function renderAdsAdmin(){
 
   if(!allAds.length){
-
     adsList.innerHTML =
       '<div class="empty">Hakuna matangazo yaliyowekwa bado.</div>';
-
     return;
-
   }
 
   adsList.innerHTML = allAds.map(ad=>{
 
-    const title = escapeHTML(
-      ad.title || "Tangazo bila jina"
-    );
-
-    const placement = escapeHTML(
-      adPlacementName(ad.placement)
-    );
-
+    const title = escapeHTML(ad.title || "Tangazo bila jina");
+    const placement = escapeHTML(adPlacementName(ad.placement));
     const active = ad.active === true;
 
     const imageUrl = safeAdUrl(ad.imageUrl);
@@ -754,21 +715,33 @@ function renderAdsAdmin(){
     }else if(ad.mediaType === "video" && videoUrl){
 
       preview = `
-        <p style="margin:12px 0;">
-          <a
-            href="${escapeHTML(videoUrl)}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ▶️ Fungua video ya tangazo
-          </a>
+        <video
+          class="ad-video-preview"
+          src="${escapeHTML(videoUrl)}"
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          webkit-playsinline
+        >
+          Kivinjari chako hakiwezi kucheza video hii.
+        </video>
+        <p class="form-note">
+          Ikiwa video haionekani, hakikisha URL ni ya moja kwa moja ya faili la MP4.
+        </p>
+      `;
+
+    }else if(ad.mediaType === "video"){
+
+      preview = `
+        <p class="form-note" style="color:#b42318;">
+          URL ya video haipo au si sahihi.
         </p>
       `;
 
     }
 
     return `
-
       <div class="ad-card">
 
         <h3>${title}</h3>
@@ -823,22 +796,18 @@ function renderAdsAdmin(){
         </div>
 
       </div>
-
     `;
 
   }).join("");
 
 }
 
-
 /* KUSAFISHA FOMU YA MATANGAZO */
 
 function resetAdForm(){
 
   adForm.reset();
-
   adIdInput.value = "";
-
   adActiveInput.checked = true;
 
   adMediaTypeInput.value = "image";
@@ -853,9 +822,7 @@ function resetAdForm(){
 
   document.getElementById("saveAdBtn").textContent =
     "Hifadhi Tangazo";
-
 }
-
 
 /* KUHIFADHI AU KUHARIRI TANGAZO */
 
@@ -863,156 +830,108 @@ adForm.addEventListener("submit",async function(event){
 
   event.preventDefault();
 
+  const saveButton = document.getElementById("saveAdBtn");
+
   try{
 
-    const id = adIdInput.value.trim();
+    saveButton.disabled = true;
+    saveButton.textContent = "Inahifadhi...";
 
+    const id = adIdInput.value.trim();
     const mediaType = adMediaTypeInput.value;
 
-    const imageUrl = safeAdUrl(
-      adImageUrlInput.value.trim()
-    );
-
-    const videoUrl = safeAdUrl(
-      adVideoUrlInput.value.trim()
-    );
+    const imageUrl = safeAdUrl(adImageUrlInput.value.trim());
+    const videoUrl = safeAdUrl(adVideoUrlInput.value.trim());
 
     const linkValue = adLinkUrlInput.value.trim();
-
-    const linkUrl = linkValue
-      ? safeAdUrl(linkValue)
-      : "";
-
+    const linkUrl = linkValue ? safeAdUrl(linkValue) : "";
 
     if(mediaType === "image" && !imageUrl){
-
       alert("Weka URL sahihi ya picha inayoanza na https:// au http://");
-
       return;
-
     }
-
 
     if(mediaType === "video" && !videoUrl){
-
       alert("Weka URL sahihi ya video inayoanza na https:// au http://");
-
       return;
-
     }
-
 
     if(linkValue && !linkUrl){
-
       alert("Link ya tangazo si sahihi.");
-
       return;
-
     }
 
-
     const payload = {
-
       title:adTitleInput.value.trim(),
-
       placement:adPlacementInput.value,
-
       mediaType:mediaType,
-
-      imageUrl:mediaType === "image"
-        ? imageUrl
-        : "",
-
-      videoUrl:mediaType === "video"
-        ? videoUrl
-        : "",
-
+      imageUrl:mediaType === "image" ? imageUrl : "",
+      videoUrl:mediaType === "video" ? videoUrl : "",
       linkUrl:linkUrl,
-
       active:adActiveInput.checked,
-
       updatedAt:serverTimestamp()
-
     };
-
 
     if(id){
 
-      await updateDoc(
-        doc(db,"advertisements",id),
-        payload
-      );
-
+      await updateDoc(doc(db,"advertisements",id),payload);
       alert("Tangazo limehaririwa kikamilifu.");
 
     }else{
 
-      await addDoc(
-        collection(db,"advertisements"),
-        {
-          ...payload,
-          createdAt:serverTimestamp()
-        }
-      );
+      await addDoc(collection(db,"advertisements"),{
+        ...payload,
+        createdAt:serverTimestamp()
+      });
 
       alert("Tangazo limehifadhiwa kikamilifu.");
 
     }
 
-
     resetAdForm();
-
     await loadAdsAdmin();
 
   }catch(error){
-
     showError(error);
+  }finally{
+    saveButton.disabled = false;
 
+    if(adIdInput.value){
+      saveButton.textContent = "💾 Hifadhi Mabadiliko";
+    }else{
+      saveButton.textContent = "Hifadhi Tangazo";
+    }
   }
 
 });
-
 
 /* VITENDO VYA MATANGAZO */
 
 adsList.addEventListener("click",async function(event){
 
   const editButton = event.target.closest("[data-ad-edit]");
-
   const toggleButton = event.target.closest("[data-ad-toggle]");
-
   const deleteButton = event.target.closest("[data-ad-delete]");
-
 
   /* HARIRI TANGAZO */
 
   if(editButton){
 
     const id = editButton.dataset.adEdit;
-
     const ad = allAds.find(item=>item.id===id);
 
     if(!ad) return;
 
     adIdInput.value = ad.id;
-
     adTitleInput.value = ad.title || "";
-
     adPlacementInput.value = ad.placement || "top";
-
     adMediaTypeInput.value = ad.mediaType || "image";
-
     adImageUrlInput.value = ad.imageUrl || "";
-
     adVideoUrlInput.value = ad.videoUrl || "";
-
     adLinkUrlInput.value = ad.linkUrl || "";
-
     adActiveInput.checked = ad.active === true;
 
-    adMediaTypeInput.dispatchEvent(
-      new Event("change")
-    );
+    adMediaTypeInput.dispatchEvent(new Event("change"));
 
     cancelAdEdit.style.display = "inline-block";
 
@@ -1025,42 +944,31 @@ adsList.addEventListener("click",async function(event){
     });
 
     return;
-
   }
-
 
   /* WASHA AU ZIMA TANGAZO */
 
   if(toggleButton){
 
     const id = toggleButton.dataset.adToggle;
-
     const ad = allAds.find(item=>item.id===id);
 
     if(!ad) return;
 
     try{
-
-      await updateDoc(
-        doc(db,"advertisements",id),
-        {
-          active:ad.active !== true,
-          updatedAt:serverTimestamp()
-        }
-      );
+      await updateDoc(doc(db,"advertisements",id),{
+        active:ad.active !== true,
+        updatedAt:serverTimestamp()
+      });
 
       await loadAdsAdmin();
 
     }catch(error){
-
       showError(error);
-
     }
 
     return;
-
   }
-
 
   /* FUTA TANGAZO */
 
@@ -1069,44 +977,28 @@ adsList.addEventListener("click",async function(event){
     const id = deleteButton.dataset.adDelete;
 
     if(!confirm("Una uhakika unataka kufuta tangazo hili?")){
-
       return;
-
     }
 
     try{
-
-      await deleteDoc(
-        doc(db,"advertisements",id)
-      );
-
+      await deleteDoc(doc(db,"advertisements",id));
       alert("Tangazo limefutwa.");
-
       await loadAdsAdmin();
 
     }catch(error){
-
       showError(error);
-
     }
-
   }
 
 });
 
-
 /* GHAIRI KUHARIRI TANGAZO */
 
 cancelAdEdit.addEventListener("click",function(){
-
   resetAdForm();
-
 });
 
-
-/* =========================================================
-   TABS
-========================================================= */
+/* TABS */
 
 document.querySelectorAll(".tab").forEach(tab=>{
 
@@ -1122,123 +1014,70 @@ document.querySelectorAll(".tab").forEach(tab=>{
 
     tab.classList.add("active");
 
-    document.getElementById(
-      tab.dataset.tab
-    ).classList.add("active");
+    document.getElementById(tab.dataset.tab).classList.add("active");
 
   });
 
 });
 
-
-/* =========================================================
-   LOGOUT
-========================================================= */
+/* LOGOUT */
 
 document.getElementById("logoutBtn").addEventListener(
   "click",
   async()=>{
 
     try{
-
       await signOut(auth);
-
       window.location.replace("login.html");
-
     }catch(error){
-
       showError(error);
-
     }
 
   }
 );
 
-
-/* =========================================================
-   ADMIN AUTHENTICATION
-========================================================= */
+/* ADMIN AUTHENTICATION */
 
 onAuthStateChanged(auth,async user=>{
 
   try{
 
     if(!user){
-
       window.location.replace("login.html");
-
       return;
-
     }
 
+    console.log("Admin authenticated:",user.uid,user.email);
 
-    console.log(
-      "Admin authenticated:",
-      user.uid,
-      user.email
-    );
-
-
-    const snap = await getDoc(
-      doc(db,"users",user.uid)
-    );
-
+    const snap = await getDoc(doc(db,"users",user.uid));
 
     if(!snap.exists()){
-
       await signOut(auth);
-
       window.location.replace("login.html");
-
       return;
-
     }
-
 
     const userData = snap.data();
 
-
-    if(
-      userData.role !== "admin" ||
-      userData.active !== true
-    ){
-
+    if(userData.role !== "admin" || userData.active !== true){
       await signOut(auth);
-
       window.location.replace("login.html");
-
       return;
-
     }
-
-
-    /* ADMIN AMETHIBITISHWA */
 
     currentUser = user;
 
     document.getElementById("adminName").textContent =
-      userData.name ||
-      user.email ||
-      "Admin";
-
-
-    /* KUPAKIA TAARIFA ZA ADMIN */
+      userData.name || user.email || "Admin";
 
     await loadArticles();
-
     await loadWriters();
-
     await loadAdsAdmin();
-
 
   }catch(error){
 
     showError(error);
-
-    console.error(
-      "Admin authentication error:",
-      error
-    );
+    console.error("Admin authentication error:",error);
 
   }
 
@@ -1248,4 +1087,3 @@ onAuthStateChanged(auth,async user=>{
 
 </body>
 </html>
-
